@@ -4,13 +4,21 @@ import { isAdminEmail } from '@/lib/auth'
 import { createServiceClient } from '@/lib/supabase/service'
 
 export async function updateSession(request: NextRequest) {
+  // Misconfigured environment (missing Supabase env vars on the host): the
+  // old code used `!` assertions here, so every request crashed the proxy
+  // and Vercel answered 500 for the entire site. Throwing here instead lets
+  // the proxy's fail-open/closed handler decide per route.
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    throw new Error('supabase env vars missing')
+  }
+
   let supabaseResponse = NextResponse.next({
     request,
   })
 
   const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     {
       cookies: {
         getAll() {
@@ -35,9 +43,14 @@ export async function updateSession(request: NextRequest) {
 
   // IMPORTANT: DO NOT USE getSession HERE! It only reads from cookies,
   // which might be spoofed. getUser makes an API request to validate.
+  //
+  // getUser() performs a network call — if Supabase is unreachable it can
+  // reject, and an escaping rejection 500s every page. Treat it as "no
+  // session" (the page-level fail-open behavior covers public routes;
+  // protected routes still fail closed via the proxy catch).
   const {
     data: { user },
-  } = await supabase.auth.getUser()
+  } = await supabase.auth.getUser().catch(() => ({ data: { user: null } }))
 
   // Admin emails bypass the student approval flow entirely.
   const isAdmin = isAdminEmail(user?.email)
