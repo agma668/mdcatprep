@@ -62,7 +62,6 @@ const learningResourceJsonLd = {
     "NUMS",
     "UHS Medical Entrance",
     "SZABMU Test",
-    "AKU Medical Test",
     "KMU CAT",
   ],
   audience: {
@@ -74,7 +73,7 @@ const learningResourceJsonLd = {
 export const metadata: Metadata = {
   title: "MDCAT & NUMS Medical Entrance Test Preparation",
   description:
-    "Structured preparation for MDCAT, NUMS, UHS, SZABMU, AKU, KMU and all medical university entry tests in Pakistan. Exam-style MCQ practice, study notes, and live analytics.",
+    "Structured preparation for MDCAT, NUMS, UHS, SZABMU, KMU and all medical university entry tests in Pakistan. Exam-style MCQ practice, study notes, and live analytics.",
 };
 
 // The landing page's numbers come from the live database

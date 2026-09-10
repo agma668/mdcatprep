@@ -12,7 +12,6 @@ export const COLLEGES: readonly CollegeInfo[] = [
   { name: 'NUMS Rawalpindi', slug: 'nums', logo: '/cch-logo.png', city: 'Rawalpindi, Punjab' },
   { name: 'UHS Lahore', slug: 'uhs', logo: '/paf-sargodha-logo.png', city: 'Lahore, Punjab' },
   { name: 'Army Medical College', slug: 'amc', logo: '/mcj-jhelum-logo.jpg', city: 'Rawalpindi, Punjab' },
-  { name: 'Aga Khan University', slug: 'aku', logo: '/kohat-logo.jpg', city: 'Karachi, Sindh' },
   { name: 'SZABMU Islamabad', slug: 'szabmu', logo: '/petaro-logo.png', city: 'Islamabad, Capital' },
   { name: 'Khyber Medical University', slug: 'kmu', logo: '/burnhall-logo.webp', city: 'Peshawar, KPK' },
   { name: 'King Edward Medical Univ', slug: 'kemu', logo: '/larkana-logo-new.jpg', city: 'Lahore, Punjab' },
@@ -28,5 +27,4 @@ export const COLLEGES_WITH_PAGES: ReadonlySet<string> = new Set([
   "nums",
   "uhs",
   "amc",
-  "aku",
 ]);

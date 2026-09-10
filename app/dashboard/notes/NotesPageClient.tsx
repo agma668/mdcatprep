@@ -45,7 +45,6 @@ const inputCls =
 const COLLEGES = [
   { id: 'nums', name: 'NUMS Rawalpindi', syllabusLink: '/dashboard/notes/nums-syllabus', masterLink: '/dashboard/notes/nums-master-notes', practiceLink: '/dashboard/practice?college=NUMS' },
   { id: 'uhs', name: 'UHS Lahore', syllabusLink: '/dashboard/notes/uhs-syllabus', masterLink: '/dashboard/notes/uhs-master-notes', practiceLink: '/dashboard/practice?college=UHS' },
-  { id: 'aku', name: 'AKU Karachi', syllabusLink: '/dashboard/notes/aku-syllabus', masterLink: '/dashboard/notes/aku-master-notes', practiceLink: '/dashboard/practice?college=AKU' },
   { id: 'szabmu', name: 'SZABMU Islamabad', syllabusLink: '/dashboard/notes/szabmu-syllabus', masterLink: '/dashboard/notes/szabmu-master-notes', practiceLink: '/dashboard/practice?college=SZABMU' },
 ]
 

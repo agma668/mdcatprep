@@ -77,15 +77,12 @@ export function Hero({
           <div className="max-w-3xl text-center lg:text-left">
             {/* Single reveal for the entire hero text block */}
             <Reveal direction="up" delay={0}>
-              {/* Bold launch announcement — expansion to MDCAT/NUMS/1st-2nd year is
-                  forward-looking ("launching soon"); nothing claims those resources
-                  exist today. */}
+              {/* Active MDCAT & NUMS Prep platform announcement */}
               <div className="mb-6 flex items-start justify-center gap-2.5 lg:justify-start">
                 <Rocket aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-[var(--signal-300)]" />
                 <p className="text-base font-bold leading-snug text-[var(--steel-100)] sm:text-lg">
-                  Launching soon:{" "}
-                  <span className="text-liquid-gold">free practice resources for MDCAT &bull; NUMS &bull; 1st & 2nd Year</span>
-                  {" "}&mdash; 100% free.
+                  <span className="text-liquid-gold">Free MDCAT, NUMS & Medical Exam Prep Platform</span>
+                  {" "}&mdash; Access resources & entire platform 100% free.
                 </p>
               </div>
 
@@ -110,7 +107,7 @@ export function Hero({
               </h1>
 
               <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-[var(--steel-300)] sm:text-xl" data-scroll-reveal>
-                Free medical entrance exam preparation for MDCAT, NUMS, UHS, SZABMU, AKU, KMU, and all medical universities.
+                Free medical entrance exam preparation for MDCAT, NUMS, UHS, SZABMU, KMU, and all medical universities.
                 Take a quick diagnostic to find your level, then practice{" "}
                 {stats.mcqs.toLocaleString()} exam-style MCQs with instant explanations
                 across Biology, Chemistry, Physics, and English.
