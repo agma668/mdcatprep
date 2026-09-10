@@ -10,7 +10,7 @@ import { getWhatsAppLink } from "@/lib/site";
 // Covered" count comes from COLLEGES.length so the strip and the hero stat
 // can never drift apart.
 
-const PRIMARY_ORDER = ["cch", "paf-sargodha", "mcj", "kohat", "petaro"] as const;
+const PRIMARY_ORDER = ["nums", "uhs", "amc", "szabmu", "kmu"] as const;
 
 export function TrustStrip() {
   const primary = PRIMARY_ORDER
@@ -27,7 +27,7 @@ export function TrustStrip() {
         <div className="flex flex-col items-center gap-4 md:flex-row md:justify-between">
           <p className="label inline-flex items-center gap-2">
             <ShieldCheck aria-hidden="true" className="h-3.5 w-3.5 text-[var(--signal-300)]" />
-            Pattern-based prep for every major cadet college in Pakistan
+            Pattern-based prep for every major medical university in Pakistan
           </p>
           <ul
             role="list"
@@ -49,13 +49,19 @@ export function TrustStrip() {
                       aria-hidden="true"
                       className="relative h-6 w-6 overflow-hidden rounded-md bg-[var(--srf-2)] ring-1 ring-[var(--line-2)] transition-transform duration-[var(--dur-2)] ease-[var(--ease-out-quart)] group-hover:-translate-y-px"
                     >
-                      <Image
-                        src={college.logo}
-                        alt=""
-                        fill
-                        sizes="24px"
-                        className="object-contain"
-                      />
+                      {college.logo ? (
+                        <Image
+                          src={college.logo}
+                          alt=""
+                          fill
+                          sizes="24px"
+                          className="object-contain"
+                        />
+                      ) : (
+                        <span className="flex h-full w-full items-center justify-center text-[10px] font-bold text-[var(--signal-200)]">
+                          {college.initials}
+                        </span>
+                      )}
                     </span>
                     <span>{college.name}</span>
                   </Link>

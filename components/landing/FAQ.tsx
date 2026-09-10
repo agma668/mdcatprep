@@ -9,44 +9,44 @@ export interface FAQItem {
 
 export const FAQS: FAQItem[] = [
   {
-    question: "Which classes are eligible to apply for cadet colleges?",
+    question: "Who can take MDCAT and NUMS?",
     answer:
-      "Most cadet colleges accept students after Class 7 or Class 8 (for O-Level / Class 9 entry). Some colleges like CCH and PAF Sargodha take Class 7 pass students (entering Class 8). Always verify with each college's official announcement for the current year.",
+      "Students who have completed or are appearing in FSc Pre-Medical (or an equivalent qualification like A-Levels with Biology, Chemistry and Physics) can sit MDCAT. NUMS uses the same PMDC syllabus for its own test, plus a Logical Reasoning section. Always verify eligibility in the current year's official PMDC/NUMS announcement.",
   },
   {
-    question: "How long does it take to prepare for the entry test?",
+    question: "How long does it take to prepare for MDCAT?",
     answer:
-      "We recommend 3–6 months of consistent preparation. Students who use Cadet College Prep daily for 1–2 hours typically see significant improvement within 6–8 weeks. Our structured course plan guides you through the full syllabus in an organised, exam-focused sequence.",
+      "We recommend 3–6 months of consistent preparation. Students who practise daily for 1–2 hours typically see significant improvement within 6–8 weeks. Our structured plan guides you through the full PMDC syllabus in an organised, exam-focused sequence.",
   },
   {
-    question: "What subjects are covered in the CCH entry test?",
+    question: "What subjects and marks does the MDCAT paper cover?",
     answer:
-      "The Cadet College Hasanabdal (CCH) entry test covers 5 sections: Section A — Mathematics (50 marks), Section B — English + Islamiat (40+10 marks), Section C — General Science 25 MCQs (50 marks), Section D — Urdu (50 marks). Total: 200 marks in 3 hours.",
+      "The PMDC MDCAT paper is 200 marks: Biology 68 MCQs, Chemistry 56, Physics 56, and English 20 — completed in 3 hours with no negative marking. NUMS adds a Logical Reasoning section to the same science core.",
   },
   {
-    question: "Does Cadet College Prep cover all major colleges in Pakistan?",
+    question: "Which universities accept MDCAT or NUMS scores?",
     answer:
-      "Yes! Cadet College Prep covers CCH, PAF Sargodha, MCJ Jhelum, Cadet College Kohat, Cadet College Petaro, Cadet College Razmak, Military College Murree, and more. Each college's material is tailored to its specific syllabus and exam format.",
+      "MDCAT scores are used by public and private medical colleges across Pakistan — UHS, DUHS, KMU, SZABMU, Bolan and more. NUMS runs its own test for Army Medical College and its affiliated institutions. One score, many doors.",
   },
   {
     question: "Do you have past papers?",
     answer:
-      "No — and neither does anyone you should trust. Official entry-test papers are not published by the colleges, so any site claiming to have them is either wrong or sharing leaks. Cadet College Prep questions are written from scratch, modelled on each college's published test pattern (sections, marks, time, difficulty). You can see exactly which test pattern each pack targets.",
+      "No — and neither does anyone you should trust if they claim the real upcoming paper. What we do have: exam-style questions written from scratch on the official PMDC syllabus, plus solved past-paper archives you can study from. You always see which pattern each set targets.",
   },
   {
-    question: "How is Cadet College Prep different from a regular coaching academy?",
+    question: "How is MED Prep different from a regular coaching academy?",
     answer:
-      "Unlike coaching academies that give the same notes to everyone, Cadet College Prep personalises your practice to your weak areas. You get instant explanations after every question, can study at any time, track your exact progress, and access exam-style practice questions — all at a fraction of academy cost.",
+      "Unlike coaching academies that give the same notes to everyone, MED Prep personalises your practice to your weak areas. You get instant explanations after every question, can study at any time, track your exact progress, and access exam-style practice questions — completely free.",
   },
   {
     question: "Is everything really free?",
     answer:
-      "Yes. Everything on Cadet College Prep is completely free — all practice MCQs, study notes, syllabus material, progress tracking, and live WhatsApp classes. No credit card, no trial period, no hidden charges. Cadet College Prep is a community initiative to help students across Pakistan.",
+      "Yes. Everything on MED Prep is completely free — all practice MCQs, master notes, mock tests, progress tracking, and the WhatsApp community. No credit card, no trial period, no hidden charges. It is a community initiative to help students across Pakistan.",
   },
   {
-    question: "Can I use Cadet College Prep on my phone?",
+    question: "Can I use MED Prep on my phone?",
     answer:
-      "Yes — the whole site is built mobile-first and works on any smartphone browser. You can also install it as an app from your browser's 'Add to Home Screen' (works on Android and iPhone), and download up to 200 questions to keep practising when you don't have internet.",
+      "Yes — the whole site is built mobile-first and works on any smartphone browser. You can also install it as an app from your browser's 'Add to Home Screen' (works on Android and iPhone), and download questions to keep practising when you don't have internet.",
   },
   {
     question: "Is my data safe?",
@@ -54,14 +54,14 @@ export const FAQS: FAQItem[] = [
       "Your practice records are tied to your account so they survive across devices, and we never sell or share your data. You can read the full privacy policy on our Privacy page, and delete your account (and all your data) at any time from Profile → Delete account.",
   },
   {
-    question: "Can students from rural areas or small cities use Cadet College Prep?",
+    question: "Can students from rural areas or small cities use MED Prep?",
     answer:
-      "Absolutely — that is one of Cadet College Prep's main goals. All you need is a smartphone or computer with an internet connection. Cadet College Prep was built to give students in smaller cities and towns the same quality preparation as students in major urban centres.",
+      "Absolutely — that is one of MED Prep's main goals. All you need is a smartphone or computer with an internet connection. MED Prep was built to give students in smaller cities and towns the same quality preparation as students in major urban centres.",
   },
   {
     question: "How is this different from YouTube channels and free PDFs?",
     answer:
-      "YouTube videos and PDFs are great for one-off topic explanations, but they can't tell you which topics you personally are weak in, give you instant feedback after every MCQ, or record your progress over weeks. Cadet College Prep is the practice + tracking layer — the structured system that turns content into improvement.",
+      "YouTube videos and PDFs are great for one-off topic explanations, but they can't tell you which topics you personally are weak in, give you instant feedback after every MCQ, or record your progress over weeks. MED Prep is the practice + tracking layer — the structured system that turns content into improvement.",
   },
   {
     question: "What if I have questions outside the platform — can I get help?",

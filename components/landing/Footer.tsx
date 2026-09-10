@@ -7,23 +7,19 @@ const FOOTER_LINKS = {
   Platform: [
     { label: "Features", href: "#features" },
     { label: "How It Works", href: "#how-it-works" },
-    { label: "Why Us", href: "#why-acma" },
-    { label: "Colleges", href: "#cadet-colleges" },
-    { label: "Daily Quiz", href: "/daily-quiz" },
-    { label: "Resources", href: "/resources" },
+    { label: "Universities", href: "#cadet-colleges" },
+    { label: "FAQ", href: "#faq" },
+    { label: "Contact", href: "#cta" },
   ],
-  "Cadet Colleges": [
-    { label: "CCH Hasanabdal", href: "/colleges/cch" },
-    { label: "PAF Sargodha", href: "/colleges/paf-sargodha" },
-    { label: "MCJ Jhelum", href: "/colleges/mcj" },
-    { label: "Kohat Cadet", href: "/colleges/kohat" },
+  Prepare: [
+    { label: "Daily Quiz", href: "/daily-quiz" },
+    { label: "Diagnostic Test", href: "/diagnostic" },
+    { label: "Resources & Notes", href: "/resources" },
+    { label: "MDCAT Guide", href: "/blog/mdcat-guide" },
   ],
   Company: [
-    { label: "About Us", href: "#why-acma" },
     { label: "Founder", href: "/founder" },
     { label: "Blog", href: "/blog" },
-    { label: "FAQ", href: "/faq" },
-    { label: "Contact", href: "#cta" },
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Copyright & Terms", href: "/copyright" },
   ],
@@ -43,7 +39,7 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link
               href="/"
-              aria-label="Cadet College Prep — Home"
+              aria-label="MED Prep — Home"
               className="group mb-4 inline-flex items-center gap-2"
             >
               {/* Brass, here and on the nav mark only: the insignia is the one
@@ -52,11 +48,11 @@ export function Footer() {
                 <CompassLogo size={25} />
               </span>
               <span className="font-display text-xl font-bold tracking-tight text-[var(--steel-100)]">
-                Cadet College Prep
+                MED Prep
               </span>
             </Link>
             <p className="max-w-xs text-sm leading-relaxed text-[var(--steel-300)]">
-              A non-profit community initiative helping students across Pakistan prepare for Cadet College entry tests — built with the mission of making quality education accessible to everyone.
+              A non-profit community initiative helping students across Pakistan prepare for MDCAT and NUMS — built with the mission of making quality education accessible to everyone.
             </p>
             <p className="mt-4 text-sm text-[var(--steel-300)]">
               <span className="font-semibold text-[var(--steel-100)]">Questions?</span> Call/WhatsApp:{" "}
@@ -102,7 +98,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 flex flex-col gap-3 border-t border-[var(--line-2)] pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-[var(--steel-400)]">
-            &copy; {year} Cadet College Prep. All rights reserved.{" "}
+            &copy; {year} MED Prep. All rights reserved.{" "}
             <Link href="/copyright" className="underline hover:text-[var(--steel-200)]">
               Copyright &amp; Terms
             </Link>

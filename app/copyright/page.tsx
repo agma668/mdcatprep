@@ -33,9 +33,9 @@ export default function CopyrightPage() {
               Ownership
             </h2>
             <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-              © {year} Cadet College Prep. All rights reserved. This website — including its
+              © {year} MED Prep. All rights reserved. This website — including its
               design, source code, question bank, study notes, essays, passages,
-              text content, and graphics — is the original work of the Cadet College Prep team
+              text content, and graphics — is the original work of the MED Prep team
               and is protected by copyright law, both in Pakistan and
               internationally.
             </p>

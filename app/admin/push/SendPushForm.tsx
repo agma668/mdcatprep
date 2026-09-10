@@ -15,7 +15,7 @@ interface SendResult {
 }
 
 const DEFAULTS = {
-  title: "Cadet College Prep",
+  title: "MED Prep",
   body: "Time to practice! Your daily questions are waiting.",
   url: "/dashboard/practice",
 };

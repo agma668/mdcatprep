@@ -28,7 +28,7 @@ export default async function PassagePracticePage() {
         className="mt-4"
         eyebrow="English paper practice"
         title="Passage Practice"
-        description="In the CCH English paper you read a short passage and answer questions on it. Practise with the passages below, then check your answers."
+        description="In the MDCAT English section you read a short passage and answer questions on it. Practise with the passages below, then check your answers."
       />
 
       <PassagePractice />

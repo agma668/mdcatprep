@@ -3,10 +3,25 @@
 // English) into a single export served by the practice session, plus a
 // canonical subject list for the practice chooser.
 //
-// Same ResourceQuestion shape as lib/resources.ts so the shared practice UI
-// renders these identically — no schema change needed at the data seam.
+// Same ResourceQuestion shape as the shared practice UI renders — no schema
+// change needed at the data seam. (Inlined here so the bank has no dependency
+// on the removed cadet-college resources lib.)
 
-import type { ResourceQuestion } from './resources'
+export type ResourceQuestion = {
+  key: string
+  subject: string
+  topic: string
+  question_text: string
+  option_a: string
+  option_b: string
+  option_c: string
+  option_d: string
+  correct_answer: 'A' | 'B' | 'C' | 'D'
+  explanation: string
+  difficulty: 'easy' | 'medium' | 'hard'
+  source: string
+  college?: string
+}
 import { BIOLOGY_QUESTIONS } from './biology-questions'
 import { CHEMISTRY_QUESTIONS } from './chemistry-questions'
 import { PHYSICS_QUESTIONS } from './physics-questions'

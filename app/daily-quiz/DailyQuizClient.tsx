@@ -14,7 +14,7 @@ import type { BankQuestion } from "@/lib/questions";
 
 const DAILY_TIPS = [
   { subject: "Essay Writing", tip: "Start with a hook — a question, quote, or bold statement. Your opening sentence sets the tone for the entire essay." },
-  { subject: "General Science", tip: "Mitochondria = powerhouse of the cell. This is one of the most frequently tested biology questions in cadet college exams." },
+  { subject: "General Science", tip: "Mitochondria = powerhouse of the cell. This is one of the most frequently tested biology topics in MDCAT." },
   { subject: "Mathematics", tip: "When solving algebra, always isolate the variable first. Practice rearranging equations until it becomes second nature." },
   { subject: "English Grammar", tip: "Active voice is stronger than passive. 'The teacher graded the papers' reads better than 'The papers were graded by the teacher.'" },
   { subject: "Islamiat", tip: "Know the chronological order of the major battles: Badr (2 AH), Uhud (3 AH), and the Trench (5 AH). Dates are often tested." },
@@ -69,11 +69,11 @@ export function DailyQuizClient({ questions }: { questions: BankQuestion[] }) {
 
   const handleShare = useCallback(async () => {
     const url = typeof window !== "undefined" ? window.location.origin + "/daily-quiz" : "";
-    const text = `🎯 Cadet College Prep — Daily MCQ Challenge!\n\nI just answered ${questions.length} questions. Can you beat my score?\n\nTry it free (no signup needed):\n${url}`;
+    const text = `🎯 MED Prep — Daily MCQ Challenge!\n\nI just answered ${questions.length} questions. Can you beat my score?\n\nTry it free (no signup needed):\n${url}`;
 
     if (navigator.share) {
       try {
-        await navigator.share({ title: "Cadet College Prep Daily Quiz", text });
+        await navigator.share({ title: "MED Prep Daily Quiz", text });
       } catch {}
     }
 
@@ -179,7 +179,7 @@ export function DailyQuizClient({ questions }: { questions: BankQuestion[] }) {
                         { label: "Study streak", value: `${habit.streak} ${habit.streak === 1 ? "day" : "days"}` },
                         { label: "Leaderboard rank", value: habit.rank != null ? `#${habit.rank}` : "#—" },
                       ]}
-                      shareText={`🎯 I scored ${score}/${questions.length} on today’s Cadet College Prep daily quiz!`}
+                      shareText={`🎯 I scored ${score}/${questions.length} on today’s MED Prep daily quiz!`}
 
                       fileName="cadet-prep-daily-quiz.png"
                     />

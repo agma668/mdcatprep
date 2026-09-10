@@ -6,6 +6,7 @@ import { AntiCopy } from "@/components/AntiCopy";
 import { Telemetry } from "@/components/Telemetry";
 import FeedbackWidgetMount from "@/components/feedback/FeedbackWidgetMount";
 import { OfflineSyncHarness } from "@/components/OfflineSyncHarness";
+import { DirectionalCursor } from "@/components/landing/DirectionalCursor";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -40,55 +41,47 @@ const whatsapp = "+" + getWhatsAppNumber();
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Cadet College Prep — Free Entry Test Preparation for Cadet Colleges in Pakistan",
-    template: "%s | Cadet College Prep",
+    default: "MED Prep — Free MDCAT & NUMS Preparation for Medical Students in Pakistan",
+    template: "%s | MED Prep",
   },
   description: SITE_DESCRIPTION,
   keywords: [
-    "cadet college prep",
-    "cadet college entry test",
-    "cadet college preparation free",
-    "CCH preparation",
-    "CCH Hasanabdal entry test",
-    "CCH entry test 2026",
-    "PAF Sargodha",
-    "PAF College Sargodha entry test",
-    "Military College Jhelum",
-    "MCJ entry test",
-    "MCJ Jhelum preparation",
-    "Kohat Cadet College",
-    "Kohat cadet entry test",
-    "Pakistan cadet college admission",
-    "cadet college practice questions free",
-    "cadet college MCQs online free",
-    "cadet college preparation Quetta",
-    "CCH entry test Quetta",
-    "military college prep Pakistan",
-    "cadet college test preparation online",
-    "CCH entry test syllabus",
-    "cadet college admission test 2026",
-    "free MCQ practice Pakistan",
-    "cadet college exam practice",
-    "military college entry test preparation",
-    "cadet college exam practice",
-    "Cadet College Hasanabdal preparation",
-    "Pakistan military school admission test",
-    "cadet college notes free download",
+    "MDCAT preparation",
+    "MDCAT prep free",
+    "MDCAT 2026",
+    "MDCAT entry test Pakistan",
+    "NUMS preparation",
+    "NUMS entry test",
+    "PMDC MDCAT syllabus",
+    "MDCAT MCQs online free",
+    "MDCAT practice questions free",
+    "medical entry test preparation Pakistan",
+    "MBBS admission test Pakistan",
+    "BDS admission test",
+    "MDCAT biology MCQs",
+    "MDCAT chemistry MCQs",
+    "MDCAT physics MCQs",
+    "MDCAT english practice",
+    "MDCAT notes free download",
+    "MDCAT mock test online",
+    "NUMS MDCAT past papers practice",
     "online test preparation Pakistan",
-    "cadet college study material",
+    "free medical MCQ practice Pakistan",
+    "MDCAT study material",
+    "private medical college admission test",
   ],
   openGraph: {
     type: "website",
     url: siteUrl,
-    siteName: "Cadet Prep",
-    title: "Cadet Prep — Cadet College Entry Test Preparation in Quetta, Pakistan",
+    siteName: "MED Prep",
+    title: "MED Prep — Free MDCAT & NUMS Preparation in Pakistan",
     description: SITE_DESCRIPTION,
     locale: "en_PK",
-    images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: "Cadet Prep — Cadet College Entry Test Preparation" }],
+    images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: "MED Prep — Free MDCAT & NUMS Preparation" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cadet Prep — Cadet College Entry Test Preparation in Quetta, Pakistan",
+    title: "MED Prep — Free MDCAT & NUMS Preparation in Pakistan",
     description: SITE_DESCRIPTION,
     images: [`${siteUrl}/og.png`],
   },
@@ -109,7 +102,7 @@ export const metadata: Metadata = {
   },
   appleWebApp: {
     capable: true,
-    title: "Cadet Prep",
+    title: "MED Prep",
     statusBarStyle: "black-translucent",
   },
 };
@@ -125,8 +118,7 @@ export const viewport: Viewport = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
-  name: "Cadet College Prep",
-  alternateName: "CCP",
+  name: "MED Prep",
   description: SITE_DESCRIPTION,
   url: siteUrl,
   telephone: whatsapp,
@@ -144,18 +136,18 @@ const jsonLd = {
     availableLanguage: ["en", "ur"],
   },
   knowsAbout: [
-    "Cadet College Entry Tests",
-    "Military College Entry Tests",
-    "CCH",
-    "PAF Sargodha",
-    "Military College Jhelum",
+    "MDCAT",
+    "NUMS",
+    "PMDC MDCAT Syllabus",
+    "Medical College Entry Tests",
+    "MBBS Admission",
   ],
 };
 
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Cadet College Prep",
+  name: "MED Prep",
   url: siteUrl,
   description: SITE_DESCRIPTION,
   inLanguage: ["en", "ur"],
@@ -186,6 +178,7 @@ export default function RootLayout({
           nothing — `primary` is not a Tailwind colour here — and ::selection
           is now a real rule in globals.css. */}
       <body className="antialiased min-h-screen">
+        <DirectionalCursor />
         <AntiCopy />
         <FeedbackWidgetMount />
         <Telemetry />

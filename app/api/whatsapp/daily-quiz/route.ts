@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
         q.option_d ? `D) ${q.option_d}` : null,
       ].filter(Boolean).join('\n');
 
-      const message = `📚 *Daily MCQ*\n\n${q.question_text}\n\n${options}\n\nReply with A, B, C, or D!\n\n— Cadet College Prep`;
+      const message = `📚 *Daily MCQ*\n\n${q.question_text}\n\n${options}\n\nReply with A, B, C, or D!\n\n— MED Prep`;
 
       await sendWhatsAppMessage(sub.phone_number, message);
       sent++;

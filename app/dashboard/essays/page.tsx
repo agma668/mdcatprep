@@ -6,7 +6,7 @@ import { CompositionGenerator } from './CompositionGenerator'
 
 export const metadata: Metadata = { title: 'Essays & Stories' }
 
-// Real CCH format (from the Class 8 sample paper, Section C — English):
+// Timed composition/story drills — bonus writing practice that sharpens the
 // Q.6 asks for a composition of about 200–250 words on ANY ONE of the given
 // topics. Topics can be quote-based essays, opinion/descriptive essays, or a
 // story that must continue from a given opening line.
@@ -14,7 +14,7 @@ export const metadata: Metadata = { title: 'Essays & Stories' }
 const QUOTE_ESSAYS = [
   {
     topic: 'Not failure, but low aim is crime',
-    hint: 'An actual CCH topic. Argue that aiming low — not falling short — is the real mistake, and support it with examples.',
+    hint: 'An actual entry-test topic. Argue that aiming low — not falling short — is the real mistake, and support it with examples.',
   },
   {
     topic: 'Honesty is the best policy',
@@ -41,7 +41,7 @@ const QUOTE_ESSAYS = [
 const OPINION_DESCRIPTIVE = [
   {
     topic: 'What Would You Change in Your Country?',
-    hint: 'An actual CCH topic. Pick 2–3 concrete changes and explain why and how — keep it realistic.',
+    hint: 'A classic entry-test topic. Pick 2–3 concrete changes and explain why and how — keep it realistic.',
   },
   {
     topic: 'My Aim in Life',
@@ -68,7 +68,7 @@ const OPINION_DESCRIPTIVE = [
 const STORY_STARTS = [
   {
     start: 'Anderson jumped out of the rocket. He was on the soil of…',
-    hint: 'An actual CCH story opening. Continue the story with a clear plot, characters and an ending.',
+    hint: 'An actual entry-test story opening. Continue the story with a clear plot, characters and an ending.',
   },
   {
     start: 'It was a dark and stormy night when Ali heard a knock at the door…',
@@ -138,11 +138,10 @@ export default function EssaysPage() {
         title="Essays & Stories"
         description={
           <>
-            In the CCH entry test English paper you write a composition of about
-            <strong> 200–250 words on any ONE of the given topics</strong> — a
-            quote-based essay, a descriptive/opinion essay, or a story that
-            starts from a given line. You also answer questions on a reading
-            passage.
+            MDCAT doesn't have a composition question — but fast, clear English
+            wins you marks in the <strong>reading and comprehension</strong>
+            sections. These timed writing drills build the speed and vocabulary
+            that make the difference. Treat this as a bonus trainer.
           </>
         }
       />
@@ -153,12 +152,13 @@ export default function EssaysPage() {
 
       <div className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-[var(--radius-lg)] p-6 mb-8">
         <h2 className="text-lg font-bold text-[var(--color-text-primary)] mb-3">
-          The real CCH format (Section C — English)
+          How writing practice helps your MDCAT English score
         </h2>
         <ul className="space-y-2 text-sm text-[var(--color-text-secondary)]">
-          <li>• Q.6 — <strong>Composition:</strong> write on any ONE of the given topics (essay or story), about 200–250 words. [12 marks]</li>
-          <li>• Q.4 — <strong>Reading passage:</strong> a short passage (about 300–400 words) followed by questions on meaning, detail and vocabulary. [8 marks]</li>
-          <li>• Also in the section: verb forms, &quot;do as directed&quot; (narration, voice, correction), missing letters, and Urdu→English translation.</li>
+          <li>• <strong>Speed:</strong> a 200–250 word piece under a timer trains you to think in English without pausing to translate.</li>
+          <li>• <strong>Vocabulary:</strong> describing an idea in three ways is the same skill as picking the right synonym in the paper.</li>
+          <li>• <strong>Structure:</strong> a clear beginning–middle–end makes comprehension answers shorter and sharper.</li>
+          <li>• The MDCAT English section itself: grammar, verb forms, and vocabulary-in-context MCQs.</li>
         </ul>
       </div>
 

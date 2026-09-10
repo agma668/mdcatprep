@@ -9,49 +9,33 @@ export const dynamic = 'force-dynamic'
 
 const TEST_FORMATS = [
   {
-    id: 'cch',
-    name: 'CCH Hasanabdal',
+    id: 'full',
+    name: 'MDCAT-Weighted Full Mock',
     duration: 180, // 3 hours
-    totalMarks: 200,
+    totalMarks: 100,
     sections: [
-      { name: 'Mathematics', questions: 25, marks: 50 },
-      { name: 'English', questions: 20, marks: 40 },
-      { name: 'Islamiat', questions: 5, marks: 10 },
-      { name: 'General Science', questions: 25, marks: 50 },
-      { name: 'Urdu', questions: 25, marks: 50 },
+      { name: 'Biology', questions: 34, marks: 34 },
+      { name: 'Chemistry', questions: 24, marks: 24 },
+      { name: 'Physics', questions: 30, marks: 30 },
+      { name: 'English', questions: 12, marks: 12 },
     ],
   },
   {
-    id: 'paf',
-    name: 'PAF College Sargodha',
-    duration: 180,
-    totalMarks: 200,
+    id: 'bio-heavy',
+    name: 'Biology Focus (60 min)',
+    duration: 60,
+    totalMarks: 40,
     sections: [
-      { name: 'Mathematics', questions: 25, marks: 50 },
-      { name: 'English', questions: 25, marks: 50 },
-      { name: 'General Knowledge', questions: 25, marks: 50 },
-      { name: 'Intelligence Test', questions: 25, marks: 50 },
-    ],
-  },
-  {
-    id: 'mcj',
-    name: 'Military College Jhelum',
-    duration: 180,
-    totalMarks: 200,
-    sections: [
-      { name: 'Mathematics', questions: 25, marks: 50 },
-      { name: 'English', questions: 25, marks: 50 },
-      { name: 'General Science', questions: 25, marks: 50 },
-      { name: 'General Knowledge', questions: 25, marks: 50 },
+      { name: 'Biology', questions: 40, marks: 40 },
     ],
   },
   {
     id: 'quick',
     name: 'Quick Practice (30 min)',
     duration: 30,
-    totalMarks: 50,
+    totalMarks: 25,
     sections: [
-      { name: 'Mixed', questions: 25, marks: 50 },
+      { name: 'Mixed', questions: 25, marks: 25 },
     ],
   },
 ]
@@ -66,7 +50,7 @@ export default async function MockTestPage() {
       <PageHeader
         eyebrow="Full-length simulation"
         title="Mock Test"
-        description="Full-length practice exams matching real college entry test patterns. Timed, sectioned, and scored exactly like the real thing."
+        description="Timed, sectioned mock tests weighted like the PMDC MDCAT paper — Biology heaviest, then Physics and Chemistry, then English. 1 mark per MCQ, from our own question bank."
       />
       <MockTestSetup formats={TEST_FORMATS} />
     </div>

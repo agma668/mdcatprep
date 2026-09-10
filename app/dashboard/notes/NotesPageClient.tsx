@@ -43,9 +43,9 @@ const inputCls =
   'w-full px-4 py-2 border border-white/10 rounded-[var(--radius-md)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] bg-white/[0.04] text-white'
 
 const COLLEGES = [
-  { id: 'nums', name: 'NUMS Rawalpindi', syllabusLink: '/dashboard/notes/nums-syllabus', masterLink: '/dashboard/notes/nums-master-notes', practiceLink: '/dashboard/practice?college=NUMS' },
-  { id: 'uhs', name: 'UHS Lahore', syllabusLink: '/dashboard/notes/uhs-syllabus', masterLink: '/dashboard/notes/uhs-master-notes', practiceLink: '/dashboard/practice?college=UHS' },
-  { id: 'szabmu', name: 'SZABMU Islamabad', syllabusLink: '/dashboard/notes/szabmu-syllabus', masterLink: '/dashboard/notes/szabmu-master-notes', practiceLink: '/dashboard/practice?college=SZABMU' },
+  { id: 'nums', name: 'NUMS Rawalpindi', officialUrl: 'https://numspak.edu.pk/', practiceLink: '/dashboard/practice?college=NUMS' },
+  { id: 'uhs', name: 'UHS Lahore', officialUrl: 'https://www.uhs.edu.pk/', practiceLink: '/dashboard/practice?college=UHS' },
+  { id: 'szabmu', name: 'SZABMU Islamabad', officialUrl: 'http://www.szabmu.edu.pk/', practiceLink: '/dashboard/practice?college=SZABMU' },
 ]
 
 export function NotesPageClient({
@@ -235,9 +235,9 @@ export function NotesPageClient({
           goal={masterPdfGoal}
           code={masterPdfCode}
           link={masterPdfLink}
-          masterNotes={COLLEGES.map(({ name, masterLink }) =>
-            masterLink ? { name, href: masterLink } : null
-          ).filter((x): x is { name: string; href: string } => x !== null)}
+          masterNotes={[
+            { name: 'MDCAT Master Concept Notes (Bio · Chem · Phys · Eng)', href: '/dashboard/notes/mdcat-master-notes' },
+          ]}
         />
       )}
 
@@ -284,9 +284,9 @@ export function NotesPageClient({
       {/* College Cards */}
       <section>
         <h2 className="text-sm font-semibold text-[var(--color-text-primary)] mb-3">
-          Official Syllabus by College
+          Preparing for a Specific University?
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {COLLEGES.map(college => (
             <div
               key={college.id}
@@ -296,18 +296,14 @@ export function NotesPageClient({
                 {college.name}
               </h3>
               <div className="space-y-2 flex-1">
-                {college.syllabusLink ? (
-                  <Link
-                    href={college.syllabusLink}
-                    className="flex items-center gap-2 px-3 py-2 rounded-[var(--radius-md)] tile-gold text-[var(--color-primary)] text-sm font-medium hover:bg-[var(--color-primary)]/20 transition-colors"
-                  >
-                    📋 Official Syllabus
-                  </Link>
-                ) : (
-                  <div className="flex items-center gap-2 px-3 py-2 rounded-[var(--radius-md)] bg-white/[0.04] text-white/30 text-sm font-medium border border-white/[0.06]">
-                    📋 Syllabus — Coming Soon
-                  </div>
-                )}
+                <a
+                  href={college.officialUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-3 py-2 rounded-[var(--radius-md)] tile-gold text-[var(--color-primary)] text-sm font-medium hover:bg-[var(--color-primary)]/20 transition-colors"
+                >
+                  🏛️ Official University Site ↗
+                </a>
                 <Link
                   href={college.practiceLink || '/dashboard/practice'}
                   className="flex items-center gap-2 px-3 py-2 rounded-[var(--radius-md)] tile-warning text-amber-400 text-sm font-medium hover:bg-amber-500/20 transition-colors"
@@ -318,6 +314,9 @@ export function NotesPageClient({
             </div>
           ))}
         </div>
+        <p className="text-xs text-[var(--color-text-muted)] mt-3">
+          For official dates, registration and syllabus updates, always trust the university&apos;s own site first.
+        </p>
       </section>
 
       {/* Study Materials — exam-style notes and key facts */}
@@ -327,49 +326,41 @@ export function NotesPageClient({
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5">
+            <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">{subjectIcon('Biology')} Must-Know Biology Facts</h3>
+            <ul className="space-y-1.5">
+              {['Mitochondria = powerhouse of the cell; site of aerobic respiration.', 'Human heart: 4 chambers. Right side pumps to lungs, left to body.', 'Nephron = functional unit of the kidney (about 1 million per kidney).', 'DNA: adenine–thymine, guanine–cytosine. RNA replaces thymine with uracil.', 'Photosynthesis: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂ (in chloroplasts).'].map((t, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-[var(--color-text-secondary)]"><span className="text-[var(--color-primary)] font-bold mt-0.5" aria-hidden="true">•</span><span>{t}</span></li>
+              ))}
+            </ul>
+          </div>
+          <div className="glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5">
+            <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">{subjectIcon('Chemistry')} Chemistry Essentials</h3>
+            <ul className="space-y-1.5">
+              {['pH = −log[H⁺]; pH + pOH = 14 (at 25°C).', 'Le Chatelier: a system at equilibrium shifts to oppose any change.', 'Alkanes → alkenes → alkynes: single, double, triple bonds.', 'Oxidation = loss of electrons; reduction = gain (OIL RIG).', 'First element of every period is a noble gas? No — Group 1. Period starts at Group 1.'].map((t, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-[var(--color-text-secondary)]"><span className="text-[var(--color-primary)] font-bold mt-0.5" aria-hidden="true">•</span><span>{t}</span></li>
+              ))}
+            </ul>
+          </div>
+          <div className="glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5">
+            <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">{subjectIcon('Physics')} Physics Formula Families</h3>
+            <ul className="space-y-1.5">
+              {['F = ma. W = Fd cosθ. P = W/t.', 'SUVAT: v = u + at, s = ut + ½at², v² = u² + 2as.', 'Ohm\'s law: V = IR. Power: P = VI = I²R.', 'Snell\'s law: n₁sinθ₁ = n₂sinθ₂.', 'E = hf (photon energy); c = fλ (wave speed).'].map((t, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-[var(--color-text-secondary)]"><span className="text-[var(--color-primary)] font-bold mt-0.5" aria-hidden="true">•</span><span>{t}</span></li>
+              ))}
+            </ul>
+          </div>
+          <div className="glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5">
             <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">{subjectIcon('English')} Key Grammar Rules</h3>
             <ul className="space-y-1.5">
-              {['Use "the" before superlatives: the highest, the best, the most.', 'Who = subject; Whom = object; Whose = possession.', 'Complementary angles sum to 90°. Supplementary angles sum to 180°.', 'Active: The boy kicked the ball. Passive: The ball was kicked by the boy.', '"Until" = up to that time. "Unless" = except when.'].map((t, i) => (
+              {['Use "the" before superlatives: the highest, the best, the most.', 'Who = subject; Whom = object; Whose = possession.', '"Between" for two things; "among" for three or more.', 'Active: The boy kicked the ball. Passive: The ball was kicked by the boy.', '"Fewer" with countable nouns; "less" with uncountable.'].map((t, i) => (
                 <li key={i} className="flex items-start gap-2 text-sm text-[var(--color-text-secondary)]"><span className="text-[var(--color-primary)] font-bold mt-0.5" aria-hidden="true">•</span><span>{t}</span></li>
               ))}
             </ul>
           </div>
-          <div className="glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5">
-            <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">{subjectIcon('Mathematics')} Must-Know Formulas</h3>
+          <div className="glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5 md:col-span-2">
+            <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">💡 MDCAT Exam Tips</h3>
             <ul className="space-y-1.5">
-              {['Area of triangle = ½ × base × height.', 'Pythagoras: a² + b² = c².', 'Area of circle = πr². Circumference = 2πr.', 'Speed = Distance / Time. Work = Force × Distance.', 'Simple Interest: SI = (P × R × T) / 100.'].map((t, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-[var(--color-text-secondary)]"><span className="text-[var(--color-primary)] font-bold mt-0.5" aria-hidden="true">•</span><span>{t}</span></li>
-              ))}
-            </ul>
-          </div>
-          <div className="glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5">
-            <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">{subjectIcon('General Science')} Biology &amp; Physics Facts</h3>
-            <ul className="space-y-1.5">
-              {['Mitochondria = powerhouse of the cell.', 'Human skeleton: 206 bones. Heart: 4 chambers.', 'F = ma (Newton\'s 2nd Law). W = F × d.', 'Sound = longitudinal wave. Light = transverse wave.', 'SI units: Force-N, Energy-J, Power-W.'].map((t, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-[var(--color-text-secondary)]"><span className="text-[var(--color-primary)] font-bold mt-0.5" aria-hidden="true">•</span><span>{t}</span></li>
-              ))}
-            </ul>
-          </div>
-          <div className="glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5">
-            <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">{subjectIcon('Islamiat')} Key Islamic Events</h3>
-            <ul className="space-y-1.5">
-              {['Hijrah (Migration to Madinah): 622 CE (1 AH).', 'Battle of Badr: 2 AH — first major battle, Muslim victory.', 'Conquest of Makkah: 8 AH — peaceful liberation.', 'Five Pillars: Shahadat, Salat, Zakat, Sawm, Hajj.', 'Quran has 114 surahs. Surah Ya-Sin = "Heart of the Quran."'].map((t, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-[var(--color-text-secondary)]"><span className="text-[var(--color-primary)] font-bold mt-0.5" aria-hidden="true">•</span><span>{t}</span></li>
-              ))}
-            </ul>
-          </div>
-          <div className="glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5">
-            <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">{subjectIcon('General Knowledge')} Pakistan &amp; World</h3>
-            <ul className="space-y-1.5">
-              {['Independence Day: August 14, 1947.', 'Highest peak: K2 (8,611m). Longest river: Indus.', 'Lahore Resolution: March 23, 1940.', 'UN Security Council: 5 permanent members (USA, UK, France, Russia, China).', 'National animal: Markhor. Largest province: Balochistan.'].map((t, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-[var(--color-text-secondary)]"><span className="text-[var(--color-primary)] font-bold mt-0.5" aria-hidden="true">•</span><span>{t}</span></li>
-              ))}
-            </ul>
-          </div>
-          <div className="glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5">
-            <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">💡 Exam Tips</h3>
-            <ul className="space-y-1.5">
-              {['Read questions carefully — eliminate obviously wrong answers first.', 'Don\'t spend more than 2 minutes on any single MCQ.', 'CCH emphasizes Math and English. PAF includes Intelligence/Reasoning.', 'MCJ includes Islamiat — memorize key dates and events.', 'Speed matters — practice solving MCQs under timed conditions.'].map((t, i) => (
+              {['Biology carries the most marks (68/200) — protect it with daily fact revision.', 'No negative marking: never leave an MCQ blank — a guess costs nothing extra.', 'Chemistry and Physics share weight (56 each); alternate your revision days between them.', 'English is only 20 marks but decides merit margins — 20 minutes of grammar daily pays off.', 'Do at least one timed mock per week and review every mistake the same day.'].map((t, i) => (
                 <li key={i} className="flex items-start gap-2 text-sm text-[var(--color-text-secondary)]"><span className="text-amber-400 font-bold mt-0.5" aria-hidden="true">★</span><span>{t}</span></li>
               ))}
             </ul>

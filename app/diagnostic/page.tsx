@@ -11,13 +11,13 @@ import { DiagnosticPlayer } from './DiagnosticPlayer'
 export const metadata: Metadata = {
   title: 'Free Diagnostic Quiz — Check Your Level',
   description:
-    'Take a free 10-question diagnostic quiz across Mathematics, English, Science, General Knowledge, and Islamiat. Find your strongest and weakest subjects instantly.',
+    'Take a free 10-question diagnostic quiz across Biology, Chemistry, Physics and English. Find your strongest and weakest subjects instantly.',
 }
 
 export const dynamic = 'force-dynamic'
 
-const TARGET_SUBJECTS = ['Mathematics', 'English', 'General Science', 'General Knowledge', 'Islamiat']
-const PER_SUBJECT = 2
+const TARGET_SUBJECTS = ['Biology', 'Chemistry', 'Physics', 'English']
+const PER_SUBJECT = 3
 
 export default async function DiagnosticPage() {
   const service = createServiceClient()

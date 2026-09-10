@@ -109,12 +109,12 @@ export function Sidebar({ profile, leaderboard }: { profile: Profile; leaderboar
       >
         {/* Logo + collapse toggle */}
         <div className={`flex items-center border-b border-white/[0.07] ${collapsed ? "flex-col gap-3 px-2 py-4" : "gap-3 px-5 py-6"}`}>
-          <Link href="/dashboard" className="flex items-center gap-3 min-w-0" aria-label="ACMA — Dashboard">
+          <Link href="/dashboard" className="flex items-center gap-3 min-w-0" aria-label="MED Prep — Dashboard">
             <LogoMark />
             {!collapsed && (
               <span className="min-w-0">
-                <span className="block font-extrabold text-white text-lg tracking-tight leading-none">ACMA</span>
-                <span className="block text-[11px] text-white/45 font-medium mt-1 tracking-wide uppercase">Student Portal</span>
+                <span className="block font-extrabold text-white text-lg tracking-tight leading-none">MED Prep</span>
+                <span className="block text-[11px] text-white/45 font-medium mt-1 tracking-wide uppercase">MDCAT & NUMS Portal</span>
               </span>
             )}
           </Link>
@@ -201,9 +201,9 @@ export function Sidebar({ profile, leaderboard }: { profile: Profile; leaderboar
 
       {/* Mobile top bar */}
       <div className="md:hidden fixed inset-x-0 top-0 z-40 bg-[linear-gradient(90deg,var(--color-navy),#0a1a2e)] border-b border-white/10 flex items-center justify-between px-4 h-14 shadow-[0_4px_16px_rgba(0,0,0,0.25)]">
-        <Link href="/dashboard" className="flex items-center gap-2.5" aria-label="ACMA — Dashboard">
+        <Link href="/dashboard" className="flex items-center gap-2.5" aria-label="MED Prep — Dashboard">
           <LogoMark size="sm" />
-          <span className="font-extrabold text-white tracking-tight">ACMA</span>
+          <span className="font-extrabold text-white tracking-tight">MED Prep</span>
         </Link>
         <form action={logout}>
           <button type="submit" aria-label="Log out" className="flex items-center gap-1.5 text-white/50 hover:text-white text-xs font-semibold transition-colors cursor-pointer">

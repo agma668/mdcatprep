@@ -13,7 +13,7 @@ const LEADERBOARD_TIMEOUT_MS = 6000;
 export const metadata: Metadata = {
   title: {
     default: "Dashboard",
-    template: "%s | Cadet College Prep Dashboard",
+    template: "%s | MED Prep Dashboard",
   },
 };
 

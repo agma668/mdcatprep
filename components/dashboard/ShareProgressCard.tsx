@@ -46,7 +46,7 @@ export function ShareProgressCard({
           title="MY PROGRESS"
           name={name}
           cells={cells}
-          shareText={`I've answered ${questions.toLocaleString()} questions on Cadet College Prep.`}
+          shareText={`I've answered ${questions.toLocaleString()} questions on MED Prep.`}
         />
       </div>
     </section>

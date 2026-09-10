@@ -88,7 +88,7 @@ export default async function DashboardOverviewPage() {
     {
       href: "/dashboard/practice",
       title: "Practice MCQs",
-      desc: "Pick a subject and answer real CCH-style questions.",
+      desc: "Pick a subject and answer real MDCAT-style questions.",
       icon: Target,
       tint: "bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-primary)]/5 text-[var(--color-primary-light)] ring-1 ring-[var(--color-primary)]/15",
     },
@@ -132,7 +132,7 @@ export default async function DashboardOverviewPage() {
         <div className="flex flex-wrap items-center justify-center gap-2 mb-3">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.06] px-3 py-1 text-xs font-semibold text-white/60 ring-1 ring-white/10">
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
-            {profile?.exam_target || "Cadet College Entry Test Prep"}
+            {profile?.exam_target || "MDCAT Entry Test Prep"}
           </span>
           {profile?.status && (
             <span className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.06] px-3 py-1 text-xs font-semibold text-white/60 ring-1 ring-white/10">
@@ -372,7 +372,7 @@ export default async function DashboardOverviewPage() {
       {/* ── Contact tile ────────────────────────────────────── */}
       <section aria-label="Contact" className="mt-8">
         <a
-          href={getWhatsAppLink("Hi Sir Haziq, I need help with Cadet College Prep")}
+          href={getWhatsAppLink("Hi Sir Haziq, I need help with MED Prep")}
           target="_blank"
           rel="noopener noreferrer"
           className="group block glass-tile-glow rounded-[var(--radius-xl)] p-6 sm:p-8 text-center hover:translate-y-[-2px] transition-all duration-300"

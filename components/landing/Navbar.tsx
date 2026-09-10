@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 const NAV_LINKS = [
   { label: "Features", href: "#features" },
   { label: "How It Works", href: "#how-it-works" },
-  { label: "Colleges", href: "#cadet-colleges" },
+  { label: "Universities", href: "#cadet-colleges" },
   { label: "Daily Quiz", href: "/daily-quiz" },
   { label: "Founder", href: "/founder" },
   { label: "FAQ", href: "/faq" },
@@ -65,7 +65,7 @@ export function Navbar() {
           {/* Logo — the compass mark is insignia, so it keeps the brass. */}
           <Link
             href="/"
-            aria-label="Cadet College Prep — Home"
+            aria-label="MED Prep — Home"
             className="group flex items-center gap-2.5 rounded-[var(--radius-md)]"
           >
             <span
@@ -75,7 +75,7 @@ export function Navbar() {
               <CompassLogo size={25} />
             </span>
             <span className="text-xl font-bold tracking-[-0.02em] text-[var(--steel-100)]">
-              CCP
+              MED Prep
             </span>
           </Link>
 

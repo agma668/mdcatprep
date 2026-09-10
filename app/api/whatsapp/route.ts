@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
       await handleOptOut(from);
       await sendWhatsAppMessage(from, '❌ Unsubscribed.\n\nReply START to resume daily MCQs.');
     } else if (text === 'help') {
-      await sendWhatsAppMessage(from, '📚 Cadet College Prep Bot\n\nCommands:\n• START - Subscribe to daily MCQs\n• STOP - Unsubscribe\n• HELP - Show this message\n\nReply with A, B, C, or D to answer MCQs.');
+      await sendWhatsAppMessage(from, '📚 MED Prep Bot\n\nCommands:\n• START - Subscribe to daily MCQs\n• STOP - Unsubscribe\n• HELP - Show this message\n\nReply with A, B, C, or D to answer MCQs.');
     } else if (['a', 'b', 'c', 'd'].includes(text)) {
       await handleAnswer(from, text.toUpperCase());
     } else if (text) {

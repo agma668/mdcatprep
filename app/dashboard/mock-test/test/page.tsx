@@ -10,33 +10,18 @@ export const metadata: Metadata = { title: 'Mock Test' }
 export const dynamic = 'force-dynamic'
 
 const TEST_CONFIGS: Record<string, { duration: number; sections: { name: string; count: number }[] }> = {
-  cch: {
+  full: {
     duration: 180,
     sections: [
-      { name: 'Mathematics', count: 25 },
-      { name: 'English', count: 20 },
-      { name: 'Islamiat', count: 5 },
-      { name: 'General Science', count: 25 },
-      { name: 'Urdu', count: 25 },
+      { name: 'Biology', count: 34 },
+      { name: 'Chemistry', count: 24 },
+      { name: 'Physics', count: 30 },
+      { name: 'English', count: 12 },
     ],
   },
-  paf: {
-    duration: 180,
-    sections: [
-      { name: 'Mathematics', count: 25 },
-      { name: 'English', count: 25 },
-      { name: 'General Knowledge', count: 25 },
-      { name: 'Intelligence Test', count: 25 },
-    ],
-  },
-  mcj: {
-    duration: 180,
-    sections: [
-      { name: 'Mathematics', count: 25 },
-      { name: 'English', count: 25 },
-      { name: 'General Science', count: 25 },
-      { name: 'General Knowledge', count: 25 },
-    ],
+  'bio-heavy': {
+    duration: 60,
+    sections: [{ name: 'Biology', count: 40 }],
   },
   quick: {
     duration: 30,

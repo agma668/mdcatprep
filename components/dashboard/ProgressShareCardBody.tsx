@@ -114,7 +114,7 @@ function drawShareCard(ctx: CanvasRenderingContext2D, opts: { title: string; nam
   });
   ctx.fillStyle = MUTED;
   ctx.font = '500 32px "Inter", system-ui, sans-serif';
-  ctx.fillText("Practicing daily on cadetcollegeprep.com", W / 2, H - 150);
+  ctx.fillText("Practicing daily on medprep.pk", W / 2, H - 150);
   ctx.fillStyle = "rgba(255,255,255,0.38)";
   ctx.font = '500 27px "Inter", system-ui, sans-serif';
   ctx.fillText(
@@ -129,7 +129,7 @@ export function ProgressShareCardBody({
   name,
   cells,
   shareText,
-  fileName = "cadet-prep-progress.png",
+  fileName = "med-prep-progress.png",
 }: {
   title: string;
   name: string;
@@ -190,7 +190,7 @@ export function ProgressShareCardBody({
       const file = new File([blob], fileName, { type: "image/png" });
       try {
         if (navigator.share && navigator.canShare?.({ files: [file] })) {
-          await navigator.share({ files: [file], title: "Cadet College Prep", text: shareText });
+          await navigator.share({ files: [file], title: "MED Prep", text: shareText });
           setStatus("shared");
         } else {
           download();

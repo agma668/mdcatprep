@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { AdminNav } from "./AdminNav";
 
 export const metadata: Metadata = {
-  title: "Admin Dashboard | Cadet College Prep",
+  title: "Admin Dashboard | MED Prep",
 };
 
 export default function AdminLayout({

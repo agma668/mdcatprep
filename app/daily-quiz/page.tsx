@@ -9,35 +9,35 @@ import { Footer } from "@/components/landing/Footer";
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
-  title: "Daily MCQ Challenge — Free Cadet College Practice Question",
+  title: "Daily MCQ Challenge — Free MDCAT & NUMS Practice Question",
   description:
-    "Solve today's free MCQ challenge! A new exam-style question every day for CCH, PAF Sargodha, MCJ and other cadet college entry tests. No login required.",
+    "Solve today's free MCQ challenge! A new exam-style question every day for MDCAT and NUMS preparation. No login required.",
   keywords: [
     "daily MCQ challenge",
-    "free daily quiz cadet college",
+    "free daily quiz MDCAT",
     "daily MCQ practice Pakistan",
-    "cadet college question of the day",
+    "MDCAT question of the day",
     "free MCQ every day",
-    "CCH daily practice",
-    "PAF Sargodha daily quiz",
-    "military college MCQ daily",
-    "cadet college prep daily question",
-    "free online quiz cadet college",
+    "MDCAT daily practice",
+    "NUMS daily quiz",
+    "medical entry test MCQ daily",
+    "MDCAT prep daily question",
+    "free online MDCAT quiz",
   ],
   openGraph: {
     type: "website",
     url: `${siteUrl}/daily-quiz`,
-    title: "Daily MCQ Challenge — Free Cadet College Practice | Cadet College Prep",
+    title: "Daily MCQ Challenge — Free MDCAT & NUMS Practice | MED Prep",
     description:
-      "Solve today's free MCQ challenge! A new exam-style question every day for cadet college entry tests.",
-    siteName: "Cadet Prep",
-    images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: "Daily MCQ Challenge — Free Cadet College Practice" }],
+      "Solve today's free MCQ challenge! A new exam-style question every day for MDCAT and NUMS.",
+    siteName: "MED Prep",
+    images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: "Daily MCQ Challenge — Free MDCAT & NUMS Practice" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Daily MCQ Challenge | Cadet College Prep",
+    title: "Daily MCQ Challenge | MED Prep",
     description:
-      "Solve today's free MCQ challenge! A new question every day for cadet college entry tests.",
+      "Solve today's free MCQ challenge! A new question every day for MDCAT and NUMS.",
     images: [`${siteUrl}/og.png`],
   },
   alternates: {
@@ -48,15 +48,15 @@ export const metadata: Metadata = {
 const dailyQuizJsonLd = {
   "@context": "https://schema.org",
   "@type": "Quiz",
-  name: "Daily MCQ Challenge — Cadet College Entry Test Practice",
+  name: "Daily MCQ Challenge — MDCAT & NUMS Entry Test Practice",
   description:
-    "A free daily multiple-choice question for cadet and military college entry test preparation. New question every day.",
+    "A free daily multiple-choice question for MDCAT and NUMS entry test preparation. New question every day.",
   url: `${siteUrl}/daily-quiz`,
   isAccessibleForFree: true,
   inLanguage: "en",
   provider: {
     "@type": "EducationalOrganization",
-    name: "Cadet Prep (Cadet College Prep)",
+    name: "MED Prep",
     url: siteUrl,
   },
 };

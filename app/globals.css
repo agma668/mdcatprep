@@ -1335,3 +1335,52 @@ html.lenis body {
 ::-webkit-scrollbar-thumb { background: var(--steel-700); border-radius: var(--r-pill); border: 2px solid var(--field-0); }
 ::-webkit-scrollbar-thumb:hover { background: var(--steel-600); }
 * { scrollbar-color: var(--steel-700) var(--field-0); scrollbar-width: thin; }
+
+/* ── Directional velocity cursor (nexstudio-style) ────────────────────────
+   A lerp-follow dot that rotates toward the direction the pointer moves and
+   stretches with speed. The native cursor is hidden only on pointer:fine +
+   hover:hover devices while [data-custom-cursor="true"] is set by the
+   component; media queries here are the second gate. */
+html[data-custom-cursor="true"],
+html[data-custom-cursor="true"] body {
+  cursor: none;
+}
+
+.directional-cursor {
+  will-change: transform;
+  transform: translate3d(-100px, -100px, 0);
+}
+
+.directional-cursor-dot {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin-left: -20px;
+  margin-top: -20px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgba(95, 211, 228, 0.95) 0%,
+    rgba(59, 130, 246, 0.55) 45%,
+    rgba(59, 130, 246, 0) 70%
+  );
+  transition: opacity 0.2s ease;
+  opacity: 0;
+}
+
+html[data-custom-cursor="true"] .directional-cursor[data-visible="true"] .directional-cursor-dot {
+  opacity: 1;
+}
+
+html[data-custom-cursor="true"] .directional-cursor[data-interactive="true"] .directional-cursor-dot {
+  background: radial-gradient(
+    circle,
+    rgba(201, 162, 75, 0.95) 0%,
+    rgba(201, 162, 75, 0.5) 45%,
+    rgba(201, 162, 75, 0) 70%
+  );
+}
+
+@media (prefers-reduced-motion: reduce), (pointer: coarse) {
+  .directional-cursor { display: none !important; }
+}

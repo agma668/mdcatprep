@@ -7,11 +7,13 @@ import {
   MCAT_NOTES_SECTIONS,
   MCAT_NOTES_META,
 } from '@/lib/mcat-notes'
-import type { NoteBlock, NoteSection } from '@/lib/master-notes'
 import Link from 'next/link'
 
 export const metadata: Metadata = { title: 'MDCAT Master Concept Notes' }
 export const dynamic = 'force-dynamic'
+
+type NoteBlock = { type: "para" | "bullet"; text: string }
+type NoteSection = { title: string; topics: { title: string; blocks: NoteBlock[] }[] }
 
 function BlockText({ block }: { block: NoteBlock }) {
   const isThink = block.text.startsWith('Think like this:')

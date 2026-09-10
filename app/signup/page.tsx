@@ -29,14 +29,14 @@ export default function SignupPage() {
         <div className="relative z-10">
           <Link
             href="/"
-            aria-label="Cadet College Prep - Home"
+            aria-label="MED Prep - Home"
             className="inline-flex items-center gap-2.5 group"
           >
             <span className="flex items-center justify-center w-10 h-10 rounded-[var(--radius-md)] gradient-brand text-[var(--on-cta)] font-bold text-lg shadow-[var(--glow-signal-md)]">
-              A
+              M
             </span>
             <span className="font-bold text-xl tracking-tight text-white">
-              Cadet College Prep
+              MED Prep
             </span>
           </Link>
         </div>
@@ -47,8 +47,9 @@ export default function SignupPage() {
             <span className="text-[var(--color-primary-light)]"> today</span>
           </h2>
           <p className="text-white/65 text-base leading-relaxed mb-10">
-            Join students across Pakistan preparing for CCH, PAF Sargodha,
-            MCJ, Kohat, and other cadet college entry tests. Everything is 100% free.
+            Join students across Pakistan preparing for MDCAT and NUMS —
+            Biology, Chemistry, Physics, English and Logical Reasoning.
+            Everything is 100% free.
           </p>
 
           {/* Feature cards */}
@@ -74,8 +75,8 @@ export default function SignupPage() {
               },
               {
                 icon: GraduationCap,
-                label: "7 Subjects",
-                sub: "Full syllabus coverage",
+                label: "4 Subjects",
+                sub: "Bio, Chem, Phys, English",
                 tone: "text-rose-300",
               },
             ].map(({ icon: Icon, label, sub, tone }) => (
@@ -93,7 +94,7 @@ export default function SignupPage() {
 
         <div className="relative z-10">
           <p className="text-xs text-[var(--steel-400)]">
-            &copy; {new Date().getFullYear()} Cadet College Prep. A community initiative.
+            &copy; {new Date().getFullYear()} MED Prep. A community initiative.
           </p>
         </div>
       </div>
@@ -104,14 +105,14 @@ export default function SignupPage() {
         <div className="md:hidden mb-8 text-center">
           <Link
             href="/"
-            aria-label="Cadet College Prep - Home"
+            aria-label="MED Prep - Home"
             className="inline-flex items-center gap-2"
           >
             <span className="flex items-center justify-center w-10 h-10 rounded-[var(--radius-md)] gradient-brand text-[var(--on-cta)] font-bold text-lg">
-              A
+              M
             </span>
             <span className="font-bold text-xl tracking-tight text-white">
-              CCP
+              MED
             </span>
           </Link>
         </div>

@@ -21,13 +21,8 @@ type SubjectResult = {
   correct: number
 }
 
-const COLLEGE_RECOMMENDATIONS: Record<string, { name: string; reason: string }> = {
-  Mathematics: { name: 'CCH Hasanabdal', reason: 'Strong math skills are key for CCH' },
-  English: { name: 'PAF Sargodha', reason: 'PAF values strong English comprehension' },
-  'General Science': { name: 'MCJ Jhelum', reason: 'MCJ emphasizes science aptitude' },
-  'General Knowledge': { name: 'Kohat Cadet', reason: 'Well-rounded GK is a Kohat strength' },
-  Islamiat: { name: 'CCH Hasanabdal', reason: 'CCH includes Islamiat in its entry test' },
-}
+// Subject-strength guidance: what a strong/weak result in each MDCAT subject
+// means for the student (medical context, no college recommendations).
 
 export function DiagnosticPlayer({ questions }: { questions: BankQuestion[] }) {
   // Run state (index, pick, reveal, score, nav guard) lives in the shared
@@ -104,8 +99,6 @@ export function DiagnosticPlayer({ questions }: { questions: BankQuestion[] }) {
     const strongest = subjectResults.length > 0 ? subjectResults[0].subject : null
     const weakest = subjectResults.length > 1 ? subjectResults[subjectResults.length - 1].subject : null
 
-    // College recommendation based on strongest subject
-    const recommendation = strongest ? COLLEGE_RECOMMENDATIONS[strongest] : null
 
     const ResultIcon = accuracy >= 80 ? Trophy : accuracy >= 50 ? Target : BookOpen
 
@@ -184,14 +177,14 @@ export function DiagnosticPlayer({ questions }: { questions: BankQuestion[] }) {
               </span>
               <div>
                 <h3 className="font-bold text-white mb-1">
-                  Recommended: {recommendation?.name || 'Explore all colleges'}
+                  {strongest ? `Strongest subject: ${strongest}` : 'See how you compare'}
                 </h3>
                 <p className="text-sm text-white/70">
-                  {recommendation?.reason || `Your strength in ${strongest} opens doors to multiple colleges.`}
+                  {`A strong ${strongest} result is a real advantage in the MDCAT merit calculation — keep it sharp.`}
                 </p>
                 {weakest && (
                   <p className="text-sm text-white/50 mt-1">
-                    Focus area: {weakest} — practice this subject to improve your overall score.
+                    Focus area: {weakest} — spend your first practice sessions here.
                   </p>
                 )}
               </div>

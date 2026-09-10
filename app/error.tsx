@@ -56,7 +56,7 @@ export default function GlobalError({
             Try again
           </button>
           <a
-            href={getWhatsAppLink("Hi Sir Haziq, I hit an error on Cadet College Prep")}
+            href={getWhatsAppLink("Hi Sir Haziq, I hit an error on MED Prep")}
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-2.5 rounded-[var(--radius-md)] border border-white/15 text-white text-sm font-semibold hover:bg-white/10 transition-colors"

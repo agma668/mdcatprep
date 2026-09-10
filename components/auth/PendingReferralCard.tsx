@@ -47,7 +47,7 @@ export function PendingReferralCard() {
 
   const shareOnWhatsApp = () => {
     const text = encodeURIComponent(
-      `🎯 Join me on Cadet Prep — free entry-test practice for cadet colleges. Sign up with my link and we both move up the waitlist:\n${link}`
+      `🎯 Join me on Cadet Prep — free MDCAT & NUMS entry-test practice. Sign up with my link and we both move up the waitlist:\n${link}`
     );
     window.open(`https://wa.me/?text=${text}`, "_blank", "noopener,noreferrer");
   };

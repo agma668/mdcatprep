@@ -32,7 +32,7 @@ export function ReferralBanner() {
 
   const shareOnWhatsApp = () => {
     const text = encodeURIComponent(
-      `🎓 Join me on Elite Cadet Prep — free entry-test practice for cadet colleges. Sign up with my link and you're in!\n${link}`
+      `🎓 Join me on MED Prep — free MDCAT & NUMS practice for medical students. Sign up with my link and you're in!\n${link}`
     );
     window.open(`https://wa.me/?text=${text}`, "_blank", "noopener,noreferrer");
   };

@@ -9,82 +9,90 @@ import { Calendar, ArrowRight } from "lucide-react";
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
-  title: "Blog — Cadet College Entry Test Tips & Guides",
+  title: "Blog — MDCAT & NUMS Preparation Tips & Guides",
   description:
-    "Expert tips, preparation guides and latest information for CCH, PAF Sargodha, MCJ and other cadet college entry tests in Pakistan.",
+    "Expert MDCAT and NUMS preparation guides for students in Pakistan: exam patterns, syllabus breakdowns, subject-wise strategy and the latest official dates.",
   keywords: [
-    "cadet college blog",
-    "CCH preparation tips",
-    "cadet college entry test guide",
-    "PAF Sargodha preparation tips",
-    "military college admission guide",
-    "cadet college exam tips Pakistan",
+    "MDCAT blog",
+    "MDCAT preparation tips",
+    "NUMS entry test guide",
+    "MDCAT 2026 guide",
+    "MDCAT biology preparation",
+    "MDCAT chemistry preparation",
+    "MDCAT study plan",
   ],
   openGraph: {
     type: "website",
     url: `${siteUrl}/blog`,
-    title: "Blog — Cadet College Entry Test Tips & Guides | Cadet College Prep",
+    title: "Blog — MDCAT & NUMS Preparation Tips | MED Prep",
     description:
-      "Expert tips, preparation guides and latest information for cadet college entry tests in Pakistan.",
-    siteName: "Cadet College Prep",
-    images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: "Cadet College Prep Blog — Cadet College Prep Guides" }],
+      "Expert tips, preparation guides and the latest information for MDCAT and NUMS in Pakistan.",
+    siteName: "MED Prep",
+    images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: "MED Prep Blog — MDCAT & NUMS Guides" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog | Cadet College Prep",
-    description: "Expert tips and guides for cadet college entry tests.",
+    title: "Blog | MED Prep",
+    description: "Expert MDCAT and NUMS preparation guides.",
     images: [`${siteUrl}/og.png`],
   },
-  alternates: {
-    canonical: "/blog",
-  },
+  alternates: { canonical: "/blog" },
 };
 
 const ARTICLES = [
   {
-    slug: "kohat-preparation-guide",
-    title: "Kohat Cadet College Entry Test Guide — Pattern, Syllabus & Preparation",
+    slug: "mdcat-guide",
+    title: "MDCAT 2026 Complete Guide — Pattern, Syllabus & Study Plan",
     description:
-      "The complete Cadet College Kohat entry test guide: the 200-mark, 4-section pattern, what each section covers, and a subject-wise preparation plan.",
+      "Everything about MDCAT 2026: the official PMDC marks distribution (Biology 68, Chemistry 56, Physics 56, English 20), the syllabus units that matter, and a week-by-week study plan.",
     date: "September 2026",
-    readTime: "7 min read",
-    tag: "Kohat",
-  },
-  {
-    slug: "mcj-preparation-guide",
-    title: "MCJ Jhelum Entry Test Guide — Pattern, Syllabus & Preparation",
-    description:
-      "The complete Military College Jhelum entry test guide: the 200-mark pattern, what each section covers, and how to prepare.",
-    date: "September 2026",
-    readTime: "7 min read",
-    tag: "MCJ",
-  },
-  {
-    slug: "cch-preparation-guide",
-    title: "How to Prepare for CCH Hasanabdal Entry Test 2026 — Complete Guide",
-    description:
-      "A step-by-step guide to preparing for the Cadet College Hasanabdal entry test. Covers syllabus, subjects, study plan and exam-day tips.",
-    date: "August 2026",
     readTime: "8 min read",
-    tag: "CCH",
+    tag: "MDCAT",
   },
   {
-    slug: "cadet-vs-military-college",
-    title: "Cadet College vs Military College — Which One Should You Choose?",
+    slug: "nums-guide",
+    title: "NUMS Entry Test 2026 Guide — Date, Colleges & How to Prepare",
     description:
-      "Understand the key differences between cadet colleges and military colleges in Pakistan. Admission process, fees, career paths and more.",
-    date: "August 2026",
+      "NUMS runs its own entrance test for Army Medical College and its network. The 2026 date, which colleges accept it, and how to prepare for both NUMS and PMDC MDCAT at once.",
+    date: "September 2026",
+    readTime: "7 min read",
+    tag: "NUMS",
+  },
+  {
+    slug: "mdcat-biology-guide",
+    title: "How to Prepare MDCAT Biology — The 68-Mark Subject",
+    description:
+      "Biology is the biggest section of MDCAT. Which PMDC syllabus units carry the most weight, the facts that repeat every year, and how to revise them.",
+    date: "September 2026",
     readTime: "6 min read",
-    tag: "Guide",
+    tag: "Biology",
   },
   {
-    slug: "paf-sargodha-preparation-tips",
-    title: "PAF College Sargodha Entry Test Guide — Pattern, Syllabus & Preparation",
+    slug: "mdcat-chemistry-guide",
+    title: "How to Prepare MDCAT Chemistry — Physical, Organic & Inorganic",
     description:
-      "The complete PAF College Sargodha entry test guide: the 200-mark, 4-section pattern, the Analytical Reasoning section, and how to prepare for each part.",
+      "A chemistry plan that matches the PMDC syllabus: what to master in physical, organic and inorganic chemistry, and which numerical types actually appear.",
     date: "September 2026",
-    readTime: "8 min read",
-    tag: "PAF Sargodha",
+    readTime: "6 min read",
+    tag: "Chemistry",
+  },
+  {
+    slug: "mdcat-physics-guide",
+    title: "How to Prepare MDCAT Physics — Numericals Without Panic",
+    description:
+      "MDCAT Physics rewards concept over calculation. The formula families to memorize, how to practice numericals fast, and the topics students skip at their peril.",
+    date: "September 2026",
+    readTime: "6 min read",
+    tag: "Physics",
+  },
+  {
+    slug: "mdcat-english-guide",
+    title: "MDCAT English: The 20 Marks Everyone Wastes",
+    description:
+      "Only 20 marks, but they decide merit lists. Grammar rules, vocabulary strategy and comprehension technique for the MDCAT English section.",
+    date: "September 2026",
+    readTime: "5 min read",
+    tag: "English",
   },
 ];
 
@@ -95,12 +103,12 @@ export default function BlogPage() {
       <main>
         <section className="relative pt-32 pb-16 overflow-hidden">
           <div className="container-page relative z-10">
-            <Badge variant="accent" className="mb-4">Cadet College Prep Blog</Badge>
+            <Badge variant="accent" className="mb-4">MED Prep Blog</Badge>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
-              Tips & <span className="text-[var(--color-accent-light)]">Guides</span>
+              MDCAT &amp; NUMS <span className="text-[var(--color-accent-light)]">Guides</span>
             </h1>
             <p className="text-lg text-white/70 max-w-2xl">
-              Expert preparation tips, syllabus breakdowns and strategies for cadet and military college entry tests in Pakistan.
+              Preparation tips, syllabus breakdowns and strategies for the MDCAT and NUMS entrance tests in Pakistan.
             </p>
           </div>
         </section>

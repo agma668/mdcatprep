@@ -284,7 +284,7 @@ export function QuestionManager({
             value={form.college}
             onChange={e => setField('college', e.target.value)}
             className={inputCls}
-            placeholder="CCH"
+            placeholder="MDCAT"
           />
         </div>
       </div>

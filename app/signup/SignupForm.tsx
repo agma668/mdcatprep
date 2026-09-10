@@ -150,7 +150,7 @@ export function SignupForm() {
           type="text"
           name="exam_target"
           className="w-full px-4 py-2.5 border border-white/10 rounded-[var(--radius-md)] text-sm text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-shadow bg-white/[0.06]"
-          placeholder="CCH, PAF Sargodha, MCJ..."
+          placeholder="MDCAT 2026, NUMS, AKU..."
         />
       </div>
 

@@ -1,24 +1,21 @@
 'use client'
 
-import Image from 'next/image'
 import { useState, useRef, useEffect } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
-const COLLEGES = [
-  { name: 'CCH Hasanabdal', slug: 'cch', logo: '/cch-logo.png', city: 'Attock, Punjab' },
-  { name: 'PAF Sargodha', slug: 'paf-sargodha', logo: '/paf-sargodha-logo.png', city: 'Sargodha, Punjab' },
-  { name: 'MCJ Jhelum', slug: 'mcj', logo: '/mcj-jhelum-logo.jpg', city: 'Jhelum, Punjab' },
-  { name: 'Kohat Cadet', slug: 'kohat', logo: '/kohat-logo.jpg', city: 'Kohat, KPK' },
-  { name: 'Petaro', slug: 'petaro', logo: '/petaro-logo.png', city: 'Jamshoro, Sindh' },
-  { name: 'PAF Lower Topa', slug: 'lower-topa', logo: '/paf-lower-topa-logo.png', city: 'Murree, Punjab' },
+const EXAMS = [
+  { name: 'MDCAT', mark: '🩺', note: 'PMDC syllabus — all Pakistan' },
+  { name: 'NUMS', mark: '🎖️', note: 'National University of Medical Sciences' },
+  { name: 'UHS', mark: '🧬', note: 'University of Health Sciences, Lahore' },
+  { name: 'SZABMU', mark: '⚕️', note: 'Shaheed Zulfiqar Ali Bhutto Medical University' },
 ]
 
-interface CollegeSelectorProps {
+interface ExamSelectorProps {
   selectedCollege: string | null
   onSelect: (college: string | null) => void
 }
 
-export function CollegeSelector({ selectedCollege, onSelect }: CollegeSelectorProps) {
+export function CollegeSelector({ selectedCollege, onSelect }: ExamSelectorProps) {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(false)
@@ -47,7 +44,7 @@ export function CollegeSelector({ selectedCollege, onSelect }: CollegeSelectorPr
   return (
     <div className="mb-6">
       <div className="flex items-center justify-between mb-3">
-        <h2 className="text-sm font-semibold text-white/60 uppercase tracking-wider">Choose your college</h2>
+        <h2 className="text-sm font-semibold text-white/60 uppercase tracking-wider">Choose your exam</h2>
         {selectedCollege && (
           <button
             onClick={() => onSelect(null)}
@@ -72,12 +69,12 @@ export function CollegeSelector({ selectedCollege, onSelect }: CollegeSelectorPr
           className="flex gap-3 overflow-x-auto pb-2 px-1"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {COLLEGES.map((college) => {
-            const isSelected = selectedSlug.includes(college.slug)
+          {EXAMS.map((exam) => {
+            const isSelected = selectedSlug.includes(exam.name.toLowerCase())
             return (
               <button
-                key={college.slug}
-                onClick={() => onSelect(isSelected ? null : college.name)}
+                key={exam.name}
+                onClick={() => onSelect(isSelected ? null : exam.name)}
                 className={
                   'shrink-0 flex items-center gap-3 px-4 py-3 rounded-[var(--radius-lg)] border transition-all duration-300 min-w-[180px] ' +
                   (isSelected
@@ -85,14 +82,17 @@ export function CollegeSelector({ selectedCollege, onSelect }: CollegeSelectorPr
                     : 'border-white/[0.08] bg-white/[0.03] hover:border-white/[0.15] hover:bg-white/[0.06]')
                 }
               >
-                <div className="relative w-10 h-10 rounded-lg overflow-hidden shrink-0 bg-white/[0.06] flex items-center justify-center">
-                  <Image src={college.logo} alt={college.name} fill sizes="40px" className="object-contain" />
-                </div>
+                <span
+                  aria-hidden="true"
+                  className="flex w-10 h-10 rounded-lg shrink-0 items-center justify-center bg-white/[0.06] text-xl"
+                >
+                  {exam.mark}
+                </span>
                 <div className="text-left min-w-0">
                   <p className={'text-sm font-bold truncate ' + (isSelected ? 'text-[var(--color-primary-light)]' : 'text-white')}>
-                    {college.name}
+                    {exam.name}
                   </p>
-                  <p className="text-[10px] text-white/40 truncate">{college.city}</p>
+                  <p className="text-[10px] text-white/40 truncate">{exam.note}</p>
                 </div>
               </button>
             )

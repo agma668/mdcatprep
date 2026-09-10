@@ -26,8 +26,8 @@ export default function FounderPage() {
               <div className="w-full aspect-[2/1] rounded-[var(--radius-xl)] overflow-hidden ring-2 ring-[var(--color-primary)]/30 shadow-[var(--glow-signal-md)] bg-[var(--srf-1)]">
                 <Image src="/founder-photo.jpg" alt="Muhammad Haziq Khan Miankhail" width={800} height={400} className="w-full h-full object-cover object-center" priority />
               </div>
-              <div className="absolute -bottom-3 -right-3 w-12 h-12 rounded-full bg-[var(--srf-1)] border-2 border-[var(--color-primary)] shadow-[var(--shadow-md)] p-0.5">
-                <Image src="/cch-logo.png" alt="Cadet College Hasan Abdal" width={48} height={48} className="w-full h-full object-contain rounded-full" />
+              <div className="absolute -bottom-3 -right-3 w-12 h-12 rounded-full bg-[var(--srf-1)] border-2 border-[var(--color-primary)] shadow-[var(--shadow-md)] p-0.5 flex items-center justify-center">
+                <span aria-hidden="true" className="text-xl">🩺</span>
               </div>
             </div>
           </div>
@@ -36,7 +36,7 @@ export default function FounderPage() {
             Muhammad Haziq Khan
           </h1>
           <p className="mt-2 text-center text-sm font-medium text-white/70">
-            Founder of Cadet College Prep · CCH Alumni
+            Founder of MED Prep · CCH Alumni
           </p>
 
           <div className="mt-8 space-y-5 text-[15px] text-white/85 leading-relaxed">
@@ -50,28 +50,29 @@ export default function FounderPage() {
               After graduating from CCH, Haziq noticed something that had always
               bothered him: students from smaller cities often have the same
               ambition and potential as students from bigger cities, but they do
-              not always have access to the same opportunities and resources. He
-              felt that where a student comes from should not determine how far
-              they can go.
+              not always have access to the same opportunities and resources —
+              especially for the MDCAT, where a single test decides who gets a
+              medical seat. He felt that where a student comes from should not
+              determine how far they can go.
             </p>
             <p>
-              Cadet College Prep started with a simple belief: where you&apos;re from
+              MED Prep started with a simple belief: where you&apos;re from
               shouldn&apos;t decide where you end up. Every student in Pakistan
-              deserves a fair opportunity to get into a good college. That is
+              deserves a fair shot at the medical seat they dream of. That is
               why the platform is free. Education should be accessible to
               everyone.
             </p>
             <p>
               For Haziq, however, this is about more than just a platform. It is
               about giving back and helping others move forward. Whether it is
-              teaching a student in Wana how to solve an algebra problem or
-              encouraging a student from a small town to believe that CCH is
-              within their reach, the purpose remains the same: to make a
+              teaching a student in Wana how to tackle a Biology MCQ or
+              encouraging a student from a small town to believe that an MBBS
+              seat is within their reach, the purpose remains the same: to make a
               meaningful contribution, uphold his values, and leave things a
               little better than he found them.
             </p>
             <p className="text-white/60 italic">
-              If Cadet College Prep helps even one student reach the college they
+              If MED Prep helps even one student reach the medical college they
               once thought was beyond their reach, then it will have been worth
               it.
             </p>

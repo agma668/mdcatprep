@@ -6,83 +6,84 @@ import { getSiteUrl, getWhatsAppLink } from "@/lib/site";
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
-  title: "FAQ — Cadet College Entry Test Preparation Questions Answered",
+  title: "FAQ — MDCAT & NUMS Preparation Questions Answered",
   description:
-    "Answers to every question about cadet college entry tests in Pakistan — CCH, PAF Sargodha, MCJ, Kohat. Syllabus, preparation, fees, admission process and more.",
+    "Answers to every question about MDCAT and NUMS preparation in Pakistan — syllabus, marks distribution, registration, dates, eligibility and study strategy.",
   keywords: [
-    "cadet college FAQ",
-    "CCH entry test questions",
-    "cadet college admission process Pakistan",
-    "how to prepare for cadet college",
-    "cadet college fees Pakistan",
-    "military college vs cadet college",
-    "CCH syllabus 2026",
-    "PAF Sargodha entry test pattern",
-    "cadet college age limit",
-    "cadet college preparation tips",
+    "MDCAT FAQ",
+    "MDCAT questions Pakistan",
+    "MDCAT syllabus 2026",
+    "NUMS entry test questions",
+    "MDCAT marks distribution",
+    "MDCAT registration process",
+    "MDCAT eligibility FSc pre-medical",
+    "how to prepare for MDCAT",
+    "MDCAT preparation tips",
+    "MDCAT vs NUMS difference",
   ],
   openGraph: {
     type: "website",
     url: `${siteUrl}/faq`,
-    title: "FAQ — Cadet College Entry Test Questions | Cadet College Prep",
-    description:
-      "Answers to every question about cadet college entry tests in Pakistan.",
-    siteName: "Cadet Prep",
-    images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: "Frequently Asked Questions — Cadet College Prep" }],
+    title: "FAQ — MDCAT & NUMS Questions | MED Prep",
+    description: "Answers to every question about MDCAT and NUMS preparation in Pakistan.",
+    siteName: "MED Prep",
+    images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: "Frequently Asked Questions — MED Prep" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "FAQ | Cadet College Prep",
-    description: "All your cadet college questions answered.",
+    title: "FAQ | MED Prep",
+    description: "All your MDCAT and NUMS questions answered.",
     images: [`${siteUrl}/og.png`],
   },
   alternates: { canonical: "/faq" },
 };
 
+// Fact-checked answers. Date claims carry their source; pattern claims match
+// the published PMDC MDCAT structure. No invented statistics.
 const FAQS = [
   {
     category: "General",
     items: [
       {
-        q: "What is Cadet College Prep?",
-        a: "Cadet College Prep (Cadet Prep) is a free online preparation platform for cadet and military college entry tests in Pakistan. It provides exam-style MCQ practice, study notes, progress analytics, and live WhatsApp mentorship — all at no cost.",
+        q: "What is MED Prep?",
+        a: "MED Prep is a free online preparation platform for MDCAT and NUMS in Pakistan. It provides exam-style MCQ practice, master concept notes, repeat-fact high-yield notes, progress analytics, and WhatsApp mentorship — all at no cost.",
       },
       {
-        q: "Is Cadet College Prep really free?",
-        a: "Yes. The full question bank, study notes, progress dashboard, and WhatsApp group classes are completely free. There is no trial period, no credit card required, and no expiry. Premium one-on-one mentoring is available for Rs. 6,000 but is optional.",
+        q: "Is MED Prep really free?",
+        a: "Yes. The full question bank, study notes, progress dashboard, and WhatsApp group are completely free. There is no trial period, no credit card required, and no expiry. Premium one-on-one mentoring is available for Rs. 6,000 but is optional.",
       },
       {
-        q: "Which colleges does Cadet College Prep cover?",
-        a: "Cadet College Prep covers CCH Hasanabdal, PAF College Sargodha, Military College Jhelum (MCJ), Cadet College Kohat, Cadet College Petaro, Cadet College Razmak, Military College Murree, and more. Each college's material is tailored to its specific syllabus.",
+        q: "Who can use MED Prep?",
+        a: "Any student preparing for medical entry tests in Pakistan — FSc pre-medical, A-Level, and repeater students alike. The material is written from the PMDC MDCAT syllabus, which every public and private medical college admission test in Pakistan draws from.",
       },
       {
-        q: "Who founded Cadet College Prep?",
-        a: "Cadet College Prep was founded by Muhammad Haziq Khan Miankhail, a CCH Hasanabdal alumni from Quetta, Balochistan. He built Cadet College Prep to make quality cadet college preparation accessible to students across Pakistan.",
+        q: "Who founded MED Prep?",
+        a: "MED Prep was founded by Muhammad Haziq Khan Miankhail, a student from Quetta, Balochistan. He built MED Prep to make quality MDCAT and NUMS preparation accessible to students across Pakistan, free of charge.",
       },
     ],
   },
   {
-    category: "Entry Tests & Syllabus",
+    category: "MDCAT & NUMS: Tests, Syllabus and Dates",
     items: [
       {
-        q: "What is the CCH Hasanabdal entry test pattern?",
-        a: "The CCH entry test has 4 sections: Section A — Mathematics (50 marks), Section B — English + Islamiat (40+10 marks), Section C — General Science 25 MCQs (50 marks), Section D — Urdu (50 marks). Total: 200 marks in 3 hours.",
+        q: "What is the difference between MDCAT and NUMS?",
+        a: "MDCAT is the national medical admission test conducted by PMDC (Pakistan Medical and Dental Council) — it is mandatory for MBBS/BDS admission in public and private colleges. NUMS (National University of Medical Sciences) runs its own entry test for its affiliated institutions; NUMS MDCAT is held separately, usually before the national MDCAT.",
       },
       {
-        q: "What subjects are tested in PAF Sargodha entry test?",
-        a: "PAF College Sargodha tests Mathematics, English, General Knowledge, and Analytical Reasoning. The analytical reasoning section is unique to PAF and requires pattern recognition and logical thinking practice.",
+        q: "What subjects are in the MDCAT, and what is the marks distribution?",
+        a: "The PMDC MDCAT paper is 200 MCQs: Biology 68, Chemistry 56, Physics 56, English 20. The difficulty ratio is roughly 70% easy-to-moderate and 30% hard. Biology carries the most weight, so your study plan should reflect that.",
       },
       {
-        q: "What is the MCJ Jhelum entry test pattern?",
-        a: "Military College Jhelum tests Mathematics, English, General Science, and Aptitude. The test evaluates both academic knowledge and problem-solving ability.",
+        q: "When is the MDCAT 2026 exam?",
+        a: "The national MDCAT 2026 was rescheduled by PMDC and will be held on Sunday, 20 September 2026 (source: PMDC public notice and Dawn, 2026-08-06). NUMS MDCAT 2026 is on Sunday, 13 September 2026 (source: numspak.edu.pk). Always confirm on pmdc.pk and numspak.edu.pk for last-minute changes.",
       },
       {
-        q: "What is the age limit for cadet college admission?",
-        a: "Most cadet colleges accept students after Class 7 or Class 8 (for O-Level / Class 9 entry). The typical age range is 12-14 years. Always check the official announcement for the specific college and year.",
+        q: "What is the eligibility criteria for MDCAT?",
+        a: "You need at least 60% marks in FSc pre-medical (or an equivalent A-Level combination of Biology, Chemistry and Physics). DAE and other equivalent holders should verify their case with PMDC directly. There is no age limit.",
       },
       {
-        q: "How long should I prepare for the entry test?",
-        a: "We recommend 3-6 months of consistent preparation. Students who practice 1-2 hours daily on Cadet College Prep typically see significant improvement within 6-8 weeks.",
+        q: "How many times can I attempt MDCAT?",
+        a: "There is currently no limit on MDCAT attempts — repeaters sit the test every year. A gap year with focused practice is a common and proven route to a better score.",
       },
     ],
   },
@@ -90,37 +91,41 @@ const FAQS = [
     category: "Preparation & Practice",
     items: [
       {
-        q: "How do I prepare for CCH entry test at home?",
-        a: "1) Sign up on Cadet College Prep for free. 2) Start with the subject-wise MCQ practice. 3) Follow the structured study plan. 4) Take mock tests weekly. 5) Review your analytics to identify weak areas. 6) Join the WhatsApp group for guidance.",
+        q: "How do I prepare for MDCAT at home?",
+        a: "1) Sign up on MED Prep for free. 2) Start subject-wise MCQ practice, Biology first. 3) Read the master concept notes for every topic you miss. 4) Use the high-yield repeat-fact notes in the last month — they come from analysis of thousands of real past-paper questions. 5) Take timed mock tests weekly. 6) Review your analytics to find weak areas and fix them.",
       },
       {
-        q: "Does Cadet College Prep have past papers?",
-        a: "Cadet College Prep's question bank is designed to match the exact format and difficulty of real entry tests. While we don't publish official past papers (they are copyrighted by the colleges), our MCQs are modeled after the actual test patterns.",
+        q: "Does MED Prep have past papers?",
+        a: "Our high-yield notes are built from analysis of real MDCAT papers and mocks — over 2,000 questions parsed, with repeat facts marked by how often they appear. The exam-style MCQ bank models the actual test pattern. Official past papers belong to their examining bodies, so we teach the facts that repeat instead of republishing them.",
       },
       {
-        q: "Can I use Cadet College Prep on my phone?",
-        a: "Yes. Cadet College Prep works on any smartphone or computer with an internet connection. The platform is fully responsive and works great on mobile browsers.",
+        q: "Can I use MED Prep on my phone?",
+        a: "Yes. MED Prep works on any smartphone or computer with an internet connection, and it is fully installable as a PWA (Add to Home Screen) so your streaks and practice stay one tap away — even on slow connections.",
       },
       {
         q: "How does the progress tracking work?",
-        a: "Cadet College Prep tracks every question you answer, calculates your accuracy per subject and topic, shows your daily streak, and provides weekly progress reports. The analytics dashboard shows trends, weak areas, and recommended next steps.",
+        a: "MED Prep tracks every question you answer, calculates your accuracy per subject and topic, shows your daily streak, and provides weekly progress reports. The analytics dashboard shows trends, weak areas, and recommended next steps.",
+      },
+      {
+        q: "How long should I prepare for MDCAT?",
+        a: "Most students need 3–6 months of consistent preparation after covering FSc coursework. Repeating students often sharpen in 6–10 weeks. What matters is daily practice with analytics: 1–2 focused hours beats long passive reading.",
       },
     ],
   },
   {
-    category: "Cadet vs Military College",
+    category: "Admissions & Merit",
     items: [
       {
-        q: "What is the difference between a cadet college and a military college?",
-        a: "Cadet colleges are run by private trusts or provincial governments and focus on academic preparation with military-style discipline. Military colleges are directly operated by the armed forces and provide full military training. Both have competitive entry tests.",
+        q: "How is the final medical admission merit calculated?",
+        a: "Public-sector merit combines MDCAT score with your FSc marks (the exact MDCAT-to-FSc weighting is set per admission cycle by PMDC and the provincial admitting universities). Private colleges weigh MDCAT more heavily. Check your target university's admission notice for the current formula.",
       },
       {
-        q: "Which is better — CCH or MCJ?",
-        a: "Both are excellent. CCH Hasanabdal is one of the most prestigious cadet colleges with a strong academic focus. MCJ Jhelum is a military college with more rigorous military training. Your choice depends on your career goals and preferences.",
+        q: "Which universities accept MDCAT vs NUMS scores?",
+        a: "All public and private medical and dental colleges in Pakistan accept PMDC MDCAT. NUMS and its affiliated military hospitals and colleges accept the NUMS test. Some private institutions accept both — always verify with the specific college's prospectus.",
       },
       {
-        q: "Can I join the army after cadet college?",
-        a: "Yes. Cadet college graduates can appear in ISSB (Inter-Services Selection Board) and join the Pakistan Armed Forces. Many cadet college alumni become officers in the Army, Navy, and Air Force.",
+        q: "Can I apply for MBBS and BDS with the same test?",
+        a: "Yes. One MDCAT score covers both MBBS and BDS admission applications in the same cycle.",
       },
     ],
   },
@@ -129,14 +134,14 @@ const FAQS = [
     items: [
       {
         q: "How do I sign up?",
-        a: "Click 'Sign Up Free' on the homepage. Enter your name, phone number, email, and select your target college. Your account will be reviewed by admin and approved within 24 hours.",
+        a: "Click 'Sign Up Free' on the homepage. Enter your name, email, and optionally your phone and exam target. Your account is reviewed by admin and approved — then you can log in and start practising.",
       },
       {
         q: "I forgot my password. How do I reset it?",
-        a: "Click 'Forgot Password' on the login page. Enter your email address and you will receive a password reset link within minutes.",
+        a: "Click 'Forgot Password' on the login page. Enter your email address and you will receive a password reset link.",
       },
       {
-        q: "How do I contact Cadet College Prep?",
+        q: "How do I contact MED Prep?",
         a: "You can reach Muhammad Haziq directly on WhatsApp at 0319-3051175. You can also join the WhatsApp group from the link on the homepage for guidance and updates.",
       },
     ],
@@ -173,7 +178,7 @@ export default function FAQPage() {
               Frequently Asked <span className="text-[var(--color-accent-light)]">Questions</span>
             </h1>
             <p className="text-lg text-white/70 max-w-2xl">
-              Everything students and parents ask about cadet college entry tests, Cadet College Prep, and preparation strategy.
+              Everything students and parents ask about MDCAT and NUMS preparation, MED Prep, and study strategy.
             </p>
           </div>
         </section>

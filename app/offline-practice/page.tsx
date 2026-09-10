@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { OfflinePractice } from "./OfflinePractice";
 
 export const metadata: Metadata = {
-  title: "Offline Practice — Cadet College Prep",
+  title: "Offline Practice — MED Prep",
   robots: { index: false, follow: false },
 };
 

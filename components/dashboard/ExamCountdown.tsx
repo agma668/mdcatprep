@@ -2,33 +2,36 @@
 
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { Clock, Zap } from "lucide-react";
-import Image from "next/image";
 
 /**
- * Time remaining until each cadet-college entry test.
+ * Time remaining until each medical entry test (MDCAT / NUMS).
  *
  * The four cards used to be four different hues — amber, sky, emerald, violet —
- * and the hue encoded nothing: the colour of a card told you nothing about the
- * college or about the test. They now share one steel surface and the single
- * accent goes to the test that is actually nearest, which is information. The
- * colleges are told apart by their own crest and their name, and the nearest one
- * also says "next up" in words, so the ranking does not rest on colour alone.
+ * and the hue encoded nothing. They now share one steel surface and the single
+ * accent goes to the test that is actually nearest. The tests are told apart
+ * by an emoji mark and their name, and the nearest one also says "next up" in
+ * words, so the ranking does not rest on colour alone.
  *
- * Every date below is a published entry-test date held as a fixture. Nothing in
- * this component is derived from student data, and nothing is estimated.
+ * DATE PROVENANCE (the honesty rule — every date here is sourced):
+ *   - NUMS MDCAT 2026 — Sunday 13 September 2026. Official announcement:
+ *     numspak.edu.pk/news ("NUMS MDCAT-2026 shall be held on Sunday, 13th
+ *     September 2026"), corroborated by national press.
+ *   - MDCAT 2026 (PMDC) — Sunday 20 September 2026. Official rescheduling
+ *     notice on pmdc.pk (originally 16 August 2026, moved to 20 September by
+ *     PMDC press release, corroborated by Dawn, 2026-08-06).
+ * If a date changes, update it here with its source. Nothing in this
+ * component is derived from student data, and nothing is estimated.
  */
 
 interface Exam {
   name: string;
   date: string;
-  logo: string;
+  mark: string;
 }
 
 const EXAMS: Exam[] = [
-  { name: "CCH Entry Test", date: "2026-10-15", logo: "/cch-logo.png" },
-  { name: "PAF Sargodha", date: "2026-10-25", logo: "/paf-sargodha-logo.png" },
-  { name: "MCJ Jhelum", date: "2026-11-05", logo: "/mcj-jhelum-logo.jpg" },
-  { name: "Kohat Cadet", date: "2026-11-20", logo: "/kohat-logo.jpg" },
+  { name: "NUMS MDCAT 2026", date: "2026-09-13", mark: "🎖️" },
+  { name: "PMDC MDCAT 2026", date: "2026-09-20", mark: "🩺" },
 ];
 
 // The gauge under each countdown fills across the last quarter-year before a
@@ -84,10 +87,14 @@ function DigitBlock({ value, label, near }: { value: number; label: string; near
   );
 }
 
-function CollegeCrest({ name, logo }: { name: string; logo: string }) {
+function ExamMark({ name, mark }: { name: string; mark: string }) {
   return (
-    <span className="flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded-[6px] bg-[var(--srf-3)]">
-      <Image src={logo} alt={`${name} crest`} width={28} height={28} className="object-contain" />
+    <span
+      aria-hidden="true"
+      title={name}
+      className="flex h-7 w-7 shrink-0 items-center justify-center rounded-[6px] bg-[var(--srf-3)] text-sm"
+    >
+      {mark}
     </span>
   );
 }
@@ -125,8 +132,8 @@ export function ExamCountdown() {
           <Clock className="h-4 w-4 text-[var(--signal-300)]" aria-hidden="true" />
         </span>
         <div>
-          <h2 className="text-sm font-bold text-[var(--steel-100)]">Upcoming Entry Tests</h2>
-          <p className="text-[11px] text-[var(--steel-400)]">Countdown to your dream college</p>
+          <h2 className="text-sm font-bold text-[var(--steel-100)]">Upcoming Medical Entry Tests</h2>
+          <p className="text-[11px] text-[var(--steel-400)]">Countdown to test day</p>
         </div>
         {urgent && (
           <span className="ml-auto flex items-center gap-1 rounded-[var(--r-pill)] border border-[rgba(251,191,36,0.35)] bg-[rgba(251,191,36,0.1)] px-2.5 py-1 text-[10px] font-bold tracking-wide text-[var(--warn)]">
@@ -158,7 +165,7 @@ export function ExamCountdown() {
                   `truncate` turned "CCH Entry Test" into "CCH …" — the college
                   name is the one label on this card that has to survive. */}
               <div className="mb-3 flex items-center gap-2">
-                <CollegeCrest name={exam.name} logo={exam.logo} />
+                <ExamMark name={exam.name} mark={exam.mark} />
                 <p className="text-xs font-semibold leading-tight text-[var(--steel-200)]">{exam.name}</p>
               </div>
 

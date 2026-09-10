@@ -5,21 +5,21 @@ import { getWhatsAppLink } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Cadet College Prep collects, uses and protects your data — practice records, account details, offline copies and telemetry.",
+    "How MED Prep collects, uses and protects your data — practice records, account details, offline copies and telemetry.",
 };
 
 const SECTIONS: { heading: string; body: string[] }[] = [
   {
     heading: "Who we are",
     body: [
-      "Cadet College Prep (“we”, “us”) is a non-profit community initiative helping students prepare for cadet and military college entry tests across Pakistan. This policy explains what we collect, why, and the choices you have — including deletion of your entire account.",
+      "MED Prep (“we”, “us”) is a non-profit community initiative helping students prepare for MDCAT, NUMS and other medical entry tests across Pakistan. This policy explains what we collect, why, and the choices you have — including deletion of your entire account.",
       "Questions about this policy can go to the founder directly on WhatsApp at 0319-3051175 (this is the same number printed across the site), or through the feedback button on any page.",
     ],
   },
   {
     heading: "Data you give us",
     body: [
-      "Account and application data. When you sign up we store your full name, email address, phone number and chosen exam target (for example “CCH”) in our database (hosted with Supabase). These details are used to run the enrollment and approval process, to personalise your dashboard and study plan, and so we can contact you about your application. Passwords are stored by Supabase Auth in hashed form — we never see or store your plain password.",
+      "Account and application data. When you sign up we store your full name, email address, phone number and chosen exam target (for example “MDCAT”) in our database (hosted with Supabase). These details are used to run the enrollment and approval process, to personalise your dashboard and study plan, and so we can contact you about your application. Passwords are stored by Supabase Auth in hashed form — we never see or store your plain password.",
       "Practice data. Your answers, scores, accuracy, streaks, mistakes and time spent are stored on your account so the analytics dashboard, mistake notebook and leaderboard can work. This is the core product data — it is yours, and it is deleted when you delete your account.",
       "Content you create. Study notes you upload are stored and shown to other students once approved; if you delete your account, published notes remain but lose the link to your name.",
       "Feedback. Messages sent through the feedback button are stored with the page you were on, and (if you were signed in) your account id so we can reply. Anonymous visitors send feedback without any identifier.",
@@ -151,7 +151,7 @@ export default function PrivacyPage() {
         </div>
 
         <p className="mt-8 text-center text-xs text-[var(--steel-400)]">
-          Cadet College Prep · non-profit community initiative · Quetta, Pakistan
+          MED Prep · non-profit community initiative · Quetta, Pakistan
         </p>
       </div>
     </div>

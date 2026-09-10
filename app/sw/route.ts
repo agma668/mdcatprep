@@ -151,7 +151,7 @@ self.addEventListener('fetch', (event) => {
 // Push notification
 self.addEventListener('push', (event) => {
   const data = event.data?.json() || {
-    title: 'Cadet College Prep',
+    title: 'MED Prep',
     body: 'Time to practice!',
     icon: '/icon-192.png',
     badge: '/badge-72.png',

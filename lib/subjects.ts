@@ -1,14 +1,12 @@
 /**
- * Canonical subject list for the CCH entry test, used by the notes upload
- * dropdown and the subject tiles on the student practice/notes pages.
+ * Canonical subject list for the PMDC MDCAT syllabus, used by the notes
+ * upload dropdown and the subject tiles on the student practice/notes pages.
  */
 export const CCH_SUBJECTS = [
-  { name: 'Islamiat', icon: '🕌' },
+  { name: 'Biology', icon: '🧬' },
+  { name: 'Chemistry', icon: '⚗️' },
+  { name: 'Physics', icon: '⚛️' },
   { name: 'English', icon: '📖' },
-  { name: 'Urdu', icon: '📝' },
-  { name: 'Mathematics', icon: '📐' },
-  { name: 'General Science', icon: '🔬' },
-  { name: 'General Knowledge', icon: '🌍' },
 ] as const
 
 export const CCH_SUBJECT_NAMES: readonly string[] = CCH_SUBJECTS.map(s => s.name)
@@ -23,28 +21,27 @@ export function subjectIcon(name: string | null | undefined): string {
 
 
 /**
- * College-specific subject mappings.
- * Each college entry test covers specific subjects. Students should only
- * see subjects relevant to their target college.
+ * Exam-specific subject mappings. Each entry test covers specific subjects.
+ * Students should only see subjects relevant to their target exam. MDCAT and
+ * NUMS share the PMDC syllabus (NUMS adds a Logical Reasoning section the
+ * bank does not have yet — honest count comes from the DB, not this list).
  */
 export const COLLEGE_SUBJECTS: Record<string, readonly string[]> = {
-  'CCH': ['Mathematics', 'English', 'General Science', 'Islamiat', 'Urdu'],
-  'Hasanabdal': ['Mathematics', 'English', 'General Science', 'Islamiat', 'Urdu'],
-  'PAF': ['Mathematics', 'English', 'General Knowledge', 'Intelligence Test'],
-  'Sargodha': ['Mathematics', 'English', 'General Knowledge', 'Intelligence Test'],
-  'MCJ': ['Mathematics', 'English', 'General Knowledge', 'Islamiat', 'Urdu'],
-  'Jhelum': ['Mathematics', 'English', 'General Knowledge', 'Islamiat', 'Urdu'],
-  'Kohat': ['Mathematics', 'English', 'General Knowledge', 'Islamiat', 'Urdu'],
-  'Petaro': ['Mathematics', 'English', 'General Science', 'Islamiat'],
-  'Razmak': ['Mathematics', 'English', 'General Knowledge', 'Islamiat'],
-  'Murree': ['Mathematics', 'English', 'General Knowledge', 'Islamiat'],
+  'MDCAT': ['Biology', 'Chemistry', 'Physics', 'English'],
+  'NUMS': ['Biology', 'Chemistry', 'Physics', 'English'],
+  'UHS': ['Biology', 'Chemistry', 'Physics', 'English'],
+  'SZABMU': ['Biology', 'Chemistry', 'Physics', 'English'],
+  'AKU': ['Biology', 'Chemistry', 'Physics', 'English'],
+  'BIOLOGY': ['Biology'],
+  'CHEMISTRY': ['Chemistry'],
+  'PHYSICS': ['Physics'],
+  'ENGLISH': ['English'],
 }
 
 /**
- * The full subject taxonomy the product covers — the union of every college's
- * subject mapping (the honest source for the landing page's "Subjects" count;
- * today it is 7: Mathematics, English, General Science, General Knowledge,
- * Islamiat, Urdu, Intelligence Test).
+ * The full subject taxonomy the product covers — the union of every exam's
+ * subject mapping (the honest source for subject counts; today it is 4:
+ * Biology, Chemistry, Physics, English).
  */
 export function coveredSubjectCount(): number {
   const all = new Set<string>()
@@ -56,7 +53,7 @@ export function coveredSubjectCount(): number {
 
 /**
  * Given a student's exam_target (free text), return the relevant subjects.
- * Falls back to showing all subjects if no college match is found.
+ * Falls back to showing all subjects if no exam match is found.
  */
 export function getSubjectsForCollege(
   examTarget: string | null | undefined,
@@ -66,7 +63,7 @@ export function getSubjectsForCollege(
 
   const target = examTarget.toLowerCase()
 
-  // Find matching college keywords
+  // Find matching exam keywords
   const matchedSubjects = new Set<string>()
   for (const [keyword, subjects] of Object.entries(COLLEGE_SUBJECTS)) {
     if (target.includes(keyword.toLowerCase())) {

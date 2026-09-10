@@ -73,7 +73,7 @@ export function AntiCopy() {
       <style>{`
         @media print {
           body::after {
-            content: "© ACMA — All rights reserved. Do not copy or redistribute.";
+            content: "© MED Prep — All rights reserved. Do not copy or redistribute.";
             position: fixed; left: 0; right: 0; bottom: 0;
             text-align: center; font-size: 10px; color: #888; padding: 4px;
           }
