@@ -43,10 +43,10 @@ const inputCls =
   'w-full px-4 py-2 border border-white/10 rounded-[var(--radius-md)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] bg-white/[0.04] text-white'
 
 const COLLEGES = [
-  { id: 'cch', name: 'CCH Hasanabdal', syllabusLink: '/dashboard/notes/cch-syllabus', masterLink: '/dashboard/notes/cch-master-notes', practiceLink: '/dashboard/practice?college=CCH' },
-  { id: 'paf', name: 'PAF Sargodha', syllabusLink: '/dashboard/notes/paf-sargodha-syllabus', masterLink: '/dashboard/notes/paf-sargodha-master-notes', practiceLink: '/dashboard/practice?college=PAF' },
-  { id: 'mcj', name: 'MCJ Jhelum', syllabusLink: '/dashboard/notes/mcj-syllabus', masterLink: '/dashboard/notes/mcj-master-notes', practiceLink: '/dashboard/practice?college=MCJ' },
-  { id: 'kohat', name: 'Kohat Cadet', syllabusLink: '/dashboard/notes/kohat-syllabus', masterLink: '/dashboard/notes/kohat-master-notes', practiceLink: '/dashboard/practice?college=Kohat' },
+  { id: 'nums', name: 'NUMS Rawalpindi', syllabusLink: '/dashboard/notes/nums-syllabus', masterLink: '/dashboard/notes/nums-master-notes', practiceLink: '/dashboard/practice?college=NUMS' },
+  { id: 'uhs', name: 'UHS Lahore', syllabusLink: '/dashboard/notes/uhs-syllabus', masterLink: '/dashboard/notes/uhs-master-notes', practiceLink: '/dashboard/practice?college=UHS' },
+  { id: 'aku', name: 'AKU Karachi', syllabusLink: '/dashboard/notes/aku-syllabus', masterLink: '/dashboard/notes/aku-master-notes', practiceLink: '/dashboard/practice?college=AKU' },
+  { id: 'szabmu', name: 'SZABMU Islamabad', syllabusLink: '/dashboard/notes/szabmu-syllabus', masterLink: '/dashboard/notes/szabmu-master-notes', practiceLink: '/dashboard/practice?college=SZABMU' },
 ]
 
 export function NotesPageClient({
