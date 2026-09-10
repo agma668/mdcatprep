@@ -18,7 +18,7 @@ const DIFFERENTIATORS = [
     old: "Fixed class timings, no flexibility",
   },
   {
-    acma: "Exam-style practice questions for all major colleges",
+    acma: "Exam-style practice questions for MDCAT, NUMS & all medical universities",
     old: "Random questions with no exam relevance",
   },
   {
@@ -31,30 +31,28 @@ const DIFFERENTIATORS = [
   },
 ] as const;
 
-// These three are parallel reasons, not a sequence, so they carry an icon each
-// rather than 01/02/03 — numbering would imply an order that doesn't exist.
 const REASONS: { icon: LucideIcon; title: string; description: string }[] = [
   {
     icon: HeartHandshake,
     title: "A Community Service",
     description:
-      "Cadet College Prep is a non-profit initiative — a community effort to help students from every corner of Pakistan access quality exam preparation without barriers.",
+      "MED Prep Platform is a non-profit initiative — a community effort to help pre-medical students from every corner of Pakistan access quality exam preparation without barriers.",
   },
   {
     icon: MapPinned,
-    title: "Trusted by Families Across Pakistan",
+    title: "Trusted by Students Across Pakistan",
     description:
-      "Students from Karachi to Peshawar, from small towns to major cities, use Cadet College Prep to compete on equal footing with students from elite academies.",
+      "Students from Karachi to Peshawar, from small towns to major cities, use MED Prep to compete on equal footing with students from elite coaching academies.",
   },
   {
     icon: Crosshair,
-    title: "Focused on Real Exams",
+    title: "Focused on Real Medical Entrance Tests",
     description:
-      "We know exactly what CCH, PAF, MCJ and the other entry tests require — and we prepare you precisely for that, question by question.",
+      "We know exactly what MDCAT, NUMS, UHS and the other medical entrance tests require — and we prepare you precisely for that, question by question.",
   },
 ];
 
-export function WhyACMA() {
+export function WhyMED() {
   return (
     <section
       id="why-acma"
@@ -69,24 +67,21 @@ export function WhyACMA() {
         <Reveal>
           <div className="mb-14 text-center">
             <Badge variant="glass" className="mb-4">
-              Why Cadet College Prep?
+              Why MED Prep?
             </Badge>
             <h2
               id="why-acma-heading"
               className="mb-4 text-3xl text-[var(--steel-100)] sm:text-4xl"
             >
               Old Coaching vs{" "}
-              <span className="text-[var(--signal-200)]">Cadet College Prep Platform</span>
+              <span className="text-[var(--signal-200)]">MDCAT & NUMS Prep Platform</span>
             </h2>
             <p className="mx-auto max-w-xl text-lg text-[var(--steel-300)]">
-              See how Cadet College Prep compares with traditional coaching, point by point.
+              See how MED Prep compares with traditional coaching, point by point.
             </p>
           </div>
         </Reveal>
 
-        {/* Comparison table. The left column recedes (dim icons, muted type) and
-            the right advances — the contrast between the two columns is the
-            argument, so brightness does the work instead of a colour clash. */}
         <Reveal delay={120}>
           <div className="glass-tile-elevated mx-auto mb-20 max-w-3xl overflow-hidden">
             <div className="grid grid-cols-2 border-b border-[var(--line-2)]">
@@ -97,7 +92,7 @@ export function WhyACMA() {
               </div>
               <div className="bg-[var(--tint-signal-strong)] px-6 py-4">
                 <p className="text-sm font-semibold text-[var(--signal-200)]">
-                  Cadet College Prep Platform
+                  MED Prep Platform
                 </p>
               </div>
             </div>
@@ -114,7 +109,7 @@ export function WhyACMA() {
                   <span className="text-sm text-[var(--steel-400)]">{old}</span>
                 </div>
                 <div className="flex items-center gap-2.5 px-6 py-4">
-                  <Check className="h-4 w-4 shrink-0 text-[var(--ok)]" aria-hidden="true" />
+                  <Check className="h-4 w-4 shrink-0 text-[var(--signal-300)]" aria-hidden="true" />
                   <span className="text-sm font-medium text-[var(--steel-100)]">{acma}</span>
                 </div>
               </div>
@@ -122,26 +117,25 @@ export function WhyACMA() {
           </div>
         </Reveal>
 
-        <Stagger stagger={150} className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {REASONS.map(({ icon: Icon, title, description }) => (
-            <InteractiveTile key={title} className="h-full">
-              <Card
-                variant="glass"
-                className="group feature-tile glass-shine flex h-full flex-col p-6"
+        <Stagger stagger={80}>
+          <div className="grid gap-6 md:grid-cols-3" data-scroll-reveal-stagger>
+            {REASONS.map(({ icon: Icon, title, description }) => (
+              <InteractiveTile
+                key={title}
+                className="feature-tile glass-tile glass-shine p-8"
               >
-                <span
-                  aria-hidden="true"
-                  className="mb-5 flex h-11 w-11 items-center justify-center rounded-[var(--r-2)] border border-[var(--line-signal)] bg-[var(--tint-signal)] text-[var(--signal-300)] transition-transform duration-[var(--dur-2)] ease-[var(--ease-out-quart)] group-hover:-translate-y-0.5"
-                >
-                  <Icon className="h-5 w-5" />
-                </span>
-                <h3 className="mb-3 text-xl text-[var(--steel-100)]">{title}</h3>
+                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-[var(--r-2)] border border-[var(--line-signal)] bg-[var(--tint-signal)] text-[var(--signal-300)]">
+                  <Icon className="h-6 w-6" aria-hidden="true" />
+                </div>
+                <h3 className="font-display mb-2 text-xl font-bold text-[var(--steel-100)]">
+                  {title}
+                </h3>
                 <p className="text-sm leading-relaxed text-[var(--steel-300)]">
                   {description}
                 </p>
-              </Card>
-            </InteractiveTile>
-          ))}
+              </InteractiveTile>
+            ))}
+          </div>
         </Stagger>
       </div>
     </section>

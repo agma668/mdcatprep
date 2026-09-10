@@ -43,7 +43,7 @@ const FEATURES: {
     icon: BookOpen,
     title: "Full Syllabus Coverage",
     description:
-      "Every subject, every topic — Mathematics, English, Science, Urdu, Islamiat, and IQ — structured exactly as the real entry tests.",
+      "Every subject, every topic — Biology, Chemistry, Physics, and English — structured exactly as the real medical entrance tests.",
     badge: "Complete",
     tone: "signal",
   },

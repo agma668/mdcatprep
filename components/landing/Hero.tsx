@@ -129,7 +129,7 @@ export function Hero({
                 </Magnetic>
                 <Magnetic strength={0.18}>
                   <a
-                    href="https://chat.whatsapp.com/HYkBmANpvm1BD4awon23Rw"
+                    href="https://chat.whatsapp.com/GbhjI1A6FvBBtAd4PZR2NU"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex h-13 items-center justify-center gap-2 whitespace-nowrap rounded-[var(--radius-md)] border border-[var(--line-3)] bg-[var(--srf-1)] px-8 text-base font-semibold text-[var(--steel-100)] transition-colors duration-[var(--transition-fast)] hover:border-[var(--line-signal)] hover:bg-[var(--srf-2)]"

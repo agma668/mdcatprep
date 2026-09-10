@@ -16,7 +16,9 @@ import { cookies } from "next/headers";
 //
 // Keep this list in sync with the `role` column in the `profiles` table.
 
-const ADMIN_EMAILS: readonly string[] = ["67129@cch.edu.pk"];
+// TODO: put YOUR real admin email(s) here — whoever signs up with an email
+// on this list becomes the site admin (auto-approved, routed to /admin).
+const ADMIN_EMAILS: readonly string[] = ["admin@medprep.pk"];
 
 export function isAdminEmail(email?: string | null): boolean {
   if (!email) return false;

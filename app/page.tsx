@@ -5,7 +5,7 @@ import { Navbar } from "@/components/landing/Navbar";
 import { Hero } from "@/components/landing/Hero";
 import { Features } from "@/components/landing/Features";
 import { HowItWorks } from "@/components/landing/HowItWorks";
-import { WhyACMA } from "@/components/landing/WhyACMA";
+import { WhyMED } from "@/components/landing/WhyMED";
 import { CollegeCarousel } from "@/components/landing/CollegeCarousel";
 
 import { FAQ, FAQS } from "@/components/landing/FAQ";
@@ -115,7 +115,7 @@ export default async function Home() {
         <div className="py-4">
           <div className="container-page">
             <a
-              href="https://chat.whatsapp.com/HYkBmANpvm1BD4awon23Rw"
+              href="https://chat.whatsapp.com/GbhjI1A6FvBBtAd4PZR2NU"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex flex-col gap-3 rounded-[var(--r-3)] border border-[var(--line-2)] bg-[var(--srf-1)] px-6 py-4 transition-colors duration-[var(--dur-1)] hover:border-[var(--line-3)] hover:bg-[var(--srf-2)] sm:flex-row sm:items-center"
@@ -173,8 +173,8 @@ export default async function Home() {
             <LeaderboardPreview entries={board.entries} stats={board.stats} />
           </section>
         )}
-        <section id="why-acma">
-          <WhyACMA />
+        <section id="why-med">
+          <WhyMED />
         </section>
         <section id="cadet-colleges">
           <CollegeCarousel />

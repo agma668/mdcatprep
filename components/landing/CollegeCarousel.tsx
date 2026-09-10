@@ -8,7 +8,7 @@ import { Reveal, usePrefersReducedMotion } from '@/components/ui/Motion';
 import { COLLEGES, COLLEGES_WITH_PAGES } from '@/lib/college-list';
 
 const HAS_PAGE = COLLEGES_WITH_PAGES;
-const WHATSAPP = 'https://chat.whatsapp.com/HYkBmANpvm1BD4awon23Rw';
+const WHATSAPP = 'https://chat.whatsapp.com/GbhjI1A6FvBBtAd4PZR2NU';
 
 // Only the active card and three neighbours either side are on stage. Fanning
 // all thirteen colleges across the arc pushed the far ones to a 0.1 scale and a

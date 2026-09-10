@@ -87,7 +87,7 @@ export default function CollegePage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/signup" className="inline-flex items-center gap-2 px-6 py-3 rounded-[var(--radius-md)] bg-[var(--color-accent)] text-[var(--color-text-inverse)] font-bold hover:bg-[var(--color-accent-light)] transition-colors">Start Preparing Free</Link>
-              <a href="https://chat.whatsapp.com/HYkBmANpvm1BD4awon23Rw" target="_blank" className="inline-flex items-center gap-2 px-6 py-3 rounded-[var(--radius-md)] bg-white/10 ring-1 ring-white/25 text-white font-bold hover:bg-white/20 transition-colors">Join WhatsApp</a>
+              <a href="https://chat.whatsapp.com/GbhjI1A6FvBBtAd4PZR2NU" target="_blank" className="inline-flex items-center gap-2 px-6 py-3 rounded-[var(--radius-md)] bg-white/10 ring-1 ring-white/25 text-white font-bold hover:bg-white/20 transition-colors">Join WhatsApp</a>
             </div>
           </div>
         </section>

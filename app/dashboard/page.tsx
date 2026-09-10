@@ -186,7 +186,7 @@ export default async function DashboardOverviewPage() {
                 step: "03",
                 title: "Join the community",
                 desc: "Ask questions and get guidance in the WhatsApp group.",
-                href: "https://chat.whatsapp.com/HYkBmANpvm1BD4awon23Rw",
+                href: "https://chat.whatsapp.com/GbhjI1A6FvBBtAd4PZR2NU",
                 external: true,
               },
             ].map(({ step, title, desc, href, external }) => (

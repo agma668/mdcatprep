@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { Reveal, ScaleIn } from "@/components/ui/Motion";
 
-const WHATSAPP_GROUP = "https://chat.whatsapp.com/HYkBmANpvm1BD4awon23Rw";
+const WHATSAPP_GROUP = "https://chat.whatsapp.com/GbhjI1A6FvBBtAd4PZR2NU";
 
 const FREE_FEATURES = [
   "Live online group classes with teachers",
