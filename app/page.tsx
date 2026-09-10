@@ -41,11 +41,11 @@ const faqJsonLd = {
 };
 
 // The free prep offering described on this page: exam-style MCQ practice,
-// mock tests, study notes, and analytics for cadet-college entry tests.
+// mock tests, study notes, and analytics for MDCAT and medical entrance tests.
 const learningResourceJsonLd = {
   "@context": "https://schema.org",
   "@type": "LearningResource",
-  name: "Cadet College Entry Test Preparation",
+  name: "MDCAT & NUMS Medical Entrance Test Preparation",
   description: SITE_DESCRIPTION,
   url: siteUrl,
   provider: {
@@ -58,12 +58,12 @@ const learningResourceJsonLd = {
   isAccessibleForFree: true,
   inLanguage: ["en", "ur"],
   about: [
-    "Cadet College Entry Tests",
-    "CCH Hasanabdal",
-    "PAF College Sargodha",
-    "Military College Jhelum (MCJ)",
-    "Cadet College Kohat",
-    "Cadet College Petaro",
+    "MDCAT",
+    "NUMS",
+    "UHS Medical Entrance",
+    "SZABMU Test",
+    "AKU Medical Test",
+    "KMU CAT",
   ],
   audience: {
     "@type": "EducationalAudience",
@@ -72,9 +72,9 @@ const learningResourceJsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Cadet College & Military College Entry Test Preparation",
+  title: "MDCAT & NUMS Medical Entrance Test Preparation",
   description:
-    "Structured preparation for CCH, PAF Sargodha, MCJ, Kohat and all major cadet and military college entry tests in Pakistan. Exam-style MCQ practice, study notes, and live mentorship.",
+    "Structured preparation for MDCAT, NUMS, UHS, SZABMU, AKU, KMU and all medical university entry tests in Pakistan. Exam-style MCQ practice, study notes, and live analytics.",
 };
 
 // The landing page's numbers come from the live database
@@ -131,10 +131,10 @@ export default async function Home() {
               </span>
               <span className="flex-1">
                 <span className="block text-sm font-semibold text-[var(--steel-100)] sm:text-base">
-                  Preparing for cadet & military colleges?
+                  Preparing for MDCAT, NUMS & Medical Entrance Exams?
                 </span>
                 <span className="mt-0.5 block text-xs text-[var(--steel-300)] sm:text-sm">
-                  Join our WhatsApp group for guidance, updates and discussion.
+                  Join our WhatsApp group for guidance, study material, daily quizzes, and discussion.
                 </span>
               </span>
               <span className="inline-flex shrink-0 items-center gap-1.5 rounded-[var(--r-2)] bg-[var(--whatsapp)] px-4 py-2 text-sm font-semibold text-[var(--color-text-inverse)] transition-[filter] duration-[var(--dur-1)] group-hover:brightness-110">

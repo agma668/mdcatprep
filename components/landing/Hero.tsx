@@ -99,21 +99,21 @@ export function Hero({
               <div className="mb-6 flex justify-center lg:justify-start">
                 <Badge variant="accent">
                   <GraduationCap className="h-3.5 w-3.5" aria-hidden="true" />
-                  Pakistan&apos;s Premier Cadet College Prep Platform
+                  Pakistan&apos;s Premier MDCAT & NUMS Medical Entrance Prep Platform
                 </Badge>
               </div>
 
               <h1 className="mb-6 text-4xl text-[var(--steel-100)] sm:text-5xl md:text-6xl" data-scroll-reveal>
                 Your Path to{" "}
-                <span className="text-gradient">Cadet College</span>{" "}
-                Starts Here.
+                <span className="text-gradient">MDCAT & NUMS</span>{" "}
+                Success Starts Here.
               </h1>
 
               <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-[var(--steel-300)] sm:text-xl" data-scroll-reveal>
-                Free entry-test preparation for CCH, PAF Sargodha, MCJ, Kohat, and Petaro.
+                Free medical entrance exam preparation for MDCAT, NUMS, UHS, SZABMU, AKU, KMU, and all medical universities.
                 Take a quick diagnostic to find your level, then practice{" "}
                 {stats.mcqs.toLocaleString()} exam-style MCQs with instant explanations
-                across Mathematics, English, Urdu, Science, Islamiat, and GK.
+                across Biology, Chemistry, Physics, and English.
               </p>
 
               {/* px-8, not px-10, and both labels are nowrap. On lg the text
@@ -152,49 +152,12 @@ export function Hero({
             </Reveal>
           </div>
 
-          {/* Right visual: crest anchor up top, and the mission card floating over a
-                        constellation of glowing line-icons (the papers' real subjects)
-                        with the brain-and-book motif lit behind it. Lightweight SVG —
-                        the old glossy 3D dodecahedron was the lag source — removed in
-                        favour of these cheap vector layers. */}
-                    <div className="relative mt-2 hidden lg:block">
-                      <div className="relative">
-                        <HeroWireframe />
-                        <div className="brain-book-wrap">
-                          <BrainBookHero />
-                        </div>
-                        <div className="hero-command-card card-sheen relative overflow-hidden rounded-[var(--r-5)] p-5" data-scroll-reveal>
-                <div className="relative flex items-center justify-between border-b border-[var(--line-2)] pb-5">
-                  <div>
-                    <p className="label">Mission control</p>
-                    <h2 className="mt-1 text-xl text-[var(--steel-100)]">Your preparation plan</h2>
-                  </div>
-                  <span className="flex h-11 w-11 items-center justify-center rounded-[var(--r-1)] bg-[linear-gradient(180deg,var(--cta-from)_0%,var(--cta-to)_100%)] text-[var(--on-cta)] shadow-[var(--shadow-cta)]">
-                    <Trophy className="h-5 w-5" aria-hidden="true" />
-                  </span>
-                </div>
-                {/* Inner radius = card radius − card padding (28 − 20), so the
-                    corners stay concentric with the panel. */}
-                <div className="relative mt-6 grid grid-cols-2 gap-3" data-scroll-reveal-stagger>
-                  {[
-                    { icon: Target, label: "Diagnostic", value: "10 min", tone: "text-[var(--signal-300)]" },
-                    { icon: BookOpenCheck, label: "Practice bank", value: `${stats.mcqs.toLocaleString()} MCQs`, tone: "text-[var(--steel-300)]" },
-                    // Beacon is the live-data colour, and this row is the only
-                    // live thing on the card.
-                    { icon: BarChart3, label: "Your progress", value: "Live", tone: "text-[var(--beacon-400)]" },
-                    { icon: Trophy, label: "Your goal", value: "Cadet college", tone: "text-[var(--champagne)]" },
-                  ].map(({ icon: Icon, label, value, tone }) => (
-                    <div key={label} className="rounded-[var(--r-1)] border border-[var(--line-2)] bg-[var(--field-1)] p-4">
-                      <Icon className={`h-5 w-5 ${tone}`} aria-hidden="true" />
-                      <p className="mt-4 text-xs text-[var(--steel-400)]">{label}</p>
-                      <p className="mt-1 text-sm font-semibold text-[var(--steel-100)]">{value}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="relative mt-5 rounded-[var(--r-1)] border border-[var(--line-signal)] bg-[var(--tint-signal)] p-4" data-scroll-reveal>
-                  <div className="flex items-center justify-between gap-2 text-xs text-[var(--steel-300)]"><span>Preparedness</span><strong className="font-semibold text-[var(--signal-200)]">Start today</strong></div>
-                  <div className="mt-3 h-2 overflow-hidden rounded-full bg-[var(--srf-4)]"><div className="h-full w-[42%] rounded-full bg-[linear-gradient(90deg,var(--signal-500),var(--signal-300))]" /></div>
-                </div>
+          {/* Right visual: brain-and-book motif and wireframe */}
+          <div className="relative mt-2 hidden lg:block">
+            <div className="relative flex items-center justify-center min-h-[380px]">
+              <HeroWireframe />
+              <div className="brain-book-wrap">
+                <BrainBookHero />
               </div>
             </div>
           </div>

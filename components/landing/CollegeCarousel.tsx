@@ -99,10 +99,10 @@ export function CollegeCarousel() {
               id="colleges-heading"
               className="mb-3 text-3xl text-[var(--steel-100)] sm:text-4xl"
             >
-              Colleges We <span className="text-[var(--signal-200)]">Prepare You For</span>
+              Medical Universities We <span className="text-[var(--signal-200)]">Prepare You For</span>
             </h2>
             <p className="mx-auto max-w-lg text-base text-[var(--steel-300)]">
-              Exam-style practice tailored to each college&apos;s specific pattern.
+              Exam-style practice tailored for MDCAT, NUMS, and top medical entrance tests.
             </p>
           </div>
         </Reveal>
