@@ -102,10 +102,10 @@ const OWN_RESOURCES: Resource[] = [
     type: "notes",
   },
   {
-    title: "Spaced-Repetition Flashcards (in-app)",
-    url: "/dashboard/flashcards",
+    title: "Spaced-Repetition Flashcards (no signup)",
+    url: "/flashcards",
     description:
-      "Ready-made decks across all four subjects with an Anki-style scheduler — rate Again/Hard/Good/Easy and weak cards return sooner. Free account needed.",
+      "Ready-made decks across all four subjects with an Anki-style scheduler — rate Again/Hard/Good/Easy and weak cards return sooner. Study instantly, no account needed.",
     type: "notes",
   },
   {

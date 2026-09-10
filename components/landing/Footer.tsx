@@ -12,6 +12,7 @@ const FOOTER_LINKS = {
     { label: "Contact", href: "#cta" },
   ],
   Prepare: [
+    { label: "Free Flashcards", href: "/flashcards" },
     { label: "Daily Quiz", href: "/daily-quiz" },
     { label: "Diagnostic Test", href: "/diagnostic" },
     { label: "Resources & Notes", href: "/resources" },

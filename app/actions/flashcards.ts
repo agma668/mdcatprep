@@ -4,6 +4,12 @@ import { revalidatePath } from 'next/cache'
 import { createClient } from '@/lib/supabase/server'
 import { CARDS_BY_ID } from '@/lib/flashcards/flashcards-data'
 import { scheduleCard, type CardRating } from '@/lib/flashcards/srs'
+import type {
+  GradeResult,
+  ResetResult,
+  ReviewRow,
+  ReviewStatePayload,
+} from '@/lib/flashcards/types'
 
 // Flashcard review actions. Card CONTENT is static (shipped in code); only
 // per-student review state is persisted, into flashcard_reviews (RLS: a
@@ -13,27 +19,13 @@ import { scheduleCard, type CardRating } from '@/lib/flashcards/srs'
 // Supabase stalls), the UI shows all-new decks instead of an error. Grading a
 // card, by contrast, is honest — it returns an error the UI can toast rather
 // than silently pretending progress was saved.
+//
+// Row/result types live in lib/flashcards/types.ts, shared verbatim with the
+// guest localStorage backend behind the public /flashcards page. ('use server'
+// modules may only export async functions — import the types from
+// lib/flashcards/types directly.)
 
 const VALID_RATINGS: readonly CardRating[] = ['again', 'hard', 'good', 'easy']
-
-export interface ReviewRow {
-  card_id: string
-  due_at: string
-  interval_days: number
-  repetitions: number
-  ease_factor: number
-  last_rating: string | null
-  last_reviewed_at: string | null
-  times_correct: number
-  times_wrong: number
-}
-
-export interface ReviewStatePayload {
-  /** card_id -> review row. Missing id = never reviewed (new). */
-  byCard: Record<string, ReviewRow>
-  /** True when the table read failed — the UI shows all-new and hides stats. */
-  unavailable: boolean
-}
 
 export async function getFlashcardReviewState(): Promise<ReviewStatePayload> {
   const supabase = await createClient()
@@ -80,20 +72,6 @@ async function probeFailed(
     .eq('student_id', userId)
     .limit(1)
   return Boolean(error)
-}
-
-export interface GradeResult {
-  success: boolean
-  error?: string
-  /** Updated scheduling state for optimistic UI (null when failed). */
-  next?: {
-    cardId: string
-    dueAt: string
-    intervalDays: number
-    repetitions: number
-    easeFactor: number
-    isLearning: boolean
-  }
 }
 
 export async function gradeFlashcard(
@@ -179,7 +157,7 @@ export async function gradeFlashcard(
 }
 
 /** Reset one card's review history (student-initiated "start this card over"). */
-export async function resetFlashcard(cardId: string): Promise<{ success: boolean; error?: string }> {
+export async function resetFlashcard(cardId: string): Promise<ResetResult> {
   const supabase = await createClient()
   const {
     data: { user },

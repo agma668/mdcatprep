@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '', priority: 1 },
     { path: '/founder', priority: 0.8 },
     { path: '/daily-quiz', priority: 0.7 },
+    { path: '/flashcards', priority: 0.8 },
     { path: '/diagnostic', priority: 0.9 },
     { path: '/faq', priority: 0.8 },
     { path: '/resources', priority: 0.9 },

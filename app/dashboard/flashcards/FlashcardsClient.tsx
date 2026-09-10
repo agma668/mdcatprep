@@ -1,18 +1,29 @@
 'use client'
 
-import { useMemo, useReducer, useState, useTransition } from 'react'
-import { gradeFlashcard, resetFlashcard, type ReviewStatePayload, type ReviewRow } from '@/app/actions/flashcards'
+import { useMemo, useReducer, useState, useTransition, type ReactNode } from 'react'
+import { gradeFlashcard, resetFlashcard } from '@/app/actions/flashcards'
 import type { Flashcard, FlashcardDeck } from '@/lib/flashcards/flashcards-data'
 import { isDue } from '@/lib/flashcards/srs'
+import type { FlashcardBackend, ReviewRow, ReviewStatePayload } from '@/lib/flashcards/types'
 
 // Flashcards UI: deck grid -> focused study session (flip + rate) -> back to
-// the grid with updated due counts. All grading goes through the server
-// action; the local reducer mirrors its returned state so counts update
-// instantly without a full re-render from the server.
+// the grid with updated due counts. All grading goes through the injected
+// backend — the server actions on the dashboard, the localStorage twin on the
+// public /flashcards page — so guests and students get the identical study
+// experience. The local reducer mirrors the backend's returned state so
+// counts update instantly without a full re-render.
 
 type Props = {
   decks: FlashcardDeck[]
   initialReviewState: ReviewStatePayload
+  /** Persistence layer. Defaults to the dashboard's server actions. */
+  backend?: FlashcardBackend
+  /** Static banner shown above the deck grid (e.g. the guest notice). */
+  notice?: ReactNode
+  /** Externally-owned review state (guest localStorage via
+   *  useSyncExternalStore). When set, the component stops owning state and
+   *  mirrors its updates through the backend's notifications instead. */
+  reviewStateOverride?: ReviewStatePayload
 }
 
 type Session = {
@@ -78,8 +89,14 @@ function progressLabel(deck: FlashcardDeck, byCard: Record<string, ReviewRow>): 
   return `${learned}/${deck.cards.length}`
 }
 
-export function FlashcardsClient({ decks, initialReviewState }: Props) {
-  const [reviewState, setReviewState] = useState<ReviewStatePayload>(initialReviewState)
+export function FlashcardsClient({ decks, initialReviewState, backend, notice, reviewStateOverride }: Props) {
+  // The dashboard passes initialReviewState from the server and lets the
+  // component own its copy (optimistic updates). Guest surfaces pass
+  // reviewStateOverride backed by useSyncExternalStore over localStorage —
+  // same React state semantics, hydrated after mount without a mismatch.
+  const [ownState, setOwnState] = useState<ReviewStatePayload>(initialReviewState)
+  const reviewState = reviewStateOverride ?? ownState
+  const setReviewState = setOwnState
   const [session, dispatch] = useReducer(reducer, null)
   const [pending, startTransition] = useTransition()
   const [saveError, setSaveError] = useState<string | null>(null)
@@ -138,7 +155,7 @@ export function FlashcardsClient({ decks, initialReviewState }: Props) {
     dispatch({ type: 'rate', rating })
     dispatch({ type: 'next' })
     startTransition(async () => {
-      const result = await gradeFlashcard(card.id, rating)
+      const result = await (backend?.grade ?? gradeFlashcard)(card.id, rating)
       if (result.success && result.next) {
         setReviewState((prev) => ({
           ...prev,
@@ -166,7 +183,7 @@ export function FlashcardsClient({ decks, initialReviewState }: Props) {
 
   const resetCard = (cardId: string) => {
     startTransition(async () => {
-      const result = await resetFlashcard(cardId)
+      const result = await (backend?.reset ?? resetFlashcard)(cardId)
       if (result.success) {
         setReviewState((prev) => {
           const byCard = { ...prev.byCard }
@@ -288,6 +305,12 @@ export function FlashcardsClient({ decks, initialReviewState }: Props) {
   // ── Deck grid view ────────────────────────────────────────────────────
   return (
     <div>
+      {notice && (
+        <div className="glass-tile-glow rounded-[var(--radius-lg)] px-4 py-3 mb-6 text-xs leading-relaxed text-[var(--color-text-secondary)]">
+          {notice}
+        </div>
+      )}
+
       {/* Filters + totals */}
       <div className="flex flex-wrap items-center gap-2 mb-6">
         {subjects.map((s) => (

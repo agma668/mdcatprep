@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { label: "Features", href: "#features" },
   { label: "How It Works", href: "#how-it-works" },
   { label: "Universities", href: "#cadet-colleges" },
+  { label: "Free Flashcards", href: "/flashcards" },
   { label: "Daily Quiz", href: "/daily-quiz" },
   { label: "Founder", href: "/founder" },
   { label: "FAQ", href: "/faq" },
