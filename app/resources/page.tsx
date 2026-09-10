@@ -102,6 +102,20 @@ const OWN_RESOURCES: Resource[] = [
     type: "notes",
   },
   {
+    title: "Spaced-Repetition Flashcards (in-app)",
+    url: "/dashboard/flashcards",
+    description:
+      "Ready-made decks across all four subjects with an Anki-style scheduler — rate Again/Hard/Good/Easy and weak cards return sooner. Free account needed.",
+    type: "notes",
+  },
+  {
+    title: "Interactive Diagrams & Mindmaps (in-app)",
+    url: "/dashboard/diagrams",
+    description:
+      "Tap-to-label diagrams (heart, nephron, digestive system, skeleton) plus collapsible chapter mindmaps — active recall instead of static posters. Free account needed.",
+    type: "notes",
+  },
+  {
     title: "Exam-Style MCQ Practice",
     url: "/signup",
     description:

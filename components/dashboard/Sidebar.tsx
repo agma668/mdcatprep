@@ -17,6 +17,8 @@ import {
   LogOut,
   ClipboardList,
   Trophy,
+  Layers,
+  Network,
 } from "lucide-react";
 
 // The icon well behind each nav glyph. This used to be two strings repeated
@@ -36,6 +38,8 @@ const NAV_ITEMS = [
   { href: "/dashboard/practice", icon: Target, label: "Practice", shortLabel: "Practice" },
   { href: "/dashboard/mock-test", icon: ClipboardList, label: "Mock Test", shortLabel: "Mock Test" },
   { href: "/dashboard/notes", icon: BookOpen, label: "Important Notes", shortLabel: "Notes" },
+  { href: "/dashboard/flashcards", icon: Layers, label: "Flashcards", shortLabel: "Cards" },
+  { href: "/dashboard/diagrams", icon: Network, label: "Diagrams & Mindmaps", shortLabel: "Diagrams" },
   { href: "/dashboard/mistake-notebook", icon: AlertTriangle, label: "Mistake Notebook", shortLabel: "Mistakes" },
   { href: "/dashboard/leaderboard", icon: Trophy, label: "Leaderboard", shortLabel: "Ranks" },
   { href: "/dashboard/profile", icon: User, label: "Profile", shortLabel: "Profile" },
