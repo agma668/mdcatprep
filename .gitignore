@@ -1,0 +1,74 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# local tooling workspace
+/.freebuff/
+
+# agent skill libraries (not product code)
+/.agents/
+/.claude/
+/skills-lock.json
+
+# supabase CLI temp artifacts
+/supabase/.temp/
+
+# Ruflo local secrets and runtime data
+.env
+.env.local
+.env.*.local
+.claude-flow/data/
+.claude-flow/logs/
+.claude-flow/sessions/
+
+# Ruflo mutable runtime state — churns on every run, and .swarm/memory.db is a
+# PLAINTEXT store (doctor: "Encryption at Rest: Off"). Config that the team
+# shares (.claude-flow/config.yaml, CAPABILITIES.md, .mcp.json) IS tracked;
+# none of the below is.
+/.swarm/
+.claude-flow/daemon.pid
+.claude-flow/daemon-state.json
+.claude-flow/harness-active-policy.json
+.claude-flow/memory-package.json
+.claude-flow/metrics/
+.claude-flow/policy/
+.claude-flow/security/
+.claude-flow/swarm/

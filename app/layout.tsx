@@ -1,0 +1,197 @@
+import type { Metadata, Viewport } from "next";
+import { Inter, Sora, Amiri } from "next/font/google";
+import "./globals.css";
+import { getSiteUrl, SITE_DESCRIPTION, getWhatsAppNumber } from "@/lib/site";
+import { AntiCopy } from "@/components/AntiCopy";
+import { Telemetry } from "@/components/Telemetry";
+import FeedbackWidgetMount from "@/components/feedback/FeedbackWidgetMount";
+import { OfflineSyncHarness } from "@/components/OfflineSyncHarness";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+// Display face. Sora's flat-sided bowls and squared terminals read as
+// engineered rather than friendly, which is the register this brand wants;
+// Inter keeps the body copy neutral underneath it. The old --font-jakarta
+// utility still resolves to this stack (see @theme in globals.css), so the
+// eleven components already using font-jakarta need no edit.
+const sora = Sora({
+  variable: "--font-sora",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+// Quranic face for the auth veil's ayah. Amiri is cut for Quran typesetting
+// (full tashkeel support, naskh proportions); next/font self-hosts it like
+// Inter and Sora, so the auth path still touches no third-party origin.
+const amiri = Amiri({
+  variable: "--font-amiri",
+  subsets: ["arabic"],
+  weight: ["400"],
+  display: "swap",
+});
+
+
+const siteUrl = getSiteUrl();
+const whatsapp = "+" + getWhatsAppNumber();
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Cadet College Prep — Free Entry Test Preparation for Cadet Colleges in Pakistan",
+    template: "%s | Cadet College Prep",
+  },
+  description: SITE_DESCRIPTION,
+  keywords: [
+    "cadet college prep",
+    "cadet college entry test",
+    "cadet college preparation free",
+    "CCH preparation",
+    "CCH Hasanabdal entry test",
+    "CCH entry test 2026",
+    "PAF Sargodha",
+    "PAF College Sargodha entry test",
+    "Military College Jhelum",
+    "MCJ entry test",
+    "MCJ Jhelum preparation",
+    "Kohat Cadet College",
+    "Kohat cadet entry test",
+    "Pakistan cadet college admission",
+    "cadet college practice questions free",
+    "cadet college MCQs online free",
+    "cadet college preparation Quetta",
+    "CCH entry test Quetta",
+    "military college prep Pakistan",
+    "cadet college test preparation online",
+    "CCH entry test syllabus",
+    "cadet college admission test 2026",
+    "free MCQ practice Pakistan",
+    "cadet college exam practice",
+    "military college entry test preparation",
+    "cadet college exam practice",
+    "Cadet College Hasanabdal preparation",
+    "Pakistan military school admission test",
+    "cadet college notes free download",
+    "online test preparation Pakistan",
+    "cadet college study material",
+  ],
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: "Cadet Prep",
+    title: "Cadet Prep — Cadet College Entry Test Preparation in Quetta, Pakistan",
+    description: SITE_DESCRIPTION,
+    locale: "en_PK",
+    images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: "Cadet Prep — Cadet College Entry Test Preparation" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cadet Prep — Cadet College Entry Test Preparation in Quetta, Pakistan",
+    description: SITE_DESCRIPTION,
+    images: [`${siteUrl}/og.png`],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "/",
+  },
+  // PWA installability: the manifest is served from app/manifest.ts; the
+  // apple-touch icon and theme color make iOS/Android treat the site as an
+  // installable app (offline practice keeps its own service-worker cache).
+  manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [{ url: "/icon-192.png", sizes: "192x192", type: "image/png" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  appleWebApp: {
+    capable: true,
+    title: "Cadet Prep",
+    statusBarStyle: "black-translucent",
+  },
+};
+
+// themeColor belongs on the viewport export, not metadata (Next warns and
+// drops it otherwise). #090F1B is --field-1: the browser chrome, the PWA
+// splash and the page now agree on one colour instead of three.
+export const viewport: Viewport = {
+  themeColor: "#090F1B",
+  colorScheme: "dark",
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  name: "Cadet College Prep",
+  alternateName: "CCP",
+  description: SITE_DESCRIPTION,
+  url: siteUrl,
+  telephone: whatsapp,
+  areaServed: "PK",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Quetta",
+    addressRegion: "Balochistan",
+    addressCountry: "PK",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer support",
+    telephone: whatsapp,
+    availableLanguage: ["en", "ur"],
+  },
+  knowsAbout: [
+    "Cadet College Entry Tests",
+    "Military College Entry Tests",
+    "CCH",
+    "PAF Sargodha",
+    "Military College Jhelum",
+  ],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Cadet College Prep",
+  url: siteUrl,
+  description: SITE_DESCRIPTION,
+  inLanguage: ["en", "ur"],
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className={`${inter.variable} ${sora.variable} ${amiri.variable}`}>
+      <head>
+        {/* No font preconnects: next/font self-hosts Inter and Sora from our
+            own origin, so handshakes to fonts.googleapis/gstatic were two
+            unused DNS+TLS round trips on every cold mobile load. */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+      </head>
+      {/* Colour lives in globals.css (html/body on --field-1 / --steel-100) so
+          there is one source for it. The old selection:bg-primary/30 emitted
+          nothing — `primary` is not a Tailwind colour here — and ::selection
+          is now a real rule in globals.css. */}
+      <body className="antialiased min-h-screen">
+        <AntiCopy />
+        <FeedbackWidgetMount />
+        <Telemetry />
+        <OfflineSyncHarness />
+        {children}
+      </body>
+    </html>
+  );
+}

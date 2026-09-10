@@ -1,0 +1,14 @@
+{
+  "_comment": "Demo students that give the leaderboard peers to measure against. Real-sounding display names; emails use the reserved .example TLD and the accounts carry random discarded passwords (cannot be logged into). Consumed by scripts/seed-demo-students.mjs (initial history), scripts/topup-demo-students.mjs (tops existing students up to seedTotal when a target is raised), and app/api/cron/demo-activity/route.ts (daily drip). seedTotal = target total questions (a floor the top-up enforces); perDay = average questions the drip adds each day.",
+  "students": [
+    { "name": "Ahmad Raza", "emailPart": "ahmad.raza", "seedTotal": 342, "accuracy": 0.91, "perDay": 8 },
+    { "name": "Usman Tariq", "emailPart": "usman.tariq", "seedTotal": 318, "accuracy": 0.87, "perDay": 6 },
+    { "name": "Hamza Sheikh", "emailPart": "hamza.sheikh", "seedTotal": 305, "accuracy": 0.84, "perDay": 5 },
+    { "name": "Bilal Ahmed", "emailPart": "bilal.ahmed", "seedTotal": 312, "accuracy": 0.9, "perDay": 4 },
+    { "name": "Zainab Fatima", "emailPart": "zainab.fatima", "seedTotal": 296, "accuracy": 0.93, "perDay": 5 },
+    { "name": "Omar Farooq", "emailPart": "omar.farooq", "seedTotal": 288, "accuracy": 0.78, "perDay": 3 },
+    { "name": "Ayesha Siddiqui", "emailPart": "ayesha.siddiqui", "seedTotal": 302, "accuracy": 0.88, "perDay": 3 },
+    { "name": "Talha Javed", "emailPart": "talha.javed", "seedTotal": 294, "accuracy": 0.81, "perDay": 3 },
+    { "name": "Abdullah Khan", "emailPart": "abdullah.khan", "seedTotal": 285, "accuracy": 0.74, "perDay": 2 }
+  ]
+}

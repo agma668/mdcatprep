@@ -1,0 +1,1337 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CADET COLLEGE PREP — DESIGN TOKENS (single source of truth)
+
+   Concept: "Instrument". The site reads like a precision navigation
+   instrument, not a trophy case. Three metals, three jobs:
+
+     STEEL   structure — hairlines, labels, secondary type, icon strokes
+     SIGNAL  action    — links, fills, focus, anything you can press
+     BRASS   insignia  — the crest, the compass mark, the word "free"
+
+   Brass is no longer the interface. It is the medal pinned to it, which is
+   why it survives here in exactly three places and nowhere else.
+
+   Elevation follows Apple's dark-mode rule: a higher surface is a LIGHTER
+   surface, not a heavier shadow. Content surfaces are opaque; translucency
+   (backdrop-filter) is reserved for the navigation layer and never stacked.
+
+   Contrast: every text token below is measured against --field-1 and noted
+   in the comment. Nothing shipped as body copy is under 4.5:1.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Field: the ground plane. Deep navy, never pure black. ─────────────── */
+  --field-0: #05080F; /* page floor, footer                                  */
+  --field-1: #090F1B; /* body background                                     */
+  --field-2: #0D1524; /* banded section                                      */
+
+  /* ── Elevation ladder. Opaque. Lighter = closer to the viewer. ─────────── */
+  --srf-1: #111A2B; /* resting card                                          */
+  --srf-2: #162136; /* raised card, hero command panel                       */
+  --srf-3: #1C2942; /* hover / popover                                       */
+  --srf-4: #24334F; /* pressed / active                                      */
+
+  /* ── Steel: cold structure. Blue-cast neutrals, not grey. ──────────────── */
+  --steel-100: #E8EEF7; /* primary text            16.4:1                    */
+  --steel-200: #C6D2E4; /* strong secondary        11.9:1                    */
+  --steel-300: #A3B3CC; /* secondary text           9.0:1                    */
+  --steel-400: #7E92B0; /* muted text (AA floor)    6.0:1                    */
+  --steel-500: #5C7091; /* NON-TEXT only            3.8:1 — icons, rules     */
+  --steel-600: #42546F; /* strong hairline                                   */
+  --steel-700: #2C3A50; /* hairline                                          */
+  --steel-800: #1C2739; /* faint hairline                                    */
+
+  /* ── Signal: the only colour that means "you can act here". ────────────── */
+  --signal-100: #DCE9FC;
+  --signal-200: #B9D3F9; /* accent text, hover      12.6:1                   */
+  --signal-300: #93BCF6; /* links, accent type       9.8:1                   */
+  --signal-400: #6BA1F0; /* icon accents             7.4:1                   */
+  --signal-500: #3D7EDB; /* glow, gradients          4.8:1                   */
+  --signal-600: #2A62B8; /* CTA fill — white on it   5.9:1                   */
+  --signal-700: #1D4A90; /* CTA fill end             8.6:1 (white on it)     */
+
+  /* ── Beacon: live data only. The pulse dot, "as of" counters. ──────────── */
+  --beacon-300: #9AE6F0;
+  --beacon-400: #5FD3E4; /* live indicator          10.9:1                   */
+  --beacon-600: #1E7F92;
+
+  /* ── Brass: insignia only. Locked to the crest (see docs/BRAND.md). ────── */
+  --brass: #C9A24B;
+  --brass-dim: #8F7233;
+  --brass-bright: #F2DC96;
+  --champagne: #E7CE96; /* the word "free", award type   12.5:1              */
+
+  /* ── Semantic ──────────────────────────────────────────────────────────── */
+  --ok: #34D399; /*        10.0:1 */
+  --warn: #FBBF24; /*      13.4:1 */
+  --danger: #F87171; /*     6.9:1 */
+
+  /* ── Third-party brand. WhatsApp's own green, kept because the button is a
+        door into their app. 8.1:1 as type on --srf-2; anything filled with it
+        takes --color-text-inverse, since white on this green is 2:1. ──────── */
+  --whatsapp: #25D366;
+  --whatsapp-deep: #1EBE57; /* the pressed/hover fill — was a bare hex in 5 files */
+
+  /* ── Interaction surface for the primary CTA (white text, measured) ────── */
+  --cta-from: var(--signal-600);
+  --cta-to: var(--signal-700);
+  --on-cta: #FFFFFF;
+
+  /* ── Hairlines. A lit top edge + a dark bottom edge reads as a machined
+        panel; a uniform 1px box reads as a wireframe. ────────────────────── */
+  --line-1: rgba(232, 238, 247, 0.07); /* faint  */
+  --line-2: rgba(232, 238, 247, 0.11); /* normal */
+  --line-3: rgba(232, 238, 247, 0.17); /* strong */
+  --line-lit: rgba(255, 255, 255, 0.07); /* inset top edge */
+  --line-signal: rgba(147, 188, 246, 0.28);
+  --line-beacon: rgba(95, 211, 228, 0.28); /* live readouts only */
+  --line-brass: rgba(201, 162, 75, 0.3); /* insignia only */
+  --line-ok: rgba(52, 211, 153, 0.3);
+  --line-warn: rgba(251, 191, 36, 0.3);
+  --line-danger: rgba(248, 113, 113, 0.3);
+
+  /* ── Tints. A wash of a token at low alpha, for chips and callouts. Always
+        pair a tint with its own token as the label colour. ────────────────── */
+  --tint-signal: rgba(147, 188, 246, 0.12);
+  --tint-signal-strong: rgba(147, 188, 246, 0.2);
+  --tint-beacon: rgba(95, 211, 228, 0.12);
+  --tint-brass: rgba(201, 162, 75, 0.1);
+  --tint-champagne: rgba(231, 206, 150, 0.1);
+  --tint-ok: rgba(52, 211, 153, 0.12);
+  --tint-warn: rgba(251, 191, 36, 0.12);
+  --tint-danger: rgba(248, 113, 113, 0.12);
+
+  /* ── Raw channels. A canvas fillStyle and a gradient stop with its own alpha
+        both need numbers rather than a colour, so the two effect layers read
+        these instead of carrying a local hex. Keep them in step with the
+        tokens named in the comments. ─────────────────────────────────────── */
+  --rgb-signal: 147, 188, 246; /* = --signal-300 */
+  --rgb-steel: 198, 210, 228; /* = --steel-200  */
+
+  /* ── Shadows. Ambient occlusion only — depth comes from the ladder. ────── */
+  --shadow-sm: 0 1px 2px rgba(2, 5, 12, 0.5);
+  --shadow-md: 0 4px 14px rgba(2, 5, 12, 0.45);
+  --shadow-lg: 0 14px 38px rgba(2, 5, 12, 0.5);
+  --shadow-xl: 0 28px 72px rgba(2, 5, 12, 0.58);
+  --shadow-card: 0 1px 2px rgba(2, 5, 12, 0.5), inset 0 1px 0 var(--line-lit);
+  --shadow-glow: 0 0 40px rgba(61, 126, 219, 0.18);
+  --shadow-cta: 0 6px 22px rgba(29, 74, 144, 0.45);
+  --glow-signal: 0 0 26px rgba(61, 126, 219, 0.22);
+  --glow-brass: 0 0 22px rgba(201, 162, 75, 0.16);
+
+  /* ── Glow. A closed set, because a glow is a claim.
+        Until this pass 69 arbitrary values across 28 components carried their
+        own gold — rgba(201,168,76) mostly, which is #C9A84C, the pre-signal
+        gold and not a brand colour at all. The fills were retinted to signal
+        last pass and the glows were not, so the product shipped blue objects
+        wearing gold haloes: a selected answer chip in QuizOptions.tsx was a
+        signal-blue tile under a 45%-opacity gold halo.
+
+        Recolouring all 69 would have been the easy fix and the wrong one —
+        it keeps the everything-emits-light look that made the old design read
+        dated. So a glow now has to MEAN one of exactly three things, and the
+        glows that meant none of them were deleted rather than retinted:
+
+          -dot / -sm / -md / -lg  signal — "you can act here", or "this is the
+                                  selected one". Size follows the object, not
+                                  the emphasis: -dot for a 6px status dot,
+                                  -lg for a hero CTA.
+          --glow-beacon           live — a number still moving. Same rule as
+                                  the colour it is named for; never decorative.
+          --glow-brass            earned — insignia, rank 1, a streak of a week
+                                  or more. Never a button, border or stat.
+          --glow-ok / --glow-danger
+                                  a graded answer, and nothing else.
+
+        Anything not on that list gets --shadow-md and its hierarchy from size,
+        weight and position. See docs/BRAND.md, last "don't" rule. ─────────── */
+  --glow-signal-dot: 0 0 8px rgba(61, 126, 219, 0.75);
+  --glow-signal-sm: 0 0 14px rgba(61, 126, 219, 0.35);
+  --glow-signal-md: 0 4px 16px rgba(61, 126, 219, 0.3);
+  --glow-signal-lg: 0 8px 28px rgba(61, 126, 219, 0.38);
+  --glow-beacon: 0 0 16px rgba(95, 211, 228, 0.32);
+  --glow-beacon-dot: 0 0 8px rgba(95, 211, 228, 0.8);
+  --glow-ok: 0 0 16px rgba(52, 211, 153, 0.3);
+  --glow-danger: 0 0 16px rgba(248, 113, 113, 0.28);
+
+  /* The navigation blur, held in a token for a reason beyond tidiness. Written
+     literally, the minifier collapses `backdrop-filter` + `-webkit-backdrop-
+     filter` into the prefixed form alone — and Chrome 153 has removed
+     `-webkit-backdrop-filter`, so the built stylesheet shipped a nav with no
+     blur at all while the source looked correct. Behind a var() the value is
+     opaque to that optimisation and the standard property survives the build.
+     Asserted by the nav probe in the smoke run. */
+  --nav-blur: blur(20px) saturate(160%);
+
+  /* ── Radii. Concentric rule: inner = outer − padding. ──────────────────── */
+  --r-1: 8px;
+  --r-2: 12px;
+  --r-3: 16px;
+  --r-4: 22px;
+  --r-5: 28px;
+  --r-pill: 999px;
+
+  /* ── Motion. Short, purposeful, one job each. ─────────────────────────── */
+  --dur-1: 140ms; /* state flip: colour, opacity   */
+  --dur-2: 220ms; /* movement: lift, slide         */
+  --dur-3: 340ms; /* entrance                      */
+  --dur-4: 560ms; /* orchestrated sequence step    */
+  --ease-out-quart: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ═══════ COMPATIBILITY ALIASES ═══════════════════════════════════════════
+     Every legacy token name still resolves, so the dashboard, blog, colleges
+     and auth surfaces inherit the new palette from this one file instead of
+     needing 98 component edits. Repointing a name here recolours the app.
+     New code should use the named tokens above.
+     ═════════════════════════════════════════════════════════════════════════ */
+
+  --dark-bg: var(--field-1);
+  --dark-surface: var(--srf-1);
+  --color-navy: var(--field-1);
+  --color-navy-mid: var(--srf-2);
+  --color-navy-deep: var(--field-0);
+
+  /* --color-primary carries two jobs across the app: accent TEXT on the dark
+     field, and a light chip filled with --color-text-inverse. Signal-300
+     satisfies both (9.8:1 as text, 10.2:1 for ink on it). The deep CTA
+     gradient lives in --cta-from/--cta-to, not here. */
+  --color-primary: var(--signal-300);
+  --color-primary-light: var(--signal-200);
+  --color-primary-dark: var(--signal-500);
+  --color-accent: var(--signal-300);
+  --color-accent-light: var(--signal-200);
+  --color-gold: var(--signal-300);
+  --color-gold-light: var(--signal-200);
+
+  --color-surface: var(--srf-1);
+  --color-surface-2: var(--srf-2);
+  --color-surface-3: var(--srf-3);
+  --color-surface-4: var(--srf-4);
+
+  --color-text-primary: var(--steel-100);
+  --color-text-secondary: var(--steel-300);
+  --color-text-muted: var(--steel-400);
+  --color-text-inverse: #060B14;
+
+  --color-border: var(--line-2);
+  --color-border-dark: var(--line-3);
+
+  --color-success: var(--ok);
+  --color-warning: var(--warn);
+  --color-error: var(--danger);
+
+  --radius-sm: var(--r-1);
+  --radius-md: var(--r-2);
+  --radius-lg: var(--r-3);
+  --radius-xl: var(--r-5);
+  --radius-full: var(--r-pill);
+
+  --transition-fast: var(--dur-1) var(--ease-in-out);
+  --transition-base: var(--dur-2) var(--ease-in-out);
+  --transition-slow: var(--dur-3) var(--ease-in-out);
+
+  /* Parade-ground names kept for the crest and any component already on them. */
+  --parade-navy: var(--field-1);
+  --parade-navy-light: var(--srf-2);
+  --field-olive: #333f2c;
+  --field-olive-light: #4a5a3f;
+  --parchment: #ede7d8;
+  --ink: #060B14;
+  --crimson: #7a2333;
+}
+
+/* Tailwind utility surface. Legacy names (navy-*, gold-*, font-jakarta) are
+   preserved so existing markup keeps compiling; they now resolve to the new
+   palette. Prefer the honest names in new code. */
+@theme {
+  --color-field: var(--field-1);
+  --color-field-deep: var(--field-0);
+  --color-signal: var(--signal-300);
+  --color-steel: var(--steel-300);
+  --color-brass: var(--brass);
+  --color-navy: var(--field-1);
+  --color-navy-deep: var(--field-0);
+  --color-gold: var(--signal-300);
+  --color-gold-light: var(--signal-200);
+  --font-display: var(--font-sora), "Plus Jakarta Sans", sans-serif;
+  --font-jakarta: var(--font-sora), "Plus Jakarta Sans", sans-serif;
+  --font-inter: var(--font-inter), sans-serif;
+  /* Quranic face for the auth veil (Amiri, self-hosted via next/font —
+     see app/layout.tsx). Falls back to the platform Naskh faces. */
+  --font-quran: var(--font-amiri), "Noto Naskh Arabic", "Geeza Pro", serif;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BASE
+   Element rules live in @layer base on purpose: unlayered CSS outranks every
+   Tailwind utility, so leaving them bare would make `leading-tight` or
+   `font-extrabold` in markup silently do nothing. In the base layer the type
+   system governs by default and a utility still wins when someone means it.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    background-color: var(--field-1);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-inter), sans-serif;
+    background-color: var(--field-1);
+    color: var(--steel-100);
+    touch-action: manipulation;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Display type: Sora. Optical tracking per Apple's guidance — large sizes
+     tighten, small sizes stay open, so a headline and a label set in the same
+     family still read as one voice. */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display), sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.018em;
+    text-wrap: balance;
+  }
+  h1 { letter-spacing: -0.032em; line-height: 1.04; }
+  h2 { letter-spacing: -0.026em; line-height: 1.1; }
+  h3 { letter-spacing: -0.02em; line-height: 1.18; }
+  p { text-wrap: pretty; }
+}
+
+/* A label is a label because of its size and colour, not because it shouts.
+   Use .label instead of uppercase tracking-widest chrome. */
+.label {
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  color: var(--steel-400);
+}
+
+::selection { background: rgba(61, 126, 219, 0.32); color: #fff; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LAYOUT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.container-page { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 1.25rem; }
+@media (min-width: 640px) { .container-page { padding-inline: 2rem; } }
+@media (min-width: 1024px) { .container-page { padding-inline: 3rem; } }
+
+.section-padding { padding-block: 4rem; }
+@media (min-width: 768px) { .section-padding { padding-block: 6rem; } }
+
+/* Dashboard ground: a cool field wash, no gold bloom. */
+.bg-dashboard {
+  background-color: var(--field-1);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 18% 0%, rgba(61, 126, 219, 0.09), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 82% 14%, rgba(95, 211, 228, 0.045), transparent 50%),
+    radial-gradient(ellipse 90% 60% at 50% 100%, rgba(13, 21, 36, 0.9), transparent 60%);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LAYER 0 — THE FIELD
+   The landing page is a stack of four planes: field light, topographic wash,
+   the study-objects drift layer, then content. .landing-canvas is the
+   containing block every one of them positions against.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.landing-canvas {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--field-1);
+  overflow-x: clip;
+}
+
+/* A single light source, high and slightly left — two soft key radials and a
+   deep horizon that keeps the fold from reading flat. Static: the depth must
+   not depend on animation. */
+.landing-canvas::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 190vh;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(90rem 52rem at 22% -8%, rgba(61, 126, 219, 0.18), transparent 62%),
+    radial-gradient(60rem 40rem at 88% 6%, rgba(95, 211, 228, 0.08), transparent 60%),
+    radial-gradient(34rem 22rem at 72% 18%, rgba(231, 206, 150, 0.06), transparent 65%),
+    radial-gradient(70rem 46rem at 50% 78%, rgba(13, 21, 36, 0.85), transparent 70%);
+}
+
+/* Survey grid — the faint contour/graticule the whole page sits on. Two
+   crossed hairline sets at 88px, fading out before the footer. Pure gradient,
+   no image request. */
+.landing-canvas::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.5;
+  background-image:
+    linear-gradient(to right, var(--line-1) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line-1) 1px, transparent 1px);
+  background-size: 88px 88px, 88px 88px;
+  mask-image: linear-gradient(to bottom, #000 0, #000 62%, transparent 96%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 62%, transparent 96%);
+}
+
+/* The two field layers above sit behind content on z-index: -1, held in by
+   `isolation: isolate` on the canvas, so content needs no lift of its own and
+   this rule names only the two in-flow planes.
+
+   It used to read `.landing-canvas > * { position: relative; z-index: 1 }`.
+   That rule is unlayered, so it beat every Tailwind utility regardless of
+   specificity, and it rewrote `position: fixed` to `relative` on both the
+   sticky header and the effect canvas. A canvas carries width/height
+   attributes, so once in flow it claimed a full viewport of space and pushed
+   the entire document down 100vh — the first screen rendered blank. Never
+   blanket-position the children of a canvas class again: name them. */
+.landing-canvas > main,
+.landing-canvas > footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section mesh (FAQ) — a banded surface that separates a long list from the
+   field without a card around every row. */
+.bg-mesh {
+  background-color: var(--field-2);
+  background-image:
+    radial-gradient(48rem 30rem at 82% 0%, rgba(61, 126, 219, 0.09), transparent 62%),
+    radial-gradient(40rem 26rem at 8% 100%, rgba(95, 211, 228, 0.05), transparent 62%);
+  box-shadow: inset 0 1px 0 var(--line-lit), inset 0 -1px 0 rgba(2, 5, 12, 0.6);
+}
+
+/* Section seam — a hairline that brightens toward the centre, so consecutive
+   sections read as machined panels butted together. */
+.section-glow-divider { position: relative; }
+.section-glow-divider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50% 0;
+  width: min(1100px, 92%);
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--line-3) 22%, var(--line-signal) 50%, var(--line-3) 78%, transparent);
+}
+
+/* Film grain — static SVG turbulence, cheap and universal. */
+.film-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* Hero aurora — three very soft cold blobs. They drift only via the parallax
+   pointer/scroll writer in ScrollEffects, not on an infinite CSS loop: a page
+   that moves when nobody touches it reads as a screensaver. */
+.hero-aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+/* A subtle diagonal light beam that sweeps behind the hero content, creating
+   a premium cinematic feel without animation — pure gradient. Low opacity so
+   it never competes with text. */
+.hero-aurora::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(147, 188, 246, 0.04) 28%,
+    rgba(231, 206, 150, 0.035) 42%,
+    transparent 58%
+  );
+  mask-image: radial-gradient(ellipse 70% 55% at 60% 35%, black, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 55% at 60% 35%, black, transparent 72%);
+  pointer-events: none;
+}
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(74px);
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+.hero-blob-1 {
+  width: 52vw; height: 52vw; min-width: 460px; min-height: 460px;
+  left: -12%; top: -24%;
+  background: radial-gradient(circle at 38% 38%,
+    rgba(147, 188, 246, 0.38) 0%, rgba(61, 126, 219, 0.18) 46%, transparent 72%);
+}
+.hero-blob-2 {
+  width: 44vw; height: 44vw; min-width: 420px; min-height: 420px;
+  right: -14%; top: -8%;
+  background: radial-gradient(circle at 60% 40%,
+    rgba(231, 206, 150, 0.30) 0%, rgba(147, 188, 246, 0.18) 48%, rgba(61, 126, 219, 0.08) 70%, transparent 78%);
+}
+.hero-blob-3 {
+  width: 40vw; height: 40vw; min-width: 360px; min-height: 360px;
+  left: 20%; bottom: -30%;
+  background: radial-gradient(circle at 50% 50%,
+    rgba(220, 233, 252, 0.16) 0%, rgba(61, 126, 219, 0.09) 44%, transparent 70%);
+}
+
+/* Fallback glow orb (ambient light behind an emblem). */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 30%,
+      rgba(232, 238, 247, 0.85) 0%,
+      rgba(147, 188, 246, 0.5) 26%,
+      rgba(42, 98, 184, 0.26) 52%,
+      transparent 74%);
+  filter: blur(14px);
+  box-shadow: 0 0 90px rgba(61, 126, 219, 0.35);
+  will-change: transform;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ELEVATION — opaque surfaces, lit top edge, ambient shadow.
+   Nothing in this block uses backdrop-filter. Translucency belongs to the
+   navigation layer (.nav-material) and is not stacked anywhere else, so the
+   page composites in one pass instead of fifteen.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.surface,
+.card-base,
+.glass-tile,
+.card-glass {
+  background-color: var(--srf-1);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 42%);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-3);
+  box-shadow: var(--shadow-md), inset 0 1px 0 var(--line-lit);
+}
+
+.surface-raised,
+.card-elevated,
+.glass-tile-elevated {
+  background-color: var(--srf-2);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent 46%);
+  border: 1px solid var(--line-3);
+  border-radius: var(--r-4);
+  box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.09);
+}
+
+/* Hero command panel — the highest content surface on the page, so it is the
+   lightest and carries the widest ambient shadow. */
+.hero-command-card {
+  background-color: var(--srf-2);
+  background-image:
+    radial-gradient(24rem 16rem at 84% -10%, rgba(61, 126, 219, 0.2), transparent 68%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 40%);
+  border: 1px solid var(--line-3);
+  box-shadow:
+    var(--shadow-xl),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 0 1px rgba(147, 188, 246, 0.04);
+}
+
+/* Lift on hover. One transform, one shadow step, one hairline warm-up —
+   never a colour wash. */
+.card-hover,
+.card-lift,
+.glow-on-hover,
+.glass-tile-glow {
+  transition:
+    transform var(--dur-2) var(--ease-out-quart),
+    box-shadow var(--dur-2) var(--ease-out-quart),
+    border-color var(--dur-2) var(--ease-out-quart),
+    background-color var(--dur-2) var(--ease-out-quart);
+}
+.card-hover:hover,
+.card-lift:hover,
+.glow-on-hover:hover {
+  transform: translateY(-3px);
+  background-color: var(--srf-3);
+  border-color: var(--line-signal);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(147, 188, 246, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* .glass-tile-glow is the app-wide card (dashboard, admin, practice, notes).
+   Same ladder, so the whole product inherits the new depth from one rule. */
+.glass-tile-glow {
+  background-color: var(--srf-1);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 42%);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-3);
+  box-shadow: var(--shadow-md), inset 0 1px 0 var(--line-lit);
+}
+.glass-tile-glow:hover {
+  transform: translateY(-2px);
+  background-color: var(--srf-2);
+  border-color: var(--line-3);
+  box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.09);
+}
+
+/* Feature/stat tile — same surface, taller radius, generous padding, and a
+   specular highlight that tracks the pointer instead of a looping shimmer. */
+.feature-tile {
+  border-radius: var(--r-4);
+  transition:
+    transform var(--dur-2) var(--ease-out-quart),
+    box-shadow var(--dur-2) var(--ease-out-quart),
+    border-color var(--dur-2) var(--ease-out-quart),
+    background-color var(--dur-2) var(--ease-out-quart);
+}
+.feature-tile:hover {
+  background-color: var(--srf-2);
+  border-color: var(--line-signal);
+  box-shadow: var(--shadow-lg), 0 0 0 1px rgba(147, 188, 246, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Real tilt. InteractiveTile writes --tile-rx/--tile-ry in deg and
+   --tile-glow-x/y in %; before this rule existed nothing consumed them, so the
+   tilt was inert. Fallbacks keep tiles flat when no JS is attached. */
+.interactive-tile {
+  transform: perspective(1000px)
+    rotateX(var(--tile-rx, 0deg))
+    rotateY(var(--tile-ry, 0deg));
+  transform-style: preserve-3d;
+  transition: box-shadow var(--dur-2) var(--ease-out-quart);
+}
+.interactive-tile:hover { will-change: transform; }
+
+/* Specular highlight — a soft cold hotspot at the pointer. This is the only
+   place the page uses light to say "your cursor is here". */
+.glass-shine { position: relative; overflow: hidden; }
+.glass-shine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-2) var(--ease-out-quart);
+  background: radial-gradient(
+    22rem 16rem at var(--tile-glow-x, 50%) var(--tile-glow-y, 0%),
+    rgba(147, 188, 246, 0.16),
+    rgba(147, 188, 246, 0.05) 42%,
+    transparent 72%
+  );
+}
+.glass-shine:hover::before { opacity: 1; }
+
+/* Card sheen — a single light pass on hover, not a 9-second loop. A surface
+   that flashes on its own reads as a loading state. */
+.card-sheen { position: relative; overflow: hidden; }
+.card-sheen::after {
+  content: "";
+  position: absolute;
+  inset: -80% -30%;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 42%, rgba(220, 233, 252, 0.1) 50%, transparent 58%);
+  transform: translateX(-100%);
+  transition: transform 900ms var(--ease-out-quart);
+}
+.card-sheen:hover::after { transform: translateX(100%); }
+
+/* Cursor-tracked band across feature tiles (kept for Features.tsx). */
+.feature-sheen {
+  background: linear-gradient(90deg, transparent, rgba(147, 188, 246, 0.14), transparent);
+}
+
+/* Tinted tiles — icon plates and status chips. Cool-first, warm only where
+   the meaning is warm. */
+.icon-tile { display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: var(--r-2); flex-shrink: 0; }
+.tile-success { background: rgba(52, 211, 153, 0.11); border: 1px solid rgba(52, 211, 153, 0.22); }
+.tile-warning { background: rgba(251, 191, 36, 0.11); border: 1px solid rgba(251, 191, 36, 0.22); }
+.tile-error { background: rgba(248, 113, 113, 0.11); border: 1px solid rgba(248, 113, 113, 0.22); }
+.tile-info { background: rgba(107, 161, 240, 0.12); border: 1px solid rgba(107, 161, 240, 0.24); }
+.tile-gold { background: rgba(147, 188, 246, 0.12); border: 1px solid rgba(147, 188, 246, 0.24); }
+.tile-purple { background: rgba(158, 148, 245, 0.11); border: 1px solid rgba(158, 148, 245, 0.22); }
+.tile-rose { background: rgba(244, 114, 152, 0.11); border: 1px solid rgba(244, 114, 152, 0.22); }
+.tile-sky { background: rgba(95, 211, 228, 0.11); border: 1px solid rgba(95, 211, 228, 0.24); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ACTION — buttons. One primary shape, one voice.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.btn-primary {
+  background-image: linear-gradient(180deg, var(--cta-from) 0%, var(--cta-to) 100%);
+  color: var(--on-cta);
+  font-weight: 600;
+  border-radius: var(--r-2);
+  box-shadow: var(--shadow-cta), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  transition:
+    filter var(--dur-1) var(--ease-in-out),
+    box-shadow var(--dur-2) var(--ease-out-quart),
+    transform var(--dur-1) var(--ease-out-quart);
+}
+.btn-primary:hover { filter: brightness(1.13) saturate(1.05); box-shadow: 0 10px 30px rgba(29, 74, 144, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.2); transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); filter: brightness(0.96); }
+
+.btn-secondary {
+  background-color: var(--srf-2);
+  color: var(--steel-100);
+  font-weight: 600;
+  border: 1px solid var(--line-3);
+  border-radius: var(--r-2);
+  transition: background-color var(--dur-1) var(--ease-in-out), border-color var(--dur-1) var(--ease-in-out);
+}
+.btn-secondary:hover { background-color: var(--srf-3); border-color: var(--line-signal); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TYPE TREATMENTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Signal gradient for the headline accent — a cold sweep, no animation. */
+.text-gradient,
+.text-gradient-brand {
+  background-image: linear-gradient(135deg, var(--signal-100) 0%, var(--signal-300) 46%, var(--signal-500) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* .gradient-brand is the CTA fill: --cta-from -> --cta-to, i.e. signal-600 ->
+   signal-700. Anything filled with it takes --on-cta, the same way the WhatsApp
+   green above takes --color-text-inverse — and for the same reason, in the other
+   direction. Three call sites had put --color-text-inverse on it, which measures
+   3.2:1 where the gradient starts and 2.2:1 where it ends: under AA for body
+   text, under even the 3:1 large-text floor at the dark end. White on this pair
+   is 5.9:1 / 8.6:1. Note also that a `bg-*` hover cannot repaint a
+   background-image gradient — use brightness/opacity, not a background colour. */
+.gradient-brand { background-image: linear-gradient(135deg, var(--cta-from) 0%, var(--cta-to) 100%); }
+
+/* .text-liquid-gold is the "free"/"Cadet College" emphasis. It keeps the warm
+   metal — this is one of the three places brass survives — but the flow loop
+   is gone: brushed champagne reads as engraving, an animated gradient reads as
+   a casino sign. Name kept so existing markup stays valid. */
+.text-liquid-gold {
+  background-image: linear-gradient(100deg,
+    var(--brass) 0%, var(--brass-bright) 22%, var(--champagne) 44%,
+    #FFF6DF 60%, var(--champagne) 76%, var(--brass) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.shimmer {
+  background-image: linear-gradient(90deg, transparent 0%, rgba(147, 188, 246, 0.08) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2.2s var(--ease-in-out) infinite;
+}
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+
+.progress-bar { height: 8px; background: var(--srf-3); border-radius: var(--r-pill); overflow: hidden; }
+.progress-bar-fill { height: 100%; border-radius: var(--r-pill); background-image: linear-gradient(90deg, var(--signal-500), var(--signal-300)); transition: width var(--dur-4) var(--ease-out-quart); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   NAVIGATION MATERIAL — the one translucent layer on the page.
+   Apple's rule: material belongs to the chrome, and materials are never
+   stacked. The previous version ran an SVG feDisplacementMap over the blur,
+   which warped the text behind it and cost a full-viewport filter pass every
+   frame; a material should clarify what is behind it, not distort it.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.nav-material,
+.liquid-nav-surface {
+  background-color: rgba(9, 15, 27, 0.72);
+  /* var(), not the literal — see --nav-blur. The prefixed line stays for old
+     WebKit; the standard one is what current browsers actually use. */
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: var(--nav-blur);
+  border-bottom: 1px solid var(--line-2);
+  box-shadow:
+    0 10px 30px rgba(2, 5, 12, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+/* Hairline of signal light along the bottom edge — the only thing separating
+   the bar from the page once you have scrolled. */
+.nav-material::after,
+.liquid-nav-surface::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-signal) 30%, rgba(95, 211, 228, 0.3) 50%, var(--line-signal) 70%, transparent);
+}
+/* Opaque fallback where backdrop-filter is unavailable or unwanted. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .nav-material,
+  .liquid-nav-surface { background-color: rgba(9, 15, 27, 0.97); }
+}
+
+/* Safe-area inset so the bar clears an iPhone notch in landscape. */
+.nav-safe { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+
+/* Nav links. The underline grows from the centre on hover — one small
+   mechanical movement, and it doubles as the focus affordance. No background
+   pill, because a row of seven pills is a toolbar, not a masthead. */
+.nav-link {
+  position: relative;
+  display: inline-block;
+  border-radius: var(--r-1);
+  color: var(--steel-300);
+  transition: color var(--dur-1) var(--ease-in-out);
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.35rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--signal-300), transparent);
+  transform: scaleX(0);
+  transition: transform var(--dur-2) var(--ease-out-quart);
+}
+.nav-link:hover { color: var(--steel-100); }
+.nav-link:hover::after,
+.nav-link:focus-visible::after { transform: scaleX(1); }
+.nav-link[aria-current="page"] { color: var(--steel-100); }
+.nav-link[aria-current="page"]::after { transform: scaleX(1); }
+
+/* Mobile menu entrance — one short drop, not a bounce. */
+@keyframes menu-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.menu-in { animation: menu-in var(--dur-2) var(--ease-out-quart) both; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   THE ASCENT RAIL — the page's one signature instrument.
+   A machined rail down the left margin with tick marks at each section; the
+   lit segment is how far you have climbed. Desktop only; below 1024px it
+   becomes the 2px top bar (.scroll-progress), which is the same data in the
+   shape that fits a phone. Both are written from one rAF loop in
+   ScrollEffects as --rail: 0 → 1.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.ascent-rail {
+  position: fixed;
+  left: 1.35rem;
+  top: 22vh;
+  bottom: 16vh;
+  width: 2px;
+  z-index: 30;
+  pointer-events: none;
+  display: none;
+  background: linear-gradient(180deg, transparent, var(--line-2) 8%, var(--line-2) 92%, transparent);
+}
+/* Tick marks: one hairline every 12.5% of the climb. */
+.ascent-rail::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 9px;
+  background-image: linear-gradient(180deg, var(--steel-700) 0 1px, transparent 1px);
+  background-size: 100% 12.5%;
+  background-repeat: repeat-y;
+  opacity: 0.85;
+}
+/* The lit segment. */
+.ascent-rail__fill {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 100%;
+  transform-origin: top;
+  transform: scaleY(var(--rail, 0));
+  background: linear-gradient(180deg, var(--beacon-400), var(--signal-300) 40%, var(--signal-500));
+  box-shadow: 0 0 12px rgba(107, 161, 240, 0.55);
+}
+/* The head of the climb — a small bead that sits at the current position. */
+.ascent-rail__bead {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--rail, 0) * 100%);
+  width: 7px;
+  height: 7px;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: var(--beacon-300);
+  box-shadow: 0 0 10px rgba(95, 211, 228, 0.9), 0 0 22px rgba(95, 211, 228, 0.4);
+}
+@media (min-width: 1024px) {
+  .ascent-rail { display: block; }
+}
+
+/* Phone form of the same data. */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  height: 2px;
+  width: 100%;
+  transform-origin: left center;
+  transform: scaleX(var(--rail, 0));
+  background: linear-gradient(90deg, var(--signal-500), var(--signal-300) 55%, var(--beacon-400));
+  pointer-events: none;
+}
+@media (min-width: 1024px) {
+  .scroll-progress { display: none; }
+}
+
+/* Lenis base rules, copied from the package's own lenis.css rather than
+   imported, so the smooth-scroll styles live in this file with everything else
+   and don't arrive as a separate stylesheet. These classes are only ever on
+   <html> while components/landing/SmoothScroll.tsx has Lenis running — desktop,
+   full motion, no data saver — so on every other surface they never match. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+.lenis [data-lenis-prevent],
+.lenis [data-lenis-prevent-wheel],
+.lenis [data-lenis-prevent-touch] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LAYER 2 — STUDY OBJECTS
+   Line-art instruments (book, brain, compass, atom, protractor, flask) drifting
+   behind the content on scroll parallax. Drawn as inline SVG strokes in the
+   steel palette at low opacity, so they read as blueprint annotations rather
+   than clip art. Mounted lazily; hidden entirely under reduced motion, on
+   data saver, and below 768px where they would only crowd the type.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.study-objects {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+.study-object {
+  position: absolute;
+  color: var(--steel-500);
+  opacity: 0;
+  will-change: transform;
+  transform: translate3d(0, var(--obj-y, 0px), 0) rotate(var(--obj-r, 0deg));
+  animation: object-in 900ms var(--ease-out-quart) forwards;
+}
+.study-object svg { display: block; width: 100%; height: 100%; }
+@keyframes object-in {
+  from { opacity: 0; }
+  to   { opacity: var(--obj-o, 0.22); }
+}
+@media (max-width: 767px) {
+  .study-objects { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO WIREFRAME — floating glowing line-icons behind the preparation card.
+   Lightweight replacement for the glossy 3D dodecahedron: six lucide line
+   icons (the papers' real subjects) floating off a single compositor-friendly
+   `translate3d` keyframe, with a punched glow via drop-shadow. No rAF, no
+   canvas, no style reads per frame. Falls to a static constellation under
+   reduced motion / <768px / data-saver.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.hero-wireframe {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+.hero-wireframe__icon {
+  position: absolute;
+  color: var(--signal-300);
+  opacity: 0;
+  will-change: transform;
+  filter: drop-shadow(0 0 10px rgba(147, 188, 246, 0.55))
+    drop-shadow(0 0 22px rgba(61, 126, 219, 0.28));
+  animation:
+    wf-in 700ms var(--ease-out-quart) forwards,
+    wf-float 7s var(--ease-in-out) infinite;
+  /* entrance + float share the per-icon inline animationDelay */
+}
+.hero-wireframe__icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+@keyframes wf-in {
+  from { opacity: 0; transform: translate3d(0, 14px, 0) rotate(var(--wf-r, 0deg)); }
+  to   { opacity: var(--wf-o, 0.3); transform: translate3d(0, 0, 0) rotate(var(--wf-r, 0deg)); }
+}
+@keyframes wf-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--wf-r, 0deg)); }
+  50%      { transform: translate3d(0, -10px, 0) rotate(var(--wf-r, 0deg)); }
+}
+@media (max-width: 767px) {
+  .hero-wireframe { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BRAIN-BOOK HERO — lightweight open-book + brain SVG peeking out beneath the
+   mission card. One static vector; zero raster bytes, zero rAF. The glow disc
+   is a blurred ellipse in the same document, so it composites cheaply.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.brain-book-wrap {
+  position: absolute;
+  inset: 0 0 -150px 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  animation: brain-book-in 1000ms var(--ease-out-quart) 300ms forwards;
+  will-change: transform, opacity;
+}
+.brain-book-wrap svg {
+  width: min(128%, 480px);
+  height: auto;
+  filter: drop-shadow(0 20px 36px rgba(61, 126, 219, 0.32));
+}
+.brain-book-spark {
+  animation: brain-spark-drift 6s var(--ease-in-out) infinite;
+  transform-origin: center;
+}
+@keyframes brain-book-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes brain-spark-drift {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+@media (max-width: 767px) {
+  .brain-book-wrap { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   GLOSSY FORM — CSS 3D geometric object with chrome/glass materials
+   Pure CSS transforms, zero WebGL. Reads --rail/--section-progress for scroll.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.glossy-form {
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+}
+
+.glossy-form__object {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.glossy-face {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Scroll-driven animation utilities */
+@keyframes scroll-reveal-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scroll-reveal-scale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes scroll-draw-line {
+  from { stroke-dashoffset: 100%; }
+  to { stroke-dashoffset: 0%; }
+}
+
+/* Elements with data-scroll-reveal animate when scrolled into view */
+[data-scroll-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s var(--ease-out-quart), transform 0.6s var(--ease-out-quart);
+}
+
+[data-scroll-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered reveal for grids */
+[data-scroll-reveal-stagger] > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s var(--ease-out-quart), transform 0.5s var(--ease-out-quart);
+}
+
+[data-scroll-reveal-stagger].is-visible > *:nth-child(1) { transition-delay: 0ms; }
+[data-scroll-reveal-stagger].is-visible > *:nth-child(2) { transition-delay: 60ms; }
+[data-scroll-reveal-stagger].is-visible > *:nth-child(3) { transition-delay: 120ms; }
+[data-scroll-reveal-stagger].is-visible > *:nth-child(4) { transition-delay: 180ms; }
+[data-scroll-reveal-stagger].is-visible > *:nth-child(5) { transition-delay: 240ms; }
+[data-scroll-reveal-stagger].is-visible > *:nth-child(6) { transition-delay: 300ms; }
+
+/* Scroll-linked counter animation */
+[data-scroll-count] {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s var(--ease-out-quart), transform 0.4s var(--ease-out-quart);
+}
+
+[data-scroll-count].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scroll-linked line drawing */
+[data-scroll-draw] {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 1.2s var(--ease-out-quart);
+}
+
+[data-scroll-draw].is-visible {
+  stroke-dashoffset: 0;
+}
+
+/* Scroll-driven 3D rotation for objects reading --rail/--section-progress */
+[data-scroll-rotate] {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* Parallax layers reading --section-progress */
+[data-parallax-y] {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* Section boundary glow pulse */
+@keyframes section-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+.section-glow-divider::before {
+  animation: section-pulse 2s var(--ease-in-out) infinite;
+  animation-play-state: paused;
+}
+
+.section-glow-divider.is-active::before {
+  animation-play-state: running;
+}
+
+/* Glossy form reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .glossy-form__object,
+  .glossy-face {
+    animation: none !important;
+    transition: none !important;
+  }
+  [data-scroll-reveal],
+  [data-scroll-reveal-stagger] > *,
+  [data-scroll-count],
+  [data-scroll-draw] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  [data-scroll-draw] {
+    stroke-dashoffset: 0 !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   INSIGNIA — the crest and the compass mark. Brass lives here and nowhere
+   else. Geometry and behaviour are owned by the CadetCrest components and
+   lib/crest-3d.ts (shipped f537e17); this file only sizes and lights them.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.cadet-crest {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  animation: crest-entrance 1s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+.cadet-crest__float {
+  position: absolute;
+  inset: 0;
+  animation: crest-float 7s var(--ease-in-out) infinite;
+}
+.cadet-crest svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 18px 44px rgba(201, 162, 75, 0.2)) drop-shadow(0 0 60px rgba(61, 126, 219, 0.18));
+}
+.cadet-crest__shine { animation: crest-shine 6.5s var(--ease-in-out) 1.6s infinite; }
+@keyframes crest-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-9px); }
+}
+@keyframes crest-entrance {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes crest-shine {
+  0%   { transform: translateX(-160px) rotate(18deg); opacity: 0; }
+  12%  { opacity: 1; }
+  38%  { opacity: 0; }
+  100% { transform: translateX(300px) rotate(18deg); opacity: 0; }
+}
+
+/* Compass mark — one-shot draw-in on load. */
+.compass-logo circle,
+.compass-logo line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: compass-stroke 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+.compass-logo line { animation-delay: 0.12s; }
+.compass-logo path {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: compass-needle 0.4s var(--ease-spring) 0.75s backwards;
+}
+@keyframes compass-stroke { to { stroke-dashoffset: 0; } }
+@keyframes compass-needle {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MOTION PRIMITIVES used by components
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* Quiz verdict chip — snaps in after an answer locks. Motion that answers an
+   action, which is the kind worth keeping. */
+.verdict-pop { animation: verdict-pop 320ms var(--ease-spring) both; }
+@keyframes verdict-pop {
+  from { transform: scale(0.4); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* One-shot page-load light sweep across the hero. Fires once, never loops. */
+.load-sweep {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(105deg, transparent 38%, rgba(220, 233, 252, 0.07) 48%, transparent 58%);
+  animation: load-sweep 1500ms var(--ease-out-quart) 260ms both;
+}
+@keyframes load-sweep {
+  from { transform: translateX(-60%); opacity: 0; }
+  35%  { opacity: 1; }
+  to   { transform: translateX(60%); opacity: 0; }
+}
+
+/* Auth ayah veil. Veil fades in first, then the panel rises 8px into place.
+   Both are covered by the global reduced-motion rule below, which collapses
+   them to their finished state — the overlay still appears, instantly. */
+@keyframes ayah-veil-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes ayah-card-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   QUALITY FLOOR — focus, reduced motion, reduced transparency, more contrast
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Focus ring in the signal colour, with a dark spacer so it stays visible on
+   both the field and a light chip. */
+:focus-visible {
+  outline: 2px solid var(--signal-300);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Every interactive target clears Apple's 44pt minimum on touch. Applied as an
+   invisible expanded hit area rather than a min-height, so a 6px carousel dot
+   keeps its size and gains a 44px target around it. */
+.tap-44 { position: relative; }
+.tap-44::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100%, 44px);
+  height: max(100%, 44px);
+  translate: -50% -50%;
+}
+
+/* Reduce Motion. Entrances collapse to their finished state, ambient drift
+   stops, and no surface moves under the pointer. Nothing disappears — the
+   layout and every colour survive, which is the point. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  html { scroll-behavior: auto !important; }
+  .card-hover:hover, .card-lift:hover, .glow-on-hover:hover, .glass-tile-glow:hover,
+  .feature-tile:hover, .btn-primary:hover {
+    transform: none !important;
+  }
+  .interactive-tile { transform: none !important; }
+  .card-sheen::after, .load-sweep, .study-objects, .hero-wireframe, .brain-book-wrap { display: none !important; }
+  .cadet-crest, .cadet-crest__float, .cadet-crest__shine { animation: none !important; }
+}
+
+/* Reduce Transparency. The nav is the only translucent surface, so this is a
+   one-line answer instead of an audit. */
+@media (prefers-reduced-transparency: reduce) {
+  .nav-material, .liquid-nav-surface {
+    /* Override the token, not the property: the property override was subject
+       to the same prefix collapse described at --nav-blur, which would have
+       left the blur running for exactly the people who asked for less of it. */
+    --nav-blur: none;
+    background-color: rgba(9, 15, 27, 0.99);
+  }
+  .film-grain { display: none; }
+}
+
+/* Increase Contrast. Hairlines and secondary type step up; decorative washes
+   step down so type sits on flat colour. Targets 7:1 for body copy. */
+@media (prefers-contrast: more) {
+  :root {
+    --steel-300: #D5DFEE; /* 12.9:1 */
+    --steel-400: #B2C0D6; /*  9.4:1 */
+    --line-1: rgba(232, 238, 247, 0.16);
+    --line-2: rgba(232, 238, 247, 0.26);
+    --line-3: rgba(232, 238, 247, 0.4);
+    --line-signal: rgba(147, 188, 246, 0.6);
+    --color-primary: var(--signal-200);
+  }
+  .hero-aurora, .film-grain, .study-objects, .hero-wireframe, .brain-book-wrap { display: none; }
+  .landing-canvas::before { opacity: 0.35; }
+  :focus-visible { outline-width: 3px; }
+}
+
+/* Scrollbar — steel, not grey. */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--field-0); }
+::-webkit-scrollbar-thumb { background: var(--steel-700); border-radius: var(--r-pill); border: 2px solid var(--field-0); }
+::-webkit-scrollbar-thumb:hover { background: var(--steel-600); }
+* { scrollbar-color: var(--steel-700) var(--field-0); scrollbar-width: thin; }
