@@ -1,0 +1,58 @@
+[
+  {
+    "subject": "Biology",
+    "question": "Which organelle is known as the powerhouse of the cell?",
+    "options": ["Ribosome", "Mitochondria", "Golgi apparatus", "Lysosome"],
+    "correct": 1,
+    "explanation": "Mitochondria carry out cellular respiration and generate most of the cell's ATP."
+  },
+  {
+    "subject": "Biology",
+    "question": "How many chromosomes are present in a normal human somatic (body) cell?",
+    "options": ["23", "44", "46", "48"],
+    "correct": 2,
+    "explanation": "Human body cells are diploid (2n) with 46 chromosomes — 23 pairs. Gametes have 23."
+  },
+  {
+    "subject": "Chemistry",
+    "question": "What is the atomic number of an element equal to?",
+    "options": ["Number of neutrons", "Number of protons", "Number of isotopes", "Sum of protons and neutrons"],
+    "correct": 1,
+    "explanation": "The atomic number (Z) is the number of protons in the nucleus, which defines the element."
+  },
+  {
+    "subject": "Chemistry",
+    "question": "Which of the following is a strong acid?",
+    "options": ["Acetic acid", "Carbonic acid", "Hydrochloric acid", "Citric acid"],
+    "correct": 2,
+    "explanation": "HCl ionises almost completely in water (about 99%), making it a strong acid."
+  },
+  {
+    "subject": "Physics",
+    "question": "According to Ohm's law, the relationship between voltage (V), current (I) and resistance (R) is:",
+    "options": ["V = IR", "V = I/R", "V = R/I", "I = VR"],
+    "correct": 0,
+    "explanation": "Ohm's law states voltage = current × resistance (V = IR)."
+  },
+  {
+    "subject": "Physics",
+    "question": "Sound waves are an example of:",
+    "options": ["Transverse waves", "Electromagnetic waves", "Longitudinal waves", "Stationary light waves"],
+    "correct": 2,
+    "explanation": "Sound is a longitudinal (compression) mechanical wave that needs a medium to travel."
+  },
+  {
+    "subject": "English",
+    "question": "Choose the correct form: \"She ___ to school every day.\"",
+    "options": ["go", "goes", "gone", "going"],
+    "correct": 1,
+    "explanation": "Third-person singular present simple takes the verb with an '-s': she goes."
+  },
+  {
+    "subject": "English",
+    "question": "Choose the antonym of \"ancient\":",
+    "options": ["old", "antique", "archaic", "modern"],
+    "correct": 3,
+    "explanation": "\"Ancient\" means very old; the antonym is modern or contemporary."
+  }
+]

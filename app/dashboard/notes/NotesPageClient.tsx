@@ -242,6 +242,46 @@ export function NotesPageClient({
         />
       )}
 
+      {/* MDCAT study materials — the PMDC MDCAT prep surface for pre-medical
+          students (Biology, Chemistry, Physics, English) */}
+      <section>
+        <h2 className="text-sm font-semibold text-[var(--color-text-primary)] mb-3">
+          MDCAT Preparation
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <Link
+            href="/dashboard/notes/mdcat-master-notes"
+            className="group glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5 flex flex-col"
+          >
+            <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">
+              🧬 MDCAT Master Concept Notes
+            </h3>
+            <p className="text-sm text-[var(--color-text-secondary)] flex-1">
+              Easy-language Biology, Chemistry, Physics and English notes written from the PMDC MDCAT syllabus.
+            </p>
+            <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-[var(--color-primary)]">
+              Open notes
+              <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+            </span>
+          </Link>
+          <Link
+            href="/dashboard/practice?college=MDCAT"
+            className="group glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5 flex flex-col"
+          >
+            <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">
+              📝 MDCAT Exam-Style Practice
+            </h3>
+            <p className="text-sm text-[var(--color-text-secondary)] flex-1">
+              Exam-style MCQs across Biology, Chemistry, Physics and English — closest to the real paper.
+            </p>
+            <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-[var(--color-primary)]">
+              Start practising
+              <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+            </span>
+          </Link>
+        </div>
+      </section>
+
       {/* College Cards */}
       <section>
         <h2 className="text-sm font-semibold text-[var(--color-text-primary)] mb-3">

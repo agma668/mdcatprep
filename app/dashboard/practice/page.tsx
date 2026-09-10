@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
-import { createClient } from '@/lib/supabase/server'
-import { getStudentProfile } from '@/lib/student'
-import { ALL_RESOURCE_QUESTIONS } from '@/lib/resources'
-import { PageHeader } from '@/components/dashboard/PageHeader'
+import { createClient } from "@/lib/supabase/server";
+import { getStudentProfile } from "@/lib/student";
+import { MDCAT_QUESTIONS } from "@/lib/mdcat";
+import { PageHeader } from "@/components/dashboard/PageHeader";
 import { PracticeClient } from './PracticeClient'
 
 export const metadata: Metadata = { title: 'Practice' }
@@ -40,7 +40,7 @@ export default async function PracticePage({
   // Exam-style bank sizes per subject (for the chooser cards — the questions
   // themselves render on the dedicated /practice/session route).
   const bankCountsBySubject: Record<string, number> = {}
-  for (const row of ALL_RESOURCE_QUESTIONS) {
+  for (const row of MDCAT_QUESTIONS) {
     if (row.subject) bankCountsBySubject[row.subject] = (bankCountsBySubject[row.subject] ?? 0) + 1
   }
 

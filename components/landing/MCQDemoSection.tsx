@@ -63,7 +63,7 @@ export function MCQDemoSection() {
   }
 
   function share() {
-    const text = `🎯 I scored ${score}/${total} on the Cadet College Prep demo quiz!\n\nCan you beat me? Try it free (no signup needed):\n${window.location.origin}`;
+    const text = `🎯 I scored ${score}/${total} on the MED Prep demo quiz!\n\nCan you beat me? Try it free (no signup needed):\n${window.location.origin}`;
     // window.open does not imply noopener the way target="_blank" on an anchor
     // does, so the share tab would otherwise keep a handle on this one.
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
@@ -83,7 +83,7 @@ export function MCQDemoSection() {
             Test Your <span className="text-[var(--signal-200)]">Knowledge</span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-[var(--steel-300)]">
-            Try {total} sample MCQs across Mathematics, Science, English, Urdu and IQ.
+            Try {total} sample MCQs across Biology, Chemistry, Physics and English.
           </p>
         </div>
 

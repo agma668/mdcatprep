@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import { ALL_RESOURCE_QUESTIONS } from "@/lib/resources";
+import { MDCAT_QUESTIONS } from "@/lib/mdcat";
 import { PracticeSession } from "@/components/practice/PracticeSession";
 import { toQuizQuestion } from "@/lib/questions";
 
@@ -42,7 +42,7 @@ export default async function PracticeSessionPage({
 
   // Normalise bundled questions to the shared quiz model once, here at the
   // data seam (resources' optional `college` disagrees with the row shape).
-  const bank = ALL_RESOURCE_QUESTIONS.map((q) => toQuizQuestion(q));
+  const bank = MDCAT_QUESTIONS.map((q) => toQuizQuestion(q));
   let questions = bank;
   if (subject) {
     const wanted = subject.toLowerCase();
