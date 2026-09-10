@@ -135,8 +135,6 @@ export function drainPendingAttempts(): Promise<DrainResult> {
 async function runDrain(): Promise<DrainResult> {
   const result: DrainResult = { checked: false, attempted: 0, synced: 0, held: 0, dropped: 0 };
   const supabase = createClient();
-  // Unconfigured deployment: nothing can sync, entries keep waiting.
-  if (!supabase) return result;
 
   // Gate on a real, server-validated session (getUser also refreshes an
   // expired token when online). Signed out → nothing drains; the entries wait.

@@ -49,7 +49,6 @@ export function DailyQuizClient({ questions }: { questions: BankQuestion[] }) {
 
   useEffect(() => {
     const supabase = createClient();
-    if (!supabase) return; // unconfigured deployment: stay in guest mode
     supabase.auth.getUser().then(({ data }) => {
       setIsSignedIn(!!data.user);
     });

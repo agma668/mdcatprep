@@ -2,43 +2,37 @@ import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 import { isAdminEmail } from '@/lib/auth'
 import { createServiceClient } from '@/lib/supabase/service'
+import { getSupabaseAnonKey, getSupabaseUrl } from '@/lib/env'
 
 export async function updateSession(request: NextRequest) {
-  // Misconfigured environment (missing Supabase env vars on the host): the
-  // old code used `!` assertions here, so every request crashed the proxy
-  // and Vercel answered 500 for the entire site. Throwing here instead lets
-  // the proxy's fail-open/closed handler decide per route.
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-    throw new Error('supabase env vars missing')
-  }
+  // The publishable URL/anon key resolve from env vars or the built-in
+  // fallbacks in lib/env.ts, so this client can always be built — a missing
+  // env can never crash the proxy and 500 the whole site (the 2026-09-10
+  // outage signature).
 
   let supabaseResponse = NextResponse.next({
     request,
   })
 
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-    {
-      cookies: {
-        getAll() {
-          return request.cookies.getAll()
-        },
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
-          supabaseResponse = NextResponse.next({
-            request,
-          })
-          cookiesToSet.forEach(({ name, value, options }) =>
-            supabaseResponse.cookies.set(name, value, options)
-          )
-        },
+  const supabase = createServerClient(getSupabaseUrl(), getSupabaseAnonKey(), {
+    cookies: {
+      getAll() {
+        return request.cookies.getAll()
       },
-    }
-  )
+      setAll(cookiesToSet) {
+        cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
+        supabaseResponse = NextResponse.next({
+          request,
+        })
+        cookiesToSet.forEach(({ name, value, options }) =>
+          supabaseResponse.cookies.set(name, value, options)
+        )
+      },
+    },
+  })
 
   // Do not run code between createServerClient and
-  // supabase.auth.getUser(). A simple mistake could make it very hard to debug
+  // supabaseResponse.cookies.set. A simple mistake could make it very hard to debug
   // issues with users being randomly logged out.
 
   // IMPORTANT: DO NOT USE getSession HERE! It only reads from cookies,
@@ -67,13 +61,22 @@ export async function updateSession(request: NextRequest) {
     }
 
     // Read status/role with the service role — the RLS path is admin-gated in
-    // the live DB and must not decide student access.
-    const service = createServiceClient()
-    const { data: profile } = await service
-      .from('profiles')
-      .select('role, status')
-      .eq('id', user.id)
-      .single()
+    // the live DB and must not decide student access. When the deployment is
+    // missing the service key (it is a secret and has no fallback), degrade:
+    // admins still pass (they never needed this read), everyone else is
+    // treated as pending rather than crashing the proxy.
+    let profile: { role?: string | null; status?: string | null } | null = null
+    try {
+      const service = createServiceClient()
+      const { data } = await service
+        .from('profiles')
+        .select('role, status')
+        .eq('id', user.id)
+        .single()
+      profile = data
+    } catch {
+      profile = null
+    }
 
     // 1. Enforce the approval gate for protected routes. Admins bypass it
     //    entirely — including the missing-profile case — so an admin can never

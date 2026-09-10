@@ -7,6 +7,7 @@
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 import { createServiceClient } from "@/lib/supabase/service";
+import { getSupabaseAnonKey, getSupabaseUrl } from "@/lib/env";
 
 // ─── Email allowlist ──────────────────────────────────────────
 //
@@ -39,11 +40,8 @@ export function isAdminEmail(email?: string | null): boolean {
  */
 export async function getAdminUser() {
   const cookieStore = await cookies();
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
-  if (!url || !anonKey) return null;
 
-  const supabase = createServerClient(url, anonKey, {
+  const supabase = createServerClient(getSupabaseUrl(), getSupabaseAnonKey(), {
     cookies: {
       getAll: () => cookieStore.getAll(),
       setAll: () => {},

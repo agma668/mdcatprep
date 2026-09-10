@@ -56,7 +56,8 @@ export function GoogleButton({
   const signInWithGoogle = async () => {
     setLoading(true);
     setError(null);
-    const { error } = await createClient().auth.signInWithOAuth({
+    const supabase = createClient();
+    const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
         // A referral code rides through the OAuth round-trip as ?ref= so the

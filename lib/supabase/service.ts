@@ -5,19 +5,19 @@ import { getSupabaseUrl } from '@/lib/env'
  * Service-role client that bypasses RLS. Server-side only — never expose it
  * to the client.
  *
- * Throws a descriptive error when the deployment is missing its env vars —
- * deliberately NOT a null return, so call sites keep their types. Public
- * readers (landing stats, daily quiz) already wrap this in try/catch and
- * render fallbacks; everything else sits behind auth gates. The old form was
- * a `!` assertion that crashed with "supabaseUrl is required" far from the
- * cause.
+ * The service-role key is a REAL SECRET and cannot be embedded as a fallback
+ * (unlike the publishable URL/anon pair in lib/env.ts), so this still throws
+ * a descriptive error when the deployment lacks it. Call sites keep their
+ * types; guarded readers degrade gracefully; unguarded ones are wrapped by
+ * the calling action's try/catch so students get an honest message instead
+ * of a 500.
  */
 export function createServiceClient() {
   const url = getSupabaseUrl()
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim()
   if (!url || !serviceKey) {
     throw new Error(
-      'Supabase is not configured on this deployment: NEXT_PUBLIC_SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY are missing (set them in the host dashboard, then rebuild).'
+      'Supabase service role is not configured on this deployment: SUPABASE_SERVICE_ROLE_KEY is missing (set it in the host dashboard, then rebuild).'
     )
   }
 

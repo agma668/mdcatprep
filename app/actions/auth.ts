@@ -50,13 +50,21 @@ async function performLogin(formData: FormData) {
   }
 
   // Read the student's profile with the service role. The anon/RLS path is
-  // admin-gated in the live DB and must not decide student access.
-  const adminSupabase = createServiceClient()
-  const { data: profile } = await adminSupabase
-    .from('profiles')
-    .select('role, status')
-    .eq('id', authData.user.id)
-    .single()
+  // admin-gated in the live DB and must not decide student access. When the
+  // deployment is missing the service key (a secret, no fallback), degrade to
+  // "pending" instead of 500ing — the password check above already succeeded.
+  let profile: { role?: string | null; status?: string | null } | null = null
+  try {
+    const adminSupabase = createServiceClient()
+    const { data } = await adminSupabase
+      .from('profiles')
+      .select('role, status')
+      .eq('id', authData.user.id)
+      .single()
+    profile = data
+  } catch {
+    profile = null
+  }
 
   // DB-assigned admins route to the admin panel too (the allowlist above is
   // the fallback; the profiles.role column is the source of truth the
@@ -100,7 +108,15 @@ export async function signup(formData: FormData) {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { error: 'Please enter a valid email address.' }
   if (password.length < 8) return { error: 'Password must be at least 8 characters long.' }
 
-  const adminSupabase = createServiceClient()
+  let adminSupabase: ReturnType<typeof createServiceClient>
+  try {
+    adminSupabase = createServiceClient()
+  } catch {
+    return {
+      error:
+        'Signup is temporarily unavailable — the server is missing its database configuration. Please contact the site owner.',
+    }
+  }
 
   // Create the auth user directly with the service role and mark the email as
   // confirmed, so signup never depends on confirmation-email delivery (which

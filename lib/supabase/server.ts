@@ -5,25 +5,14 @@ import { getSupabaseAnonKey, getSupabaseUrl } from '@/lib/env'
 /**
  * Server (RLS, cookie-bound) Supabase client.
  *
- * Throws a descriptive error when the deployment is missing its env vars —
- * deliberately NOT a null return, so the 100+ call sites keep their types
- * and behavior. Public readers (daily quiz, public stats) already wrap this
- * in try/catch and degrade to fallbacks; protected pages sit behind the
- * proxy, which fails closed to /login. The old form was a `!` assertion that
- * crashed with "supabaseUrl is required" far from the cause.
+ * Always constructible: the publishable URL/anon key resolve from env vars or
+ * the built-in publishable fallbacks in lib/env.ts — a deployment can never
+ * crash here for missing config (the 2026-09-10 outage signature).
  */
 export async function createClient() {
-  const url = getSupabaseUrl()
-  const anonKey = getSupabaseAnonKey()
-  if (!url || !anonKey) {
-    throw new Error(
-      'Supabase is not configured on this deployment: NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY are missing (set them in the host dashboard, then rebuild).'
-    )
-  }
-
   const cookieStore = await cookies()
 
-  return createServerClient(url, anonKey, {
+  return createServerClient(getSupabaseUrl(), getSupabaseAnonKey(), {
     cookies: {
       getAll() {
         return cookieStore.getAll()
