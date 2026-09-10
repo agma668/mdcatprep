@@ -26,7 +26,7 @@ function LoginFormInner() {
   useEffect(() => {
     let alive = true;
     createClient()
-      .auth.getSession()
+      ?.auth.getSession()
       .then(({ data }) => {
         if (alive && data.session) router.replace("/dashboard");
       })

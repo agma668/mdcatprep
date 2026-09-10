@@ -9,6 +9,20 @@ import { sendEnrollmentEmail } from '@/lib/email'
 import { getSiteUrl } from '@/lib/site'
 
 export async function login(formData: FormData) {
+  try {
+    return await performLogin(formData)
+  } catch (err) {
+    // A thrown misconfiguration (missing env) or unreachable Supabase must
+    // reach the student as a form message — never as a hung button or a 500.
+    console.error('login failed:', err)
+    return {
+      error:
+        'Sign-in is temporarily unavailable — the server could not reach its database. Please try again shortly.',
+    }
+  }
+}
+
+async function performLogin(formData: FormData) {
   const supabase = await createClient()
 
   const data = {

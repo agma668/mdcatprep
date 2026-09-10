@@ -6,6 +6,9 @@ import { PendingReferralCard } from "@/components/auth/PendingReferralCard";
 
 export const metadata = { title: "Application Pending" };
 
+// Reads the live session every request — never prerender at build time.
+export const dynamic = "force-dynamic";
+
 export default async function PendingPage() {
   // The page is reachable two ways: signed-out (a fresh signup following the
   // "check your status" link) and signed-in (middleware bounces a pending

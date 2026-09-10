@@ -6,6 +6,11 @@ import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { StudentTable } from './StudentTable'
 
+// Auth-gated admin page: render per-request, never prerender at build time
+// (the build has no user session — and with env vars missing at build, a
+// prerender attempt here used to fail the whole deployment).
+export const dynamic = 'force-dynamic'
+
 export default async function AdminDashboardPage() {
   const supabase = await createClient()
 

@@ -131,7 +131,7 @@ export function OfflinePractice() {
   useEffect(() => {
     let alive = true;
     createClient()
-      .auth.getSession()
+      ?.auth.getSession()
       .then(({ data }) => {
         if (!alive) return;
         setSignedIn(!!data.session);

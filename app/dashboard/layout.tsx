@@ -10,6 +10,11 @@ import { SWRegistrar } from "@/components/dashboard/SWRegistrar";
 const EMPTY_LEADERBOARD = { entries: [], stats: { totalStudents: 0, totalQuestions: 0, avgStreak: 0 } };
 const LEADERBOARD_TIMEOUT_MS = 6000;
 
+// The whole dashboard segment renders per-request: every child reads the
+// session/profile. A build-time prerender here has no session to read — and
+// with env vars missing at build it failed the whole deployment.
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: {
     default: "Dashboard",
