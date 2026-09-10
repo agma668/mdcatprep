@@ -6,6 +6,7 @@
 
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
+import { createServiceClient } from "@/lib/supabase/service";
 
 // ─── Email allowlist ──────────────────────────────────────────
 //
@@ -18,7 +19,10 @@ import { cookies } from "next/headers";
 
 // TODO: put YOUR real admin email(s) here — whoever signs up with an email
 // on this list becomes the site admin (auto-approved, routed to /admin).
-const ADMIN_EMAILS: readonly string[] = ["admin@medprep.pk"];
+const ADMIN_EMAILS: readonly string[] = [
+  "admin@medprep.pk",
+  "67129@cch.edu.pk", // site owner
+];
 
 export function isAdminEmail(email?: string | null): boolean {
   if (!email) return false;
@@ -28,27 +32,42 @@ export function isAdminEmail(email?: string | null): boolean {
 // ─── Server-side session checks ───────────────────────────────
 
 /**
- * Returns the authenticated user if they are an allowlisted admin email,
- * otherwise null. Never throws.
+ * Returns the authenticated user when they are an admin — by allowlisted
+ * email OR by the profiles.role column (the source of truth the middleware
+ * gate and login routing also honor). Never throws; unreadable profile just
+ * means "not admin by role".
  */
 export async function getAdminUser() {
   const cookieStore = await cookies();
-  const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        getAll: () => cookieStore.getAll(),
-        setAll: () => {},
-      },
-    }
-  );
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
+  if (!url || !anonKey) return null;
+
+  const supabase = createServerClient(url, anonKey, {
+    cookies: {
+      getAll: () => cookieStore.getAll(),
+      setAll: () => {},
+    },
+  });
 
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user || !isAdminEmail(user.email)) return null;
-  return user;
+  if (!user) return null;
+  if (isAdminEmail(user.email)) return user;
+
+  // DB-assigned admin: profiles.role === 'admin' (same rule as the proxy).
+  try {
+    const service = createServiceClient();
+    const { data: profile } = await service
+      .from("profiles")
+      .select("role")
+      .eq("id", user.id)
+      .single();
+    return profile?.role === "admin" ? user : null;
+  } catch {
+    return null;
+  }
 }
 
 /** Throws when the caller is not an allowlisted admin. */

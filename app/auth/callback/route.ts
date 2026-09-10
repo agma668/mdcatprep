@@ -40,11 +40,13 @@ export async function GET(request: NextRequest) {
         const service = createServiceClient()
         const { data: profile } = await service
           .from('profiles')
-          .select('status, referred_by')
+          .select('role, status, referred_by')
           .eq('id', user.id)
           .single()
 
-        if (isAdminEmail(user.email)) {
+        // Allowlist email OR a DB-assigned admin role both route to the
+        // admin panel — same rule as login().
+        if (isAdminEmail(user.email) || profile?.role === 'admin') {
           return NextResponse.redirect(`${origin}/admin`)
         }
 

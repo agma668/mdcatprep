@@ -54,9 +54,17 @@ async function performLogin(formData: FormData) {
   const adminSupabase = createServiceClient()
   const { data: profile } = await adminSupabase
     .from('profiles')
-    .select('status')
+    .select('role, status')
     .eq('id', authData.user.id)
     .single()
+
+  // DB-assigned admins route to the admin panel too (the allowlist above is
+  // the fallback; the profiles.role column is the source of truth the
+  // middleware gate also honors).
+  if (profile?.role === 'admin') {
+    revalidatePath('/admin', 'layout')
+    return { success: true, redirectTo: '/admin' }
+  }
 
   // The real gate is admin payment approval. Pending (or missing) students go
   // to the pending page; rejected students to the rejected page; suspended
