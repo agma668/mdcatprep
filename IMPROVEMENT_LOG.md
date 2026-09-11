@@ -38,6 +38,6 @@ Both used the exact `ResourceQuestion` schema (`key`/`question_text`/`option_a..
 
 **Gate results:** `npx tsc --noEmit` → exit 0 (clean).
 
-**Commit:** (this entry, staged with the banks)
+**Commit:** `d90e8b6` (feat: grow bank to 360 — physics 100, english 80, chem key-fix)
 
-**Status:** DONE, ready.
+Same log entry doubles as the *physics + english* bank growth (this sweep did all four subjects: bio+chem in the earlier push, physics+english now). **Status:** DONE, pushed.
