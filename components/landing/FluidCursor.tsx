@@ -43,6 +43,14 @@ export function FluidCursor() {
 
     let raf = 0;
     let active = false;
+    // The arrow keeps running only while it is actually moving toward the
+    // pointer. Once the pointer has been still long enough for the lerp to
+    // converge, the loop halts instead of writing a transform every frame for
+    // the whole page lifetime (a per-frame DOM write that taxes scroll). The
+    // next pointer event wakes it. Settle frames ≈ the lerp's ~30 frames to
+    // converge (0.19) plus a little slack.
+    let idle = 0;
+    const SETTLE_FRAMES = 60;
 
     // Pointer state (names mirror the original: d,f target · p,m position ·
     // h,g last sample · y angle · v move angle · b speed · w touch mode).
@@ -75,6 +83,20 @@ export function FluidCursor() {
 
       t.style.transform = `translate3d(${p}px, ${m}px, 0) rotate(${y}deg)`;
       r.style.transform = `translate(-92%, -50%) scale(${(1 + stretch) * interactive}, ${(1 - squash) * interactive})`;
+
+      // Idle gate: once the arrow has settled on a still pointer, stop
+      // requesting frames. The transform no longer changes, so keeping the
+      // loop alive would only re-write the same styles 60×/sec (and tax every
+      // scroll). Any pointer move (below) restarts it.
+      if (Math.hypot(d - p, f - m) > 0.5) {
+        idle = 0;
+      } else {
+        idle++;
+        if (idle >= SETTLE_FRAMES) {
+          raf = 0;
+          return;
+        }
+      }
 
       raf = window.requestAnimationFrame(frame);
     };
@@ -137,6 +159,9 @@ export function FluidCursor() {
         target.closest("a, button, input, textarea, select, [role='button'], [data-cursor-interactive]")
           ? "true"
           : "false";
+
+      // Wake the loop if it had gone idle (idle-gated after settling).
+      if (!raf && active) raf = window.requestAnimationFrame(frame);
     };
 
     // Fine pointer: follow every move. Touch: only while a drag is active —
