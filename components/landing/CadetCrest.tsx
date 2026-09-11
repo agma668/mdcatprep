@@ -4,17 +4,21 @@ import { InteractiveParticles } from "./InteractiveParticles";
 
 export function CadetCrest() {
   return (
-    <div className="relative h-[280px] w-full rounded-[var(--r-3)] border border-[var(--line-2)] bg-[var(--srf-1)] overflow-hidden shadow-2xl" role="region" aria-label="Interactive particle field">
-      <InteractiveParticles />
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="text-center px-4">
-          <span className="inline-block px-3 py-1 mb-2 text-xs font-semibold uppercase tracking-wider rounded-full border border-[var(--line-signal)] bg-[var(--tint-signal)] text-[var(--signal-300)]">
-            Interactive Physics
-          </span>
-          <p className="font-display text-sm font-bold text-[var(--steel-100)] sm:text-base">
-            MDCAT & NUMS Prep Network
-          </p>
-        </div>
+    <div
+      className="relative w-full rounded-[var(--r-3)] border border-[var(--line-2)] bg-[var(--srf-1)] overflow-hidden shadow-2xl"
+      role="region"
+      aria-label="Interactive particle network"
+    >
+      {/* The rotating network sphere gets the whole upper zone to itself —
+          nothing overlays the canvas, so the web never sits under text. */}
+      <div className="relative h-[210px]">
+        <InteractiveParticles />
+      </div>
+      {/* Caption strip below the sphere: outside the canvas, its own row. */}
+      <div className="border-t border-[var(--line-2)] px-4 py-3 text-center">
+        <p className="font-display text-sm font-bold text-[var(--steel-100)] sm:text-base">
+          MDCAT &amp; NUMS Prep Network
+        </p>
       </div>
     </div>
   );
