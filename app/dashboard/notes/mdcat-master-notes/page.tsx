@@ -6,6 +6,7 @@ import {
   MCAT_NOTES_PREAMBLE,
   MCAT_NOTES_SECTIONS,
   MCAT_NOTES_META,
+  MCAT_DEEP_SECTIONS,
 } from '@/lib/mcat-notes'
 import Link from 'next/link'
 
@@ -94,6 +95,28 @@ export default async function McatMasterNotesPage() {
         ))}
       </nav>
       {MCAT_NOTES_SECTIONS.map(section => (
+        <section key={section.title} id={section.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')} className="mb-10 scroll-mt-24">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="w-1.5 h-6 rounded-full bg-[var(--color-primary)]" aria-hidden="true" />
+            <h2 className="text-xl font-extrabold text-[var(--color-text-primary)]">{section.title}</h2>
+          </div>
+          <div className="space-y-4">
+            {section.topics.map((topic, i) => <TopicCard key={`${section.title}-${i}`} topic={topic} />)}
+          </div>
+        </section>
+      ))}
+
+      <div className="flex items-center gap-3 mb-2 mt-12">
+        <span className="w-1.5 h-8 rounded-full bg-[var(--color-primary)]" aria-hidden="true" />
+        <h2 className="text-2xl font-extrabold text-[var(--color-text-primary)]">Exam-Depth Master Notes</h2>
+      </div>
+      <p className="text-sm text-[var(--color-text-secondary)] mb-8">
+        Fact-level revision notes derived from the MDCAT past-paper corpus — every major unit,
+        bucket by bucket. “×n” marks how many corpus questions ask the same fact (×3 = near-certain
+        repeat).
+      </p>
+
+      {MCAT_DEEP_SECTIONS.map(section => (
         <section key={section.title} id={section.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')} className="mb-10 scroll-mt-24">
           <div className="flex items-center gap-3 mb-4">
             <span className="w-1.5 h-6 rounded-full bg-[var(--color-primary)]" aria-hidden="true" />

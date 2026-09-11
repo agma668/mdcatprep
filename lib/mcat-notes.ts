@@ -278,3 +278,17 @@ export const MCAT_NOTES_META = {
   badge: 'Based on the PMDC MDCAT Syllabus',
 } as const
 
+// ── Deep corpus-derived master notes ─────────────────────────────────────────
+// Auto-converted from the MDCAT PYQ corpus (2,573 fact lines across Biology,
+// Chemistry and Physics, bucketed by PMDC unit). These expand the light overview
+// above into exam-depth revision material with per-bucket ×n repetition flags.
+import { MCAT_BIOLOGY_NOTES_SECTIONS } from './mcat-biology-notes'
+import { MCAT_CHEMISTRY_NOTES_SECTIONS } from './mcat-chemistry-notes'
+import { MCAT_PHYSICS_NOTES_SECTIONS } from './mcat-physics-notes'
+
+export const MCAT_DEEP_SECTIONS: NoteSection[] = [
+  ...MCAT_BIOLOGY_NOTES_SECTIONS,
+  ...MCAT_CHEMISTRY_NOTES_SECTIONS,
+  ...MCAT_PHYSICS_NOTES_SECTIONS,
+]
+
