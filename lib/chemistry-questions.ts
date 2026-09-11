@@ -901,7 +901,7 @@ export const CHEMISTRY_QUESTIONS: ResourceQuestion[] = [
     source: 'PMDC MDCAT Exam Style',
   },
   {
-    key: '09102132-4354-4657-6879-809102132435',
+    key: '0b3ca965-9595-5935-a9f4-6d38546b0a63',
     subject: 'Chemistry',
     topic: 'Acids and Bases',
     question_text: 'The Lewis definition of an acid is a substance that:',
@@ -915,7 +915,7 @@ export const CHEMISTRY_QUESTIONS: ResourceQuestion[] = [
     source: 'PMDC MDCAT Exam Style',
   },
   {
-    key: '10213243-5465-4768-7980-910213243546',
+    key: '7db209a9-9119-57bb-82ed-22f42b039edb',
     subject: 'Chemistry',
     topic: 'Acids and Bases',
     question_text: 'The hydrolysis of sodium carbonate solution makes it:',
@@ -931,7 +931,7 @@ export const CHEMISTRY_QUESTIONS: ResourceQuestion[] = [
 
   // s and p Block Elements (6 new)
   {
-    key: '21324354-6576-4879-8091-021324354657',
+    key: 'fb175ae3-13e6-5b15-90e1-c394110b1def',
     subject: 'Chemistry',
     topic: 's and p Block Elements',
     question_text: 'Which of the following alkali metals reacts most vigorously with water?',
@@ -945,7 +945,7 @@ export const CHEMISTRY_QUESTIONS: ResourceQuestion[] = [
     source: 'PMDC MDCAT Exam Style',
   },
   {
-    key: '32435465-7687-4980-9102-132435465768',
+    key: 'c03c44dd-6ccc-5eb8-b1e3-e75b6aaa8e5e',
     subject: 'Chemistry',
     topic: 's and p Block Elements',
     question_text: 'The formula of calcium oxide is CaO because:',
@@ -959,7 +959,7 @@ export const CHEMISTRY_QUESTIONS: ResourceQuestion[] = [
     source: 'PMDC MDCAT Exam Style',
   },
   {
-    key: '43546576-8798-4091-0213-243546576879',
+    key: '942e396c-9178-58e2-9f20-70d497f56bc6',
     subject: 'Chemistry',
     topic: 's and p Block Elements',
     question_text: 'Aluminium oxide (Al₂O₃) is described as amphoteric because it:',
@@ -973,7 +973,7 @@ export const CHEMISTRY_QUESTIONS: ResourceQuestion[] = [
     source: 'PMDC MDCAT Exam Style',
   },
   {
-    key: '54657687-9809-4102-1324-354657687980',
+    key: '91d8d122-70ac-5f53-82eb-4a30277ea9a4',
     subject: 'Chemistry',
     topic: 's and p Block Elements',
     question_text: 'Which of the following is a property of transition metals?',
@@ -987,7 +987,7 @@ export const CHEMISTRY_QUESTIONS: ResourceQuestion[] = [
     source: 'PMDC MDCAT Exam Style',
   },
   {
-    key: '65768798-0910-4213-2435-465768798091',
+    key: '5b9c6ec9-1549-5b5f-b2ac-aa5da082df27',
     subject: 'Chemistry',
     topic: 's and p Block Elements',
     question_text: 'The diagonal relationship in the periodic table exists between:',
@@ -1001,7 +1001,7 @@ export const CHEMISTRY_QUESTIONS: ResourceQuestion[] = [
     source: 'PMDC MDCAT Exam Style',
   },
   {
-    key: '76879809-1021-4324-3546-576879809102',
+    key: '9c523a82-b90d-5487-8670-5994221b1553',
     subject: 'Chemistry',
     topic: 's and p Block Elements',
     question_text: 'Which gas is released when dilute hydrochloric acid reacts with calcium carbonate?',
@@ -1017,7 +1017,7 @@ export const CHEMISTRY_QUESTIONS: ResourceQuestion[] = [
 
   // Organic Chemistry (6 new)
   {
-    key: '87980910-2132-4435-4657-687980910213',
+    key: 'cd78d8a5-0241-505e-b361-6b9030b26cf8',
     subject: 'Chemistry',
     topic: 'Organic Chemistry',
     question_text: 'The IUPAC name of CH₃CH₂OH is:',
@@ -1031,7 +1031,7 @@ export const CHEMISTRY_QUESTIONS: ResourceQuestion[] = [
     source: 'PMDC MDCAT Exam Style',
   },
   {
-    key: '98091021-3243-4546-5768-798091021324',
+    key: 'c9b31541-1d83-58a6-835e-ac293a5757a7',
     subject: 'Chemistry',
     topic: 'Organic Chemistry',
     question_text: 'Which test is used to distinguish an aldehyde from a ketone?',
@@ -1045,7 +1045,7 @@ export const CHEMISTRY_QUESTIONS: ResourceQuestion[] = [
     source: 'PMDC MDCAT Exam Style',
   },
   {
-    key: '09102132-4354-4657-6879-809102132435',
+    key: '8c5d83a6-5ffa-5cf7-867a-58c9e70d5465',
     subject: 'Chemistry',
     topic: 'Organic Chemistry',
     question_text: 'Polyethene is formed by the polymerisation of:',
@@ -1059,7 +1059,7 @@ export const CHEMISTRY_QUESTIONS: ResourceQuestion[] = [
     source: 'PMDC MDCAT Exam Style',
   },
   {
-    key: '10213243-5465-4768-7980-910213243546',
+    key: '98c5d1c3-9a3f-5dcd-88bc-6036be075e92',
     subject: 'Chemistry',
     topic: 'Organic Chemistry',
     question_text: 'Which of the following is an ester?',
@@ -1073,7 +1073,7 @@ export const CHEMISTRY_QUESTIONS: ResourceQuestion[] = [
     source: 'PMDC MDCAT Exam Style',
   },
   {
-    key: '21324354-6576-4879-8091-021324354657',
+    key: 'd9a8def7-cdcd-523c-8097-e44fbaf595c6',
     subject: 'Chemistry',
     topic: 'Organic Chemistry',
     question_text: 'The reaction of an alkene with hydrogen in the presence of a nickel catalyst is called:',
@@ -1087,7 +1087,7 @@ export const CHEMISTRY_QUESTIONS: ResourceQuestion[] = [
     source: 'PMDC MDCAT Exam Style',
   },
   {
-    key: '32435465-7687-4980-9102-132435465768',
+    key: '5b457aa0-5978-59e1-8166-378a4b11ee17',
     subject: 'Chemistry',
     topic: 'Organic Chemistry',
     question_text: 'The number of structural isomers of butane (C₄H₁₀) is:',
@@ -1103,7 +1103,7 @@ export const CHEMISTRY_QUESTIONS: ResourceQuestion[] = [
 
   // Electrochemistry (4 new)
   {
-    key: '43546576-8798-4091-0213-243546576879',
+    key: '48c8db1a-2128-50e6-9965-c69256215ab1',
     subject: 'Chemistry',
     topic: 'Electrochemistry',
     question_text: 'The electrode where reduction takes place is called the:',
@@ -1117,7 +1117,7 @@ export const CHEMISTRY_QUESTIONS: ResourceQuestion[] = [
     source: 'PMDC MDCAT Exam Style',
   },
   {
-    key: '54657687-9809-4102-1324-354657687980',
+    key: 'bb229cfa-1ca6-557a-88c6-bb797000ff45',
     subject: 'Chemistry',
     topic: 'Electrochemistry',
     question_text: 'The standard electrode potential of a zinc electrode is −0.76 V, and copper is +0.34 V. In a Daniell cell, the EMF is:',
@@ -1131,7 +1131,7 @@ export const CHEMISTRY_QUESTIONS: ResourceQuestion[] = [
     source: 'PMDC MDCAT Exam Style',
   },
   {
-    key: '65768798-0910-4213-2435-465768798091',
+    key: '45585810-2da9-5b12-9862-c273d61841f4',
     subject: 'Chemistry',
     topic: 'Electrochemistry',
     question_text: 'Faraday\'s first law of electrolysis states that the mass deposited at an electrode is proportional to:',
@@ -1145,7 +1145,7 @@ export const CHEMISTRY_QUESTIONS: ResourceQuestion[] = [
     source: 'PMDC MDCAT Exam Style',
   },
   {
-    key: '76879809-1021-4324-3546-576879809102',
+    key: '69e17bc7-4cb3-56c5-907d-f274767cbcff',
     subject: 'Chemistry',
     topic: 'Electrochemistry',
     question_text: 'In electroplating, the object to be plated is made the:',
