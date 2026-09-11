@@ -38,9 +38,14 @@ import { snoise3 } from "./noise3";
  *    noise is recomputed for half the particles per sim tick (alternating),
  *    halving the dominant CPU cost with no visible difference — the noise
  *    field evolves slowly.
- *  - Adaptive quality: if a device's average frame exceeds ~26 ms the render
- *    loop drops to every-other-frame automatically (one-way, hysteresis
- *    guarded), so weak phones degrade to 30 fps instead of stuttering.
+ *  - Budget far-field: particles outside the ring band skip ALL noise work
+ *    (cheap deterministic shimmer instead) — they are near-invisible there,
+ *    and this is what keeps the sim flat-cost, so the field never stalls the
+ *    page even mid-sweep.
+ *  - Follow tuning (2026-09-11, "stuck" fix): the ring chases the pointer
+ *    with a fast time constant (k=14/s ≈ 70 ms to catch up) and almost no
+ *    wander while the pointer is inside — the cloud follows the cursor
+ *    instead of lagging a screen behind it.
  *  - When the pointer is away, the ring wanders on its own noise path, so
  *    the field stays alive.
  *
@@ -314,30 +319,30 @@ export function HeroParticleField() {
     window.addEventListener("pointermove", onMove, { passive: true });
     document.documentElement.addEventListener("pointerleave", onLeaveDoc);
 
-    // ── Loop: fixed-timestep sim (30 Hz) + full-rate smooth render ─────────
-    const SIM_DT = 1 / 30;
+    // ── Loop: fixed-timestep sim (40 Hz) + full-rate smooth render ─────────
+    const SIM_DT = 1 / 40;
     let raf = 0;
     let last = 0;
     let simTime = 0;
     let simAcc = 0;
     let simTick = 0;
     let onScreen = true;
-    // Adaptive quality: sustained slow frames flip to every-other-frame
-    // rendering (one-way; restored if the device speeds up again).
-    let emaFrame = 16;
-    let lowPower = false;
 
     const io = new IntersectionObserver(([entry]) => {
       onScreen = entry.isIntersecting;
     });
     io.observe(canvas);
 
-    // One physics step — the position-update fragment shader, verbatim math,
-    // with noise staggered across two ticks per particle.
+    // One physics step — the position-update fragment shader math. The
+    // dominant cost is the simplex noise, so particles FAR outside the ring
+    // band take a noise-free budget path instead (cheap shimmer, decay) —
+    // they are invisible or near-invisible anyway, and skipping their noise
+    // is what keeps the sim cheap enough to never stall.
     const simStep = () => {
       simTick++;
       // Breathing ring radius (their exact formula).
       const R = 0.175 + Math.sin(simTime) * 0.03 + Math.cos(simTime * 3) * 0.02;
+      const bandMax = R + RING_WIDTH2 * 2.2;
       const refreshColor = simTick % 10 === 0;
 
       for (let i = 0; i < count; i++) {
@@ -345,6 +350,19 @@ export function HeroParticleField() {
         const cyr = -((ry[i] / h) * 2 - 1);
 
         const dist = Math.hypot(cxr - ringX, cyr - ringY);
+
+        // ── Far-field budget path: outside the band → no noise calls.
+        //    Fades toward a faint pseudo-random shimmer (deterministic per
+        //    particle) so the ambient field stays barely-alive without the
+        //    per-particle simplex cost.
+        if (dist > bandMax) {
+          const tb = 0.1 + 0.08 * Math.sin(simTime * 0.7 + i * 1.7);
+          scale[i] += (tb - scale[i]) * 0.2;
+          posx[i] *= 0.8;
+          posy[i] *= 0.8;
+          vel[i] *= 0.5;
+          continue;
+        }
 
         // ── Ring-band excitation (their t / t2 / t3, exact) ──
         const noise0 = snoise3(cxr * 0.2 + 18.4924, cyr * 0.2 + 72.9744, simTime * 0.25);
@@ -355,8 +373,11 @@ export function HeroParticleField() {
         t2 = t2 * t2 * t2;
         const t3 = sstep(R + RING_WIDTH2, R, dist);
         let t = t1 + t2 * 3 + t3 * 0.4;
+        // Ambient baseline inside the band only — antigravity's value (0.6)
+        // lights the whole field; a low value keeps the excitation focused on
+        // the ring so the follow reads clearly.
         const nS = snoise3(cxr * 2 + 18.4924, cyr * 2 + 72.9744, simTime * 0.25);
-        t += (nS + 1.5) * 0.5 * ((nS + 1.5) * 0.5) * 0.6;
+        t += (nS + 1.5) * 0.5 * ((nS + 1.5) * 0.5) * 0.22;
 
         // ── Displacement field, staggered: half the particles per tick.
         //    The noise field evolves slowly, so alternating halves is
@@ -407,20 +428,17 @@ export function HeroParticleField() {
       const dt = last ? Math.min((now - last) / 1000, 0.1) : 0.016;
       last = now;
 
-      // Adaptive quality on sustained slow frames (EMA of frame time, ms).
-      emaFrame = emaFrame * 0.9 + dt * 1000 * 0.1;
-      if (!lowPower && emaFrame > 26) lowPower = true;
-      else if (lowPower && emaFrame < 15) lowPower = false;
-      if (lowPower && simTick % 2 === 1) return; // even ticks only
-
-      // ── Ring target: cursor when present, else a noise wander (the
-      //    original's idle path). Exponential, time-based smoothing — the
-      //    follow feels identical at any frame rate, no stepping.
+      // ── Ring target: the cursor while present. Two fixes so the cloud
+      //    actually FOLLOWS: (1) a fast time constant — k=3/s meant the ring
+      //    took ~1s to arrive after a sweep (the "stuck" feel); k=14/s
+      //    catches the pointer in ~70ms. (2) almost no wander added on top
+      //    of the pointer while inside — the old ±10%-of-width drunken sway
+      //    made the target visibly drift off the cursor.
       const wx = snoise3(simTime * 0.66, 94.234, 0) * 0.2;
       const wy = snoise3(simTime * 0.75, 21.028, 0) * 0.1;
-      const tx = inside ? cursorX + wx * 0.5 : wx;
-      const ty = inside ? cursorY + wy * 0.5 : wy;
-      const k = inside ? 3.0 : 1.4; // 1/s — snappier inside, dreamy when idle
+      const tx = inside ? cursorX + wx * 0.15 : wx;
+      const ty = inside ? cursorY + wy * 0.15 : wy;
+      const k = inside ? 14.0 : 1.4; // 1/s — glued to the cursor, dreamy when idle
       const a = 1 - Math.exp(-dt * k);
       ringX += (tx - ringX) * a;
       ringY += (ty - ringY) * a;
