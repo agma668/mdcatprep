@@ -26,7 +26,7 @@ function LoginFormInner() {
   useEffect(() => {
     let alive = true;
     createClient()
-      .auth.getSession()
+      .then((supabase) => supabase.auth.getSession())
       .then(({ data }) => {
         if (alive && data.session) router.replace("/dashboard");
       })

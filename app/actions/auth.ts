@@ -2,8 +2,9 @@
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
-import { createClient } from '@/lib/supabase/server'
+import { canSelfHealAuth, createBuiltinClient, createClient } from '@/lib/supabase/server'
 import { createServiceClient } from '@/lib/supabase/service'
+import { isInvalidApiKeyError } from '@/lib/env'
 import { isAdminEmail } from '@/lib/auth'
 import { sendEnrollmentEmail } from '@/lib/email'
 import { getSiteUrl } from '@/lib/site'
@@ -23,17 +24,41 @@ export async function login(formData: FormData) {
 }
 
 async function performLogin(formData: FormData) {
-  const supabase = await createClient()
-
   const data = {
     email: formData.get('email') as string,
     password: formData.get('password') as string,
   }
 
-  const { data: authData, error } = await supabase.auth.signInWithPassword(data)
+  const signIn = async () => {
+    try {
+      const supabase = await createClient()
+      return await supabase.auth.signInWithPassword(data)
+    } catch (err) {
+      // auth-js surfaces API errors as a resolved `error` in most paths but
+      // throws in others — normalize so the self-heal below sees both.
+      return { data: null, error: err as { message: string } }
+    }
+  }
+
+  let { data: authData, error } = await signIn()
+
+  // Runtime self-heal: a host-configured anon key can be present and
+  // structurally valid yet DEAD (401 "Invalid API key" — stale key pasted
+  // into the host dashboard, observed live 2026-09-11). When the gateway
+  // rejects the key itself, retry once against the embedded publishable
+  // pair so sign-in works on any deployment. "Invalid login credentials"
+  // (bad password) never triggers this — only key-level rejections do.
+  if (isInvalidApiKeyError(error) && canSelfHealAuth()) {
+    const healed = await (await createBuiltinClient()).auth.signInWithPassword(data)
+    authData = healed.data
+    error = healed.error
+  }
 
   if (error) {
     return { error: error.message }
+  }
+  if (!authData?.user) {
+    return { error: 'Could not sign in. Please try again.' }
   }
 
   // The destination is RETURNED, never redirected server-side: a server-action
@@ -108,72 +133,102 @@ export async function signup(formData: FormData) {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { error: 'Please enter a valid email address.' }
   if (password.length < 8) return { error: 'Password must be at least 8 characters long.' }
 
-  let adminSupabase: ReturnType<typeof createServiceClient>
+  // Service role when available (creates the user pre-confirmed and fills the
+  // enrollment fields). Without the service key — a real secret with no
+  // embedded fallback — degrade to plain anon signup instead of refusing:
+  // the account is still created and the handle_new_user trigger still makes
+  // the student/pending profile; confirmation then follows the project's own
+  // auth settings. (The prior hard refusal is what the live "Signup is
+  // temporarily unavailable" banner was.)
+  let adminSupabase: ReturnType<typeof createServiceClient> | null = null
   try {
     adminSupabase = createServiceClient()
   } catch {
-    return {
-      error:
-        'Signup is temporarily unavailable — the server is missing its database configuration. Please contact the site owner.',
+    adminSupabase = null
+  }
+
+  let userId: string
+  if (adminSupabase) {
+    // Create the auth user directly with the service role and mark the email
+    // as confirmed, so signup never depends on confirmation-email delivery
+    // (which is currently failing in the Supabase project). The real access
+    // gate is admin payment approval. Password login still works normally.
+    const { data: authData, error } = await adminSupabase.auth.admin.createUser({
+      email,
+      password,
+      email_confirm: true,
+      user_metadata: { full_name, phone, exam_target },
+    })
+
+    if (error) {
+      return { error: error.message }
     }
-  }
 
-  // Create the auth user directly with the service role and mark the email as
-  // confirmed, so signup never depends on confirmation-email delivery (which
-  // is currently failing in the Supabase project). The real access gate is
-  // admin payment approval. Password login still works normally.
-  const { data: authData, error } = await adminSupabase.auth.admin.createUser({
-    email,
-    password,
-    email_confirm: true,
-    user_metadata: { full_name, phone, exam_target },
-  })
+    if (!authData.user) {
+      return { error: 'Could not create account. Please try again.' }
+    }
 
-  if (error) {
-    return { error: error.message }
-  }
+    userId = authData.user.id
+  } else {
+    const supabase = await createClient()
+    const { data: authData, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: { data: { full_name, phone, exam_target } },
+    })
 
-  if (!authData.user) {
-    return { error: 'Could not create account. Please try again.' }
+    if (error) {
+      return { error: error.message }
+    }
+
+    if (!authData.user) {
+      return { error: 'Could not create account. Please try again.' }
+    }
+
+    userId = authData.user.id
   }
 
   const isAdmin = isAdminEmail(email)
 
-  // The signup trigger creates the profile as student/pending. Fill in the
-  // enrollment fields the trigger does not set, and promote admin emails.
-  const { error: updateError } = await adminSupabase
-    .from('profiles')
-    .update(
-      isAdmin
-        ? { role: 'admin', status: 'approved', phone, exam_target }
-        : { phone, exam_target }
-    )
-    .eq('id', authData.user.id)
+  if (adminSupabase) {
+    // The signup trigger creates the profile as student/pending. Fill in the
+    // enrollment fields the trigger does not set, and promote admin emails.
+    // (Anon-path signups skip this — the profile stays as the trigger made
+    // it — and the enrollment details ride along in the notification email.)
+    const { error: updateError } = await adminSupabase
+      .from('profiles')
+      .update(
+        isAdmin
+          ? { role: 'admin', status: 'approved', phone, exam_target }
+          : { phone, exam_target }
+      )
+      .eq('id', userId)
 
-  if (updateError) {
-    // Not fatal: the profile still exists (student/pending) from the trigger,
-    // and admin emails bypass approval checks in login and middleware anyway.
-    console.error('Failed to update profile after signup:', updateError.message)
-  }
+    if (updateError) {
+      // Not fatal: the profile still exists (student/pending) from the trigger,
+      // and admin emails bypass approval checks in login and middleware anyway.
+      console.error('Failed to update profile after signup:', updateError.message)
+    }
 
-  // Attribute the referral: the new student points back at whoever shared
-  // their link. Counting + the 10-referral auto-approval happen entirely in
-  // the database (see 20260903000003_referral_signup_count.sql) the moment
-  // this attribution lands — a signup counts immediately, never manually.
-  if (!isAdmin && refCode) {
-    try {
-      const { data: referrer } = await adminSupabase
-        .from('profiles')
-        .select('id')
-        .eq('referral_code', refCode.toUpperCase())
-        .maybeSingle()
-      if (referrer && referrer.id !== authData.user.id) {
-        await adminSupabase.from('profiles').update({ referred_by: referrer.id }).eq('id', authData.user.id)
+    // Attribute the referral: the new student points back at whoever shared
+    // their link. Counting + the 10-referral auto-approval happen entirely in
+    // the database (see 20260903000003_referral_signup_count.sql) the moment
+    // this attribution lands — a signup counts immediately, never manually.
+    if (!isAdmin && refCode) {
+      try {
+        const { data: referrer } = await adminSupabase
+          .from('profiles')
+          .select('id')
+          .eq('referral_code', refCode.toUpperCase())
+          .maybeSingle()
+        if (referrer && referrer.id !== userId) {
+          await adminSupabase.from('profiles').update({ referred_by: referrer.id }).eq('id', userId)
+        }
+      } catch (err) {
+        // Referral columns may not exist yet (pre-migration) — the signup must
+        // never fail because of attribution bookkeeping.
+        console.error('Referral attribution skipped:', (err as Error).message)
       }
-    } catch (err) {
-      // Referral columns may not exist yet (pre-migration) — the signup must
-      // never fail because of attribution bookkeeping.
-      console.error('Referral attribution skipped:', (err as Error).message)
     }
   }
 
@@ -186,10 +241,12 @@ export async function signup(formData: FormData) {
     success: true,
     message: isAdmin
       ? 'Signup successful. You can now log in to the admin panel.'
-      // Honest about the process: activation is a manual admin approval, and
-      // no email is sent (EmailJS/Resend vars are unset) — the student checks
-      // their status by logging in.
-      : 'Signup successful. Your application is under review — once an admin approves it you can log in and start preparing. No email is sent; check your status by signing in.',
+      : adminSupabase
+        ? // Honest about the process: activation is a manual admin approval, and
+          // no email is sent (EmailJS/Resend vars are unset) — the student checks
+          // their status by logging in.
+          'Signup successful. Your application is under review — once an admin approves it you can log in and start preparing. No email is sent; check your status by signing in.'
+        : 'Signup successful. Your application is under review — once an admin approves it you can log in and start preparing. If sign-in asks you to confirm your email, check your inbox first.',
   }
 }
 
@@ -216,7 +273,15 @@ export async function deleteAccount() {
     return { error: 'Admin accounts cannot be deleted from the profile page.' }
   }
 
-  const adminSupabase = createServiceClient()
+  let adminSupabase: ReturnType<typeof createServiceClient>
+  try {
+    adminSupabase = createServiceClient()
+  } catch {
+    return {
+      error:
+        'Account deletion is temporarily unavailable — the server is missing its database configuration. Please contact the site owner.',
+    }
+  }
   const { error } = await adminSupabase.auth.admin.deleteUser(user.id)
   if (error) return { error: error.message }
 
@@ -270,7 +335,15 @@ export async function updateProfile(formData: FormData) {
 
   if (!full_name) return { error: 'Full name is required.' }
 
-  const adminSupabase = createServiceClient()
+  let adminSupabase: ReturnType<typeof createServiceClient>
+  try {
+    adminSupabase = createServiceClient()
+  } catch {
+    return {
+      error:
+        'Profile updates are temporarily unavailable — the server is missing its database configuration. Please contact the site owner.',
+    }
+  }
   const { error } = await adminSupabase
     .from('profiles')
     .update({ full_name, phone, exam_target })

@@ -1,50 +1,89 @@
-import { createServerClient } from '@supabase/ssr'
+import { createServerClient, type CookieOptions } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 import { isAdminEmail } from '@/lib/auth'
 import { createServiceClient } from '@/lib/supabase/service'
-import { getSupabaseAnonKey, getSupabaseUrl } from '@/lib/env'
+import {
+  getBuiltinAuthConfig,
+  getSupabaseAnonKey,
+  getSupabaseUrl,
+  isUsingBuiltinAuthFallback,
+} from '@/lib/env'
+
+function isInvalidKeyError(err: unknown): boolean {
+  const message =
+    (err as { message?: string } | null)?.message ?? (typeof err === 'string' ? err : '')
+  return /invalid api key/i.test(message)
+}
 
 export async function updateSession(request: NextRequest) {
   // The publishable URL/anon key resolve from env vars or the built-in
   // fallbacks in lib/env.ts, so this client can always be built — a missing
   // env can never crash the proxy and 500 the whole site (the 2026-09-10
   // outage signature).
+  //
+  // A PRESENT but DEAD host key (Supabase answers 401 "Invalid API key" — a
+  // stale/revoked key pasted into the host dashboard, observed live
+  // 2026-09-11) cannot be detected statically, so a rejection with that
+  // message swaps the client to the embedded publishable pair and the session
+  // read is retried once. Without this, a signed-in user is bounced to /login
+  // on every protected route by a key that cannot validate anyone.
 
   let supabaseResponse = NextResponse.next({
     request,
   })
 
-  const supabase = createServerClient(getSupabaseUrl(), getSupabaseAnonKey(), {
-    cookies: {
-      getAll() {
-        return request.cookies.getAll()
-      },
-      setAll(cookiesToSet) {
-        cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
-        supabaseResponse = NextResponse.next({
-          request,
-        })
-        cookiesToSet.forEach(({ name, value, options }) =>
-          supabaseResponse.cookies.set(name, value, options)
-        )
-      },
+  const cookies = {
+    getAll() {
+      return request.cookies.getAll()
     },
-  })
+    setAll(cookiesToSet: { name: string; value: string; options?: CookieOptions }[]) {
+      cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
+      supabaseResponse = NextResponse.next({
+        request,
+      })
+      cookiesToSet.forEach(({ name, value, options }) =>
+        supabaseResponse.cookies.set(name, value, options)
+      )
+    },
+  }
 
-  // Do not run code between createServerClient and
-  // supabaseResponse.cookies.set. A simple mistake could make it very hard to debug
-  // issues with users being randomly logged out.
+  let user: Awaited<ReturnType<typeof readUser>> | null = null
+
+  async function readUser(url: string, anonKey: string) {
+    const supabase = createServerClient(url, anonKey, { cookies })
+    // getUser() performs a network call — if Supabase is unreachable it can
+    // reject, and an escaping rejection 500s every page. Treat it as "no
+    // session" (public routes fail open; protected routes fail closed).
+    // A key-level rejection ("Invalid API key") is rethrown so the caller's
+    // self-heal can retry against the embedded publishable pair — whether
+    // auth-js surfaces it as a thrown error or a resolved `error`.
+    try {
+      const { data, error } = await supabase.auth.getUser()
+      if (error) {
+        if (isInvalidKeyError(error)) throw error
+        return null
+      }
+      return data.user
+    } catch (err) {
+      if (isInvalidKeyError(err)) throw err
+      return null
+    }
+  }
+
+  try {
+    user = await readUser(getSupabaseUrl(), getSupabaseAnonKey())
+  } catch (err) {
+    // 401 "Invalid API key": the host-configured publishable pair is dead —
+    // heal to the embedded pair (which is what every other layer in this
+    // request path resolves to after the heal) and re-read the session once.
+    if (isInvalidKeyError(err) && !isUsingBuiltinAuthFallback()) {
+      const builtin = getBuiltinAuthConfig()
+      user = await readUser(builtin.url, builtin.anonKey).catch(() => null)
+    }
+  }
 
   // IMPORTANT: DO NOT USE getSession HERE! It only reads from cookies,
   // which might be spoofed. getUser makes an API request to validate.
-  //
-  // getUser() performs a network call — if Supabase is unreachable it can
-  // reject, and an escaping rejection 500s every page. Treat it as "no
-  // session" (the page-level fail-open behavior covers public routes;
-  // protected routes still fail closed via the proxy catch).
-  const {
-    data: { user },
-  } = await supabase.auth.getUser().catch(() => ({ data: { user: null } }))
 
   // Admin emails bypass the student approval flow entirely.
   const isAdmin = isAdminEmail(user?.email)

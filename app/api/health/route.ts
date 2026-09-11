@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
-import { isPublicAuthConfigured, isUsingBuiltinAuthFallback } from "@/lib/env";
+import {
+  isPublicAuthConfigured,
+  isUsingBuiltinAuthFallback,
+} from "@/lib/env";
 
 // GET /api/health — cheap liveness endpoint for uptime monitors and the
 // standing daily-maintenance cron. No DB dependency on purpose: it answers
@@ -23,6 +26,7 @@ export async function GET() {
       service: "cadet-college-prep",
       auth: isPublicAuthConfigured(),
       fallback: isUsingBuiltinAuthFallback(),
+      serviceKey: Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY?.trim()),
       time: new Date().toISOString(),
     },
     {

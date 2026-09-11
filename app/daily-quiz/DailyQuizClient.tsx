@@ -48,10 +48,18 @@ export function DailyQuizClient({ questions }: { questions: BankQuestion[] }) {
   const [currentTip] = useState(() => DAILY_TIPS[Math.floor(Math.random() * DAILY_TIPS.length)]);
 
   useEffect(() => {
-    const supabase = createClient();
-    supabase.auth.getUser().then(({ data }) => {
-      setIsSignedIn(!!data.user);
-    });
+    let alive = true;
+    createClient()
+      .then((supabase) => supabase.auth.getUser())
+      .then(({ data }) => {
+        if (alive) setIsSignedIn(!!data.user);
+      })
+      .catch(() => {
+        if (alive) setIsSignedIn(false);
+      });
+    return () => {
+      alive = false;
+    };
   }, []);
 
   // The results strip reads the student's real recorded practice: fetched once

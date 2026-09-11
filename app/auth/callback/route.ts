@@ -1,7 +1,12 @@
 import { NextResponse, type NextRequest } from 'next/server'
-import { createClient } from '@/lib/supabase/server'
+import {
+  canSelfHealAuth,
+  createBuiltinClient,
+  createClient,
+} from '@/lib/supabase/server'
 import { createServiceClient } from '@/lib/supabase/service'
 import { isAdminEmail } from '@/lib/auth'
+import { isInvalidApiKeyError } from '@/lib/env'
 
 /**
  * OAuth return route (Supabase PKCE). After Google consent the browser lands
@@ -28,8 +33,17 @@ export async function GET(request: NextRequest) {
   const refCode = searchParams.get('ref')?.trim() || null
 
   if (code) {
-    const supabase = await createClient()
-    const { error } = await supabase.auth.exchangeCodeForSession(code)
+    let supabase = await createClient()
+    let { error } = await supabase.auth.exchangeCodeForSession(code)
+
+    // Same runtime self-heal as login(): a present-but-dead host anon key
+    // (401 "Invalid API key") gets one retry against the embedded publishable
+    // pair, so Google sign-in works on any deployment.
+    if (isInvalidApiKeyError(error) && canSelfHealAuth()) {
+      supabase = await createBuiltinClient()
+      const healed = await supabase.auth.exchangeCodeForSession(code)
+      error = healed.error
+    }
 
     if (!error) {
       const {
@@ -37,12 +51,23 @@ export async function GET(request: NextRequest) {
       } = await supabase.auth.getUser()
 
       if (user) {
-        const service = createServiceClient()
-        const { data: profile } = await service
-          .from('profiles')
-          .select('role, status, referred_by')
-          .eq('id', user.id)
-          .single()
+        // Profile reads need the service role. Missing key (a secret, no
+        // fallback) must not 500 the callback: allowlisted admins still route
+        // to /admin, everyone else routes by the profile-less default
+        // (/pending) exactly as login() degrades.
+        let profile: { role?: string | null; status?: string | null; referred_by?: string | null } | null = null
+        let service: ReturnType<typeof createServiceClient> | null = null
+        try {
+          service = createServiceClient()
+          const { data } = await service
+            .from('profiles')
+            .select('role, status, referred_by')
+            .eq('id', user.id)
+            .single()
+          profile = data
+        } catch {
+          service = null
+        }
 
         // Allowlist email OR a DB-assigned admin role both route to the
         // admin panel — same rule as login().
@@ -53,7 +78,7 @@ export async function GET(request: NextRequest) {
         // Same rule as signup(): resolve the referral code to a referrer and
         // attribute once. Bookkeeping must never break the sign-in flow, and
         // pre-migration databases (no referred_by column) degrade to a log.
-        if (profile && !profile.referred_by && refCode) {
+        if (service && profile && !profile.referred_by && refCode) {
           try {
             const { data: referrer } = await service
               .from('profiles')

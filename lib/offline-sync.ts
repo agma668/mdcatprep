@@ -79,9 +79,8 @@ export async function recordAnswer(
 ): Promise<{ success?: boolean; queued?: boolean; local?: boolean; error?: string }> {
   // Session read is pure storage access — works with no network. Guests are
   // purely local by design: nothing is queued, so nothing can ever sync.
-  // An unconfigured deployment (null client) behaves like a guest too.
   const session = await createClient()
-    ?.auth.getSession()
+    .then((supabase) => supabase.auth.getSession())
     .then(({ data }) => data.session)
     .catch(() => null);
   if (!session) return { local: true };
@@ -134,7 +133,7 @@ export function drainPendingAttempts(): Promise<DrainResult> {
 
 async function runDrain(): Promise<DrainResult> {
   const result: DrainResult = { checked: false, attempted: 0, synced: 0, held: 0, dropped: 0 };
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Gate on a real, server-validated session (getUser also refreshes an
   // expired token when online). Signed out → nothing drains; the entries wait.

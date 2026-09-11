@@ -1,9 +1,6 @@
-import { createClient } from '@/lib/supabase/server'
-import { createServiceClient } from '@/lib/supabase/service'
-import { isAdminEmail } from '@/lib/auth'
+import { resolveAdminContext, MissingServiceKeyNotice } from '@/lib/admin-context'
 import { normalizeFeedbackRow } from '@/lib/feedback'
 import Link from 'next/link'
-import { redirect } from 'next/navigation'
 import { StudentTable } from './StudentTable'
 
 // Auth-gated admin page: render per-request, never prerender at build time
@@ -12,18 +9,9 @@ import { StudentTable } from './StudentTable'
 export const dynamic = 'force-dynamic'
 
 export default async function AdminDashboardPage() {
-  const supabase = await createClient()
-
-  // Middleware already protects this route; double-check here server-side.
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-  if (!user) redirect('/login')
-  if (!isAdminEmail(user.email)) redirect('/dashboard')
-
-  // Service-role query — bypasses RLS. Admin identity was verified above, so
-  // the service role is only used after an authenticated admin is confirmed.
-  const service = createServiceClient()
+  const ctx = await resolveAdminContext()
+  if (ctx.kind === 'missing-service-key') return <MissingServiceKeyNotice />
+  const service = ctx.service
   const [profilesResult, feedbackResult] = await Promise.all([
     service
       .from('profiles')

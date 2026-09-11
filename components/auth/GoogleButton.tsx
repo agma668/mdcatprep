@@ -56,7 +56,7 @@ export function GoogleButton({
   const signInWithGoogle = async () => {
     setLoading(true);
     setError(null);
-    const supabase = createClient();
+    const supabase = await createClient();
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
