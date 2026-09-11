@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { ArrowRight, Timer } from "lucide-react";
 import { PracticeSetup } from "./PracticeSetup";
+import { TopicDrill } from "./TopicDrill";
 import { CollegeSelector } from "./CollegeSelector";
 import { getSubjectsForCollege } from "@/lib/subjects";
 
@@ -13,12 +14,14 @@ export function PracticeClient({
   totalCount,
   initialCollege,
   bankCountsBySubject,
+  bankTopicsBySubject,
 }: {
   allSubjects: string[]
   countsBySubject: Record<string, number>
   totalCount: number
   initialCollege: string | null
   bankCountsBySubject: Record<string, number>
+  bankTopicsBySubject: Record<string, Record<string, number>>
 }) {
   const [selectedCollege, setSelectedCollege] = useState(initialCollege)
 
@@ -83,6 +86,13 @@ export function PracticeClient({
           collegeName={selectedCollege || undefined}
         />
       </section>
+
+      {/* Chapter-wise drill navigation using the PMDC topic taxonomy */}
+      <TopicDrill
+        subjects={filteredSubjects}
+        bankTopicsBySubject={bankTopicsBySubject}
+        bankCountsBySubject={bankCountsBySubject}
+      />
     </div>
   )
 }

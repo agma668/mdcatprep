@@ -44,6 +44,16 @@ export default async function PracticePage({
     if (row.subject) bankCountsBySubject[row.subject] = (bankCountsBySubject[row.subject] ?? 0) + 1
   }
 
+  // Group bundled bank questions by subject → topic for the TopicDrill
+  // navigator.  Each leaf value is the count of questions for that topic.
+  const bankTopicsBySubject: Record<string, Record<string, number>> = {}
+  for (const row of MDCAT_QUESTIONS) {
+    if (!row.subject || !row.topic) continue
+    if (!bankTopicsBySubject[row.subject]) bankTopicsBySubject[row.subject] = {}
+    bankTopicsBySubject[row.subject][row.topic] =
+      (bankTopicsBySubject[row.subject][row.topic] ?? 0) + 1
+  }
+
   const { profile } = await getStudentProfile()
   const params = await searchParams
   const queryCollege = params.college || null
@@ -62,6 +72,7 @@ export default async function PracticePage({
         totalCount={rows.length}
         initialCollege={queryCollege || profile?.exam_target || null}
         bankCountsBySubject={bankCountsBySubject}
+        bankTopicsBySubject={bankTopicsBySubject}
       />
     </div>
   )
