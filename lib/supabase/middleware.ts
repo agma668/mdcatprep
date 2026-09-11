@@ -16,6 +16,8 @@ function isInvalidKeyError(err: unknown): boolean {
 }
 
 export async function updateSession(request: NextRequest) {
+  const { pathname } = request.nextUrl
+
   // The publishable URL/anon key resolve from env vars or the built-in
   // fallbacks in lib/env.ts, so this client can always be built — a missing
   // env can never crash the proxy and 500 the whole site (the 2026-09-10
@@ -31,6 +33,26 @@ export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({
     request,
   })
+
+  // FAST PATH — anonymous requests carry no Supabase auth cookies, so no
+  // configuration (healthy or self-healed) can ever authenticate them:
+  // getUser() would spend an edge→Supabase round trip only to return null.
+  // Skip the network entirely. Outcomes are identical for every route —
+  // protected pages still redirect to /login (no session), auth pages render
+  // — but every public pageview, /login and /signup included, stops paying
+  // the per-request auth latency (measured 2026-09-12: it dominated TTFB on
+  // high-latency links).
+  const hasAuthCookies = request.cookies
+    .getAll()
+    .some((cookie) => cookie.name.startsWith('sb-'))
+  if (!hasAuthCookies) {
+    if (pathname.startsWith('/dashboard') || pathname.startsWith('/admin')) {
+      const url = request.nextUrl.clone()
+      url.pathname = '/login'
+      return NextResponse.redirect(url)
+    }
+    return supabaseResponse
+  }
 
   const cookies = {
     getAll() {
@@ -87,8 +109,6 @@ export async function updateSession(request: NextRequest) {
 
   // Admin emails bypass the student approval flow entirely.
   const isAdmin = isAdminEmail(user?.email)
-
-  const { pathname } = request.nextUrl
 
   // Protected Routes Check
   if (pathname.startsWith('/dashboard') || pathname.startsWith('/admin')) {

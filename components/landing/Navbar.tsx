@@ -29,6 +29,17 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
+  // Warm the client router cache for the auth routes: these buttons use
+  // router.push (which never prefetches), so a click used to start the
+  // page fetch from zero — on a high-latency link that read as "the sign-in
+  // page is slow to open". With the prefetch done during idle time on the
+  // landing page, the click navigates instantly (middleware no longer adds
+  // a Supabase round trip for anonymous visitors either).
+  useEffect(() => {
+    router.prefetch("/login");
+    router.prefetch("/signup");
+  }, [router]);
+
   // Close on resize (breakpoint change) and on Escape — a panel with
   // role="dialog" that ignores Escape is a keyboard trap.
   useEffect(() => {
