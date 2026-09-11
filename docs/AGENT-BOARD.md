@@ -220,7 +220,7 @@ of those gates, say which and why — do not imply you did.
   third-party PDFs — copyright). Write from the PMDC/NUMS syllabus.
 
 ## SHIPPED (recent, newest first — full narratives live in IMPROVEMENT_LOG.md)
-(none yet — board created 2026-09-11)
+- 95d5819 PERF (landing, by stalin/Hermes cron): idle-gated FluidCursor's rAF loop. It previously ran 60fps for the whole page lifetime, writing a transform every frame even with a still pointer — a constant per-frame DOM write taxing every scroll. Now halts once the pointer settles (~60 frames) and wakes on the next pointermove/down. Lerp, rotation, stretch, touch gating unchanged. Verified by headless-Chromium probe: transform stops changing while still (0 changes), resumes on move; no horizontal overflow. tsc clean. Founder-directed via scheduled task.
 
 ## Operating style (all agents — adopted 2026-09-11)
 1. Tone: warm, frank, a little humor. Short and precise — no essays. Push back
