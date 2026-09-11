@@ -113,30 +113,47 @@ export function ServiceKeyNotice({
   const bad = kind === 'bad-service-key'
   const wrongProject = kind === 'wrong-project'
   const envProject = getSupabaseProjectRef()
+  // Two different 'empty project' situations:
+  //  - env resolves to the BUILT-IN project (the app's own): the keys are
+  //    right and the project is the intended one — its schema was simply
+  //    never applied. Fix = run supabase/migrations-combined.sql there.
+  //  - env resolves to some OTHER project: keys belong to a different
+  //    Supabase project than the app's. Fix = switch the env vars.
+  const schemaMissingOnIntended =
+    wrongProject && (envProject === null || envProject === getBuiltinProjectRef())
   return (
     <div className="p-6 md:p-8 max-w-2xl mx-auto w-full">
       <div className="glass-tile-glow rounded-[var(--radius-lg)] border border-amber-500/25 bg-amber-500/[0.06] p-6">
         <h1 className="text-lg font-bold text-white">
-          {wrongProject
-            ? 'The env vars point at the wrong Supabase project'
-            : bad
-              ? 'The service key value is being rejected'
-              : 'Panel data needs one server setting'}
+          {schemaMissingOnIntended
+            ? 'One-time setup: this Supabase project has no tables yet'
+            : wrongProject
+              ? 'The env vars point at the wrong Supabase project'
+              : bad
+                ? 'The service key value is being rejected'
+                : 'Panel data needs one server setting'}
         </h1>
         <p className="mt-2 text-sm text-white/70 leading-relaxed">
-          {wrongProject ? (
+          {schemaMissingOnIntended ? (
+            <>
+              Your keys are VALID and point at the right project ({' '}
+              <code className="px-1.5 py-0.5 bg-white/[0.08] border border-white/10 rounded text-xs font-mono">
+                {envProject ?? getBuiltinProjectRef()}
+              </code>
+              ) — but that project&rsquo;s database is still empty: the app&rsquo;s schema (tables, policies,
+              triggers) was never applied there. Nothing is broken; it just needs the one-time setup script.
+            </>
+          ) : wrongProject ? (
             <>
               The Supabase keys configured on this deployment are VALID — but they belong to project{' '}
               <code className="px-1.5 py-0.5 bg-white/[0.08] border border-white/10 rounded text-xs font-mono">
                 {envProject ?? 'unknown'}
               </code>
-              , which has none of the app&rsquo;s tables (&ldquo;Could not find the table
-              &lsquo;public.profiles&rsquo;&rdquo;). The app&rsquo;s database lives in project{' '}
+              , which has none of the app&rsquo;s tables. The app&rsquo;s own project is{' '}
               <code className="px-1.5 py-0.5 bg-white/[0.08] border border-white/10 rounded text-xs font-mono">
                 {getBuiltinProjectRef()}
               </code>
-              . Every account, question and note is safe there — the deployment is just looking in an empty
-              room.
+              .
             </>
           ) : bad ? (
             <>
@@ -158,7 +175,26 @@ export function ServiceKeyNotice({
           )}
         </p>
         <ol className="mt-3 list-decimal list-inside space-y-1.5 text-sm text-white/70 leading-relaxed">
-          {wrongProject ? (
+          {schemaMissingOnIntended ? (
+            <>
+              <li>
+                Open the project folder on your computer → file{' '}
+                <code className="px-1.5 py-0.5 bg-white/[0.08] border border-white/10 rounded text-xs font-mono">
+                  supabase/migrations-combined.sql
+                </code>{' '}
+                and copy its ENTIRE contents.
+              </li>
+              <li>
+                Supabase dashboard → the <span className="text-white/90">{envProject ?? getBuiltinProjectRef()}</span>{' '}
+                project → <span className="text-white/90">SQL Editor</span> → New query → paste →{' '}
+                <span className="text-white/90">Run</span>.
+              </li>
+              <li>
+                Refresh this page — no redeploy needed. Then re-register your account (the empty project has
+                no users yet); you land straight back in this panel.
+              </li>
+            </>
+          ) : wrongProject ? (
             <>
               <li>
                 Open the <span className="text-white/90">{getBuiltinProjectRef()}</span> project in Supabase →

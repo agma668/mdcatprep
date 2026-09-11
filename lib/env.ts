@@ -17,11 +17,15 @@
 // replaced wholesale by the built-in pair (never a half-and-half mix).
 // The service-role key is a real secret and is NOT embedded.
 
-const BUILTIN_SUPABASE_URL = 'https://lsjwyqouzezabaxnlhjy.supabase.co'
+// The app's own Supabase project (2026-09-11: the earlier embedded pair
+// belonged to the owner's OTHER site, elite cadet prep — this one is the
+// MDCAT Prep project the Vercel env vars point at).
+const BUILTIN_SUPABASE_URL = 'https://mbhicswjzciafkvncwur.supabase.co'
 
-// Anon (publishable) key — `role: "anon"` JWT for the project above.
+// Publishable key for the project above (new-style opaque key — no JWT
+// claims, trusted by shape; RLS is the real boundary).
 const BUILTIN_SUPABASE_ANON_KEY =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxzand5cW91emV6YWJheG5saGp5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUwNTY5MjcsImV4cCI6MjEwMDYzMjkyN30.K3yYEEgI4LFY9PDjnE0Qz_AzL8lwP32Ilaq16nk4yoQ'
+  'sb_publishable_2DeogqTjiOvwmnt47AqzKw_vWp91WyN'
 
 /** Project ref encoded in a JWT-style anon key, or null (new-style opaque key). */
 function anonKeyRef(key: string): string | null {
