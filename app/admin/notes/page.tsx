@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { resolveAdminContext, MissingServiceKeyNotice } from '@/lib/admin-context'
+import { resolveAdminContext, ServiceKeyNotice } from '@/lib/admin-context'
 import { getStorageStatus } from '@/lib/storage'
 import { AdminNotesManager } from './AdminNotesManager'
 
@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic'
 
 export default async function AdminNotesPage() {
   const ctx = await resolveAdminContext()
-  if (ctx.kind === 'missing-service-key') return <MissingServiceKeyNotice />
+  if (ctx.kind !== 'ok') return <ServiceKeyNotice kind={ctx.kind} />
   const service = ctx.service
   const { data: notes, error } = await service
     .from('notes')

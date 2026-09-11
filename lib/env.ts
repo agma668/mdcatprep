@@ -43,11 +43,31 @@ function urlRef(url: string): string | null {
   return match?.[1] ?? null
 }
 
+/** Role claim of a JWT-style key, or null (new-style opaque key). */
+function anonKeyRole(key: string): string | null {
+  try {
+    const payload = key.split('.')[1]
+    if (!payload) return null
+    const base64 = payload.replace(/-/g, '+').replace(/_/g, '/')
+    const json = atob(base64 + '='.repeat((4 - (base64.length % 4)) % 4))
+    const role = JSON.parse(json)?.role
+    return typeof role === 'string' && role ? role : null
+  } catch {
+    return null
+  }
+}
+
 /**
- * A JWT-style key must name the same project as the URL. New-style opaque
- * keys (no `ref` claim) can't be validated locally, so they're trusted.
+ * A JWT-style key must name the same project as the URL and must actually be
+ * a PUBLISHABLE key: a service-role/secret key pasted into the public slot
+ * would "work" while leaking a real secret into every visitor's browser
+ * bundle. New-style opaque keys (sb_publishable_, no `ref`/`role` claims)
+ * can't be validated locally, so they're trusted by shape.
  */
 function isKeyUsableForUrl(key: string, url: string): boolean {
+  if (/^sb_secret_/.test(key)) return false
+  const role = anonKeyRole(key)
+  if (role && role !== 'anon') return false
   const keyRef = anonKeyRef(key)
   if (!keyRef) return true
   const target = urlRef(url)
@@ -61,15 +81,28 @@ interface ResolvedConfig {
 }
 
 function resolve(): ResolvedConfig {
-  const envUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim()
-  const envKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim()
+  // Supabase has shipped two key namings (legacy `anon` JWTs and the newer
+  // "publishable" keys) and hosts end up with either var name — accept them
+  // all. Each name is a static member expression so build-time inlining
+  // keeps working for the client bundle.
+  const envUrl =
+    process.env.NEXT_PUBLIC_SUPABASE_URL?.trim() ||
+    process.env.SUPABASE_URL?.trim()
+  const envKey =
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim() ||
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY?.trim() ||
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_PUBLISHABLE_KEY?.trim() ||
+    process.env.NEXT_PUBLIC_SUPABASE_API_KEY?.trim() ||
+    process.env.SUPABASE_ANON_KEY?.trim() ||
+    process.env.SUPABASE_PUBLISHABLE_KEY?.trim()
 
   if (envUrl && envKey && isKeyUsableForUrl(envKey, envUrl)) {
     return { url: envUrl.replace(/\/+$/, ''), anonKey: envKey, usedFallback: false }
   }
 
-  // Missing OR broken (e.g. stale key that doesn't match the project) env
-  // config: use the built-in publishable pair as a unit.
+  // Missing OR broken (e.g. stale key that doesn't match the project, or a
+  // secret key pasted into the public slot) env config: use the built-in
+  // publishable pair as a unit.
   return { url: BUILTIN_SUPABASE_URL, anonKey: BUILTIN_SUPABASE_ANON_KEY, usedFallback: true }
 }
 

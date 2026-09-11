@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { resolveAdminContext, MissingServiceKeyNotice } from "@/lib/admin-context";
+import { resolveAdminContext, ServiceKeyNotice } from "@/lib/admin-context";
 import { isVapidConfigured } from "@/lib/push";
 import { SendPushForm } from "./SendPushForm";
 
@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 
 export default async function AdminPushPage() {
   const ctx = await resolveAdminContext();
-  if (ctx.kind === "missing-service-key") return <MissingServiceKeyNotice />;
+  if (ctx.kind !== "ok") return <ServiceKeyNotice kind={ctx.kind} />;
   const service = ctx.service;
   const { count } = await service
     .from("push_subscriptions")

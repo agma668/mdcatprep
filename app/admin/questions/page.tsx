@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { resolveAdminContext, MissingServiceKeyNotice } from '@/lib/admin-context'
+import { resolveAdminContext, ServiceKeyNotice } from '@/lib/admin-context'
 import { QuestionManager } from './QuestionManager'
 import { QuestionFilters } from './QuestionFilters'
 
@@ -13,7 +13,7 @@ export default async function AdminQuestionsPage({
   searchParams: Promise<{ subject?: string; topic?: string; difficulty?: string; status?: string; source?: string }>
 }) {
   const ctx = await resolveAdminContext()
-  if (ctx.kind === 'missing-service-key') return <MissingServiceKeyNotice />
+  if (ctx.kind !== 'ok') return <ServiceKeyNotice kind={ctx.kind} />
   const service = ctx.service
 
   const { subject, topic, difficulty, status, source } = await searchParams

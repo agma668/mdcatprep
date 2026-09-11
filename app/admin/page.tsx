@@ -1,4 +1,4 @@
-import { resolveAdminContext, MissingServiceKeyNotice } from '@/lib/admin-context'
+import { resolveAdminContext, ServiceKeyNotice } from '@/lib/admin-context'
 import { normalizeFeedbackRow } from '@/lib/feedback'
 import Link from 'next/link'
 import { StudentTable } from './StudentTable'
@@ -10,7 +10,7 @@ export const dynamic = 'force-dynamic'
 
 export default async function AdminDashboardPage() {
   const ctx = await resolveAdminContext()
-  if (ctx.kind === 'missing-service-key') return <MissingServiceKeyNotice />
+  if (ctx.kind !== 'ok') return <ServiceKeyNotice kind={ctx.kind} />
   const service = ctx.service
   const [profilesResult, feedbackResult] = await Promise.all([
     service

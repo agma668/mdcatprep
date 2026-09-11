@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { resolveAdminContext, MissingServiceKeyNotice } from '@/lib/admin-context'
+import { resolveAdminContext, ServiceKeyNotice } from '@/lib/admin-context'
 import { normalizeFeedbackRow } from '@/lib/feedback'
 import { FeedbackList } from './FeedbackList'
 
@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic'
 
 export default async function AdminFeedbackPage() {
   const ctx = await resolveAdminContext()
-  if (ctx.kind === 'missing-service-key') return <MissingServiceKeyNotice />
+  if (ctx.kind !== 'ok') return <ServiceKeyNotice kind={ctx.kind} />
   const service = ctx.service
   const { data, error } = await service
     .from('feedback')
