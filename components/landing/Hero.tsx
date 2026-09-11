@@ -6,6 +6,7 @@ import { Reveal, Stagger } from "@/components/ui/Motion";
 import { Magnetic } from "@/components/landing/Magnetic";
 import { InteractiveTile } from "@/components/landing/InteractiveTile";
 import { CadetCrest } from "@/components/landing/CadetCrest";
+import { HeroParticleField } from "./HeroParticleField";
 import { HeroWireframe } from "@/components/landing/HeroWireframe";
 import { BrainBookHero } from "@/components/landing/BrainBookHero";
 import { StatsAsOf } from "@/components/shared/StatsAsOf";
@@ -33,6 +34,15 @@ export function Hero({
       aria-label="Hero"
       className="relative flex min-h-screen flex-col justify-center overflow-hidden pt-16"
     >
+      {/* Aurora field — cold signal and beacon light, drifting only with the
+          scroll parallax writer (no infinite keyframe loop). */}
+      {/* Antigravity-style interactive particle field — dashes scatter and
+          align tangentially around a breathing ring that trails the cursor.
+          Sits at the very back of the hero, pointer-events pass through. */}
+      <div aria-hidden="true" className="absolute inset-0 z-0">
+        <HeroParticleField />
+      </div>
+
       {/* Aurora field — cold signal and beacon light, drifting only with the
           scroll parallax writer (no infinite keyframe loop). */}
       <div aria-hidden="true" className="hero-aurora">

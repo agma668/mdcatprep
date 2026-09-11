@@ -6,7 +6,6 @@ import { AntiCopy } from "@/components/AntiCopy";
 import { Telemetry } from "@/components/Telemetry";
 import FeedbackWidgetMount from "@/components/feedback/FeedbackWidgetMount";
 import { OfflineSyncHarness } from "@/components/OfflineSyncHarness";
-import { DirectionalCursor } from "@/components/landing/DirectionalCursor";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -178,7 +177,6 @@ export default function RootLayout({
           nothing — `primary` is not a Tailwind colour here — and ::selection
           is now a real rule in globals.css. */}
       <body className="antialiased min-h-screen">
-        <DirectionalCursor />
         <AntiCopy />
         <FeedbackWidgetMount />
         <Telemetry />

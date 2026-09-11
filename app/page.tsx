@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import nextDynamic from "next/dynamic";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { Navbar } from "@/components/landing/Navbar";
+import { FluidCursor } from "@/components/landing/FluidCursor";
 import { Hero } from "@/components/landing/Hero";
 import { Features } from "@/components/landing/Features";
 import { HowItWorks } from "@/components/landing/HowItWorks";
@@ -98,6 +99,9 @@ export default async function Home() {
       <ScrollEffects />
       <SmoothScroll />
       <ScrollReveal />
+      {/* Landing-only custom cursor (nexstudio-style) — unmounts with this
+          route, so dashboard/auth pages keep the native cursor. */}
+      <FluidCursor />
       <Navbar />
       <main>
         <Hero

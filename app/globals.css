@@ -1336,51 +1336,78 @@ html.lenis body {
 ::-webkit-scrollbar-thumb:hover { background: var(--steel-600); }
 * { scrollbar-color: var(--steel-700) var(--field-0); scrollbar-width: thin; }
 
-/* ── Directional velocity cursor (nexstudio-style) ────────────────────────
-   A lerp-follow dot that rotates toward the direction the pointer moves and
-   stretches with speed. The native cursor is hidden only on pointer:fine +
-   hover:hover devices while [data-custom-cursor="true"] is set by the
-   component; media queries here are the second gate. */
-html[data-custom-cursor="true"],
-html[data-custom-cursor="true"] body {
-  cursor: none;
-}
+/* ── Fluid cursor (nexstudio's exact rules) ──────────────────────────────
+   A tip-anchored arrow that lerps after the pointer, rotates toward its
+   motion, and stretches with speed. `mix-blend-mode: difference` inverts
+   the white glyph over whatever is beneath it — dark on light backgrounds,
+   white on dark. Mounted on the landing page only.
 
-.directional-cursor {
-  will-change: transform;
-  transform: translate3d(-100px, -100px, 0);
-}
-
-.directional-cursor-dot {
-  display: block;
-  width: 40px;
-  height: 40px;
-  margin-left: -20px;
-  margin-top: -20px;
-  border-radius: 9999px;
-  background: radial-gradient(
-    circle,
-    rgba(95, 211, 228, 0.95) 0%,
-    rgba(59, 130, 246, 0.55) 45%,
-    rgba(59, 130, 246, 0) 70%
-  );
-  transition: opacity 0.2s ease;
+   Display gating mirrors the original: fine pointer → custom arrow, native
+   cursor hidden; touch/coarse → arrow shown centered and following finger
+   drags while the native cursor stays untouched; reduced motion → none. */
+.fluid-cursor {
+  z-index: 2000;
+  pointer-events: none;
   opacity: 0;
+  mix-blend-mode: difference;
+  will-change: transform, opacity;
+  width: 0;
+  height: 0;
+  transition: opacity 0.18s;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
-
-html[data-custom-cursor="true"] .directional-cursor[data-visible="true"] .directional-cursor-dot {
+.fluid-cursor[data-visible="true"] {
   opacity: 1;
 }
-
-html[data-custom-cursor="true"] .directional-cursor[data-interactive="true"] .directional-cursor-dot {
-  background: radial-gradient(
-    circle,
-    rgba(201, 162, 75, 0.95) 0%,
-    rgba(201, 162, 75, 0.5) 45%,
-    rgba(201, 162, 75, 0) 70%
-  );
+.fluid-cursor__body {
+  transform-origin: 92%;
+  will-change: transform;
+  width: 30px;
+  height: 25px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* The original ships a black-arrow/white-stroke SVG and drives it to pure
+   white with this filter so blend-difference inverts cleanly on any
+   background; the SVG here is inline, so the filter targets svg. */
+.fluid-cursor__body svg {
+  filter: brightness(0) invert(1);
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.fluid-cursor[data-interactive="true"] .fluid-cursor__body {
+  opacity: 0.92;
+}
+.fluid-cursor[data-pressed="true"] .fluid-cursor__body {
+  opacity: 0.76;
 }
 
-@media (prefers-reduced-motion: reduce), (pointer: coarse) {
-  .directional-cursor { display: none !important; }
+@media (hover: hover) and (pointer: fine) {
+  html[data-custom-cursor="true"],
+  html[data-custom-cursor="true"] body,
+  html[data-custom-cursor="true"] body * {
+    cursor: none !important;
+  }
+  html[data-custom-cursor="true"] .fluid-cursor {
+    display: block;
+  }
+}
+
+@media (max-width: 768px), (pointer: coarse) {
+  /* Touch mode: arrow visible (centered, drag-follow), native untouched. */
+  html[data-custom-cursor="true"] .fluid-cursor {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fluid-cursor {
+    display: none !important;
+  }
 }
