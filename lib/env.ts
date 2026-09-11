@@ -111,6 +111,21 @@ export function getSupabaseUrl(): string {
   return resolve().url
 }
 
+/**
+ * The project ref (URL subdomain) this deployment resolves to — env pair when
+ * trusted, otherwise the built-in pair. Exposed for /api/health so a "wrong
+ * project" misconfiguration (valid keys for an EMPTY Supabase project —
+ * observed live 2026-09-11) is diagnosable from the outside.
+ */
+export function getSupabaseProjectRef(): string | null {
+  return urlRef(getSupabaseUrl())
+}
+
+/** The project ref the built-in publishable pair belongs to. */
+export function getBuiltinProjectRef(): string {
+  return urlRef(BUILTIN_SUPABASE_URL) ?? ''
+}
+
 /** Supabase anon (publishable) key — validated env vars, or the built-in pair. */
 export function getSupabaseAnonKey(): string {
   return resolve().anonKey

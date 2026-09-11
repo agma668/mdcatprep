@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import {
+  getBuiltinProjectRef,
+  getSupabaseProjectRef,
   isPublicAuthConfigured,
   isUsingBuiltinAuthFallback,
 } from "@/lib/env";
@@ -20,8 +22,11 @@ import { createServiceClient } from "@/lib/supabase/service";
 //
 // GET /api/health?deep=1 additionally arbitrates the service key against the
 // Supabase gateway (a present-but-wrong value only fails on first use), and
-// reports serviceKeyOk. Latency: one COUNT-limited query — not for hot
-// uptime monitors, for diagnosis.
+// reports serviceKeyOk. When the gateway answers "schema cache / table not
+// found" the keys WORK but point at a project without the app's tables — a
+// wrong-project misconfiguration — reported as schema:false alongside the
+// resolved and built-in project refs so the mismatch is visible from outside.
+// Latency: one COUNT-limited query — not for hot uptime monitors, for diagnosis.
 
 export const dynamic = "force-dynamic";
 
@@ -29,11 +34,25 @@ export async function GET(request: Request) {
   const deep = new URL(request.url).searchParams.get("deep") === "1";
 
   let serviceKeyOk: boolean | undefined;
+  let schemaOk: boolean | undefined;
   if (deep) {
     try {
       const service = createServiceClient();
       const { error } = await service.from("profiles").select("id").limit(1);
-      serviceKeyOk = !error || !/invalid api key/i.test(error.message);
+      const message = error?.message ?? "";
+      if (!error) {
+        serviceKeyOk = true;
+        schemaOk = true;
+      } else if (/invalid api key/i.test(message)) {
+        serviceKeyOk = false;
+        schemaOk = undefined; // key rejected before any table was touched
+      } else if (/schema cache|could not find the table/i.test(message)) {
+        serviceKeyOk = true; // gateway accepted the key
+        schemaOk = false; // …but the project has no `profiles` table
+      } else {
+        serviceKeyOk = true;
+        schemaOk = undefined; // unrelated error — not diagnosable here
+      }
     } catch (err) {
       serviceKeyOk = !(err as { message?: string })?.message
         ?.toLowerCase()
@@ -47,11 +66,14 @@ export async function GET(request: Request) {
       service: "cadet-college-prep",
       auth: isPublicAuthConfigured(),
       fallback: isUsingBuiltinAuthFallback(),
+      project: getSupabaseProjectRef(),
+      builtinProject: getBuiltinProjectRef(),
       serviceKey: Boolean(
         process.env.SUPABASE_SERVICE_ROLE_KEY?.trim() ||
           process.env.SUPABASE_SECRET_KEY?.trim()
       ),
       ...(serviceKeyOk !== undefined && { serviceKeyOk }),
+      ...(schemaOk !== undefined && { schemaOk }),
       time: new Date().toISOString(),
     },
     {

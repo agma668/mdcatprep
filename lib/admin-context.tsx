@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { createServiceClient } from '@/lib/supabase/service'
 import { isAdminEmail } from '@/lib/auth'
-import { isInvalidApiKeyError } from '@/lib/env'
+import { getBuiltinProjectRef, getSupabaseProjectRef, isInvalidApiKeyError } from '@/lib/env'
 
 /**
  * One owner of the admin-panel entry check, shared by every /admin page.
@@ -20,6 +20,7 @@ export type AdminContext =
   | { kind: 'forbidden' }
   | { kind: 'missing-service-key' }
   | { kind: 'bad-service-key' }
+  | { kind: 'wrong-project' }
 
 /**
  * Arbitrate the service key against the gateway. A present-but-wrong value
@@ -28,7 +29,8 @@ export type AdminContext =
  * key"), so one cheap query decides — rather than trusting the host config.
  */
 async function checkService(): Promise<
-  { ok: true; service: ReturnType<typeof createServiceClient> } | { ok: false; reason: 'missing' | 'unauthorized' }
+  | { ok: true; service: ReturnType<typeof createServiceClient> }
+  | { ok: false; reason: 'missing' | 'unauthorized' | 'wrong-project' }
 > {
   let service: ReturnType<typeof createServiceClient>
   try {
@@ -44,7 +46,13 @@ async function checkService(): Promise<
     if (error && /invalid api key/i.test(error.message)) {
       return { ok: false, reason: 'unauthorized' }
     }
-    // Any other error (table missing, network blip) is not a key problem —
+    if (error && /schema cache|could not find the table/i.test(error.message)) {
+      // PostgREST accepted the key but has never heard of `profiles`: the
+      // env vars point at a DIFFERENT (empty) Supabase project than the one
+      // the app's migrations built. Observed live 2026-09-11.
+      return { ok: false, reason: 'wrong-project' }
+    }
+    // Any other error (network blip) is not a key or project problem —
     // hand back the client and let the page's own error handling deal with it.
     return { ok: true, service }
   } catch (err) {
@@ -79,9 +87,9 @@ export async function getAdminContext(): Promise<AdminContext> {
 
   if (!serviceCheck) serviceCheck = await checkService()
   if (!serviceCheck.ok) {
-    return serviceCheck.reason === 'unauthorized'
-      ? { kind: 'bad-service-key' }
-      : { kind: 'missing-service-key' }
+    if (serviceCheck.reason === 'unauthorized') return { kind: 'bad-service-key' }
+    if (serviceCheck.reason === 'wrong-project') return { kind: 'wrong-project' }
+    return { kind: 'missing-service-key' }
   }
   return { kind: 'ok', service: serviceCheck.service }
 }
@@ -96,17 +104,41 @@ export async function resolveAdminContext(): Promise<
   return ctx
 }
 
-/** Honest in-panel notice for the two service-key failure modes. */
-export function ServiceKeyNotice({ kind }: { kind: 'missing-service-key' | 'bad-service-key' }) {
+/** Honest in-panel notice for the three service-config failure modes. */
+export function ServiceKeyNotice({
+  kind,
+}: {
+  kind: 'missing-service-key' | 'bad-service-key' | 'wrong-project'
+}) {
   const bad = kind === 'bad-service-key'
+  const wrongProject = kind === 'wrong-project'
+  const envProject = getSupabaseProjectRef()
   return (
     <div className="p-6 md:p-8 max-w-2xl mx-auto w-full">
       <div className="glass-tile-glow rounded-[var(--radius-lg)] border border-amber-500/25 bg-amber-500/[0.06] p-6">
         <h1 className="text-lg font-bold text-white">
-          {bad ? 'The service key value is being rejected' : 'Panel data needs one server setting'}
+          {wrongProject
+            ? 'The env vars point at the wrong Supabase project'
+            : bad
+              ? 'The service key value is being rejected'
+              : 'Panel data needs one server setting'}
         </h1>
         <p className="mt-2 text-sm text-white/70 leading-relaxed">
-          {bad ? (
+          {wrongProject ? (
+            <>
+              The Supabase keys configured on this deployment are VALID — but they belong to project{' '}
+              <code className="px-1.5 py-0.5 bg-white/[0.08] border border-white/10 rounded text-xs font-mono">
+                {envProject ?? 'unknown'}
+              </code>
+              , which has none of the app&rsquo;s tables (&ldquo;Could not find the table
+              &lsquo;public.profiles&rsquo;&rdquo;). The app&rsquo;s database lives in project{' '}
+              <code className="px-1.5 py-0.5 bg-white/[0.08] border border-white/10 rounded text-xs font-mono">
+                {getBuiltinProjectRef()}
+              </code>
+              . Every account, question and note is safe there — the deployment is just looking in an empty
+              room.
+            </>
+          ) : bad ? (
             <>
               Supabase answers <span className="text-rose-400">&ldquo;Invalid API key&rdquo;</span> for the{' '}
               <code className="px-1.5 py-0.5 bg-white/[0.08] border border-white/10 rounded text-xs font-mono">
@@ -126,19 +158,37 @@ export function ServiceKeyNotice({ kind }: { kind: 'missing-service-key' | 'bad-
           )}
         </p>
         <ol className="mt-3 list-decimal list-inside space-y-1.5 text-sm text-white/70 leading-relaxed">
-          <li>
-            Open Supabase → Project Settings → <span className="text-white/90">API Keys</span> and copy the{' '}
-            <span className="text-white/90">service_role</span> secret (legacy section — NOT the publishable
-            anon key).
-          </li>
-          <li>
-            Vercel → Settings → Environment Variables → set{' '}
-            <code className="px-1.5 py-0.5 bg-white/[0.08] border border-white/10 rounded text-xs font-mono">
-              SUPABASE_SERVICE_ROLE_KEY
-            </code>{' '}
-            to that exact value (no quotes, no trailing spaces).
-          </li>
-          <li>Redeploy — env changes never apply to an already-running build.</li>
+          {wrongProject ? (
+            <>
+              <li>
+                Open the <span className="text-white/90">{getBuiltinProjectRef()}</span> project in Supabase →
+                Project Settings → API Keys.
+              </li>
+              <li>
+                In Vercel → Settings → Environment Variables, update ALL THREE vars to that project&rsquo;s
+                values: <code className="text-xs font-mono">NEXT_PUBLIC_SUPABASE_URL</code>, the publishable
+                anon key var, and{' '}
+                <code className="text-xs font-mono">SUPABASE_SERVICE_ROLE_KEY</code>.
+              </li>
+              <li>Redeploy — env changes never apply to an already-running build.</li>
+            </>
+          ) : (
+            <>
+              <li>
+                Open Supabase → Project Settings → <span className="text-white/90">API Keys</span> and copy
+                the <span className="text-white/90">service_role</span> secret (legacy section — NOT the
+                publishable anon key).
+              </li>
+              <li>
+                Vercel → Settings → Environment Variables → set{' '}
+                <code className="px-1.5 py-0.5 bg-white/[0.08] border border-white/10 rounded text-xs font-mono">
+                  SUPABASE_SERVICE_ROLE_KEY
+                </code>{' '}
+                to that exact value (no quotes, no trailing spaces).
+              </li>
+              <li>Redeploy — env changes never apply to an already-running build.</li>
+            </>
+          )}
         </ol>
       </div>
     </div>
