@@ -475,7 +475,7 @@ begin
   if new.referral_code is null then
     new.referral_code := upper(substr(md5(random()::text || new.id::text), 1, 8));
   end if;
-  return new
+  return new;
 end;
 $$;
 
