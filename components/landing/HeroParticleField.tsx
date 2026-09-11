@@ -23,13 +23,14 @@ import { snoise3 } from "./noise3";
  *    and brighten/swell inside the ring band; velocity feeds into scale.
  *  - When the pointer is away, the ring wanders on its own noise path.
  *
- * Shapes & smoothness (2026-09-11, founder ask: softer tear/circle/oval
- * particles with LESS lag):
- *  - Shapes are pre-rendered into ONE sprite atlas (3 shapes × 48 gradient
- *    colors, 64px cells) and stamped with drawImage — a single GPU-resident
- *    texture, measurably cheaper per particle than path fills (arc/ellipse
- *    build a path every call) and unconditionally antialiased, so edges are
- *    softer than fillRect at any scale.
+ * Shapes & smoothness (2026-09-11, founder ask: ONE non-rectangular shape
+ * for every particle, with LESS lag):
+ *  - Every particle is the SAME shape — a teardrop (no squares anywhere).
+ *    Shapes are pre-rendered into ONE sprite atlas (48 gradient colors,
+ *    64px cells) and stamped with drawImage — a single GPU-resident texture,
+ *    measurably cheaper per particle than path fills (arc/ellipse build a
+ *    path every call) and unconditionally antialiased, so edges are softer
+ *    than fillRect at any scale.
  *  - Fixed-timestep simulation (30 Hz — antigravity's own cadence) decoupled
  *    from the render loop, which runs at full rAF rate: the cursor ring and
  *    particle stamping stay smooth even though physics steps at 30 Hz.
@@ -85,24 +86,27 @@ const COLOR_LUT: string[] = (() => {
 })();
 
 // ── Sprite atlas ────────────────────────────────────────────────────────────
-// One canvas, 3 shape columns × 48 color rows, 64px cells. Column 0 =
-// teardrop (tip along +X), column 1 = oval (2:1.25), column 2 = circle.
-// Lazily painted row by row on first use; drawn back scaled down (64px cell
-// → typically 4–14px on screen), so edges stay antialiased and soft.
+// One canvas: 1 shape column (teardrop) × 48 color rows, 64px cells.
+// The shape is painted to FILL the cell, so a stamp of side `bbox` renders
+// the drop at that size. (The first cut drew ~36% of the cell and shrank
+// every particle to a third of its target size — the invisible-field bug.)
 const CELL = 64;
-const SHAPE_N = 3;
-const SHAPE_TEAR = 0;
-const SHAPE_OVAL = 1;
-const SHAPE_CIRCLE = 2;
-// Destination bbox per shape, as a multiple of the particle's `size`.
-const SHAPE_BBOX = [2.3, 2.0, 1.6];
+const SHAPE_N = 1;
+// Destination bbox per particle, as a multiple of its `size` — calibrated so
+// the drop's visible round head matches the old square's footprint: the
+// square filled `size` × `size`; the head is ~0.46 of the bbox width, so the
+// bbox needs ~2.2× the square's side for the same head diameter.
+const SHAPE_BBOX = 2.2;
 
 function paintTear(g: CanvasRenderingContext2D) {
   // Classic drop: round back (radius r at origin) + tip at (L, 0), tangent
   // curves joining them. Tip points along +X — with the tangential rotation
   // applied at draw time, drops swirl tail-first around the cursor ring.
-  const r = 11;
-  const L = 20; // half-length in cell units (cell center = 0,0)
+  // Geometry is expressed in units of the CELL and scaled to fill it:
+  // the drop spans [-0.5·CELL, +0.5·CELL] on x and its head nearly the
+  // full cell height, so the painted shape IS the cell.
+  const r = CELL * 0.23;   // head radius — head diameter ≈ 0.46·CELL
+  const L = CELL * 0.5;    // tip at the cell's right edge
   const a = Math.acos(Math.min(1, r / L)); // tangent angle
   const tx = r * Math.cos(a);
   const ty = r * Math.sin(a);
@@ -116,19 +120,7 @@ function paintTear(g: CanvasRenderingContext2D) {
   g.fill();
 }
 
-function paintOval(g: CanvasRenderingContext2D) {
-  g.beginPath();
-  g.ellipse(0, 0, 15, 9.4, 0, 0, Math.PI * 2);
-  g.fill();
-}
-
-function paintCircle(g: CanvasRenderingContext2D) {
-  g.beginPath();
-  g.arc(0, 0, 11.5, 0, Math.PI * 2);
-  g.fill();
-}
-
-const PAINTERS = [paintTear, paintOval, paintCircle];
+const PAINTERS = [paintTear];
 
 // GLSL smoothstep clone — works with reversed edges (edge0 > edge1), which
 // the original shader relies on for its inverted ramp near the ring.
@@ -232,9 +224,6 @@ export function HeroParticleField() {
     let scale = new Float32Array(0);
     let vel = new Float32Array(0);
     let colorIdx = new Uint8Array(0);
-    // Shape per particle — teardrop-dominant mix (tear 40% · oval 35% ·
-    // circle 25%), deterministic so the field looks identical every load.
-    let shape = new Uint8Array(0);
     // Cached noise outputs (staggered recompute — see loop).
     let dxCache = new Float32Array(0);
     let dyCache = new Float32Array(0);
@@ -289,7 +278,6 @@ export function HeroParticleField() {
       scale = new Float32Array(count);
       vel = new Float32Array(count);
       colorIdx = new Uint8Array(count);
-      shape = new Uint8Array(count);
       dxCache = new Float32Array(count);
       dyCache = new Float32Array(count);
       rotCache = new Float32Array(count);
@@ -298,8 +286,6 @@ export function HeroParticleField() {
         ry[i] = pts[i][1];
         posx[i] = 0;
         posy[i] = 0;
-        const m = i % 20;
-        shape[i] = m < 8 ? SHAPE_TEAR : m < 15 ? SHAPE_OVAL : SHAPE_CIRCLE;
       }
     };
 
@@ -473,12 +459,11 @@ export function HeroParticleField() {
         const size = s * 7 * (dpr * 0.5) * particleScale; // their gl_PointSize
         if (size < 0.25) continue;
 
-        const sh = shape[i];
-        const bbox = size * SHAPE_BBOX[sh];
-        const half = bbox * 0.5;
         const row = colorIdx[i];
         ensureAtlasRow(row);
 
+        const bbox = size * SHAPE_BBOX;
+        const half = bbox * 0.5;
         ctx.globalAlpha = alpha;
         ctx.setTransform(
           dpr * Math.cos(rot),
@@ -488,7 +473,7 @@ export function HeroParticleField() {
           dpr * sx,
           dpr * sy
         );
-        ctx.drawImage(atlas, sh * CELL, row * CELL, CELL, CELL, -half, -half, bbox, bbox);
+        ctx.drawImage(atlas, 0, row * CELL, CELL, CELL, -half, -half, bbox, bbox);
       }
       ctx.globalAlpha = 1;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
