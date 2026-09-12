@@ -6,6 +6,7 @@ import { AntiCopy } from "@/components/AntiCopy";
 import { Telemetry } from "@/components/Telemetry";
 import FeedbackWidgetMount from "@/components/feedback/FeedbackWidgetMount";
 import { OfflineSyncHarness } from "@/components/OfflineSyncHarness";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -163,7 +164,14 @@ export default function RootLayout({
         {/* No font preconnects: next/font self-hosts Inter and Sora from our
             own origin, so handshakes to fonts.googleapis/gstatic were two
             unused DNS+TLS round trips on every cold mobile load. */}
+        {/* Theme: apply the saved palette before paint so there is never a
+            flash of the wrong colours (FOUC). Runs in <head> before CSS is
+            applied; the ThemeProvider keeps it live thereafter. */}
         <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("med-prep-theme");var valid={midnight:1,emerald:1,crimson:1,violet:1};if(t&&valid[t]){document.documentElement.dataset.theme=t;window.__MED_PREP_THEME__=t;}}catch(e){}})();`,
+          }}
+        /><script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
@@ -177,11 +185,13 @@ export default function RootLayout({
           nothing — `primary` is not a Tailwind colour here — and ::selection
           is now a real rule in globals.css. */}
       <body className="antialiased min-h-screen">
+        <ThemeProvider>
         <AntiCopy />
         <FeedbackWidgetMount />
         <Telemetry />
         <OfflineSyncHarness />
         {children}
+        </ThemeProvider>
       </body>
     </html>
   );

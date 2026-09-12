@@ -9,6 +9,7 @@ import { CadetCrest } from "@/components/landing/CadetCrest";
 import { HeroParticleField } from "./HeroParticleField";
 import { HeroWireframe } from "@/components/landing/HeroWireframe";
 import { BrainBookHero } from "@/components/landing/BrainBookHero";
+import { ThemeWheel } from "@/components/ThemeWheel";
 import { StatsAsOf } from "@/components/shared/StatsAsOf";
 import { Rocket } from "lucide-react";
 
@@ -159,9 +160,10 @@ export function Hero({
             </Reveal>
           </div>
 
-          {/* Right visual: brain-and-book motif and wireframe */}
-          <div className="relative mt-2 hidden lg:block">
-            <div className="relative flex items-center justify-center min-h-[380px]">
+          {/* Right visual: brain-and-book motif and wireframe + the theme wheel */}
+          <div className="relative mt-2 hidden lg:flex flex-col items-center gap-6">
+            <ThemeWheel />
+            <div className="relative flex items-center justify-center min-h-[340px]">
               <HeroWireframe />
               <div className="brain-book-wrap">
                 <BrainBookHero />

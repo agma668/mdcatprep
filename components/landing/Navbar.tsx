@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { CompassLogo } from "@/components/landing/CompassLogo";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { useRouter } from "next/navigation";
 
 const NAV_LINKS = [
@@ -110,6 +111,7 @@ export function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden items-center gap-2 md:flex">
+            <ThemeSwitcher />
             <Button variant="ghost" size="sm" onClick={() => router.push("/login")}>
               Sign In
             </Button>
@@ -174,6 +176,10 @@ export function Navbar() {
               </li>
             ))}
             <li className="flex flex-col gap-2 border-t border-[var(--line-2)] pt-3">
+              <div className="flex items-center justify-between">
+                <span className="label px-1">Theme</span>
+                <ThemeSwitcher />
+              </div>
               <Button variant="secondary" size="md" fullWidth onClick={() => { setMenuOpen(false); router.push("/login"); }}>
                 Sign In
               </Button>

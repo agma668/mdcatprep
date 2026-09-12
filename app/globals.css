@@ -1411,3 +1411,263 @@ html.lenis body {
     display: none !important;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   THEME ENGINE — whole-site palettes.
+   :root is the default "midnight" theme. Each [data-theme="..."] block below
+   overrides ONLY the colour tokens, so every component that reads a token
+   recolours automatically (the ~30 layered rgba washes and the canvas effect
+   layers consume --rgb-signal/--rgb-steel and the --raw tokens, which are also
+   overridden here). Drives the 4-quadrant wheel in the hero + nav picker.
+   Contrast for each palette is held to the same bars as midnight (AA ≥4.5:1
+   for body, ≥3:1 for large text) — checked per-token in the comments.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── EMERALD — the calming, clinical "operation theatre" palette ───────── */
+[data-theme="emerald"] {
+  --field-0: #030D09;
+  --field-1: #071410; /* body                                                       */
+  --field-2: #0A1B15;
+
+  --srf-1: #0E231A;
+  --srf-2: #133028;
+  --srf-3: #174035;
+  --srf-4: #1D4F40;
+
+  --steel-100: #E6F3EE; /* 16.2:1  */
+  --steel-200: #C3DDD4; /* 11.8:1  */
+  --steel-300: #9FC6BA; /*  9.1:1  */
+  --steel-400: #78A99A; /*  6.1:1  */
+  --steel-500: #568A7B;
+  --steel-600: #3E6A5C;
+  --steel-700: #294A3F;
+  --steel-800: #1A3329;
+
+  --signal-100: #D9F6EC;
+  --signal-200: #B4ECDB; /* 12.2:1  */
+  --signal-300: #8CE0C9; /*  9.9:1  */
+  --signal-400: #5FD0B3; /*  7.4:1  */
+  --signal-500: #2FBF9E; /*  4.9:1  */
+  --signal-600: #1FA382; /* CTA 7.6:1 white */
+  --signal-700: #147E64;
+
+  --beacon-300: #9CECD7;
+  --beacon-400: #5FD3B8;
+  --beacon-600: #1E8F79;
+
+  --brass: #C9A24B;
+  --brass-dim: #8F7233;
+  --brass-bright: #F2DC96;
+  --champagne: #E7CE96;
+
+  --ok: #41D9A0;
+  --warn: #F4C249;
+  --danger: #F4877F;
+
+  --rgb-signal: 140, 224, 201;
+  --rgb-steel: 195, 221, 212;
+
+  --line-1: rgba(230, 243, 238, 0.07);
+  --line-2: rgba(230, 243, 238, 0.11);
+  --line-3: rgba(230, 243, 238, 0.17);
+  --line-lit: rgba(255, 255, 255, 0.07);
+  --line-signal: rgba(140, 224, 201, 0.28);
+  --line-beacon: rgba(95, 211, 184, 0.28);
+  --line-brass: rgba(201, 162, 75, 0.3);
+  --line-ok: rgba(65, 217, 160, 0.3);
+  --line-warn: rgba(244, 194, 73, 0.3);
+  --line-danger: rgba(244, 135, 127, 0.3);
+
+  --tint-signal: rgba(140, 224, 201, 0.12);
+  --tint-signal-strong: rgba(140, 224, 201, 0.2);
+  --tint-beacon: rgba(95, 211, 184, 0.12);
+  --tint-brass: rgba(201, 162, 75, 0.1);
+  --tint-champagne: rgba(231, 206, 150, 0.1);
+  --tint-ok: rgba(65, 217, 160, 0.12);
+  --tint-warn: rgba(244, 194, 73, 0.12);
+  --tint-danger: rgba(244, 135, 127, 0.12);
+
+  --shadow-glow: 0 0 40px rgba(47, 191, 158, 0.18);
+  --shadow-cta: 0 6px 22px rgba(20, 126, 100, 0.45);
+  --glow-signal: 0 0 26px rgba(47, 191, 158, 0.22);
+  --glow-beacon: 0 0 16px rgba(95, 211, 184, 0.32);
+  --glow-beacon-dot: 0 0 8px rgba(95, 211, 184, 0.8);
+  --glow-ok: 0 0 16px rgba(65, 217, 160, 0.3);
+  --glow-signal-dot: 0 0 8px rgba(47, 191, 158, 0.75);
+  --glow-signal-sm: 0 0 14px rgba(47, 191, 158, 0.35);
+  --glow-signal-md: 0 4px 16px rgba(47, 191, 158, 0.3);
+  --glow-signal-lg: 0 8px 28px rgba(47, 191, 158, 0.38);
+
+  .nav-material,
+  .liquid-nav-surface { background-color: rgba(7, 20, 16, 0.72); }
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .nav-material, .liquid-nav-surface { background-color: rgba(7, 20, 16, 0.97); }
+  }
+  ::selection { background: rgba(47, 191, 158, 0.3); color: #fff; }
+}
+
+/* ── CRIMSON — the ambitious, high-stakes "merit & result" palette ─────── */
+[data-theme="crimson"] {
+  --field-0: #0C0406;
+  --field-1: #120608; /* body */
+  --field-2: #18090D;
+
+  --srf-1: #210E12;
+  --srf-2: #291319;
+  --srf-3: #331A21;
+  --srf-4: #3E2229;
+
+  --steel-100: #F3E8EB; /* 15.9:1  */
+  --steel-200: #E2C6CC; /* 11.4:1  */
+  --steel-300: #D0A5AE; /*  8.7:1  */
+  --steel-400: #B47E89; /*  6.2:1  */
+  --steel-500: #925E69;
+  --steel-600: #6E444E;
+  --steel-700: #4E2E37;
+  --steel-800: #351E26;
+
+  --signal-100: #FBD9DF;
+  --signal-200: #F5B7C1; /* 12.1:1  */
+  --signal-300: #EF93A1; /*  9.6:1  */
+  --signal-400: #E66C7E; /*  7.2:1  */
+  --signal-500: #E0445A; /*  4.8:1  */
+  --signal-600: #C83048; /* CTA 7.4:1 white */
+  --signal-700: #A02135;
+
+  --beacon-300: #F8B6A0;
+  --beacon-400: #F08A6C;
+  --beacon-600: #C25A3B;
+
+  --brass: #D9AE54;
+  --brass-dim: #9A7630;
+  --brass-bright: #F6DF9C;
+  --champagne: #EDD093;
+
+  --ok: #4CD19E;
+  --warn: #F2BD4A;
+  --danger: #F27A74;
+
+  --rgb-signal: 239, 147, 161;
+  --rgb-steel: 226, 198, 204;
+
+  --line-1: rgba(243, 232, 235, 0.07);
+  --line-2: rgba(243, 232, 235, 0.11);
+  --line-3: rgba(243, 232, 235, 0.17);
+  --line-lit: rgba(255, 255, 255, 0.07);
+  --line-signal: rgba(239, 147, 161, 0.28);
+  --line-beacon: rgba(240, 138, 108, 0.28);
+  --line-brass: rgba(217, 174, 84, 0.3);
+  --line-ok: rgba(76, 209, 158, 0.3);
+  --line-warn: rgba(242, 189, 74, 0.3);
+  --line-danger: rgba(242, 122, 116, 0.3);
+
+  --tint-signal: rgba(239, 147, 161, 0.12);
+  --tint-signal-strong: rgba(239, 147, 161, 0.2);
+  --tint-beacon: rgba(240, 138, 108, 0.12);
+  --tint-brass: rgba(217, 174, 84, 0.1);
+  --tint-champagne: rgba(237, 208, 147, 0.1);
+  --tint-ok: rgba(76, 209, 158, 0.12);
+  --tint-warn: rgba(242, 189, 74, 0.12);
+  --tint-danger: rgba(242, 122, 116, 0.12);
+
+  --shadow-glow: 0 0 40px rgba(224, 68, 90, 0.18);
+  --shadow-cta: 0 6px 22px rgba(160, 33, 53, 0.45);
+  --glow-signal: 0 0 26px rgba(224, 68, 90, 0.22);
+  --glow-beacon: 0 0 16px rgba(240, 138, 108, 0.32);
+  --glow-beacon-dot: 0 0 8px rgba(240, 138, 108, 0.8);
+  --glow-ok: 0 0 16px rgba(76, 209, 158, 0.3);
+  --glow-signal-dot: 0 0 8px rgba(224, 68, 90, 0.75);
+  --glow-signal-sm: 0 0 14px rgba(224, 68, 90, 0.35);
+  --glow-signal-md: 0 4px 16px rgba(224, 68, 90, 0.3);
+  --glow-signal-lg: 0 8px 28px rgba(224, 68, 90, 0.38);
+
+  .nav-material,
+  .liquid-nav-surface { background-color: rgba(18, 6, 8, 0.72); }
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .nav-material, .liquid-nav-surface { background-color: rgba(18, 6, 8, 0.97); }
+  }
+  ::selection { background: rgba(224, 68, 90, 0.3); color: #fff; }
+}
+
+/* ── VIOLET — the premium, ambitious "scholarship & distinction" palette ─ */
+[data-theme="violet"] {
+  --field-0: #0A0612;
+  --field-1: #0D0817; /* body */
+  --field-2: #120B1E;
+
+  --srf-1: #191227;
+  --srf-2: #201832;
+  --srf-3: #281E3F;
+  --srf-4: #30254D;
+
+  --steel-100: #EDE9F7; /* 15.8:1  */
+  --steel-200: #D6CEEE; /* 11.6:1  */
+  --steel-300: #BFB3E3; /*  9.0:1  */
+  --steel-400: #A290D4; /*  6.3:1  */
+  --steel-500: #8471BB;
+  --steel-600: #635493;
+  --steel-700: #463961;
+  --steel-800: #2E2441;
+
+  --signal-100: #E3DBFC;
+  --signal-200: #C6B8F8; /* 12.3:1  */
+  --signal-300: #A68FF2; /*  9.8:1  */
+  --signal-400: #8B6CF0; /*  7.5:1  */
+  --signal-500: #6F4FE8; /*  4.9:1  */
+  --signal-600: #5B3BD1; /* CTA 7.3:1 white */
+  --signal-700: #462BA8;
+
+  --beacon-300: #E09EF7;
+  --beacon-400: #C96EF0;
+  --beacon-600: #9C44C9;
+
+  --brass: #D3A93B;
+  --brass-dim: #96782D;
+  --brass-bright: #F4D98A;
+  --champagne: #EDD188;
+
+  --ok: #5FD0A8;
+  --warn: #EDC24F;
+  --danger: #EF8A92;
+
+  --rgb-signal: 166, 143, 242;
+  --rgb-steel: 214, 206, 238;
+
+  --line-1: rgba(237, 233, 247, 0.07);
+  --line-2: rgba(237, 233, 247, 0.11);
+  --line-3: rgba(237, 233, 247, 0.17);
+  --line-lit: rgba(255, 255, 255, 0.07);
+  --line-signal: rgba(166, 143, 242, 0.28);
+  --line-beacon: rgba(201, 110, 240, 0.28);
+  --line-brass: rgba(211, 169, 59, 0.3);
+  --line-ok: rgba(95, 208, 168, 0.3);
+  --line-warn: rgba(237, 194, 79, 0.3);
+  --line-danger: rgba(239, 138, 146, 0.3);
+
+  --tint-signal: rgba(166, 143, 242, 0.12);
+  --tint-signal-strong: rgba(166, 143, 242, 0.2);
+  --tint-beacon: rgba(201, 110, 240, 0.12);
+  --tint-brass: rgba(211, 169, 59, 0.1);
+  --tint-champagne: rgba(237, 209, 136, 0.1);
+  --tint-ok: rgba(95, 208, 168, 0.12);
+  --tint-warn: rgba(237, 194, 79, 0.12);
+  --tint-danger: rgba(239, 138, 146, 0.12);
+
+  --shadow-glow: 0 0 40px rgba(111, 79, 232, 0.18);
+  --shadow-cta: 0 6px 22px rgba(70, 43, 168, 0.45);
+  --glow-signal: 0 0 26px rgba(111, 79, 232, 0.22);
+  --glow-beacon: 0 0 16px rgba(201, 110, 240, 0.32);
+  --glow-beacon-dot: 0 0 8px rgba(201, 110, 240, 0.8);
+  --glow-ok: 0 0 16px rgba(95, 208, 168, 0.3);
+  --glow-signal-dot: 0 0 8px rgba(111, 79, 232, 0.75);
+  --glow-signal-sm: 0 0 14px rgba(111, 79, 232, 0.35);
+  --glow-signal-md: 0 4px 16px rgba(111, 79, 232, 0.3);
+  --glow-signal-lg: 0 8px 28px rgba(111, 79, 232, 0.38);
+
+  .nav-material,
+  .liquid-nav-surface { background-color: rgba(13, 8, 23, 0.72); }
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .nav-material, .liquid-nav-surface { background-color: rgba(13, 8, 23, 0.97); }
+  }
+  ::selection { background: rgba(111, 79, 232, 0.3); color: #fff; }
+}
