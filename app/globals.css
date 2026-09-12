@@ -674,7 +674,10 @@
     transform var(--dur-1) var(--ease-out-quart);
 }
 .btn-primary:hover { filter: brightness(1.13) saturate(1.05); box-shadow: 0 10px 30px rgba(29, 74, 144, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.2); transform: translateY(-1px); }
-.btn-primary:active { transform: translateY(0); filter: brightness(0.96); }
+/* Kowalski press: the button "seats" into the surface — key shadow collapses,
+   the top light dims, and a hair of scale settles so the lift reads as a real
+   physical press rather than a flicker. */
+.btn-primary:active { transform: translateY(0) scale(0.985); filter: brightness(0.96); box-shadow: 0 2px 6px rgba(29, 74, 144, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08); }
 
 .btn-secondary {
   background-color: var(--srf-2);
@@ -1053,54 +1056,87 @@ html.lenis body {
   to { stroke-dashoffset: 0%; }
 }
 
-/* Elements with data-scroll-reveal animate when scrolled into view */
-[data-scroll-reveal] {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s var(--ease-out-quart), transform 0.6s var(--ease-out-quart);
+/* ═══════════════════════════════════════════════════════════════════════════
+   REVEAL VOCABULARY — the page's ONE way of appearing.
+
+   Everything that enters as you scroll carries [data-reveal], stamped by the
+   components in components/ui/Motion.tsx. The single trigger is the controller
+   in components/landing/ScrollReveal.tsx. The look is here. Three custom
+   properties carry the whole language:
+
+     --reveal-x / --reveal-y   direction and distance
+     --reveal-delay            one stagger step
+     --reveal-duration         beat length
+
+   Two properties below are deliberate and load-bearing:
+
+   * The hidden state is scoped to `html.reveals-armed`, which only the
+     controller adds, and further restricted to :not(.is-revealed). So a page
+     whose JS never runs is never armed and every section renders at rest —
+     and no rule can hold an element at opacity 0 after it has been revealed.
+   * `backwards` fill, never `both` or `forwards`: the animation covers its own
+     delay and duration and nothing else, so an element whose animation never
+     runs keeps its own resting style — visible — instead of being stranded
+     invisible. That is why .is-revealed also sets opacity, and why it is safe
+     for these elements to carry no hidden state of their own.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@keyframes reveal-rise {
+  from { opacity: 0; transform: translate3d(var(--reveal-x, 0px), var(--reveal-y, 12px), 0); }
+  to { opacity: 1; transform: none; }
 }
 
-[data-scroll-reveal].is-visible {
+@keyframes reveal-scale {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: none; }
+}
+
+html.reveals-armed [data-reveal]:not(.is-revealed) {
+  opacity: 0;
+}
+
+[data-reveal].is-revealed {
   opacity: 1;
-  transform: translateY(0);
+  animation: reveal-rise var(--reveal-duration, var(--dur-3)) var(--ease-out-quart)
+    var(--reveal-delay, 0ms) backwards;
 }
 
-/* Staggered reveal for grids */
-[data-scroll-reveal-stagger] > * {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s var(--ease-out-quart), transform 0.5s var(--ease-out-quart);
+[data-reveal="scale"].is-revealed {
+  animation-name: reveal-scale;
 }
 
-[data-scroll-reveal-stagger].is-visible > *:nth-child(1) { transition-delay: 0ms; }
-[data-scroll-reveal-stagger].is-visible > *:nth-child(2) { transition-delay: 60ms; }
-[data-scroll-reveal-stagger].is-visible > *:nth-child(3) { transition-delay: 120ms; }
-[data-scroll-reveal-stagger].is-visible > *:nth-child(4) { transition-delay: 180ms; }
-[data-scroll-reveal-stagger].is-visible > *:nth-child(5) { transition-delay: 240ms; }
-[data-scroll-reveal-stagger].is-visible > *:nth-child(6) { transition-delay: 300ms; }
-
-/* Scroll-linked counter animation */
-[data-scroll-count] {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.4s var(--ease-out-quart), transform 0.4s var(--ease-out-quart);
+/* ── The hero: same vocabulary, triggered by the load, not by a scroll ──────
+   It is on screen at first paint, so waiting for the observer would mean
+   waiting for hydration and then animating copy the visitor is already
+   reading. It runs the shared keyframes on load, with the same properties, and
+   gives its own blocks the beats. The hero is also where the sequence is
+   longest, so its beats match --dur-4 rather than the section beat. */
+.hero-intro > * {
+  --reveal-y: 14px;
+  animation: reveal-rise var(--dur-4) var(--ease-out-quart) backwards;
 }
 
-[data-scroll-count].is-visible {
-  opacity: 1;
-  transform: translateY(0);
+.hero-intro > *:nth-child(1) { --reveal-delay: 40ms; }
+.hero-intro > *:nth-child(2) { --reveal-delay: 110ms; }
+.hero-intro > *:nth-child(3) { --reveal-delay: 180ms; }
+.hero-intro > *:nth-child(4) { --reveal-delay: 250ms; }
+.hero-intro > *:nth-child(5) { --reveal-delay: 320ms; }
+.hero-intro > *:nth-child(6) { --reveal-delay: 390ms; }
+.hero-intro > *:nth-child(7) { --reveal-delay: 460ms; }
+
+/* ── Hero depth on exit ─────────────────────────────────────────────────────
+   ScrollEffects — the page's one scroll writer — publishes --hero-exit, 0 → 1
+   across the hero's own height. The copy therefore drifts up and fades as the
+   hero leaves while the particle field stays put, which reads as depth. No
+   second listener, loop or observer is involved: one number, written by the
+   writer that already exists, and it stops being updated as soon as the hero
+   is off screen. Reduced motion never writes it, so --hero-exit stays 0 and
+   this rule is an identity. */
+.hero-depth {
+  transform: translate3d(0, calc(var(--hero-exit, 0) * -32px), 0);
+  opacity: calc(1 - var(--hero-exit, 0) * 0.55);
 }
 
-/* Scroll-linked line drawing */
-[data-scroll-draw] {
-  stroke-dasharray: 100;
-  stroke-dashoffset: 100;
-  transition: stroke-dashoffset 1.2s var(--ease-out-quart);
-}
-
-[data-scroll-draw].is-visible {
-  stroke-dashoffset: 0;
-}
 
 /* Scroll-driven 3D rotation for objects reading --rail/--section-progress */
 [data-scroll-rotate] {
@@ -1137,16 +1173,12 @@ html.lenis body {
     animation: none !important;
     transition: none !important;
   }
-  [data-scroll-reveal],
-  [data-scroll-reveal-stagger] > *,
-  [data-scroll-count],
-  [data-scroll-draw] {
+  /* Belt and braces beside the arming gate: reduced motion arms nothing, and
+     if anything is already armed this releases it. */
+  [data-reveal] {
     opacity: 1 !important;
     transform: none !important;
-    transition: none !important;
-  }
-  [data-scroll-draw] {
-    stroke-dashoffset: 0 !important;
+    animation: none !important;
   }
 }
 
@@ -1405,6 +1437,18 @@ html.lenis body {
     display: block;
   }
 }
+
+/* ── Lenis ↔ native smooth scrolling ───────────────────────────────────────
+   SmoothScroll.tsx (desktop, fine pointer, no reduced motion) hands the
+   scroll to Lenis, which tags <html> with .lenis / .lenis-smooth. The base
+   rule up top asks the BROWSER to animate that same property, so the two
+   fight over every anchor jump. These are Lenis's own stylesheet rules, and
+   they must sit outside the layer to outrank the base `smooth`. Touch and
+   reduced-motion visitors never load Lenis and keep the smooth behaviour. */
+html.lenis,
+html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
 
 @media (prefers-reduced-motion: reduce) {
   .fluid-cursor {

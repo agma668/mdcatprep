@@ -17,7 +17,7 @@ const variantStyles: Record<ButtonVariant, string> = {
   // button was a gold fill with dark text; gold now belongs to the insignia,
   // not to controls.
   primary:
-    "bg-[linear-gradient(180deg,var(--cta-from)_0%,var(--cta-to)_100%)] text-[var(--on-cta)] shadow-[var(--shadow-cta),inset_0_1px_0_rgba(255,255,255,0.16)] hover:brightness-110 hover:-translate-y-px",
+    "bg-[linear-gradient(180deg,var(--cta-from)_0%,var(--cta-to)_100%)] text-[var(--on-cta)] shadow-[var(--shadow-cta),inset_0_1px_0_rgba(255,255,255,0.16)] hover:brightness-110 hover:-translate-y-px hover:shadow-[0_10px_30px_rgba(29,74,144,0.55),inset_0_1px_0_rgba(255,255,255,0.2)] active:shadow-[0_2px_6px_rgba(29,74,144,0.35),inset_0_1px_0_rgba(255,255,255,0.08)]",
   secondary:
     "bg-[var(--srf-2)] text-[var(--steel-100)] border border-[var(--line-3)] hover:bg-[var(--srf-3)] hover:border-[var(--line-signal)]",
   outline:
