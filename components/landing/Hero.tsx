@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { BarChart3, BookOpenCheck, GraduationCap, MessageCircle, Target, Trophy } from "lucide-react";
+import { GraduationCap, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { Reveal, Stagger } from "@/components/ui/Motion";
+import { Stagger } from "@/components/ui/Motion";
 import { Magnetic } from "@/components/landing/Magnetic";
 import { InteractiveTile } from "@/components/landing/InteractiveTile";
 import { CadetCrest } from "@/components/landing/CadetCrest";
@@ -83,11 +83,17 @@ export function Hero({
       {/* Film grain over everything — cheap SVG turbulence. */}
       <div aria-hidden="true" className="film-grain z-[20]" />
 
-      <div className="container-page relative z-10 py-20 md:py-28">
+      <div className="container-page hero-depth relative z-10 py-20 md:py-28">
         <div className="grid items-center gap-8 sm:gap-12 lg:grid-cols-[1.1fr_.9fr] lg:gap-16">
           <div className="max-w-3xl text-center lg:text-left">
-            {/* Single reveal for the entire hero text block */}
-            <Reveal direction="up" delay={0}>
+            {/* One choreographed entrance for the whole text block: each
+                child rises on its own beat via .hero-intro in globals.css
+                (CSS, so it starts at first paint rather than on hydration).
+                No data-reveal here on purpose: the controller only fires on
+                viewport entry, and above the fold that would mean "as soon as
+                hydration finishes" rather than first paint. Carrying both also
+                animated every block twice. */}
+            <div className="hero-intro">
               {/* Active MDCAT & NUMS Prep platform announcement */}
               <div className="mb-6 flex items-start justify-center gap-2.5 lg:justify-start">
                 <Rocket aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-[var(--signal-300)]" />
@@ -111,13 +117,13 @@ export function Hero({
                 </Badge>
               </div>
 
-              <h1 className="mb-6 text-4xl text-[var(--steel-100)] sm:text-5xl md:text-6xl" data-scroll-reveal>
+              <h1 className="mb-6 text-4xl text-[var(--steel-100)] sm:text-5xl md:text-6xl">
                 Your Path to{" "}
                 <span className="text-gradient">MDCAT & NUMS</span>{" "}
                 Success Starts Here.
               </h1>
 
-              <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-[var(--steel-300)] sm:text-xl" data-scroll-reveal>
+              <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-[var(--steel-300)] sm:text-xl">
                 Free medical entrance exam preparation for MDCAT, NUMS, UHS, SZABMU, KMU, and all medical universities.
                 Take a quick diagnostic to find your level, then practice{" "}
                 {stats.mcqs.toLocaleString()} exam-style MCQs with instant explanations
@@ -130,7 +136,7 @@ export function Hero({
                   and "Join WhatsApp Group" silently wrapped onto two lines
                   inside a fixed-height button. nowrap makes any future copy
                   change overflow visibly instead of wrapping quietly. */}
-              <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start" data-scroll-reveal>
+              <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
                 <Magnetic strength={0.2}>
                   <Link href="/diagnostic">
                     <Button variant="primary" size="lg" className="whitespace-nowrap px-8 text-base">
@@ -150,20 +156,20 @@ export function Hero({
                 </Magnetic>
               </div>
 
-              <p className="mt-6 flex items-center justify-center gap-1.5 text-sm text-[var(--steel-400)] lg:justify-start" data-scroll-reveal>
+              <p className="mt-6 flex items-center justify-center gap-1.5 text-sm text-[var(--steel-400)] lg:justify-start">
                 <GraduationCap
                   aria-hidden="true"
                   className="h-4 w-4 text-[var(--signal-300)]"
                 />
                 An initiative for accessible education — by <Link href="/founder" className="font-semibold text-[var(--signal-200)] hover:underline">Muhammad Haziq Khan</Link>
               </p>
-            </Reveal>
+            </div>
           </div>
 
           {/* Right visual: brain-and-book motif and wireframe + the theme wheel */}
-          <div className="relative mt-2 hidden lg:flex flex-col items-center gap-6">
+          <div className="relative mt-2 flex flex-col items-center gap-6">
             <ThemeWheel />
-            <div className="relative flex items-center justify-center min-h-[340px]">
+            <div className="relative hidden lg:flex items-center justify-center min-h-[340px]">
               <HeroWireframe />
               <div className="brain-book-wrap">
                 <BrainBookHero />
@@ -175,11 +181,11 @@ export function Hero({
         {/* Stats — real numbers from the live bank, server-rendered (no
             client count-up, so they can never sit at zero) */}
         <Stagger stagger={60} className="mt-16 lg:mt-20">
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4" data-scroll-reveal-stagger>
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
             {statTiles.map(({ value, label }) => (
               <InteractiveTile key={label} className="feature-tile glass-tile glass-shine px-6 py-6">
                 <div className="text-center">
-                  <p className="font-display mb-1 text-3xl font-bold tabular-nums text-[var(--steel-100)] sm:text-4xl" data-scroll-count>
+                  <p className="font-display mb-1 text-3xl font-bold tabular-nums text-[var(--steel-100)] sm:text-4xl">
                     {value}
                   </p>
                   <p className="label text-xs sm:text-[0.8125rem]">
