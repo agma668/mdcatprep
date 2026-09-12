@@ -1469,23 +1469,7 @@ html.lenis body { height: auto; }
 
 /* ── EMERALD — the calming, clinical "operation theatre" palette ───────── */
 [data-theme="emerald"] {
-  --field-0: #030D09;
-  --field-1: #071410; /* body                                                       */
-  --field-2: #0A1B15;
 
-  --srf-1: #0E231A;
-  --srf-2: #133028;
-  --srf-3: #174035;
-  --srf-4: #1D4F40;
-
-  --steel-100: #E6F3EE; /* 16.2:1  */
-  --steel-200: #C3DDD4; /* 11.8:1  */
-  --steel-300: #9FC6BA; /*  9.1:1  */
-  --steel-400: #78A99A; /*  6.1:1  */
-  --steel-500: #568A7B;
-  --steel-600: #3E6A5C;
-  --steel-700: #294A3F;
-  --steel-800: #1A3329;
 
   --signal-100: #D7F1E5;
   --signal-200: #AFE3CF;
@@ -1509,12 +1493,8 @@ html.lenis body { height: auto; }
   --danger: #F4877F;
 
   --rgb-signal: 140, 224, 201;
-  --rgb-steel: 195, 221, 212;
 
-  --line-1: rgba(230, 243, 238, 0.07);
-  --line-2: rgba(230, 243, 238, 0.11);
-  --line-3: rgba(230, 243, 238, 0.17);
-  --line-lit: rgba(255, 255, 255, 0.07);
+
   --line-signal: rgba(140, 224, 201, 0.28);
   --line-beacon: rgba(95, 211, 184, 0.28);
   --line-brass: rgba(201, 162, 75, 0.3);
@@ -1546,29 +1526,13 @@ html.lenis body { height: auto; }
   .liquid-nav-surface { background-color: rgba(7, 20, 16, 0.72); }
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .nav-material, .liquid-nav-surface { background-color: rgba(7, 20, 16, 0.97); }
-  }
-  ::selection { background: rgba(63, 174, 140, 0.3); color: #fff; }
-}
+      }
+      ::selection { background: rgba(63, 174, 140, 0.3); color: #fff; }
+    }
 
 /* ── CRIMSON — the ambitious, high-stakes "merit & result" palette ─────── */
 [data-theme="crimson"] {
-  --field-0: #0C0406;
-  --field-1: #120608; /* body */
-  --field-2: #18090D;
 
-  --srf-1: #210E12;
-  --srf-2: #291319;
-  --srf-3: #331A21;
-  --srf-4: #3E2229;
-
-  --steel-100: #F3E8EB; /* 15.9:1  */
-  --steel-200: #E2C6CC; /* 11.4:1  */
-  --steel-300: #D0A5AE; /*  8.7:1  */
-  --steel-400: #B47E89; /*  6.2:1  */
-  --steel-500: #925E69;
-  --steel-600: #6E444E;
-  --steel-700: #4E2E37;
-  --steel-800: #351E26;
 
   --signal-100: #F9E1E4;
   --signal-200: #F2C3CA;
@@ -1592,12 +1556,8 @@ html.lenis body { height: auto; }
   --danger: #F27A74;
 
   --rgb-signal: 239, 147, 161;
-  --rgb-steel: 226, 198, 204;
 
-  --line-1: rgba(243, 232, 235, 0.07);
-  --line-2: rgba(243, 232, 235, 0.11);
-  --line-3: rgba(243, 232, 235, 0.17);
-  --line-lit: rgba(255, 255, 255, 0.07);
+
   --line-signal: rgba(239, 147, 161, 0.28);
   --line-beacon: rgba(240, 138, 108, 0.28);
   --line-brass: rgba(217, 174, 84, 0.3);
@@ -1628,30 +1588,12 @@ html.lenis body { height: auto; }
   .nav-material,
   .liquid-nav-surface { background-color: rgba(18, 6, 8, 0.72); }
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-    .nav-material, .liquid-nav-surface { background-color: rgba(18, 6, 8, 0.97); }
-  }
-  ::selection { background: rgba(188, 82, 103, 0.3); color: #fff; }
+    .nav-material, .liquid-nav-surface { background-color: rgba(18, 6, 8, 0.97); }}  ::selection { background: rgba(188, 82, 103, 0.3); color: #fff; }
 }
 
 /* ── VIOLET — the premium, ambitious "scholarship & distinction" palette ─ */
 [data-theme="violet"] {
-  --field-0: #0A0612;
-  --field-1: #0D0817; /* body */
-  --field-2: #120B1E;
 
-  --srf-1: #191227;
-  --srf-2: #201832;
-  --srf-3: #281E3F;
-  --srf-4: #30254D;
-
-  --steel-100: #EDE9F7; /* 15.8:1  */
-  --steel-200: #D6CEEE; /* 11.6:1  */
-  --steel-300: #BFB3E3; /*  9.0:1  */
-  --steel-400: #A290D4; /*  6.3:1  */
-  --steel-500: #8471BB;
-  --steel-600: #635493;
-  --steel-700: #463961;
-  --steel-800: #2E2441;
 
   --signal-100: #E8E2F9;
   --signal-200: #D0C6F1;
@@ -1675,12 +1617,8 @@ html.lenis body { height: auto; }
   --danger: #EF8A92;
 
   --rgb-signal: 166, 143, 242;
-  --rgb-steel: 214, 206, 238;
 
-  --line-1: rgba(237, 233, 247, 0.07);
-  --line-2: rgba(237, 233, 247, 0.11);
-  --line-3: rgba(237, 233, 247, 0.17);
-  --line-lit: rgba(255, 255, 255, 0.07);
+
   --line-signal: rgba(166, 143, 242, 0.28);
   --line-beacon: rgba(201, 110, 240, 0.28);
   --line-brass: rgba(211, 169, 59, 0.3);
@@ -1711,7 +1649,5 @@ html.lenis body { height: auto; }
   .nav-material,
   .liquid-nav-surface { background-color: rgba(13, 8, 23, 0.72); }
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-    .nav-material, .liquid-nav-surface { background-color: rgba(13, 8, 23, 0.97); }
-  }
-  ::selection { background: rgba(114, 96, 192, 0.3); color: #fff; }
+    .nav-material, .liquid-nav-surface { background-color: rgba(13, 8, 23, 0.97); }}  ::selection { background: rgba(114, 96, 192, 0.3); color: #fff; }
 }
