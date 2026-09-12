@@ -17,9 +17,9 @@ export type ThemeId = "midnight" | "emerald" | "crimson" | "violet";
 
 export const THEMES: { id: ThemeId; label: string; dots: [string, string, string] }[] = [
   { id: "midnight", label: "Midnight", dots: ["#05080F", "#3D7EDB", "#C9A24B"] },
-  { id: "emerald", label: "Emerald", dots: ["#04100C", "#2FBF9E", "#C9A24B"] },
-  { id: "crimson", label: "Crimson", dots: ["#0F0508", "#E0445A", "#C9A24B"] },
-  { id: "violet", label: "Violet", dots: ["#0E0814", "#8B6CF0", "#C9A24B"] },
+  { id: "emerald", label: "Forest", dots: ["#04100C", "#3FAE8B", "#C9A24B"] },
+  { id: "crimson", label: "Wine", dots: ["#0F0508", "#BC5267", "#C9A24B"] },
+  { id: "violet", label: "Iris", dots: ["#0E0814", "#7260C0", "#C9A24B"] },
 ];
 
 const STORAGE_KEY = "med-prep-theme";
