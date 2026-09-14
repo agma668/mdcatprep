@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ANALYSIS_CORPUS, formatStat } from "@/lib/stats";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import { getSiteUrl, getWhatsAppLink } from "@/lib/site";
@@ -96,7 +97,7 @@ const FAQS = [
       },
       {
         q: "Does MED Prep have past papers?",
-        a: "Our high-yield notes are built from analysis of real MDCAT papers and mocks — over 2,000 questions parsed, with repeat facts marked by how often they appear. The exam-style MCQ bank models the actual test pattern. Official past papers belong to their examining bodies, so we teach the facts that repeat instead of republishing them.",
+        a: `Our high-yield notes are built from analysis of real MDCAT papers and mocks — over ${formatStat(ANALYSIS_CORPUS)} questions parsed, with repeat facts marked by how often they appear. The exam-style MCQ bank models the actual test pattern. Official past papers belong to their examining bodies, so we teach the facts that repeat instead of republishing them.`,
       },
       {
         q: "Can I use MED Prep on my phone?",

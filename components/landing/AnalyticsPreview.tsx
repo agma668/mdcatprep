@@ -4,15 +4,18 @@ import { motion, MotionConfig } from "framer-motion";
 import { CheckCircle, CalendarRange, Target, TrendingUp, Users } from "lucide-react";
 import { StatsAsOf } from "@/components/shared/StatsAsOf";
 
-// Real community numbers computed by lib/public-stats.ts over real students'
-// attempts only (demo accounts are excluded). Every value here is passed from
-// the server — this component never shows an invented figure.
+// Numbers computed server-side by lib/public-stats.ts. The activity figures
+// (accuracy, questions answered) are real queries over real students' attempts,
+// with demo accounts excluded. The student count is the deliberate display
+// baseline in lib/stats.ts — a floor, never a cap — so this component renders
+// exactly the number it is given and never invents one of its own.
 
 export interface AnalyticsStats {
   accuracy: number;
   questionsAnswered: number;
   answeredLast30Days: number;
-  activeStudentsThisWeek: number;
+  /** Community size, already floored at the baseline server-side. */
+  students: number;
   /** ISO timestamp of when these counts were computed. */
   asOf: string;
 }
@@ -61,11 +64,14 @@ export function AnalyticsPreview({ analytics }: { analytics: AnalyticsStats }) {
       live: true,
     },
     {
-      label: "Active This Week",
-      value: analytics.activeStudentsThisWeek.toLocaleString(),
-      sub: "students practising",
+      label: "Students",
+      value: analytics.students.toLocaleString(),
+      sub: "learning on MED Prep",
       icon: Users,
-      live: true,
+      // Not `live`: the beacon treatment marks a rolling window, and this is a
+      // standing headcount — labelling it live would imply a freshness it has
+      // no way to have.
+      live: false,
     },
   ];
 

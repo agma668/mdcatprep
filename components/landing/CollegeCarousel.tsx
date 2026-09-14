@@ -93,7 +93,7 @@ export function CollegeCarousel() {
       />
 
       <div className="container-page relative">
-        <Reveal>
+        <Reveal distance={20} duration={520}>
           <div className="mb-10 text-center">
             <h2
               id="colleges-heading"

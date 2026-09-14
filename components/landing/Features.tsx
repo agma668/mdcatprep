@@ -89,7 +89,6 @@ export function Features() {
       id="features"
       aria-labelledby="features-heading"
       className="section-padding section-glow-divider relative overflow-hidden"
-      data-scroll-reveal
     >
       <div
         aria-hidden="true"
@@ -100,7 +99,9 @@ export function Features() {
         className="absolute -right-24 -bottom-32 h-[520px] w-[520px] rounded-full bg-[radial-gradient(circle,var(--tint-beacon)_0%,transparent_62%)]"
       />
       <div className="container-page relative">
-        <Reveal direction="up">
+        {/* Section lead: the header lands on the long beat, the cards below it
+            follow on the short one — see the rhythm note in ui/Motion.tsx. */}
+        <Reveal direction="up" distance={20} duration={520}>
           <div className="mb-14 text-center">
             <Badge variant="glass" className="mb-4">
               Platform Features

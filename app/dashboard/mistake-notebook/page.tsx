@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { PageHeader } from '@/components/dashboard/PageHeader'
+import { getMyMistakes } from '@/app/actions/mistakes'
 import { MistakeNotebookClient } from './MistakeNotebookClient'
 
 export const metadata: Metadata = { title: 'Mistake Notebook' }
@@ -92,6 +93,11 @@ export default async function MistakeNotebookPage() {
       }
     })
 
+  // The redo drill re-answers questions from the DB bank, so it needs bank ids
+  // — a different shape than the review list (which also carries per-attempt
+  // rows). Fetched through its own action; failures degrade to review-only.
+  const drill = await getMyMistakes()
+
   return (
     <div className="p-6 md:p-8 max-w-5xl mx-auto w-full">
       <PageHeader
@@ -99,7 +105,7 @@ export default async function MistakeNotebookPage() {
         title="Mistake Notebook"
         description="Every question you got wrong is saved here. Review your mistakes to improve."
       />
-      <MistakeNotebookClient mistakes={flatMistakes} />
+      <MistakeNotebookClient mistakes={flatMistakes} drill={drill.questions ?? []} />
     </div>
   )
 }

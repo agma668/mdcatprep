@@ -38,7 +38,7 @@ export function RegisterSection({ mcqs }: { mcqs: number }) {
 
       <div className="container-page relative">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <Reveal direction="left">
+          <Reveal direction="left" distance={20} duration={520}>
             <div className="text-center lg:text-left">
               {/* Static dot, not a pulsing one — a pulse reads as live data and
                   this is a standing fact about the platform. Built from

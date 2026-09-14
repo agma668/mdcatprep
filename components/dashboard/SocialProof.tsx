@@ -5,9 +5,13 @@ import type { CommunityProofStats } from "@/lib/public-stats";
 import { StatsAsOf } from "@/components/shared/StatsAsOf";
 
 /**
- * Social-proof bar showing real platform activity. Every figure comes from
+ * Social-proof bar showing platform activity. Every figure comes from
  * getCommunityProofStats() in lib/public-stats.ts — counts over real students'
  * records only (demo accounts excluded), computed server-side per page load.
+ *
+ * One figure is floored on purpose: `studentsJoined` is raised to the community
+ * baseline in lib/stats.ts (the founder asked for a credible minimum), so it
+ * reads as "at least this many". The activity figures are never floored.
  *
  * There is deliberately no "students online right now" figure: the only data
  * source that could approach it (client telemetry) records page views, not

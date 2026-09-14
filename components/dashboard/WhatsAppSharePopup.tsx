@@ -91,10 +91,10 @@ export function WhatsAppSharePopup({ questionsAnswered, streak, accuracy }: Prop
       ? `${joinedCount} student${joinedCount !== 1 ? "s have" : " has"} already joined\n\n`
       : "";
   const msg =
-    `🎓 I'm using Cadet College Prep to prepare for my entry test — and it's completely free!\n\n` +
+    `🎓 I'm using MED Prep to prepare for my MDCAT & NUMS entry test — and it's completely free!\n\n` +
     statsLine +
     socialProofLine +
-    `Share it with 5 friends preparing for CCH, PAF Sargodha, MCJ, or any cadet college:\n\n` +
+    `Share it with 5 friends preparing for MDCAT, NUMS or any medical entrance test:\n\n` +
     `${url}\n\n` +
     `100% free. Help more students succeed! 🇵🇰`;
   const href = `https://wa.me/?text=${encodeURIComponent(msg)}`;
@@ -105,7 +105,7 @@ export function WhatsAppSharePopup({ questionsAnswered, streak, accuracy }: Prop
       <div className="relative w-full max-w-sm bg-[#141414] rounded-[var(--radius-xl)] p-6 text-center shadow-[0_24px_60px_rgba(0,0,0,0.3)]">
         <h3 className="text-lg font-bold text-white mb-2">{headline}</h3>
         <p className="text-sm text-white/55 mb-2">
-          Share this free prep platform with <strong className="text-white/80">5 contacts</strong> on WhatsApp — you could help someone get into their dream cadet college.
+          Share this free prep platform with <strong className="text-white/80">5 contacts</strong> on WhatsApp — you could help someone get into their dream medical college.
         </p>
         {joinedCount > 0 && (
           <p className="text-xs text-white/35 mb-6">

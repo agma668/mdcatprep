@@ -22,8 +22,9 @@ import { recordAnswer } from "@/lib/offline-sync";
 import { ScoreRing, AnimatedNumber } from "@/components/ui/ScoreRing";
 import { QuizKeyLegend } from "@/components/ui/QuizKeyLegend";
 import { QuizOptions } from "@/components/ui/QuizOptions";
+import { BookmarkFlag } from "@/components/practice/BookmarkFlag";
 import { useQuizSession } from "@/lib/quiz-session";
-import type { QuizQuestion } from "@/lib/questions";
+import { pastPaperTag, type QuizQuestion } from "@/lib/questions";
 
 export function PracticeSession({
   questions,
@@ -196,6 +197,22 @@ export function PracticeSession({
       />
 
       <div className="glass-tile-glow rounded-[var(--radius-lg)] border border-white/10 p-6">
+        <div className="mb-3 flex items-start justify-between gap-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-white/50">
+              {q.subject}
+              {q.topic ? ` · ${q.topic}` : ""}
+            </span>
+            {/* Only shows for questions genuinely taken from a real paper —
+                original exam-style questions carry no year. */}
+            {pastPaperTag(q) && (
+              <span className="rounded-full border border-[var(--color-primary)]/25 bg-[var(--color-primary)]/[0.08] px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--color-primary-light)]">
+                {pastPaperTag(q)}
+              </span>
+            )}
+          </div>
+          {q.id && <BookmarkFlag questionId={q.id} />}
+        </div>
         <p className="text-sm font-semibold leading-relaxed text-[var(--color-text-primary)] sm:text-base">
           {q.question_text}
         </p>

@@ -17,13 +17,22 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { toQuizQuestion, type QuestionLike, type QuizQuestion } from "./questions";
 
+const BASE_ROW_COLUMNS =
+  "id, subject, topic, question_text, option_a, option_b, option_c, option_d, correct_answer, explanation, difficulty, college";
+
 /**
  * Canonical column list for reading a question row. Includes every field any
  * surface renders or records (topic, explanation, difficulty, college) so all
  * readers speak one schema.
+ *
+ * The three `past_paper_*` columns only exist once
+ * 20260912000000_question_provenance.sql has been pasted, and this select runs
+ * on every practice page — so a hard dependency would take the whole bank down
+ * until then. `fetchPublishedQuestions` therefore tries this list first and
+ * falls back to BASE_ROW_COLUMNS when Postgres reports the columns unknown, and
+ * the feature switches itself on the moment the migration lands.
  */
-export const QUESTION_ROW_COLUMNS =
-  "id, subject, topic, question_text, option_a, option_b, option_c, option_d, correct_answer, explanation, difficulty, college";
+export const QUESTION_ROW_COLUMNS = `${BASE_ROW_COLUMNS}, past_paper_exam, past_paper_year, past_paper_section`;
 
 /** Shape of the raw row returned by question queries. */
 export type QuestionRow = {
@@ -39,6 +48,10 @@ export type QuestionRow = {
   explanation: string | null;
   difficulty: string | null;
   college: string | null;
+  /** Absent until the provenance migration is applied. */
+  past_paper_exam?: string | null;
+  past_paper_year?: number | null;
+  past_paper_section?: string | null;
 };
 
 /**
@@ -50,16 +63,24 @@ export async function fetchPublishedQuestions(
   db: SupabaseClient,
   options: { subject?: string; limit?: number } = {}
 ): Promise<QuizQuestion[]> {
-  let query = db
-    .from("questions")
-    .select(QUESTION_ROW_COLUMNS)
-    .eq("status", "published")
-    .order("created_at", { ascending: false });
+  const run = (columns: string) => {
+    let query = db
+      .from("questions")
+      .select(columns)
+      .eq("status", "published")
+      .order("created_at", { ascending: false });
 
-  if (options.subject) query = query.eq("subject", options.subject);
-  if (options.limit) query = query.limit(options.limit);
+    if (options.subject) query = query.eq("subject", options.subject);
+    if (options.limit) query = query.limit(options.limit);
+    return query;
+  };
 
-  const { data, error } = await query;
+  let { data, error } = await run(QUESTION_ROW_COLUMNS);
+  // Pre-migration: the provenance columns don't exist yet. Losing a year badge
+  // is acceptable; losing the entire bank is not.
+  if (error && /past_paper_(exam|year|section)/.test(error.message)) {
+    ({ data, error } = await run(BASE_ROW_COLUMNS));
+  }
   if (error) {
     console.error("fetchPublishedQuestions:", error.message);
     return [];

@@ -189,7 +189,7 @@ export function DailyQuizClient({ questions }: { questions: BankQuestion[] }) {
                       ]}
                       shareText={`🎯 I scored ${score}/${questions.length} on today’s MED Prep daily quiz!`}
 
-                      fileName="cadet-prep-daily-quiz.png"
+                      fileName="med-prep-daily-quiz.png"
                     />
                   </div>
                 )}

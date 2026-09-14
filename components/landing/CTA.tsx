@@ -34,7 +34,7 @@ export function CTA() {
       />
 
       <div className="container-page relative z-10">
-        <Reveal direction="up">
+        <Reveal direction="up" distance={20} duration={520}>
           <div className="mb-10 text-center">
             {/* Signal, not brass. The headline directly below already spends
                 the medal metal on the words "100% Free", and two brass things
@@ -55,7 +55,7 @@ export function CTA() {
             </h2>
             <p className="mx-auto max-w-2xl text-xl leading-relaxed text-[var(--steel-300)]">
               MCQ practice, study notes, progress tracking, and live WhatsApp classes with teachers —
-              all completely free for every student preparing for cadet college entry tests.
+              all completely free for every student preparing for MDCAT, NUMS and medical entrance tests.
               No credit card, no trial, no hidden charges.
             </p>
           </div>

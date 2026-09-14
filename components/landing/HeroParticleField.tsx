@@ -328,8 +328,17 @@ export function HeroParticleField() {
     let simTick = 0;
     let onScreen = true;
 
+    // Idempotent, so a re-entry storm cannot stack loops.
+    const start = () => {
+      if (!raf) {
+        last = 0;
+        raf = requestAnimationFrame(frame);
+      }
+    };
+
     const io = new IntersectionObserver(([entry]) => {
       onScreen = entry.isIntersecting;
+      if (onScreen && !document.hidden) start();
     });
     io.observe(canvas);
 
@@ -420,11 +429,16 @@ export function HeroParticleField() {
     };
 
     const frame = (now: number) => {
-      raf = requestAnimationFrame(frame);
+      // HALT, don't idle. Re-arming first and early-returning keeps a frame
+      // booked 60 times a second for the whole session — including every second
+      // the hero is scrolled off, which is most of a study session. The loop is
+      // restarted by the observer below when the hero comes back.
       if (!onScreen || document.hidden) {
-        last = now;
+        raf = 0;
+        last = 0;
         return;
       }
+      raf = requestAnimationFrame(frame);
       const dt = last ? Math.min((now - last) / 1000, 0.1) : 0.016;
       last = now;
 
@@ -455,6 +469,9 @@ export function HeroParticleField() {
       if (steps === 2) simAcc = 0; // fell too far behind — drop the backlog
 
       // ── Render: stamp the atlas sprites (single GPU texture) ──
+      // A zero-sized backing store still pays for every draw call, so bail
+      // before the per-particle pass rather than drawing nothing, N times.
+      if (w <= 0 || h <= 0) return;
       ctx.clearRect(0, 0, w, h);
       for (let i = 0; i < count; i++) {
         const s = scale[i];
@@ -497,12 +514,20 @@ export function HeroParticleField() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
-    raf = requestAnimationFrame(frame);
+    start();
+
+    // The canvas is the hero's own atmosphere: it costs nothing once the hero
+    // is gone.
+    const onVisibility = () => {
+      if (onScreen && !document.hidden) start();
+    };
+    document.addEventListener('visibilitychange', onVisibility);
 
     return () => {
       cancelAnimationFrame(raf);
       ro.disconnect();
       io.disconnect();
+      document.removeEventListener('visibilitychange', onVisibility);
       window.removeEventListener("pointermove", onMove);
       document.documentElement.removeEventListener("pointerleave", onLeaveDoc);
     };

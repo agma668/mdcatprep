@@ -82,7 +82,7 @@ export function FAQ() {
         className="absolute -top-24 right-0 h-[540px] w-[540px] rounded-full bg-[radial-gradient(circle,var(--tint-signal)_0%,transparent_62%)]"
       />
       <div className="container-page relative">
-        <Reveal>
+        <Reveal distance={20} duration={520}>
           <div className="mb-14 text-center">
             <Badge variant="glass" className="mb-4">
               FAQ
@@ -95,7 +95,7 @@ export function FAQ() {
               <span className="text-[var(--signal-200)]">Questions</span>
             </h2>
             <p className="mx-auto max-w-xl text-lg text-[var(--steel-300)]">
-              Everything parents and students ask before joining Cadet College Prep.
+              Everything parents and students ask before joining MED Prep.
             </p>
           </div>
         </Reveal>

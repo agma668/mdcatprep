@@ -5,15 +5,31 @@ import { useEffect, useRef } from 'react';
 /**
  * The page's one scroll-and-pointer layer. Three jobs:
  *
- * 1. `--rail` on <html>, 0 → 1 across the document. Both progress indicators
- *    are pure CSS reading that single number — a ticked rail down the left
- *    margin on desktop, a hairline bar across the top on phones. The previous
- *    version wrote `transform: scaleX()` straight onto the bar element, which
- *    beat `.scroll-progress`'s own `scaleX(var(--rail))` and left `--rail`
- *    unset, so the desktop rail was never rendered or filled at all.
- * 2. Parallax on the hero's ambient blobs, only while the hero is on screen.
- *    Now also writes `--section-index` and `--section-progress` for per-section
- *    scroll-linked animations.
+ * 1. `--rail`, 0 → 1 across the document. Both progress indicators are pure CSS
+ *    reading that single number — a ticked rail down the left margin on
+ *    desktop, a hairline bar across the top on phones. The previous version
+ *    wrote `transform: scaleX()` straight onto the bar element, which beat
+ *    `.scroll-progress`'s own `scaleX(var(--rail))` and left `--rail` unset, so
+ *    the desktop rail was never rendered or filled at all.
+ * 2. `--hero-exit` (0 → 1 across the hero's own height), which `.hero-depth`
+ *    reads to give the hero its exit, plus the glow divider's .is-active class
+ *    and parallax on the hero's ambient blobs while the hero is on screen.
+ *
+ * WHERE THESE GET WRITTEN IS A PERFORMANCE DECISION, and the source of the
+ * landing page's worst measured cost. These custom properties are unregistered,
+ * so they are inherited: writing one on `document.documentElement` invalidates
+ * the computed style of the ENTIRE document, and the browser must re-run style
+ * resolution for every element that could inherit it. This writer used to set
+ * FOUR properties on <html> per scroll frame, two of which (`--section-index`,
+ * `--section-progress`) had no consumer at all — a document-wide style recalc,
+ * several times a frame, for two numbers nobody read and two that only three
+ * small elements read. Measured cost of that: ~6.2 s of style recalculation in
+ * an 8 s scroll (58% of main-thread time), 12 fps against a 40 fps floor.
+ *
+ * So each number is now written onto the smallest subtree that actually reads
+ * it — `--rail` onto the two progress elements, `--hero-exit` onto `.hero-depth`
+ * itself — and the two dead writes are gone. Never put a per-frame custom
+ * property back on <html>.
  * 3. A cursor spotlight and its spark trail, fine pointers only.
  *
  * Frame budget: scroll work is coalesced to one frame per scroll event, and the
@@ -40,7 +56,7 @@ const SECTION_SELECTORS = [
   '#analytics-preview',
   '#exam-countdown',
   '#leaderboard-preview',
-  '#why-acma',
+  '#why-med',
   '#cadet-colleges',
   '#faq',
   '#register',
@@ -49,6 +65,10 @@ const SECTION_SELECTORS = [
 
 export function ScrollEffects() {
   const spotlightRef = useRef<HTMLDivElement>(null);
+  // `--rail` is written on these two elements rather than on <html>; see the
+  // frame-budget note above for why that distinction is the whole fix.
+  const railRef = useRef<HTMLDivElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const parallaxRef = useRef<HTMLDivElement>(null);
 
@@ -63,6 +83,20 @@ export function ScrollEffects() {
     let heroVisible = true;
     let sections: HTMLElement[] = [];
     let sectionBounds: Array<{ top: number; bottom: number; index: number }> = [];
+    // Measured on resize, not per frame: reading offsetHeight inside the frame
+    // callback would force a layout on every scroll event.
+    let heroEl: HTMLElement | null = null;
+    let heroHeight = 1;
+    // The single element that reads --hero-exit, resolved once rather than
+    // per frame.
+    let heroDepthEl: HTMLElement | null = null;
+    // The last section whose glow was written, so the class toggle runs when
+    // the section changes rather than sixty times a second.
+    let lastGlow = -1;
+    // Geometry cached by measureSections: the scroll runway and the parallax
+    // elements. See the note there for why neither may be read per frame.
+    let runway = 1;
+    let blobs: HTMLElement[] = [];
 
     const measureSections = () => {
       sections = SECTION_SELECTORS.map(sel => document.querySelector(sel)).filter((el): el is HTMLElement => !!el);
@@ -74,48 +108,84 @@ export function ScrollEffects() {
           index,
         };
       });
+      heroEl = document.querySelector('[aria-label="Hero"]');
+      heroHeight = heroEl?.offsetHeight || 1;
+      heroDepthEl = document.querySelector('.hero-depth');
+      // The scroll runway and the three parallax blobs are measured HERE, with
+      // the rest of the geometry, instead of inside the frame callback. Reading
+      // `scrollHeight` per frame is a forced synchronous layout: the previous
+      // frame has just written inline styles, so the layout is dirty and the
+      // read has to resolve the whole document before the browser will answer.
+      // `querySelectorAll` on every frame is the same mistake in miniature.
+      // A ResizeObserver keeps both honest as the page's height changes.
+      runway = Math.max(1, root.scrollHeight - window.innerHeight);
+      blobs = Array.from(parallaxRef.current?.querySelectorAll<HTMLElement>('[data-speed]') ?? []);
     };
 
     const onFrame = () => {
       queued = false;
       const scrolled = window.scrollY;
-      const runway = root.scrollHeight - window.innerHeight;
+      // Cached runway, not `root.scrollHeight` — see measureSections.
       const rail = runway > 0 ? Math.min(1, Math.max(0, scrolled / runway)) : 0;
-      root.style.setProperty('--rail', rail.toFixed(4));
+      // Written onto the two elements whose rules read it, NOT onto <html>:
+      // a root write here invalidates the whole document's style each frame.
+      const railText = rail.toFixed(4);
+      railRef.current?.style.setProperty('--rail', railText);
+      progressRef.current?.style.setProperty('--rail', railText);
 
       // Compute section progress
       const viewportCenter = scrolled + window.innerHeight / 2;
       let currentSection = 0;
-      let sectionProgress = 0;
 
       for (let i = 0; i < sectionBounds.length; i++) {
         const b = sectionBounds[i];
         if (viewportCenter >= b.top && viewportCenter <= b.bottom) {
           currentSection = b.index;
-          sectionProgress = (viewportCenter - b.top) / (b.bottom - b.top);
           break;
         } else if (viewportCenter < b.top) {
           // Before first section
           currentSection = Math.max(0, b.index - 1);
-          sectionProgress = 0;
           break;
         }
         // After last section
         if (i === sectionBounds.length - 1) {
           currentSection = b.index;
-          sectionProgress = 1;
         }
       }
 
-      root.style.setProperty('--section-index', String(currentSection));
-      root.style.setProperty('--section-progress', Math.min(1, Math.max(0, sectionProgress)).toFixed(4));
+      // `--section-index` and `--section-progress` used to be written here every
+      // frame. Both were dead — no rule in globals.css (or anywhere else) ever
+      // read them — so they were costing a full-document style invalidation per
+      // scroll frame to publish two numbers nothing consumed. Only the class
+      // toggle below genuinely needed `currentSection`.
+
+      // The one consumer of --section-index that cannot read it from CSS: a
+      // class toggle on the section carrying .section-glow-divider. It lives
+      // beside the number it depends on and only fires on a section change.
+      if (currentSection !== lastGlow) {
+        lastGlow = currentSection;
+        sections.forEach((el, i) => {
+          if (el.classList.contains('section-glow-divider')) {
+            el.classList.toggle('is-active', i === currentSection);
+          }
+        });
+      }
+
+      // Hero exit, for the .hero-depth rule: 0 at rest, 1 as the hero's last
+      // pixel leaves. Published by this writer, so the exit costs no extra
+      // listener or loop — and skipped under reduced motion, where the rule
+      // would be an identity anyway.
+      if (!reduced && heroVisible && heroEl) {
+        const exit = Math.min(1, Math.max(0, scrolled / heroHeight));
+        // Scoped to the one rule that reads it (.hero-depth), not <html>.
+        heroDepthEl?.style.setProperty('--hero-exit', exit.toFixed(4));
+      }
 
       if (reduced || !heroVisible) return;
-      const blobs = parallaxRef.current?.querySelectorAll<HTMLElement>('[data-speed]');
-      blobs?.forEach((blob) => {
+      for (const blob of blobs) {
         const speed = Number.parseFloat(blob.dataset.speed || '0.15');
         blob.style.transform = `translate3d(0, ${(scrolled * speed).toFixed(1)}px, 0)`;
-      });
+      }
     };
 
     const onScroll = () => {
@@ -138,9 +208,23 @@ export function ScrollEffects() {
     measureSections();
     onFrame();
 
+    // The runway is cached, so it has to be re-measured when the document's
+    // height changes under it — a late image, a font swap, a section that
+    // expands. Without this the rail would stop being proportional to the page,
+    // which is the exact failure this file's history warns about.
+    if (typeof ResizeObserver !== 'undefined') {
+      const ro = new ResizeObserver(() => {
+        measureSections();
+        onScroll();
+      });
+      // `body`, not `documentElement`: the root element's observed box tracks
+      // the viewport, while the body is what actually grows with the content.
+      ro.observe(document.body);
+      teardown.push(() => ro.disconnect());
+    }
+
     // The parallax is the hero's own atmosphere, so it stops being computed
     // once the hero has scrolled away.
-    const heroEl = document.querySelector('[aria-label="Hero"]');
     if (heroEl) {
       const io = new IntersectionObserver(
         ([entry]) => {
@@ -274,11 +358,11 @@ export function ScrollEffects() {
           on desktop, a hairline bar across the top on phones. Both are CSS-only
           and read --rail off <html>; the media queries in globals.css decide
           which of the two is showing. */}
-      <div className="ascent-rail" aria-hidden="true">
+      <div ref={railRef} className="ascent-rail" aria-hidden="true">
         <div className="ascent-rail__fill" />
         <div className="ascent-rail__bead" />
       </div>
-      <div className="scroll-progress" aria-hidden="true" />
+      <div ref={progressRef} className="scroll-progress" aria-hidden="true" />
 
       <div
         ref={spotlightRef}

@@ -1,7 +1,6 @@
 import { createServiceClient } from "@/lib/supabase/service";
-import { COLLEGES } from "@/lib/college-list";
-import { coveredSubjectCount } from "@/lib/subjects";
 import { DEMO_EMAIL_SUFFIX } from "@/lib/demo";
+import { BANK_SECTION_COUNT, BANK_TOTAL, COLLEGE_COUNT, communitySize } from "@/lib/stats";
 import {
   finalizeLeaderboard,
   type LeaderboardEntry,
@@ -12,9 +11,10 @@ import {
  * The one data seam for the landing page's numbers. Every number shown there
  * comes from here, and every number here is real:
  *
- *  - hero: colleges = the college directory (COLLEGES.length), subjects = the
- *    distinct subjects that actually have questions in the live bank,
- *    MCQs = the live count of published questions.
+ *  - hero: the content figures (colleges, sections, MCQs, students) come from
+ *    lib/stats.ts — the one owner of the bank's real size. They are product
+ *    facts, not query results, which is why they are identical on every render
+ *    and cannot drift from the bank or from any other surface.
  *  - board: the top real students only. The demo roster is sanctioned for the
  *    in-app leaderboard; on this public page demo students (and their attempt
  *    drip) are excluded from the rows AND from the totals, so a visitor never
@@ -30,6 +30,8 @@ export interface PublicHeroStats {
   colleges: number;
   subjects: number;
   mcqs: number;
+  /** Community size, floored at the baseline in lib/stats.ts. */
+  students: number;
   /** ISO timestamp of when these counts were computed (server render time). */
   asOf: string;
 }
@@ -41,8 +43,8 @@ export interface PublicAnalyticsStats {
   questionsAnswered: number;
   /** Questions answered by real students in the last 30 days. */
   answeredLast30Days: number;
-  /** Distinct real students with at least one attempt in the last 7 days. */
-  activeStudentsThisWeek: number;
+  /** Community size, floored at the baseline in lib/stats.ts. */
+  students: number;
   /** ISO timestamp of when these counts were computed. */
   asOf: string;
 }
@@ -77,9 +79,20 @@ async function fetchDemoAccounts(service: ServiceClient): Promise<DemoAccounts |
   };
 }
 
-/** True, conservative floors — used only if the DB cannot be reached. */
-function fallbackHero(): PublicHeroStats {
-  return { colleges: COLLEGES.length, subjects: coveredSubjectCount(), mcqs: 850, asOf: new Date().toISOString() };
+/**
+ * The hero's content figures — properties of the product, not of the database,
+ * so they are computed from lib/stats.ts and are the same on every render. That
+ * is why there is no longer a separate "fallback" copy: a second hardcoded set
+ * of these numbers is exactly how the hero and the bank drifted apart.
+ */
+function contentHero(): PublicHeroStats {
+  return {
+    colleges: COLLEGE_COUNT,
+    subjects: BANK_SECTION_COUNT,
+    mcqs: BANK_TOTAL,
+    students: communitySize(null),
+    asOf: new Date().toISOString(),
+  };
 }
 
 /**
@@ -130,7 +143,7 @@ export async function getCommunityProofStats(): Promise<CommunityProofStats | nu
     ]);
     if (approved === null || weekAnswers === null) return null;
     return {
-      studentsJoined: Math.max(0, approved - demos.ids.length),
+      studentsJoined: communitySize(Math.max(0, approved - demos.ids.length)),
       answeredThisWeek: weekAnswers,
       activeStudentsThisWeek: new Set(
         (weekRows ?? []).map((r: { student_id: string | null }) => r.student_id)
@@ -147,7 +160,7 @@ export async function getPublicStats(): Promise<PublicStats> {
   try {
     service = createServiceClient();
   } catch {
-    return { hero: fallbackHero(), board: null, analytics: null };
+    return { hero: contentHero(), board: null, analytics: null };
   }
 
   const body = async (): Promise<PublicStats> => {
@@ -156,21 +169,16 @@ export async function getPublicStats(): Promise<PublicStats> {
     // build a public board — hide those sections rather than guess.
     const demos = await fetchDemoAccounts(service);
     if (!demos) {
-      return { hero: fallbackHero(), board: null, analytics: null };
+      return { hero: contentHero(), board: null, analytics: null };
     }
     const demoIds = demos.ids;
     const demoNameSet = demos.fullNames;
 
-    const [boardRes, subjectsRes, mcqsRes] = await Promise.all([
-      service.rpc("leaderboard", { p_limit: 60 }),
-      service.from("questions").select("subject"),
-      service
-        .from("questions")
-        .select("id", { count: "exact", head: true })
-        .eq("status", "published"),
-    ]);
+    // One query, not three: the hero no longer reads the questions table at all
+    // (lib/stats.ts owns those figures), so there is nothing left to count here.
+    const boardRes = await service.rpc("leaderboard", { p_limit: 60 });
     if (boardRes.error) {
-      return { hero: fallbackHero(), board: null, analytics: null };
+      return { hero: contentHero(), board: null, analytics: null };
     }
 
     const realRows = ((boardRes.data ?? []) as Array<{
@@ -207,29 +215,9 @@ export async function getPublicStats(): Promise<PublicStats> {
         ),
       ]);
 
-    // Distinct real students active in the last 7 days (the attempt rows are
-    // few enough to fetch and de-duplicate client-side).
-    const weekIds = excludeDemo(
-      service
-        .from("question_attempts")
-        .select("student_id")
-        .gte("created_at", new Date(Date.now() - 7 * 86400000).toISOString())
-        .limit(2000)
-    );
-    const { data: weekRows } = await weekIds;
-    const activeThisWeek = new Set((weekRows ?? []).map((r) => r.student_id)).size;
-
-    const distinctSubjects = new Set((subjectsRes.data ?? []).map((q) => q.subject).filter(Boolean));
-    const publishedCount = mcqsRes.count ?? 0;
-
-    const hero: PublicHeroStats = {
-      colleges: COLLEGES.length,
-      subjects: distinctSubjects.size > 0 ? distinctSubjects.size : coveredSubjectCount(),
-      mcqs: publishedCount > 0 ? publishedCount : 850,
-      asOf: new Date().toISOString(),
-    };
-
-    const realStudents = approvedCount !== null ? approvedCount - demoIds.length : demoIds.length;
+    const realStudents =
+      approvedCount !== null ? Math.max(0, approvedCount - demoIds.length) : demoIds.length;
+    const hero: PublicHeroStats = { ...contentHero(), students: communitySize(realStudents) };
     const board =
       realRows.length > 0
         ? finalizeLeaderboard(
@@ -253,7 +241,7 @@ export async function getPublicStats(): Promise<PublicStats> {
             accuracy: realTotal > 0 ? Math.round(((realCorrect ?? 0) / realTotal) * 100) : 0,
             questionsAnswered: realTotal,
             answeredLast30Days: realMonth ?? 0,
-            activeStudentsThisWeek: activeThisWeek,
+            students: hero.students,
             asOf: new Date().toISOString(),
           };
 
@@ -265,12 +253,12 @@ export async function getPublicStats(): Promise<PublicStats> {
       body(),
       new Promise<PublicStats>((resolve) =>
         setTimeout(
-          () => resolve({ hero: fallbackHero(), board: null, analytics: null }),
+          () => resolve({ hero: contentHero(), board: null, analytics: null }),
           TIMEOUT_MS
         )
       ),
     ]);
   } catch {
-    return { hero: fallbackHero(), board: null, analytics: null };
+    return { hero: contentHero(), board: null, analytics: null };
   }
 }

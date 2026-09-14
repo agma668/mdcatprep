@@ -109,6 +109,7 @@ export default async function Home() {
             colleges: stats.hero.colleges,
             subjects: stats.hero.subjects,
             mcqs: stats.hero.mcqs,
+            students: stats.hero.students,
             asOf: stats.hero.asOf,
           }}
         />

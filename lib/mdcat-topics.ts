@@ -383,4 +383,59 @@ export const MDCAT_TAXONOMY: Record<string, SubjectTaxonomy> = {
       },
     ],
   },
+
+  // NUMS Paper-I carries a reasoning section, which the first three subjects
+  // never covered — this is the taxonomy for it.
+  'Logical Reasoning': {
+    icon: '🧠',
+    chapters: [
+      {
+        name: 'Verbal Reasoning',
+        topics: [
+          {
+            name: 'Logical Deduction',
+            subtopics: ['Syllogisms', 'Valid conclusions', 'Middle-term fallacies'],
+          },
+          {
+            name: 'Cause and Effect',
+            subtopics: ['Assumptions', 'Strong vs weak arguments'],
+          },
+          {
+            name: 'Letter Coding',
+            subtopics: ['Letter shifts', 'Substitution codes', 'Word patterns'],
+          },
+        ],
+      },
+      {
+        name: 'Non-Verbal Reasoning',
+        topics: [
+          {
+            name: 'Letter Series',
+            subtopics: ['Alphabet sequences', 'Alternating series'],
+          },
+          {
+            name: 'Number Series',
+            subtopics: ['Differences', 'Squares and cubes', 'Mixed patterns'],
+          },
+          {
+            name: 'Direction Sense',
+            subtopics: ['Displacement', 'Relative directions'],
+          },
+        ],
+      },
+      {
+        name: 'Analytical Reasoning',
+        topics: [
+          {
+            name: 'Blood Relations',
+            subtopics: ['Family trees', 'Relation puzzles'],
+          },
+          {
+            name: 'Analytical Reasoning',
+            subtopics: ['Course of action', 'Arrangements', 'Grouping'],
+          },
+        ],
+      },
+    ],
+  },
 }

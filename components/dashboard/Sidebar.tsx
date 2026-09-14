@@ -19,6 +19,7 @@ import {
   Trophy,
   Layers,
   Network,
+  Bookmark,
 } from "lucide-react";
 
 // The icon well behind each nav glyph. This used to be two strings repeated
@@ -41,6 +42,7 @@ const NAV_ITEMS = [
   { href: "/dashboard/flashcards", icon: Layers, label: "Flashcards", shortLabel: "Cards" },
   { href: "/dashboard/diagrams", icon: Network, label: "Diagrams & Mindmaps", shortLabel: "Diagrams" },
   { href: "/dashboard/mistake-notebook", icon: AlertTriangle, label: "Mistake Notebook", shortLabel: "Mistakes" },
+  { href: "/dashboard/bookmarks", icon: Bookmark, label: "Bookmarks", shortLabel: "Saved" },
   { href: "/dashboard/leaderboard", icon: Trophy, label: "Leaderboard", shortLabel: "Ranks" },
   { href: "/dashboard/profile", icon: User, label: "Profile", shortLabel: "Profile" },
 ] as const;
@@ -182,7 +184,7 @@ export function Sidebar({ profile, leaderboard }: { profile: Profile; leaderboar
             {!collapsed && (
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-bold text-white truncate">{displayName}</p>
-                <p className="text-[11px] text-white/55 truncate">{profile?.exam_target || "Cadet College Prep"}</p>
+                <p className="text-[11px] text-white/55 truncate">{profile?.exam_target || "MED Prep"}</p>
               </div>
             )}
             {!collapsed && (

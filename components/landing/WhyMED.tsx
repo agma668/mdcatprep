@@ -1,6 +1,5 @@
 import { Check, Crosshair, HeartHandshake, MapPinned, X, type LucideIcon } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
-import { Card } from "@/components/ui/Card";
 import { Reveal, Stagger } from "@/components/ui/Motion";
 import { InteractiveTile } from "@/components/landing/InteractiveTile";
 
@@ -64,7 +63,7 @@ export function WhyMED() {
         className="absolute -top-32 right-0 h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,var(--tint-signal)_0%,transparent_62%)]"
       />
       <div className="container-page relative">
-        <Reveal>
+        <Reveal distance={20} duration={520}>
           <div className="mb-14 text-center">
             <Badge variant="glass" className="mb-4">
               Why MED Prep?
@@ -118,7 +117,7 @@ export function WhyMED() {
         </Reveal>
 
         <Stagger stagger={80}>
-          <div className="grid gap-6 md:grid-cols-3" data-scroll-reveal-stagger>
+          <div className="grid gap-6 md:grid-cols-3">
             {REASONS.map(({ icon: Icon, title, description }) => (
               <InteractiveTile
                 key={title}

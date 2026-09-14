@@ -32,14 +32,13 @@ export function HowItWorks() {
       id="how-it-works"
       aria-labelledby="how-it-works-heading"
       className="section-padding section-glow-divider relative overflow-hidden"
-      data-scroll-reveal
     >
       <div
         aria-hidden="true"
         className="absolute -top-32 left-1/4 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,var(--tint-signal)_0%,transparent_62%)]"
       />
       <div className="container-page relative">
-        <Reveal>
+        <Reveal distance={20} duration={520}>
           <div className="mb-14 text-center">
             <Badge variant="glass" className="mb-4">
               How It Works

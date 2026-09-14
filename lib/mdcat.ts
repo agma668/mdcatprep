@@ -21,17 +21,27 @@ export type ResourceQuestion = {
   difficulty: 'easy' | 'medium' | 'hard'
   source: string
   college?: string
+  /**
+   * Real past paper this question came from, when it came from one.
+   *
+   * Optional on purpose: the bundled banks are original exam-style writing, so
+   * they leave it unset. Set it only for a question genuinely taken from the
+   * paper named in lib/past-papers.ts — never as a stylistic flourish.
+   */
+  pastPaper?: { exam: string; year: number; code?: string }
 }
 import { BIOLOGY_QUESTIONS } from './biology-questions'
 import { CHEMISTRY_QUESTIONS } from './chemistry-questions'
 import { PHYSICS_QUESTIONS } from './physics-questions'
 import { ENGLISH_QUESTIONS } from './english-questions'
+import { PAST_PAPER_BANK } from './past-paper-bank'
 
 export const MDCAT_QUESTIONS: ResourceQuestion[] = [
   ...BIOLOGY_QUESTIONS,
   ...CHEMISTRY_QUESTIONS,
   ...PHYSICS_QUESTIONS,
   ...ENGLISH_QUESTIONS,
+  ...PAST_PAPER_BANK,
 ]
 
 /** Canonical MDCAT subject list for the practice chooser and notes pages. */
@@ -40,6 +50,7 @@ export const MDCAT_SUBJECTS = [
   { name: 'Chemistry', icon: '⚗️' },
   { name: 'Physics', icon: '⚛️' },
   { name: 'English', icon: '📖' },
+  { name: 'Logical Reasoning', icon: '🧠' },
 ] as const
 
 export const MDCAT_SUBJECT_NAMES: readonly string[] = MDCAT_SUBJECTS.map(s => s.name)

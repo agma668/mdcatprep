@@ -63,7 +63,7 @@ export async function GET(request: Request) {
   return NextResponse.json(
     {
       status: "ok",
-      service: "cadet-college-prep",
+      service: "med-prep",
       auth: isPublicAuthConfigured(),
       fallback: isUsingBuiltinAuthFallback(),
       project: getSupabaseProjectRef(),

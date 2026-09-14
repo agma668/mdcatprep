@@ -115,7 +115,7 @@ export function ProfileEditor({
               value={examTarget}
               onChange={(e) => setExamTarget(e.target.value)}
               className={inputCls}
-              placeholder="MDCAT 2026, NUMS, AKU..."
+              placeholder="MDCAT 2026, NUMS, ETEA..."
               maxLength={200}
             />
             <p className="text-xs text-[var(--color-text-muted)] mt-1">

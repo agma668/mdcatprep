@@ -79,7 +79,7 @@ function drawShareCard(ctx: CanvasRenderingContext2D, opts: { title: string; nam
   ctx.textBaseline = "middle";
   ctx.fillStyle = BRASS_BRIGHT;
   ctx.font = '600 34px "Inter", system-ui, sans-serif';
-  ctx.fillText("CADET COLLEGE PREP", W / 2, 148);
+  ctx.fillText("MED PREP", W / 2, 148);
   ctx.strokeStyle = "rgba(201,162,75,0.55)";
   ctx.lineWidth = 2;
   ctx.beginPath();

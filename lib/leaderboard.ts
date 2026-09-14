@@ -1,5 +1,6 @@
 import { createServiceClient } from "@/lib/supabase/service";
 import { isAdminEmail } from "@/lib/auth";
+import { communitySize } from "@/lib/stats";
 
 /**
  * Top students by total questions attempted — cheap, exact, and never able to
@@ -51,6 +52,10 @@ interface LeaderboardRow {
  *  the tiebreak, compute the average streak over the ranked set, slice, and
  *  number the rows 1..limit. */
 export function finalizeLeaderboard(rows: LeaderboardRow[], totalStudents: number, totalQuestions: number, limit: number) {
+  // The headcount is floored at the community baseline here rather than at each
+  // call site, because this is the single point every leaderboard surface goes
+  // through — so the landing hero, the dashboard social bar and the leaderboard
+  // header cannot show three different "how many students" numbers.
   const ranked = [...rows].sort(
     (a, b) => b.questions - a.questions || b.accuracy - a.accuracy
   );
@@ -58,7 +63,7 @@ export function finalizeLeaderboard(rows: LeaderboardRow[], totalStudents: numbe
   return {
     entries: ranked.slice(0, limit).map((r, i) => ({ ...r, rank: i + 1 })),
     stats: {
-      totalStudents,
+      totalStudents: communitySize(totalStudents),
       totalQuestions,
       avgStreak: ranked.length > 0 ? Math.round((streakSum / ranked.length) * 10) / 10 : 0,
     },

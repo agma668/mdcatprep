@@ -15,6 +15,7 @@ import {
   Sparkles,
   TrendingUp,
 } from 'lucide-react'
+import { MistakesDrill, type DrillQuestion } from '@/components/dashboard/MistakesDrill'
 
 type Mistake = {
   id: string
@@ -56,12 +57,22 @@ function formatDate(dateStr: string) {
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
 }
 
-export function MistakeNotebookClient({ mistakes }: { mistakes: Mistake[] }) {
+export function MistakeNotebookClient({
+  mistakes,
+  drill,
+}: {
+  mistakes: Mistake[]
+  drill: DrillQuestion[]
+}) {
   const [selectedSubject, setSelectedSubject] = useState('All')
   const [searchQuery, setSearchQuery] = useState('')
   const [expandedId, setExpandedId] = useState<string | null>(null)
   const [showExplanations, setShowExplanations] = useState<Set<string>>(new Set())
   const [mastered, setMastered] = useState<Set<string>>(new Set())
+  // Redo mode swaps the read-only review list for the interactive re-answer
+  // drill (MistakesDrill): answer each missed question again; a correct
+  // re-answer retires it. Same data, active practice instead of reading.
+  const [redoMode, setRedoMode] = useState(false)
 
   const subjects = ['All', ...Array.from(new Set(mistakes.map(m => m.subject)))]
 
@@ -183,7 +194,24 @@ export function MistakeNotebookClient({ mistakes }: { mistakes: Mistake[] }) {
         </div>
       </div>
 
-      {/* ─── Filters ────────────────────────────────────── */}
+      {/* ─── Mode toggle ───────────────────────────────── */}
+      <div className="mb-6 flex items-center justify-end">
+        <button
+          onClick={() => setRedoMode(v => !v)}
+          aria-pressed={redoMode}
+          className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-[var(--radius-md)] text-xs font-bold border transition-all cursor-pointer ${
+            redoMode
+              ? 'bg-[var(--color-primary)] text-[var(--color-text-inverse)] border-[var(--color-primary)] shadow-[var(--glow-signal-sm)]'
+              : 'bg-[var(--color-surface)] text-[var(--color-text-secondary)] border-white/10 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]'
+          }`}
+        >
+          <RotateCcw className="w-3.5 h-3.5" />
+          {redoMode ? 'Back to review' : 'Redo mistakes'}
+        </button>
+      </div>
+
+      {/* ─── Filters (review mode) ─────────────────────── */}
+      {!redoMode && (
       <div className="flex flex-col sm:flex-row gap-3 mb-6">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-muted)]" />
@@ -218,7 +246,10 @@ export function MistakeNotebookClient({ mistakes }: { mistakes: Mistake[] }) {
         </div>
       </div>
 
-      {/* ─── Mistakes list ───────────────────────────────── */}
+      )}
+
+      {/* ─── Mistakes list (review mode) ────────────────── */}
+      {!redoMode && (
       <div className="space-y-4">
         {filtered.length === 0 ? (
           <div className="bg-[var(--color-surface)] border border-white/10 rounded-[var(--radius-lg)] p-10 text-center shadow-[var(--shadow-sm)]">
@@ -421,9 +452,13 @@ export function MistakeNotebookClient({ mistakes }: { mistakes: Mistake[] }) {
           })
         )}
       </div>
+      )}
 
-      {/* ─── Bottom CTA ─────────────────────────────────── */}
-      {filtered.length > 0 && (
+      {/* ─── Redo drill (redo mode) ─────────────────────── */}
+      {redoMode && <MistakesDrill questions={drill} />}
+
+      {/* ─── Bottom CTA (review mode only) ──────────────── */}
+      {!redoMode && filtered.length > 0 && (
         <div className="mt-8 rounded-[var(--radius-xl)] bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-dark)] p-8 text-center text-[var(--color-text-inverse)] shadow-[var(--shadow-lg)]">
           <TrendingUp className="mx-auto mb-3 h-8 w-8 opacity-80" />
           <p className="mb-1 text-sm font-bold">

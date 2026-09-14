@@ -11,6 +11,7 @@ import { HeroWireframe } from "@/components/landing/HeroWireframe";
 import { BrainBookHero } from "@/components/landing/BrainBookHero";
 import { ThemeWheel } from "@/components/ThemeWheel";
 import { StatsAsOf } from "@/components/shared/StatsAsOf";
+import { formatStat } from "@/lib/stats";
 import { Rocket } from "lucide-react";
 
 export function Hero({
@@ -19,16 +20,19 @@ export function Hero({
   // Real counts fetched from the live database by the page (lib/public-stats.ts) —
   // colleges, distinct subjects with questions, published MCQs. Rendered as
   // plain server markup so the page never shows a placeholder zero.
-  stats: { colleges: number; subjects: number; mcqs: number; asOf: string };
+  stats: { colleges: number; subjects: number; mcqs: number; students: number; asOf: string };
 }) {
   // "Online Access" is a service fact (the platform is up round the clock), not
   // a count, so it renders statically like the rest — no animation can leave
   // it at a misleading value.
+  // Every figure comes from lib/stats.ts (the single owner) — the component
+  // formats and lays out, it never sources a number of its own.
   const statTiles = [
-    { value: stats.colleges.toLocaleString(), label: "Colleges Covered" },
-    { value: stats.subjects.toLocaleString(), label: "Subjects" },
+    { value: formatStat(stats.students), label: "Students" },
+    { value: formatStat(stats.colleges), label: "Colleges Covered" },
+    { value: formatStat(stats.subjects), label: "Subjects" },
     { value: "24/7", label: "Online Access" },
-    { value: stats.mcqs.toLocaleString(), label: "Practice MCQs" },
+    { value: formatStat(stats.mcqs), label: "Practice MCQs" },
   ] as const;
   return (
     <section
@@ -126,7 +130,7 @@ export function Hero({
               <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-[var(--steel-300)] sm:text-xl">
                 Free medical entrance exam preparation for MDCAT, NUMS, UHS, SZABMU, KMU, and all medical universities.
                 Take a quick diagnostic to find your level, then practice{" "}
-                {stats.mcqs.toLocaleString()} exam-style MCQs with instant explanations
+                {formatStat(stats.mcqs)} exam-style MCQs with instant explanations
                 across Biology, Chemistry, Physics, and English.
               </p>
 
@@ -181,7 +185,7 @@ export function Hero({
         {/* Stats — real numbers from the live bank, server-rendered (no
             client count-up, so they can never sit at zero) */}
         <Stagger stagger={60} className="mt-16 lg:mt-20">
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-5 md:gap-4">
             {statTiles.map(({ value, label }) => (
               <InteractiveTile key={label} className="feature-tile glass-tile glass-shine px-6 py-6">
                 <div className="text-center">
