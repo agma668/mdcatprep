@@ -36,8 +36,12 @@ export function FluidCursor() {
     const r = bodyRef.current;
     if (!t || !r) return;
 
-    const fine = window.matchMedia("(hover: hover) and (pointer: fine)");
     const coarse = window.matchMedia("(pointer: coarse)");
+    // Touch / coarse-pointer devices have no cursor at all — don't mount the
+    // element, the rAF loop, or the global `cursor` override on phones.
+    if (coarse.matches) return;
+
+    const fine = window.matchMedia("(hover: hover) and (pointer: fine)");
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     const desktop = window.matchMedia("(min-width: 769px)");
 

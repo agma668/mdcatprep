@@ -1431,13 +1431,6 @@ html.reveals-armed [data-reveal]:not(.is-revealed) {
   }
 }
 
-@media (max-width: 768px), (pointer: coarse) {
-  /* Touch mode: arrow visible (centered, drag-follow), native untouched. */
-  html[data-custom-cursor="true"] .fluid-cursor {
-    display: block;
-  }
-}
-
 /* ── Lenis ↔ native smooth scrolling ───────────────────────────────────────
    SmoothScroll.tsx (desktop, fine pointer, no reduced motion) hands the
    scroll to Lenis, which tags <html> with .lenis / .lenis-smooth. The base

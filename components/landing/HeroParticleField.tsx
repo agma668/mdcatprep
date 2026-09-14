@@ -203,6 +203,9 @@ export function HeroParticleField() {
 
   useEffect(() => {
     if (reduced) return;
+    // Touch / coarse-pointer devices: no pointer to chase, and full-frame
+    // simulator noise is the mobile-lag culprit. Keep the field desktop-only.
+    if (typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d", { alpha: true });
@@ -534,6 +537,7 @@ export function HeroParticleField() {
   }, [reduced]);
 
   if (reduced) return null;
+  if (typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches) return null;
 
   return (
     <canvas
