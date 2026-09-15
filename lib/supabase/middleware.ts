@@ -15,6 +15,13 @@ function isInvalidKeyError(err: unknown): boolean {
   return /invalid api key/i.test(message)
 }
 
+/** One owner for "cannot verify this visitor → send them to sign in." */
+function redirectToLogin(request: NextRequest) {
+  const url = request.nextUrl.clone()
+  url.pathname = '/login'
+  return NextResponse.redirect(url)
+}
+
 export async function updateSession(request: NextRequest) {
   const { pathname } = request.nextUrl
 
@@ -34,22 +41,23 @@ export async function updateSession(request: NextRequest) {
     request,
   })
 
-  // FAST PATH — anonymous requests carry no Supabase auth cookies, so no
-  // configuration (healthy or self-healed) can ever authenticate them:
-  // getUser() would spend an edge→Supabase round trip only to return null.
-  // Skip the network entirely. Outcomes are identical for every route —
-  // protected pages still redirect to /login (no session), auth pages render
-  // — but every public pageview, /login and /signup included, stops paying
-  // the per-request auth latency (measured 2026-09-12: it dominated TTFB on
-  // high-latency links).
+  // FAST PATH — requests with no sb-* cookies cannot be authenticated by any
+  // configuration (healthy or self-healed), so skip straight to the answer.
+  // This is consistency hygiene, NOT a measured latency win: auth-js's
+  // getUser() happens to short-circuit without a network call when no session
+  // cookie exists (warm anonymous /login was ~14 ms before this path
+  // existed), and this makes the no-network guarantee ours instead of a
+  // library implementation detail, while skipping client construction.
+  // Behavior is identical either way: protected routes fail closed, public
+  // routes render. (The real user-facing fix for slow sign-in was prefetching
+  // /login and /signup in the landing navbar; the rest of /login's TTFB is
+  // network distance to the edge, which no middleware change can remove.)
   const hasAuthCookies = request.cookies
     .getAll()
     .some((cookie) => cookie.name.startsWith('sb-'))
   if (!hasAuthCookies) {
     if (pathname.startsWith('/dashboard') || pathname.startsWith('/admin')) {
-      const url = request.nextUrl.clone()
-      url.pathname = '/login'
-      return NextResponse.redirect(url)
+      return redirectToLogin(request)
     }
     return supabaseResponse
   }
@@ -113,10 +121,7 @@ export async function updateSession(request: NextRequest) {
   // Protected Routes Check
   if (pathname.startsWith('/dashboard') || pathname.startsWith('/admin')) {
     if (!user) {
-      // no user, redirect to login page
-      const url = request.nextUrl.clone()
-      url.pathname = '/login'
-      return NextResponse.redirect(url)
+      return redirectToLogin(request)
     }
 
     // Read status/role with the service role — the RLS path is admin-gated in

@@ -182,7 +182,13 @@ export function FeedbackWidget() {
         )}
       </AnimatePresence>
 
-      {/* ── Floating button ── */}
+      {/* ── Floating button ──
+           On a phone this is a fixed overlay sitting on top of the page, and
+           the word beside the icon made it wide enough to cover whatever text
+           was under it — on the landing page, the hero headline. Below sm it
+           collapses to a 44px circle (the icon plus p-3), which is also the
+           minimum comfortable tap target. The word returns from sm up, where
+           there is room for it. */}
       <button
         ref={buttonRef}
         type="button"
@@ -192,14 +198,14 @@ export function FeedbackWidget() {
         }}
         aria-expanded={open}
         aria-label="Give feedback"
-        className="group flex items-center gap-2 rounded-full bg-[linear-gradient(135deg,var(--color-primary),var(--color-primary-dark))] px-4 py-3 text-[var(--color-text-inverse)] shadow-[var(--glow-signal-lg)] ring-1 ring-[var(--line-signal)] transition-all duration-[var(--transition-base)] hover:shadow-[var(--glow-signal-lg)] hover:-translate-y-0.5 cursor-pointer"
+        className="group flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,var(--color-primary),var(--color-primary-dark))] p-3 text-[var(--color-text-inverse)] shadow-[var(--glow-signal-lg)] ring-1 ring-[var(--line-signal)] transition-all duration-[var(--transition-base)] hover:shadow-[var(--glow-signal-lg)] hover:-translate-y-0.5 cursor-pointer sm:px-4 sm:py-3"
       >
         {open ? (
           <X className="w-5 h-5" aria-hidden="true" />
         ) : (
           <MessageSquare className="w-5 h-5" aria-hidden="true" />
         )}
-        <span className="text-sm font-semibold">
+        <span className="hidden text-sm font-semibold sm:inline">
           {open ? 'Close' : 'Feedback'}
         </span>
       </button>

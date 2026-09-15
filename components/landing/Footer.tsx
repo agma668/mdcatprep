@@ -80,12 +80,12 @@ export function Footer() {
               <h3 className="mb-4 text-sm font-semibold text-[var(--steel-100)]">
                 {title}
               </h3>
-              <ul role="list" className="flex flex-col gap-2">
+              <ul role="list" className="footer-links flex flex-col gap-2">
                 {links.map(({ label, href }) => (
                   <li key={label}>
                     <a
                       href={href}
-                      className="text-sm text-[var(--steel-300)] transition-colors duration-[var(--dur-1)] hover:text-[var(--steel-100)]"
+                      className="footer-link text-sm text-[var(--steel-300)] transition-colors duration-[var(--dur-1)] hover:text-[var(--steel-100)]"
                     >
                       {label}
                     </a>

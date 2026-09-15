@@ -221,7 +221,11 @@ export function OfflinePractice() {
           <p className="mt-2 text-sm leading-relaxed text-[var(--color-text-muted)]">
             {storageUnavailable
               ? "This browser can't store the offline question bank (IndexedDB is unavailable). Try a normal, up-to-date browser — or update this one — then download the bank again."
-              : "                Download the question bank once while you&apos;re online, and you&apos;ll be able to practise here with no internet at all — on the bus, in a blackout, anywhere."}
+              // Plain apostrophes, not `&apos;`: JSX decodes entities in TEXT and in
+              // attribute values, but NOT inside a `{...}` JS string expression —
+              // there the entity reached the screen as the literal characters
+              // "you&apos;re". A live phone render of /offline-practice showed it.
+              : "Download the question bank once while you're online, and you'll be able to practise here with no internet at all — on the bus, in a blackout, anywhere."}
           </p>
           {!storageUnavailable && (
             <ol className="mx-auto mt-6 max-w-sm space-y-2 text-left text-sm text-[var(--color-text-secondary)]">

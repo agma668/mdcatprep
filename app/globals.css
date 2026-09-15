@@ -307,6 +307,43 @@
 
 /* A label is a label because of its size and colour, not because it shouts.
    Use .label instead of uppercase tracking-widest chrome. */
+/* ── PHONE TYPE FLOOR ─────────────────────────────────────────────────────
+   The site's density is tuned for a desktop: text-[9px] and text-[10px] carry
+   badges, caps and hint lines, which read fine at 1440px and are not readable
+   on a 390px screen held at arm's length — a live phone render measured 22
+   such nodes on the landing page alone. Raising them here rather than at the
+   call sites keeps the desktop design untouched and brings every one of them
+   up together, from one owner. 11px is the floor; the 11px class is left as it
+   is because it is already the smallest deliberate size. Lives outside
+   Tailwind's `utilities` layer, so it outranks the utility it is correcting. */
+@media (max-width: 767px) {
+  .text-\[9px\],
+  .text-\[10px\] {
+    font-size: 0.6875rem; /* 11px */
+  }
+}
+
+/* ── PHONE TAP TARGETS ────────────────────────────────────────────────────
+   Two families of control are sized for a mouse, and they are the most
+   repeated touch targets on the site:
+
+   1. the footer's link columns. `text-sm` inside an `inline` anchor is ~19px
+      tall, on EVERY page — a live phone render measured 11 of them per page,
+      the single most common small target here. `.footer-link` makes each a real
+      44px row on a phone and `.footer-links` collapses the column's 8px gaps so
+      the rows tile. The invisible-::after trick used elsewhere (`.tap-44`) is
+      NOT usable at this spacing: a 44px area centred on a 19px link would
+      overlap its neighbour and steal taps.
+   2. the flashcards filter chips and Study buttons (`.touch-chip`), 28-30px.
+
+   Both are strictly phone-only: above 767px these rules do not exist, so the
+   desktop layout is unchanged. */
+@media (max-width: 767px) {
+  .footer-links { gap: 0; }
+  .footer-link { display: flex; align-items: center; min-height: 2.75rem; }
+  .touch-chip { min-height: 2.75rem; }
+}
+
 .label {
   font-family: var(--font-display), sans-serif;
   font-size: 0.8125rem;
@@ -1374,9 +1411,10 @@ html.reveals-armed [data-reveal]:not(.is-revealed) {
    the white glyph over whatever is beneath it — dark on light backgrounds,
    white on dark. Mounted on the landing page only.
 
-   Display gating mirrors the original: fine pointer → custom arrow, native
-   cursor hidden; touch/coarse → arrow shown centered and following finger
-   drags while the native cursor stays untouched; reduced motion → none. */
+   Display gating is DESKTOP ONLY and mirrors the JS gate in FluidCursor.tsx:
+   a fine pointer AND a ≥769px viewport → custom arrow, native cursor hidden.
+   Below that (every phone, every touch device) the component never mounts its
+   element and the default `display: none` above stands. Reduced motion → none. */
 .fluid-cursor {
   z-index: 2000;
   pointer-events: none;
@@ -1420,7 +1458,13 @@ html.reveals-armed [data-reveal]:not(.is-revealed) {
   opacity: 0.76;
 }
 
-@media (hover: hover) and (pointer: fine) {
+/* DESKTOP CURSOR GATE — mirrors the JS gate in FluidCursor.tsx exactly: a
+   fine pointer AND a ≥769px viewport, both required. A phone in request
+   desktop site mode, an Android WebView, or a tablet with a trackpad reports
+   (pointer: fine) at a phone width, so gating on the pointer class alone let
+   the element display there. Below 769px the default `display: none` on
+   .fluid-cursor stands, so no phone can show it. */
+@media (hover: hover) and (pointer: fine) and (min-width: 769px) {
   html[data-custom-cursor="true"],
   html[data-custom-cursor="true"] body,
   html[data-custom-cursor="true"] body * {

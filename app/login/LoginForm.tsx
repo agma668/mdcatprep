@@ -1,24 +1,34 @@
 "use client";
 
-import { useState, Suspense, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { login } from "@/app/actions/auth";
 import { AyahLoadingOverlay } from "@/components/auth/AyahLoadingOverlay";
 import { GoogleButton, OrDivider } from "@/components/auth/GoogleButton";
 import { createClient } from "@/lib/supabase/client";
 
-function LoginFormInner() {
+type LoginFormProps = {
+  /** `?reset=done` — the password-reset flow sent them back here. */
+  resetDone: boolean;
+  /**
+   * `?error=google` — the OAuth callback bounces here when Google sign-in
+   * fails (rejected consent, provider not enabled, exchange error). Say so
+   * instead of silently showing a bare form.
+   */
+  googleFailed: boolean;
+};
+
+/**
+ * Props rather than `useSearchParams()`, deliberately: the hook would opt this
+ * route out of SSR and leave the served HTML with no form at all. The query
+ * string is read in `page.tsx` and passed down. See that file for the numbers.
+ */
+export function LoginForm({ resetDone, googleFailed }: LoginFormProps) {
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const searchParams = useSearchParams();
-  const resetDone = searchParams.get("reset") === "done";
-  // The OAuth callback bounces here when Google sign-in fails (rejected
-  // consent, provider not enabled, exchange error) — say so instead of
-  // silently showing a bare form.
-  const googleFailed = searchParams.get("error") === "google";
 
   // A signed-in user has no business on this form (they can reach it via a
   // stale cached page or the back button). Send them where their status puts
@@ -120,13 +130,5 @@ function LoginFormInner() {
       </Button>
       </form>
     </>
-  );
-}
-
-export function LoginForm() {
-  return (
-    <Suspense fallback={null}>
-      <LoginFormInner />
-    </Suspense>
   );
 }

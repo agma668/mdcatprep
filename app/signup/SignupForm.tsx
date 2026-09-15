@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
@@ -9,9 +8,12 @@ import { signup } from "@/app/actions/auth";
 import { AyahLoadingOverlay } from "@/components/auth/AyahLoadingOverlay";
 import { GoogleButton, OrDivider } from "@/components/auth/GoogleButton";
 
-export function SignupForm() {
-  const searchParams = useSearchParams();
-  const refCode = searchParams.get("ref") || "";
+/**
+ * `refCode` arrives as a prop rather than from `useSearchParams()`, because the
+ * hook opts the route out of SSR and leaves the served HTML with no form. The
+ * query string is read in `page.tsx`, which carries the measurements.
+ */
+export function SignupForm({ refCode }: { refCode: string }) {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);

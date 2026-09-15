@@ -537,7 +537,18 @@ export function HeroParticleField() {
   }, [reduced]);
 
   if (reduced) return null;
-  if (typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches) return null;
+  // NOTE: there used to be a second render-time gate here —
+  // `if (window.matchMedia("(pointer: coarse)").matches) return null` — and it
+  // was a hydration mismatch on every phone. The server cannot know the pointer
+  // type, so it renders the `<canvas>`; the client's FIRST render then disagreed
+  // and threw React error #418 ("hydration failed because the initial UI does
+  // not match what was rendered on the server"), which React recovers from by
+  // throwing the tree away and re-rendering every one of these canvases client
+  // side. The pointer check belongs in the effect above, which already returns
+  // before `getContext` on a coarse pointer — so on a phone this element has no
+  // backing store, draws nothing and runs no loop, exactly as the `null` did,
+  // and is `pointer-events-none` on top of that. The canvas stays in the DOM so
+  // server and client agree.
 
   return (
     <canvas

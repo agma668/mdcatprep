@@ -15,6 +15,12 @@ import { usePrefersReducedMotion } from "@/components/ui/Motion";
  *    inertia, then eases back to its idle spin.
  *  - Hovering lights the nearest nodes (depth + proximity glow).
  *  - Hidden for prefers-reduced-motion (the component renders null).
+ *  - A COARSE pointer (a phone) gets ONE frame instead of the loop: the object
+ *    is pointer-impelled and a phone has no pointer to impel it with, so the
+ *    loop would burn a canvas frame per 60th of a second to redraw a sphere
+ *    nobody can nudge. Drawing a single frame keeps the emblem visible, which
+ *    is the point of the hero card — rendering null here left a blank 210px
+ *    box in its place on every phone.
  */
 
 interface Vec3 {
@@ -71,7 +77,9 @@ export function InteractiveParticles() {
 
     let w = canvas.parentElement?.clientWidth || window.innerWidth;
     let h = canvas.parentElement?.clientHeight || 400;
-    let dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    // A phone both cannot impel the object and should not pay for a loop.
+    const still = window.matchMedia("(pointer: coarse)").matches;
 
     const resize = () => {
       if (!canvas.parentElement) return;
@@ -85,8 +93,6 @@ export function InteractiveParticles() {
     };
 
     resize();
-    const ro = new ResizeObserver(resize);
-    if (canvas.parentElement) ro.observe(canvas.parentElement);
 
     // ── Build the object: nodes on a fibonacci sphere + nearest-neighbour
     //    edges, plus a handful of brighter "beacon" nodes. ─────────────────
@@ -117,8 +123,12 @@ export function InteractiveParticles() {
     // ── Rotation state: quaternion-free. Two angular velocities + an angle
     //    each around world Y (spin) and camera X (pitch) is enough and keeps
     //    the math simple; impulses nudge the velocities. ────────────────────
-    let angleY = 0;
-    let angleX = 0;
+    // A still frame is drawn at a fixed three-quarter angle, so the sphere
+    // reads as a sphere rather than as a flat ring of dots.
+    const STILL_Y = 0.7;
+    const STILL_X = 0.26;
+    let angleY = still ? STILL_Y : 0;
+    let angleX = still ? STILL_X : 0;
     let velY = 0.0035; // idle spin
     let velX = 0.0012;
     const IDLE_VY = 0.0035;
@@ -153,8 +163,11 @@ export function InteractiveParticles() {
       px = py = prevX = prevY = -1000;
     };
 
-    window.addEventListener("pointermove", onMove, { passive: true });
-    canvas.addEventListener("pointerleave", onLeave);
+    // No pointer to impel with on a phone, so no listeners to pay for either.
+    if (!still) {
+      window.addEventListener("pointermove", onMove, { passive: true });
+      canvas.addEventListener("pointerleave", onLeave);
+    }
 
     const io = new IntersectionObserver(([entry]) => {
       onScreen = entry.isIntersecting;
@@ -172,16 +185,22 @@ export function InteractiveParticles() {
         raf = 0;
         return;
       }
-      raf = requestAnimationFrame(loop);
+      // Phone: draw one frame and stop. Desktop: keep the idle spin running.
+      raf = still ? 0 : requestAnimationFrame(loop);
 
-      angleY += velY;
-      angleX += velX;
-      // Ease velocities back to idle.
-      velY += (IDLE_VY - velY) * 0.02;
-      velX += (IDLE_VX - velX) * 0.02;
-      if (!inside) {
-        velY *= FRICTION + 0.02;
-        velX *= FRICTION + 0.02;
+      if (still) {
+        angleY = STILL_Y;
+        angleX = STILL_X;
+      } else {
+        angleY += velY;
+        angleX += velX;
+        // Ease velocities back to idle.
+        velY += (IDLE_VY - velY) * 0.02;
+        velX += (IDLE_VX - velX) * 0.02;
+        if (!inside) {
+          velY *= FRICTION + 0.02;
+          velX *= FRICTION + 0.02;
+        }
       }
 
       ctx.clearRect(0, 0, w, h);
@@ -252,6 +271,20 @@ export function InteractiveParticles() {
         ctx.fill();
       }
     };
+
+    // Built here rather than next to `resize()` so its callback can reference
+    // `loop`, and because a still frame must REDRAW on resize: `resize` blanks
+    // the canvas, so rotating a phone — which every phone does to read a
+    // question — would otherwise leave the sphere gone with no loop to bring it
+    // back.
+    const ro = new ResizeObserver(() => {
+      resize();
+      if (still) {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(loop);
+      }
+    });
+    if (canvas.parentElement) ro.observe(canvas.parentElement);
 
     raf = requestAnimationFrame(loop);
 

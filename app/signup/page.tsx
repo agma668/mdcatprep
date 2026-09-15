@@ -2,7 +2,20 @@ import Link from "next/link";
 import { GraduationCap, Trophy, BookOpenCheck, BarChart3 } from "lucide-react";
 import { SignupForm } from "./SignupForm";
 
-export default function SignupPage() {
+/**
+ * The referral code is read HERE, on the server, and handed to the form as a
+ * prop. `useSearchParams()` inside the client form opted this route out of
+ * static prerendering, so the served HTML for /signup contained no `<form>`
+ * and no `<input>` — on a throttled phone (1.6 Mbps / 150 ms RTT / 4× CPU,
+ * cold cache) the fields did not appear until ~3.0 s. See app/login/page.tsx
+ * for the full numbers and the reasoning.
+ */
+export default async function SignupPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ ref?: string }>;
+}) {
+  const params = await searchParams;
   return (
     <div className="min-h-screen landing-canvas flex flex-col md:flex-row">
       {/* Left side - visual / branding */}
@@ -127,7 +140,7 @@ export default function SignupPage() {
             </p>
           </div>
 
-          <SignupForm />
+          <SignupForm refCode={params.ref ?? ""} />
 
           <p className="text-center text-sm text-[var(--color-text-secondary)] mt-8">
             Already have an account?{" "}

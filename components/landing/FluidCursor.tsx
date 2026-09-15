@@ -3,29 +3,39 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Fluid cursor — a faithful port of nexstudio.tech's `FluidCursor`. Their
- * bundled component was extracted from the deployed chunk and re-read line
- * by line; every constant below is theirs exactly:
+ * Fluid cursor — DESKTOP ONLY.
  *
- *  - The arrow LERPS toward the pointer (0.19; 0.105 in touch mode).
- *  - Every frame it ROTATES toward the pointer's movement direction (atan2
- *    of the per-move delta, shortest-path angle lerp 0.16; 0.12 touch), so
- *    the arrow points the way you move and swings around corners.
- *  - It STRETCHES along its motion axis with pointer speed (speed/900,
- *    capped +0.02) and squashes across it (speed/1100, capped 0.012).
- *  - The arrow is tip-anchored: translate(-92%, -50%), transform-origin 92%
- *    — the tip sits at the pointer while the tail lags and swings.
+ * Ported from nexstudio.tech's `FluidCursor`; every constant below is theirs:
+ *
+ *  - The arrow LERPS toward the pointer (0.19).
+ *  - Every frame it ROTATES toward the pointer's movement direction (atan2 of
+ *    the per-move delta, shortest-path angle lerp 0.16), so the arrow points
+ *    the way you move and swings around corners.
+ *  - It STRETCHES along its motion axis with pointer speed (speed/900, capped
+ *    +0.02) and squashes across it (speed/1100, capped 0.012).
+ *  - The arrow is tip-anchored: translate(-92%, -50%), transform-origin 92% —
+ *    the tip sits at the pointer while the tail lags and swings.
  *  - Visual: white arrow + `mix-blend-mode: difference` — it reads black on
- *    light backgrounds and inverts to white over dark ones, exactly like
- *    the original.
+ *    light backgrounds and inverts to white over dark ones.
  *  - States: hovering interactive elements → 1.07 scale; pressed → 0.76
- *    opacity; pointer leaves the window → hidden.
- *  - Touch mode (original behaviour): the arrow is centered on screen,
- *    follows finger DRAGS (pointerdown/move while pressed), the native
- *    cursor/scrollbar stays untouched, and it fades when the finger lifts.
- *  - Disabled for prefers-reduced-motion; below 769 px the touch mode is
- *    forced on exactly like the original's media gating.
+ *    opacity; the pointer leaving the window → hidden.
+ *  - The loop HALTS once the lerp settles on a still pointer and wakes on the
+ *    next pointer event, so an idle page asks for no frames.
+ *
+ * The original's TOUCH MODE is deliberately not ported (an arrow centred on
+ * screen that followed finger drags). It drew a cursor on phones: an Android
+ * WebView, a tablet with a trackpad and "request desktop site" all report a
+ * FINE pointer at a phone width, so a gate trusting `(pointer: fine)` alone
+ * lets them through, and the touch fallback then rendered an arrow on a screen
+ * that has no pointer to indicate. Requiring a fine pointer AND a ≥769px
+ * viewport — the same two conditions the CSS gate in globals.css mirrors —
+ * means no phone ever displays this element, runs its rAF loop, or gets the
+ * `cursor: none` override.
  */
+
+// Frames the lerp needs to converge (~30) plus slack, after which the loop
+// stops until the next pointer event.
+const SETTLE_FRAMES = 60;
 
 export function FluidCursor() {
   const rootRef = useRef<HTMLDivElement | null>(null);
@@ -36,34 +46,22 @@ export function FluidCursor() {
     const r = bodyRef.current;
     if (!t || !r) return;
 
-    const coarse = window.matchMedia("(pointer: coarse)");
-    // Touch / coarse-pointer devices have no cursor at all — don't mount the
-    // element, the rAF loop, or the global `cursor` override on phones.
-    if (coarse.matches) return;
-
     const fine = window.matchMedia("(hover: hover) and (pointer: fine)");
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     const desktop = window.matchMedia("(min-width: 769px)");
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const allowed = () => fine.matches && desktop.matches && !reduced.matches;
 
     let raf = 0;
     let active = false;
-    // The arrow keeps running only while it is actually moving toward the
-    // pointer. Once the pointer has been still long enough for the lerp to
-    // converge, the loop halts instead of writing a transform every frame for
-    // the whole page lifetime (a per-frame DOM write that taxes scroll). The
-    // next pointer event wakes it. Settle frames ≈ the lerp's ~30 frames to
-    // converge (0.19) plus a little slack.
     let idle = 0;
-    const SETTLE_FRAMES = 60;
 
     // Pointer state (names mirror the original: d,f target · p,m position ·
-    // h,g last sample · y angle · v move angle · b speed · w touch mode).
+    // h,g last sample · y angle · v move angle · b speed · c hasMoved).
     let d = window.innerWidth / 2;
     let f = window.innerHeight / 2;
     let p = d, m = f, h = d, g = f;
     let y = 0, v = 0, b = 0;
-    let w = false;
-    let c = false; // hasMoved
+    let c = false;
 
     const clearCursorProperty = () => {
       document.documentElement.style.removeProperty("cursor");
@@ -74,12 +72,10 @@ export function FluidCursor() {
       const dx = d - p;
       const dy = f - m;
       const dist = Math.hypot(dx, dy);
-      const posLerp = w ? 0.105 : 0.19;
-      const angleLerp = w ? 0.12 : 0.16;
-      p += dx * posLerp;
-      m += dy * posLerp;
+      p += dx * 0.19;
+      m += dy * 0.19;
       b += (dist - b) * 0.14;
-      y += (((v - y + 540) % 360) - 180) * angleLerp;
+      y += (((v - y + 540) % 360) - 180) * 0.16;
 
       const stretch = Math.min(b / 900, 0.02);
       const squash = Math.min(b / 1100, 0.012);
@@ -105,32 +101,23 @@ export function FluidCursor() {
       raf = window.requestAnimationFrame(frame);
     };
 
+    // Re-run on every media change. The early return makes it a no-op unless
+    // the gate actually flipped, so resizing across the breakpoint does not
+    // reset the arrow's position.
     const apply = () => {
-      w = coarse.matches || !desktop.matches;
-      active = !reduced.matches && (w || fine.matches);
+      const next = allowed();
+      if (next === active) return;
+      active = next;
+
       if (active) {
         document.documentElement.dataset.customCursor = "true";
-        document.documentElement.dataset.cursorInput = w ? "touch" : "pointer";
-        if (w) {
-          // Touch mode: arrow starts centered, native cursor untouched.
-          clearCursorProperty();
-          if (!c) {
-            d = window.innerWidth / 2;
-            f = window.innerHeight / 2;
-            p = d; m = f; h = d; g = f;
-            c = true;
-          }
-          t.dataset.visible = "true";
-        } else if (fine.matches) {
-          t.dataset.visible = "false";
-          c = false;
-          document.documentElement.style.setProperty("cursor", "none", "important");
-          document.body.style.setProperty("cursor", "none", "important");
-        }
+        t.dataset.visible = "false";
+        c = false;
+        document.documentElement.style.setProperty("cursor", "none", "important");
+        document.body.style.setProperty("cursor", "none", "important");
         if (!raf) raf = window.requestAnimationFrame(frame);
       } else {
         delete document.documentElement.dataset.customCursor;
-        delete document.documentElement.dataset.cursorInput;
         clearCursorProperty();
         t.dataset.visible = "false";
         c = false;
@@ -165,17 +152,17 @@ export function FluidCursor() {
           : "false";
 
       // Wake the loop if it had gone idle (idle-gated after settling).
-      if (!raf && active) raf = window.requestAnimationFrame(frame);
+      if (!raf) raf = window.requestAnimationFrame(frame);
     };
 
-    // Fine pointer: follow every move. Touch: only while a drag is active —
-    // the original ignores plain touch scrolls (w-gate in its onMove).
+    // A touch or pen contact on a hybrid device is not a mouse move.
     const onPointerMove = (e: PointerEvent) => {
-      if (w || e.pointerType === "touch") return;
+      if (e.pointerType === "touch") return;
       move(e.clientX, e.clientY, e.target);
     };
 
     const onPointerDown = (e: PointerEvent) => {
+      if (e.pointerType === "touch") return;
       move(e.clientX, e.clientY, e.target);
       t.dataset.pressed = "true";
     };
@@ -185,7 +172,7 @@ export function FluidCursor() {
     };
 
     const onLeave = () => {
-      if (!w) t.dataset.visible = "false";
+      t.dataset.visible = "false";
     };
 
     const onEnter = () => {
@@ -194,9 +181,8 @@ export function FluidCursor() {
 
     apply();
     fine.addEventListener("change", apply);
-    coarse.addEventListener("change", apply);
-    reduced.addEventListener("change", apply);
     desktop.addEventListener("change", apply);
+    reduced.addEventListener("change", apply);
     window.addEventListener("pointermove", onPointerMove, { passive: true });
     window.addEventListener("pointerdown", onPointerDown, { passive: true });
     window.addEventListener("pointerup", onPointerUp, { passive: true });
@@ -205,16 +191,14 @@ export function FluidCursor() {
 
     return () => {
       fine.removeEventListener("change", apply);
-      coarse.removeEventListener("change", apply);
-      reduced.removeEventListener("change", apply);
       desktop.removeEventListener("change", apply);
+      reduced.removeEventListener("change", apply);
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerdown", onPointerDown);
       window.removeEventListener("pointerup", onPointerUp);
       document.documentElement.removeEventListener("pointerleave", onLeave);
       document.documentElement.removeEventListener("pointerenter", onEnter);
       delete document.documentElement.dataset.customCursor;
-      delete document.documentElement.dataset.cursorInput;
       clearCursorProperty();
       if (raf) window.cancelAnimationFrame(raf);
     };

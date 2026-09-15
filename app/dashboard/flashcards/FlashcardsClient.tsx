@@ -317,7 +317,7 @@ export function FlashcardsClient({ decks, initialReviewState, backend, notice, r
           <button
             key={s}
             onClick={() => setSubjectFilter(s)}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors cursor-pointer ${
+            className={`touch-chip px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors cursor-pointer ${
               subjectFilter === s
                 ? 'bg-[var(--signal-500)] text-[var(--on-cta)]'
                 : 'bg-white/[0.06] text-[var(--steel-300)] hover:bg-white/[0.12] hover:text-white ring-1 ring-white/10'
@@ -369,7 +369,7 @@ export function FlashcardsClient({ decks, initialReviewState, backend, notice, r
                 <button
                   onClick={() => openDeck(deck)}
                   disabled={pending}
-                  className="px-3.5 py-1.5 rounded-[var(--radius-sm)] bg-[var(--signal-500)]/15 border border-[var(--signal-500)]/40 text-[var(--signal-200)] text-xs font-bold hover:bg-[var(--signal-500)]/25 transition-colors cursor-pointer disabled:opacity-50"
+                  className="touch-chip px-3.5 py-1.5 rounded-[var(--radius-sm)] bg-[var(--signal-500)]/15 border border-[var(--signal-500)]/40 text-[var(--signal-200)] text-xs font-bold hover:bg-[var(--signal-500)]/25 transition-colors cursor-pointer disabled:opacity-50"
                 >
                   Study
                 </button>
