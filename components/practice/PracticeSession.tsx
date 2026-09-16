@@ -23,8 +23,9 @@ import { ScoreRing, AnimatedNumber } from "@/components/ui/ScoreRing";
 import { QuizKeyLegend } from "@/components/ui/QuizKeyLegend";
 import { QuizOptions } from "@/components/ui/QuizOptions";
 import { BookmarkFlag } from "@/components/practice/BookmarkFlag";
+import { TrapReasons } from "@/components/practice/TrapReasons";
 import { useQuizSession } from "@/lib/quiz-session";
-import { pastPaperTag, type QuizQuestion } from "@/lib/questions";
+import { pastPaperTag, type OptionLetter, type QuizQuestion } from "@/lib/questions";
 
 export function PracticeSession({
   questions,
@@ -247,6 +248,12 @@ export function PracticeSession({
               </p>
             )}
           </div>
+        )}
+
+        {/* Trap Reasons — why each wrong option was tempting. Renders
+            nothing when no authored autopsy exists yet (never invented). */}
+        {answered && (
+          <TrapReasons question={q} picked={(answers[index] as OptionLetter) ?? null} />
         )}
 
         {answered && (

@@ -23,6 +23,21 @@ export type DistractorAutopsy = {
   rule: string
 }
 
+/**
+ * Look up the distractor autopsy for a bundled question by its stable key.
+ * Bundled questions carry `key`; bank rows carry `id` and resolve here only
+ * if their key was preserved. Returns undefined when no authored autopsy
+ * exists yet — callers must render nothing, never a fake.
+ */
+export function autopsyFor(
+  key: string | null | undefined,
+  resolve?: (k: string) => DistractorAutopsy | undefined
+): DistractorAutopsy | undefined {
+  const k = key ?? "";
+  if (!k) return undefined;
+  return resolve ? resolve(k) : DISTRACTOR_AUTOPSIES[k];
+}
+
 export const DISTRACTOR_AUTOPSIES: Record<string, DistractorAutopsy> = {
   // Biology · Cell Structure
   'ee0479e0-ca45-5ce9-ba53-21c76653678a': {
