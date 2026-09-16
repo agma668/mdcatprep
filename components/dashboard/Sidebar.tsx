@@ -20,6 +20,7 @@ import {
   Layers,
   Network,
   Bookmark,
+  Calculator,
 } from "lucide-react";
 
 // The icon well behind each nav glyph. This used to be two strings repeated
@@ -38,6 +39,7 @@ const NAV_ITEMS = [
   { href: "/dashboard/analytics", icon: BarChart3, label: "Analytics", shortLabel: "Analytics" },
   { href: "/dashboard/practice", icon: Target, label: "Practice", shortLabel: "Practice" },
   { href: "/dashboard/mock-test", icon: ClipboardList, label: "Mock Test", shortLabel: "Mock Test" },
+  { href: "/dashboard/merit-estimator", icon: Calculator, label: "Merit Estimator", shortLabel: "Merit" },
   { href: "/dashboard/notes", icon: BookOpen, label: "Important Notes", shortLabel: "Notes" },
   { href: "/dashboard/flashcards", icon: Layers, label: "Flashcards", shortLabel: "Cards" },
   { href: "/dashboard/diagrams", icon: Network, label: "Diagrams & Mindmaps", shortLabel: "Diagrams" },
