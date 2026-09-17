@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 import Link from 'next/link';
+import { TrackedLink } from '@/components/TrackedLink';
 import { GraduationCap, BookOpenCheck, BarChart3, Trophy, CheckCircle } from 'lucide-react';
 import { Reveal } from '@/components/ui/Motion';
 
@@ -159,12 +160,13 @@ export function RegisterSection({ mcqs }: { mcqs: number }) {
 
                   <p className="mt-5 text-center text-xs text-[var(--steel-400)]">
                     Already have an account?{' '}
-                    <Link
-                      href="/login"
+                    <TrackedLink
+                      to="/login"
+                      label="register-signin"
                       className="font-medium text-[var(--signal-200)] hover:underline"
                     >
                       Sign in
-                    </Link>
+                    </TrackedLink>
                   </p>
                 </>
               )}

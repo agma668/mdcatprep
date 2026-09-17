@@ -1,5 +1,6 @@
 "use client";
 
+import { TrackedLink } from "@/components/TrackedLink";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { SidebarLeaderboard } from "./SidebarLeaderboard";
@@ -117,7 +118,7 @@ export function Sidebar({ profile, leaderboard }: { profile: Profile; leaderboar
       >
         {/* Logo + collapse toggle */}
         <div className={`flex items-center border-b border-white/[0.07] ${collapsed ? "flex-col gap-3 px-2 py-4" : "gap-3 px-5 py-6"}`}>
-          <Link href="/dashboard" className="flex items-center gap-3 min-w-0" aria-label="MED Prep — Dashboard">
+          <TrackedLink to="/dashboard" className="flex items-center gap-3 min-w-0" aria-label="MED Prep — Dashboard">
             <LogoMark />
             {!collapsed && (
               <span className="min-w-0">
@@ -125,7 +126,7 @@ export function Sidebar({ profile, leaderboard }: { profile: Profile; leaderboar
                 <span className="block text-[11px] text-white/45 font-medium mt-1 tracking-wide uppercase">MDCAT & NUMS Portal</span>
               </span>
             )}
-          </Link>
+          </TrackedLink>
           <button
             onClick={toggleCollapse}
             aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
@@ -145,8 +146,8 @@ export function Sidebar({ profile, leaderboard }: { profile: Profile; leaderboar
               const active = isActive(href);
               return (
                 <li key={href}>
-                  <Link
-                    href={href}
+                  <TrackedLink
+                    to={href}
                     aria-current={active ? "page" : undefined}
                     title={collapsed ? label : undefined}
                     className={[
@@ -156,12 +157,12 @@ export function Sidebar({ profile, leaderboard }: { profile: Profile; leaderboar
                         ? "bg-[linear-gradient(135deg,var(--signal-500),var(--signal-600)_55%,var(--signal-700))] text-[var(--on-cta)] shadow-[var(--glow-signal-md)]"
                         : "text-[var(--steel-300)] hover:text-[var(--steel-100)] hover:bg-[var(--srf-2)]",
                     ].join(" ")}
-                  >
+                   label="sidebar">
                     <span className={`shrink-0 w-8 h-8 flex items-center justify-center rounded-lg transition-all duration-200 ${active ? "bg-black/20 text-[var(--on-cta)]" : WELL_IDLE} group-hover:scale-110`}>
                       <Icon className="w-[18px] h-[18px]" strokeWidth={1.8} />
                     </span>
                     {!collapsed && <span className="truncate">{label}</span>}
-                  </Link>
+                  </TrackedLink>
                 </li>
               );
             })}
@@ -209,10 +210,10 @@ export function Sidebar({ profile, leaderboard }: { profile: Profile; leaderboar
 
       {/* Mobile top bar */}
       <div className="md:hidden fixed inset-x-0 top-0 z-40 bg-[linear-gradient(90deg,var(--color-navy),#0a1a2e)] border-b border-white/10 flex items-center justify-between px-4 h-14 shadow-[0_4px_16px_rgba(0,0,0,0.25)]">
-        <Link href="/dashboard" className="flex items-center gap-2.5" aria-label="MED Prep — Dashboard">
+        <TrackedLink to="/dashboard" className="flex items-center gap-2.5" aria-label="MED Prep — Dashboard">
           <LogoMark size="sm" />
           <span className="font-extrabold text-white tracking-tight">MED Prep</span>
-        </Link>
+        </TrackedLink>
         <form action={logout}>
           <button type="submit" aria-label="Log out" className="flex items-center gap-1.5 text-white/50 hover:text-white text-xs font-semibold transition-colors cursor-pointer">
             <LogOut className="w-4 h-4" />
@@ -228,14 +229,14 @@ export function Sidebar({ profile, leaderboard }: { profile: Profile; leaderboar
             const active = isActive(href);
             return (
               <li key={href} className="flex-1 min-w-0">
-                <Link href={href} aria-current={active ? "page" : undefined} className="flex flex-col items-center gap-1 px-1 py-1.5">
+                <TrackedLink to={href} aria-current={active ? "page" : undefined} className="flex flex-col items-center gap-1 px-1 py-1.5" label="sidebar">
                   <span className={`flex items-center justify-center w-9 h-6 rounded-full transition-all duration-200 ${active ? WELL_ACTIVE : WELL_IDLE}`}>
                     <Icon className="w-[19px] h-[19px]" />
                   </span>
                   <span className={`text-[9.5px] font-semibold leading-tight text-center truncate w-full transition-colors ${active ? "text-[var(--steel-100)]" : "text-[var(--steel-400)]"}`}>
                     {shortLabel}
                   </span>
-                </Link>
+                </TrackedLink>
               </li>
             );
           })}

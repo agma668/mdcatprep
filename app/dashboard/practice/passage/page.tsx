@@ -1,3 +1,4 @@
+import { TrackedLink } from '@/components/TrackedLink';
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
@@ -18,12 +19,12 @@ export default async function PassagePracticePage() {
 
   return (
     <div className="p-6 md:p-8 max-w-3xl mx-auto w-full">
-      <Link
-        href="/dashboard/practice/English"
+      <TrackedLink
+        to="/dashboard/practice/English"
         className="text-sm font-medium text-[var(--color-primary)] hover:underline"
-      >
+       label="passage-back">
         ← English
-      </Link>
+      </TrackedLink>
       <PageHeader
         className="mt-4"
         eyebrow="English paper practice"

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { TrackedLink } from "@/components/TrackedLink";
 import { Swords } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { getDuelPlay } from "@/app/actions/duels";
@@ -29,12 +29,12 @@ export default async function DuelPlayPage({
               : res.error}
           </p>
           <div className="mt-6 flex justify-center gap-3">
-            <Link href="/dashboard">
+            <TrackedLink to="/dashboard" label="duel-missing-back">
               <Button variant="outline">Back to Dashboard</Button>
-            </Link>
-            <Link href="/dashboard/leaderboard">
+            </TrackedLink>
+            <TrackedLink to="/dashboard/leaderboard" label="duel-missing-find-opponent">
               <Button variant="ghost">Find an opponent</Button>
-            </Link>
+            </TrackedLink>
           </div>
         </div>
       </div>

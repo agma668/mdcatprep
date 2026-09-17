@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TrackedLink } from "@/components/TrackedLink";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { CompassLogo } from "@/components/landing/CompassLogo";
 import { getTelLink, getWhatsAppLink } from "@/lib/site";
@@ -38,8 +39,9 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link
-              href="/"
+            <TrackedLink
+              to="/"
+              label="footer-logo"
               aria-label="MED Prep — Home"
               className="group mb-4 inline-flex items-center gap-2"
             >
@@ -51,7 +53,7 @@ export function Footer() {
               <span className="font-display text-xl font-bold tracking-tight text-[var(--steel-100)]">
                 MED Prep
               </span>
-            </Link>
+            </TrackedLink>
             <p className="max-w-xs text-sm leading-relaxed text-[var(--steel-300)]">
               A non-profit community initiative helping students across Pakistan prepare for MDCAT and NUMS — built with the mission of making quality education accessible to everyone.
             </p>
@@ -100,23 +102,25 @@ export function Footer() {
         <div className="mt-12 flex flex-col gap-3 border-t border-[var(--line-2)] pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-[var(--steel-400)]">
             &copy; {year} MED Prep. All rights reserved.{" "}
-            <Link href="/copyright" className="underline hover:text-[var(--steel-200)]">
+            <TrackedLink to="/copyright" label="footer-copyright" className="underline hover:text-[var(--steel-200)]">
               Copyright &amp; Terms
-            </Link>
+            </TrackedLink>
           </p>
           <div className="flex items-center gap-5">
-            <Link
-              href="/privacy"
+            <TrackedLink
+              to="/privacy"
+              label="footer-privacy"
               className="text-xs text-[var(--steel-400)] transition-colors duration-[var(--dur-1)] hover:text-[var(--steel-200)]"
             >
               Privacy Policy
-            </Link>
-            <Link
-              href="/faq"
+            </TrackedLink>
+            <TrackedLink
+              to="/faq"
+              label="footer-faq"
               className="text-xs text-[var(--steel-400)] transition-colors duration-[var(--dur-1)] hover:text-[var(--steel-200)]"
             >
               Help &amp; FAQ
-            </Link>
+            </TrackedLink>
             <a
               href={getWhatsAppLink()}
               target="_blank"

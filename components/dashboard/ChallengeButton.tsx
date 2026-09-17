@@ -1,5 +1,6 @@
 "use client";
 
+import { TrackedLink } from "@/components/TrackedLink";
 import { useState } from "react";
 import Link from "next/link";
 import { Flag, CheckCircle2, AlertTriangle, Swords } from "lucide-react";
@@ -99,9 +100,9 @@ export function ChallengeButton({ opponentId, opponentName }: { opponentId: stri
                   : opponentName + " has 48 hours to play the same questions. Your duel appears on the dashboard."}
               </p>
               {mode === 'duel' && created && (
-                <Link href={`/dashboard/duels/${created}`} className="mt-2 inline-flex items-center gap-1.5 font-bold text-emerald-300 underline underline-offset-2 hover:text-emerald-200">
+                <TrackedLink to={`/dashboard/duels/${created}`} className="mt-2 inline-flex items-center gap-1.5 font-bold text-emerald-300 underline underline-offset-2 hover:text-emerald-200" label="challenge-open-duel">
                   Open your duel →
-                </Link>
+                </TrackedLink>
               )}
             </div>
           ) : (

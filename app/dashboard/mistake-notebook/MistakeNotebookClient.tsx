@@ -1,5 +1,6 @@
 'use client'
 
+import { TrackedLink } from '@/components/TrackedLink';
 import { useState } from 'react'
 import Link from 'next/link'
 import {
@@ -134,19 +135,19 @@ export function MistakeNotebookClient({
           every wrong answer will automatically appear here so you can review and learn from them.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Link
-            href="/dashboard/practice"
+          <TrackedLink
+            to="/dashboard/practice"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-[var(--radius-md)] bg-[var(--color-primary)] text-[var(--color-text-inverse)] text-sm font-bold hover:bg-[var(--color-primary-dark)] transition-colors shadow-[var(--glow-signal-md)]"
-          >
+           label="mistake-notebook">
             <Sparkles className="w-4 h-4" />
             Start Practicing
-          </Link>
-          <Link
-            href="/daily-quiz"
+          </TrackedLink>
+          <TrackedLink
+            to="/daily-quiz"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-[var(--radius-md)] border border-white/10 text-[var(--color-text-secondary)] text-sm font-bold hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors"
-          >
+           label="mistake-notebook">
             Try Daily Quiz
-          </Link>
+          </TrackedLink>
         </div>
       </div>
     )
@@ -431,19 +432,19 @@ export function MistakeNotebookClient({
                         <CheckCircle2 className="w-3.5 h-3.5" />
                         {isMastered ? 'Mastered' : 'Mark as mastered'}
                       </button>
-                      <Link
-                        href={`/dashboard/practice/quiz?subject=${encodeURIComponent(mistake.subject)}&count=10`}
+                      <TrackedLink
+                        to={`/dashboard/practice/quiz?subject=${encodeURIComponent(mistake.subject)}&count=10`}
                         className="inline-flex items-center gap-1.5 text-xs font-bold text-[var(--color-primary)] hover:underline"
-                      >
+                       label="mistake-notebook">
                         <RotateCcw className="w-3.5 h-3.5" />
                         Retry similar
-                      </Link>
-                      <Link
-                        href="/dashboard/practice"
+                      </TrackedLink>
+                      <TrackedLink
+                        to="/dashboard/practice"
                         className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-primary)] hover:underline"
-                      >
+                       label="mistake-notebook">
                         All practice <ExternalLink className="w-3 h-3" />
-                      </Link>
+                      </TrackedLink>
                     </div>
                   </div>
                 )}
@@ -469,13 +470,13 @@ export function MistakeNotebookClient({
           <p className="mb-5 text-xs opacity-70">
             Focus on your weakest areas to improve faster.
           </p>
-          <Link
-            href={`/dashboard/practice/quiz?subject=${weakestSubject ? encodeURIComponent(weakestSubject[0]) : ''}&count=10`}
+          <TrackedLink
+            to={`/dashboard/practice/quiz?subject=${weakestSubject ? encodeURIComponent(weakestSubject[0]) : ''}&count=10`}
             className="inline-flex items-center gap-2 rounded-[var(--radius-md)] bg-[#0a0a0a] px-6 py-3 text-sm font-bold text-[var(--color-primary-light)] shadow-[0_4px_12px_rgba(0,0,0,0.35)] transition-colors hover:bg-black"
-          >
+           label="mistake-notebook">
             <RotateCcw className="h-4 w-4" />
             Practice Weakest Subject
-          </Link>
+          </TrackedLink>
         </div>
       )}
     </div>

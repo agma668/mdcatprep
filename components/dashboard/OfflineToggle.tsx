@@ -1,5 +1,6 @@
 'use client'
 
+import { TrackedLink } from '@/components/TrackedLink';
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Download, Trash2, Loader2, ArrowRight } from 'lucide-react'
@@ -86,13 +87,13 @@ export function OfflineToggle() {
         </button>
 
         {cachedCount !== null && cachedCount > 0 && (
-          <Link
-            href="/offline-practice"
+          <TrackedLink
+            to="/offline-practice"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-[var(--radius-md)] border border-[var(--color-primary)]/40 bg-[var(--color-primary)]/10 text-sm font-semibold text-[var(--color-primary-light)] hover:bg-[var(--color-primary)]/20 transition-colors"
-          >
+           label="offline-toggle">
             Practice Offline
             <ArrowRight className="w-4 h-4" />
-          </Link>
+          </TrackedLink>
         )}
 
         {cachedCount !== null && cachedCount > 0 && (

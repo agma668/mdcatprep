@@ -1,5 +1,6 @@
 "use client";
 
+import { TrackedLink } from "@/components/TrackedLink";
 import Link from "next/link";
 import { Lightbulb, ArrowRight, Clock, Target, BookOpen } from "lucide-react";
 
@@ -33,12 +34,12 @@ export function StudyPlan({ weakAreas, hasPractice, currentStreak }: StudyPlanPr
           <p className="text-sm text-white/70 mb-3">
             Start practicing to unlock your personalized study plan. We&apos;ll analyze your weak areas and recommend what to focus on next.
           </p>
-          <Link
-            href="/dashboard/practice"
+          <TrackedLink
+            to="/dashboard/practice"
             className="inline-flex items-center gap-2 text-sm font-bold text-[var(--color-primary-light)] hover:text-[var(--color-accent-light)] transition-colors"
-          >
+           label="study-plan">
             Start your first session <ArrowRight className="w-4 h-4" />
-          </Link>
+          </TrackedLink>
         </div>
       </div>
     );
@@ -106,11 +107,11 @@ export function StudyPlan({ weakAreas, hasPractice, currentStreak }: StudyPlanPr
 
       <div className="space-y-3">
         {recommendations.map((rec, i) => (
-          <Link
+          <TrackedLink
             key={i}
-            href={rec.href}
+            to={rec.href}
             className="flex items-start gap-3 p-3 rounded-[var(--radius-md)] bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] hover:border-white/10 transition-all group"
-          >
+           label="study-plan">
             <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${rec.bgColor} ${rec.color}`}>
               {rec.icon}
             </div>
@@ -121,7 +122,7 @@ export function StudyPlan({ weakAreas, hasPractice, currentStreak }: StudyPlanPr
               <p className="text-xs text-white/50 mt-0.5">{rec.description}</p>
             </div>
             <ArrowRight className="w-4 h-4 text-white/20 group-hover:text-[var(--color-primary)] transition-colors shrink-0 mt-1" />
-          </Link>
+          </TrackedLink>
         ))}
       </div>
     </div>

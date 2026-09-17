@@ -1,5 +1,6 @@
 'use client'
 
+import { TrackedLink } from '@/components/TrackedLink';
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { BookOpen, Target, Trophy, Clock, AlertTriangle } from 'lucide-react'
@@ -163,12 +164,12 @@ export function McqPlayer({
             Nothing came back for these filters. Widen the subject or topic and
             start again.
           </p>
-          <Link
-            href="/dashboard/practice"
+          <TrackedLink
+            to="/dashboard/practice"
             className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-[var(--radius-md)] font-semibold text-sm bg-[var(--color-accent)] text-[var(--color-text-inverse)] hover:bg-[var(--color-accent-light)] transition-colors"
-          >
+           label="mcq-player">
             Change filters
-          </Link>
+          </TrackedLink>
         </div>
       </div>
     )
@@ -215,12 +216,12 @@ export function McqPlayer({
             )}
           </div>
           <div className="mt-6 flex items-center justify-center gap-3">
-            <Link href="/dashboard/practice">
+            <TrackedLink to="/dashboard/practice" label="mcq-player">
               <Button variant="outline">Practice Again</Button>
-            </Link>
-            <Link href="/dashboard/analytics">
+            </TrackedLink>
+            <TrackedLink to="/dashboard/analytics" label="mcq-player">
               <Button variant="ghost">View Analytics</Button>
-            </Link>
+            </TrackedLink>
           </div>
         </div>
 

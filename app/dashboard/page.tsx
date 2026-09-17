@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 import dynamicImport from "next/dynamic";
-import Link from "next/link";
+import { TrackedLink } from "@/components/TrackedLink";
 import {
   ArrowRight,
   BookOpen,
@@ -152,13 +152,14 @@ export default async function DashboardOverviewPage() {
             : "Start your first practice session to unlock analytics, streaks and accuracy tracking."}
         </p>
 
-        <Link
-          href="/dashboard/practice"
+        <TrackedLink
+          to="/dashboard/practice"
+          label="dash-hero-start"
           className="inline-flex items-center gap-2 mt-5 px-6 py-2.5 rounded-[var(--radius-md)] bg-[var(--color-primary)]/15 border border-[var(--color-primary)]/30 text-[var(--color-primary-light)] text-sm font-bold hover:bg-[var(--color-primary)]/25 hover:border-[var(--color-primary)]/50 transition-all"
         >
           <Target className="w-4 h-4" />
           Start practicing
-        </Link>
+        </TrackedLink>
       </section>
 
       {/* ── Social proof (real community totals; hides when unverifiable) */}
@@ -191,9 +192,10 @@ export default async function DashboardOverviewPage() {
                 external: true,
               },
             ].map(({ step, title, desc, href, external }) => (
-              <Link
+              <TrackedLink
                 key={step}
-                href={href}
+                to={href}
+                label={`onboarding-step-${step}`}
                 {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="group glass-tile-glow rounded-[var(--radius-lg)] p-5 text-left hover:translate-y-[-2px] transition-all duration-300 relative overflow-hidden"
               >
@@ -212,12 +214,13 @@ export default async function DashboardOverviewPage() {
                 <p className="mt-1 text-xs leading-relaxed text-[var(--color-text-muted)]">
                   {desc}
                 </p>
-              </Link>
+              </TrackedLink>
             ))}
           </div>
         ) : (
-          <Link
-            href="/dashboard/practice"
+          <TrackedLink
+            to="/dashboard/practice"
+            label="dash-recommendation"
             className="group block glass-tile-glow rounded-[var(--radius-lg)] p-5 text-center hover:translate-y-[-2px] transition-all duration-300"
           >
             <p className="text-lg font-extrabold text-[var(--color-primary-light)]">
@@ -238,7 +241,7 @@ export default async function DashboardOverviewPage() {
               Start practicing
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </span>
-          </Link>
+          </TrackedLink>
         )}
       </section>
 
@@ -350,9 +353,10 @@ export default async function DashboardOverviewPage() {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {quickActions.map(({ href, title, desc, icon: Icon, tint }) => (
-            <Link
+            <TrackedLink
               key={href}
-              href={href}
+              to={href}
+              label={`quick-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
               className="group glass-tile-glow rounded-[var(--radius-lg)] p-5 flex flex-col"
             >
               <span className={`icon-tile w-11 h-11 ${tint}`}>
@@ -365,7 +369,7 @@ export default async function DashboardOverviewPage() {
               <p className="mt-1 text-xs leading-relaxed text-[var(--color-text-muted)]">
                 {desc}
               </p>
-            </Link>
+            </TrackedLink>
           ))}
         </div>
       </section>

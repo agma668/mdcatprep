@@ -1,5 +1,6 @@
 'use client'
 
+import { TrackedLink } from '@/components/TrackedLink';
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { ChevronDown, ChevronRight, BookOpen, ArrowRight } from 'lucide-react'
@@ -139,11 +140,11 @@ export function TopicDrill({ subjects, bankTopicsBySubject, bankCountsBySubject 
                             {chapter.topics.map(topic => {
                               const tCount = bankTopicsBySubject[subject]?.[topic.name] ?? 0
                               return (
-                                <Link
+                                <TrackedLink
                                   key={topic.name}
-                                  href={`/dashboard/practice/quiz?subject=${encodeURIComponent(subject)}&topic=${encodeURIComponent(topic.name)}`}
+                                  to={`/dashboard/practice/quiz?subject=${encodeURIComponent(subject)}&topic=${encodeURIComponent(topic.name)}`}
                                   className="group flex items-center gap-3 pl-12 pr-5 py-3 text-left hover:bg-white/[0.04] transition-colors border-b border-white/5 last:border-b-0"
-                                >
+                                 label="topic-drill">
                                   <span className="flex-1 min-w-0">
                                     <span className="block text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors">
                                       {topic.name}
@@ -158,7 +159,7 @@ export function TopicDrill({ subjects, bankTopicsBySubject, bankCountsBySubject 
                                     {tCount} Qs
                                   </span>
                                   <ArrowRight className="w-3.5 h-3.5 text-[var(--color-primary)] opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
-                                </Link>
+                                </TrackedLink>
                               )
                             })}
                           </div>

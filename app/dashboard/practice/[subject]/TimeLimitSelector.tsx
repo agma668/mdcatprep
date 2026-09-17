@@ -1,5 +1,6 @@
 'use client'
 
+import { TrackedLink } from "@/components/TrackedLink";
 import { useState } from 'react'
 import Link from 'next/link'
 import { Clock, Dices } from 'lucide-react'
@@ -90,13 +91,13 @@ export function TimeLimitSelector({
       </div>
 
       {/* Start button */}
-      <Link
-        href={quizHref}
+      <TrackedLink
+        to={quizHref}
         className="group w-full flex items-center justify-center gap-2 px-6 py-3 rounded-[var(--radius-md)] gradient-brand text-[var(--on-cta)] text-sm font-bold shadow-[var(--glow-signal-lg)] transition-all hover:brightness-110"
-      >
+       label="time-limit-start">
         <Dices className="w-4 h-4" />
         {selectedTime > 0 ? `Start Timed Session (${selectedTime} min)` : 'Start Practice'}
-      </Link>
+      </TrackedLink>
     </div>
   )
 }

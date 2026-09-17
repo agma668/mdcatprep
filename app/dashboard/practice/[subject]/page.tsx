@@ -1,3 +1,4 @@
+import { TrackedLink } from '@/components/TrackedLink';
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
@@ -70,12 +71,12 @@ export default async function SubjectPracticePage({
 
   return (
     <div className="p-6 md:p-8 max-w-4xl mx-auto w-full">
-      <Link
-        href="/dashboard/practice"
+      <TrackedLink
+        to="/dashboard/practice"
         className="text-sm font-medium text-[var(--color-primary)] hover:underline"
-      >
+       label="practice-subject">
         ← All subjects
-      </Link>
+      </TrackedLink>
 
       <div className="mt-3 flex items-center gap-3 mb-2">
         <span
@@ -112,10 +113,10 @@ export default async function SubjectPracticePage({
           {/* English extras: passage + composition */}
           {subject === 'English' && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-              <Link
-                href="/dashboard/practice/passage"
+              <TrackedLink
+                to="/dashboard/practice/passage"
                 className="group card-lift glass-tile-glow border border-white/10 rounded-[var(--radius-lg)]  p-6"
-              >
+               label="practice-subject">
                 <span
                   aria-hidden="true"
                   className="icon-tile w-12 h-12 rounded-[var(--radius-md)] text-2xl bg-indigo-500/10"
@@ -132,11 +133,11 @@ export default async function SubjectPracticePage({
                   Start passage
                   <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
                 </span>
-              </Link>
-              <Link
-                href="/dashboard/essays"
+              </TrackedLink>
+              <TrackedLink
+                to="/dashboard/essays"
                 className="group card-lift glass-tile-glow border border-white/10 rounded-[var(--radius-lg)]  p-6"
-              >
+               label="practice-subject">
                 <span
                   aria-hidden="true"
                   className="icon-tile w-12 h-12 rounded-[var(--radius-md)] bg-amber-500/10"
@@ -153,7 +154,7 @@ export default async function SubjectPracticePage({
                   Get a topic
                   <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
                 </span>
-              </Link>
+              </TrackedLink>
             </div>
           )}
 
@@ -166,11 +167,11 @@ export default async function SubjectPracticePage({
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {bigTopics.map(t => (
-                  <Link
+                  <TrackedLink
                     key={t.name}
-                    href={`/dashboard/practice/quiz?subject=${encodeURIComponent(subject)}&topic=${encodeURIComponent(t.name)}&count=10`}
+                    to={`/dashboard/practice/quiz?subject=${encodeURIComponent(subject)}&topic=${encodeURIComponent(t.name)}&count=10`}
                     className="group card-lift glass-tile-glow border border-white/10 rounded-[var(--radius-lg)]  p-6"
-                  >
+                   label="practice-subject">
                     <div className="flex items-center justify-between">
                       <span
                         aria-hidden="true"
@@ -190,7 +191,7 @@ export default async function SubjectPracticePage({
                         ? t.difficulties.map(d => d.charAt(0).toUpperCase() + d.slice(1)).join(' · ')
                         : 'Mixed difficulty'}
                     </p>
-                  </Link>
+                  </TrackedLink>
                 ))}
               </div>
             </>
@@ -204,10 +205,10 @@ export default async function SubjectPracticePage({
                   Practice
                 </h2>
               )}
-              <Link
-                href={`/dashboard/practice/quiz?subject=${encodeURIComponent(subject)}&count=10`}
+              <TrackedLink
+                to={`/dashboard/practice/quiz?subject=${encodeURIComponent(subject)}&count=10`}
                 className="group card-lift glass-tile-glow flex flex-col sm:flex-row sm:items-center gap-4 border border-[var(--color-primary)]/25 rounded-[var(--radius-lg)] p-6 bg-gradient-to-br from-[var(--color-primary)]/[0.07] to-transparent"
-              >
+               label="practice-subject">
                 <span
                   aria-hidden="true"
                   className="flex items-center justify-center w-12 h-12 shrink-0 rounded-[var(--radius-md)] text-2xl bg-[var(--color-primary)]/15 ring-1 ring-[var(--color-primary)]/25"
@@ -236,7 +237,7 @@ export default async function SubjectPracticePage({
                     <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
                   </span>
                 </div>
-              </Link>
+              </TrackedLink>
             </div>
           )}
         </>

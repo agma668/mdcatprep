@@ -1,5 +1,6 @@
 'use client'
 
+import { TrackedLink } from '@/components/TrackedLink';
 import { useCallback, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -189,12 +190,12 @@ export function MockTestPlayer({
             The paper came back empty, so there is nothing to time. Pick a
             format again — nothing has been recorded against your attempt.
           </p>
-          <Link
-            href="/dashboard/mock-test"
+          <TrackedLink
+            to="/dashboard/mock-test"
             className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-[var(--radius-md)] font-semibold text-sm bg-[var(--color-accent)] text-[var(--color-text-inverse)] hover:bg-[var(--color-accent-light)] transition-colors"
-          >
+           label="mock-player">
             Back to mock tests
-          </Link>
+          </TrackedLink>
         </div>
       </div>
     )
@@ -278,9 +279,9 @@ export function MockTestPlayer({
           )}
 
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link href="/dashboard/mock-test">
+            <TrackedLink to="/dashboard/mock-test" label="mock-player">
               <Button variant="outline">Try Another Test</Button>
-            </Link>
+            </TrackedLink>
             <Button variant="primary" onClick={() => setShowReview(!showReview)}>
               {showReview ? 'Hide Review' : 'Review Answers'}
             </Button>

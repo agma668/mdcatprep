@@ -1,5 +1,6 @@
 "use client";
 
+import { TrackedLink } from "@/components/TrackedLink";
 import Link from "next/link";
 import { Trophy, Flame, Crown, Medal } from "lucide-react";
 import type { LeaderboardEntry } from "@/lib/leaderboard";
@@ -60,12 +61,12 @@ export function SidebarLeaderboard({ entries }: Props) {
         </div>
 
         {/* Footer link */}
-        <Link
-          href="/dashboard/leaderboard"
+        <TrackedLink
+          to="/dashboard/leaderboard"
           className="block text-center py-2 text-[10px] font-semibold text-[var(--color-accent-light)]/70 hover:text-[var(--color-accent-light)] transition-colors border-t border-white/[0.05]"
-        >
+         label="sidebar-leaderboard">
           View full board →
-        </Link>
+        </TrackedLink>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { TrackedLink } from '@/components/TrackedLink';
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
@@ -51,12 +52,12 @@ export default async function QuizPage({
           <p className="text-sm text-[var(--color-text-muted)] mt-2">
             Try a different subject, topic, or difficulty.
           </p>
-          <Link
-            href="/dashboard/practice"
+          <TrackedLink
+            to="/dashboard/practice"
             className="inline-block mt-4 text-sm font-medium text-[var(--color-primary)] hover:underline"
-          >
+           label="quiz-empty">
             ← Back to practice setup
-          </Link>
+          </TrackedLink>
         </div>
       </div>
     )

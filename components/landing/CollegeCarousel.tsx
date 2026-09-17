@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { TrackedLink } from '@/components/TrackedLink';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Reveal, usePrefersReducedMotion } from '@/components/ui/Motion';
 import { COLLEGES, COLLEGES_WITH_PAGES } from '@/lib/college-list';
@@ -136,9 +137,10 @@ export function CollegeCarousel() {
             const { parked, isActive, style } = getItemState(i);
             const external = !HAS_PAGE.has(college.slug);
             return (
-              <Link
+              <TrackedLink
                 key={college.slug}
-                href={external ? WHATSAPP : `/colleges/${college.slug}`}
+                to={external ? WHATSAPP : `/colleges/${college.slug}`}
+                label={`college-card-${college.slug}`}
                 target={external ? '_blank' : undefined}
                 rel={external ? 'noopener noreferrer' : undefined}
                 aria-hidden={parked ? 'true' : undefined}
@@ -181,7 +183,7 @@ export function CollegeCarousel() {
                     </p>
                   )}
                 </div>
-              </Link>
+              </TrackedLink>
             );
           })}
         </div>

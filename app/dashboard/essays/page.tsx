@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { TrackedLink } from '@/components/TrackedLink'
 import { Check } from 'lucide-react'
 import { PageHeader } from '@/components/dashboard/PageHeader'
 import { CompositionGenerator } from './CompositionGenerator'
@@ -264,12 +264,13 @@ export default function EssaysPage() {
       </section>
 
       <div className="mt-8">
-        <Link
-          href="/dashboard/practice"
+        <TrackedLink
+          to="/dashboard/practice"
+          label="essays-back-to-practice"
           className="text-sm font-medium text-[var(--color-primary)] hover:underline"
         >
           ← Back to Practice
-        </Link>
+        </TrackedLink>
       </div>
     </div>
   )

@@ -1,5 +1,6 @@
 'use client'
 
+import { TrackedLink } from '@/components/TrackedLink';
 import { useRef, useState } from 'react'
 import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 import { useRouter } from 'next/navigation'
@@ -249,10 +250,10 @@ export function NotesPageClient({
           MDCAT Preparation
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <Link
-            href="/dashboard/notes/mdcat-master-notes"
+          <TrackedLink
+            to="/dashboard/notes/mdcat-master-notes"
             className="group glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5 flex flex-col"
-          >
+           label="notes-client">
             <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">
               🧬 MDCAT Master Concept Notes
             </h3>
@@ -263,11 +264,11 @@ export function NotesPageClient({
               Open notes
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
             </span>
-          </Link>
-          <Link
-            href="/dashboard/practice?college=MDCAT"
+          </TrackedLink>
+          <TrackedLink
+            to="/dashboard/practice?college=MDCAT"
             className="group glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5 flex flex-col"
-          >
+           label="notes-client">
             <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">
               📝 MDCAT Exam-Style Practice
             </h3>
@@ -278,7 +279,7 @@ export function NotesPageClient({
               Start practising
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
             </span>
-          </Link>
+          </TrackedLink>
         </div>
       </section>
 
@@ -305,12 +306,12 @@ export function NotesPageClient({
                 >
                   🏛️ Official University Site ↗
                 </a>
-                <Link
-                  href={college.practiceLink || '/dashboard/practice'}
+                <TrackedLink
+                  to={college.practiceLink || '/dashboard/practice'}
                   className="flex items-center gap-2 px-3 py-2 rounded-[var(--radius-md)] tile-warning text-amber-400 text-sm font-medium hover:bg-amber-500/20 transition-colors"
-                >
+                 label="notes-client">
                   📝 Exam-Style Practice
-                </Link>
+                </TrackedLink>
               </div>
             </div>
           ))}

@@ -1,3 +1,4 @@
+import { TrackedLink } from '@/components/TrackedLink';
 import type { Metadata } from 'next'
 import { redirect } from 'next/navigation'
 import { Lightbulb } from 'lucide-react'
@@ -67,9 +68,9 @@ export default async function McatMasterNotesPage() {
   return (
     <div className="p-6 md:p-8 max-w-4xl mx-auto w-full">
       <div className="mb-6">
-        <Link href="/dashboard/notes" className="text-sm font-medium text-[var(--color-primary)] hover:underline">
+        <TrackedLink to="/dashboard/notes" className="text-sm font-medium text-[var(--color-primary)] hover:underline" label="master-notes">
           ← Back to Important Notes
-        </Link>
+        </TrackedLink>
       </div>
       <div className="bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-[var(--radius-lg)] p-6 mb-8">
         <span className="inline-block px-3 py-1 rounded-full bg-[var(--color-primary)] text-[var(--color-text-inverse)] text-xs font-semibold mb-3">
@@ -128,9 +129,9 @@ export default async function McatMasterNotesPage() {
         </section>
       ))}
       <div className="mt-8">
-        <Link href="/dashboard/notes" className="text-sm font-medium text-[var(--color-primary)] hover:underline">
+        <TrackedLink to="/dashboard/notes" className="text-sm font-medium text-[var(--color-primary)] hover:underline" label="master-notes">
           ← Back to Important Notes
-        </Link>
+        </TrackedLink>
       </div>
     </div>
   )

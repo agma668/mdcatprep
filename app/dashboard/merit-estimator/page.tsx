@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { TrackedLink } from "@/components/TrackedLink";
 import { Calculator, ExternalLink } from "lucide-react";
 import { PageHeader } from "@/components/dashboard/PageHeader";
 import { MeritEstimator } from "./MeritEstimator";
@@ -88,12 +88,13 @@ export default function MeritEstimatorPage() {
               {e.body} = {e.total} marks ({e.note})
             </span>
           ))}
-          <Link
-            href="/founder"
+          <TrackedLink
+            to="/founder"
+            label="merit-estimator-founder"
             className="inline-flex items-center gap-1 font-medium text-[var(--color-primary)] hover:underline"
           >
             Full methodology <ExternalLink className="h-3 w-3" />
-          </Link>
+          </TrackedLink>
         </p>
       </section>
     </div>

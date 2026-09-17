@@ -1,5 +1,6 @@
 "use client";
 
+import { TrackedLink } from "@/components/TrackedLink";
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { ArrowRight, Timer } from "lucide-react";
@@ -52,10 +53,10 @@ export function PracticeClient({
           Entry-Test Practice
         </h2>
 
-        <Link
-          href={fullRunHref}
+        <TrackedLink
+          to={fullRunHref}
           className="group glass-tile-glow border border-[var(--color-primary)]/25 rounded-[var(--radius-lg)] p-6 flex flex-col sm:flex-row sm:items-center gap-4 mb-6 bg-gradient-to-br from-[var(--color-primary)]/[0.08] to-transparent"
-        >
+         label="practice-full-run">
           <span
             aria-hidden="true"
             className="icon-tile w-12 h-12 rounded-[var(--radius-md)] text-2xl bg-[var(--color-primary)]/15 ring-1 ring-[var(--color-primary)]/25 flex items-center justify-center shrink-0"
@@ -77,7 +78,7 @@ export function PracticeClient({
             Start
             <ArrowRight className="w-4 h-4 transition-transform duration-[var(--transition-fast)] group-hover:translate-x-1" />
           </span>
-        </Link>
+        </TrackedLink>
 
         <PracticeSetup
           subjects={filteredSubjects}

@@ -5,6 +5,7 @@ import mcqsData from '../../data/mcqs.json';
 import { ArrowRight, Check, GraduationCap, RefreshCw, Sparkles, Trophy, X } from 'lucide-react';
 import { AnimatePresence, MotionConfig, motion } from 'framer-motion';
 import Link from 'next/link';
+import { TrackedLink } from '@/components/TrackedLink';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
@@ -154,9 +155,9 @@ export function MCQDemoSection() {
                         <WhatsAppIcon className="h-4 w-4" />
                         Share on WhatsApp
                       </Button>
-                      <Link href="/signup">
+                      <TrackedLink to="/signup" label="mcq-demo-signup">
                         <Button size="sm">Sign Up Free</Button>
-                      </Link>
+                      </TrackedLink>
                     </div>
                   </motion.div>
                 ) : (

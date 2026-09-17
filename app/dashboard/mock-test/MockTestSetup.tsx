@@ -1,5 +1,6 @@
 'use client'
 
+import { TrackedLink } from "@/components/TrackedLink";
 import { useState } from 'react'
 import Link from 'next/link'
 import { Clock, FileText, ArrowRight, AlertTriangle } from 'lucide-react'
@@ -84,12 +85,12 @@ export function MockTestSetup({ formats }: { formats: TestFormat[] }) {
             </div>
           </div>
 
-          <Link
-            href={`/dashboard/mock-test/test?format=${selected}`}
+          <TrackedLink
+            to={`/dashboard/mock-test/test?format=${selected}`}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-[var(--radius-md)] bg-[var(--color-primary)] text-[var(--color-text-inverse)] font-bold hover:bg-[var(--color-primary-dark)] transition-colors"
-          >
+           label="mock-setup-start">
             Start Mock Test <ArrowRight className="w-4 h-4" />
-          </Link>
+          </TrackedLink>
         </div>
       )}
     </div>

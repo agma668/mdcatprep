@@ -1,5 +1,6 @@
 "use client";
 
+import { TrackedLink } from "@/components/TrackedLink";
 import Link from "next/link";
 import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 import { Trophy, Flame, Users, Target, TrendingUp } from "lucide-react";
@@ -62,12 +63,12 @@ export function LeaderboardTable({
             Rankings appear as students solve questions — accuracy and streaks update live.
             Be the first name students see when they open the board.
           </p>
-          <Link
-            href="/dashboard/practice"
+          <TrackedLink
+            to="/dashboard/practice"
             className="mt-6 inline-flex rounded-[var(--radius-md)] bg-[var(--color-primary)] px-6 py-2.5 text-sm font-bold text-[var(--color-text-inverse)] transition-colors hover:bg-[var(--color-primary-light)]"
-          >
+           label="leaderboard-empty">
             Start practising
-          </Link>
+          </TrackedLink>
         </div>
       ) : (
         <div className="glass-tile-glow overflow-hidden rounded-[var(--radius-xl)] border border-white/10">

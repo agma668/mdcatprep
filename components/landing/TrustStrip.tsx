@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TrackedLink } from "@/components/TrackedLink";
 import Image from "next/image";
 import { ShieldCheck } from "lucide-react";
 import { COLLEGES, COLLEGES_WITH_PAGES } from "@/lib/college-list";
@@ -39,8 +40,9 @@ export function TrustStrip() {
               const target = hasPage ? undefined : "_blank";
               return (
                 <li key={college.slug}>
-                  <Link
-                    href={href}
+                  <TrackedLink
+                    to={href}
+                    label={`trust-${college.slug}`}
                     target={target}
                     rel={target ? "noopener noreferrer" : undefined}
                     className="group inline-flex items-center gap-2 text-sm font-semibold text-[var(--steel-200)] transition-colors hover:text-[var(--signal-200)]"
@@ -64,7 +66,7 @@ export function TrustStrip() {
                       )}
                     </span>
                     <span>{college.name}</span>
-                  </Link>
+                  </TrackedLink>
                 </li>
               );
             })}

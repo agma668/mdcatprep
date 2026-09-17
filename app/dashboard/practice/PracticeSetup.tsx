@@ -1,5 +1,6 @@
 'use client'
 
+import { TrackedLink } from '@/components/TrackedLink';
 import Link from 'next/link'
 import { NotebookPen } from 'lucide-react'
 import { subjectIcon } from '@/lib/subjects'
@@ -37,11 +38,11 @@ export function PracticeSetup({
         {subjects.map((s, i) => {
           const count = countsBySubject[s] ?? 0
           return (
-            <Link
+            <TrackedLink
               key={s}
-              href={`/dashboard/practice/${encodeURIComponent(s)}`}
+              to={`/dashboard/practice/${encodeURIComponent(s)}`}
               className="group glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-6 flex flex-col"
-            >
+             label="practice-setup-subject">
               <div className="flex items-start justify-between gap-3">
                 <span
                   aria-hidden="true"
@@ -67,7 +68,7 @@ export function PracticeSetup({
                 {count > 0 ? 'Choose a topic' : 'Coming soon'}
                 <ArrowRight className="w-4 h-4 transition-transform duration-[var(--transition-fast)] group-hover:translate-x-1" />
               </span>
-            </Link>
+            </TrackedLink>
           )
         })}
       </div>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { TrackedLink } from "@/components/TrackedLink";
 import { Button } from "@/components/ui/Button";
 import { CompassLogo } from "@/components/landing/CompassLogo";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
@@ -76,8 +77,9 @@ export function Navbar() {
           className="flex items-center justify-between h-16 md:h-18"
         >
           {/* Logo — the compass mark is insignia, so it keeps the brass. */}
-          <Link
-            href="/"
+          <TrackedLink
+            to="/"
+            label="navbar-logo"
             aria-label="MED Prep — Home"
             className="group flex items-center gap-2.5 rounded-[var(--radius-md)]"
           >
@@ -90,7 +92,7 @@ export function Navbar() {
             <span className="text-xl font-bold tracking-[-0.02em] text-[var(--steel-100)]">
               MED Prep
             </span>
-          </Link>
+          </TrackedLink>
 
           {/* Desktop links. Plain anchors, no click handler: `html` already
               carries `scroll-behavior: smooth` and `scroll-padding-top`, so the
