@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, MotionConfig } from "framer-motion";
+import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 import { CheckCircle, CalendarRange, Target, TrendingUp, Users } from "lucide-react";
 import { StatsAsOf } from "@/components/shared/StatsAsOf";
 
@@ -51,21 +52,21 @@ export function AnalyticsPreview({ analytics }: { analytics: AnalyticsStats }) {
     },
     {
       label: "Questions Answered",
-      value: analytics.questionsAnswered.toLocaleString(),
+      value: fmtInt(analytics.questionsAnswered),
       sub: "all-time, real students",
       icon: CheckCircle,
       live: false,
     },
     {
       label: "Answered in 30 Days",
-      value: analytics.answeredLast30Days.toLocaleString(),
+      value: fmtInt(analytics.answeredLast30Days),
       sub: "the last 30 days",
       icon: CalendarRange,
       live: true,
     },
     {
       label: "Students",
-      value: analytics.students.toLocaleString(),
+      value: fmtInt(analytics.students),
       sub: "learning on MED Prep",
       icon: Users,
       // Not `live`: the beacon treatment marks a rolling window, and this is a

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 import { Trophy, Flame, Users, Target, TrendingUp } from "lucide-react";
 import type { LeaderboardEntry, LeaderboardStats, SelfRankInfo } from "@/lib/leaderboard";
 import { ChallengeButton } from "./ChallengeButton";
@@ -34,7 +35,7 @@ export function LeaderboardTable({
             <Users className="w-3.5 h-3.5" /> Students
           </p>
           <p className="mt-1 text-2xl font-extrabold tabular-nums text-white">
-            {stats.totalStudents.toLocaleString()}
+            {fmtInt(stats.totalStudents)}
           </p>
         </div>
         <div className="glass-tile-glow rounded-[var(--radius-lg)] border border-white/10 p-4 text-center">
@@ -42,7 +43,7 @@ export function LeaderboardTable({
             <Target className="w-3.5 h-3.5" /> Questions
           </p>
           <p className="mt-1 text-2xl font-extrabold tabular-nums text-white">
-            {stats.totalQuestions.toLocaleString()}
+            {fmtInt(stats.totalQuestions)}
           </p>
         </div>
         <div className="glass-tile-glow rounded-[var(--radius-lg)] border border-white/10 p-4 text-center">
@@ -108,7 +109,7 @@ export function LeaderboardTable({
                     {s.accuracy}%
                   </span>
                   <span className="w-20 text-right text-sm font-extrabold tabular-nums text-[var(--color-primary-light)]">
-                    {s.questions.toLocaleString()}
+                    {fmtInt(s.questions)}
                   </span>
                   <span className="hidden w-16 items-center justify-end gap-1 text-right text-xs font-bold tabular-nums text-white/60 sm:flex">
                     <Flame className="h-3.5 w-3.5 text-orange-400/80" />
@@ -146,7 +147,7 @@ export function LeaderboardTable({
                   Questions
                 </p>
                 <p className="mt-0.5 text-lg font-extrabold tabular-nums text-white">
-                  {self.questions.toLocaleString()}
+                  {fmtInt(self.questions)}
                 </p>
               </div>
               <div className="text-right">

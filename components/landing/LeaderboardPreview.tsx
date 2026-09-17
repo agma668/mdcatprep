@@ -1,6 +1,7 @@
 "use client";
 
 import { Trophy, Flame, Zap, Medal, Crown } from "lucide-react";
+import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 import { motion, MotionConfig } from "framer-motion";
 import type { LeaderboardEntry, LeaderboardStats } from "@/lib/leaderboard";
 
@@ -33,7 +34,7 @@ export function LeaderboardPreview({ entries, stats }: Props) {
   const statCards = [
     {
       label: "Total Questions",
-      value: stats.totalQuestions.toLocaleString(),
+      value: fmtInt(stats.totalQuestions),
       icon: Zap,
       live: false,
     },
@@ -199,7 +200,7 @@ export function LeaderboardPreview({ entries, stats }: Props) {
                   </div>
                   <div role="cell" className="col-span-3 text-right">
                     <span className="text-xs font-bold tabular-nums text-[var(--steel-200)]">
-                      {student.questions.toLocaleString()}
+                      {fmtInt(student.questions)}
                     </span>
                   </div>
                 </motion.div>

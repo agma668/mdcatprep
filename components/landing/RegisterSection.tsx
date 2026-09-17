@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 import Link from 'next/link';
 import { GraduationCap, BookOpenCheck, BarChart3, Trophy, CheckCircle } from 'lucide-react';
 import { Reveal } from '@/components/ui/Motion';
@@ -61,13 +62,13 @@ export function RegisterSection({ mcqs }: { mcqs: number }) {
               </h2>
 
               <p className="mx-auto mb-8 max-w-lg text-lg leading-relaxed text-[var(--steel-300)] lg:mx-0">
-                Create a free account and get instant access to {mcqs.toLocaleString()} MCQs, study notes,
+                Create a free account and get instant access to {fmtInt(mcqs)} MCQs, study notes,
                 progress tracking, and live WhatsApp classes. No credit card required.
               </p>
 
               <div className="mx-auto grid max-w-md grid-cols-2 gap-3 lg:mx-0">
                 {[
-                  { icon: BookOpenCheck, label: `${mcqs.toLocaleString()} MCQs`, sub: 'Exam-style practice' },
+                  { icon: BookOpenCheck, label: `${fmtInt(mcqs)} MCQs`, sub: 'Exam-style practice' },
                   { icon: BarChart3, label: 'Track Progress', sub: 'Real-time analytics' },
                   { icon: GraduationCap, label: '7 Subjects', sub: 'Full syllabus coverage' },
                   { icon: Trophy, label: 'Leaderboard', sub: 'Compete with peers' },

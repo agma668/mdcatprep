@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 
 import { Clock, Flame, NotebookPen, Target, Trophy } from "lucide-react";
 import { getStudentAnalytics } from "@/lib/analytics/index";
@@ -53,7 +54,7 @@ export default async function AnalyticsDashboardPage() {
           />
           <StatCard
             label="Total Questions"
-            value={s ? s.totalQuestionsAttempted.toLocaleString() : "—"}
+            value={s ? fmtInt(s.totalQuestionsAttempted) : "—"}
             icon={<NotebookPen className="w-4 h-4" />}
             accentColor="var(--color-primary)"
           />

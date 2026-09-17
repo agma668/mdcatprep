@@ -4,6 +4,7 @@
 // ProgressShareCardBody (canvas draw + Web Share / download actions live in
 // one place; the daily-quiz "Share today's result" control uses the same body).
 import { ProgressShareCardBody, type ShareCell } from "@/components/dashboard/ProgressShareCardBody";
+import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 
 export function ShareProgressCard({
   name,
@@ -24,7 +25,7 @@ export function ShareProgressCard({
     { label: "Leaderboard rank", value: rank !== null ? `#${rank}` : "#—", accent: true },
     { label: "Study streak", value: `${streak} ${streak === 1 ? "day" : "days"}` },
     { label: "Accuracy", value: `${accuracy}%` },
-    { label: "Questions answered", value: questions.toLocaleString() },
+    { label: "Questions answered", value: fmtInt(questions) },
   ];
 
   return (
@@ -46,7 +47,7 @@ export function ShareProgressCard({
           title="MY PROGRESS"
           name={name}
           cells={cells}
-          shareText={`I've answered ${questions.toLocaleString()} questions on MED Prep.`}
+          shareText={`I've answered ${fmtInt(questions)} questions on MED Prep.`}
         />
       </div>
     </section>

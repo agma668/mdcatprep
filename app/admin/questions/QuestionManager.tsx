@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
@@ -341,7 +342,7 @@ export function QuestionManager({
                       </p>
                       <p className="text-xs text-white/45 mt-1">
                         Source: {q.source || 'admin'} · Updated{' '}
-                        {new Date(q.updated_at || q.created_at).toLocaleDateString()}
+                        {fmtUTCDate(q.updated_at || q.created_at)}
                       </p>
                     </td>
                     <td className="p-4">

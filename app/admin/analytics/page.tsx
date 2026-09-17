@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
@@ -28,7 +29,7 @@ export const dynamic = 'force-dynamic'
 
 /** Em dash for a failed count — never a fabricated zero. */
 function n(v: Num): string {
-  return v === null ? '—' : v.toLocaleString()
+  return v === null ? '—' : fmtInt(v)
 }
 
 function fmtWhen(iso: string | null): string {

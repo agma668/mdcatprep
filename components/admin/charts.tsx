@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 
 /**
  * Dependency-free SVG chart primitives for the admin analytics page — the
@@ -125,7 +126,7 @@ export function BarList({ items, unit }: { items: { name: string; count: number 
               {item.name}
             </span>
             <span className="shrink-0 tabular-nums text-white/45">
-              {item.count.toLocaleString()}
+              {fmtInt(item.count)}
               {unit ? ` ${unit}` : ""}
             </span>
           </div>

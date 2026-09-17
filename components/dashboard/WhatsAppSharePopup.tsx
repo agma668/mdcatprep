@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 import { getSiteUrl } from "@/lib/site";
 import { useReferral } from "@/lib/use-referral";
 
@@ -84,7 +85,7 @@ export function WhatsAppSharePopup({ questionsAnswered, streak, accuracy }: Prop
   const url = referralUrl || getSiteUrl();
   const statsLine =
     questionsAnswered > 0
-      ? `I've answered ${questionsAnswered.toLocaleString()} questions${accuracy > 0 ? ` with ${accuracy}% accuracy` : ""}${streak > 0 ? ` and am on a ${streak}-day streak` : ""} — join me!\n\n`
+      ? `I've answered ${fmtInt(questionsAnswered)} questions${accuracy > 0 ? ` with ${accuracy}% accuracy` : ""}${streak > 0 ? ` and am on a ${streak}-day streak` : ""} — join me!\n\n`
       : "";
   const socialProofLine =
     joinedCount > 0

@@ -1,6 +1,7 @@
 "use client";
 
 import { Users, TrendingUp, Clock } from "lucide-react";
+import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 import type { CommunityProofStats } from "@/lib/public-stats";
 import { StatsAsOf } from "@/components/shared/StatsAsOf";
 
@@ -28,7 +29,7 @@ export function SocialProof({ stats }: { stats: CommunityProofStats | null }) {
         <span className="inline-flex items-center gap-1.5">
           <TrendingUp className="w-3.5 h-3.5" />
           <span className="text-white/55 font-medium">
-            {stats.answeredThisWeek.toLocaleString()} questions answered this week
+            {fmtInt(stats.answeredThisWeek)} questions answered this week
           </span>
         </span>
         <span className="inline-flex items-center gap-1.5">
@@ -40,7 +41,7 @@ export function SocialProof({ stats }: { stats: CommunityProofStats | null }) {
         <span className="inline-flex items-center gap-1.5">
           <Clock className="w-3.5 h-3.5" />
           <span className="text-white/55 font-medium">
-            {stats.studentsJoined.toLocaleString()} students joined
+            {fmtInt(stats.studentsJoined)} students joined
           </span>
         </span>
       </div>

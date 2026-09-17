@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
@@ -194,7 +195,7 @@ export function NotesPageClient({
       )}
       <div className="mt-3 pt-3 border-t border-[var(--color-border)] flex items-center justify-between gap-2">
         <p className="text-xs text-[var(--color-text-muted)]">
-          {new Date(note.created_at).toLocaleDateString()}
+          {fmtUTCDate(note.created_at)}
           {note.file_name ? ` · ${note.file_name}${note.file_size ? ` (${formatBytes(note.file_size)})` : ''}` : ''}
         </p>
         <div className="flex items-center gap-2 shrink-0">

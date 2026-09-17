@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState, useEffect, useCallback } from "react";
+import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 import { Flame } from "lucide-react";
 import type { CommunityActivityDay } from "@/lib/public-stats";
 
@@ -170,7 +171,7 @@ export function CommunityStreakWall({ days }: { days: CommunityActivityDay[] }) 
         </div>
         <div className="flex items-center gap-4 text-xs text-[var(--steel-300)]">
           <span className="rounded-full border border-[var(--line-2)] bg-[var(--srf-2)] px-3 py-1 font-semibold text-[var(--signal-300)]">
-            {total.toLocaleString()} attempts
+            {fmtInt(total)} attempts
           </span>
           <span className="rounded-full border border-[var(--line-2)] bg-[var(--srf-2)] px-3 py-1 font-semibold">
             {activeDays} active days
@@ -224,7 +225,7 @@ export function CommunityStreakWall({ days }: { days: CommunityActivityDay[] }) 
                   <span className="font-semibold text-[var(--steel-100)]">{formatDay(tooltip.date)}</span>
                   <span className="ml-2 text-[var(--signal-300)]">
                     {tooltip.attempts > 0
-                      ? `${tooltip.attempts.toLocaleString()} attempt${tooltip.attempts === 1 ? "" : "s"}`
+                      ? `${fmtInt(tooltip.attempts)} attempt${tooltip.attempts === 1 ? "" : "s"}`
                       : "no attempts"}
                   </span>
                 </div>

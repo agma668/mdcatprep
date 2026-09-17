@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
 import { Modal, ModalHeader, ModalBody, ModalFooter } from '@/components/ui/modal'
@@ -210,7 +211,7 @@ export function StudentTable({ initialProfiles }: { initialProfiles: Profile[] }
                   <td className="p-4 text-white/60">{profile.phone || '—'}</td>
                   <td className="p-4 text-white/60">{profile.exam_target || '—'}</td>
                   <td className="p-4 text-white/60">
-                    {new Date(profile.created_at).toLocaleDateString()}
+                    {fmtUTCDate(profile.created_at)}
                   </td>
                   <td className="p-4">
                     <Badge variant={badgeVariant[profile.status] ?? 'neutral'}>

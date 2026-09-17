@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
@@ -166,7 +167,7 @@ export function AdminNotesManager({
           )}
           <p className="text-xs text-white/45 mt-2">
             Uploaded by {note.uploader_name || '—'} on{' '}
-            {new Date(note.created_at).toLocaleString()}
+            {fmtUTCTime(note.created_at)}
             {note.file_name
               ? ` · ${note.file_name}${note.file_size ? ` (${formatBytes(note.file_size)})` : ''}`
               : note.drive_link

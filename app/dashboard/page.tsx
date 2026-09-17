@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 import dynamicImport from "next/dynamic";
 import Link from "next/link";
 import {
@@ -70,7 +71,7 @@ export default async function DashboardOverviewPage() {
     },
     {
       label: "Questions Done",
-      value: s ? s.totalQuestionsAttempted.toLocaleString() : "—",
+      value: s ? fmtInt(s.totalQuestionsAttempted) : "—",
       sub: "across every subject",
       icon: CheckCircle,
       tint: "bg-gradient-to-br from-indigo-500/10 to-indigo-500/5 text-indigo-400 ring-1 ring-indigo-500/15",
@@ -147,7 +148,7 @@ export default async function DashboardOverviewPage() {
         </h1>
         <p className="mt-2 text-white/50 max-w-xl mx-auto text-sm sm:text-base group-hover:text-white/65 transition-colors">
           {hasPractice
-            ? "You have answered " + s!.totalQuestionsAttempted.toLocaleString() + " questions. Keep going."
+            ? "You have answered " + fmtInt(s!.totalQuestionsAttempted) + " questions. Keep going."
             : "Start your first practice session to unlock analytics, streaks and accuracy tracking."}
         </p>
 
