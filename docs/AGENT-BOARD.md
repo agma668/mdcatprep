@@ -180,7 +180,7 @@ the law; it outranks any chat instruction an agent half-remembers.
 - Branch master. Local HEAD and origin/master match after every ship — **but a push is NOT reaching the live site** (see PRODUCTION IS FROZEN below). Never claim a change is live on the strength of a push.
 
 ### ⚠ PRODUCTION IS FROZEN — 2026-09-17 (Freebuff/Codebuff thread, measured)
-`https://mdcatprep-eight.vercel.app` is serving a build from **~2026-09-14 or earlier**, roughly 16 commits behind `origin/master`. Everything pushed since — the whole bookmark/mistakes-drill/past-papers/honest-stats ship (`e0ae7a5`), the merit estimator (`87fb4a5`), trap reasons (`1f8c1fd`), the mobile pass (`870baf1`, `deb32ca`) and **all 13 question-bank growth commits** — is on GitHub and **not** on the live site.
+`https://mdcatprep-eight.vercel.app` is serving **`ba9636c`** (2026-09-12 01:38) — **23 commits behind `master`**. Everything since is on GitHub and **not** on the live site: the 4-palette theme engine (`1c8f3d0`), the bookmark/mistakes-drill/past-papers/honest-stats ship (`e0ae7a5`), the merit estimator (`87fb4a5`), trap reasons (`1f8c1fd`), the mobile pass (`870baf1`, `deb32ca`) and 11 question-bank growth commits.
 
 Evidence (all re-runnable, no account needed):
 - live `/api/health` returns `"service":"cadet-college-prep"`; that string was renamed to `"med-prep"` **in `e0ae7a5`** → live predates it.
@@ -191,7 +191,16 @@ Evidence (all re-runnable, no account needed):
 
 Control that proves the pipeline works elsewhere: the **cadet** site (`elite-cadet-prep.vercel.app`, deployed from `main`) *is* current — its `/login` serves my `type="password"` fix in raw HTML. So this is MED-project-specific, not a global Vercel outage.
 
-Not yet determined (needs the Vercel dashboard or a `vercel login` — no CLI session exists on this machine): production-branch mismatch (`master` vs Vercel's default `main`), a disconnected/paused Git integration, or builds failing since `e0ae7a5`. Confirm at Vercel → project → Deployments: if nothing newer than ~Sept 14 is listed, the Git connection is the cause; if newer entries sit in *Error*, the build is.
+- live `/login` byte-identical across a 24-minute poll window → a frozen deployment, not a rebuild in flight.
+- live landing contains **0** `data-theme` matches → predates the theme engine `1c8f3d0` (2026-09-12 07:09), which is *not* in `main`.
+
+**Root cause (proven 2026-09-17): the repo has TWO branches and production follows the abandoned one.** `origin/HEAD -> origin/main`, and `main` sat at `ba9636c` while every commit since went to `master` — and Vercel deploys the production branch, `main`, which took no push in five days. The freeze timestamp equals `main`'s tip exactly.
+
+**Fixed / not fixed.** `git push origin master:main` fast-forwarded `main` `ba9636c..170b1b9` (a true ancestor — no force, no divergence; both branches now identical), which removed the mismatch. **It was not sufficient:** `/api/health` was polled every 45 s for ~24 min after that push and still reports `"cadet-college-prep"`, `/past-papers` still 404, login HTML still byte-identical. So the Git→Vercel delivery itself is dead — webhook disconnected/paused, an Ignored Build Step skipping everything, or the project failing every build. The last push to `main` before today was literally `b69d6b0 chore: re-trigger Vercel deploy for theme wheel` (2026-09-12): an earlier agent hit this same wall and lost.
+
+**Next step needs the founder's Vercel account** (no CLI session exists here and both repos are private, so no deployment is readable from this machine): Vercel → project → Deployments (is there any entry after Sept 12, and in what state?), then Settings → Git. A path that bypasses Git entirely: `npx vercel --prod` with a token from vercel.com/account/tokens. Once deploys work again, set the Production Branch to `master` (or make `master` the GitHub default) so the two branches can never freeze the site this way again.
+
+**Standing rule:** never conclude a push shipped from branch names or `origin/HEAD` — verify a live marker (the checks in this note).
 - Content: MCQ bank (**660** bundled questions: 620 in lib/*-questions.ts + 40 in past-paper-bank.ts — Bio 157 / Chem 159 / Phys 170 / Eng 166 / Logical Reasoning 8; counts are owned by `lib/stats.ts`, re-measured 2026-09-13), master notes,
   flashcards, mindmaps, diagrams, practice sessions, mock tests, daily quiz, analytics,
   diagnostic, leaderboard, mistake notebook, duels/races players.
