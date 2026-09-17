@@ -177,7 +177,21 @@ the law; it outranks any chat instruction an agent half-remembers.
 - STAGE EXPLICIT PATHS. Never `git add .` / `git commit -a`.
 
 ## CURRENT STATE — 2026-09-11
-- Branch master; auto-deploys to Vercel on push. Local HEAD and origin/master match after every ship.
+- Branch master. Local HEAD and origin/master match after every ship — **but a push is NOT reaching the live site** (see PRODUCTION IS FROZEN below). Never claim a change is live on the strength of a push.
+
+### ⚠ PRODUCTION IS FROZEN — 2026-09-17 (Freebuff/Codebuff thread, measured)
+`https://mdcatprep-eight.vercel.app` is serving a build from **~2026-09-14 or earlier**, roughly 16 commits behind `origin/master`. Everything pushed since — the whole bookmark/mistakes-drill/past-papers/honest-stats ship (`e0ae7a5`), the merit estimator (`87fb4a5`), trap reasons (`1f8c1fd`), the mobile pass (`870baf1`, `deb32ca`) and **all 13 question-bank growth commits** — is on GitHub and **not** on the live site.
+
+Evidence (all re-runnable, no account needed):
+- live `/api/health` returns `"service":"cadet-college-prep"`; that string was renamed to `"med-prep"` **in `e0ae7a5`** → live predates it.
+- live `/past-papers` → 404 (`e0ae7a5` added it) · live `/merit` → 404 (`87fb4a5`).
+- live `/flashcards` → 200 (added in `b84814d`, the commit *just before* `e0ae7a5`) → brackets the deployed build to ≈ `b84814d`.
+- live landing hero still prints **543** (the pre-stats hardcoded figure), not the bank-derived count.
+- live `/login` returned byte-identical HTML (23,658 B, 0 `<form>`, 0 password input) on three checks 45 s apart → a frozen deployment, not a rebuild in flight.
+
+Control that proves the pipeline works elsewhere: the **cadet** site (`elite-cadet-prep.vercel.app`, deployed from `main`) *is* current — its `/login` serves my `type="password"` fix in raw HTML. So this is MED-project-specific, not a global Vercel outage.
+
+Not yet determined (needs the Vercel dashboard or a `vercel login` — no CLI session exists on this machine): production-branch mismatch (`master` vs Vercel's default `main`), a disconnected/paused Git integration, or builds failing since `e0ae7a5`. Confirm at Vercel → project → Deployments: if nothing newer than ~Sept 14 is listed, the Git connection is the cause; if newer entries sit in *Error*, the build is.
 - Content: MCQ bank (**660** bundled questions: 620 in lib/*-questions.ts + 40 in past-paper-bank.ts — Bio 157 / Chem 159 / Phys 170 / Eng 166 / Logical Reasoning 8; counts are owned by `lib/stats.ts`, re-measured 2026-09-13), master notes,
   flashcards, mindmaps, diagrams, practice sessions, mock tests, daily quiz, analytics,
   diagnostic, leaderboard, mistake notebook, duels/races players.
