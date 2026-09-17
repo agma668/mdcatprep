@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { TrackedLink } from "@/components/TrackedLink";
 import { Check, GraduationCap, MessageCircle, Sparkles, Users } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
@@ -63,12 +63,12 @@ export function CTA() {
 
         <Reveal delay={120}>
           <div className="mb-14 flex flex-col justify-center gap-4 sm:flex-row">
-            <Link href="/diagnostic">
+            <TrackedLink to="/diagnostic" label="cta-section">
               <Button variant="primary" size="lg" className="gap-2 px-10 text-base">
                 <Sparkles className="h-5 w-5" aria-hidden="true" />
                 Take Free Diagnostic Quiz
               </Button>
-            </Link>
+            </TrackedLink>
             <a
               href={WHATSAPP_GROUP}
               target="_blank"

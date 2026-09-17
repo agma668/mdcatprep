@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { GraduationCap, MessageCircle } from "lucide-react";
+import { TrackedLink } from "@/components/TrackedLink";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Stagger } from "@/components/ui/Motion";
@@ -142,11 +143,11 @@ export function Hero({
                   change overflow visibly instead of wrapping quietly. */}
               <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
                 <Magnetic strength={0.2}>
-                  <Link href="/diagnostic">
+                  <TrackedLink to="/diagnostic" label="hero-primary">
                     <Button variant="primary" size="lg" className="whitespace-nowrap px-8 text-base">
                       Take Free Diagnostic Quiz
                     </Button>
-                  </Link>
+                  </TrackedLink>
                 </Magnetic>
                 <Magnetic strength={0.18}>
                   <a
@@ -165,7 +166,7 @@ export function Hero({
                   aria-hidden="true"
                   className="h-4 w-4 text-[var(--signal-300)]"
                 />
-                An initiative for accessible education — by <Link href="/founder" className="font-semibold text-[var(--signal-200)] hover:underline">Muhammad Haziq Khan</Link>
+                An initiative for accessible education — by <TrackedLink to="/founder" label="hero-founder" className="font-semibold text-[var(--signal-200)] hover:underline">Muhammad Haziq Khan</TrackedLink>
               </p>
             </div>
           </div>
