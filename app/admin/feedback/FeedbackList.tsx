@@ -7,13 +7,12 @@ import { Modal, ModalHeader, ModalBody, ModalFooter } from '@/components/ui/moda
 import { deleteFeedback } from '@/app/actions/feedback'
 import type { FeedbackRow } from '@/lib/feedback'
 
+import { fmtUTCDate, fmtUTCTime } from '@/lib/fmt'
+
 function formatDate(iso: string): string {
-  const d = new Date(iso)
-  return d.toLocaleDateString(undefined, {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  }) + ` · ${d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}`
+  // Pinned-locale formatting (lib/fmt) — ambient locale differs between the
+  // server and student devices and hydrate-mismatches (React #418).
+  return `${fmtUTCDate(iso)} · ${fmtUTCTime(iso)}`
 }
 
 export function FeedbackList({ initialFeedback }: { initialFeedback: FeedbackRow[] }) {

@@ -1,5 +1,6 @@
 import { resolveAdminContext, ServiceKeyNotice } from '@/lib/admin-context'
 import { normalizeFeedbackRow } from '@/lib/feedback'
+import { fmtUTCDate } from '@/lib/fmt'
 import Link from 'next/link'
 import { StudentTable } from './StudentTable'
 
@@ -162,10 +163,7 @@ export default async function AdminDashboardPage() {
                   <p className="mt-1.5 text-xs text-white/45">
                     {author?.full_name || author?.email || 'Anonymous'}
                     {' · '}
-                    {new Date(f.created_at).toLocaleDateString(undefined, {
-                      day: 'numeric',
-                      month: 'short',
-                    })}
+                    {fmtUTCDate(f.created_at)}
                     {f.page ? ` · ${f.page}` : ''}
                   </p>
                 </li>
