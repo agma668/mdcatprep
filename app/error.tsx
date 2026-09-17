@@ -65,7 +65,7 @@ export default function GlobalError({
           </a>
         </div>
 
-        <p className="mt-8 text-xs text-white/30">
+        <p className="mt-8 text-xs text-white/40">
           This error was reported automatically to help us fix it.
         </p>
       </div>

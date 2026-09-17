@@ -103,7 +103,7 @@ export function LoginForm({ resetDone, googleFailed }: LoginFormProps) {
           type="email" 
           name="email"
           required
-          className="w-full px-4 py-2.5 border border-white/10 rounded-[var(--radius-md)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] bg-white/[0.06] text-white placeholder:text-white/30" 
+          className="w-full px-4 py-2.5 border border-white/10 rounded-[var(--radius-md)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] bg-white/[0.06] text-white placeholder:text-white/40" 
           placeholder="you@example.com" 
         />
       </div>

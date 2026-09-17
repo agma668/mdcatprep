@@ -3,7 +3,7 @@
 import { useRouter, useSearchParams } from 'next/navigation'
 
 const selectCls =
-  'px-3 py-1.5 border border-white/10 rounded-[var(--radius-md)] text-sm bg-white/[0.06] text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]'
+  'px-3 py-1.5 border border-white/10 rounded-[var(--radius-md)] text-sm bg-white/[0.06] text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]'
 
 export function QuestionFilters({
   subjects,

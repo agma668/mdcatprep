@@ -34,7 +34,7 @@ export function SidebarLeaderboard({ entries }: Props) {
                 {s.rank === 1 ? (
                   <Crown className="w-3.5 h-3.5 text-[var(--color-accent-light)]" />
                 ) : s.rank <= 3 ? (
-                  <Medal className="w-3 h-3 text-white/35" />
+                  <Medal className="w-3 h-3 text-white/45" />
                 ) : (
                   <span className="text-[10px] font-bold text-white/40">{s.rank}</span>
                 )}

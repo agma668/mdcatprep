@@ -78,7 +78,7 @@ export function SignupForm({ refCode }: { refCode: string }) {
           type="text"
           name="full_name"
           required
-          className="w-full px-4 py-2.5 border border-white/10 rounded-[var(--radius-md)] text-sm text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-shadow bg-white/[0.06]"
+          className="w-full px-4 py-2.5 border border-white/10 rounded-[var(--radius-md)] text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-shadow bg-white/[0.06]"
           placeholder="Ahmad Khan"
         />
       </div>
@@ -95,7 +95,7 @@ export function SignupForm({ refCode }: { refCode: string }) {
           type="email"
           name="email"
           required
-          className="w-full px-4 py-2.5 border border-white/10 rounded-[var(--radius-md)] text-sm text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-shadow bg-white/[0.06]"
+          className="w-full px-4 py-2.5 border border-white/10 rounded-[var(--radius-md)] text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-shadow bg-white/[0.06]"
           placeholder="you@example.com"
         />
       </div>
@@ -113,7 +113,7 @@ export function SignupForm({ refCode }: { refCode: string }) {
           name="password"
           required
           minLength={8}
-          className="w-full px-4 py-2.5 border border-white/10 rounded-[var(--radius-md)] text-sm text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-shadow bg-white/[0.06]"
+          className="w-full px-4 py-2.5 border border-white/10 rounded-[var(--radius-md)] text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-shadow bg-white/[0.06]"
           placeholder="Min 8 characters"
         />
       </div>
@@ -132,7 +132,7 @@ export function SignupForm({ refCode }: { refCode: string }) {
           id="signup-phone"
           type="tel"
           name="phone"
-          className="w-full px-4 py-2.5 border border-white/10 rounded-[var(--radius-md)] text-sm text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-shadow bg-white/[0.06]"
+          className="w-full px-4 py-2.5 border border-white/10 rounded-[var(--radius-md)] text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-shadow bg-white/[0.06]"
           placeholder="0300 1234567"
         />
       </div>
@@ -151,7 +151,7 @@ export function SignupForm({ refCode }: { refCode: string }) {
           id="signup-exam"
           type="text"
           name="exam_target"
-          className="w-full px-4 py-2.5 border border-white/10 rounded-[var(--radius-md)] text-sm text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-shadow bg-white/[0.06]"
+          className="w-full px-4 py-2.5 border border-white/10 rounded-[var(--radius-md)] text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-shadow bg-white/[0.06]"
           placeholder="MDCAT 2026, NUMS, ETEA..."
         />
       </div>

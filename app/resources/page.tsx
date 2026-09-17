@@ -175,7 +175,7 @@ function ResourceCard({ resource }: { resource: Resource }) {
           </span>
           <span className="text-[10px] font-bold uppercase tracking-wider text-white/50">{config.label}</span>
         </div>
-        {isExternal && <ExternalLink className="w-3.5 h-3.5 text-white/30 group-hover:text-white/60 shrink-0 mt-0.5" />}
+        {isExternal && <ExternalLink className="w-3.5 h-3.5 text-white/40 group-hover:text-white/60 shrink-0 mt-0.5" />}
       </div>
       <h3 className="text-sm font-bold text-white mb-1 group-hover:text-[var(--color-accent-light)] transition-colors leading-snug">
         {resource.title}

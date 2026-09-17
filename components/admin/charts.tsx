@@ -145,7 +145,7 @@ export function BarList({ items, unit }: { items: { name: string; count: number 
 /** Green/red/neutral % change vs the previous window. */
 export function DeltaChip({ current, previous }: { current: number | null; previous: number | null }) {
   if (current === null || previous === null || previous === 0) {
-    return <span className="text-[10px] text-white/35">— vs prev 30d</span>;
+    return <span className="text-[10px] text-white/45">— vs prev 30d</span>;
   }
   const pct = Math.round(((current - previous) / previous) * 100);
   const up = pct >= 0;

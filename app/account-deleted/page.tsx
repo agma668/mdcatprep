@@ -42,7 +42,7 @@ export default function AccountDeletedPage() {
             Questions? WhatsApp us
           </a>
         </div>
-        <p className="mt-6 text-xs text-white/35">
+        <p className="mt-6 text-xs text-white/45">
           Deletion is immediate and cannot be undone.
         </p>
       </div>

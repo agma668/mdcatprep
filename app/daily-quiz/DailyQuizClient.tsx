@@ -145,7 +145,7 @@ export function DailyQuizClient({ questions }: { questions: BankQuestion[] }) {
                           className={`flex h-7 w-full max-w-[28px] items-center justify-center rounded-md text-[10px] font-bold ${
                             active
                               ? "bg-[var(--signal-400)] text-[var(--color-text-inverse)]"
-                              : "bg-white/[0.06] text-white/30"
+                              : "bg-white/[0.06] text-white/40"
                           } ${isToday ? "ring-1 ring-[var(--color-primary-light)]/60" : ""}`}
                         >
                           {label}

@@ -54,7 +54,7 @@ function formatBytes(bytes: number | null): string {
 }
 
 const inputCls =
-  'w-full px-4 py-2 border border-white/10 rounded-[var(--radius-md)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] bg-white/[0.06] text-white placeholder:text-white/30'
+  'w-full px-4 py-2 border border-white/10 rounded-[var(--radius-md)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] bg-white/[0.06] text-white placeholder:text-white/40'
 
 export function AdminNotesManager({
   initialOfficialNotes,

@@ -165,7 +165,7 @@ export function AchievementBadges({
             >
               <div
                 className={`inline-flex items-center justify-center w-10 h-10 rounded-full mb-2 ${
-                  isEarned ? badge.color : "text-white/30"
+                  isEarned ? badge.color : "text-white/40"
                 }`}
               >
                 {isEarned ? badge.icon : <Lock className="w-5 h-5" />}

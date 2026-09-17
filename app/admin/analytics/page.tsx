@@ -114,7 +114,7 @@ export default async function AdminAnalyticsPage() {
               </div>
               <p className="text-2xl font-extrabold tabular-nums text-white">{n(v.num)}</p>
               <p className="text-xs text-white/45 mt-1">{label}</p>
-              {v.delta && <p className="text-[10px] text-white/30 mt-0.5">{hint}</p>}
+              {v.delta && <p className="text-[10px] text-white/40 mt-0.5">{hint}</p>}
             </div>
           )
         })}
@@ -183,13 +183,13 @@ export default async function AdminAnalyticsPage() {
                         ×{e.count}
                       </span>
                     </div>
-                    <p className="text-[10px] text-white/35 mt-1">
+                    <p className="text-[10px] text-white/45 mt-1">
                       {e.page ?? 'unknown page'} · first seen {e.day}
                     </p>
                   </li>
                 ))}
               </ul>
-              <p className="mt-3 text-[10px] text-white/35">
+              <p className="mt-3 text-[10px] text-white/45">
                 {n(t.errors7dTotal)} error reports total in the window.
               </p>
             </>
@@ -198,7 +198,7 @@ export default async function AdminAnalyticsPage() {
       </div>
 
       {/* ── Honesty footer ── */}
-      <p className="mt-6 flex items-start gap-2 text-[11px] text-white/35 leading-relaxed max-w-3xl">
+      <p className="mt-6 flex items-start gap-2 text-[11px] text-white/45 leading-relaxed max-w-3xl">
         <Activity className="h-3.5 w-3.5 shrink-0 mt-0.5" aria-hidden="true" />
         Counts come from the site&apos;s own telemetry — students can switch it off
         from Profile → Privacy, so treat these as floors, not censuses. Anonymous

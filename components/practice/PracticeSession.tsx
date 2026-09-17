@@ -162,7 +162,7 @@ export function PracticeSession({
             </span>
           )}
           <span className="whitespace-nowrap text-xs tabular-nums text-[var(--color-text-muted)]">
-            Question {index + 1} <span className="text-white/35">/ {total}</span>
+            Question {index + 1} <span className="text-white/45">/ {total}</span>
           </span>
         </div>
         {answeredCount > 0 && (

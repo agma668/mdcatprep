@@ -109,7 +109,7 @@ export function WhatsAppSharePopup({ questionsAnswered, streak, accuracy }: Prop
           Share this free prep platform with <strong className="text-white/80">5 contacts</strong> on WhatsApp — you could help someone get into their dream medical college.
         </p>
         {joinedCount > 0 && (
-          <p className="text-xs text-white/35 mb-6">
+          <p className="text-xs text-white/45 mb-6">
             {joinedCount} student{joinedCount !== 1 ? "s have" : " has"} already joined through shares like this
           </p>
         )}
@@ -126,7 +126,7 @@ export function WhatsAppSharePopup({ questionsAnswered, streak, accuracy }: Prop
 
         <button
           onClick={dismiss}
-          className="block w-full mt-2 py-2.5 text-sm font-medium text-white/35 hover:text-white/60 transition-colors cursor-pointer"
+          className="block w-full mt-2 py-2.5 text-sm font-medium text-white/45 hover:text-white/60 transition-colors cursor-pointer"
         >
           Maybe later
         </button>
