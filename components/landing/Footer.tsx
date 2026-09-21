@@ -16,6 +16,8 @@ const FOOTER_LINKS = {
     { label: "Free Flashcards", href: "/flashcards" },
     { label: "Daily Quiz", href: "/daily-quiz" },
     { label: "Diagnostic Test", href: "/diagnostic" },
+    { label: "Free MDCAT Notes", href: "/notes" },
+    { label: "Topical MCQs", href: "/topicals" },
     { label: "Resources & Notes", href: "/resources" },
     { label: "MDCAT Guide", href: "/blog/mdcat-guide" },
   ],

@@ -52,3 +52,19 @@ Both used the exact `ResourceQuestion` schema (`key`/`question_text`/`option_a..
 **Commit:** `d90e8b6` (feat: grow bank to 360 — physics 100, english 80, chem key-fix)
 
 Same log entry doubles as the *physics + english* bank growth (this sweep did all four subjects: bio+chem in the earlier push, physics+english now). **Status:** DONE, pushed.
+---
+
+## 2026-09-21 — TODO-folder ingest: topicals bank, board-wise past papers, protected Master Notes reader (Freebuff/Codebuff thread)
+
+**Founder ask:** "add all the notes, qs and past papers — sections for each board (BUMHS, KMU, UHS…), each year under them; sort every question into topicals; add notes sections; and make sure no one can steal the notes by downloading or screenshotting."
+
+**What shipped:**
+1. **Topicals (public, SEO).** `scripts/ingest-topicals.mjs` ingests the founder's own extracted bank (`Downloads/TODO/mdcat-extracted-qs/mdcat_question_bank.json`, 3,594 rows) into `lib/topicals-bank.ts`: **1,542 clean 4-option MCQs** (Bio 641 / Chem 357 / Phys 544 across 22 chapters); 1,980 short-answer rows, 68 malformed-option rows and 4 duplicates skipped with printed counts. `lib/topicals.ts` is the seam; `/topicals` hub + `/topicals/[subject]/[chapter]` (SSG) render a guest drill (`components/practice/TopicalDrill.tsx`) — instant verdicts, device-local progress, no auth recording. Every page states the honest source (MCQ Universe extraction) and that nothing claims a past-paper year.
+2. **Past papers by board.** `/past-papers/[board]` (SSG, from `papersByExam()`): one page per examining body — UHS, BUMHS, KMU, SZABMU, DUHS, ETEA, SIBA, NUMS — papers grouped by year (undated last), kind/key labels carried over from the registry.
+3. **Protected Master Notes reader.** `/dashboard/notes/master-reader` (auth-gated, 307 → /login verified logged-out): the full concept + exam-depth corpus rendered as a white "paper" sheet (print-grade serif typography, honest owner line). `components/dashboard/NotesPaperShield.tsx` adds a repeating **per-user watermark** (email/id — any leak is traceable), blur on window blur/visibility change, PrintScreen clipboard-replacement, and `globals.css` blocks selection inside `.notes-paper` and turns print dialogs into a refusal notice. **Stated honestly on the page and here: client-side deterrence is friction, not prevention — a camera defeats everything. The real control is that the notes no longer exist as a file.**
+4. **The actual download hole closed:** `public/notes/Biology_Master_Notes.pdf` and `public/notes/Chemistry_Master_Notes.pdf` — previously downloadable by anyone, no login — are DELETED; `/resources` and `/notes` no longer link them (the old URLs now serve no file).
+5. Discoverability: sitemap +4 URLs (/topicals + 3 subjects), footer +Topical MCQs.
+
+**Deliberately NOT ingested (copyright):** KIPS/Prep Titans FLPs, MedExel compilations, FRTS papers — the board's rule stands; they sit in the TODO folder as reference only. The founder's own extracted mcquniverse bank was ingested as instructed.
+
+**Gates:** `npx tsc --noEmit` 0 · eslint 0 errors on all 13 touched files (1 pre-existing Footer warning) · `npx next build` clean (69/69 pages; /topicals + 22 chapter drills + board pages prerendered) · live smoke: 200s on hub/chapters/boards, correct not-found titles on bogus slugs, reader 307s to /login logged-out, deleted PDF URLs serve no file.

@@ -81,25 +81,46 @@ const OFFICIAL_RESOURCES: Resource[] = [
 /** Our own study material — free, no signup walls. */
 const OWN_RESOURCES: Resource[] = [
   {
-    title: "Biology Master Notes (PDF)",
-    url: "/notes/Biology_Master_Notes.pdf",
+    title: "MDCAT Notes — All Subjects (read online)",
+    url: "/notes",
     description:
-      "Complete, easy-language Biology master notes covering the PMDC MDCAT syllabus unit by unit. Read online or download.",
+      "Every PMDC syllabus unit for Biology, Chemistry, Physics and English — core concepts in easy language plus exam-depth revision notes. Free, no signup.",
     type: "notes",
   },
   {
-    title: "Chemistry Master Notes (PDF)",
-    url: "/notes/Chemistry_Master_Notes.pdf",
+    title: "Biology Notes (read online)",
+    url: "/notes/biology",
     description:
-      "Complete Chemistry master notes built from the PMDC MDCAT syllabus — every chapter, explained simply.",
+      "Acellular life to ecology: every Biology unit, plus fact-level revision notes derived from the past-paper corpus.",
     type: "notes",
   },
   {
-    title: "MDCAT Master Concept Notes (in-app)",
-    url: "/dashboard/notes/mdcat-master-notes",
+    title: "Chemistry Notes (read online)",
+    url: "/notes/chemistry",
     description:
-      "Biology, Chemistry, Physics and English notes inside the platform, with an exam-style practice session one click away. Free account needed.",
+      "Moles to organic chemistry: every Chemistry unit, plus fact-level revision notes derived from the past-paper corpus.",
     type: "notes",
+  },
+  {
+    title: "Physics Notes (read online)",
+    url: "/notes/physics",
+    description:
+      "Vectors to modern physics: every Physics unit, plus fact-level revision notes derived from the past-paper corpus.",
+    type: "notes",
+  },
+  {
+    title: "English Notes (read online)",
+    url: "/notes/english",
+    description:
+      "Grammar, articles and prepositions, vocabulary and sentence patterns — the recurring MDCAT English topics.",
+    type: "notes",
+  },
+  {
+    title: "Topical MCQs — chapter-wise (read online)",
+    url: "/topicals",
+    description:
+      "Chapter-wise Biology, Chemistry and Physics MCQs with instant explanations. Free, no signup — progress stays on your device.",
+    type: "mcqs",
   },
   {
     title: "Spaced-Repetition Flashcards (no signup)",

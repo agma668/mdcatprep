@@ -1688,3 +1688,33 @@ html.lenis body { height: auto; }
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .nav-material, .liquid-nav-surface { background-color: rgba(13, 8, 23, 0.97); }}  ::selection { background: rgba(114, 96, 192, 0.3); color: #fff; }
 }
+
+/* ── Master Notes protected reader (founder-ordered, 2026-09-21) ────────────
+   White "paper" sheet + deterrence. Scope: .notes-paper and .notes-paper *
+   only — nothing else on the site is affected. Honest scope: client-side
+   deterrence is friction, not prevention; the real control is that the notes
+   never exist as a downloadable file. */
+.notes-paper {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #1e293b;
+  line-height: 1.6;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+.notes-paper * {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+@media print {
+  /* The reader must not survive a print dialog as a clean copy. */
+  .notes-paper { display: none !important; }
+  body::after {
+    content: "MED Prep master notes are watermarked and print-disabled. Read them in the app.";
+    display: block;
+    font-family: sans-serif;
+    padding: 2rem;
+    font-size: 14px;
+  }
+}
