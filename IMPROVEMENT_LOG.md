@@ -78,3 +78,8 @@ Same log entry doubles as the *physics + english* bank growth (this sweep did al
 - **Done:** `scripts/ingest-topicals-v2.mjs` regenerates `lib/topicals-bank.ts` from the founder's JSON bank + KB chapter collections + keyed past-paper PYQ dumps → **3,721 questions** (Bio 1,828 / Chem 1,334 / Phys 559, 28 chapters incl. real past-paper year chapters). Master reader now serves `knowledge-base/notes` via `lib/kb-notes.ts` (library grid + per-doc protected pages, force-dynamic, no bundling/downloads).
 - **Push:** `19d0087` + `e12efeb` on `origin/master` and `origin/main` (founder-authorized).
 - **Deploy:** live site still serves the Sept-12 build 15+ min after push — Git→Vercel delivery confirmed still dead; needs founder's Vercel account (CLI login/token) to unblock. Gates: tsc 0 · eslint 0 · build 75/75 · smoke: /topicals 3,721, PYQ chapter 200, reader 307 gated.
+
+## 2026-09-22 — PRODUCTION UNFROZEN: build failures, not a dead webhook (founder + agent)
+- **Root cause:** Vercel builds had been FAILING since Sept 12 — the day's commits shipped importing halves without their data files (public-notes, public-stats exports, pastPaperTag, SocialProofBar). Local builds passed because the working tree masked the holes. Vercel kept serving the last green build (ba9636c).
+- **Fix:** `85a8b4f` (lib/public-notes.ts) + `1202f98` (the streak-wall/bank data halves) — proven first by an isolated git-worktree build of the exact commit. Deploy verified live ~02:18.
+- **New standing gate:** run `node scripts/verify-committed-imports.mjs` (or a worktree build) before every push.
