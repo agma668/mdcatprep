@@ -1,0 +1,141 @@
+ Simple Lipids Esters of fatty acids and an alcohol.
+A. Acylglycerols Fats and Oils)
+B. Waxes
+ Complex Lipids A simple lipid combined with an additional group.
+A. Phospholipids
+B. Glycolipids
+C. Lipoproteins
+ Derived Lipids Substances derived from simple or complex lipids.
+A. Steroids
+B. Prostaglandins
+C. Terpenes
+
+
+
+Amylose An unbranched chain, soluble in hot water.
+Amylopectin A branched chain, insoluble in water
+
+The Svedberg unit measures the sedimentation rate, how quickly a
+component settles to the bottom of the tube.
+Denser and larger components have a higher Svedberg value and form a
+pellet at the bottom first.
+❗
+Important Svedberg units are not additive. They reflect shape and
+density, not just mass.
+
+
+ Not all plant cells develop a secondary wall
+
+Secondary cell wall:Only certain specialized, often dead, cells like Sclerenchyma and
+xylem vessels.
+Pits The secondary wall can have thin areas or interruptions called pits,
+which allow for communication and transport between cells.Cellulose, Lignin, Waxes, Silic
+
+Primary cell wall: All plant cells, both living Parenchyma, Collenchyma) and dead. Cellulose, Hemicellulose,
+Pectin
+
+Hemicellulose
+A complex, branched polysaccharide. Unlike cellulose (which is only glucose), it is
+made of various sugars like xylose, mannose, and galactose. It helps cross-link
+the cellulose microfibrils.
+Pectin
+A highly hydrophilic (water-attracting) polysaccharide that forms a gel. It is the
+primary component of the middle lamella and gives the primary wall flexibility.
+
+This is its main function. The Electron
+Transport Chain ETC on the inner membrane generates the vast majority of
+the cell's ATP
+
+cyclosis driven by the contractile activity of microfilaments
+
+Ribosomes: Made of ribonucleoprotein, which is roughly equal parts
+ribosomal RNA (rRNA and protein.
+
+Outer Faces outside
+the cell)
+Inner Faces the
+cytoplasm)
+Phosphatidylcholine Sphingomyelin
+Phosphatidylethanolamine, Phosphatidylserine
+
+Intrinsic Integral) Proteins Embedded within the membrane, often spanning
+the entire bilayer.
+
+
+ Antiporter Transports two different substances in opposite directions.
+ Symporter Transports two different substances in the same direction
+
+Heterophagosome A secondary lysosome that is digesting foreign material.
+
+Glyoxysomes Contain enzymes for the Glyoxylate Cycle, which converts stored fats into
+succinate.
+
+Peroxisommes:Key reactions include:
+ Oxidase Reaction:
+RH₂  O₂  R  H₂O₂
+ Peroxidase Reaction:
+RH₂  H₂O₂  R  2H₂O
+ Catalase Reaction:
+2H₂O₂  2H₂O  O₂
+ Also converts Glycolate to Glycine.
+
+Cell Type : Size : Number of Cisternae
+Plant Cells: Large; many stacks 1020 cisternae each)
+Animal Cells: Smaller; fewer stacks cisternae each)
+Fungal Cells: Smallest; single cisternae scattered in cytoplasm
+
+Chlororplast:Photosynthesis C3 pathway, dark reactions).
+Protein synthesis (occurs in the stroma).
+
+Peptidyl transferase is a ribozyme within the ribosome that plays a
+crucial role in forming peptide bonds during protein synthesis (translation).
+
+
+Prosthetic group: The heme group (a porphyrin ring with iron) in cytochromes.
+
+Sulfonamides (antibiotics) are competitive inhibitors for an enzyme
+essential for bacterial folic acid synthesis
+Malonate competitively inhibits the enzyme succinate dehydrogenase by
+blocking its substrate, succinate, from binding.
+
+Cyanide Binds irreversibly to the iron in the prosthetic group of
+cytochrome oxidase, a key enzyme in cellular respiration, effectively
+stopping it.
+Salts of Heavy Metals Mercury, Silver, Copper): These ions bind to the
+thiol SH groups of cysteine amino acids, breaking the disulfide bridges
+that maintain the enzyme's tertiary structure and causing it to disintegrate
+
+Circular Muscles Inner layer, arranged in rings.
+Longitudinal Muscles Outer layer, arranged lengthwise.
+
+Ebner's Glands Glands on the tongue that secrete lipase, an enzyme that
+digests fats (lipids)
+
+Oxyntic cells release intrinsic factor Binds with Vitamin B12 to
+facilitate its absorption later in
+the ileum.
+
+Somatostatin Decreases HCl secretion,
+pancreatic secretions, &
+gallbladder contraction. Acts as
+a general GI depressant)
+Cholecystokinin Increases pancreatic enzyme
+secretion & gallbladder
+contraction. Decreases stomach
+motility
+Secretin Increases pancreatic
+bicarbonate secretion & bile
+secretion. Decreases gastric
+acid secretion.
+
+Exocrine Pancreas Consists of Acinar Cells. Produces and secretes 
+pancreatic juice into the duodenum.
+Endocrine Pancreas Consists of the Islets of Langerhans. Secretes 
+hormones like insulin and glucagon directly into the bloodstream.
+
+Sodium Bicarbonate NaHCO₃) Its primary role is to neutralize the acidic 
+chyme coming from the stomach.
+
+
+
+

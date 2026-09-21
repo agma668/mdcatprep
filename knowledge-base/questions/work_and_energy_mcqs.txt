@@ -1,0 +1,1488 @@
+ [Skip to content](#content)
+
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[MCQUniverse](https://www.mcquniverse.pk/)
+
+[Sign up](https://www.mcquniverse.pk/)[Sign up](https://www.mcquniverse.pk/)
+
+# Work And Energy MCQs | Physics MCQs
+
+## Work And Energy MCQs
+
+Work done is a product of force and displacement. Which type of product is it?
+
+Vector (Cross) Product
+
+Simple Algebraic Product
+
+Tensor Product
+
+**Scalar (Dot) Product**
+
+**Explanation:**
+
+Work is a scalar quantity calculated by the dot product of the force and displacement vectors (W = F ⋅ d), as it only has magnitude.
+
+The work done will be negative when the angle between force and displacement is:
+
+**Between 90° and 180°**
+
+**Explanation:**
+
+Work (W = Fd cosθ) is negative when cosθ is negative, which occurs for angles between 90° and 180°. This typically happens when the force opposes the motion, like work done by friction.
+
+A force of (3i + 4j) N displaces a body by (3i + 4j) m. The work done is:
+
+12 J
+
+7 J
+
+0 J
+
+**25 J**
+
+**Explanation:**
+
+Work is the dot product: W = F ⋅ d = (3)(3) + (4)(4) = 9 + 16 = 25 J.
+
+Which of the following is the unit of work in the British Engineering system?
+
+**Foot-pound (ft-lb)**
+
+**Explanation:**
+
+In the British Engineering system, force is measured in pounds (lb) and distance in feet (ft), so the unit of work is the foot-pound (ft-lb).
+
+The area under a Force-Displacement graph represents:
+
+Change in Momentum
+
+**Work Done**
+
+**Explanation:**
+
+For both constant and variable forces, the work done is represented by the area under the force-displacement graph.
+
+If the velocity of a moving object is doubled, its kinetic energy becomes:
+
+**Four times**
+
+**Explanation:**
+
+Kinetic energy (KE = ½mv²) is proportional to the square of the velocity. If velocity is doubled, KE becomes 4 times larger.
+
+The work-energy principle states that the net work done on a body equals the change in its:
+
+Potential Energy
+
+Total Energy
+
+**Kinetic Energy**
+
+**Explanation:**
+
+The work-energy principle (W\_net = ΔKE) provides a direct relationship between the work done by all forces on an object and the change in its kinetic energy.
+
+Gravitational Potential Energy of a body is independent of:
+
+Its mass
+
+Its height from the reference point
+
+The value of 'g'
+
+**The path followed to reach that height**
+
+**Explanation:**
+
+Gravitational force is a conservative force, meaning the work done by it (and thus the change in potential energy) depends only on the initial and final positions, not the path taken.
+
+A 2 kg mass falls from a height of 5 m. The loss in its potential energy is (g=9.8 m/s²):
+
+10 J
+
+49 J
+
+19.6 J
+
+**98 J**
+
+**Explanation:**
+
+The loss in potential energy is calculated as ΔPE = mgh = 2 kg \* 9.8 m/s² \* 5 m = 98 J.
+
+Which of the following is a non-conservative force?
+
+Gravitational Force
+
+Elastic Spring Force
+
+Electrostatic Force
+
+**Air Resistance**
+
+**Explanation:**
+
+Air resistance is a non-conservative (or dissipative) force because the work it does depends on the path taken and it converts mechanical energy into heat.
+
+The law of conservation of energy states that in an isolated system, the total energy:
+
+Always increases
+
+Always decreases
+
+Is always zero
+
+**Remains constant**
+
+**Explanation:**
+
+The principle of conservation of energy states that energy cannot be created or destroyed, only transformed from one form to another. In an isolated system, the total amount is constant.
+
+The rate at which work is done is known as:
+
+Impulse
+
+**Power**
+
+**Explanation:**
+
+Power is defined as the work done per unit time (P = W/t). Its SI unit is the Watt (J/s).
+
+One horsepower (hp) is equal to approximately:
+
+1000 Watts
+
+550 Watts
+
+1 Watt
+
+**746 Watts**
+
+**Explanation:**
+
+The horsepower is a unit of power, commonly used in the imperial system, and is equivalent to about 746 Watts.
+
+Power can also be expressed as the dot product of:
+
+Force and displacement
+
+Force and acceleration
+
+Force and time
+
+**Force and velocity**
+
+**Explanation:**
+
+Since P = W/t = (F⋅d)/t and v = d/t, power can be calculated as the dot product P = F⋅v.
+
+Escape velocity is the minimum velocity required for an object to:
+
+Orbit the Earth
+
+Reach the Moon
+
+Stay stationary in space
+
+**Overcome the Earth's gravitational pull**
+
+**Explanation:**
+
+Escape velocity is the speed at which an object's kinetic energy is equal to the magnitude of its gravitational potential energy, allowing it to escape the gravitational field completely.
+
+The value of escape velocity from the Earth's surface is approximately:
+
+7.9 km/s
+
+9.8 m/s
+
+3.0 x 10⁸ m/s
+
+**11.2 km/s**
+
+**Explanation:**
+
+The escape velocity from Earth is about 11.2 kilometers per second (or 40,270 km/h).
+
+The work done in holding a 25 kg bag while waiting for a bus is:
+
+25 J
+
+245 J
+
+Infinite
+
+**Zero**
+
+**Explanation:**
+
+In physics, work is done only when a force causes displacement. Since there is no displacement while waiting, no work is done on the bag.
+
+An electron-volt (eV) is a unit of:
+
+Voltage
+
+Power
+
+Charge
+
+**Energy**
+
+**Explanation:**
+
+An electron-volt is the amount of kinetic energy gained by a single electron when it accelerates through a potential difference of one volt. It is a very small unit of energy.
+
+The kinetic energy of a 4 kg mass moving at 3 m/s is:
+
+12 J
+
+6 J
+
+36 J
+
+**18 J**
+
+**Explanation:**
+
+Using the formula KE = ½mv², the kinetic energy is ½ \* 4 kg \* (3 m/s)² = 2 \* 9 = 18 J.
+
+A spring is compressed by a distance 'x'. The elastic potential energy stored in it is:
+
+kx
+
+½kx
+
+kx²
+
+**½kx²**
+
+**Explanation:**
+
+The elastic potential energy stored in a spring is given by the formula PE\_s = ½kx², where 'k' is the spring constant and 'x' is the displacement from equilibrium.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+The escape velocity of an object is independent of its:
+
+Mass of the planet
+
+Radius of the planet
+
+Gravitational constant
+
+**Mass of the object**
+
+**Explanation:**
+
+The formula for escape velocity is v\_e = √(2GM/R). It depends on the mass (M) and radius (R) of the planet, but not on the mass of the escaping object.
+
+What happens to the total energy of a simple pendulum as it oscillates?
+
+It increases
+
+It decreases due to friction
+
+It is maximum at the mean position
+
+**It remains constant if there is no air resistance**
+
+**Explanation:**
+
+In an ideal system without air resistance, the total mechanical energy (sum of kinetic and potential energy) of a simple pendulum is conserved.
+
+A motor rated at 2238 W is equivalent to a motor of:
+
+1 hp
+
+2 hp
+
+4 hp
+
+**3 hp**
+
+**Explanation:**
+
+Since 1 horsepower (hp) is approximately 746 Watts, 2238 W / 746 W/hp = 3 hp.
+
+If a body's momentum is doubled, its kinetic energy will be:
+
+Doubled
+
+Halved
+
+Unchanged
+
+**Four times greater**
+
+**Explanation:**
+
+Using the relationship KE = p²/(2m), if the momentum 'p' is doubled, the kinetic energy becomes (2p)²/(2m) = 4p²/(2m), which is four times the original KE.
+
+Work done by the force of friction is always:
+
+Positive
+
+Zero
+
+Either positive or negative
+
+**Negative**
+
+**Explanation:**
+
+Friction always acts in the direction opposite to motion. Since the angle between the frictional force and displacement is 180°, the work done by friction is always negative.
+
+A light and a heavy body have equal kinetic energy. Which has greater momentum?
+
+The light body
+
+Both have equal momentum
+
+Cannot be determined
+
+**The heavy body**
+
+**Explanation:**
+
+Using the relationship p = √(2mKE), if KE is constant, momentum 'p' is proportional to the square root of mass (√m). Therefore, the heavier body has greater momentum.
+
+Which of the following is not a unit of energy?
+
+Joule
+
+Calorie
+
+Kilowatt-hour
+
+**Kilowatt**
+
+**Explanation:**
+
+A Kilowatt (kW) is a unit of power (1000 Joules per second). A Kilowatt-hour (kWh) is a unit of energy (Power × time).
+
+When a conservative force does positive work on a body, the potential energy associated with that force:
+
+Increases
+
+Remains constant
+
+Becomes zero
+
+**Decreases**
+
+**Explanation:**
+
+The work done by a conservative force is equal to the negative change in potential energy (W\_c = -ΔPE). If W\_c is positive, ΔPE must be negative, meaning the potential energy decreases.
+
+A car's engine provides a force of 500 N to maintain a constant speed of 20 m/s. What is the power of the engine?
+
+25 W
+
+520 W
+
+1000 W
+
+**10,000 W**
+
+**Explanation:**
+
+Power can be calculated as P = F × v. Therefore, P = 500 N × 20 m/s = 10,000 Watts or 10 kW.
+
+A ball is dropped from height h. Just before hitting the ground, its energy is:
+
+Purely potential
+
+Partly kinetic and partly potential
+
+Zero
+
+**Purely kinetic**
+
+**Explanation:**
+
+By the law of conservation of energy, the initial potential energy (mgh) is completely converted into kinetic energy just before impact (assuming h=0 is the ground).
+
+The work done in lifting a 1 kg brick to a height of 1 m on the Moon would be \_\_\_\_\_\_\_ the work done on Earth.
+
+the same as
+
+more than
+
+zero compared to
+
+**less than**
+
+**Explanation:**
+
+The acceleration due to gravity 'g' on the Moon is about 1/6th of that on Earth. Since work against gravity is W=mgh, less work is required on the Moon.
+
+Which statement is true for the work done by a non-conservative force?
+
+It is always zero in a closed path.
+
+It is path-independent.
+
+It is always a positive value.
+
+**It can change the total mechanical energy of a system.**
+
+**Explanation:**
+
+Non-conservative forces like friction or air resistance do work that dissipates mechanical energy, usually as heat, thus changing the total KE + PE of the system.
+
+If the spring constant 'k' of a spring is doubled, the energy it stores for the same compression 'x' will be:
+
+Halved
+
+Four times
+
+Unchanged
+
+**Doubled**
+
+**Explanation:**
+
+The stored potential energy is PE = ½kx². If 'k' is doubled while 'x' remains the same, the stored energy will also be doubled.
+
+A 1000 kg car and a 2000 kg truck have the same kinetic energy. Which is moving faster?
+
+The truck
+
+They have the same speed
+
+Cannot be determined
+
+**The car**
+
+**Explanation:**
+
+From KE = ½mv², to have the same KE, the object with the smaller mass (the car) must have a higher velocity.
+
+An object in a satellite orbiting the Earth experiences 'weightlessness' because:
+
+It is too far from Earth for gravity to act.
+
+The satellite shields it from gravity.
+
+The centrifugal force perfectly balances gravity.
+
+**It is in a continuous state of free fall around the Earth.**
+
+**Explanation:**
+
+Both the satellite and the object inside are constantly falling towards the Earth due to gravity, but they also have a high tangential velocity that keeps them in orbit. This state of continuous free fall creates the sensation of weightlessness.
+
+The orbital velocity for a satellite close to the Earth's surface is approximately:
+
+11.2 km/s
+
+9.8 km/s
+
+1.4 km/s
+
+**7.9 km/s**
+
+**Explanation:**
+
+The velocity required to maintain a stable low-Earth orbit is approximately 7.9 km/s. This is less than the escape velocity.
+
+If a force F is applied to a body and it moves with velocity v, the instantaneous power is:
+
+F/v
+
+Fv²
+
+F/v²
+
+**Fv**
+
+**Explanation:**
+
+The formula for instantaneous power is P = Fv, assuming the force and velocity are in the same direction.
+
+The source of the Sun's energy is:
+
+Chemical reactions
+
+Nuclear fission
+
+Burning of hydrogen gas
+
+**Nuclear fusion**
+
+**Explanation:**
+
+The Sun generates energy through nuclear fusion, where hydrogen nuclei combine under immense temperature and pressure to form helium, releasing a tremendous amount of energy in the process.
+
+A pump lifts 200 kg of water to a height of 20 m in 10 seconds. The power of the pump is (g=10 m/s²):
+
+400 W
+
+2000 W
+
+200 W
+
+**4000 W**
+
+**Explanation:**
+
+First, calculate the work done (potential energy gain): W = mgh = 200\*10\*20 = 40,000 J. Then, calculate power: P = W/t = 40,000 J / 10 s = 4000 W or 4 kW.
+
+Which of these energy transformations occurs in a solar cell?
+
+Heat energy to electrical energy
+
+Light energy to chemical energy
+
+Chemical energy to electrical energy
+
+**Light energy to electrical energy**
+
+**Explanation:**
+
+Solar cells (photovoltaic cells) are designed to directly convert sunlight (light energy) into electrical energy through the photovoltaic effect.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+If a force is applied but the object does not move, the work done is:
+
+Maximum
+
+Minimum
+
+Negative
+
+**Zero**
+
+**Explanation:**
+
+Work is defined as force multiplied by displacement (W=Fd). If the displacement is zero, the work done is zero, regardless of the magnitude of the force.
+
+A cyclist comes to a skidding stop in 10 m. During this process, the force on the cycle due to the road is 200 N and is directly opposed to the motion. The work done by the road on the cycle is:
+
+2000 J
+
+Zero
+
+20 J
+
+**-2000 J**
+
+**Explanation:**
+
+The force (friction) is opposed to the motion, so the angle is 180°. W = Fd cos(180°) = 200 N \* 10 m \* (-1) = -2000 J.
+
+Einstein's mass-energy equation is:
+
+E = mc
+
+E = m/c²
+
+E = (mc)²
+
+**E = mc²**
+
+**Explanation:**
+
+Einstein's famous equation, E=mc², states that energy (E) and mass (m) are equivalent and can be converted into one another, with c² being the conversion factor.
+
+The total energy of a satellite orbiting the Earth is:
+
+Positive
+
+Zero
+
+Infinite
+
+**Negative**
+
+**Explanation:**
+
+For any gravitationally bound system, like a satellite in orbit, the total mechanical energy (KE + PE) is negative. A positive or zero total energy would mean the object is not in a bound orbit and can escape.
+
+If the radius of a planet is halved while its mass remains the same, the escape velocity will:
+
+Be halved
+
+Be doubled
+
+Remain the same
+
+**Increase by a factor of √2**
+
+**Explanation:**
+
+Escape velocity v\_e = √(2GM/R). Since 'v' is inversely proportional to the square root of 'R', halving 'R' to R/2 will multiply the velocity by √2.
+
+Work done by a variable force can be found by dividing the:
+
+Force vs Time graph into small intervals
+
+Displacement vs Time graph into small intervals
+
+Velocity vs Time graph into small intervals
+
+**Force vs Displacement graph into small intervals**
+
+**Explanation:**
+
+To find the work done by a variable force, we calculate the area under the Force-Displacement graph by dividing it into a large number of small rectangular intervals and summing their areas.
+
+A man pushes a wall and fails to displace it. He does:
+
+Positive work
+
+Negative work
+
+Maximum work
+
+**No work at all**
+
+**Explanation:**
+
+Since there is no displacement of the wall, the work done on the wall is zero, according to the physics definition of work (W=Fd).
+
+A body is falling freely under gravity. Its:
+
+Potential energy increases
+
+Kinetic energy decreases
+
+Total momentum is conserved
+
+**Total mechanical energy is conserved**
+
+**Explanation:**
+
+As the body falls, its potential energy is converted into kinetic energy. In the absence of air resistance, the total mechanical energy (PE + KE) remains constant.
+
+Two objects with masses m₁ and m₂ have the same kinetic energy. The ratio of their speeds (v₁/v₂) is:
+
+m₁/m₂
+
+m₂/m₁
+
+√(m₁/m₂)
+
+**√(m₂/m₁)**
+
+**Explanation:**
+
+Given ½m₁v₁² = ½m₂v₂², we can rearrange to get v₁²/v₂² = m₂/m₁. Taking the square root gives v₁/v₂ = √(m₂/m₁).
+
+When you stretch a rubber band, you are storing:
+
+Kinetic energy
+
+Gravitational potential energy
+
+Chemical energy
+
+**Elastic potential energy**
+
+**Explanation:**
+
+Stretching or compressing an elastic object, like a rubber band or a spring, stores energy in it in the form of elastic potential energy.
+
+Angular displacement is typically measured in which unit in the SI system?
+
+Meters (m)
+
+Hertz (Hz)
+
+Degrees (°)
+
+**Radians (rad)**
+
+**Explanation:**
+
+While degrees are commonly used, the standard SI unit for angular displacement, which is necessary for rotational motion equations, is the radian.
+
+One complete revolution is equal to how many radians?
+
+π radians
+
+π/2 radians
+
+4π radians
+
+**2π radians**
+
+**Explanation:**
+
+A full circle (360°) corresponds to an arc length equal to its circumference (2πr). Since θ = s/r, one revolution is θ = (2πr)/r = 2π radians.
+
+The rate of change of angular displacement is known as:
+
+Angular acceleration
+
+Linear velocity
+
+Angular momentum
+
+**Angular velocity**
+
+**Explanation:**
+
+Angular velocity (ω) is defined as the rate at which the angular displacement (θ) changes with respect to time (ω = Δθ/Δt).
+
+What is the relationship between linear velocity (v) and angular velocity (ω) for an object in circular motion of radius r?
+
+v = ω/r
+
+v = r/ω
+
+v = r²ω
+
+**v = rω**
+
+**Explanation:**
+
+The tangential linear velocity of a point on a rotating object is given by the product of its distance from the axis (radius) and its angular velocity.
+
+The direction of angular velocity is determined by the:
+
+Left-hand rule
+
+Direction of tangential velocity
+
+Direction of centripetal force
+
+**Right-hand rule**
+
+**Explanation:**
+
+Using the right-hand rule, if you curl the fingers of your right hand in the direction of rotation, your thumb points in the direction of the angular velocity vector.
+
+The acceleration directed towards the center of a circular path is called:
+
+Tangential acceleration
+
+Angular acceleration
+
+Linear acceleration
+
+**Centripetal acceleration**
+
+**Explanation:**
+
+Centripetal acceleration (a\_c) is the acceleration that causes an object to change its direction to follow a circular path, and it is always directed towards the center of the circle.
+
+The formula for centripetal acceleration (a\_c) is:
+
+rω
+
+r²ω
+
+v/r
+
+**v²/r**
+
+**Explanation:**
+
+Centripetal acceleration can be expressed as a\_c = v²/r or, by substituting v=rω, as a\_c = rω².
+
+The force responsible for keeping an object in a circular path is known as:
+
+Centrifugal force
+
+Gravitational force
+
+Frictional force
+
+**Centripetal force**
+
+**Explanation:**
+
+Centripetal force is the net force that produces centripetal acceleration. It is not a fundamental force but the net result of other forces (like tension, gravity, or friction).
+
+According to Newton's second law, the formula for centripetal force (F\_c) is:
+
+mvr
+
+mv/r
+
+mr²/v
+
+**mv²/r**
+
+**Explanation:**
+
+Since F = ma, the centripetal force is F\_c = ma\_c. Substituting a\_c = v²/r gives F\_c = mv²/r.
+
+The rotational analogue of mass is:
+
+Torque
+
+Angular momentum
+
+Angular velocity
+
+**Moment of inertia**
+
+**Explanation:**
+
+Moment of inertia (I) is a measure of an object's resistance to changes in its rotational motion, just as mass is a measure of resistance to changes in linear motion.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+The moment of inertia of an object depends on:
+
+Its angular velocity
+
+Its angular acceleration
+
+The applied torque
+
+**Its mass and the distribution of mass about the axis of rotation**
+
+**Explanation:**
+
+Moment of inertia (I) is determined by the total mass of the object and how that mass is geometrically distributed relative to the axis of rotation (I = Σmr²).
+
+The rotational analogue of force is:
+
+Inertia
+
+Momentum
+
+Power
+
+**Torque**
+
+**Explanation:**
+
+Torque (τ) is the rotational equivalent of linear force; it is a twisting force that causes an object to undergo angular acceleration.
+
+The rotational form of Newton's second law is:
+
+α = τ/I²
+
+I = τα
+
+τ = Iω
+
+**τ = Iα**
+
+**Explanation:**
+
+Just as F=ma relates force, mass, and linear acceleration, τ = Iα relates torque (τ), moment of inertia (I), and angular acceleration (α).
+
+The rotational analogue of linear momentum (p = mv) is:
+
+Moment of inertia (I)
+
+Angular velocity (ω)
+
+Torque (τ)
+
+**Angular momentum (L = Iω)**
+
+**Explanation:**
+
+Angular momentum (L) is the rotational equivalent of linear momentum and is calculated as the product of the moment of inertia and angular velocity.
+
+The law of conservation of angular momentum states that if no external torque acts on a system, its total angular momentum:
+
+Increases
+
+Decreases
+
+Becomes zero
+
+**Remains constant**
+
+**Explanation:**
+
+Similar to linear momentum, the total angular momentum of an isolated system (one with zero net external torque) is conserved.
+
+A diver pulls her arms and legs in while spinning. Her angular velocity:
+
+Decreases
+
+Remains the same
+
+Becomes zero
+
+**Increases**
+
+**Explanation:**
+
+By pulling her limbs in, the diver decreases her moment of inertia (I). To conserve angular momentum (L = Iω), her angular velocity (ω) must increase.
+
+The formula for rotational kinetic energy is:
+
+½Iω
+
+½I²ω
+
+Iω²
+
+**½Iω²**
+
+**Explanation:**
+
+The kinetic energy due to rotation is given by K.E\_rot = ½Iω², which is analogous to the linear kinetic energy formula K.E = ½mv².
+
+An object rolling down an incline without slipping has:
+
+Only rotational kinetic energy
+
+Only translational kinetic energy
+
+Only potential energy
+
+**Both translational and rotational kinetic energy**
+
+**Explanation:**
+
+A rolling object is both moving from one place to another (translation) and spinning (rotation), so its total kinetic energy is the sum of both forms.
+
+Which object will reach the bottom of an incline first if released from rest, a solid sphere or a hollow sphere of the same mass and radius?
+
+The hollow sphere
+
+They will reach at the same time
+
+It depends on their mass
+
+**The solid sphere**
+
+**Explanation:**
+
+The solid sphere has a smaller moment of inertia than the hollow sphere. This means less of its potential energy is converted to rotational KE and more to translational KE, making it faster.
+
+The critical velocity of a satellite in a low Earth orbit is also known as:
+
+Escape velocity
+
+Terminal velocity
+
+Angular velocity
+
+**Orbital velocity**
+
+**Explanation:**
+
+The specific speed required to maintain a stable orbit at a certain altitude is called orbital velocity. For low-Earth orbit, this is about 7.9 km/s.
+
+In a geostationary orbit, a satellite's orbital period is:
+
+12 hours
+
+90 minutes
+
+365 days
+
+**24 hours**
+
+**Explanation:**
+
+A geostationary satellite orbits above the equator with an orbital period of exactly 24 hours, causing it to appear stationary from the ground.
+
+The sensation of weightlessness in a satellite is due to:
+
+The absence of gravity
+
+The balancing of gravitational and centrifugal forces
+
+The high speed of the satellite
+
+**The satellite being in a constant state of free-fall**
+
+**Explanation:**
+
+Objects in orbit are continuously falling towards the central body but have enough tangential velocity to miss it. This state of constant free-fall results in the feeling of weightlessness.
+
+The concept of 'artificial gravity' in a space station can be created by:
+
+Increasing the station's mass
+
+Moving to a lower orbit
+
+Using powerful magnets
+
+**Spinning the space station**
+
+**Explanation:**
+
+By spinning a ring-shaped space station, the normal force exerted by the inner floor on an astronaut provides the necessary centripetal force, simulating the sensation of gravity.
+
+The frequency of rotation for a space station to simulate Earth's gravity (g) depends on its:
+
+Mass
+
+Color
+
+Altitude
+
+**Radius**
+
+**Explanation:**
+
+The simulated gravity is the centripetal acceleration (a\_c = rω²). To achieve a\_c = g, the required angular velocity (ω), and thus frequency, depends on the radius 'r' of the station.
+
+What happens to the weight of a person in a lift accelerating downwards?
+
+It increases
+
+It remains the same
+
+It becomes zero
+
+**It decreases**
+
+**Explanation:**
+
+The apparent weight (normal force) is N = m(g-a). When accelerating down, the apparent weight is less than the true weight.
+
+A car is moving on a banked road. The necessary centripetal force is provided by:
+
+Friction only
+
+The vertical component of the normal force
+
+The weight of the car
+
+**The horizontal component of the normal force**
+
+**Explanation:**
+
+On a banked road, the road is tilted. The normal force is perpendicular to the road surface, and its horizontal component points towards the center of the curve, providing the centripetal force.
+
+A flywheel is used in machines to:
+
+Increase the speed
+
+Decrease the speed
+
+Reduce the machine's weight
+
+**Store rotational energy and smooth out motion**
+
+**Explanation:**
+
+A flywheel has a large moment of inertia and is used to store rotational kinetic energy, resisting changes in speed and ensuring smoother operation.
+
+The unit of angular acceleration is:
+
+rad/s
+
+rev/s
+
+m/s²
+
+**rad/s²**
+
+**Explanation:**
+
+Angular acceleration (α) is the rate of change of angular velocity, so its unit is radians per second per second, or rad/s².
+
+If the angular velocity of an object changes from 2 rad/s to 10 rad/s in 4 seconds, its angular acceleration is:
+
+8 rad/s²
+
+4 rad/s²
+
+3 rad/s²
+
+**2 rad/s²**
+
+**Explanation:**
+
+Angular acceleration α = Δω/Δt = (10 - 2) rad/s / 4 s = 8/4 = 2 rad/s².
+
+Tangential acceleration in circular motion is responsible for:
+
+Changing the direction of motion
+
+Keeping the object in a circle
+
+Both A and C
+
+**Changing the speed of motion**
+
+**Explanation:**
+
+While centripetal acceleration changes the direction, tangential acceleration (a\_t = rα) acts along the tangent to the path and is responsible for changing the object's speed.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+A body in uniform circular motion has:
+
+Constant velocity
+
+Constant acceleration
+
+Zero acceleration
+
+**Constant speed**
+
+**Explanation:**
+
+In uniform circular motion, the magnitude of the velocity (speed) is constant, but the direction of the velocity vector is continuously changing, resulting in a non-zero centripetal acceleration.
+
+The moment of inertia of a thin hoop of mass M and radius R about its center is:
+
+½MR²
+
+⅖MR²
+
+⅔MR²
+
+**MR²**
+
+**Explanation:**
+
+For a thin hoop or ring, all the mass (M) is located at the same distance (R) from the axis of rotation, so its moment of inertia is I = MR².
+
+The term 'centrifugal force' is often described as a:
+
+Real force directed inwards
+
+Real force directed outwards
+
+Gravitational force
+
+**Fictitious or pseudo force**
+
+**Explanation:**
+
+Centrifugal force is an apparent outward force experienced by an object in a rotating frame of reference. It is not a real force but rather the effect of the object's inertia.
+
+Which of the following has the largest moment of inertia for the same mass M and radius R?
+
+A solid sphere
+
+A solid disk
+
+A solid cylinder
+
+**A thin hoop**
+
+**Explanation:**
+
+The moment of inertia is largest when the mass is distributed farthest from the axis of rotation. In a thin hoop, all the mass is at the maximum radius R.
+
+The time period of a geostationary satellite is:
+
+Equal to the time period of the Sun
+
+Equal to the time period of the Moon
+
+90 minutes
+
+**Equal to the rotational period of the Earth**
+
+**Explanation:**
+
+A geostationary satellite remains above the same point on Earth because its orbital period is exactly the same as Earth's rotational period (24 hours).
+
+If a car makes a turn on a flat road, the centripetal force is provided by:
+
+The car's engine
+
+The normal force
+
+The weight of the car
+
+**The force of friction between the tires and the road**
+
+**Explanation:**
+
+The static friction between the tires and the road surface provides the necessary inward force to make the car change direction and follow the curve.
+
+The angular momentum of a particle moving in a straight line is:
+
+Always zero
+
+Always infinite
+
+Constant
+
+**Zero only if the line passes through the origin**
+
+**Explanation:**
+
+Angular momentum is L = r x p. If the particle's path passes through the origin (the reference point), the position vector 'r' is always parallel to the momentum vector 'p', making their cross product zero.
+
+The units of angular momentum are:
+
+kg m/s
+
+kg m/s²
+
+kg m²/s²
+
+**kg m²/s**
+
+**Explanation:**
+
+Angular momentum L = Iω. The unit for I is kg m² and for ω is rad/s (or s⁻¹). Therefore, the unit for L is kg m²/s, which is also equivalent to Joule-second (J·s).
+
+A solid cylinder and a hollow cylinder have the same mass and radius. Which has a greater moment of inertia?
+
+The solid cylinder
+
+They have the same moment of inertia
+
+It depends on their length
+
+**The hollow cylinder**
+
+**Explanation:**
+
+The hollow cylinder has its mass distributed further from the central axis compared to the solid cylinder, giving it a greater resistance to rotation and thus a greater moment of inertia.
+
+If the Earth were to shrink to half its present radius with its mass remaining constant, the length of the day would:
+
+Increase
+
+Remain the same
+
+Become zero
+
+**Decrease**
+
+**Explanation:**
+
+By conservation of angular momentum (L=Iω), if the Earth's radius decreases, its moment of inertia (I ≈ ⅖MR²) would decrease. To conserve L, its angular velocity (ω) would have to increase, making the day shorter.
+
+A body is moving in a circle at a constant speed. Which statement is TRUE?
+
+There is no force acting on the body.
+
+There is no acceleration.
+
+Work is being done on the body.
+
+**The velocity is changing.**
+
+**Explanation:**
+
+Even at a constant speed, the direction of motion is continuously changing in a circle. Since velocity is a vector (speed + direction), the velocity is changing, which implies there is acceleration (centripetal acceleration).
+
+The SI unit of torque is:
+
+Newton (N)
+
+Joule (J)
+
+Watt (W)
+
+**Newton-meter (N·m)**
+
+**Explanation:**
+
+Torque is calculated as the cross product of the position vector and the force vector (τ = r x F), so its unit is the Newton-meter (N·m).
+
+To unscrew a tight nut, a mechanic should use a wrench that is:
+
+**Explanation:**
+
+Torque equals the lever arm (length of the wrench) times the force. A longer wrench increases the lever arm, allowing the same amount of force to produce a greater torque.
+
+An object's angular momentum is conserved if the net external \_\_\_\_\_ acting on it is zero.
+
+Impulse
+
+Energy
+
+**Torque**
+
+**Explanation:**
+
+The law of conservation of angular momentum is the rotational equivalent of the law of conservation of linear momentum. Angular momentum is conserved when the net external torque is zero.
+
+A satellite in a circular orbit around the Earth is an example where:
+
+Linear momentum is conserved.
+
+Kinetic energy is conserved.
+
+Potential energy is conserved.
+
+**Angular momentum is conserved.**
+
+**Explanation:**
+
+The gravitational force on a satellite in a circular orbit provides a torque that is zero with respect to the center of the Earth. Therefore, its angular momentum is conserved.
+
+Real satellites orbit the Earth in paths that are slightly:
+
+**Explanation:**
+
+While we often model orbits as perfectly circular for simplicity, real-world orbits are slightly elliptical due to various perturbations and the nature of gravitational fields.
+
+The total kinetic energy of a rolling hoop is:
+
+Equal to its translational KE
+
+Equal to its rotational KE
+
+Zero
+
+**The sum of its translational and rotational KE**
+
+**Explanation:**
+
+A rolling object is simultaneously translating and rotating. Its total kinetic energy is the sum of the kinetic energy of its center of mass (translational) and the kinetic energy of its rotation about the center of mass (rotational).
+
+For a point mass M at a distance R from the axis of rotation, the moment of inertia is:
+
+½MR²
+
+⅖MR²
+
+**MR²**
+
+**Explanation:**
+
+The formula for the moment of inertia of a single point mass is I = mr², where 'r' is the perpendicular distance from the mass to the axis of rotation.
+
+If an object's moment of inertia is large, it is difficult to:
+
+Start it rotating
+
+Stop it from rotating
+
+Change its angular velocity
+
+**All of the above**
+
+**Explanation:**
+
+A large moment of inertia indicates a high resistance to changes in rotational motion. This makes the object difficult to start, stop, or change its speed of rotation.
+
+The height of a geostationary satellite above the Earth's equator is approximately:
+
+3600 km
+
+360,000 km
+
+3,600,000 km
+
+**36,000 km**
+
+**Explanation:**
+
+To achieve an orbital period of 24 hours, a geostationary satellite must be placed at a very specific altitude of approximately 35,786 kilometers (or about 36,000 km) above the equator.
+
+## Other Physics Topics MCQs
+
+We have also prepared the following set of MCQs for your Entry test preparation like MDCAT, ECAT and Armed forces test. WE WISH YOU BEST OF LUCK!
+
+[Force And Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/force-and-motion-mcqs/)
+
+[Work And Energy MCQs](https://www.mcquniverse.pk/physics-mcqs/work-and-energy-mcqs/)
+
+[Rotational And Circular Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/rotational-and-circular-motion-mcqs/)
+
+[Waves MCQs](https://www.mcquniverse.pk/physics-mcqs/waves-mcqs/)
+
+[Thermodynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/thermodynamics-mcqs/)
+
+[Electrostatics MCQs](https://www.mcquniverse.pk/physics-mcqs/electrostatics-mcqs/)
+
+[Current Electricity MCQs](https://www.mcquniverse.pk/physics-mcqs/current-electricity-mcqs/)
+
+[Electromagnetism MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetism-mcqs/)
+
+[Electromagnetic Induction MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetic-induction-mcqs/)
+
+[Electronics MCQs](https://www.mcquniverse.pk/physics-mcqs/electronics-mcqs/)
+
+[Dawn Of Modern Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/dawn-of-modern-physics-mcqs/)
+
+[Atomic Spectra MCQs](https://www.mcquniverse.pk/physics-mcqs/atomic-spectra-mcqs/)
+
+[Nuclear Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/nuclear-physics-mcqs/)
+
+[Fluid Dynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/fluid-dynamics-mcqs/)
+
+[Vectors And Equilibrium MCQs](https://www.mcquniverse.pk/physics-mcqs/vectors-and-equilibrium-mcqs/)
+
+### Leave a Reply [Cancel reply](/physics-mcqs/work-and-energy-mcqs/#respond)
+
+×🌐 Website-Wide Premium Access
+
+### Unlock All Quizzes & MCQs
+
+🚀 **One Subscription Unlocks Everything!** 
+ Get 100% full access to ALL quizzes, MCQs & detailed explanations across the entire website.
+
+1 Week
+
+Rs 199
+
+Full Site Access
+
+BEST VALUE
+
+1 Month
+
+Rs 499
+
+Full Site Access
+
+📌 How to Activate:
+
+1. Send fee for your plan to JazzCash or EasyPaisa below.
+2. Click WhatsApp button & send payment screenshot to Admin.
+3. **Instant Activation** within 10 minutes!
+
+JazzCash 03048961191 Title: Rana HabibUllah
+
+EasyPaisa 03428699409 Title: Rana HabibUllah
+
+ [💬 Send Screenshot on WhatsApp](https://wa.me/923428699409?text=Hi,%20I%20want%20to%20activate%20full%20site%20premium%20access.) Maybe later
+
+ [Student Login](https://www.mcquniverse.pk/dashboard/) 
+
+**Alert:**Content is protected.
+
+Scroll to Top

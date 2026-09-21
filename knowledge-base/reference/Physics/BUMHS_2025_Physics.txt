@@ -1,0 +1,177 @@
+Q127. If a photon of gamma ray and one of x-ray are compared, then:
+(a) x-ray photon has more energy
+(b) Both have same energy
+(c) Gamma-ray photon has more energy
+(d) Both have same wavelength
+Q128. The dot product of two vectors is negative. If one vector lies along the positive x-axis, then the projection of second vector is along:
+(a) x.axis
+(b) - x-axis
+(c) y-axis
+(d) - y-axis
+Q129. If two points are at the same potential in a electric field, then the work done in moving a unit positive charge from one point to another is equal to:
+(a) - 0.5 J
+(b) 0 J
+(c) 1 J
+(d) 2 J
+Q130. A string vibrates in the first, second and third harmonics. The ratio of their wavelength is:
+(a) 1 : 2 : 3
+(b) 3 : 2 : 1
+(c) 1 : 4 : 9
+(d) 3 : 6 : 9
+Q131. The angle that a body covers at the center of the circle in three turns in radian is:
+(a) 0
+(b) 3
+(c) 10.8
+(d) 18.8
+Q132. The efficiency of an emf source becomes 50% when the load resistance is equal to:
+(a) internal resistance
+(b) double the internal resistance
+(c) half the internal resistance
+(d) zero
+Q133. resistivity:
+If the length of a copper wire connected in a circuit is doubled, its
+(a) Becomes half
+(b) Becomes double
+(c) Becomes four times
+(d) Remains same
+Q134. by the force is:
+If the angle between force and velocity is 90�, the power delivered
+(a) Zero
+(b) Maximum
+(c) Minimum but not zero
+(d) Infinite
+Q135. A ball is thrown vertically upward with a certain velocity making an angle with the horizontal (neglecting air resistance). With the passage of time horizontal component of velocity __________.
+(a) Increases (c) Remains same
+(b) Decreases (d) First decreases then increases
+Q136. A capacitor of capacitance 2 F is connected in series with 1 M resistance and 12 volts battery. The time taken by this capacitor take to 63% of its equilibrium charge will be:
+(a) 1 second
+(b) 2 seconds
+(c) 10 seconds
+(d) Infinite
+Q137. A rolling cart collides with a stationary cart of equal mass. After the collision, both move together, momentum is still conserved because:
+(a) Masses are equal
+(b) No external force acts on the system (c) Both move with the same speed
+(d) Internal forces are very small
+Q138. An electric field exists in a region if:
+(a) A test charge experiences a force (c) Charge density is uniform
+(b) Voltage is zero (d) The medium is vacuum
+Q139. Dot product of two unit vectors is:
+(a) 1
+(b) 0
+(c) cos
+(d) AB cos
+Q140. According to the Faraday's law of electromagnetic induction, emf induced in a coil placed in changing magnetic field, depends upon:
+(a) the magnetic field
+(b) amount of current
+(c) resistance of a coil
+(d) the rate of change of magnetic flux
+Q141. A 4kg box initially at rest is pulled along a frictionless surface by a constant horizontal force of 8N. After 15 seconds, its kinetic energy is:
+(a) 120 J
+(b) 600 J
+(c) 960 J
+(d) 1800 J
+Q142. The ratio of longest to shortest wave lengths in Bracket series of hydrogen spectrum is:
+(a) 25/9
+(b) 17/6
+(c) 9/5
+(d) 4/3
+Q143. For a diode, the depletion region of a PN junction has:
+(a) Free positive charges (c) Positive and negative ions
+(b) Free negative charges (d) No free charges
+Q144. battery:
+When a battery is being charged, the direction of current inside the
+(a) is from positive to negative terminal (c) is opposite to the direction of emf
+(b) is the same as the direction of emf (d) depends on the load resistance
+Q145. Two standing waves vibrate in fundamental mode in two organ pipes A (open) and B ( closed) each of length 60cm. The ratio of frequency of A to B is:
+(a) 1 : 2
+(b) 1 : 1
+(c) 2 : 1
+(d) 2 : 3
+Q146. The result of vector product of two vectors:
+(a) number
+(b) unit
+(c) number and unit
+(d) magnitude and a unit vector
+Q147. The average speed of a body in a given interval of time is equal to the average velocity, if:
+(a) The speed of the body remains uniform.
+(b) The body moves with constant acceleration.
+(c) The body moves along a straight path.
+(d) The body returns to its starting point.
+Q148. A proton and an electron are held stationary at a distance r in a uniform electric field. If released, how does their potential energy change?
+(a) Increases
+(b) Decreases
+(c) Remains constant
+(d) First increases, then decreases
+Q149. 
+(a) 3
+(b) -3
+(c) 1
+(d) -1
+Q150. The magnitude of electric field intensity due to a point charge q at a distance r in vacuum is given by:
+(a) E = q/r�
+(b) E = kq/r
+(c) E = kq/r�
+(d) E = k/r�
+Q151. The power transmission lines delivering same amount of power. An increase in current will increase:
+(a) Heat produced in the wires
+(b) Voltage output
+(c) Frequency of AC
+(d) Mechanical stress on the wires
+Q152. When the diameter of a blood vessel narrows, the velocity and pressure of blood will:
+Options A. B. C. D.
+Velocity increase increase decrease decrease
+Pressure increase decrease increase decrease
+(a) A
+(b) B
+(c) C
+(d) D
+Q153. progressive wave:
+A progressive wave differs from a stationary wave because in
+(a) particles remain at fixed nodes
+(b) particles oscillate and transfer energy
+(c) particles stay at anti-nodes
+(d) particles move forward with the wave
+Q154. Cv is:
+(a) Cp = Cv + R
+(c) Cv = Cp + R
+For an ideal gas, the relation between molar specific heats Cp and
+(b) Cp = Cv - R (d) Cp = R - Cv
+Q155. current will be:
+(a) Double
+(c) Remain same
+If the capacitance in a purely capacitive AC circuit is doubled, the
+(b) Become half (d) Decrease to the fourth
+Q156. The coulomb repulsive force between two protons inside a nucleus is much higher than the gravitational attractive force by a factor of approximately ____.
+(a) 1036
+(b) 10-36
+(c) 10-15
+(d) 1012
+Q157. A particle is moving in a uniform circular path of radius 4cm with velocity 4cm/s. The maximum acceleration of its projection executing simple harmonic motion on horizontal diameter is:
+(a) 4 cm/s�
+(b) 8 cm/s�
+(c) 12 cm/s�
+(d) 16 cm/s�
+Q158. On increasing the length of a wire, the specific resistance (resistivity) of the wire:
+(a) increases
+(b) decreases
+(c) remains unchanged
+(d) first increases, then decreases
+Q159. Water flows through a horizontal pipe with area of 0.02 m� at 3m/s. The pipe narrows to 0.01 m�. The velocity in the narrow section is:
+(a) 0.5 m/s
+(b) 1.5 m/s
+(c) 3 m/s
+(d) 6 m/s
+Q160. blood velocity:
+Bernoulli's principle helps explain why blood pressure drops when
+(a) Increases in narrow vessel (c) Increases in wide vessel
+(b) Decreases in narrow vessel (d) Decreases in wide vessel
+Q161. A man pushes a wall with a force of 100 N for 10 seconds. The work done by the man on the wall is:
+(a) 1000 J
+(b) 100J
+(c) 10 J
+(d) zero
+Q162. F is the force between two identical charges each with a charge (e) separated by a distance (r). If the separation is made quarter of the initial separation (r), then the new force in terms F can be written as:
+(a) F/4
+(b) 16F
+(c) 32F
+(d) F

@@ -1,0 +1,845 @@
+ [Skip to content](#content)
+
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[MCQUniverse](https://www.mcquniverse.pk/)
+
+[Sign up](https://www.mcquniverse.pk/)[Sign up](https://www.mcquniverse.pk/)
+
+# Most Important Chemical Equilibrium MCQs with Answers
+
+## Chemical Equilibrium MCQs with Answers
+
+At equilibrium, the concentration of reactants and products is:
+
+Which statement correctly describes a **reversible reaction**?
+
+Only the forward reaction occurs; the reverse reaction does not take place.
+
+Both forward and reverse reactions occur, but under different conditions.
+
+Forward and reverse reactions take place at different times and under different conditions.
+
+**Forward and reverse reactions occur simultaneously under the same conditions.**
+
+For the reaction:   4NH3+5O2⇌4NO+6H2O​
+
+The **units of the equilibrium constant (Kc)** are:
+
+Concentration² (Conc.²)
+
+Concentration⁻¹ (Conc.⁻¹)
+
+No units
+
+**Concentration (Conc.)**
+
+One mole of HI was sealed in a tube and heated at **440°C** until equilibrium was reached. If **HI was found to be 50% dissociated**, the equilibrium constant **Kc** for the reaction is:
+
+For what value of **Kc** is the forward reaction **almost complete**?
+
+1
+
+One mole of **ethyl alcohol** was treated with **one mole of acetic acid** at 25°C. If **2/3 of the acid changes into ester at equilibrium**, the equilibrium constant of the reaction will be:
+
+1
+
+At equilibrium, the concentrations of SO₂, O₂, and SO₃ are **2M, 2M, and 4M**, respectively, for the reaction:
+
+2SO2+O2⇌2SO3​
+
+What is the **Kc value**?
+
+4
+
+**2**
+
+For the reaction:
+
+CO+2H2⇌CH3OH,   ΔH=−92kJ/mol
+
+At equilibrium, the concentrations of CO, H₂, and CH₃OH **become constant**. What will happen?
+
+Reaction speeds up.
+
+Reaction slows down.
+
+Equilibrium state is disturbed.
+
+**Equilibrium state remains undisturbed.**
+
+If **Kc value is very small**, the equilibrium position will shift:
+
+Toward products (right).
+
+It remains unchanged.
+
+It is always a constant value.
+
+**Toward reactants (left).**
+
+If **Kc value is very large**, the equilibrium position will shift:
+
+Toward reactants (left).
+
+It remains unchanged.
+
+It is always a constant value.
+
+**Toward products (right).**
+
+For the reaction:  H2+I2⇌2HI
+
+The **equilibrium constant (K)** is affected by:
+
+Total pressure
+
+Catalyst
+
+Concentration
+
+**Temperature**
+
+Which of the following correctly represents the relationship between **Kp** and **Kc**?
+
+Kp = Kc (R)Δⁿ
+
+Kp = Kc (RT)Δⁿ
+
+Kp = Kc (R/N)Δⁿ
+
+**Kc = Kp (RT)Δⁿ**
+
+For the given reaction:   PCl5⇌PCl3+Cl2​
+
+Kp
+
+Kp=Kc
+
+Kp=Kc=0
+
+**Kp ​>Kc**
+
+For the reaction  H2+I2⇌2HI
+
+If the equilibrium concentrations of **H₂, I₂, and HI** are **8, 3, and 24mol/dm³**, respectively, what is the equilibrium constant Kc?
+
+1
+
+26
+
+9
+
+**24**
+
+For the following reaction in the gaseous phase:
+
+CO +1/2O2 ⇌ CO2, Kc/Kp is
+
+(RT)^−(1/2)
+
+(RT)^ (1/2)
+
+(RT) ^−1
+
+**(RT) ^1**
+
+In the reaction:
+
+A2(g)+4B(g)⇌2AB4(g)
+
+If **ΔH is negative**, the formation of **AB(g)** will be favored at:
+
+Low temperature and low pressure
+
+High temperature and low pressure
+
+High temperature and high pressure
+
+**Low temperature and high pressure**
+
+For the reaction:
+
+N2+3H2⇌2NH3+Heat ,ΔH=−41.02kJ/mol
+
+The forward reaction is favored by:
+
+Adding NH₃ at equilibrium
+
+Adding a catalyst
+
+Decreasing the concentration of H₂
+
+**Decreasing temperature**
+
+In a given system, **water and ice** are in equilibrium. If **pressure is applied**, what will happen?
+
+More ice is formed
+
+The amount of ice and water remains the same
+
+Both A and B
+
+**More ice is melted**
+
+If **temperature is increased**, how will the reaction shift?
+
+N2+3H2⇌2NH3+Heat ,ΔH=−ve/mol
+
+Forward direction
+
+Remains unchanged
+
+Decreases the rate of reaction
+
+**Backward direction**
+
+In the **Haber process**, equilibrium gas mixture contains \_\_\_**NH₃** by volume.
+
+70%
+
+20%
+
+55%
+
+**35%**
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+The **catalyst** used in the Haber process is:
+
+Al₂O₃
+
+MgO
+
+SiO₂
+
+**Fe (Iron)**
+
+Which of the following is a **basic buffer solution**?
+
+HF / NaF
+
+H₂CO₃ / Na₂CO₃
+
+(COOH)₂ / (COONa)₂
+
+**NH₄OH / NH₄Cl**
+
+**Buffer action** can be explained by:
+
+Common ion effect
+
+Le Chatelier’s principle
+
+Mass action law
+
+**All of these**
+
+A **basic buffer solution** can be prepared by mixing:
+
+A strong acid and its salt with a weak base
+
+A strong base and its salt with a weak acid
+
+A weak acid and its salt with a strong base
+
+**A weak base and its salt with a strong acid**
+
+The **pH of an ideal buffer solution** is:
+
+10
+
+Less than 7
+
+0
+
+**7**
+
+A **buffer solution** contains equal concentrations of **acid (X) and its conjugate base**, where the **Ka** for X is 10⁻³. The **pH of the buffer** is:
+
+8
+
+11
+
+14
+
+**3**
+
+Which **Henderson equation** is **correct**?
+
+pH = pKa + log ([Acid] / [Salt])
+
+pOH = pKb + log ([Salt] / [Base])
+
+pH = pKb + log ([Base] / [Acid])
+
+**pH=pKa+log([salt]/[acid])**
+
+For an **acidic buffer**, pH>pKa if:
+
+[Salt] = [Acid]
+
+[Salt] < [Acid]
+
+[Salt] > [Base]
+
+**[Salt] > [Acid]**
+
+When **CO₂ gas** is passed through a **saturated solution of calcium carbonate (CaCO₃)**, the solubility of **CaCO₃**:
+
+Increases
+
+First increases, then decreases
+
+Remains unchanged
+
+**Decreases**
+
+**If the ionic product = Ksp**, the solution is
+
+Supersaturated
+
+Saturated
+
+Dilute
+
+**Unsaturated**
+
+The **ionization of BaSO₄** is suppressed by:
+
+Increasing temperature
+
+Adding NaCl
+
+Decreasing temperature
+
+**Adding BaCl₂**
+
+If ionic product > Ksp, then the solution is:
+
+Unsaturated
+
+Ideal
+
+Saturated
+
+**Supersaturated**
+
+The **solubility product (Ksp)** is applicable only for substances whose molar concentrations are:
+
+Equal to 0.1M
+
+Equal to1M
+
+Greater than 0.1
+
+**Equal to or less than 0.01**
+
+In a **saturated solution of AB**, the molar concentration of **A⁺ and B⁻ ions** is **1 × 10⁻⁵ M**. Find **Ksp**?
+
+1.0 × 10⁻⁵
+
+2.0 × 10⁻²
+
+1.5 × 10⁻⁵
+
+**1.0 × 10⁻¹⁰**
+
+For a **sparingly soluble salt** AB3, the solubility is **"S" mol/dm³**. The **solubility product (Ksp)** is given by:
+
+Ksp = S²
+
+Ksp = 4S³
+
+Ksp = 27S³
+
+**Ksp = 27S⁴**
+
+**Units of equilibrium constant (Kc)** for the following reaction:
+
+A​+B​⇌2C
+
+mol/dm³
+
+mol⁻¹ dm³
+
+mol² dm⁻⁶
+
+**No unit**
+
+If **Na₂SO₄** is added to a solution of **BaSO₄**, **BaSO₄** will precipitate due to:
+
+Decrease in temperature
+
+Increase in solubility
+
+Salt hydrolysis
+
+**Common ion effect**
+
+**If the temperature is decreased**, what will happen to the formation of **NH₃**, given that the reaction is **reversible** and **exothermic**?
+
+The formation of NH₃ will decrease
+
+The reaction will remain unaffected
+
+NH₃ will start decomposing
+
+**The formation of NH₃ will increase**
+
+A **buffer solution** is a solution that **resists the change** in:
+
+pOH
+
+None of these
+
+pKb
+
+**pH**
+
+A chemical substance that releases **H⁺ ions** when dissolved in water is known as:
+
+Neutral
+
+Base
+
+Amphoteric
+
+**Acid**
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+The **pH of human blood** is:
+
+6.7 - 8
+
+7.5
+
+19
+
+**7.35 - 7.4**
+
+The equilibrium constant (Kc) for the reaction N₂(g) + O₂(g) ⇌ 2NO(g) is 4.0 x 10⁻⁴ at a certain temperature. What is the value of Kc for the reaction 2NO(g) ⇌ N₂(g) + O₂(g) at the same temperature?
+
+4.0 x 10⁻⁴
+
+2.0 x 10⁻²
+
+2.5 x 10⁴
+
+**2.5 x 10³**
+
+What will be the **pH** of an **HCl** solution with a concentration of **10⁻² M**?
+
+12
+
+10
+
+7
+
+**2**
+
+For maximum **yield of NO₂**, according to **Le Chatelier’s Principle**, the reaction:
+
+Δ**2NO + O₂ ⇌ 2NO₂        Δ**H=−114 kJ/mol
+
+should be carried out at:
+
+High temperature and high pressure
+
+High temperature and low pressure
+
+Low temperature and low pressure
+
+**Low temperature and high pressure**
+
+What is the relationship between **pH** and **pKa**?
+
+pH=pKa−log[Acid/Base]
+
+pKa=pH−log[Acid/Base]
+
+pH=pKa+log[ Acid /Base]
+
+**pH=pKa+log[Base/Acid]**
+
+Which of the following is the correct representation for **Ksp of BaSO₄**?
+
+BaSO₄ ⇌Ba²⁺​ + SO₄²⁻​
+
+Ksp = [BaSO₄] / ([Ba²⁺][SO₄²⁻])
+
+Ksp = [Ba²⁺][SO₄²⁻] / [BaSO₄]
+
+Ksp = [Ba²⁺] + [SO₄²⁻]
+
+**Ksp = [Ba²⁺][SO₄²⁻]**
+
+**Human blood** has **pH of:**
+
+6.50 - 7.00
+
+7.20 - 7.25
+
+7.50 - 8.00
+
+**7.35 - 7.40**
+
+At 25°C, the solubility product constant (Ksp) for the PbSO₄ system is:
+
+1.0 × 10⁻¹⁴ mol² dm⁻⁶
+
+1.8 × 10⁻¹⁰ mol² dm⁻⁶
+
+6.4 × 10⁻⁷ mol² dm⁻⁶
+
+**1.6 × 10⁻⁸ mol² dm⁻⁶**
+
+For which of the following **equilibrium reactions**, **K has no units**?
+
+A+3A ⇌2C ​
+
+A+2B ⇌2C
+
+2A+B ⇌2C​
+
+**A+B ⇌C+D**
+
+Consider the following reversible reaction:
+
+CH3CH2OH + CH3COOH ⇌ CH3COOCH2CH3 + H2O
+
+The initial concentrations are:
+
+* **Ethanol (CH₃CH₂OH)** = **1 mol**
+* **Acetic acid (CH₃COOH)** = **1 mol**
+* **Ethyl acetate (CH₃COOCH₂CH₃)** = **0 mol**
+* **Water (H₂O)** = **0 mol**
+
+At equilibrium, the concentrations are:
+
+* **CH₃CH₂OH** = **0.333 mol**
+* **CH₃COOH** = **0.333 mol**
+* **CH₃COOCH₂CH₃** = **0.666 mol**
+* **H₂O** = **0.666 mol**
+
+If **1 mole each** of **CH₃CH₂OH** and **CH₃COOH** are added, what will be the new equilibrium concentrations?
+
+[CH₃COOH] = 0.333, [CH₃COOCH₂CH₃] = 1.666, [CH₃CH₂OH] = 1.333, [H₂O] = 0.666
+
+[CH₃COOH] = 1.333, [CH₃COOCH₂CH₃] = 0.666, [CH₃CH₂OH] = 0.333, [H₂O] = 1.666
+
+[CH₃COOH] = 0.333, [CH₃COOCH₂CH₃] = 1.333, [CH₃CH₂OH] = 0.333, [H₂O] = 1.333
+
+**[CH₃COOH] = 0.666, [CH₃COOCH₂CH₃] = 1.333, [CH₃CH₂OH] = 0.666, [H₂O] = 1.333**
+
+**BaF₂** is **sparingly soluble**, having a **solubility product (Ksp)** of **1.5 × 10⁻⁶**. What will be its solubility?
+
+5.2 × 10⁻³ M
+
+8.1 × 10⁻³ M
+
+1.1 × 10⁻³ M
+
+**7.2 × 10⁻³ M**
+
+The **product of ion concentrations** in a **saturated solution** of a **sparingly soluble salt** at **310 K**, each raised to the power of its **stoichiometric coefficient**, is known as
+
+Ionic product
+
+Equilibrium constant (Kc)
+
+Reaction quotient (Q)
+
+**Solubility product (Ksp)**
+
+Which of the following **factors influence a reversible chemical reaction** based on **Le Chatelier’s Principle**?
+
+catalyst
+
+Volume and catalyst
+
+None of these
+
+**Temperature, pressure, and concentration**
+
+Which of the following **factors affect the equilibrium position**?
+
+Catalyst only
+
+Only concentration
+
+None of these
+
+**Temperature, concentration, and pressure**
+
+The **Kc unit** for the reaction:
+
+A+3B⇌2C
+
+mol dm⁻³
+
+mol² dm⁻⁶
+
+mol⁻³ dm⁹
+
+**mol⁻² dm⁶**
+
+Which one of the following **bases has the highest Kb value**?
+
+NH₃
+
+C₂H₅NH₂
+
+CH₃NH₂
+
+**NaOH**
+
+What is the **pH of 0.01 M HCl**?
+
+1
+
+3
+
+4
+
+**2**
+
+If the **pKa** of **formic acid (HCOOH)** is **3.75**, the **pH of an equimolar solution** of formic acid and sodium formate is:
+
+7
+
+4.75
+
+2.75
+
+**3.75**
+
+Precipitation takes place when the **ionic product** of the ions in a solution is:
+
+Less than Ksp
+
+Equal to Ksp
+
+Equal to unity
+
+**Greater than Ksp**
+
+In the equation **Kp = Kc (RT)ⁿ**, if **Δn > 0**, then:
+
+Kp=Kc
+
+Kp
+
+Kp<0
+
+**Kp>Kc**
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+The **pKa values** of some acids at room temperature are given below. Which one is the **strongest acid**?
+
+HNO₃ (pKa = -1.4)
+
+HCl (pKa = -7)
+
+H₂SO₄ (pKa = -3)
+
+**HI (pKa = -10)**
+
+N2 + 3H2 ⇌ 2NH3 + Heat
+
+The production of NH₃ will be highest at:
+
+High temperature and low pressure
+
+High temperature and high pressure
+
+Low temperature and low pressure
+
+**Low temperature and high pressure**
+
+**Explanation:**
+
+Since the forward reaction is exothermic, a lower temperature favors NH₃ formation. Additionally, since fewer gas molecules are on the right side, increasing pressure shifts equilibrium toward NH₃ production.
+
+Ice and water are in equilibrium within a closed system. If the pressure is decreased, the equilibrium will shift:
+
+Forward, causing more ice to melt.
+
+Affecting the entire system at equilibrium.
+
+No change in equilibrium.
+
+**Reverse, leading to more water freezing.**
+
+A+B ⇌ C + Heat
+
+As the forward reaction is exothermic, an increase in temperature shifts the equilibrium:
+
+To the right, increasing C
+
+To the right, increasing A and B while C remains the same
+
+To the left, decreasing A and B while increasing C
+
+**To the left, increasing A and B, while decreasing C**
+
+Which statement is correct regarding the reaction: 
+2NOCl ⇌ 2NO + Cl₂
+
+Kp < Kc
+
+Kp = Kc
+
+None of the above
+
+**Kp > Kc**
+
+*Which industrial process is represented by the reaction: N₂ + 3H₂ ⇌ 2NH₃?*
+
+Contact process
+
+Solvay process
+
+Avogadro’s law
+
+**Haber’s process**
+
+In a gaseous reaction where the number of moles of reactants and products are the same, the relationship between Kp and Kc is:
+
+None of these
+
+Kc < Kp
+
+Kc > Kp
+
+**Kp = Kc**
+
+The purification of table salt (NaCl) by passing HCl gas through its saturated aqueous solution is an example of:
+
+Law of mass action
+
+Hess’s law
+
+Henry’s law
+
+**Common ion effect**
+
+## Other Chemistry Topics MCQs
+
+We have also prepared the following set of MCQsfor your Entry test preparation in quick way like MDCAT, ECAT and Armed forces test. WE WISH YOU BEST OF LUCK!
+
+[Basic Concept MCQs](https://www.mcquniverse.pk/chemistry-mcqs/basic-concept-mcqs/)
+
+[Atomic Structure MCQs](https://www.mcquniverse.pk/chemistry-mcqs/atomic-structure-mcqs/)
+
+[Gases MCQs](https://www.mcquniverse.pk/chemistry-mcqs/gases-mcqs/)
+
+[Liquids MCQs](https://www.mcquniverse.pk/chemistry-mcqs/liquids-mcqs/)
+
+[Solids MCQs](https://www.mcquniverse.pk/chemistry-mcqs/solids-mcqs/)
+
+[Chemical Equilibrium MCQs](https://www.mcquniverse.pk/chemistry-mcqs/chemical-equilibrium-mcqs/)
+
+[Reaction Kinectics MCQs](https://www.mcquniverse.pk/chemistry-mcqs/reaction-kinetics-quiz/)
+
+[Thermochemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/thermochemistry-mcqs/)
+
+[Electrochemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/electrochemistry-mcqs/)
+
+[Chemical Bonding MCQs](https://www.mcquniverse.pk/chemistry-mcqs/chemical-bonding-mcqs/)
+
+[Transition Elements MCQs](https://www.mcquniverse.pk/chemistry-mcqs/transition-elements-mcqs/)
+
+[S And P Block Elements MCQs](https://www.mcquniverse.pk/chemistry-mcqs/s-and-p-block-elements-mcqs/)
+
+[Fundamental Principles Of Organic Chemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/fundamental-principles-of-organic-chemistry-mcqs/)
+
+[Hydrocarbons MCQs](https://www.mcquniverse.pk/chemistry-mcqs/hydrocarbons-mcqs/)
+
+[Alkyl Halides MCQs](https://www.mcquniverse.pk/chemistry-mcqs/alkyl-halides-mcqs/)
+
+[Alcohols And Phenols MCQs](https://www.mcquniverse.pk/chemistry-mcqs/alcohols-and-phenols-mcqs/)
+
+[Aldehydes And Ketones MCQs](https://www.mcquniverse.pk/chemistry-mcqs/aldehydes-and-ketones-mcqs/)
+
+[Macromolecules MCQs](https://www.mcquniverse.pk/chemistry-mcqs/macromolecules-mcqs/)
+
+[Carboxylic Acid MCQs](https://www.mcquniverse.pk/chemistry-mcqs/carboxylic-acid-mcqs/)
+
+[Industrial Chemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/industrial-chemistry-mcqs/)
+
+### Leave a Reply [Cancel reply](/chemistry-mcqs/chemical-equilibrium-mcqs/#respond)
+
+×🌐 Website-Wide Premium Access
+
+### Unlock All Quizzes & MCQs
+
+🚀 **One Subscription Unlocks Everything!** 
+ Get 100% full access to ALL quizzes, MCQs & detailed explanations across the entire website.
+
+1 Week
+
+Rs 199
+
+Full Site Access
+
+BEST VALUE
+
+1 Month
+
+Rs 499
+
+Full Site Access
+
+📌 How to Activate:
+
+1. Send fee for your plan to JazzCash or EasyPaisa below.
+2. Click WhatsApp button & send payment screenshot to Admin.
+3. **Instant Activation** within 10 minutes!
+
+JazzCash 03048961191 Title: Rana HabibUllah
+
+EasyPaisa 03428699409 Title: Rana HabibUllah
+
+ [💬 Send Screenshot on WhatsApp](https://wa.me/923428699409?text=Hi,%20I%20want%20to%20activate%20full%20site%20premium%20access.) Maybe later
+
+ [Student Login](https://www.mcquniverse.pk/dashboard/) 
+
+**Alert:**Content is protected.
+
+Scroll to Top

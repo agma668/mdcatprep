@@ -1,0 +1,1414 @@
+ [Skip to content](#content)
+
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[MCQUniverse](https://www.mcquniverse.pk/)
+
+[Sign up](https://www.mcquniverse.pk/)[Sign up](https://www.mcquniverse.pk/)
+
+# Current Electricity MCQs | Physics MCQs
+
+## Current Electricity MCQs
+
+The direction of conventional current is the same as the direction of flow of:
+
+**Positive charges**
+
+**Explanation:**
+
+By convention, the direction of current is taken as the direction of flow of positive charge, which is opposite to the direction of flow of electrons.
+
+Ohm's law states that the current through a conductor is directly proportional to the:
+
+**Potential difference**
+
+**Explanation:**
+
+Ohm's law is stated as V = IR, which means for a constant resistance, voltage (potential difference) is directly proportional to the current (I).
+
+The SI unit of electric resistance is:
+
+Volt (V)
+
+Ampere (A)
+
+Siemens (S)
+
+**Ohm (Ω)**
+
+**Explanation:**
+
+The Ohm (Ω) is the SI unit of electrical resistance, named after German physicist Georg Ohm.
+
+A carbon resistor is colored with Brown, Black, Orange, and Gold bands. What is its resistance and tolerance?
+
+100 Ω ± 10%
+
+1 kΩ ± 5%
+
+1 MΩ ± 10%
+
+**10 kΩ ± 5%**
+
+**Explanation:**
+
+Brown=1, Black=0, Orange multiplier=10³. This gives 10 × 10³ Ω = 10,000 Ω or 10 kΩ. The Gold band indicates a tolerance of ±5%.
+
+Resistivity is the resistance of a conductor of unit length and unit:
+
+**Cross-sectional area**
+
+**Explanation:**
+
+From the formula R = ρ(L/A), if length L=1m and cross-sectional area A=1m², then resistance R becomes equal to resistivity ρ.
+
+The reciprocal of resistivity is called:
+
+Resistance
+
+**Explanation:**
+
+Conductivity (σ) is the measure of a material's ability to conduct electricity and is defined as the reciprocal of resistivity (σ = 1/ρ).
+
+For metallic conductors, the resistance increases with an increase in:
+
+Cross-sectional area
+
+Length
+
+**Temperature**
+
+**Explanation:**
+
+In metals, increased temperature causes more vibrations of the lattice ions, leading to more frequent collisions with electrons and thus higher resistance.
+
+A thermistor is a temperature-dependent:
+
+**Explanation:**
+
+A thermistor is a type of resistor whose resistance is designed to be highly dependent on temperature, making it useful as a temperature sensor.
+
+Electric power is given by the formula:
+
+P = V/I
+
+P = V/R
+
+P = IR
+
+**P = I²R**
+
+**Explanation:**
+
+Electric power can be expressed in several ways, including P = VI, P = I²R, and P = V²/R. All are correct, but P = I²R is one of the options.
+
+An electric iron of resistance 50 Ω is connected to a 200 V source. What is the amount of heat energy produced in 30 seconds?
+
+800 J
+
+1200 J
+
+60000 J
+
+**24000 J**
+
+**Explanation:**
+
+First, find the power using P = V²/R = (200)² / 50 = 40000 / 50 = 800 W. Then, heat energy H = Power × time = 800 W × 30 s = 24000 J.
+
+The commercial unit of electrical energy is:
+
+**Kilowatt-hour (kWh)**
+
+**Explanation:**
+
+Electricity bills measure energy consumption in kilowatt-hours (kWh). 1 kWh is the energy used by a 1kW appliance for 1 hour.
+
+One kilowatt-hour is equal to:
+
+3.6 × 10³ J
+
+36 × 10⁵ J
+
+6.3 × 10⁵ J
+
+**3.6 × 10⁶ J**
+
+**Explanation:**
+
+1 kWh = 1000 Watts × 3600 seconds = 3,600,000 Joules = 3.6 × 10⁶ J.
+
+Electromotive force (EMF) is most accurately described as:
+
+A force that pushes electrons
+
+The potential difference across a resistor
+
+The power dissipated in a circuit
+
+**Energy supplied per unit charge by the source**
+
+**Explanation:**
+
+EMF is the work done by a source (like a battery) to move a unit of charge around a complete circuit. Its unit is Volts (Joules/Coulomb).
+
+The terminal potential difference of a battery is always less than its EMF when:
+
+The battery is being charged
+
+The circuit is open
+
+The internal resistance is zero
+
+**The battery is discharging (supplying current)**
+
+**Explanation:**
+
+When supplying current, a voltage drop (Ir) occurs across the internal resistance (r), so the terminal voltage is Vt = E - Ir.
+
+Kirchhoff's first rule is a statement of the conservation of:
+
+Energy
+
+Momentum
+
+Mass
+
+**Charge**
+
+**Explanation:**
+
+The junction rule states that the total current entering a junction equals the total current leaving it, which means charge is conserved.
+
+Kirchhoff's second rule is a statement of the conservation of:
+
+Charge
+
+Voltage
+
+Current
+
+**Energy**
+
+**Explanation:**
+
+The loop rule states that the sum of all potential changes in a closed loop is zero, reflecting the principle of conservation of energy.
+
+A Wheatstone bridge is said to be balanced when:
+
+A large current flows through the galvanometer
+
+All four resistances are equal
+
+The battery EMF is high
+
+**No current flows through the galvanometer**
+
+**Explanation:**
+
+A balanced bridge means the potential at the two points connected by the galvanometer is equal, resulting in zero current flow through it.
+
+The condition for a balanced Wheatstone bridge is:
+
+R₁/R₂ = R₄/R₃
+
+R₁ + R₂ = R₃ + R₄
+
+R₁R₂ = R₃R₄
+
+**R₁/R₂ = R₃/R₄**
+
+**Explanation:**
+
+The bridge is balanced when the ratio of resistances in one pair of adjacent arms is equal to the ratio of resistances in the other pair.
+
+A potentiometer is an ideal device for measuring potential difference because:
+
+It has a very high resistance
+
+It is highly sensitive
+
+It is easy to use
+
+**It draws no current from the source being measured at the balance point**
+
+**Explanation:**
+
+At the null/balance point, the potentiometer draws no current, so it measures the true EMF without any potential drop due to internal resistance.
+
+In a potentiometer experiment, a cell of EMF 1.25 V gives a balance point at 35 cm length of the wire. If this cell is replaced by another cell and the balance point shifts to 63 cm, what is the EMF of the second cell?
+
+0.69 V
+
+1.80 V
+
+1.25 V
+
+**2.25 V**
+
+**Explanation:**
+
+Using the potentiometer principle, E₁/E₂ = l₁/l₂. So, 1.25 V / E₂ = 35 cm / 63 cm. This gives E₂ = 1.25 \* (63/35) = 1.25 \* 1.8 = 2.25 V.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+To increase the sensitivity of a potentiometer, one should:
+
+Increase the current through the potentiometer wire
+
+Decrease the length of the potentiometer wire
+
+Decrease the resistance of the potentiometer wire
+
+**Increase the length of the potentiometer wire**
+
+**Explanation:**
+
+A longer wire leads to a smaller potential gradient (potential drop per unit length), meaning a small voltage corresponds to a larger, more measurable length.
+
+The drift velocity of free electrons in a conductor is of the order of:
+
+3 × 10⁸ m/s
+
+10³ m/s
+
+0 m/s
+
+**10⁻³ m/s**
+
+**Explanation:**
+
+Despite the electric signal traveling near the speed of light, the net forward motion of individual electrons is very slow due to constant collisions.
+
+If three resistors of 2 Ω, 3 Ω, and 6 Ω are connected in parallel, their equivalent resistance is:
+
+11 Ω
+
+36 Ω
+
+5.5 Ω
+
+**1 Ω**
+
+**Explanation:**
+
+For parallel resistors, 1/Req = 1/R₁ + 1/R₂ + 1/R₃ = 1/2 + 1/3 + 1/6 = (3+2+1)/6 = 1. Therefore, Req = 1 Ω.
+
+The colour code for a resistor of 270 Ω with 5% tolerance is:
+
+Red, Violet, Black, Silver
+
+Orange, Violet, Brown, Gold
+
+Red, Violet, Orange, Gold
+
+**Red, Violet, Brown, Gold**
+
+**Explanation:**
+
+Red=2, Violet=7, Brown multiplier=10¹, Gold tolerance=5%. This gives 27 × 10¹ = 270 Ω with 5% tolerance.
+
+A wire of resistance R is stretched to double its original length. Its new resistance will be:
+
+R/2
+
+2R
+
+R/4
+
+**4R**
+
+**Explanation:**
+
+When length (L) is doubled, the cross-sectional area (A) is halved (volume is constant). Since R ∝ L/A, the new resistance R' ∝ (2L)/(A/2) = 4(L/A) = 4R.
+
+Which of the following is a non-ohmic device?
+
+Copper wire
+
+Carbon resistor
+
+Manganin wire
+
+**Semiconductor diode**
+
+**Explanation:**
+
+A semiconductor diode has a non-linear V-I graph, meaning its resistance is not constant and it does not obey Ohm's law.
+
+The temperature coefficient of resistance is negative for:
+
+Metals
+
+Alloys like Nichrome
+
+Insulators
+
+**Semiconductors**
+
+**Explanation:**
+
+For semiconductors, an increase in temperature frees more charge carriers, which increases conductivity and therefore decreases resistance.
+
+A current of 2A flows through a 5 Ω resistor for 10 seconds. How much energy is dissipated as heat?
+
+100 J
+
+50 J
+
+40 J
+
+**200 J**
+
+**Explanation:**
+
+Power P = I²R = (2)² × 5 = 20 W. Energy E = Power × time = 20 W × 10 s = 200 J.
+
+For maximum power output from a source, the external resistance must be:
+
+Greater than the internal resistance
+
+Less than the internal resistance
+
+Zero
+
+**Equal to the internal resistance of the source**
+
+**Explanation:**
+
+This is the maximum power transfer theorem, which states that maximum power is delivered to the load when the load resistance equals the source's internal resistance.
+
+If two bulbs rated 60W and 100W are connected in series to a mains supply, which one will glow brighter?
+
+The 100W bulb
+
+Both will glow with the same brightness
+
+Neither will glow
+
+**The 60W bulb**
+
+**Explanation:**
+
+The 60W bulb has higher resistance (R=V²/P). In series, current is the same, so the bulb with higher resistance dissipates more power (P=I²R) and glows brighter.
+
+What is the primary function of a rheostat in a circuit?
+
+To measure current
+
+To provide a constant resistance
+
+To measure potential difference
+
+**To vary the resistance and control the current**
+
+**Explanation:**
+
+A rheostat is a three-terminal variable resistor used to control the amount of current flowing in a circuit.
+
+A galvanometer with a coil resistance of 95 Ω gives a full-scale deflection for a current of 5 mA. What is the value of the shunt resistance required to convert it into an ammeter of range 5 A?
+
+9.5 Ω
+
+1 Ω
+
+5 Ω
+
+**0.095 Ω**
+
+**Explanation:**
+
+Using the shunt formula S = (Ig \* G) / (I - Ig). Here, G=95 Ω, Ig = 5 mA = 0.005 A, and I = 5 A. So, S = (0.005 \* 95) / (5 - 0.005) = 0.475 / 4.995 ≈ 0.095 Ω.
+
+The algebraic sum of potential changes around any closed loop in a circuit is:
+
+Equal to the total EMF
+
+Infinite
+
+Dependent on the direction of the loop
+
+**Zero**
+
+**Explanation:**
+
+This is the statement of Kirchhoff's Voltage Law (Loop Rule), which is based on the conservation of energy.
+
+A meter bridge is an application of which principle?
+
+Ohm's Law
+
+Kirchhoff's Laws
+
+Potentiometer principle
+
+**Wheatstone Bridge**
+
+**Explanation:**
+
+A meter bridge is a practical implementation of the Wheatstone bridge used to find an unknown resistance by achieving a balanced condition.
+
+Charge carriers in electrolytes are:
+
+Free electrons
+
+Protons
+
+Holes
+
+**Ions**
+
+**Explanation:**
+
+In electrolytic solutions, the current is carried by the movement of both positive ions (cations) and negative ions (anions).
+
+An ideal ammeter has a resistance that is:
+
+Infinitely large
+
+Equal to the circuit resistance
+
+Variable
+
+**Very small, ideally zero**
+
+**Explanation:**
+
+An ammeter is connected in series, so it must have negligible resistance to avoid altering the current it is intended to measure.
+
+Two bulbs are rated 25 W - 220 V and 100 W - 220 V. They are connected in series to a 440 V supply. Which bulb will fuse?
+
+The 100 W bulb
+
+Both will fuse
+
+Neither will fuse
+
+**The 25 W bulb**
+
+**Explanation:**
+
+Resistance of 25W bulb, R₁ = V²/P = 220²/25 = 1936 Ω. Resistance of 100W bulb, R₂ = 220²/100 = 484 Ω. In series, current I = 440 / (1936+484) = 0.18 A. Voltage across 25W bulb = IR₁ = 0.18 \* 1936 ≈ 348 V. Since 348 V is much greater than its rated voltage of 220 V, the 25 W bulb will fuse.
+
+An ideal voltmeter has a resistance that is:
+
+Very small, ideally zero
+
+Equal to the circuit resistance
+
+Negative
+
+**Infinitely large**
+
+**Explanation:**
+
+A voltmeter is connected in parallel, so it must have very high resistance to avoid drawing current from the main circuit and altering the potential difference.
+
+A charge of 90 Coulombs flows through a wire in 1 minute and 30 seconds. What is the electric current in the wire?
+
+1.5 A
+
+60 A
+
+0.67 A
+
+**1.0 A**
+
+**Explanation:**
+
+Current I = Q/t. The total time t = 1 minute + 30 seconds = 60 s + 30 s = 90 s. So, I = 90 C / 90 s = 1.0 A.
+
+The specific resistance of a material depends on its:
+
+Length
+
+Cross-sectional area
+
+Mass
+
+**Nature and temperature**
+
+**Explanation:**
+
+Specific resistance (resistivity) is an intrinsic property of a material that is dependent on its atomic structure and temperature.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+If the potential difference across a conductor is doubled, the drift velocity of electrons will:
+
+Be halved
+
+Remain unchanged
+
+Be quadrupled
+
+**Be doubled**
+
+**Explanation:**
+
+Drift velocity is directly proportional to the electric field (E), and E is directly proportional to the potential difference (V). Therefore, doubling V doubles the drift velocity.
+
+A fuse wire should have:
+
+High resistance and high melting point
+
+Low resistance and high melting point
+
+Low resistance and low melting point
+
+**High resistance and low melting point**
+
+**Explanation:**
+
+A fuse needs high resistance to heat up effectively (P=I²R) with excess current, and a low melting point to break the circuit before damage occurs.
+
+What happens to the resistance of a semiconductor as its temperature increases?
+
+Increases
+
+Remains constant
+
+First increases, then decreases
+
+**Decreases**
+
+**Explanation:**
+
+Increasing the temperature of a semiconductor provides energy to release more charge carriers (electrons and holes), thus increasing its conductivity and decreasing its resistance.
+
+A battery of EMF 10 V and internal resistance 1 Ω is connected to a 4 Ω resistor. The current in the circuit is:
+
+2.5 A
+
+10 A
+
+0.4 A
+
+**2 A**
+
+**Explanation:**
+
+Total resistance R\_total = R\_ext + r = 4Ω + 1Ω = 5Ω. Current I = E / R\_total = 10V / 5Ω = 2A.
+
+In the previous question, what is the terminal potential difference across the battery?
+
+10 V
+
+2 V
+
+12 V
+
+**8 V**
+
+**Explanation:**
+
+Terminal potential difference Vt = E - Ir = 10V - (2A)(1Ω) = 8V. Alternatively, it's the voltage across the external resistor: Vt = I \* R\_ext = 2A \* 4Ω = 8V.
+
+Which material is commonly used for the wire of a potentiometer?
+
+Copper
+
+Tungsten
+
+Aluminum
+
+**Manganin**
+
+**Explanation:**
+
+Alloys like Manganin are used because they have high resistivity and a very low temperature coefficient of resistance, ensuring a stable potential gradient.
+
+If the length of a conductor is halved and its cross-sectional area is doubled, the new resistance will be:
+
+Unchanged
+
+Doubled
+
+Four times
+
+**One-fourth**
+
+**Explanation:**
+
+Original resistance R = ρ(L/A). New resistance R' = ρ((L/2)/(2A)) = (1/4) \* ρ(L/A) = R/4.
+
+The slope of a Voltage-Current (V-I) graph for an ohmic conductor represents:
+
+Resistivity
+
+Conductance
+
+Power
+
+**Resistance**
+
+**Explanation:**
+
+From Ohm's law V = IR, if V is on the y-axis and I is on the x-axis, the slope (ΔV/ΔI) is equal to the resistance R.
+
+A flow of 10⁷ electrons per second constitutes a current of:
+
+1.6 × 10⁻²⁶ A
+
+10⁷ A
+
+1.6 × 10⁻¹⁹ A
+
+**1.6 × 10⁻¹² A**
+
+**Explanation:**
+
+Current I = Q/t = (ne)/t. Q = 10⁷ × (1.6 × 10⁻¹⁹ C) = 1.6 × 10⁻¹² C. Since t=1s, the current is 1.6 × 10⁻¹² A.
+
+What is the equivalent resistance between points A and B if three 3 Ω resistors are arranged in a triangle?
+
+9 Ω
+
+3 Ω
+
+1 Ω
+
+**2 Ω**
+
+**Explanation:**
+
+Between any two vertices, two resistors are in series (3+3=6Ω), and this combination is in parallel with the third resistor (3Ω). 1/Req = 1/6 + 1/3 = 3/6 = 1/2. So, Req = 2Ω.
+
+The heating effect of current is described by:
+
+Ohm's Law
+
+Faraday's Law
+
+Coulomb's Law
+
+**Joule's Law**
+
+**Explanation:**
+
+Joule's law of heating states that the heat produced in a resistor is proportional to the square of the current, the resistance, and the time (H = I²Rt).
+
+A carbon resistor has bands of yellow, violet, and red. Its resistance is:
+
+470 Ω
+
+47 kΩ
+
+472 Ω
+
+**4.7 kΩ**
+
+**Explanation:**
+
+Yellow=4, Violet=7, Red multiplier=10². This gives 47 × 10² = 4700 Ω = 4.7 kΩ.
+
+To convert a galvanometer into an ammeter, one needs to connect a:
+
+High resistance in series
+
+High resistance in parallel
+
+Low resistance in series
+
+**Low resistance in parallel**
+
+**Explanation:**
+
+A low-resistance shunt is connected in parallel to divert most of the current, allowing the sensitive galvanometer to measure a small fraction of the total current.
+
+To convert a galvanometer into a voltmeter, one needs to connect a:
+
+Low resistance in parallel
+
+High resistance in parallel
+
+Low resistance in series
+
+**High resistance in series**
+
+**Explanation:**
+
+A high resistance (multiplier) is connected in series to limit the current and allow the galvanometer to measure a large potential difference across the combination.
+
+A potential divider circuit is used to:
+
+Measure an unknown EMF
+
+Increase the voltage of a source
+
+Measure the current in a circuit
+
+**Get a variable voltage from a fixed voltage source**
+
+**Explanation:**
+
+A potential divider uses series resistors to provide a fraction of the input voltage as an output, which can be fixed or variable.
+
+What is the equivalent resistance between points A and B in a circuit where a 10 Ω and 30 Ω resistor are in series, and this combination is in parallel with a 20 Ω resistor?
+
+60 Ω
+
+40 Ω
+
+15 Ω
+
+**13.33 Ω**
+
+**Explanation:**
+
+The series combination gives R\_series = 10 Ω + 30 Ω = 40 Ω. This is in parallel with 20 Ω. The equivalent resistance Req is 1/Req = 1/40 + 1/20 = (1+2)/40 = 3/40. So, Req = 40/3 ≈ 13.33 Ω.
+
+The unit of conductivity is:
+
+Ohm-meter (Ω-m)
+
+Ohm (Ω)
+
+Siemens (S)
+
+**Siemens per meter (S/m)**
+
+**Explanation:**
+
+Conductivity is the reciprocal of resistivity (Ω-m). Its unit is 1/(Ω-m), which is also called Siemens per meter (S/m).
+
+The random motion of free electrons in a conductor results in a net current of:
+
+Infinity
+
+A small constant value
+
+A value dependent on temperature
+
+**Zero**
+
+**Explanation:**
+
+In the absence of an external electric field, the random velocities of electrons are in all directions and cancel each other out, resulting in no net flow of charge.
+
+A charge of 600 Coulombs passes through a point in a circuit in 5 minutes. The current is:
+
+120 A
+
+3000 A
+
+0.5 A
+
+**2 A**
+
+**Explanation:**
+
+Current I = Q/t. Time must be in seconds: 5 minutes = 300 s. So, I = 600 C / 300 s = 2 A.
+
+Superconductors are materials whose resistance drops to virtually zero below a certain:
+
+Critical Pressure
+
+Critical Voltage
+
+Critical Current
+
+**Critical Temperature**
+
+**Explanation:**
+
+The temperature at which a material's resistance abruptly drops to zero is known as its critical temperature (Tc).
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Two resistors are connected in parallel. The equivalent resistance is always:
+
+Greater than either of the individual resistances
+
+Equal to the sum of the individual resistances
+
+Equal to the product of the individual resistances
+
+**Less than the smallest of the individual resistances**
+
+**Explanation:**
+
+Adding resistors in parallel provides more paths for the current, which reduces the overall opposition to flow. Thus, the total resistance is always less than the smallest individual resistor.
+
+A 100-watt bulb operates on a 200 V supply. The current flowing through the bulb is:
+
+2 A
+
+20000 A
+
+1 A
+
+**0.5 A**
+
+**Explanation:**
+
+Using the power formula P = VI, the current I = P / V = 100 W / 200 V = 0.5 A.
+
+Internal resistance of a cell is the resistance offered by the:
+
+Connecting wires
+
+External resistor (load)
+
+Voltmeter connected across it
+
+**Electrolyte and electrodes of the cell**
+
+**Explanation:**
+
+The materials inside a cell, such as its electrolyte and electrodes, offer some opposition to the flow of charge, and this is called the internal resistance.
+
+A Potentiometer can be used to:
+
+Measure large currents accurately
+
+Measure the charge on an electron
+
+Generate a high voltage
+
+**Compare the EMFs of two cells**
+
+**Explanation:**
+
+By finding the balancing lengths for two different cells, a potentiometer can be used to accurately determine the ratio of their EMFs (E₁/E₂ = L₁/L₂).
+
+The resistivity of an insulator is of the order of:
+
+10⁻⁸ Ω-m
+
+10⁻³ Ω-m
+
+1 Ω-m
+
+**10¹² Ω-m**
+
+**Explanation:**
+
+Insulators have extremely high resistivity, typically ranging from 10¹⁰ to 10¹⁶ Ω-m, because they have very few free charge carriers.
+
+If the current in a circuit is doubled, the power dissipated, assuming resistance is constant, will:
+
+Be halved
+
+Be doubled
+
+Remain unchanged
+
+**Become four times**
+
+**Explanation:**
+
+Power is given by P = I²R. If the current (I) is doubled to 2I, the new power P' = (2I)²R = 4I²R, which is four times the original power.
+
+The potential gradient of a potentiometer wire is defined as:
+
+The total potential difference across the wire
+
+The current flowing through the wire
+
+The resistance of the wire per unit length
+
+**Potential difference per unit length of the wire**
+
+**Explanation:**
+
+Potential gradient (k) is defined as the fall of potential per unit length of the potentiometer wire, k = V/L.
+
+A Wheatstone bridge is most sensitive when:
+
+All four resistances are very high
+
+All four resistances are very low
+
+The battery has a very high EMF
+
+**All four resistances are of the same order of magnitude**
+
+**Explanation:**
+
+Sensitivity is maximized when all four resistances (R₁, R₂, R₃, R₄) are comparable. This ensures that a small imbalance causes a detectable current in the galvanometer.
+
+Kirchhoff's Junction Rule is applicable to:
+
+Only DC circuits
+
+Only AC circuits
+
+Only circuits with resistors
+
+**Both AC and DC circuits**
+
+**Explanation:**
+
+The Junction Rule is based on the conservation of charge, a fundamental principle that applies to any circuit, whether AC or DC.
+
+In the colour code for resistors, the silver band represents a tolerance of:
+
+±1%
+
+±5%
+
+±20%
+
+**±10%**
+
+**Explanation:**
+
+The fourth band on a resistor indicates tolerance. Gold represents ±5% tolerance, and silver represents ±10% tolerance.
+
+If two identical batteries of EMF E and internal resistance r are connected in parallel, the equivalent EMF and internal resistance are:
+
+2E, 2r
+
+2E, r/2
+
+E/2, 2r
+
+**E, r/2**
+
+**Explanation:**
+
+For identical cells in parallel, the equivalent EMF remains the same (E), while the equivalent internal resistance is calculated like parallel resistors (1/r\_eq = 1/r + 1/r), resulting in r/2.
+
+The unit of electromotive force (EMF) is the same as the unit of:
+
+Force
+
+Power
+
+Current
+
+**Potential Difference**
+
+**Explanation:**
+
+Despite its name, EMF is not a force. It is energy per unit charge, just like potential difference, and is measured in Volts (V).
+
+When a battery is being charged, its terminal potential difference (V) is related to its EMF (E) and internal resistance (r) by:
+
+V = E - Ir
+
+V = E
+
+V = Ir
+
+**V = E + Ir**
+
+**Explanation:**
+
+During charging, the external power source must overcome the battery's own EMF and the internal voltage drop. Thus, the terminal voltage is higher than the EMF.
+
+An NTC thermistor is a device where the resistance:
+
+Increases with increasing temperature
+
+Remains constant with temperature
+
+Is independent of current
+
+**Decreases with increasing temperature**
+
+**Explanation:**
+
+NTC stands for 'Negative Temperature Coefficient'. This means its resistance has an inverse relationship with temperature; as temperature goes up, resistance goes down.
+
+The energy dissipated by a resistor can be calculated using:
+
+E = V/I
+
+E = IR
+
+E = V/t
+
+**E = VIt**
+
+**Explanation:**
+
+Energy is power multiplied by time (E = P × t). Since power can be expressed as P = VI, the energy dissipated is E = VIt.
+
+If a voltmeter is connected in series in a circuit, the current will be:
+
+Very high
+
+Unchanged
+
+The same as the voltage reading
+
+**Very low or nearly zero**
+
+**Explanation:**
+
+A voltmeter has a very high internal resistance. Placing it in series adds this large resistance to the circuit, drastically increasing the total resistance and reducing the current to a negligible amount.
+
+A 2 kW electric heater is operated for 5 hours. If the cost per unit (kWh) is Rs. 9, what is the total cost of the energy consumed?
+
+Rs. 18
+
+Rs. 45
+
+Rs. 9000
+
+**Rs. 90**
+
+**Explanation:**
+
+Energy consumed (in kWh) = Power (in kW) × time (in hours) = 2 kW × 5 h = 10 kWh. Total cost = Energy consumed × cost per unit = 10 kWh × Rs. 9/kWh = Rs. 90.
+
+In a household circuit, appliances are connected in parallel so that:
+
+The total current is minimized
+
+The total power consumed is low
+
+If one appliance fails, all others stop working
+
+**Each appliance gets the same voltage**
+
+**Explanation:**
+
+Parallel connection ensures that all appliances are connected across the same two points of the main supply, thus receiving the same, full line voltage (e.g., 220V).
+
+The relationship between current density (J), conductivity (σ), and electric field (E) is:
+
+J = E / σ
+
+J = σ/E
+
+J = E + σ
+
+**J = σE**
+
+**Explanation:**
+
+This equation, J = σE, is the microscopic or point form of Ohm's Law, relating the current density at a point to the electric field at that point.
+
+The SI unit of charge is the Coulomb. One Coulomb is equivalent to:
+
+Ampere per second
+
+Volt per meter
+
+Joule per Volt
+
+**Ampere-second**
+
+**Explanation:**
+
+From the definition of current (I = Q/t), charge (Q) is equal to current multiplied by time (I × t). Therefore, 1 Coulomb = 1 Ampere × 1 second.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Which device is based on the heating effect of current?
+
+Electric Motor
+
+Galvanometer
+
+Transformer
+
+**Electric Fuse**
+
+**Explanation:**
+
+An electric fuse contains a wire with a low melting point that heats up and melts (breaks the circuit) when the current exceeds a safe level, based on Joule's law of heating.
+
+A material with a resistivity between that of conductors and insulators is called a:
+
+Superconductor
+
+Dielectric
+
+Electrolyte
+
+**Semiconductor**
+
+**Explanation:**
+
+Semiconductors like silicon and germanium have electrical properties intermediate to those of good conductors and good insulators.
+
+The slope of a current-voltage (I-V) graph represents:
+
+Resistance
+
+Resistivity
+
+Power
+
+**Conductance**
+
+**Explanation:**
+
+The slope is ΔI/ΔV. Since resistance R = V/I, the slope is 1/R, which is defined as conductance (G).
+
+Ohm's law is NOT obeyed by:
+
+Conductors at constant temperature
+
+Electrolytes
+
+Carbon resistors
+
+**Vacuum tubes and transistors**
+
+**Explanation:**
+
+Devices like semiconductor diodes, transistors, and vacuum tubes are non-ohmic because their current-voltage relationship is not linear.
+
+A battery of EMF 6 V and internal resistance 0.5 Ω is connected to a resistor. If the current in the circuit is 1.0 A, what is the resistance of the external resistor?
+
+6.0 Ω
+
+12.0 Ω
+
+6.5 Ω
+
+**5.5 Ω**
+
+**Explanation:**
+
+Using the formula E = I(R + r). We have 6 = 1.0(R + 0.5). So, 6 = R + 0.5, which gives R = 5.5 Ω.
+
+For a potentiometer to function properly, the EMF of the driver cell in the primary circuit must be:
+
+Less than the EMF of the cell to be measured
+
+Exactly equal to the EMF of the cell to be measured
+
+Zero
+
+**Greater than the EMF of the cell to be measured**
+
+**Explanation:**
+
+The maximum potential drop that can be measured by the potentiometer is the EMF of its driver cell. Therefore, the driver EMF must be greater than the unknown EMF to find a balance point.
+
+A shunt is a low-resistance wire connected in parallel with a galvanometer to convert it into:
+
+A voltmeter
+
+A potentiometer
+
+A rheostat
+
+**An ammeter**
+
+**Explanation:**
+
+The low-resistance shunt bypasses or 'shunts' the majority of the current around the sensitive galvanometer, allowing the instrument to measure a much larger total current.
+
+What happens to the drift velocity of electrons if the cross-sectional area of a current-carrying wire is decreased, while the current remains constant?
+
+It decreases
+
+It remains the same
+
+It becomes zero
+
+**It increases**
+
+**Explanation:**
+
+From the equation I = nAv\_d, if current (I) is constant and area (A) decreases, the drift velocity (v\_d) must increase to maintain the equality.
+
+The power dissipated in a circuit is 12W when the voltage is 6V. What is the resistance of the circuit?
+
+2 Ω
+
+72 Ω
+
+0.5 Ω
+
+**3 Ω**
+
+**Explanation:**
+
+Using the power formula P = V²/R, we can solve for resistance: R = V²/P = (6V)² / 12W = 36/12 = 3 Ω.
+
+In a meter bridge experiment, the null point is found at 40 cm from one end. If a known resistance of 6 Ω is in the left gap, the unknown resistance is:
+
+4 Ω
+
+2.4 Ω
+
+15 Ω
+
+**9 Ω**
+
+**Explanation:**
+
+The meter bridge follows the Wheatstone principle: R₁/R₂ = L₁/L₂. So, 6/R\_unknown = 40/(100-40) = 40/60. R\_unknown = 6 × (60/40) = 9 Ω.
+
+If the temperature of a metallic conductor is decreased, the relaxation time of free electrons will:
+
+Remain the same
+
+Become infinite
+
+**Explanation:**
+
+Relaxation time is the average time between collisions. Lowering the temperature reduces the thermal vibrations of the metal lattice, leading to fewer collisions and thus a longer average time between them.
+
+A battery with an EMF of 1.5 V is connected to a 0.5 Ω resistor, and a current of 2 A flows. The internal resistance of the battery is:
+
+1.0 Ω
+
+0.5 Ω
+
+0.75 Ω
+
+**0.25 Ω**
+
+**Explanation:**
+
+Using E = I(R + r), we have 1.5 = 2(0.5 + r). So, 0.75 = 0.5 + r, which gives the internal resistance r = 0.25 Ω.
+
+The resistance of a platinum wire is 5 Ω at 20°C. When it is placed in a furnace, its resistance becomes 20 Ω. If the temperature coefficient of resistance (α) is 0.004 /°C, find the temperature of the furnace.
+
+**Explanation:**
+
+Using R\_T = R₀(1 + αΔT), where ΔT = T\_final - T\_initial. 20 = 5(1 + 0.004(T - 20)). This simplifies to 4 = 1 + 0.004(T - 20), so 3 = 0.004(T-20). T-20 = 3/0.004 = 750. Therefore, T = 750 + 20 = 770°C.
+
+Which of these is NOT a source of EMF?
+
+A solar cell
+
+A thermocouple
+
+An electric generator
+
+**A resistor**
+
+**Explanation:**
+
+A resistor is a passive component that only dissipates electrical energy as heat. Sources of EMF (like cells, generators) convert other forms of energy into electrical energy.
+
+The Ampere-hour (Ah) is a unit of:
+
+Power
+
+Energy
+
+Current
+
+**Electric Charge**
+
+**Explanation:**
+
+Current is charge/time (A = C/s). Therefore, charge = current × time. Ampere-hour is a unit of current multiplied by time, making it a unit of electric charge, commonly used for battery capacity.
+
+## Other Physics Topics MCQs
+
+We have also prepared the following set of MCQs for your Entry test preparation like MDCAT, ECAT and Armed forces test. WE WISH YOU BEST OF LUCK!
+
+[Force And Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/force-and-motion-mcqs/)
+
+[Work And Energy MCQs](https://www.mcquniverse.pk/physics-mcqs/work-and-energy-mcqs/)
+
+[Rotational And Circular Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/rotational-and-circular-motion-mcqs/)
+
+[Waves MCQs](https://www.mcquniverse.pk/physics-mcqs/waves-mcqs/)
+
+[Thermodynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/thermodynamics-mcqs/)
+
+[Electrostatics MCQs](https://www.mcquniverse.pk/physics-mcqs/electrostatics-mcqs/)
+
+[Current Electricity MCQs](https://www.mcquniverse.pk/physics-mcqs/current-electricity-mcqs/)
+
+[Electromagnetism MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetism-mcqs/)
+
+[Electromagnetic Induction MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetic-induction-mcqs/)
+
+[Electronics MCQs](https://www.mcquniverse.pk/physics-mcqs/electronics-mcqs/)
+
+[Dawn Of Modern Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/dawn-of-modern-physics-mcqs/)
+
+[Atomic Spectra MCQs](https://www.mcquniverse.pk/physics-mcqs/atomic-spectra-mcqs/)
+
+[Nuclear Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/nuclear-physics-mcqs/)
+
+[Fluid Dynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/fluid-dynamics-mcqs/)
+
+[Vectors And Equilibrium MCQs](https://www.mcquniverse.pk/physics-mcqs/vectors-and-equilibrium-mcqs/)
+
+### Leave a Reply [Cancel reply](/physics-mcqs/current-electricity-mcqs/#respond)
+
+×🌐 Website-Wide Premium Access
+
+### Unlock All Quizzes & MCQs
+
+🚀 **One Subscription Unlocks Everything!** 
+ Get 100% full access to ALL quizzes, MCQs & detailed explanations across the entire website.
+
+1 Week
+
+Rs 199
+
+Full Site Access
+
+BEST VALUE
+
+1 Month
+
+Rs 499
+
+Full Site Access
+
+📌 How to Activate:
+
+1. Send fee for your plan to JazzCash or EasyPaisa below.
+2. Click WhatsApp button & send payment screenshot to Admin.
+3. **Instant Activation** within 10 minutes!
+
+JazzCash 03048961191 Title: Rana HabibUllah
+
+EasyPaisa 03428699409 Title: Rana HabibUllah
+
+ [💬 Send Screenshot on WhatsApp](https://wa.me/923428699409?text=Hi,%20I%20want%20to%20activate%20full%20site%20premium%20access.) Maybe later
+
+ [Student Login](https://www.mcquniverse.pk/dashboard/) 
+
+**Alert:**Content is protected.
+
+Scroll to Top

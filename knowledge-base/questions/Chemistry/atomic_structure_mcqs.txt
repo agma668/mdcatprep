@@ -1,0 +1,633 @@
+ [Skip to content](#content)
+
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[MCQUniverse](https://www.mcquniverse.pk/)
+
+[Sign up](https://www.mcquniverse.pk/)[Sign up](https://www.mcquniverse.pk/)
+
+# Most Important Atomic Structure MCQs with Answers | Chemistry MCQs
+
+## Atomic Structure MCQs with Answers
+
+The mass of a proton is:
+
+9.1095 × 10⁻³¹ kg
+
+1.602 × 10⁻²⁷ kg
+
+1.6750 × 10⁻²⁷ kg
+
+**1.6726 × 10⁻²⁷ kg**
+
+What will be the effect on a proton when passed through an electric field?
+
+Deflection towards the anode
+
+Deflection perpendicular to the electric field
+
+Deflection downwards in the electric field
+
+**Deflection towards the cathode**
+
+Positive rays are produced:
+
+By burning of gas
+
+By cooling of gas
+
+From the anode like cathode rays are produced from the cathode
+
+**By the bombardment of cathode rays on gas molecules**
+
+The pressure in a gas discharge tube is kept at:
+
+10 torr
+
+1 torr
+
+0.1 torr
+
+**0.01 torr**
+
+Positive rays give a flash on:
+
+AgNO₃ plate
+
+AgCl plate
+
+The relationship between the energy of a photon of light and its frequency is given by:
+
+de Broglie’s dual nature of matter
+
+Bohr’s model
+
+Rutherford’s atomic model
+
+**Planck’s Quantum Theory**
+
+The velocity of a photon:
+
+Depends upon its source
+
+Depends upon its frequency
+
+Equals the square of its amplitude
+
+**Is independent of wavelength**
+
+Planck’s equation is:
+
+E = mc²
+
+E = mv²/2
+
+E = nℎ/2π
+
+**E = hν**
+
+Planck’s theory states that energy is emitted:
+
+In a continuous manner
+
+Simultaneously
+
+In the form of heat
+
+**In a discontinuous manner**
+
+Quantum number which is not derived from Schrodinger wave equation:
+
+Principal
+
+Azimuthal
+
+Magnetic
+
+**Spin**
+
+A nodal plane in an orbital is the plane where electron density is:
+
+Maximum
+
+Infinite
+
+Minimum
+
+**Zero**
+
+The number of degenerate orbitals in a sub-shell having sausage shape are
+
+1
+
+3
+
+7
+
+**5**
+
+Quantum number values for the 3p orbital are:
+
+n=3,ℓ=0
+
+n=2,ℓ=1
+
+n=2,ℓ=0
+
+**n=3,ℓ=1**
+
+The maximum number of electrons that can be accommodated in a p-subshell is:
+
+2
+
+10
+
+14
+
+**6**
+
+Which sub-shell has the highest energy?
+
+n=5,ℓ=2,m=+2
+
+n=4,ℓ=3,m=0
+
+n=4,ℓ=0,m=+1
+
+**n=5,ℓ=3,m=+1**
+
+Magnetic quantum number values for the d-subshell are
+
+2
+
+3
+
+7
+
+**5**
+
+A p-orbital has \_\_\_\_\_\_ energy than an s-orbital of the same principal quantum number.
+
+Lower
+
+Equal
+
+Variable from orbit to orbit
+
+**Higher**
+
+Which set of quantum numbers represents the 19th electron of a Cu atom?
+
+n=3,ℓ=2,m=0,s=+1/2
+
+n=4,ℓ=1,m=0,s=+1/2
+
+n=3,ℓ=0,m=0,s=+1/2
+
+**n=4,ℓ=0,m=0,s=+1/2**
+
+The d-orbital which is bi-lobed with a collar is represented as:
+
+d xy ​
+
+d yz ​
+
+d x2−y2 ​
+
+**d z2 ​**
+
+Which of the following species is/are isoelectronic with K+?
+
+P⁻³
+
+S⁻²
+
+Si⁺⁴
+
+**All of these**
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+The atomic number of an element is 26. How many electrons are present in the M shell?
+
+11
+
+15
+
+16
+
+**14**
+
+Which of the following ions has an electronic configuration similar to Ar?
+
+Sc⁺²
+
+Cr⁺²
+
+Mn⁺⁶
+
+**Ti⁺⁴**
+
+In the electronic configuration of Cu and Cr, which of the following is true?
+
+3d is fully filled
+
+3d is half-filled
+
+There are 8 electrons in s-orbitals
+
+**There are 7 electrons in s-orbitals**
+
+The total number of lobes in all the orbitals of a d-subshell are
+
+2
+
+16
+
+4
+
+**18**
+
+"Two electrons in the same orbital should have opposite spins" according to
+
+Aufbau's principal
+
+Hund's rule
+
+None of these
+
+**Pauli's exclusion rule**
+
+The e/m value for the canal rays is maximum for
+
+Nitrogen
+
+Helium
+
+Argon
+
+**Hydrogen**
+
+Maximum numbers of electron in a sub-shell is given by
+
+2(2ℓ-1)
+
+2(ℓ+1)
+
+2ℓ+1
+
+**2(2ℓ+1)**
+
+Which quantum number tells us about orientation of orbitals:
+
+Principal quantum number
+
+Spin quantum number
+
+Azimuthal quantum number
+
+**Magnetic quantum number**
+
+The relative energies of 4s, 4p and 3d orbitals are in the order:
+
+3d<4p<4s
+
+3d<4s<4p
+
+4p<3d<4s
+
+**4s<3d<4p**
+
+With increase in the value of principal quantum number 'n', the shape of the s-orbitals remain same although their sizes
+
+Decrease
+
+Remain the same
+
+May or may not remain the same
+
+**Increase**
+
+Number of electrons in the outermost shell of chloride ion(Cl-) is
+
+17
+
+1
+
+7
+
+**8**
+
+Correct order of energy in the given sub-shell is
+
+5s>3d>3p>4s
+
+3p>3d>5s>4s
+
+3p>3d>4s>5s
+
+**5s>3d>4s>3p**
+
+According to the given number of protons, neutrons, and electrons, which option is correct? *(MDCAT 2014)*
+
+| Element | Protons | Neutrons | Electrons |
+| --- | --- | --- | --- |
+| As | 33 | 42 | 30 |
+| Ga | 31 | 39 | 28 |
+| Ca | 20 | 20 | 20 |
+
+As³⁺, Ga³⁺, Ca²⁺
+
+As³⁺, Ga²⁺, Ca
+
+As³⁺, Ga, Ca²⁺
+
+**As³⁺, Ga³⁺, Ca**
+
+Which order is correct with respect to the increasing energy of orbitals? *(MDCAT 2015)*
+
+4s < 4d < 4p < 4f
+
+4p < 4s < 4f < 4d
+
+4f < 4s < 4d < 4p
+
+**4s < 4p < 4d < 4f**
+
+Which one of the following pairs has the same electronic configuration as neon (Ne-10)? *(MDCAT 2015)*
+
+Al³⁺, Cl⁻
+
+Na⁺, Mg²⁺
+
+K⁺, Cl⁻
+
+**Na⁺, F⁻**
+
+Number of neutrons in Zn (A=66, Z=30) is
+
+30
+
+38
+
+35
+
+**36**
+
+The maximum number of electrons in an electronic configuration can be calculated by using the formula: *(MDCAT 2016)*
+
+2n² + 2
+
+2n² + 1
+
+2l+1
+
+**2n²**
+
+The number of electrons in Ga³⁺ (Gallium ion) will be (A=71, Z=31): *(MDCAT 2017)*
+
+29
+
+30
+
+34
+
+**28**
+
+Which of the following contains the same number of electrons and protons but different neutrons? *(MDCAT 2017)*
+
+Isobars
+
+Isotones
+
+None of these
+
+**Isotopes**
+
+Which is the correct electronic configuration of Chromium (Cr, Z=24)? *(MDCAT 2018)*
+
+1s² 2s² 2p⁶ 3s² 3p⁵ 4s² 3d⁴
+
+1s² 2s² 2p⁶ 3s² 3p⁵ 3d⁶
+
+1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁴
+
+**1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹ 3d⁵**
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+The maximum number of electrons in a sub-shell is given by: *(NUMS 2019)*
+
+2(2l−1)
+
+2(l+1)
+
+2 l 2l
+
+**2(2l+1)**
+
+In potassium, the order of energy levels is:
+
+3s > 3d
+
+4s > 4p
+
+none of these
+
+**4s < 3d**
+
+Which of the following elements in its atomic state has electrons filling first two spherically symmetrical orbitals? *(SET 2019)*
+
+Hydrogen
+
+Helium
+
+Carbon
+
+**Beryllium**
+
+What are the values of principal quantum number and azimuthal quantum numbe for the last electron in Chlorine atom?
+
+1, 6
+
+1, 3
+
+6, 1 ​
+
+**3, 1**
+
+The electron configuration for chromium is [Ar] 4s1 3d5. 
+Select the best explanation for this irregular electron configuration.
+
+The 4 s orbital is at a lower energy than the 3 d orbital, thus filling first.
+
+Chromium is a transition metal and its electrons are loosely held.
+
+d orbitals are dominant and shield electrons from orbitals close in energy.
+
+**A half-filled d orbitals is slightly lower is energy than the 4 s , thus filling first.**
+
+The quantum number that describes the orientation of orbitals in three-dimensional space is: *(ETEA 2019)*
+
+Spin quantum number
+
+Azimuthal quantum number
+
+Principal quantum number
+
+**Magnetic quantum number**
+
+Which of the following is the correct electronic configuration of Chromium (Cr, Z=24)? *(MDCAT 2019)*
+
+[Ar] 3d4 4s2
+
+[Ar] 3d6 4s0
+
+[Ar] 3d3 4s2
+
+**[Ar] 3d5 4s1**
+
+The relationship between quantum numbers n and l is: *(NMDCAT 2020)*
+
+n=l−1
+
+l=n−2
+
+n=l−2
+
+**l=n−1**
+
+Quantum number values for the ‘2p’ orbitals are: *(NMDCAT 2020)*
+
+n = 1 , l = 2
+
+n=1,l=0
+
+n=2,l=0
+
+**n=2,l=1**
+
+Which of the following pairs has one electron in its orbital? *(NMDCAT 2020)*
+
+Li & Fe
+
+K & Mn
+
+H & He
+
+**Na & Cr**
+
+Which of the following has the lowest charge-to-mass (e/m) ratio? *(NMDCAT 2020)*
+
+Li +2
+
+He +
+
+H +1
+
+## Other Chemistry Topics MCQs
+
+We have also prepared the following set of MCQsfor your Entry test preparation in quick way like MDCAT, ECAT and Armed forces test. WE WISH YOU BEST OF LUCK!
+
+[Basic Concept MCQs](https://www.mcquniverse.pk/chemistry-mcqs/basic-concept-mcqs/)
+
+[Atomic Structure MCQs](https://www.mcquniverse.pk/chemistry-mcqs/atomic-structure-mcqs/)
+
+[Gases MCQs](https://www.mcquniverse.pk/chemistry-mcqs/gases-mcqs/)
+
+[Liquids MCQs](https://www.mcquniverse.pk/chemistry-mcqs/liquids-mcqs/)
+
+[Solids MCQs](https://www.mcquniverse.pk/chemistry-mcqs/solids-mcqs/)
+
+[Chemical Equilibrium MCQs](https://www.mcquniverse.pk/chemistry-mcqs/chemical-equilibrium-mcqs/)
+
+[Reaction Kinectics MCQs](https://www.mcquniverse.pk/chemistry-mcqs/reaction-kinetics-quiz/)
+
+[Thermochemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/thermochemistry-mcqs/)
+
+[Electrochemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/electrochemistry-mcqs/)
+
+[Chemical Bonding MCQs](https://www.mcquniverse.pk/chemistry-mcqs/chemical-bonding-mcqs/)
+
+[Transition Elements MCQs](https://www.mcquniverse.pk/chemistry-mcqs/transition-elements-mcqs/)
+
+[S And P Block Elements MCQs](https://www.mcquniverse.pk/chemistry-mcqs/s-and-p-block-elements-mcqs/)
+
+[Fundamental Principles Of Organic Chemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/fundamental-principles-of-organic-chemistry-mcqs/)
+
+[Hydrocarbons MCQs](https://www.mcquniverse.pk/chemistry-mcqs/hydrocarbons-mcqs/)
+
+[Alkyl Halides MCQs](https://www.mcquniverse.pk/chemistry-mcqs/alkyl-halides-mcqs/)
+
+[Alcohols And Phenols MCQs](https://www.mcquniverse.pk/chemistry-mcqs/alcohols-and-phenols-mcqs/)
+
+[Aldehydes And Ketones MCQs](https://www.mcquniverse.pk/chemistry-mcqs/aldehydes-and-ketones-mcqs/)
+
+[Macromolecules MCQs](https://www.mcquniverse.pk/chemistry-mcqs/macromolecules-mcqs/)
+
+[Carboxylic Acid MCQs](https://www.mcquniverse.pk/chemistry-mcqs/carboxylic-acid-mcqs/)
+
+[Industrial Chemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/industrial-chemistry-mcqs/)
+
+### Leave a Reply [Cancel reply](/chemistry-mcqs/atomic-structure-mcqs/#respond)
+
+×🌐 Website-Wide Premium Access
+
+### Unlock All Quizzes & MCQs
+
+🚀 **One Subscription Unlocks Everything!** 
+ Get 100% full access to ALL quizzes, MCQs & detailed explanations across the entire website.
+
+1 Week
+
+Rs 199
+
+Full Site Access
+
+BEST VALUE
+
+1 Month
+
+Rs 499
+
+Full Site Access
+
+📌 How to Activate:
+
+1. Send fee for your plan to JazzCash or EasyPaisa below.
+2. Click WhatsApp button & send payment screenshot to Admin.
+3. **Instant Activation** within 10 minutes!
+
+JazzCash 03048961191 Title: Rana HabibUllah
+
+EasyPaisa 03428699409 Title: Rana HabibUllah
+
+ [💬 Send Screenshot on WhatsApp](https://wa.me/923428699409?text=Hi,%20I%20want%20to%20activate%20full%20site%20premium%20access.) Maybe later
+
+ [Student Login](https://www.mcquniverse.pk/dashboard/) 
+
+**Alert:**Content is protected.
+
+Scroll to Top

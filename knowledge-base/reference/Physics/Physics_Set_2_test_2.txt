@@ -1,0 +1,1135 @@
+
+=== PAGE 1 ===
+Physics SET 2 TEST 
+ 
+1. A system absorbs 500 J heat and does 200 J work. What is ΔU?​
+A. 300 J​
+B. −300 J​
+C. 700 J​
+D. −700 J 
+2. When two objects are in thermal equilibrium, they:​
+A. Exchange heat rapidly​
+B. Have the same temperature​
+C. Have the same mass​
+D. Have the same thermal conductivity 
+3. In an isothermal process for an ideal gas, the change in internal energy is:​
+A. Positive​
+B. Zero​
+C. Negative​
+D. Depends on pressure 
+4. In an adiabatic process, work done is equal to:​
+A. Heat transferred​
+B. Zero​
+C. Change in internal energy​
+D. Pressure change 
+5. The first law of thermodynamics is mathematically expressed as:​
+A. Q = ΔU + W​
+B. ΔU = Q − W​
+C. ΔU = Q + W​
+D. Q = W − ΔU 
+6. In an isothermal process, the:​
+A. Pressure remains constant​
+B. Volume remains constant​
+C. Temperature remains constant​
+D. Heat exchange is zero 
+7. Heat capacity is:​
+A. Sum of mass of object and specific heat​
+B. Product of mass and specific heat​
+C. Difference of mass and specific heat​
+D. None 
+
+=== PAGE 2 ===
+8. For an ideal gas V-T curves at constant pressures P1 & P2 are shown in a figure (P1 
+line steeper than P2). Which is correct?​
+A. P1 > P2​
+B. P1 = P2​
+C. P1 < P2​
+D. P1 ≥ P2 
+9. The amount of heat required to raise the temperature of 10 moles of water from 70K 
+to 80K (molar heat capacity of water 75.24 J/mole K) is:​
+A. 0.7524 J​
+B. 7524 J​
+C. 95.24 J​
+D. 572.4 J 
+10. A thermos flask approximates which type of system?​
+A. Open​
+B. Isolated​
+C. Closed​
+D. None 
+11. In an isobaric process, the work done is equal to:​
+A. PΔV​
+B. Zero​
+C. ΔU​
+D. Q − ΔU 
+12. For an isochoric process, the work done by the system is:​
+A. Positive​
+B. Zero​
+C. Negative​
+D. Equal to the heat added 
+13. Which process is represented by the equation Q = W?​
+A. Adiabatic​
+B. Isothermal​
+C. Isobaric​
+D. Isochoric 
+14. When a gas is rapidly compressed in a cylinder, the process is likely:​
+A. Isothermal​
+B. Isobaric​
+C. Adiabatic​
+D. Isochoric 
+15. An example of an isobaric process is:​
+A. Heating a gas in a sealed rigid container​
+B. A gas expanding against a movable piston with constant pressure​
+C. Rapid compression of a gas in a cylinder​
+D. Cooling a gas at constant volume 
+
+=== PAGE 3 ===
+16. Figure shows the pressure P versus volume V graphs for a certain mass of a gas 
+at two constant temperatures T1 and T2 (T2 curve above T1). Which of the following 
+inferences is correct?​
+A. T1 = T2​
+B. T1 < T2​
+C. T1 > T2​
+D. No inference can be drawn due to insufficient information 
+17. First law of thermodynamics can be written as CvΔT = ΔQ − PΔV. In a change for 
+which Boyle's law is observed, which of the following would necessarily be zero?​
+A. ΔQ​
+B. ΔV​
+C. ΔT​
+D. Cv 
+18. The P-V diagram of a system undergoing thermodynamic transformation is shown. 
+The work done by the system in going from A→B→C is 30 J and 40 J heat is given to 
+the system. The change in internal energy between A and C is:​
+A. 10 J​
+B. 84 J​
+C. 70 J​
+D. 134 J 
+19. Which one of the following processes has greater slope in a P–V diagram (V along 
+x-axis and P along y-axis)?​
+A. Isothermal process​
+B. Adiabatic process​
+C. Process carried out at constant pressure​
+D. All have same slope 
+20. How much heat is needed to raise the temperature of a block of copper (mass 0.5 
+kg) from 0°C to 100°C? (for copper, c = 386 J/kg°C)​
+A. 21 kJ​
+B. 12.4 kJ​
+C. 19.3 kJ​
+D. 6.25 kJ 
+21. For an adiabatic expansion of a gas, which is correct?​
+A. Temperature increases​
+B. Work done by the gas is positive​
+C. Internal energy increases​
+D. Heat is absorbed by the gas 
+22. In an isochoric process, the heat added is equal to:​
+A. Work done​
+B. Zero​
+C. Change in internal energy​
+D. Pressure change 
+
+=== PAGE 4 ===
+23. During an isothermal expansion of an ideal gas, the work done by the gas is 200 J. 
+The heat absorbed by the gas is:​
+A. 0 J​
+B. 200 J​
+C. 100 J​
+D. 400 J 
+24. In an adiabatic process, if the system does work on the surroundings, the internal 
+energy of the system:​
+A. Increases​
+B. Remains constant​
+C. Decreases​
+D. First increases then decreases 
+25. Which law governs the principle that energy cannot be created or destroyed in a 
+thermodynamic system?​
+A. Zeroth law​
+B. Second law​
+C. First law​
+D. Third law 
+26. When a gas expands against a constant external pressure, the work done by the 
+system is:​
+A. Positive​
+B. Zero​
+C. Negative​
+D. Undefined 
+27. Work done during compression of a gas from 4 liter to 2 liter at 2 kPa is:​
+A. 4 J​
+B. 8 J​
+C. −4 J​
+D. −8 J 
+28. An ideal gas is taken around ABCA as shown in a P-V diagram (A at (P,V), B at 
+(3P,3V), C at (P,3V)). The work done during the cycle is:​
+A. 2PV​
+B. PV​
+C. 1/2PV​
+D. Zero 
+29. The molar specific heat at constant volume (Cv) is defined as:​
+A. Heat required to raise 1 kg of substance by 1°C​
+B. Heat required to raise 1 mole of gas by 1 K at constant pressure​
+C. Heat required to raise 1 mole of gas by 1 K at constant volume​
+D. Heat released during gas expansion 
+30. For an ideal gas, the relationship between Cp and Cv is:​
+A. Cp + Cv = R​
+
+=== PAGE 5 ===
+B. Cp/Cv = R​
+C. Cp − Cv = R​
+D. Cp = Cv 
+31. The molar specific heat at constant pressure (Cp) is always greater than Cv 
+because:​
+A. Work is done during expansion at constant pressure​
+B. Additional heat is used to perform work against external pressure​
+C. Internal energy decreases at constant pressure​
+D. Gas molecules move faster 
+32. For a monatomic ideal gas, Cv is equal to:​
+A. (1/2)R​
+B. (3/2)R​
+C. (5/2)R​
+D. 2R 
+33. The unit of molar specific heat is:​
+A. J/kg K​
+B. Cal/g°C​
+C. J/mol K​
+D. N/m² 
+34. Which of the following is not a thermodynamics co-ordinate?​
+A. P​
+B. V​
+C. T​
+D. R 
+35. The ratio of Wisothermal to Wadiabatic during same expansion is:​
+A. > 1​
+B. < 1​
+C. = 1​
+D. Zero 
+36. A 2 kg mass of copper is heated for 40 s by a heater that produces 100 J/s. The 
+specific heat capacity of copper is 400 J/(kg K). What is the rise in temperature?​
+A. 5 K​
+B. 50 K​
+C. 10 K​
+D. 20 K 
+37. Which PV curve shown in the figure is isobaric (curves A, B, C, D shown from a 
+common point)?​
+A. A​
+B. B​
+C. C​
+D. D 
+
+=== PAGE 6 ===
+38. In an adiabatic process, PVᵞ = constant; the value 'γ' is:​
+A. Cv/Cp​
+B. R/Cv − 1​
+C. 1 − R/Cv​
+D. 1 + R/Cv 
+39. For an ideal gas undergoing an isobaric process, the heat supplied (Q) is given by:​
+A. Q = nCpΔT​
+B. Q = nRΔT​
+C. Q = nCvΔT​
+D. Q = PΔV 
+40. The value of Cp for a monatomic ideal gas is:​
+A. (3/2)R​
+B. (7/2)R​
+C. (5/2)R​
+D. (9/2)R 
+41. The ratio Cp/Cv (γ) for a diatomic gas is:​
+A. 1.33​
+B. 1.67​
+C. 1.4​
+D. 2.0 
+42. In thermodynamics, work done by the system is considered:​
+A. Positive​
+B. Depends on the process​
+C. Negative​
+D. Zero 
+43. The area under a (P-V) graph represents:​
+A. Heat transfer​
+B. Internal energy​
+C. Work done​
+D. Heat absorbed 
+44. When a gas is compressed, the work done on the system is:​
+A. Positive​
+B. Zero​
+C. Negative​
+D. Undefined 
+45. The SI unit of thermodynamic work is:​
+A. Pascal (Pa)​
+B. Joule (J)​
+C. Newton meter​
+D. Calorie (cal) 
+
+=== PAGE 7 ===
+46. For an ideal gas, the potential energy associated with its molecules is:​
+A. Maximum​
+B. (1/2)kx²​
+C. Zero​
+D. (1/2)kx0² 
+47. The heat capacity of sodium metal is 1500 JK⁻¹. If the mass of the sodium metal is 
+75 kg, the specific heat capacity would be:​
+A. 20 J kg⁻¹°C⁻¹​
+B. 10 J kg⁻¹°C⁻¹​
+C. 40 J kg⁻¹°C⁻¹​
+D. 80 J kg⁻¹°C⁻¹ 
+48. If Cp for a gas is 2R then the value of Cv will be:​
+A. 3R/2​
+B. 9R/2​
+C. 5R/2​
+D. R 
+49. The heat capacity of sodium metal is 1500 JK⁻¹. If the mass of the sodium metal is 
+75 kg, the specific heat capacity would be:​
+A. 20 J kg⁻¹°C⁻¹​
+B. 10 J kg⁻¹°C⁻¹​
+C. 40 J kg⁻¹°C⁻¹​
+D. 80 J kg⁻¹°C⁻¹ 
+50. An ideal gas is taken from (Pi,Vi) to (Pf,Vf) in three different ways (Process A, B, C 
+shown). Identify the process in which the work done on the gas is the most.​
+A. Process A​
+B. Process C​
+C. Process B​
+D. Equal work is done in Process A, B & C 
+51. If a gas releases 300 J heat and 150 J work is done on it, ΔU is:​
+A. −150 J​
+B. −450 J​
+C. 150 J​
+D. 450 J 
+52. Two different samples of gases have the same mass and temperature. Equal 
+quantities of energy are absorbed as heat by each. Their final temperatures may be 
+different because the samples have different:​
+A. Thermal conductivities​
+B. Densities​
+C. Coefficients of expansion​
+D. Heat capacities 
+53. During an adiabatic expansion of a gas:​
+A. The pressure remains constant​
+
+=== PAGE 8 ===
+B. Work is done on the gas​
+C. Energy is added as heat​
+D. No energy enters or leaves as heat 
+54. A quantity of an ideal gas is compressed to half its initial volume. The process 
+may be adiabatic, isothermal, or isobaric. Rank those three processes in order of the 
+work required of an external agent, least to greatest.​
+A. Adiabatic, isothermal, isobaric​
+B. Isothermal, adiabatic, isobaric​
+C. Adiabatic isobaric, isothermal​
+D. Isobaric, isothermal, adiabatic 
+55. The ratio of the specific heat of a gas at constant volume to its specific heat at 
+constant pressure is:​
+A. 1​
+B. More than 1​
+C. Less than 1​
+D. Has units of pressure/volume 
+56. If Cp − Cv = R and Cp/Cv = γ, then which relation is correct?​
+A. Cv = R/(γ−1)​
+B. Cv = R²/γ​
+C. Cv = γR/(γ−1)​
+D. Cv = (γ−1)/R 
+57. For the Boyle's law to hold good, the necessary condition is:​
+A. Isothermal​
+B. Adiabatic​
+C. Isobaric​
+D. Isochoric 
+58. Units of molar specific heat are same as that of:​
+A. Pressure​
+B. Molar gas constant​
+C. Entropy​
+D. Temperature 
+59. Which of the terms is related with thermodynamics?​
+A. System​
+B. Boundary​
+C. Surrounding​
+D. All of these 
+60. An open system allows the transfer of ________.​
+A. Only mass​
+B. Both mass and energy​
+C. Only energy​
+D. Neither mass nor energy 
+
+=== PAGE 9 ===
+61. The phase difference between displacement and velocity in SHM is:​
+A. 0°​
+B. 90°​
+C. 45°​
+D. 180° 
+62. If displacements due to two individual waves are y1 and y2, then the resultant 
+displacement, y, of the particle of the medium is:​
+A. y = y1 × y2​
+B. y = y1 − y2​
+C. y = y1/y2​
+D. y = y1 + y2 
+63. Which one is the correct relation for fundamental frequency of open and closed 
+pipe?​
+A. fopen = 2 fclosed​
+B. fopen = fclosed​
+C. fclosed = 2fopen​
+D. fopen = 1/fclosed 
+64. The graph of acceleration vs. displacement in SHM is a:​
+A. Straight line​
+B. Hyperbola​
+C. Parabola​
+D. Circle 
+65. If the amplitude of oscillation doubles, the maximum velocity:​
+A. Halves​
+B. Quadruples​
+C. Doubles​
+D. Remains same 
+66. The frequency of waves is 200 Hz. If tension is increased 4 times, its frequency will 
+be:​
+A. 800 Hz​
+B. 1600 Hz​
+C. 400 Hz​
+D. 200 Hz 
+67. The length of a string is 1 m, tension in it is 40 N and mass of the string is 0.1 kg. 
+The velocity of transverse waves produced in the string will be:​
+A. 400 ms⁻¹​
+B. 180 ms⁻¹​
+C. 80 ms⁻¹​
+D. 20 ms⁻¹ 
+68. What is the velocity of a transverse wave travelling along a thin copper wire of 
+length 50 cm and mass 1 gram, if it is stretched by a weight of 4 kg?​
+A. 60 m/s​
+
+=== PAGE 10 ===
+B. 110 m/s​
+C. 90 m/s​
+D. 140 m/s 
+69. If the frequency of a wave increases, its time period:​
+A. Increases​
+B. Remains constant​
+C. Decreases​
+D. Becomes zero 
+70. The correct relationship between velocity (v), frequency (f), and wavelength (λ) is:​
+A. v = f/λ​
+B. v = fλ​
+C. f = vλ​
+D. λ = v/f 
+71. The phase difference (Δφ) in terms of path difference (Δx) and wavelength (λ) is:​
+A. Δφ = (λ/2π)Δx​
+B. Δφ = Δx/λ​
+C. Δφ = (2π/λ)Δx​
+D. Δφ = πΔx 
+72. In longitudinal waves, regions of high pressure are called:​
+A. Crests​
+B. Compressions​
+C. Troughs​
+D. Rarefactions 
+73. What is the time period of a wave with a frequency of 0.25 Hz?​
+A. 0.25 s​
+B. 4 s​
+C. 2 s​
+D. 8 s 
+74. A phase difference of π/2 radians corresponds to a path difference of:​
+A. λ/8​
+B. λ/2​
+C. λ/4​
+D. λ 
+75. Audible waves have a frequency:​
+A. 0 Hz – 10 kHz​
+B. 20 Hz – 40 kHz​
+C. 20 Hz – 20 kHz​
+D. 20 Hz – 10 kHz 
+76. The vo and vt are speeds of sound in a gas at 0°C and t°C. Then "vt/vo" is:​
+A. vo + 0.61t​
+B. 1 + t/546​
+
+=== PAGE 11 ===
+C. 1 + 546t​
+D. 1 + 546/t 
+77. Which gas will have the highest speed of sound at the same temperature?​
+A. Oxygen (O2)​
+B. Nitrogen (N2)​
+C. Hydrogen (H2)​
+D. Carbon dioxide (CO2) 
+78. On a rainy day, compared to a dry day, sound travels:​
+A. Faster​
+B. At the same speed​
+C. Slower​
+D. Depends on wind 
+79. At 0°C, the speed of sound in air is approximately:​
+A. 330 m/s​
+B. 343 m/s​
+C. 332 m/s​
+D. 300 m/s 
+80. Stationary waves are formed due to:​
+A. Interference of two identical waves traveling in opposite directions​
+B. Reflection of a wave at a free boundary​
+C. Diffraction of sound​
+D. Refraction of waves 
+81. Antinodes in a stationary wave are points of:​
+A. Minimum displacement​
+B. Zero velocity​
+C. Maximum displacement​
+D. Constant pressure 
+82. When two sound waves of equal amplitude but opposite phase interfere, the result 
+is:​
+A. Constructive interference​
+B. A stationary wave​
+C. Destructive interference​
+D. Resonance 
+83. Energy conservation in stationary waves implies that energy:​
+A. Is transferred between nodes​
+B. Remains trapped between two adjacent nodes​
+C. Decreases exponentially​
+D. Is radiated as heat 
+84. Two waves with amplitudes 3 mm and 4 mm interfere destructively. The resultant 
+amplitude is:​
+A. 1 mm​
+
+=== PAGE 12 ===
+B. 5 mm​
+C. 7 mm​
+D. 0 mm 
+85. In a stationary wave, the phase difference between two particles in the same loop 
+is:​
+A. 0°​
+B. 180°​
+C. 90°​
+D. 360° 
+86. The fundamental frequency of an open pipe is given by:​
+A. f = v/2L​
+B. f = v/L​
+C. f = v/4L​
+D. f = 2v/L 
+87. At what temperature will the speed of sound in air be 1.5 times its value at 27°C?​
+A. 102°C​
+B. 204°C​
+C. 204°C​
+D. 402°C 
+88. The velocity of sound in air is 330 ms⁻¹. The fundamental frequency of an organ 
+pipe open at both ends and length 0.3 m will be:​
+A. 200 Hz​
+B. 275 Hz​
+C. 300 Hz​
+D. 550 Hz 
+89. A tight wire is clamped at two points 2 m apart. It is plucked near one end. What 
+are the three longest wavelengths produced on the vibrating wire?​
+A. 2 m, 1 m, 0.67 m​
+B. 4 m, 2 m, 1 m​
+C. 4 m, 2 m, 1.33 m​
+D. 1 m, 0.5 m, 0.33 m 
+90. A sound wave has a wavelength of 3.0 m. The distance between the center of a 
+compression and the center of the next adjacent rarefaction is ____.​
+A. 0.75 m​
+B. 3.0 m​
+C. 1.5 m​
+D. 6.0 m 
+91. The ratio of 2nd overtone to 3rd overtone in stationary wave produced in an air 
+column open at both ends is:​
+A. 4/3​
+B. 3/4​
+
+=== PAGE 13 ===
+C. 2/3​
+D. 1/2 
+92. If the speed of sound is 340 m/s, the length of the shortest closed pipe that 
+resonates at 218 Hz is:​
+A. 23 cm​
+B. 39 cm​
+C. 17 cm​
+D. 78 cm 
+93. What is the value of constant β in the expression Vt = Vo(1 + βt)?​
+A. 1.42​
+B. 1/273​
+C. 0.61​
+D. 273 
+94. A resonating column of air contains:​
+A. Stationary longitudinal waves​
+B. Transverse progressive waves​
+C. Stationary transverse waves​
+D. Longitudinal progressive waves 
+95. A particle in SHM has an amplitude of 0.2 m and angular frequency 4 rad/s. What is 
+its maximum velocity?​
+A. 0.8 m/s​
+B. 1.6 m/s​
+C. 0.5 m/s​
+D. 0.2 m/s 
+96. A particle undergoes uniform circular motion with angular velocity (ω). What is the 
+angular frequency of its projection performing SHM?​
+A. ω/2π​
+B. ω​
+C. 2πω​
+D. ω² 
+97. How does frequency affect sound speed?​
+A. Higher frequency increases speed​
+B. No effect​
+C. Lower frequency increases speed​
+D. Higher frequency decreases speed 
+98. Which harmonic is absent in a closed pipe?​
+A. 1st​
+B. 2nd​
+C. 3rd​
+D. 5th 
+
+=== PAGE 14 ===
+99. Newton estimated the speed of sound as:​
+A. 280 m/sec​
+B. 340 m/sec​
+C. 333 m/sec​
+D. All of the above 
+100. Two waves having same frequency travelling along same line in opposite 
+direction will produce:​
+A. Interference​
+B. Stationary waves​
+C. Beats​
+D. Doppler's effect 
+101. A closed pipe of length (L) has a fundamental frequency (f). What is the 
+frequency of its 3rd harmonic?​
+A. f​
+B. 3f​
+C. 2f​
+D. 4f 
+102. For destructive superposition of waves to take place, phase difference between 
+the waves will be (where n = 0, ±1, ±2, ±3,...):​
+A. nπ​
+B. (2n+1)π​
+C. (2n+1)π/2​
+D. nπ/2 
+103. The oscillatory motion taking place under the action of a restoring force is called:​
+A. Random motion​
+B. SHM​
+C. Rotatory motion​
+D. Translatory motion 
+104. Velocity of a body executing SHM is given by:​
+A. ω√(x0²−x²)​
+B. x0√(ω²−x²)​
+C. ω√(x²−x0²)​
+D. x√(ω²−x0²) 
+105. If 20 waves pass through the medium in 1 second with speed of 20 ms⁻¹, then the 
+wavelength is:​
+A. 20 m​
+B. 2 m​
+C. 10 m​
+D. 1 m 
+106. A simple harmonic oscillator has a time period of 10 seconds. Which equation 
+relates its acceleration 'a' and displacement 'x'?​
+A. a = −10x​
+
+=== PAGE 15 ===
+B. a = −(20π)x​
+C. a = −(2π/10)²x​
+D. a = −(20π)²x 
+107. In SHM, the total mechanical energy of the system:​
+A. Varies with time​
+B. Is zero at the extreme position​
+C. Is maximum at the mean position​
+D. Remains constant 
+108. What distinguishes transverse waves from longitudinal waves?​
+A. Speed of wave​
+B. Direction of particle oscillation relative to wave propagation​
+C. Amplitude​
+D. Energy transfer 
+109. Higher humidity in air affects the speed of sound by making it:​
+A. Increase​
+B. Not affected​
+C. Decrease​
+D. First increase then decrease 
+110. An object attached to one end of a spring makes 20 vibrations in 10 s. Its angular 
+frequency is:​
+A. 1.57 rad/s​
+B. 6.3 rad/s​
+C. 2.0 rad/s​
+D. 12.6 rad/s 
+111. A plane produces a sonic boom only when:​
+A. It emits sound waves of very long wavelength​
+B. It emits sound waves of high frequency​
+C. It flies on a curved path​
+D. It flies faster than the speed of sound 
+112. A fluid is flowing through a pipe with a velocity of 5 m/s. If the pressure is 1000 
+Pa, what is the total energy of the fluid per unit volume?​
+A. 1000 J/m³​
+B. 1275 J/m³​
+C. 1250 J/m³​
+D. 1500 J/m³ 
+113. A 2-m tall cylinder, full of water, has four identical small holes at heights 1.8 m, 
+1.2 m, 0.6 m and 0.3 meter. The speed of efflux is maximum from:​
+A. 1.2 m high hole​
+B. 0.6 m high hole​
+C. 1.8 m high hole​
+D. 0.3 m high hole 
+
+=== PAGE 16 ===
+114. Two rowboats moving parallel in the same direction will:​
+A. Remain moving in the same direction​
+B. Be pulled toward each other​
+C. Get apart due to increase in pressure in between​
+D. One would lag behind the other 
+115. The viscous force on a small sphere of radius R moving in a fluid varies as:​
+A. ∝ R²​
+B. ∝ 1/R​
+C. ∝ R​
+D. ∝ (1/R)² 
+116. A small sphere solid ball is dropped in a viscous liquid. Its journey in the liquid is 
+best described by which curve in the velocity-displacement graph?​
+A. Curve A​
+B. Curve C​
+C. Curve B​
+D. Curve D 
+117. A spherical rain droplet of mass one gram attains a maximum speed of 20 m/s 
+after 10 seconds. The drag force acting on the droplet is:​
+A. 0 N​
+B. 9.8×10⁻³ N​
+C. 9×10⁻² N​
+D. 2×10⁻⁴ N 
+118. If a stream of air is blown under one of the pans of a physical balance in 
+equilibrium, then the pan will:​
+A. Go up​
+B. Not be affected​
+C. Go down​
+D. Go up or down depending on the velocity of the stream 
+119. An object moving through a fluid experiences a retarding force known as:​
+A. External force​
+B. Terminal force​
+C. Drag force​
+D. Gravitational force 
+120. Stoke's law is applicable on:​
+A. Spherical surfaces​
+B. Rectangular surfaces​
+C. Surfaces of all shapes​
+D. Arbitrary surface 
+121. Drag force is expressed by:​
+A. 3πηrv​
+B. 6πηrv​
+
+=== PAGE 17 ===
+C. (2/9η)ρrv​
+D. 6ηρrv 
+122. We have three beakers A, B and C containing glycerin, water and kerosene 
+respectively. They are stirred vigorously and placed on a table. The liquid which 
+comes to rest at the earliest is:​
+A. Glycerin​
+B. Kerosene​
+C. Water​
+D. All of them at the same time 
+123. The maximum drag force on a sphere falling with zero acceleration is 9.8 N. Its 
+real weight is:​
+A. Zero​
+B. 9.8 N​
+C. 4.9 N​
+D. 19.6 N 
+124. As the speed of an object moving through a fluid increases, the drag force 
+experienced by it:​
+A. Increases​
+B. Decreases​
+C. Remains constant​
+D. Becomes zero 
+125. SI unit of coefficient of viscosity is:​
+A. kg m⁻¹ s⁻¹​
+B. kg m⁻¹ s​
+C. kg ms⁻¹​
+D. kg⁻¹ m⁻¹ s⁻¹ 
+126. The maximum constant velocity of an object moving through the fluid is called:​
+A. Escape velocity​
+B. Drag velocity​
+C. Terminal velocity​
+D. Fluid velocity 
+127. Two fog droplets have radius in the ratio 2:3. Their terminal velocities are in the 
+ratio of:​
+A. 4:6​
+B. 4:9​
+C. 2:3​
+D. 4:3 
+128. The terminal velocity of a spherical object is given by:​
+A. vt = 6ρ²gvr²/9η​
+B. vt = 2ρ²gr²/9η​
+C. vt = 2ρgr²/9η​
+D. vt = 2ρ²g²r²/9η 
+
+=== PAGE 18 ===
+129. The net force acting on a body falling through the fluid is given by:​
+A. Net force = drag force − weight​
+B. Net force = drag force + weight​
+C. Net force = drag force / weight​
+D. Net force = weight − drag force 
+130. If the radius of a droplet becomes half, then its terminal velocity will be:​
+A. Double​
+B. Half​
+C. One fourth​
+D. Four times 
+131. The velocity of a rain drop attains a constant value because of:​
+A. Surface tension​
+B. Viscous force exerted by air​
+C. Up thrust of air​
+D. Air currents 
+132. If the streamlines of fluid are forced closer together then:​
+A. Speed of the fluid increases​
+B. Speed of the fluid decreases​
+C. Pressure of the fluid increases​
+D. Speed of the fluid remains same 
+133. The incompressible and non-viscous fluid is called:​
+A. Viscous fluid​
+B. Non-ideal fluid​
+C. Real fluid​
+D. Ideal fluid 
+134. The property of a fluid having constant density is called:​
+A. Compressible fluid​
+B. Non-ideal fluid​
+C. Turbulent fluid​
+D. Incompressible fluid 
+135. Water is flowing with a velocity of 3 ms⁻¹ in a pipe of diameter 4 cm. This water 
+enters another tube of diameter 2 cm. The velocity of water in this tube is:​
+A. 12 ms⁻¹​
+B. 6 ms⁻¹​
+C. 1.5 ms⁻¹​
+D. 3 ms⁻¹ 
+136. Water is flowing through a tube of radius r with a speed v. If this tube is joined to 
+another tube of radius r/2, what is the speed of water in the second tube?​
+A. v/4​
+B. v/2​
+C. 2v​
+D. 4v 
+
+=== PAGE 19 ===
+137. The radius at two ends of a pipe is in the ratio of 2:3, then the speed of fluid at 
+the two ends is in the ratio of:​
+A. 3:2​
+B. 2:3​
+C. 9:4​
+D. 4:9 
+138. Product of area of cross section, velocity and time gives:​
+A. Volume​
+B. Density​
+C. Mass​
+D. Weight 
+139. Equation of continuity gives conservation of:​
+A. Energy​
+B. Power​
+C. Mass​
+D. Density 
+140. The volume flow per second of a fluid is always:​
+A. Zero​
+B. Constant​
+C. Changing continuously​
+D. Less than one 
+141. If a pipe is placed horizontally on the ground, then Bernoulli's equation can be 
+expressed as:​
+A. P + ρgh + (1/2)ρv² = constant​
+B. P + (1/2)ρv² = constant​
+C. P − ρgh = constant​
+D. P + ρgh = constant 
+142. An ideal fluid flows through a horizontal tube of variable diameter. The pressure 
+is lowest where the:​
+A. Velocity is constant​
+B. Velocity is low​
+C. Diameter is largest​
+D. Diameter is smallest 
+143. The unit of (1/2)ρv² in Bernoulli's equation is same as that of:​
+A. Energy​
+B. Pressure​
+C. Work​
+D. Power 
+144. The venturi relation is given by:​
+A. P1 − P2 = (1/2)ρv²​
+B. P2 − P1 = (1/2)ρv²​
+
+=== PAGE 20 ===
+C. P1 − P2 = (1/3)ρv²​
+D. P2 − P1 = (1/3)ρv² 
+145. Pressure of fluid will be low where speed of fluid is:​
+A. Low​
+B. High​
+C. Zero​
+D. Constant 
+146. A 20 meter high tank is full of water. A hole appears at its middle. The speed of 
+efflux will be:​
+A. 10 ms⁻¹​
+B. 14 ms⁻¹​
+C. 11.5 ms⁻¹​
+D. 9.8 ms⁻¹ 
+147. The relation v = √(2g(h1 − h2)) is called:​
+A. Torricelli's theorem​
+B. Venturi relation​
+C. Stoke's law​
+D. Equation of continuity 
+148. The speed of efflux when fluid is falling through a height 5 m (take g = 10 ms⁻²) is:​
+A. 0.5 ms⁻¹​
+B. 1 ms⁻¹​
+C. 5 ms⁻¹​
+D. 10 ms⁻¹ 
+149. The ratio of the largest to shortest wavelengths in the Lyman series of hydrogen 
+spectra is:​
+A. 25/9​
+B. 9/5​
+C. 3/4​
+D. 4/3 
+150. γ-radiation are emitted due to:​
+A. De-excitation of atom​
+B. Excitation of atom​
+C. De-excitation of nucleus​
+D. Excitation of nucleus 
+151. 1 Sv =​
+A. 1 Gy × RBE​
+B. 2 Gy × RBE​
+C. 1 Gy/RBE​
+D. RBE/1 Gy 
+152. What is the absorbed dose D of a sample of 2 kg which is given an amount of 400 
+J of radioactive energy?​
+
+=== PAGE 21 ===
+A. 200 Gy​
+B. 102 Gy​
+C. 50 Gy​
+D. 98 Gy 
+153. A sample decays to 1/8th of its original amount in 30 days. What is its half-life?​
+A. 5 days​
+B. 10 days​
+C. 7.5 days​
+D. 15 days 
+154. If 25% of a radioactive sample remains, how many half-lives have passed?​
+A. 1​
+B. 3​
+C. 2​
+D. 4 
+155. The decay constant of a substance is 0.1 min⁻¹. What is its half-life?​
+A. 6.93 min​
+B. 0.693 min​
+C. 6.93 min​
+D. 10 min 
+156. A 100 g sample reduces to 25 g in 6 hours. What is its half-life?​
+A. 1.5 hours​
+B. 3 hours​
+C. 2 hours​
+D. 6 hours 
+157. The half-life of carbon-14 is 5730 years. What fraction remains after 11,460 years?​
+A. 1/2​
+B. 1/4​
+C. 1/4​
+D. 1/8 
+158. Which of the following have Maximum Ionization Power?​
+A. α-rays​
+B. β-rays​
+C. γ-rays​
+D. Same for all 
+159. In a radioactive phenomenon, observation shows α deviates lesser than β in the 
+same electric or magnetic field. What is the reason for less deviation of α?​
+A. α is a lighter particle​
+B. α is a very fast moving particle​
+C. α is a heavier particle​
+D. None of these 
+
+=== PAGE 22 ===
+160. A certain radioactive nuclide of mass number 'x' decays by β-emission and 
+α-emission to a second nuclide of mass number 't'. Which of the following correctly 
+relates 'x' and 't'?​
+A. x = t−4​
+B. x = t+4​
+C. x + 3 = t​
+D. x − 1 = t 
+161. The greater the decay constant:​
+A. The less the activity​
+B. The greater the size of atom​
+C. The greater the activity​
+D. The less the size of atom 
+162. The half-life of iodine-131 is 8 days. How much of a 40g sample remains after 24 
+days?​
+A. 5 g​
+B. 10 g​
+C. 5 g​
+D. 20 g 
+163. A sample decays to 12.5% in 9 days. What is its half-life?​
+A. 1.5 days​
+B. 3 days​
+C. 3 days​
+D. 4.5 days 
+164. The half-life of sodium-24 is 15 hours. How long until only 6.25% remains?​
+A. 30 hours​
+B. 45 hours​
+C. 60 hours​
+D. 75 hours 
+165. Fraction of the un-decayed atoms in a radioactive sample after 'n' half-lives will 
+be:​
+A. 1/2​
+B. 1/2ⁿ​
+C. 2ⁿ​
+D. (1 − 1/2ⁿ) 
+166. In radioactivity, which of the following depends on the number of atoms?​
+A. Half-life​
+B. Rate of decay​
+C. Mean life​
+D. Rate of decay and half life 
+167. After 1α and 2β emissions:​
+A. Mass number reduces by 3​
+B. Mass number reduces by 4​
+
+=== PAGE 23 ===
+C. Atomic number remains unchanged​
+D. Both 'B' and 'C' 
+168. A radioactive nucleus emits a beta particle. The parent and daughter nuclei are:​
+A. Isotopes​
+B. Isotones​
+C. Isomers​
+D. Isobars 
+169. The half-life of ²³⁴Th₉₀ is 24 days. If 8 kilogram of this isotope is present initially, 
+what amount remains after 72 days?​
+A. 2 kg​
+B. 1 kg​
+C. 5 kg​
+D. 4 kg 
+170. International system of units (SI) of radioactivity activity is:​
+A. Becquerel​
+B. Curie​
+C. Fermi​
+D. Moles 
+171. One eighth of the initial mass of a certain radioactive isotope remains 
+un-decayed after one hour. The half-life of the isotope in minutes is:​
+A. 8​
+B. 30​
+C. 20​
+D. 45 
+172. Radioactive decay obeys which one of the following laws?​
+A. N = N0e^(λt)​
+B. N = N0e^(λt/2)​
+C. N = N0e^(−λt)​
+D. N0 = N(1+e^(λt)) 
+173. What fraction of the original sample will be left after 21.5 years, if Cobalt-50 is a 
+radioactive element with a half-life of 4.3 years?​
+A. 1/32​
+B. 1/8​
+C. 1/16​
+D. 1/4 
+174. The 'rad' is the correct unit used to report the measurement of:​
+A. The ability of a beam of gamma ray photons to produce ions in a target​
+B. The energy delivered by radiation to a target​
+C. The biological effect of radiation​
+D. The rate of decay of a radioactive source 
+
+=== PAGE 24 ===
+175. The atomic number of an element is determined by the number of:​
+A. Protons​
+B. Electrons​
+C. Neutrons​
+D. Neutrinos 
+176. Which of the following is true about isotopes?​
+A. They have different atomic numbers​
+B. They have the same number of protons but different neutrons​
+C. They have the same mass number​
+D. They are always radioactive 
+177. What does the spontaneous nature of nuclear decay imply?​
+A. Decay can be triggered by external factors​
+B. Decay occurs only at high temperatures​
+C. Decay happens without any external influence​
+D. Decay rate can be controlled 
+178. Which decay process changes the atomic number?​
+A. Gamma decay​
+B. Neutron emission​
+C. Beta decay​
+D. All of the above 
+179. Which type of radiation is most penetrating?​
+A. Alpha​
+B. Gamma​
+C. Beta​
+D. Neutron 
+180. If the half-life of a substance is 5 years, what is its decay constant (λ)?​
+A. 0.1386 yr⁻¹​
+B. 0.3465 yr⁻¹​
+C. 0.1386 yr⁻¹​
+D. 1.386 yr⁻¹ 
+181. As per radioactive decay law, the small amount of disintegration of the isotope in 
+a small period is equal to:​
+A. −λN​
+B. −2λN​
+C. λN​
+D. 2λN 
+182. Where are protons and neutrons located in an atom?​
+A. Electron cloud​
+B. Energy levels​
+C. Nucleus​
+D. Outer shells 
+
+=== PAGE 25 ===
+183. The sodium nucleus ²³₁₁Na contains:​
+A. 11 electrons​
+B. 23 protons​
+C. 12 protons​
+D. 12 neutrons 
+184. A count rate of 240 per minute reduces to 30 counts per min in 1 hour. The 
+half-life of the source is:​
+A. 20 min​
+B. 30 min​
+C. 80 min​
+D. 100 min 
+185. Absorbed dose is defined as:​
+A. D = E/m​
+B. D = Em​
+C. D = m/E​
+D. D = 1/mE 
+186. In the nuclear reaction ₄Be⁹ + ₂He⁴ = ₆Cᴬ + ₀n¹, the value of A is:​
+A. 14​
+B. 12​
+C. 10​
+D. 16 
+187. The decay constant λ of a radioactive sample is the probability of decay of an 
+atom in unit time:​
+A. λ decreases as the atoms become older​
+B. λ increases as the age of atoms increases​
+C. λ is independent of the age of atoms​
+D. None of these 
+188. During a radioactive series, parent nucleus is ²³²₉₄X and last daughter nucleus is 
+²⁰⁸₈₄Y. How many α and β-particles are emitted during this change?​
+A. 6α, 3β​
+B. 6α, 2β​
+C. 4α, 4β​
+D. 4α, 6β 
+189. The top quark contains ________ charge.​
+A. −1/3 e​
+B. −2/3 e​
+C. +1/3 e​
+D. +2/3 e 
+190. In beta decay:​
+A. The parent and daughter nuclei have same number of protons​
+B. The daughter nucleus has one proton more than the parent nucleus​
+
+=== PAGE 26 ===
+C. The daughter nucleus has one proton less than the parent nucleus​
+D. The daughter nucleus has one neutron more than the parent nucleus 
+191. The half-life of sodium Na-24 is:​
+A. 15 hours​
+B. 45 hours​
+C. 6 hours​
+D. 60 days 
+192. Particles that have less mass than protons are:​
+A. Mesons​
+B. Photon​
+C. Baryons​
+D. Meons 
+193. Three quarks make up a:​
+A. Lepton​
+B. Meson​
+C. Baryon​
+D. Quark 
+194. Bernoulli's equation is based on conservation of:​
+A. Mass​
+B. Momentum​
+C. Energy​
+D. Charge 
+195. The restoring force in SHM is directly proportional to:​
+A. Velocity​
+B. Displacement​
+C. Acceleration​
+D. Time period 
+196. The second law of thermodynamics is primarily associated with:​
+A. Conservation of energy​
+B. Entropy​
+C. Conservation of mass​
+D. Conservation of momentum 
+197. In a longitudinal wave, particles of the medium vibrate:​
+A. Perpendicular to the direction of wave propagation​
+B. Parallel to the direction of wave propagation​
+C. In circular paths​
+D. Randomly 
+198. Beta-minus decay occurs as a result of the conversion of:​
+A. A proton into a neutron​
+B. A neutron into a proton​
+
+=== PAGE 27 ===
+C. An electron into a positron​
+D. A photon into an electron 
+199. The efficiency of a Carnot engine depends on:​
+A. The nature of the working substance​
+B. The temperatures of the source and sink only​
+C. The pressure of the gas​
+D. The volume of the cylinder 
+200. For a fluid in streamline flow, the product of velocity and area of cross-section at 
+any point along the tube is:​
+A. Zero​
+B. Always increasing​
+C. Constant​
+D. Always decreasing 
+ 
+ 

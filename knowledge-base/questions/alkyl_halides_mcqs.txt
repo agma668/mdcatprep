@@ -1,0 +1,992 @@
+ [Skip to content](#content)
+
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[MCQUniverse](https://www.mcquniverse.pk/)
+
+[Sign up](https://www.mcquniverse.pk/)[Sign up](https://www.mcquniverse.pk/)
+
+# Most Important Alkyl Halides MCQs with Answers | Chemistry
+
+## Alkyl Halides MCQs with Answers
+
+What is the IUPAC name for CH₃CH(Cl)CH₂CH(CH₃)CH₃?
+
+**Explanation:**
+
+The longest continuous carbon chain is five carbons (pentane). Numbering from the end that gives the substituents the lowest possible numbers results in chlorine at 2 and a methyl group at 4.
+
+Which of the following is the correct IUPAC name for a compound with two chlorine atoms on the same carbon atom in a butane chain?
+
+**Explanation:**
+
+When the same alkyl substituent occurs more than once on the chain, the prefix 'di' is used, and the number indicating the carbon atom is repeated.
+
+What is the IUPAC name for CH₃CH₂CH(Br)CH(CH₃)CH₃?
+
+**Explanation:**
+
+The longest chain is pentane. Numbering to give the substituents the lowest numbers places bromine at 3 and methyl at 2.
+
+If a halogen atom is attached to a carbon atom that is directly attached to one other carbon atom, the alkyl halide is classified as:
+
+**Explanation:**
+
+In a primary alkyl halide, the halogen atom is attached to a carbon which is further attached to one or no carbon atom.
+
+In a tertiary alkyl halide, the halogen atom is attached to a carbon which is further attached to how many carbon atoms directly?
+
+**Explanation:**
+
+In tertiary alkyl halides, the halogen atom is attached to a carbon which is further attached to three carbon atoms directly.
+
+An alkyl halide molecule (RX) consists of which two main parts?
+
+An alkyl group with a partial negative charge and a halide atom with a partial positive charge.
+
+An alkyl group with a full positive charge and a halide atom with a full negative charge.
+
+An alkyl group with no charge and a halogen atom with a negative charge.
+
+**An alkyl group with a partial positive charge on the carbon atom attached to the halogen atom, and the halide atom with a partial negative charge.**
+
+**Explanation:**
+
+An alkyl halide molecule (RX) has an alkyl group with a partial positive charge on the carbon atom attached to the halogen atom, and the halide atom carries a partial negative charge due to the electronegativity difference.
+
+What two main factors govern the reactivity of the R-X bond in alkyl halides?
+
+Steric hindrance and solvent polarity
+
+Temperature and concentration
+
+Presence of catalysts and light
+
+**C-X bond energy and C-X bond polarity**
+
+**Explanation:**
+
+The reactivity of the R-X bond in alkyl halides is primarily governed by two factors: C-X bond energy and C-X bond polarity.
+
+According to experimental evidence, which factor is the main determinant of alkyl halide reactivity?
+
+C-X bond polarity
+
+Electronegativity difference
+
+Size of the halogen atom
+
+**Strength of the C-X bond**
+
+**Explanation:**
+
+Experiments have shown that the strength of the carbon-halogen bond is the main factor which decides the reactivity of alkyl halides.
+
+What is the correct order of reactivity of alkyl halides for a particular alkyl group?
+
+Fluoride > Chloride > Bromide > Iodide
+
+Chloride > Bromide > Iodide > Fluoride
+
+Bromide > Iodide > Fluoride > Chloride
+
+**Iodide > Bromide > Chloride > Fluoride**
+
+**Explanation:**
+
+The overall order of reactivity of alkyl halides is Iodide > Bromide > Chloride > Fluoride, due to the decreasing bond strength as you go down the group.
+
+Which type of alkyl halide is generally the least reactive due to the strength of its C-X bond?
+
+Alkyl iodides
+
+Alkyl bromides
+
+Alkyl chlorides
+
+**Alkyl fluorides**
+
+**Explanation:**
+
+The C-F bond is very strong, making alkyl fluorides the least reactive alkyl halides; they do not react under ordinary conditions.
+
+Which type of alkyl halide is generally the most reactive?
+
+Alkyl fluorides
+
+Alkyl chlorides
+
+Alkyl bromides
+
+**Alkyl iodides**
+
+**Explanation:**
+
+Iodo compounds have the weakest C-X bonds, making them the most reactive alkyl halides.
+
+What is the bond energy of the C-I bond in alkyl halides?
+
+467 kj/mole
+
+346 kj/mole
+
+290 kj/mole
+
+**228 kj/mole**
+
+**Explanation:**
+
+The bond energy for the C-I bond is 228 kj/mole, which is the lowest among the given C-X bonds.
+
+What is the bond energy of the C-F bond in alkyl halides?
+
+228 kj/mole
+
+290 kj/mole
+
+346 kj/mole
+
+**467 kj/mole**
+
+**Explanation:**
+
+The bond energy for the C-F bond is 467 kj/mole, making it the strongest C-X bond.
+
+The greatest electronegativity difference exists between carbon and which halogen atom in alkyl halides?
+
+Iodine
+
+Bromine
+
+Chlorine
+
+**Fluorine**
+
+**Explanation:**
+
+The greatest electronegativity difference in alkyl halides exists between carbon and fluorine atoms.
+
+If an electrophile is the attacking reagent, which alkyl halides would be the most reactive?
+
+Alkyl iodides
+
+Alkyl bromides
+
+Alkyl chlorides
+
+**Alkyl fluorides**
+
+**Explanation:**
+
+If an electrophile is the attacking reagent, the greatest electronegativity difference (as seen in C-F bond) would suggest alkyl fluorides are the most reactive. However, this contradicts experimental findings based on bond strength, highlighting the importance of bond energy as the main factor.
+
+The C-Cl bond energy in alkyl halides is:
+
+467 kj/mole
+
+413 kj/mole
+
+290 kj/mole
+
+**346 kj/mole**
+
+**Explanation:**
+
+The bond energy for the C-Cl bond is 346 kj/mole.
+
+What is the IUPAC name for CH₃CH(Br)CH(CH₃)CH₂CH₃?
+
+3-Methyl-2-bromopentane
+
+2-Bromo-3-ethylbutane
+
+2-Bromo-3,4-dimethylbutane
+
+**2-Bromo-3-methylpentane**
+
+**Explanation:**
+
+The longest continuous carbon chain is five carbons (pentane). Numbering from the end that gives the bromine the lowest number places it at 2, and the methyl group at 3.
+
+What is the IUPAC name for CH₃CH₂CH(Cl)CH₂CH(CH₃)₂?
+
+2-Chloro-4-methylhexane
+
+3-Chloro-5-methylhexane
+
+3-Chloro-2,2-dimethylpentane
+
+**4-Chloro-2-methylhexane**
+
+**Explanation:**
+
+The longest continuous carbon chain is six carbons (hexane). Numbering from the end that gives the substituents the lowest possible numbers results in chlorine at 4 and a methyl group at 2.
+
+The C-Br bond energy in alkyl halides is:
+
+467 kj/mole
+
+346 kj/mole
+
+228 kj/mole
+
+**290 kj/mole**
+
+**Explanation:**
+
+The bond energy for the C-Br bond is 290 kj/mole.
+
+What is the electronegativity of Chlorine (Cl)?
+
+4.0
+
+2.8
+
+2.5
+
+**3.0**
+
+**Explanation:**
+
+The electronegativity of Chlorine is 3.0.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+What is the electronegativity of Iodine (I)?
+
+4.0
+
+3.0
+
+2.8
+
+**2.5**
+
+**Explanation:**
+
+The electronegativity of Iodine is 2.5.
+
+If alkyl iodides were to be considered based purely on electronegativity difference (if an electrophile is the attacking reagent), how would their reactivity compare to other alkyl halides?
+
+Most reactive
+
+Similar reactivity to bromides
+
+Intermediate reactivity
+
+**Least reactive**
+
+**Explanation:**
+
+On the basis of electronegativity difference alone, alkyl iodides would be the least reactive if an electrophile were the attacking reagent. However, this is contradicted by the dominant role of bond energy in determining overall reactivity.
+
+What are the two main processes involved in nucleophilic substitution reactions on alkyl halides?
+
+Oxidation and Reduction
+
+Addition and Elimination
+
+Rearrangement and Isomerization
+
+**Breakage of C-X bond and formation of C-Nu bond**
+
+**Explanation:**
+
+Nucleophilic substitution reactions on alkyl halides primarily involve the breaking of the carbon-halogen (C-X) bond and the formation of a new carbon-nucleophile (C-Nu) bond.
+
+What is the IUPAC name for CH₃Cl?
+
+Methyl chloride
+
+Methane chloride
+
+Monochloromethane
+
+**Chloromethane**
+
+**Explanation:**
+
+In IUPAC nomenclature, halogen atoms are treated as substituents. The parent alkane is methane, and the chlorine is the substituent.
+
+What is the IUPAC name for CH₃CH₂CH₂CH₂Cl?
+
+n-Butylchloride
+
+Butyl chloride
+
+Chlorobutane
+
+**1-Chlorobutane**
+
+**Explanation:**
+
+The longest continuous carbon chain is four carbons (butane), and the chlorine is on the first carbon.
+
+What is the IUPAC name for CH₃CH₂CH(Cl)CH₃?
+
+sec-Butyl chloride
+
+Butyl chloride
+
+1-Chlorobutane
+
+**2-Chlorobutane**
+
+**Explanation:**
+
+The longest chain is butane. Numbering from the end that gives the chlorine the lowest number places it on the second carbon.
+
+What is the IUPAC name for (CH₃)₂CHCH₂Cl?
+
+Isobutyl chloride
+
+2-Methyl-1-chloropropane
+
+1-Chloroisobutane
+
+**1-Chloro-2-methylpropane**
+
+**Explanation:**
+
+The longest continuous carbon chain is three carbons (propane) with a methyl group on the second carbon. The chlorine is on the first carbon.
+
+What is the IUPAC name for (CH₃)₃CCl?
+
+tert-Butyl chloride
+
+2-Methyl-2-chloropropane
+
+Trimethylchloromethane
+
+**2-Chloro-2-methylpropane**
+
+**Explanation:**
+
+The longest continuous carbon chain is three carbons (propane). There is a methyl group and a chlorine atom both attached to the second carbon.
+
+The mechanism of nucleophilic substitution reactions depends upon the timing of which two processes?
+
+Nucleophile strength and leaving group ability
+
+Substrate concentration and temperature
+
+Solvent polarity and steric hindrance
+
+**Bond breaking and bond formation**
+
+**Explanation:**
+
+The mechanism of nucleophilic substitution reactions depends on whether the C-X bond breaks before or simultaneously with the C-Nu bond formation.
+
+If the two processes (bond breakage and bond formation) occur simultaneously, the mechanism is called:
+
+SN1
+
+E1
+
+E2
+
+**SN2**
+
+**Explanation:**
+
+If the C-X bond breaks at the same time as the C-Nu bond forms, the mechanism is known as SN2.
+
+If the C-X bond breaks first, followed by the formation of a new bond, the mechanism is called:
+
+SN2
+
+E2
+
+E1
+
+**SN1**
+
+**Explanation:**
+
+When the C-X bond breaks initially to form a carbocation, and then the new bond is formed, it is an SN1 mechanism.
+
+Which type of nucleophilic substitution reaction is a single-step mechanism?
+
+SN1
+
+E1
+
+E2
+
+**SN2**
+
+**Explanation:**
+
+SN2 is a concerted, single-step mechanism where bond breaking and bond formation occur simultaneously.
+
+In an SN2 mechanism, from which side does the attacking nucleophile approach the electrophilic carbon?
+
+The same side as the leaving group
+
+Any side, randomly
+
+It attacks the leaving group first
+
+**The side opposite to the leaving group**
+
+**Explanation:**
+
+In SN2 reactions, the attacking nucleophile approaches from the backside, opposite to the leaving group, to minimize steric hindrance and facilitate the departure of the leaving group.
+
+What is the IUPAC name for CH₃CH₂Br?
+
+Ethyl bromide
+
+Ethane bromide
+
+Monobromoethane
+
+**Bromoethane**
+
+**Explanation:**
+
+The longest continuous carbon chain is two carbons (ethane), and the bromine is a substituent.
+
+What is the IUPAC name for CH₃CH₂CH₂Cl?
+
+n-Propyl chloride
+
+Propyl chloride
+
+Chloropropane
+
+**1-Chloropropane**
+
+**Explanation:**
+
+The longest chain is propane. The carbon atom bearing the functional group (chlorine) gets the lowest possible number, which is 1.
+
+What is the IUPAC name for CH₃CH(Cl)CH₃?
+
+Isopropyl chloride
+
+Propane chloride
+
+Chloroisopropane
+
+**2-Chloropropane**
+
+**Explanation:**
+
+The longest chain is propane. The chlorine is on the second carbon, giving it the lowest possible number.
+
+During an SN2 reaction, what is the change in the hybridization state of the substrate carbon atom bearing the halogen?
+
+From sp to sp²
+
+From sp² to sp³
+
+Remains sp³
+
+**From sp³ to planar sp²**
+
+**Explanation:**
+
+In an SN2 reaction, the substrate carbon atom changes its hybridization from tetrahedral sp³ to a planar sp² transition state, allowing the nucleophile to approach.
+
+What happens to the configuration of the alkyl halide molecule during an SN2 reaction?
+
+It remains the same
+
+It undergoes retention of configuration
+
+It undergoes racemization
+
+**It gets inverted**
+
+**Explanation:**
+
+SN2 reactions proceed with an inversion of configuration at the reacting carbon center, often referred to as 'Walden inversion'.
+
+How is the molecularity of an SN2 reaction defined?
+
+The number of molecules participating in the slow step
+
+The total number of molecules involved in the reaction
+
+The number of steps in the mechanism
+
+**The number of molecules taking part in the rate determining step**
+
+**Explanation:**
+
+Molecularity of a reaction is defined as the number of molecules taking part in the rate determining step.
+
+What is the molecularity of an SN2 reaction?
+
+One
+
+Three
+
+Zero
+
+**Two**
+
+**Explanation:**
+
+Since an SN2 reaction is a single-step mechanism where two molecules (alkyl halide and nucleophile) participate in the rate-determining step, its molecularity is two.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+What is the molecularity of an SN1 reaction?
+
+Two
+
+Three
+
+Zero
+
+**One**
+
+**Explanation:**
+
+An SN1 reaction is unimolecular in its rate-determining step, involving only the alkyl halide molecule.
+
+What is the order of reactivity for SN2 reactions among primary, secondary, and tertiary alkyl halides?
+
+Tertiary > Secondary > Primary
+
+Secondary > Primary > Tertiary
+
+Tertiary = Secondary = Primary
+
+**Primary > Secondary > Tertiary**
+
+**Explanation:**
+
+The reactivity order for SN2 reactions is primary > secondary > tertiary, primarily due to steric hindrance. Primary alkyl halides offer the least steric hindrance, allowing the nucleophile to approach more easily.
+
+Which of the following alkyl halides would be most reactive in an SN2 reaction?
+
+(CH₃)₃C-Br
+
+CH₃CH₂CH(Br)CH₃
+
+CH₃CH₂CH₂Br
+
+**CH₃Br**
+
+**Explanation:**
+
+Methyl bromide (CH₃Br) is a primary halide (even simpler than typical primary), offering the least steric hindrance for an SN2 reaction.
+
+Which of the following is typically a characteristic of an SN1 reaction?
+
+Proceeds with inversion of configuration
+
+Bimolecular rate-determining step
+
+Strong nucleophile required
+
+**Formation of a carbocation intermediate**
+
+**Explanation:**
+
+SN1 reactions proceed via a two-step mechanism involving the formation of a carbocation intermediate in the slow, rate-determining step.
+
+What is the order of reactivity for SN1 reactions among primary, secondary, and tertiary alkyl halides?
+
+Primary > Secondary > Tertiary
+
+Secondary > Primary > Tertiary
+
+Tertiary = Secondary = Primary
+
+**Tertiary > Secondary > Primary**
+
+**Explanation:**
+
+The reactivity order for SN1 reactions is tertiary > secondary > primary, because the stability of the carbocation intermediate increases in this order (tertiary carbocations are the most stable).
+
+Which of the following factors favors an SN1 reaction mechanism?
+
+Strong nucleophile
+
+Aprotic solvent
+
+Less stable carbocation
+
+**Polar protic solvent**
+
+**Explanation:**
+
+Polar protic solvents stabilize the carbocation intermediate and the leaving group through solvation, thereby favoring SN1 reactions.
+
+What type of nucleophile generally favors an SN2 reaction?
+
+Weak nucleophile
+
+Neutral nucleophile
+
+Bulky nucleophile
+
+**Strong nucleophile**
+
+**Explanation:**
+
+Strong nucleophiles are generally required for SN2 reactions to effectively attack the substrate carbon and displace the leaving group in a single step.
+
+What is the effect of steric hindrance on the rate of SN2 reactions?
+
+Increases the rate
+
+Has no effect on the rate
+
+Only affects the product type
+
+**Decreases the rate**
+
+**Explanation:**
+
+Increased steric hindrance around the carbon atom bearing the leaving group hinders the approach of the nucleophile, thus decreasing the rate of SN2 reactions.
+
+What is racemization, and in which type of nucleophilic substitution reaction can it occur?
+
+Inversion of configuration; SN2
+
+Retention of configuration; SN2
+
+Elimination of a leaving group; E1
+
+**Formation of equal amounts of enantiomers; SN1**
+
+**Explanation:**
+
+Racemization is the formation of equal amounts of enantiomers (a racemic mixture). In SN1 reactions, because the carbocation intermediate is planar, the nucleophile can attack from either side, leading to racemization if a chiral center is involved.
+
+Which of the following is an example of a nucleophile?
+
+H⁺
+
+CH₃⁺
+
+BF₃
+
+**H₂O**
+
+**Explanation:**
+
+A nucleophile is an electron-rich species that donates an electron pair to an electron-deficient center. Water (H₂O) has lone pairs on the oxygen atom, making it a nucleophile.
+
+What is the common name for β-elimination reactions in alkyl halides?
+
+Substitution reactions
+
+Addition reactions
+
+Rearrangement reactions
+
+**Dehydrohalogenation reactions**
+
+**Explanation:**
+
+β-elimination reactions, also known as 1,2-elimination reactions, involve the removal of a halogen atom from the α-carbon and a hydrogen atom from the β-carbon, resulting in the formation of an alkene. This process is often called dehydrohalogenation.
+
+Which two mechanisms are possible for β-elimination reactions?
+
+SN1 and SN2
+
+Addition and Substitution
+
+Oxidation and Reduction
+
+**E1 and E2**
+
+**Explanation:**
+
+Similar to nucleophilic substitution, β-elimination reactions can proceed through two main mechanisms: E1 (unimolecular elimination) and E2 (bimolecular elimination).
+
+In an E2 elimination reaction, what is the role of the base?
+
+It acts as a leaving group.
+
+It attacks the α-carbon.
+
+It forms a carbocation.
+
+**It removes a proton from the β-carbon.**
+
+**Explanation:**
+
+In an E2 reaction, a strong base abstracts a proton from the β-carbon simultaneously with the departure of the leaving group and the formation of a double bond.
+
+What is the molecularity of an E2 reaction?
+
+One
+
+Three
+
+Zero
+
+**Two**
+
+**Explanation:**
+
+The E2 reaction is a single-step, concerted mechanism involving both the alkyl halide and the base in the rate-determining step, hence its molecularity is two.
+
+What is the characteristic feature of the transition state in an E2 reaction?
+
+Formation of a carbocation
+
+Full positive charge on carbon
+
+Full negative charge on carbon
+
+**Partial breaking of C-H and C-X bonds, and partial formation of C=C bond**
+
+**Explanation:**
+
+The E2 reaction proceeds through a single transition state where the C-H bond and C-X bond are simultaneously breaking, and a new C=C double bond is forming.
+
+For an E2 reaction to occur efficiently, the hydrogen on the β-carbon and the halogen on the α-carbon must be in which relative orientation?
+
+Syn-periplanar
+
+Gauche
+
+Eclipsed
+
+**Anti-periplanar**
+
+**Explanation:**
+
+E2 reactions typically require the hydrogen and the leaving group to be anti-periplanar (180° dihedral angle) to allow for proper orbital overlap during the concerted elimination.
+
+Which type of alkyl halide is most reactive in an E2 reaction?
+
+Primary
+
+Secondary
+
+Methyl
+
+**Tertiary**
+
+**Explanation:**
+
+The reactivity order for E2 reactions generally follows tertiary > secondary > primary, as the more substituted alkenes formed are more stable, and tertiary halides often experience more steric hindrance with the base, favoring elimination over substitution.
+
+What is the rate-determining step in an E1 elimination reaction?
+
+Abstraction of a proton by a base
+
+Formation of a double bond
+
+Attack of a nucleophile
+
+**Ionization of the alkyl halide to form a carbocation**
+
+**Explanation:**
+
+In an E1 reaction, the slow, rate-determining step is the unimolecular dissociation of the alkyl halide to form a carbocation and a halide ion.
+
+How many steps are involved in an E1 elimination mechanism?
+
+One
+
+Three
+
+Four
+
+**Two**
+
+**Explanation:**
+
+E1 reactions are two-step processes: first, the formation of a carbocation, and second, the deprotonation of the carbocation by a weak base to form an alkene.
+
+What kind of solvent typically favors an E1 reaction?
+
+Aprotic solvent
+
+Non-polar solvent
+
+Basic solvent
+
+**Polar protic solvent**
+
+**Explanation:**
+
+Polar protic solvents stabilize the carbocation intermediate formed in the first step of an E1 reaction, similar to SN1 reactions.
+
+Which type of alkyl halide is most reactive in an E1 reaction?
+
+Primary
+
+Secondary
+
+Methyl
+
+**Tertiary**
+
+**Explanation:**
+
+E1 reactions favor the formation of more stable carbocations, so the reactivity order is tertiary > secondary > primary alkyl halides.
+
+What kind of base typically favors an E1 reaction?
+
+Strong, bulky base
+
+Strong, non-bulky base
+
+No base required
+
+**Weak base**
+
+**Explanation:**
+
+E1 reactions are typically carried out with weak bases, as a strong base would favor the E2 mechanism or SN2.
+
+Which rule predicts the major product of an elimination reaction when more than one alkene can be formed?
+
+Markovnikov's Rule
+
+Hofmann's Rule
+
+Hund's Rule
+
+**Zaitsev's Rule**
+
+**Explanation:**
+
+Zaitsev's Rule states that in an elimination reaction, the major product is the most substituted alkene (the one with the most alkyl groups attached to the double-bonded carbons).
+
+What conditions generally favor elimination (E1/E2) over substitution (SN1/SN2)?
+
+Low temperature and weak base/nucleophile
+
+High temperature and weak acid
+
+Low temperature and strong acid
+
+**High temperature and strong base**
+
+**Explanation:**
+
+High temperatures generally favor elimination reactions due to the entropic advantage of forming more molecules (alkene + HX). A strong base particularly favors E2.
+
+If a bulky base is used with a secondary alkyl halide, which pathway is likely to be favored?
+
+SN1
+
+SN2
+
+E1
+
+**E2**
+
+**Explanation:**
+
+Bulky bases tend to favor elimination (E2) over substitution (SN2) because steric hindrance makes nucleophilic attack at the carbon difficult, but proton abstraction from the periphery is still possible.
+
+## Other Chemistry Topics MCQs
+
+We have also prepared the following set of MCQsfor your Entry test preparation in quick way like MDCAT, ECAT and Armed forces test. WE WISH YOU BEST OF LUCK!
+
+[Basic Concept MCQs](https://www.mcquniverse.pk/chemistry-mcqs/basic-concept-mcqs/)
+
+[Atomic Structure MCQs](https://www.mcquniverse.pk/chemistry-mcqs/atomic-structure-mcqs/)
+
+[Gases MCQs](https://www.mcquniverse.pk/chemistry-mcqs/gases-mcqs/)
+
+[Liquids MCQs](https://www.mcquniverse.pk/chemistry-mcqs/liquids-mcqs/)
+
+[Solids MCQs](https://www.mcquniverse.pk/chemistry-mcqs/solids-mcqs/)
+
+[Chemical Equilibrium MCQs](https://www.mcquniverse.pk/chemistry-mcqs/chemical-equilibrium-mcqs/)
+
+[Reaction Kinectics MCQs](https://www.mcquniverse.pk/chemistry-mcqs/reaction-kinetics-quiz/)
+
+[Thermochemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/thermochemistry-mcqs/)
+
+[Electrochemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/electrochemistry-mcqs/)
+
+[Chemical Bonding MCQs](https://www.mcquniverse.pk/chemistry-mcqs/chemical-bonding-mcqs/)
+
+[Transition Elements MCQs](https://www.mcquniverse.pk/chemistry-mcqs/transition-elements-mcqs/)
+
+[S And P Block Elements MCQs](https://www.mcquniverse.pk/chemistry-mcqs/s-and-p-block-elements-mcqs/)
+
+[Fundamental Principles Of Organic Chemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/fundamental-principles-of-organic-chemistry-mcqs/)
+
+[Hydrocarbons MCQs](https://www.mcquniverse.pk/chemistry-mcqs/hydrocarbons-mcqs/)
+
+[Alkyl Halides MCQs](https://www.mcquniverse.pk/chemistry-mcqs/alkyl-halides-mcqs/)
+
+[Alcohols And Phenols MCQs](https://www.mcquniverse.pk/chemistry-mcqs/alcohols-and-phenols-mcqs/)
+
+[Aldehydes And Ketones MCQs](https://www.mcquniverse.pk/chemistry-mcqs/aldehydes-and-ketones-mcqs/)
+
+[Macromolecules MCQs](https://www.mcquniverse.pk/chemistry-mcqs/macromolecules-mcqs/)
+
+[Carboxylic Acid MCQs](https://www.mcquniverse.pk/chemistry-mcqs/carboxylic-acid-mcqs/)
+
+[Industrial Chemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/industrial-chemistry-mcqs/)
+
+### Leave a Reply [Cancel reply](/chemistry-mcqs/alkyl-halides-mcqs/#respond)
+
+×🌐 Website-Wide Premium Access
+
+### Unlock All Quizzes & MCQs
+
+🚀 **One Subscription Unlocks Everything!** 
+ Get 100% full access to ALL quizzes, MCQs & detailed explanations across the entire website.
+
+1 Week
+
+Rs 199
+
+Full Site Access
+
+BEST VALUE
+
+1 Month
+
+Rs 499
+
+Full Site Access
+
+📌 How to Activate:
+
+1. Send fee for your plan to JazzCash or EasyPaisa below.
+2. Click WhatsApp button & send payment screenshot to Admin.
+3. **Instant Activation** within 10 minutes!
+
+JazzCash 03048961191 Title: Rana HabibUllah
+
+EasyPaisa 03428699409 Title: Rana HabibUllah
+
+ [💬 Send Screenshot on WhatsApp](https://wa.me/923428699409?text=Hi,%20I%20want%20to%20activate%20full%20site%20premium%20access.) Maybe later
+
+ [Student Login](https://www.mcquniverse.pk/dashboard/) 
+
+**Alert:**Content is protected.
+
+Scroll to Top

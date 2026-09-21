@@ -1,0 +1,2688 @@
+{
+ "meta": {
+ "version": "3.0",
+ "built": "2026-03-29",
+ "sources": [
+ " Past Papers: 2013-2024 (skills data)",
+ " 2020 Paper 1 (recreated - Mudassar Ejaz & Bazish Faisal)",
+ " 2020 Paper 2 (recreated - Sajjan Raja, 51 questions)",
+ " 2021 Recreated (Premedical.pk)",
+ " 2022 Recreated (13 Aug 2022, cut-off confirmed 62%)",
+ " 2023 Recreated (Premedical.pk)",
+ "Heuser DHMCAT Mock 3 (full 100 Qs with answers)",
+ "Heuser DHMCAT Mock 4 (full 100 Qs)",
+ "Heuser DHMCAT Mock 5 (full 100 Qs)",
+ "TopGrade.pk frequency analysis",
+ "premed.blog Class 2024-2026 accounts",
+ "/Headstart/Star/Cosmos academy intelligence",
+ "PTB and FTB both editions",
+ "Barron's SAT II Biology"
+ ]
+ },
+ "exam_structure": {
+ "sections": [
+ {
+ "name": "Biology",
+ "questions": 22,
+ "neg_marking": true,
+ "penalty": -0.25,
+ "threshold": "60-70%"
+ },
+ {
+ "name": "Chemistry",
+ "questions": 22,
+ "neg_marking": true,
+ "penalty": -0.25,
+ "threshold": "60-70%"
+ },
+ {
+ "name": "Physics",
+ "questions": 22,
+ "neg_marking": true,
+ "penalty": -0.25,
+ "threshold": "60-70%"
+ },
+ {
+ "name": "Math Reasoning",
+ "questions": 17,
+ "neg_marking": false,
+ "strategy": "ALWAYS attempt ALL"
+ },
+ {
+ "name": "Science Reasoning",
+ "questions": 17,
+ "neg_marking": false,
+ "strategy": "ALWAYS attempt ALL"
+ },
+ {
+ "name": "English",
+ "questions": 15,
+ "neg_marking": false,
+ "threshold": "50-60%"
+ }
+ ],
+ "total_questions": 115,
+ "critical_rules": [
+ "BOTH sections must pass independently - failing English fails you regardless of science score",
+ "Only ~100 MBBS seats per year from ~2500 students",
+ "Top 5 in MBBS test get full scholarships",
+ "75%+ is scholarship eligible",
+ " test is BEFORE MDCAT (usually July)",
+ " recycles question structures with different numbers/words",
+ "80/20 rule: 69/85 science Qs (81%) come from 26 sections (35% of syllabus)"
+ ],
+ "neg_marking_math": {
+ "0_eliminated_1/4_chance": "Expected=0 → SKIP",
+ "1_eliminated_1/3_chance": "Expected=+0.17 → RISKY",
+ "2_eliminated_1/2_chance": "Expected=+0.375 → ATTEMPT",
+ "certain": "Expected=+1.00 → ALWAYS attempt",
+ "math_sci_reasoning": "No penalty → ALWAYS fill every answer"
+ }
+ },
+ "question_types": {
+ "type1_memory": {
+ "proportion": "~30%",
+ "signal_words": [
+ "is defined as",
+ "was proposed by",
+ "consists of",
+ "is called",
+ "the term refers to"
+ ],
+ "example": "Binomial nomenclature was introduced by ___",
+ "fix": "Flashcards, 50-fact card daily, write from memory 5x"
+ },
+ "type2_analysis": {
+ "proportion": "~35%",
+ "signal_words": [
+ "because",
+ "due to",
+ "as a result of",
+ "which explains",
+ "the reason for"
+ ],
+ "example": "Vectors cannot be added by simple arithmetic because ___",
+ "fix": "For every fact ask WHY. Generate analysis-only MCQs."
+ },
+ "type3_application": {
+ "proportion": "~35%",
+ "signal_words": [
+ "if",
+ "calculate",
+ "when placed in",
+ "what would happen",
+ "a student observes"
+ ],
+ "example": "Parachute moves east at 20m/s. Ball thrown out. Speed of ball?",
+ "fix": "Scenario drills. Predict answer BEFORE reading options."
+ }
+ },
+ "confirmed_past_paper_questions": {
+ "_2020_P1": [
+ {
+ "q": "Which characteristic is NOT shared by mammals and birds?",
+ "ans": "(d) Viviparity",
+ "trap": "Warm-blooded(shared), ossified skeleton(shared), lungs(shared)",
+ "type": "EXCEPT",
+ "year": 2020
+ },
+ {
+ "q": "The proof that birds have reptilian ancestors is evident by...",
+ "ans": "Scales on hind legs",
+ "trap": "Calcareous shells, crop+gizzard, soft bones",
+ "type": "Type1",
+ "year": 2020
+ },
+ {
+ "q": "Plants are killed in winter by frost ___",
+ "ans": "(A) Desiccation and mechanical damage to the tissue",
+ "trap": "No photosynthesis, respiration ceases, no transpiration - ALL WRONG",
+ "type": "Type2",
+ "year": 2020
+ },
+ {
+ "q": "Events during action potential at the axon",
+ "ans": "(C) More potassium inside than outside - resting state",
+ "trap": "Na/K at equilibrium is WRONG",
+ "type": "Type2",
+ "year": 2020
+ },
+ {
+ "q": "Fishes don't sink because of...",
+ "ans": "(I) Swim bladder",
+ "trap": "Calcareous bones(wrong - sharks cartilaginous), air in bones",
+ "type": "Type1",
+ "year": 2020
+ },
+ {
+ "q": "Lymph vessels do NOT contain one of the following:",
+ "ans": "(A) RBCs",
+ "trap": "Proteins(present), fat vitamins(present), antibodies(present)",
+ "type": "EXCEPT",
+ "year": 2020
+ },
+ {
+ "q": "Which characteristic makes bacteria survive intense heat environments?",
+ "ans": "Their enzymes work at high temperatures (thermostable)",
+ "trap": "Cell wall, dormancy - wrong mechanism",
+ "type": "Type2",
+ "year": 2020
+ },
+ {
+ "q": "Cochlea diagram - A=Perilymph, B=Tectorial membrane, C=Endolymph, D=Sensory hair cells",
+ "ans": "A:Perilymph B:Tectorial C:Endolymph D:Sensory hair cells",
+ "trap": "Swapping endolymph/perilymph locations",
+ "type": "Diagram",
+ "year": 2020
+ },
+ {
+ "q": "Guard cells from monocot/dicot - label A,B,C",
+ "ans": "A=Epidermal cells, B=Guard cells, C=Subsidiary cells",
+ "trap": "Mixing up subsidiary and epidermal",
+ "type": "Diagram",
+ "year": 2020
+ },
+ {
+ "q": "Which reacts with AgNO3 giving white precipitate AND is acidic?",
+ "ans": "(B) Propyne - terminal H makes acidic + silver acetylide",
+ "trap": "Acetylene(works too), benzene(no terminal H), 2-chlorobutylene",
+ "type": "Type3",
+ "year": 2020
+ },
+ {
+ "q": "Which element burns with white flame and gives cloudy smoke?",
+ "ans": "(B) Phosphorus → P4O10 white fumes",
+ "trap": "Sulfur burns BLUE, silicon doesn't burn white",
+ "type": "Type1",
+ "year": 2020
+ },
+ {
+ "q": "Compound reacts with ozone → ozonide → Zn/water → aldehyde. What is it?",
+ "ans": "(C) Ethene - gives formaldehyde (HCHO) only",
+ "trap": "Benzene(ring-opened product), methane(no double bond), propene",
+ "type": "Type3",
+ "year": 2020
+ },
+ {
+ "q": "In pi bond formation in sp2 hybridization, which orbitals overlap?",
+ "ans": "(A) p-p - lateral overlap of unhybridised p orbitals",
+ "trap": "(C) sp2-sp2 is SIGMA not pi - most common wrong answer",
+ "type": "Type1",
+ "year": 2020
+ },
+ {
+ "q": "Correct 3D view of NH2- ion",
+ "ans": "Pyramidal shape - N with 2 H and 1 lone pair",
+ "trap": "Linear or trigonal planar - wrong geometry",
+ "type": "Type3",
+ "year": 2020
+ },
+ {
+ "q": "S has maximum oxidation state in which compound?",
+ "ans": "+6 in H2SO4 or SO3",
+ "trap": "+4(H2SO3), -2(Na2S), +8 doesn't exist for S",
+ "type": "Type3",
+ "year": 2020
+ },
+ {
+ "q": "Parachute east at 20m/s. Ball thrown at 4m/s. Speed of ball?",
+ "ans": "(A) 20 m/s - inherits parachute velocity",
+ "trap": "4m/s(just throw), 24m/s(wrong addition)",
+ "type": "Type3",
+ "year": 2020
+ },
+ {
+ "q": "Conductor L=3m, B=0.1T, v=0.2m/s. Induced EMF?",
+ "ans": "(B) 0.06V - EMF=BLv=0.1×3×0.2",
+ "trap": "(A) 0.6V decimal error - appeared directly in options",
+ "type": "Numerical",
+ "year": 2020
+ },
+ {
+ "q": "Critical angle formula:",
+ "ans": "(B) sin⁻¹(n2/n1) where n2 < n1 (rarer medium)",
+ "trap": "(A) sin⁻¹(n1/n2) - flipped, gives impossible value >1",
+ "type": "Type1",
+ "year": 2020
+ },
+ {
+ "q": "To increase fringe distance in YDSE: (i)shorter wavelength (ii)increase screen (iii)decrease slit",
+ "ans": "(A) ii and iii - fringe width y=λD/d",
+ "trap": "Shorter wavelength DECREASES fringe width - option i is wrong trap",
+ "type": "Type2",
+ "year": 2020
+ }
+ ],
+ "_2020_P2": [
+ {
+ "q": "If DNA of unborn baby matched with mother: X chromosome present means...",
+ "ans": "(B) If Y chromosome present its a boy",
+ "trap": "X chromosome ≠ boy (X=girl)",
+ "type": "Type2",
+ "year": 2020
+ },
+ {
+ "q": "What is importance of first step of Glycolysis?",
+ "ans": "(A) Makes glucose more reactive",
+ "trap": "Does not directly produce ATP or NADP at first step",
+ "type": "Type2",
+ "year": 2020
+ },
+ {
+ "q": "What reacts with AgNO3, KMnO4, decolorizes bromine AND is acidic?",
+ "ans": "Acetylene (terminal alkyne with all properties)",
+ "trap": "Propene(no AgNO3 white ppt), ethylene(not acidic)",
+ "type": "Type3",
+ "year": 2020
+ },
+ {
+ "q": "Which EM radiation absorbed by coloured compounds?",
+ "ans": "(C) Visible light",
+ "trap": "IR is heat, UV bleaches, microwaves too low energy for electronic transitions",
+ "type": "Type1",
+ "year": 2020
+ },
+ {
+ "q": "Wheatstone bridge - if no current through galvanometer, value of P?",
+ "ans": "Use P/Q=R/S ratio to calculate",
+ "trap": "Not just reading the diagram values directly",
+ "type": "Numerical",
+ "year": 2020
+ },
+ {
+ "q": "Doubling of mass when net force constant → acceleration?",
+ "ans": "(C) Decreases acceleration by half",
+ "trap": "(A) Doubles acceleration is WRONG (F=ma, double m → half a)",
+ "type": "Type2",
+ "year": 2020
+ },
+ {
+ "q": "Red light through green filter on blue object - what colour seen?",
+ "ans": "(B) Black - red filtered by green, blue absorbed by object, nothing reflected",
+ "trap": "Green(filtered out), red(filtered out), blue(absorbed by object)",
+ "type": "SR",
+ "year": 2020
+ },
+ {
+ "q": "Fungi used as insecticides argument - what supports limited potential?",
+ "ans": "(C) Some fungi may be host-specific parasites (limited to certain insects)",
+ "trap": "(A)reproduces inside insect, (B)controls behavior - support the use not limit it",
+ "type": "SR",
+ "year": 2020
+ }
+ ],
+ "_2021": [
+ {
+ "q": "Correct table for organelles (option C: Ribosome=non-membrane, Lysosome=single, Chloroplast=double)",
+ "ans": "(C) Correct - Ribosome non-membrane, Lysosome single-membrane, Chloroplast double",
+ "trap": "Mitochondria is double NOT single membrane",
+ "type": "Type1",
+ "year": 2021
+ },
+ {
+ "q": "Correct blood pathway from heart to lungs?",
+ "ans": "(D) Right atrium→right ventricle→lungs→left atrium→left ventricle",
+ "trap": "Starting from left side - pulmonary circuit goes RIGHT side first",
+ "type": "Type1",
+ "year": 2021
+ },
+ {
+ "q": "Glucose in blood but NOT in urine - why?",
+ "ans": "(D) Actively transported from proximal convoluted tubules (reabsorbed back)",
+ "trap": "'Too big to filter' - WRONG, glucose IS filtered at glomerulus",
+ "type": "Type2",
+ "year": 2021
+ },
+ {
+ "q": "Mother AB, father O. Possible blood groups of children?",
+ "ans": "(A) A and B only - AB gives I^A or I^B; O gives only i allele",
+ "trap": "Cannot get O blood type from AB parent - no i allele in AB",
+ "type": "Type3",
+ "year": 2021
+ },
+ {
+ "q": "Why are oomycetes NOT part of kingdom fungi?",
+ "ans": "(B) Presence of centrioles AND cellulose in cell wall",
+ "trap": "Fungi have CHITIN (not cellulose) and NO centrioles",
+ "type": "Type2",
+ "year": 2021
+ },
+ {
+ "q": "Why C4 plants more efficient than C3 in hot climate?",
+ "ans": "(B) They reduce the oxygenase function of rubisco (prevents photorespiration)",
+ "trap": "'Have bundle sheath' is structural only, not the efficiency mechanism",
+ "type": "Type2",
+ "year": 2021
+ },
+ {
+ "q": "N2 bonds: how many sigma and pi?",
+ "ans": "(A) 1 sigma + 2 pi (triple bond = 1σ + 2π)",
+ "trap": "3 sigma bonds is most common wrong answer",
+ "type": "Type1",
+ "year": 2021
+ },
+ {
+ "q": "Which amine does NOT form carbylamine? Biphenyl amine vs R-NH2 vs aniline",
+ "ans": "(C) Biphenyl amine - secondary/N-substituted, not primary",
+ "trap": "Aniline IS primary aromatic amine - it DOES give carbylamine",
+ "type": "Type1",
+ "year": 2021
+ },
+ {
+ "q": "Molecules that rotate around single bond are called?",
+ "ans": "(B) Conformers (rotational isomers around single bond)",
+ "trap": "Geometrical isomers require restricted rotation (double bond)",
+ "type": "Type1",
+ "year": 2021
+ },
+ {
+ "q": "isoelectronic: (A)Na++Cl (B)K+V3+ (C)Fe2++Cr (D)P-+Cl+",
+ "ans": "(D) P- and Cl+ both have 16 electrons (isoelectronic)",
+ "trap": "Counting electrons incorrectly for ions",
+ "type": "Type3",
+ "year": 2021
+ },
+ {
+ "q": "Einstein Nobel Prize for?",
+ "ans": "(D) Photoelectric effect - NOT E=mc² or Relativity",
+ "trap": "Relativity is what everyone thinks - WRONG",
+ "type": "Type1",
+ "year": 2021
+ },
+ {
+ "q": "Angle of acceleration vs velocity in circular motion?",
+ "ans": "(D) 90° - centripetal acceleration always perpendicular to velocity",
+ "trap": "0° (same direction) or 180° (opposite)",
+ "type": "Type2",
+ "year": 2021
+ },
+ {
+ "q": "Mass 100kg at 180km/h. Velocity halved - centripetal force becomes?",
+ "ans": "(C) 1/4 times (F∝v², so (v/2)²=v²/4)",
+ "trap": "1/2 times - using F∝v instead of F∝v²",
+ "type": "Numerical",
+ "year": 2021
+ },
+ {
+ "q": "YDSE: λ=484nm, D=275cm, d=0.1mm. Find fringe width y?",
+ "ans": "(A) 1.33mm - y=λD/d=484×10⁻⁹×2.75/10⁻⁴=1.33×10⁻³m",
+ "trap": "Unit conversion errors",
+ "type": "Numerical",
+ "year": 2021
+ },
+ {
+ "q": "Heat engine efficiency: hot=427°C, cold=77°C?",
+ "ans": "(C) 50% - η=(700-350)/700=0.5=50%. MUST use Kelvin.",
+ "trap": "Using Celsius: (427-77)/427=82% - WRONG",
+ "type": "Numerical",
+ "year": 2021
+ },
+ {
+ "q": "Two bodies toward each other at v - relative velocity?",
+ "ans": "2v",
+ "trap": "v (only one body's speed)",
+ "type": "Type2",
+ "year": 2021
+ },
+ {
+ "q": "Th232 undergoes alpha, then beta, then beta decay. Final?",
+ "ans": "2 beta after 1 alpha: Z-2+2=same Z, A-4. Final element same Z as Th, A=228",
+ "trap": "Not tracking each decay step carefully",
+ "type": "Numerical",
+ "year": 2021
+ }
+ ],
+ "_2022": [
+ {
+ "q": "Respiration in plants occurs in: all cells/green cells/stomata/guard cells?",
+ "ans": "(D) Guard cells - have many mitochondria for ATP to open/close stomata",
+ "trap": "Stomata are openings not cells; ALL cells respire but guard cells specifically asked",
+ "type": "Type2",
+ "year": 2022
+ },
+ {
+ "q": "Body temperature at Gilgit where temperature is 0°C?",
+ "ans": "(C) 36-38°C - homeotherms maintain constant body temperature",
+ "trap": "0°C or low (ectotherms) - mammals are warm-blooded",
+ "type": "Type2",
+ "year": 2022
+ },
+ {
+ "q": "How many phloem components are LIVING? A)2 B)3 C)4",
+ "ans": "(B) 3 - sieve tube cells + companion cells + phloem parenchyma. Phloem fibres=DEAD",
+ "trap": "2(missing parenchyma) or 4(including dead fibres)",
+ "type": "Type1",
+ "year": 2022
+ },
+ {
+ "q": "Selective reabsorption of amino acids and glucose in nephron?",
+ "ans": "(A) PCT - Proximal Convoluted Tubule (active transport)",
+ "trap": "Bowman's capsule(filtration only), DCT(Na conditional)",
+ "type": "Type1",
+ "year": 2022
+ },
+ {
+ "q": "Polypeptide of 250 amino acids - mRNA nucleotides needed?",
+ "ans": "(D) 750 - each amino acid = 1 codon = 3 nucleotides",
+ "trap": "250 (forgetting codons = 3 nucleotides)",
+ "type": "Numerical",
+ "year": 2022
+ },
+ {
+ "q": "Water transport from soil to phloem - which pathway?",
+ "ans": "(A) Apoplastic pathway (blocked at Casparian strip)",
+ "trap": "Symplastic goes through cytoplasm - not the soil→phloem pathway",
+ "type": "Type1",
+ "year": 2022
+ },
+ {
+ "q": "DNA amount Y after division. In prophase of meiosis, DNA = ?",
+ "ans": "(B) 2Y - S phase (replication) occurs BEFORE meiosis begins",
+ "trap": "Y (forgetting S phase), Y/2 (only at end of meiosis I)",
+ "type": "Type2",
+ "year": 2022
+ },
+ {
+ "q": "Main difference between prophase meiosis and mitosis?",
+ "ans": "(B) In meiosis centromere does NOT separate; homologs separate. In mitosis centromeres divide.",
+ "trap": "Thinking crossing over is the main structural difference",
+ "type": "Type2",
+ "year": 2022
+ },
+ {
+ "q": "Which gas shows highest deviation from ideal behaviour? H2/CO2/NH3/N2",
+ "ans": "(C) NH3 - strong H-bonding causes greatest deviation",
+ "trap": "H2 shows LEAST deviation (smallest, weakest IMF)",
+ "type": "Type2",
+ "year": 2022
+ },
+ {
+ "q": "Mn oxidation number in MnO4-?",
+ "ans": "(B) +7 - Mn+4(-2)=-1 → Mn=+7",
+ "trap": "-7 (reversing sign)",
+ "type": "Numerical",
+ "year": 2022
+ },
+ {
+ "q": "Rate law from initial rates table (NO+O→NO2+CO2)",
+ "ans": "Rate=k[NO][O] - first order each from doubling experiment",
+ "trap": "Reading the table wrong or assuming overall order",
+ "type": "Type3",
+ "year": 2022
+ },
+ {
+ "q": "Half-life=3min. Initial count 567. Final count 69. Half-lives passed?",
+ "ans": "(B) 3 - 567→284→142→71≈69. Three halvings.",
+ "trap": "4(too many: 567/16=35), 2(too few: 567/4=142)",
+ "type": "Numerical",
+ "year": 2022
+ },
+ {
+ "q": "Correct order highest→lowest wavelengths in spectra?",
+ "ans": "Pfund>Brackett>Paschen>Balmer>Lyman (longest to shortest)",
+ "trap": "Reversing to energy order (Lyman=highest energy=SHORTEST wavelength)",
+ "type": "Type1",
+ "year": 2022
+ },
+ {
+ "q": "Blue light through double slit - what spectrum?",
+ "ans": "(C) Bands of black and blue - interference pattern",
+ "trap": "Continuous spectrum(wrong) or line spectrum(wrong - that's emission)",
+ "type": "Type2",
+ "year": 2022
+ },
+ {
+ "q": "Ball A(mass m, vel V) strikes stationary B(mass m). What happens?",
+ "ans": "(C) Ball A stops, Ball B moves right at V - elastic collision equal masses",
+ "trap": "Both move or A continues - momentum must be conserved",
+ "type": "Type3",
+ "year": 2022
+ },
+ {
+ "q": "Photoelectric effect cannot be explained by which theory?",
+ "ans": "(C) Wave theory - requires quantum/photon explanation",
+ "trap": "Corpuscular/particle theory - it actually helps explain it",
+ "type": "Type2",
+ "year": 2022
+ }
+ ],
+ "_2023": [
+ {
+ "q": "Fission of euglena differs from paramecium in direction:",
+ "ans": "(D) Vertical (longitudinal) - Euglena divides longitudinally, paramecium transversely",
+ "trap": "Asexual or asymmetric - wrong",
+ "type": "Type1",
+ "year": 2023
+ },
+ {
+ "q": "Haemodialysis - concentration of which substance kept SAME as blood?",
+ "ans": "(D) Glucose - dialysate matches blood glucose so glucose not lost",
+ "trap": "Urea(removed - lower in dialysate), Na+(adjusted)",
+ "type": "Type2",
+ "year": 2023
+ },
+ {
+ "q": "Which blood group does NOT exhibit co-dominance?",
+ "ans": "(D) O blood group - ii genotype, no allele expressed preferentially",
+ "trap": "A,B,AB all exhibit co-dominance or dominance",
+ "type": "Type2",
+ "year": 2023
+ },
+ {
+ "q": "Closing of Venus flytrap on touch - which movement?",
+ "ans": "(A) Haptonastic - plant response to touch stimulus",
+ "trap": "Photonastic(light), Nyctinastic(day/night), Hyponastic(gravity)",
+ "type": "Type1",
+ "year": 2023
+ },
+ {
+ "q": "Role of fruit specific to reproduction?",
+ "ans": "(D) Seed dispersal - attracts animals → seeds spread to new locations",
+ "trap": "Nourishment, protection also roles but not SPECIFIC to reproduction",
+ "type": "Type2",
+ "year": 2023
+ },
+ {
+ "q": "Phases of menstrual cycle in correct order?",
+ "ans": "(A) Follicular → Ovulation → Luteal",
+ "trap": "Luteal first or any reverse order",
+ "type": "Type1",
+ "year": 2023
+ },
+ {
+ "q": "Oxidation number of Cl in ClO4-?",
+ "ans": "(B) +7 - Cl+4(-2)=-1 → Cl=+7",
+ "trap": "-7 (sign reversal)",
+ "type": "Numerical",
+ "year": 2023
+ },
+ {
+ "q": "Which is an alkane among C2H6, C3H6, C3H8, C4H10?",
+ "ans": "C3H8 (propane) and C4H10 are alkanes (CnH2n+2). C3H6=propene(alkene)",
+ "trap": "Mixing propane/propene - students say C3H6 is propane",
+ "type": "Type1",
+ "year": 2023
+ },
+ {
+ "q": "Which is a semiconductor?",
+ "ans": "(B) Ge (Germanium) - poor conductor normally, conducts when temp raised",
+ "trap": "Na is always good conductor. Si also semiconductor but Ge more classic answer",
+ "type": "Type1",
+ "year": 2023
+ },
+ {
+ "q": "Principal quantum number=3, how many values of m possible?",
+ "ans": "(C) 5 - when n=3, l=0,1,2. For l=2, ml=-2,-1,0,+1,+2=5 values",
+ "trap": "Counting for all l values instead of maximum ml values",
+ "type": "Type3",
+ "year": 2023
+ },
+ {
+ "q": "51cm3 NH3 reacted with 100cm3 O2 (4NH3+3O2→...). O2 remaining?",
+ "ans": "(C) 61cm3 - 51 NH3 needs (3/4)×51=38.25≈39cm3 O2. Remaining=100-39=61",
+ "trap": "39cm3 (gives consumed not remaining)",
+ "type": "Numerical",
+ "year": 2023
+ },
+ {
+ "q": "Coffin box clicks 12.3/sec, fresh wood 24.6/sec, half-life 5600yr. Age?",
+ "ans": "5600 years - 24.6→12.3 = halved once = 1 half-life",
+ "trap": "11200yr (2 half-lives - wrong, halved only ONCE)",
+ "type": "Numerical",
+ "year": 2023
+ },
+ {
+ "q": "Work: F=10N, angle=60°, distance=8m. Work done?",
+ "ans": "(A) 40J - W=Fdcos60°=10×8×0.5=40J",
+ "trap": "80J(forget cosθ), 69J(sin60° instead of cos60°)",
+ "type": "Numerical",
+ "year": 2023
+ },
+ {
+ "q": "Weight in coal mine, sea level, mountain - correct order?",
+ "ans": "(C) WC<WS>WM - sea level=max, mine and mountain both less than sea level",
+ "trap": "Mine=greatest (closer to center actually reduces slightly due to mass distribution)",
+ "type": "Type2",
+ "year": 2023
+ },
+ {
+ "q": "Entropy order: ice, liquid, vapour, mixture",
+ "ans": "(A) Ice - lowest entropy (most ordered solid state)",
+ "trap": "Mixture or gas has HIGHEST entropy, ice has LOWEST",
+ "type": "SR",
+ "year": 2023
+ },
+ {
+ "q": "Drop of water under mercury in manometer - what happens?",
+ "ans": "Water rises (less dense than mercury: ρwater=1, ρHg=13.6)",
+ "trap": "Sinks (denser - wrong, water is less dense)",
+ "type": "SR",
+ "year": 2023
+ }
+ ],
+ "Heuser_Mock3": [
+ {
+ "q": "Which one of these is NOT a result of the release of catecholamines?",
+ "ans": "(C) Production of glycogen - catecholamines cause GLYCOGENOLYSIS (breakdown) not synthesis",
+ "trap": "Piloerection(A), Dilated pupils(B), Increased heart rate(D) ARE all catecholamine effects",
+ "type": "EXCEPT",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Which part of nephron helps in CONDITIONAL reabsorption of sodium ions?",
+ "ans": "(A) DCT - aldosterone triggers conditional Na+ reabsorption",
+ "trap": "PCT(obligatory-no hormone), Henle's loop(NaCl), Renal corpuscle(filtration)",
+ "type": "Type1",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Sensory neuron enters spinal cord through:",
+ "ans": "(A) The dorsal root of the spinal nerve - Bell-Magendie Law",
+ "trap": "Ventral root(that's MOTOR)",
+ "type": "Type1",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Metabolism of which gives greatest net usable energy PER GRAM?",
+ "ans": "(A) A triglyceride - 9 kcal/g vs 4 kcal/g for protein/carb",
+ "trap": "Tripeptide or disaccharide - less energy per gram than lipid",
+ "type": "Type2",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Salivary gland cells would contain relatively large amount of:",
+ "ans": "(B) Rough endoplasmic reticulum - for secretory protein production",
+ "trap": "Smooth ER(lipid synthesis), genetic material, lipids",
+ "type": "Type1",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Which organism has both blood vessels AND digestive tract food flows ONE direction?",
+ "ans": "(C) Annelids - closed circulation + complete gut (mouth to anus)",
+ "trap": "Flatworms(ONE opening only), Sponges(no true gut)",
+ "type": "Type1",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Which ion significantly involved in opening/closing of stomata?",
+ "ans": "(C) Potassium - K+ enters → water follows → turgid → OPEN",
+ "trap": "Calcium(signaling role), Nitrogen(nutrient), Magnesium(chlorophyll)",
+ "type": "Type1",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Electronic config 1s22s22p63s23p63d9 represents:",
+ "ans": "(D) Metallic cation - this is Cu2+=[Ar]3d9",
+ "trap": "Metal atom(neutral Cu=[Ar]3d10 4s1 not 3d9)",
+ "type": "Type3",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Energy difference between reactants and transition state is:",
+ "ans": "(C) The activation energy",
+ "trap": "Free energy(ΔG), heat of reaction(ΔH)",
+ "type": "Type1",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Thermos flask is example of:",
+ "ans": "(B) Isolated system - no energy OR matter exchange",
+ "trap": "Closed(energy can exchange), Open(both can exchange)",
+ "type": "Type1",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Which spontaneous at any temperature? ΔG/ΔS/ΔH all?",
+ "ans": "(D) ΔG and ΔH are negative, and ΔS is positive - ΔH<0+ΔS>0=ALWAYS spontaneous",
+ "trap": "All negative(ΔH<0+ΔS<0 is temp-dependent, not always)",
+ "type": "Type2",
+ "year": "Heuser3"
+ },
+ {
+ "q": "HClO Ka=3×10-8. H+ concentration in 0.12M HClO?",
+ "ans": "(D) 6.0×10-5 M - [H+]=√(Ka×C)=√(3×10-8×0.12)=√(3.6×10-9)=6×10-5",
+ "trap": "3.6×10-9(wrong formula, not square root), 3.6×10-8(Ka value directly)",
+ "type": "Numerical",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Wire stretched to increase length 10%. Percentage increase in resistance?",
+ "ans": "(D) 21% - R∝L2 when volume constant. (1.1)2=1.21 → +21%",
+ "trap": "(A) 10% (not squaring), (B) 41%(wrong power)",
+ "type": "Numerical",
+ "year": "Heuser3"
+ },
+ {
+ "q": "KE of gas double that at 27°C. Temperature = ?",
+ "ans": "(C) 327°C - KE∝T(Kelvin). 27°C=300K. Double=600K=327°C",
+ "trap": "54°C(doubling Celsius directly - WRONG)",
+ "type": "Numerical",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Two coils: one boils water in 6min, other in 3min. SERIES - time?",
+ "ans": "(D) 9 minutes - Series: t=t1+t2=6+3=9 min",
+ "trap": "3 or 6 minutes (using parallel formula for series)",
+ "type": "Numerical",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Angle between two EQUAL vectors whose resultant = magnitude of either?",
+ "ans": "(D) 120° - R2=A2+A2+2A2cosθ → 1=2+2cosθ → cosθ=-1/2 → 120°",
+ "trap": "90°, 60°, 180°",
+ "type": "Numerical",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Lady 60kg in elevator moving UP at a=2m/s2. Scale reading? (g=10)",
+ "ans": "(C) 720 N - F=m(g+a)=60×(10+2)=720N",
+ "trap": "600N(only mg), 480N(g-a wrong)",
+ "type": "Numerical",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Rain falling vertically. Man running east - rain appears from?",
+ "ans": "(A) East - relative velocity concept. Rain has eastward component relative to runner.",
+ "trap": "West(opposite), Northeast(wrong vector addition)",
+ "type": "SR",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Body moves only when:",
+ "ans": "(B) Force of friction < applied force (strictly GREATER, not equal)",
+ "trap": "(A) equal(just balances, doesn't move yet)",
+ "type": "SR",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Fog - why difficult to see through?",
+ "ans": "(A) Light is scattered by the droplets (Mie scattering)",
+ "trap": "Absorbs light(wrong), total internal refraction(wrong)",
+ "type": "SR",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Soap helps in cleaning because:",
+ "ans": "(D) It lowers the surface tension of the solution",
+ "trap": "Increases surface tension(opposite), absorbs dust(wrong)",
+ "type": "SR",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Milk spoils sour with curds because:",
+ "ans": "(C) Bacteria produce lactic acid → lower pH → denatures milk proteins",
+ "trap": "Fermentation produces ethanol(wrong), yeasts form citric acid(wrong)",
+ "type": "SR",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Equilibrium: Ge + 2Cl2 ⇄ GeCl4, K=1×10^10. Then 2GeCl4 ⇄ 2Ge + 4Cl2?",
+ "ans": "(D) 1×10^-20 - Reverse: K→1/K=10^-10. Double: K→(10^-10)²=10^-20",
+ "trap": "1×10^20(just reverse without squaring), 1×10^10(no manipulation)",
+ "type": "SR",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Cork weight=mg, density=25% water. Totally immersed on string. Tension?",
+ "ans": "(D) 3mg - Buoyancy=4mg (water density 4× cork). Tension=4mg-mg=3mg",
+ "trap": "1mg(only weight), 4mg(only buoyancy)",
+ "type": "SR",
+ "year": "Heuser3"
+ },
+ {
+ "q": "P=4/9 probability - which total is impossible?",
+ "ans": "64 - 64÷9=7.1 (not whole number). Total MUST be divisible by denominator(9)",
+ "trap": "9, 18, 27(all divisible by 9 - valid)",
+ "type": "Math",
+ "year": "Heuser3"
+ },
+ {
+ "q": "Marble P(4/9): NOT green both drawn? Box 30: 8 black, 10 green, 12 yellow",
+ "ans": "P(not green)=20/30, P(both not green)=20/30×19/29=380/870=26/29",
+ "trap": "20/30×19/29 calculation errors",
+ "type": "Math",
+ "year": "Heuser3"
+ }
+ ],
+ "Heuser_Mock4_SAT": [
+ {
+ "q": "In YDSE, slit separation halved, screen distance doubled - fringe width?",
+ "ans": "(D) Becomes 4 times - y=λD/d, d halved→2×, D doubled→2×, total 4×",
+ "trap": "Unchanged(A), doubled(C)",
+ "type": "Numerical",
+ "year": "Heuser4"
+ },
+ {
+ "q": "Buoyant force as rock sinks deeper in water of constant density?",
+ "ans": "(B) Remains constant - buoyant force=ρgV, only depends on volume and fluid density",
+ "trap": "Increases(more pressure) or Decreases - wrong",
+ "type": "Type2",
+ "year": "Heuser4"
+ },
+ {
+ "q": "Transition n=4 to n=3 gives UV. Infrared from which transition?",
+ "ans": "(D) 5→4 - longer wavelength = lower energy transition (larger n values)",
+ "trap": "3→2(visible Balmer), 2→1(UV Lyman)",
+ "type": "Type2",
+ "year": "Heuser4"
+ },
+ {
+ "q": "SHM: KE maximum when x=?",
+ "ans": "(B) x=0 - at equilibrium position all energy is kinetic",
+ "trap": "x=maximum(PE max here, KE=0)",
+ "type": "Type2",
+ "year": "Heuser4"
+ },
+ {
+ "q": "Anti-bonding molecular orbital has greater energy than bonding MO?",
+ "ans": "(D) Anti-bonding MO - higher energy, less stable",
+ "trap": "Same energy or bonding MO higher",
+ "type": "Type2",
+ "year": "Heuser4"
+ },
+ {
+ "q": "Kp and Kc NOT equal in which equilibrium? (PCl5 ⇄ PCl3+Cl2)",
+ "ans": "(D) PCl5(g) ⇄ PCl3(g)+Cl2(g) - Δn=1≠0 so Kp≠Kc",
+ "trap": "Reactions where Δn=0 have Kp=Kc",
+ "type": "Type2",
+ "year": "Heuser4"
+ },
+ {
+ "q": "Spontaneous at all temperatures: exothermic+increasing disorder?",
+ "ans": "(A) Exothermic AND increasing disorder - ΔH<0 + ΔS>0 = ALWAYS spontaneous",
+ "trap": "(B)exothermic+decreasing disorder is temp-dependent",
+ "type": "Type2",
+ "year": "Heuser4"
+ },
+ {
+ "q": "Which distinguishes acetophenone from benzophenone?",
+ "ans": "(D) I2 and NaOH (iodoform test) - acetophenone has CH3CO- group, benzophenone doesn't",
+ "trap": "2,4-DNP(both give +), Benedict's(neither gives +)",
+ "type": "Type3",
+ "year": "Heuser4"
+ },
+ {
+ "q": "Transition metals - catalytic activity associated with:",
+ "ans": "(D) Variable oxidation states - can accept/donate electrons",
+ "trap": "Paramagnetism, colour, high atomisation enthalpy",
+ "type": "Type2",
+ "year": "Heuser4"
+ },
+ {
+ "q": "CuSO4 electrolysed with Pt electrodes:",
+ "ans": "(B) Copper liberated at cathode, oxygen at anode",
+ "trap": "Copper at anode(wrong), sulfur anywhere(wrong - stays as SO4)",
+ "type": "Type2",
+ "year": "Heuser4"
+ }
+ ],
+ "Heuser_Mock5": [
+ {
+ "q": "Blood group antigens are:",
+ "ans": "(D) Proteins present on the surface of RBCs (glycoproteins)",
+ "trap": "Carbohydrates in plasma(wrong location), plasma proteins(wrong)",
+ "type": "Type1",
+ "year": "Heuser5"
+ },
+ {
+ "q": "Common in both arteries and veins:",
+ "ans": "(A) Endothelium - inner lining of ALL blood vessels",
+ "trap": "Tissue fluid(not inside vessels), low blood pressure(wrong for arteries)",
+ "type": "Type1",
+ "year": "Heuser5"
+ },
+ {
+ "q": "Which enzyme has pH 1.4?",
+ "ans": "(A) Pepsin - gastric enzyme works in highly acidic stomach",
+ "trap": "Amylase(pH7), lipase(pH7-8), enterokinase(slightly alkaline)",
+ "type": "Type1",
+ "year": "Heuser5"
+ },
+ {
+ "q": "Resting axonal membrane:",
+ "ans": "(C) More permeable to potassium than to sodium ions",
+ "trap": "Not polarized(wrong-it IS polarized), more Na inside(wrong)",
+ "type": "Type1",
+ "year": "Heuser5"
+ },
+ {
+ "q": "Tricuspid and bicuspid valves CLOSED because of:",
+ "ans": "(B) Attempted backflow of blood into the atria - pressure closes them",
+ "trap": "Atrial systole(opens not closes), ventricular relaxation(opens them)",
+ "type": "Type2",
+ "year": "Heuser5"
+ },
+ {
+ "q": "Oxyntic cells secrete:",
+ "ans": "(A) HCl - parietal/oxyntic cells in stomach wall secrete HCl",
+ "trap": "Pepsinogen(chief cells), mucus(goblet cells)",
+ "type": "Type1",
+ "year": "Heuser5"
+ },
+ {
+ "q": "Erythroblastosis foetalis condition arises when:",
+ "ans": "(B) Rh- female carries Rh+ fetus - mother makes anti-Rh antibodies",
+ "trap": "Rh+ female with Rh- fetus(reversed - wrong)",
+ "type": "Type2",
+ "year": "Heuser5"
+ },
+ {
+ "q": "Oxytocin helps in:",
+ "ans": "(D) Lactation AND childbirth both",
+ "trap": "Only lactation or only childbirth - it does BOTH",
+ "type": "Type1",
+ "year": "Heuser5"
+ },
+ {
+ "q": "K equilibrium: 1/2N2+1/2H2⇄NH3, K=8. K for N2+H2⇄2NH3?",
+ "ans": "(B) 64 - doubling reaction squares K: 82=64",
+ "trap": "16(squaring 4), 2√2(wrong manipulation)",
+ "type": "Numerical",
+ "year": "Heuser5"
+ },
+ {
+ "q": "pOH of solution with 1×10-10 M hydronium ions at 25°C?",
+ "ans": "(B) 4.00 - if [H+]=10-10, pH=10, pOH=14-10=4",
+ "trap": "7.00(neutral), 9.00(using pH directly as pOH)",
+ "type": "Numerical",
+ "year": "Heuser5"
+ },
+ {
+ "q": "Why F- smaller than O2- ion?",
+ "ans": "(C) F- has greater nuclear charge than O2- (9 vs 8 protons pulling same e- count)",
+ "trap": "More electrons(wrong - both have 10e-), higher electronegativity(consequence not cause)",
+ "type": "Type2",
+ "year": "Heuser5"
+ },
+ {
+ "q": "Rate constant has dimension of frequency - order of reaction?",
+ "ans": "(B) First order - k units = s-1 = frequency",
+ "trap": "Zero order(k=mol/L/s), second order(k=L/mol/s)",
+ "type": "Type2",
+ "year": "Heuser5"
+ },
+ {
+ "q": "Radioactivity drops to 1/64 in 30 seconds. Half-life?",
+ "ans": "(C) 5s - 1/64=1/2^6 → 6 half-lives → 30/6=5s",
+ "trap": "2s(wrong power calculation), 6s(getting half-lives and time confused)",
+ "type": "Numerical",
+ "year": "Heuser5"
+ },
+ {
+ "q": "Which cannot be emitted in radioactive decay?",
+ "ans": "(D) Protons (protons alone are NOT emitted - alpha particle includes protons)",
+ "trap": "Helium nucleus=alpha(CAN be emitted), electrons=beta(CAN be emitted)",
+ "type": "Type2",
+ "year": "Heuser5"
+ },
+ {
+ "q": "Fats separated from milk in cream separator because of:",
+ "ans": "(C) Centrifugal force - cream separator spins to separate by density",
+ "trap": "Gravitational force(too slow), cohesive force(wrong principle)",
+ "type": "SR",
+ "year": "Heuser5"
+ },
+ {
+ "q": "Piano at constant speed when pushed horizontally:",
+ "ans": "(C) Dynamic equilibrium - moving at constant velocity = net force = 0",
+ "trap": "Static equilibrium(at rest), no friction(friction exists)",
+ "type": "SR",
+ "year": "Heuser5"
+ },
+ {
+ "q": "Boiling point of water lower at high elevations because:",
+ "ans": "(D) Atmospheric pressure is lower at high elevations",
+ "trap": "H-bonds weaker(wrong), vapor pressure higher(consequence not cause)",
+ "type": "SR",
+ "year": "Heuser5"
+ },
+ {
+ "q": "In UCM - velocity changes and acceleration changes:",
+ "ans": "(D) Both velocity and acceleration change (both are vectors with changing direction)",
+ "trap": "Speed changes(scalar speed is CONSTANT in UCM)",
+ "type": "Type2",
+ "year": "Heuser5"
+ },
+ {
+ "q": "Colour of shirt: black absorbs all, white shirt cooler because:",
+ "ans": "(C) White shirt reflects more sun's energy",
+ "trap": "Black shirt cooler(opposite)",
+ "type": "SR",
+ "year": "Heuser5"
+ },
+ {
+ "q": "Blue light vs red light:",
+ "ans": "(A) Higher frequency, shorter wavelength, carries more energy",
+ "trap": "Lower frequency for blue(wrong - blue has HIGHER frequency than red)",
+ "type": "Type2",
+ "year": "Heuser5"
+ }
+ ]
+ },
+ "frequency_table": {
+ "BIOLOGY": [
+ {
+ "chapter": "Cells & Enzymes",
+ "freq": 3.5,
+ "priority": "CRITICAL",
+ "papers": [
+ "2020",
+ "2021",
+ "Heuser3"
+ ],
+ "key_concepts": [
+ "nucleosome=condense DNA NOT replicate",
+ "Fluid Mosaic Model=Singer&Nicolson 1972",
+ "enzyme inhibition Km/Vmax rules",
+ "organelle abundance per cell type",
+ "Nissl granules cell body+dendrites ONLY"
+ ]
+ },
+ {
+ "chapter": "Biological Molecules",
+ "freq": 3.2,
+ "priority": "CRITICAL",
+ "papers": [
+ "2021",
+ "2022",
+ "Heuser2"
+ ],
+ "key_concepts": [
+ "Chargaff rule A=T G=C",
+ "DNA diameter=2nm rise=3.4Å",
+ "10bp per turn",
+ "iodoform=methyl ketones+ethanol only",
+ "carbylamine=primary amines only"
+ ]
+ },
+ {
+ "chapter": "Diversity/Kingdoms",
+ "freq": 3,
+ "priority": "CRITICAL",
+ "papers": [
+ "2020",
+ "2021"
+ ],
+ "key_concepts": [
+ "viviparity=mammals ONLY",
+ "reptile→bird link=scales on hind legs",
+ "Annelids=CLOSED Insects=OPEN",
+ "thermophile=heat stable enzymes",
+ "flatworms=ONE body opening"
+ ]
+ },
+ {
+ "chapter": "Transport",
+ "freq": 2.8,
+ "priority": "HIGH",
+ "papers": [
+ "2020",
+ "2022"
+ ],
+ "key_concepts": [
+ "lymph has NO RBCs",
+ "active vs facilitated diffusion",
+ "K+ enters guard cells→stomata open",
+ "xylem=dead unidirectional phloem=alive bidirectional",
+ "3 LIVING phloem components"
+ ]
+ },
+ {
+ "chapter": "Cell Cycle",
+ "freq": 2.8,
+ "priority": "HIGH",
+ "papers": [
+ "2022",
+ "Heuser1"
+ ],
+ "key_concepts": [
+ "Pachytene=chiasmata FORM",
+ "Diplotene=chiasmata VISIBLE",
+ "colchicine=metaphase arrest",
+ "DNA doubles before meiosis(2Y)",
+ "centromere does NOT separate in meiosis I"
+ ]
+ },
+ {
+ "chapter": "Genetics",
+ "freq": 2.8,
+ "priority": "HIGH",
+ "papers": [
+ "2021",
+ "2022",
+ "2023"
+ ],
+ "key_concepts": [
+ "AB+O parents=only A and B children",
+ "colorblindness X-linked",
+ "pedigree reading skills",
+ "sex-linked traits inheritance"
+ ]
+ },
+ {
+ "chapter": "Nervous System",
+ "freq": 2.5,
+ "priority": "HIGH",
+ "papers": [
+ "2020",
+ "Heuser3"
+ ],
+ "key_concepts": [
+ "dorsal=SENSORY ventral=MOTOR Bell-Magendie",
+ "Nissl granules NOT in axon",
+ "action potential Na+ in K+ out",
+ "cochlea: scala media=endolymph"
+ ]
+ },
+ {
+ "chapter": "Human Physiology",
+ "freq": 2.5,
+ "priority": "HIGH",
+ "papers": [
+ "2021",
+ "2022",
+ "Heuser3"
+ ],
+ "key_concepts": [
+ "ADH: hypothalamus makes, post pit releases, collecting duct acts",
+ "DCT=conditional(aldosterone)",
+ "PCT=obligatory(no hormone)",
+ "catecholamines=glycogenOLYSIS NOT synthesis",
+ "Leydig=testosterone Sertoli=inhibin"
+ ]
+ },
+ {
+ "chapter": "Locomotion",
+ "freq": 2.3,
+ "priority": "MEDIUM",
+ "papers": [
+ "Heuser2"
+ ],
+ "key_concepts": [
+ "A-band CONSTANT in contraction",
+ "H-zone I-band sarcomere shorten",
+ "actin-myosin sliding filament"
+ ]
+ },
+ {
+ "chapter": "Immunity",
+ "freq": 2,
+ "priority": "MEDIUM",
+ "papers": [
+ "2021"
+ ],
+ "key_concepts": [
+ "virus hides inside host cell",
+ "B vs T cells",
+ "innate vs adaptive immunity"
+ ]
+ },
+ {
+ "chapter": "Reproduction",
+ "freq": 1.8,
+ "priority": "MEDIUM",
+ "papers": [
+ "2021",
+ "2023"
+ ],
+ "key_concepts": [
+ "Leydig vs Sertoli cells",
+ "menstrual phases order",
+ "FSH/LH cycle"
+ ]
+ },
+ {
+ "chapter": "Plant Physiology",
+ "freq": 1.8,
+ "priority": "MEDIUM",
+ "papers": [
+ "2021",
+ "2022",
+ "2023"
+ ],
+ "key_concepts": [
+ "C4 plants reduce oxygenase function of rubisco",
+ "apoplastic pathway",
+ "haptonastic=touch movement",
+ "fruit=seed dispersal"
+ ]
+ },
+ {
+ "chapter": "Ecology",
+ "freq": 1.3,
+ "priority": "LOW",
+ "papers": [],
+ "key_concepts": [
+ "energy loss per trophic level",
+ "food chains"
+ ]
+ },
+ {
+ "chapter": "Evolution",
+ "freq": 1.2,
+ "priority": "LOW",
+ "papers": [
+ "2020"
+ ],
+ "key_concepts": [
+ "homology=same origin diff function",
+ "analogy=same function diff origin",
+ "Hardy-Weinberg requirements"
+ ]
+ }
+ ],
+ "CHEMISTRY": [
+ {
+ "chapter": "Organic Chemistry",
+ "freq": 3.2,
+ "priority": "CRITICAL",
+ "papers": [
+ "2020",
+ "2021",
+ "2022",
+ "2023"
+ ],
+ "key_concepts": [
+ "pi bond in sp2=p-p lateral overlap NOT sp2-sp2",
+ "ozonolysis ethene→HCHO only",
+ "propyne+AgNO3=white ppt+acidic",
+ "phosphorus burns WHITE (sulfur=BLUE)",
+ "iodoform=methyl ketones",
+ "carbylamine=primary amines",
+ "conformers=rotation around single bond"
+ ]
+ },
+ {
+ "chapter": "Chemical Bonding",
+ "freq": 3,
+ "priority": "CRITICAL",
+ "papers": [
+ "2020",
+ "2021"
+ ],
+ "key_concepts": [
+ "sp=180°linear sp2=120°trigonal sp3=109.5°tetrahedral",
+ "NH3 dipole>NF3: lone pair ADDS in NH3 OPPOSES in NF3",
+ "N2=1sigma+2pi bonds NOT 3 sigma",
+ "pi=lateral p-p sigma=end-to-end"
+ ]
+ },
+ {
+ "chapter": "Atomic Structure",
+ "freq": 2.8,
+ "priority": "CRITICAL",
+ "papers": [
+ "2020",
+ "2021",
+ "2022",
+ "2023"
+ ],
+ "key_concepts": [
+ "Cu=[Ar]3d10 4s1 Cu2+=[Ar]3d9",
+ "Cr=[Ar]3d5 4s1",
+ "S max oxidation=+6",
+ "Mn in MnO4-=+7",
+ "Cl in ClO4-=+7",
+ "quantum numbers: l=0 to n-1"
+ ]
+ },
+ {
+ "chapter": "Electrochemistry",
+ "freq": 2.8,
+ "priority": "HIGH",
+ "papers": [
+ "2020",
+ "2022",
+ "2023"
+ ],
+ "key_concepts": [
+ "galvanic=chem→electrical",
+ "electrolytic=electrical→chemical",
+ "oxidation states",
+ "CuSO4+Pt electrodes: Cu at cathode O2 at anode"
+ ]
+ },
+ {
+ "chapter": "Acids/Bases/pH",
+ "freq": 2.5,
+ "priority": "HIGH",
+ "papers": [
+ "Heuser3"
+ ],
+ "key_concepts": [
+ "weak acid [H+]=√(Ka×C)",
+ "conjugate base=remove H+",
+ "conjugate acid=add H+",
+ "pH+pOH=14 at 25°C",
+ "buffer region in titration=half-equivalence point"
+ ]
+ },
+ {
+ "chapter": "Thermochemistry",
+ "freq": 2.5,
+ "priority": "HIGH",
+ "papers": [
+ "2022",
+ "Heuser3"
+ ],
+ "key_concepts": [
+ "ΔH<0+ΔS>0=ALWAYS spontaneous",
+ "ΔH>0+ΔS<0=NEVER",
+ "thermos=ISOLATED system",
+ "exothermic: products enthalpy < reactants",
+ "physical adsorption=REVERSIBLE chemisorption=IRREVERSIBLE"
+ ]
+ },
+ {
+ "chapter": "Hydrocarbons",
+ "freq": 2.5,
+ "priority": "HIGH",
+ "papers": [
+ "2021",
+ "2022",
+ "2023"
+ ],
+ "key_concepts": [
+ "alkane CnH2n+2 alkene CnH2n",
+ "bromine decolorization=C=C present",
+ "conformers vs geometrical isomers"
+ ]
+ },
+ {
+ "chapter": "Equilibrium/Kinetics",
+ "freq": 2.3,
+ "priority": "MEDIUM",
+ "papers": [
+ "2022",
+ "Heuser3"
+ ],
+ "key_concepts": [
+ "Q<K→forward Q>K→reverse",
+ "↑volume→more moles gas side",
+ "rate from initial rate tables",
+ "Kp=Kc only when Δn=0"
+ ]
+ },
+ {
+ "chapter": "Stoichiometry",
+ "freq": 2,
+ "priority": "MEDIUM",
+ "papers": [
+ "2023"
+ ],
+ "key_concepts": [
+ "limiting reagent",
+ "molar ratios from balanced equation",
+ "mole calculations"
+ ]
+ },
+ {
+ "chapter": "Adsorption/Colloids",
+ "freq": 2,
+ "priority": "MEDIUM",
+ "papers": [],
+ "key_concepts": [
+ "physical=reversible(Van der Waals)",
+ "chemisorption=irreversible(chemical bond)",
+ "K3[Fe(CN)6]=4 ions"
+ ]
+ }
+ ],
+ "PHYSICS": [
+ {
+ "chapter": "Electricity/Circuits",
+ "freq": 3.2,
+ "priority": "CRITICAL",
+ "papers": [
+ "2020",
+ "Heuser3"
+ ],
+ "key_concepts": [
+ "EMF=BLv=0.06V confirmed",
+ "E=0 inside conductor V=surface value NOT zero",
+ "series heaters t=t1+t2",
+ "parallel heaters t=t1t2/(t1+t2)",
+ "wire +10%→R+21% (R∝L2)",
+ "diameter+50%→area×2.25"
+ ]
+ },
+ {
+ "chapter": "Electromagnetism/Optics",
+ "freq": 3,
+ "priority": "CRITICAL",
+ "papers": [
+ "2020",
+ "2021",
+ "2022",
+ "Heuser4"
+ ],
+ "key_concepts": [
+ "critical angle=sin⁻¹(n2/n1) dense→rare",
+ "YDSE: central=white y=λD/d",
+ "Lyman=UV Balmer=visible Pfund=far IR",
+ "slit halved+screen doubled→fringe×4"
+ ]
+ },
+ {
+ "chapter": "Mechanics/Kinematics",
+ "freq": 2.8,
+ "priority": "HIGH",
+ "papers": [
+ "2020",
+ "Heuser3"
+ ],
+ "key_concepts": [
+ "elevator UP: F=m(g+a)=720N",
+ "parachute ball=20m/s inherits velocity",
+ "equations of motion suvat",
+ "ball A stops ball B moves (elastic equal mass)"
+ ]
+ },
+ {
+ "chapter": "Vectors",
+ "freq": 2.8,
+ "priority": "HIGH",
+ "papers": [
+ "2021",
+ "Heuser3"
+ ],
+ "key_concepts": [
+ "angle between acceleration and velocity in UCM=90°",
+ "equal vectors resultant=1 angle=120°",
+ "F∝v2 in circular motion",
+ "angular momentum unit=J·s=Planck's constant"
+ ]
+ },
+ {
+ "chapter": "Modern Physics",
+ "freq": 2.5,
+ "priority": "HIGH",
+ "papers": [
+ "2021",
+ "2022"
+ ],
+ "key_concepts": [
+ "Einstein Nobel=photoelectric effect NOT relativity",
+ "photoelectric: wave theory cannot explain",
+ "Bohr model En=-13.6/n2 eV",
+ "2α+4β⁻: ΔZ=0 ΔA=-8"
+ ]
+ },
+ {
+ "chapter": "Heat/Thermodynamics",
+ "freq": 2.3,
+ "priority": "MEDIUM",
+ "papers": [
+ "2021",
+ "Heuser3"
+ ],
+ "key_concepts": [
+ "heat engine η=(TH-TC)/TH MUST USE KELVIN",
+ "KE doubles from 27°C→327°C",
+ "gas laws Boyle Charles",
+ "EF graph reciprocal=latent heat of vaporization"
+ ]
+ },
+ {
+ "chapter": "Sound/Waves",
+ "freq": 2.3,
+ "priority": "MEDIUM",
+ "papers": [
+ "2020",
+ "Heuser3"
+ ],
+ "key_concepts": [
+ "fringe width y=λD/d",
+ "Doppler effect frequency formula",
+ "tension×4→speed×2 (v∝√T)"
+ ]
+ },
+ {
+ "chapter": "Nuclear Physics",
+ "freq": 2,
+ "priority": "MEDIUM",
+ "papers": [
+ "2021",
+ "2022",
+ "2023"
+ ],
+ "key_concepts": [
+ "half-life: SUBTRACT background first",
+ "1/64=1/2^6→6 half-lives",
+ "carbon dating",
+ "α:ΔZ=-2 ΔA=-4 β⁻:ΔZ=+1 ΔA=0"
+ ]
+ },
+ {
+ "chapter": "Circular Motion",
+ "freq": 2,
+ "priority": "MEDIUM",
+ "papers": [
+ "2021"
+ ],
+ "key_concepts": [
+ "speed constant velocity+accel NOT constant",
+ "angle between a and v=90° ALWAYS",
+ "centripetal v halved→F quarter"
+ ]
+ },
+ {
+ "chapter": "Gravitation",
+ "freq": 1.8,
+ "priority": "LOW",
+ "papers": [
+ "2023"
+ ],
+ "key_concepts": [
+ "g at height R→g/4",
+ "g at 2R→g/9",
+ "inverse square law"
+ ]
+ }
+ ]
+ },
+ "confirmed_danger_zone_calculations": [
+ {
+ "topic": "Physics EMF",
+ "calc": "EMF=BLv=0.1×3×0.2=0.06V",
+ "year": 2020,
+ "trap": "0.6V(decimal), 0.15V(wrong formula)",
+ "confirmed": " 2020 Paper 1"
+ },
+ {
+ "topic": "Physics Critical Angle",
+ "calc": "θc=sin⁻¹(n2/n1) n2<n1",
+ "year": 2020,
+ "trap": "sin⁻¹(n1/n2) gives>1",
+ "confirmed": " 2020"
+ },
+ {
+ "topic": "Physics Elevator UP",
+ "calc": "F=m(g+a)=60×12=720N",
+ "year": 2020,
+ "trap": "600N(only mg)",
+ "confirmed": " 2020"
+ },
+ {
+ "topic": "Physics UCM centripetal",
+ "calc": "v halved→F=(v/2)²/r=v²/4r=F/4",
+ "year": 2021,
+ "trap": "F/2(using F∝v)",
+ "confirmed": " 2021"
+ },
+ {
+ "topic": "Physics Heat Engine",
+ "calc": "η=(700-350)/700=50% MUST USE KELVIN",
+ "year": 2021,
+ "trap": "(427-77)/427=82%(Celsius)",
+ "confirmed": " 2021"
+ },
+ {
+ "topic": "Physics YDSE",
+ "calc": "y=λD/d=484×10⁻⁹×2.75/10⁻⁴=1.33mm",
+ "year": 2021,
+ "trap": "Unit conversion errors",
+ "confirmed": " 2021"
+ },
+ {
+ "topic": "Physics Half-life count",
+ "calc": "567→284→142→71≈69 → 3 half-lives",
+ "year": 2022,
+ "trap": "4 half-lives(too many)",
+ "confirmed": " 2022"
+ },
+ {
+ "topic": "Physics Carbon dating",
+ "calc": "24.6→12.3 = 1 half-life = 5600yr",
+ "year": 2023,
+ "trap": "11200yr(2 half-lives)",
+ "confirmed": " 2023"
+ },
+ {
+ "topic": "Physics Work",
+ "calc": "W=Fdcos60°=10×8×0.5=40J",
+ "year": 2023,
+ "trap": "80J(forget cosθ) 69J(sin60°)",
+ "confirmed": " 2023"
+ },
+ {
+ "topic": "Physics g at height R",
+ "calc": "g/(2R/R)²=g/4",
+ "year": 2013,
+ "trap": "g/2(not squaring)",
+ "confirmed": " 2013"
+ },
+ {
+ "topic": "Physics Tension×4→speed",
+ "calc": "v∝√T → ×4 tension → ×2 speed",
+ "year": 2013,
+ "trap": "×4(forgetting √)",
+ "confirmed": " 2013"
+ },
+ {
+ "topic": "Physics Equal vectors angle",
+ "calc": "cosθ=−1/2 → θ=120°",
+ "year": 2013,
+ "trap": "90° 60°",
+ "confirmed": " 2013"
+ },
+ {
+ "topic": "Physics Wire resistance",
+ "calc": "L+10% → R×(1.1)²=+21%",
+ "year": "Confirmed",
+ "trap": "+10%(not squaring)",
+ "confirmed": "Multiple years"
+ },
+ {
+ "topic": "Physics Background half-life",
+ "calc": "Net1=224 Net2=7 →ratio=32=2⁵→5 half-lives→t½=9.6hr",
+ "year": 2020,
+ "trap": "Forgetting background subtraction",
+ "confirmed": " 2020"
+ },
+ {
+ "topic": "Chemistry Pi bond",
+ "calc": "sp2 pi bond = p-p lateral overlap",
+ "year": 2020,
+ "trap": "sp2-sp2(that's sigma)",
+ "confirmed": " 2020"
+ },
+ {
+ "topic": "Chemistry S oxidation",
+ "calc": "H2SO4: Mn+4(-2)=-0 → S=+6",
+ "year": 2020,
+ "trap": "+4(H2SO3) +8(impossible)",
+ "confirmed": " 2020"
+ },
+ {
+ "topic": "Chemistry Cu config",
+ "calc": "Cu=[Ar]3d10 4s1 Cu2+=[Ar]3d9",
+ "year": 2020,
+ "trap": "[Ar]3d9 4s2(Aufbau but wrong)",
+ "confirmed": " 2020"
+ },
+ {
+ "topic": "Chemistry Mn oxidation",
+ "calc": "MnO4-: Mn+4(-2)=-1 → Mn=+7",
+ "year": 2022,
+ "trap": "-7(sign reversal)",
+ "confirmed": " 2022"
+ },
+ {
+ "topic": "Chemistry NH3 stoichiometry",
+ "calc": "51NH3 needs (3/4)×51=39cm3 O2. Remaining=100-39=61cm3",
+ "year": 2023,
+ "trap": "39(consumed not remaining)",
+ "confirmed": " 2023"
+ },
+ {
+ "topic": "Chemistry Log combination",
+ "calc": "log3(63)+log3(5)-log3(35)=log3(9)=2",
+ "year": 2020,
+ "trap": "Evaluating each separately",
+ "confirmed": " 2020"
+ },
+ {
+ "topic": "Math Probability divisibility",
+ "calc": "P=4/9: total must divide by 9. 64÷9=7.1→IMPOSSIBLE",
+ "year": 2020,
+ "trap": "Accepting 64 as valid",
+ "confirmed": " 2020"
+ },
+ {
+ "topic": "Math Heater series",
+ "calc": "Series: t=t1+t2=6+3=9min. Parallel: t=t1t2/(t1+t2)=2min",
+ "year": "Heuser3",
+ "trap": "Using parallel formula for series",
+ "confirmed": "Heuser Mock 3"
+ },
+ {
+ "topic": "Biology Chargaff",
+ "calc": "C=20% → G=20% → A=T=(100-40)/2=30%",
+ "year": "Heuser2",
+ "trap": "20%(copying C value)",
+ "confirmed": "Heuser Mock 2"
+ }
+ ],
+ "scientist_names": {
+ "biology": [
+ {
+ "discovery": "Cell Theory",
+ "scientist": "Schleiden & Schwann (1839); Virchow (1858 - cells from cells)",
+ "year": "1839/1858"
+ },
+ {
+ "discovery": "Fluid Mosaic Model",
+ "scientist": "Singer & Nicolson (BOTH - not just Singer)",
+ "year": 1972
+ },
+ {
+ "discovery": "Natural Selection/Evolution",
+ "scientist": "Charles Darwin",
+ "year": 1859
+ },
+ {
+ "discovery": "Genetics Laws",
+ "scientist": "Gregor Mendel",
+ "year": 1866
+ },
+ {
+ "discovery": "DNA Double Helix (proposed)",
+ "scientist": "Watson & Crick (X-ray evidence by Franklin & Wilkins)",
+ "year": 1953
+ },
+ {
+ "discovery": "Binomial nomenclature",
+ "scientist": "Carolus Linnaeus",
+ "year": 1753
+ },
+ {
+ "discovery": "Germ Theory",
+ "scientist": "Louis Pasteur",
+ "year": 1861
+ },
+ {
+ "discovery": "Penicillin",
+ "scientist": "Alexander Fleming",
+ "year": 1928
+ },
+ {
+ "discovery": "ABO Blood Groups",
+ "scientist": "Karl Landsteiner",
+ "year": 1901
+ },
+ {
+ "discovery": "Vaccination (smallpox)",
+ "scientist": "Edward Jenner",
+ "year": 1796
+ },
+ {
+ "discovery": "5-Kingdom Classification",
+ "scientist": "Robert Whittaker",
+ "year": 1969
+ },
+ {
+ "discovery": "Nucleosome structure",
+ "scientist": "Roger Kornberg",
+ "year": 1974
+ }
+ ],
+ "chemistry": [
+ {
+ "discovery": "Periodic Table",
+ "scientist": "Dmitri Mendeleev",
+ "year": 1869
+ },
+ {
+ "discovery": "Avogadro's Law",
+ "scientist": "Amedeo Avogadro",
+ "year": 1811
+ },
+ {
+ "discovery": "Hess's Law",
+ "scientist": "Germain Henri Hess",
+ "year": 1840
+ },
+ {
+ "discovery": "Plum pudding model",
+ "scientist": "J.J. Thomson",
+ "year": 1904
+ },
+ {
+ "discovery": "Nuclear atomic model",
+ "scientist": "Ernest Rutherford",
+ "year": 1911
+ },
+ {
+ "discovery": "Quantized orbit model",
+ "scientist": "Niels Bohr",
+ "year": 1913
+ },
+ {
+ "discovery": "Le Chatelier's Principle",
+ "scientist": "Henri Le Chatelier",
+ "year": 1884
+ },
+ {
+ "discovery": "Electrolysis laws",
+ "scientist": "Michael Faraday",
+ "year": 1833
+ }
+ ],
+ "physics": [
+ {
+ "discovery": "Laws of Motion + Gravitation",
+ "scientist": "Isaac Newton",
+ "year": 1687
+ },
+ {
+ "discovery": "Electromagnetic Induction",
+ "scientist": "Michael Faraday",
+ "year": 1831
+ },
+ {
+ "discovery": "Photoelectric Effect (explained) - Nobel Prize 1921",
+ "scientist": "Albert Einstein",
+ "year": 1905
+ },
+ {
+ "discovery": "Special Relativity",
+ "scientist": "Albert Einstein",
+ "year": 1905
+ },
+ {
+ "discovery": "X-rays",
+ "scientist": "Wilhelm Röntgen",
+ "year": 1895
+ },
+ {
+ "discovery": "Radioactivity (first discovery)",
+ "scientist": "Henri Becquerel",
+ "year": 1896
+ },
+ {
+ "discovery": "Radioactivity (extensive research)",
+ "scientist": "Marie & Pierre Curie",
+ "year": 1898
+ },
+ {
+ "discovery": "Quantum Theory",
+ "scientist": "Max Planck",
+ "year": 1900
+ },
+ {
+ "discovery": "Bohr's Atomic Model",
+ "scientist": "Niels Bohr",
+ "year": 1913
+ }
+ ]
+ },
+ "exact_numbers": {
+ "biology": [
+ {
+ "fact": "Human chromosomes somatic",
+ "value": "46",
+ "traps": "44,48,23"
+ },
+ {
+ "fact": "Human chromosomes gametes",
+ "value": "23",
+ "traps": "46,22,24"
+ },
+ {
+ "fact": "Normal blood pH",
+ "value": "7.35-7.45",
+ "traps": "7.0,7.5,6.8"
+ },
+ {
+ "fact": "Pepsin optimum pH",
+ "value": "~2 (acidic)",
+ "traps": "7,8,3"
+ },
+ {
+ "fact": "Salivary amylase pH",
+ "value": "~7 (neutral)",
+ "traps": "2,8,6"
+ },
+ {
+ "fact": "Trypsin pH",
+ "value": "~8 (alkaline)",
+ "traps": "7,6,9"
+ },
+ {
+ "fact": "ATP aerobic respiration",
+ "value": "36(FTB) or 38(PTB)",
+ "traps": "32,40,34"
+ },
+ {
+ "fact": "ATP glycolysis net",
+ "value": "2 ATP",
+ "traps": "4,6,8"
+ },
+ {
+ "fact": "Body temperature",
+ "value": "37°C",
+ "traps": "36,36.5,38"
+ },
+ {
+ "fact": "DNA helix diameter",
+ "value": "2 nm",
+ "traps": "1nm,3nm,20Å"
+ },
+ {
+ "fact": "Base pairs per turn",
+ "value": "10",
+ "traps": "8,12,20"
+ },
+ {
+ "fact": "Rise per base pair",
+ "value": "3.4 Å",
+ "traps": "2.8Å,4.0Å"
+ },
+ {
+ "fact": "Chargaff if C=20% then A=?",
+ "value": "30% (A=T G=C)",
+ "traps": "20%,60%"
+ }
+ ],
+ "chemistry": [
+ {
+ "fact": "Avogadro's number",
+ "value": "6.022 × 10²³",
+ "traps": "10²², 10²⁴"
+ },
+ {
+ "fact": "Molar volume at STP",
+ "value": "22.4 L/mol",
+ "traps": "24.4,22.0,24.0"
+ },
+ {
+ "fact": "pH + pOH at 25°C",
+ "value": "14",
+ "traps": "7,12,16"
+ },
+ {
+ "fact": "Faraday's constant",
+ "value": "96,500 C/mol",
+ "traps": "96,000"
+ },
+ {
+ "fact": "S max oxidation state",
+ "value": "+6",
+ "traps": "+4,+7,+8"
+ },
+ {
+ "fact": "Cr electron config",
+ "value": "[Ar]3d⁵4s¹",
+ "traps": "3d⁴4s²"
+ },
+ {
+ "fact": "Cu neutral electron config",
+ "value": "[Ar]3d¹⁰4s¹",
+ "traps": "3d⁹4s²"
+ },
+ {
+ "fact": "sp³ bond angle",
+ "value": "109.5°",
+ "traps": "120°,90°,107°"
+ },
+ {
+ "fact": "sp² bond angle",
+ "value": "120°",
+ "traps": "109.5°,90°,180°"
+ },
+ {
+ "fact": "sp bond angle",
+ "value": "180°",
+ "traps": "120°,90°,109.5°"
+ },
+ {
+ "fact": "NH₃ dipole moment",
+ "value": "1.47 D",
+ "traps": "0.23D(NF3),0D"
+ },
+ {
+ "fact": "K₃[Fe(CN)₆] ions in solution",
+ "value": "4 ions (3K⁺ + [Fe(CN)₆]³⁻)",
+ "traps": "10,7,2"
+ }
+ ],
+ "physics": [
+ {
+ "fact": "Speed of sound in air",
+ "value": "340 m/s",
+ "traps": "300,360,380"
+ },
+ {
+ "fact": "g gravitational acceleration",
+ "value": "9.8 or 10 m/s²",
+ "traps": "9,11"
+ },
+ {
+ "fact": "g at height = R",
+ "value": "g/4",
+ "traps": "g/2,g/3,zero"
+ },
+ {
+ "fact": "Planck's constant",
+ "value": "6.626 × 10⁻³⁴ J·s",
+ "traps": "10⁻³²,10⁻³⁶"
+ },
+ {
+ "fact": "Electron charge",
+ "value": "1.6 × 10⁻¹⁹ C",
+ "traps": "1.6 × 10⁻¹⁸"
+ },
+ {
+ "fact": "Electron mass",
+ "value": "9.11 × 10⁻³¹ kg",
+ "traps": "9.11 × 10⁻²⁷"
+ },
+ {
+ "fact": "Angular momentum unit",
+ "value": "J·s (=Planck's constant)",
+ "traps": "N·m,kg·m/s"
+ },
+ {
+ "fact": "Pfund series region",
+ "value": "Far Infrared",
+ "traps": "Visible,UV,Near IR"
+ },
+ {
+ "fact": "EMF = BLv ( 2020 values)",
+ "value": "0.1×3×0.2=0.06V",
+ "traps": "0.6V,0.15V"
+ }
+ ]
+ },
+ "confusion_pairs": {
+ "biology": [
+ {
+ "a": "ADH → COLLECTING DUCT",
+ "b": "Aldosterone → DCT",
+ "trap": "Most tested endocrine confusion. Papers: Heuser Mock 1,3"
+ },
+ {
+ "a": "Pachytene: chiasmata FORM",
+ "b": "Diplotene: chiasmata VISIBLE",
+ "trap": "Both prophase I substages. Heuser Mock 1 exact Q"
+ },
+ {
+ "a": "Leydig cells → testosterone",
+ "b": "Sertoli cells → inhibin + support",
+ "trap": "Heuser Mock 1 exact Q"
+ },
+ {
+ "a": "Lymph: NO RBCs",
+ "b": "Blood: has RBCs",
+ "trap": " 2020 exact Q"
+ },
+ {
+ "a": "Viviparity = MAMMALS only",
+ "b": "Warm-blooded = mammals AND birds",
+ "trap": " 2020 exact Q"
+ },
+ {
+ "a": "Nucleohistones = CONDENSE DNA",
+ "b": "Replication = COPY DNA",
+ "trap": " 2020 exact Q. Cross-chapter contamination"
+ },
+ {
+ "a": "Catecholamines → glycogenOLYSIS",
+ "b": "Insulin → glycogen SYNTHESIS",
+ "trap": "Heuser Mock 3 exact Q"
+ },
+ {
+ "a": "Annelids: CLOSED circulation",
+ "b": "Insects: OPEN circulation",
+ "trap": "Confirmed multiple years"
+ },
+ {
+ "a": "Dorsal root: SENSORY",
+ "b": "Ventral root: MOTOR",
+ "trap": "Heuser Mock 3 exact Q. Bell-Magendie Law"
+ },
+ {
+ "a": "Endolymph: inside scala media",
+ "b": "Perilymph: scala vestibuli+tympani",
+ "trap": " 2020 diagram Q"
+ },
+ {
+ "a": "Nissl granules: cell body+DENDRITES",
+ "b": "NOT in axon",
+ "trap": " 2020 diagram trap"
+ },
+ {
+ "a": "A-band: CONSTANT in contraction",
+ "b": "H-zone+I-band: SHORTEN",
+ "trap": "Heuser Mock 2 exact Q"
+ },
+ {
+ "a": "PCT: glucose+amino acids (active)",
+ "b": "DCT: conditional Na (aldosterone)",
+ "trap": " 2021+2022"
+ },
+ {
+ "a": "AB parent: only A or B children",
+ "b": "O parent: only i allele",
+ "trap": " 2021 exact Q"
+ },
+ {
+ "a": "ETC: MOST ATP",
+ "b": "Krebs: some ATP; Glycolysis: only 2",
+ "trap": "Heuser Mock 1 exact Q"
+ }
+ ],
+ "chemistry": [
+ {
+ "a": "Oxidation = LOSE electrons",
+ "b": "Reduction = GAIN electrons (OIL RIG)",
+ "trap": "Most common chemistry confusion"
+ },
+ {
+ "a": "Pi bond: p-p LATERAL overlap",
+ "b": "Sigma bond: end-to-end (sp²-sp²)",
+ "trap": " 2020 exact Q"
+ },
+ {
+ "a": "Physical adsorption: REVERSIBLE",
+ "b": "Chemisorption: IRREVERSIBLE",
+ "trap": "#1 tested chemistry distinction"
+ },
+ {
+ "a": "Cu neutral: [Ar]3d¹⁰4s¹",
+ "b": "Cu²⁺: [Ar]3d⁹",
+ "trap": " 2020 confirmed"
+ },
+ {
+ "a": "Mn in MnO4-: +7",
+ "b": "Mn in MnO4-: -7 (sign reversal)",
+ "trap": " 2022 exact Q"
+ },
+ {
+ "a": "N2: 1 sigma + 2 pi bonds",
+ "b": "N2: 3 sigma bonds",
+ "trap": " 2021 exact Q"
+ },
+ {
+ "a": "Carbylamine(+): PRIMARY amines",
+ "b": "Secondary/tertiary: negative",
+ "trap": " 2021 exact Q"
+ },
+ {
+ "a": "NH3: greatest deviation from ideal",
+ "b": "H2: LEAST deviation",
+ "trap": " 2022 exact Q"
+ },
+ {
+ "a": "Q<K → forward reaction",
+ "b": "Q>K → forward reaction",
+ "trap": "Direction reversed"
+ },
+ {
+ "a": "ΔH<0+ΔS>0: ALWAYS spontaneous",
+ "b": "ΔH>0+ΔS<0: NEVER (not always)",
+ "trap": "Most common spontaneity error"
+ },
+ {
+ "a": "Thermos: ISOLATED system",
+ "b": "Closed system (wrong)",
+ "trap": "Heuser Mock 3 exact Q"
+ },
+ {
+ "a": "S max oxidation: +6",
+ "b": "S oxidation in H2SO3: +4",
+ "trap": " 2020 exact Q"
+ }
+ ],
+ "physics": [
+ {
+ "a": "E inside conductor = ZERO",
+ "b": "V inside conductor = surface value (NOT zero)",
+ "trap": " 2013 confirmed"
+ },
+ {
+ "a": "Speed in UCM = CONSTANT",
+ "b": "Velocity in UCM = NOT constant (direction changes)",
+ "trap": " 2021 confirmed"
+ },
+ {
+ "a": "Angle between a and v in UCM = 90°",
+ "b": "Angle = 0°",
+ "trap": " 2021 exact Q"
+ },
+ {
+ "a": "Centripetal: v halved → F becomes 1/4",
+ "b": "F becomes 1/2",
+ "trap": " 2021 exact Q (F∝v²)"
+ },
+ {
+ "a": "Einstein Nobel = photoelectric effect",
+ "b": "Einstein Nobel = relativity",
+ "trap": " 2021 exact Q"
+ },
+ {
+ "a": "Heat engine: MUST USE KELVIN",
+ "b": "Can use Celsius",
+ "trap": " 2021 exact Q"
+ },
+ {
+ "a": "YDSE central = WHITE (white light)",
+ "b": "All fringes coloured",
+ "trap": " 2020 confirmed"
+ },
+ {
+ "a": "Critical angle: sin⁻¹(n2/n1)",
+ "b": "sin⁻¹(n1/n2) flipped",
+ "trap": " 2020 exact Q"
+ },
+ {
+ "a": "Series heaters: t=t1+t2 (ADD)",
+ "b": "Parallel: t=t1t2/(t1+t2)",
+ "trap": "Heuser Mock 3 exact Q"
+ },
+ {
+ "a": "Nuclear decay: 2α+4β⁻→ΔZ=0",
+ "b": "ΔZ changes",
+ "trap": " 2021 confirmed"
+ },
+ {
+ "a": "Angular momentum unit = J·s",
+ "b": "= kg·m/s (linear momentum)",
+ "trap": " 2013 exact Q"
+ }
+ ]
+ },
+ "distractor_trap_types": [
+ {
+ "name": "TRAP 1: Adjacent Term Swap",
+ "desc": "Two related terms from same concept family swapped",
+ "biology": "ADH→collecting duct vs ADH→DCT",
+ "chemistry": "Oxidation=lose vs gain electrons",
+ "physics": "E=0 inside vs V=0 inside"
+ },
+ {
+ "name": "TRAP 2: One-Word Sabotage",
+ "desc": "Correct definition with ONE key word changed",
+ "biology": "Catecholamines→glycogenOLYSIS vs SYNTHESIS",
+ "chemistry": "Enzymes LOWER vs PROVIDE activation energy",
+ "physics": "Tension×4→speed×2 vs speed×4"
+ },
+ {
+ "name": "TRAP 3: Cross-Chapter Contamination",
+ "desc": "Factually correct but belongs to DIFFERENT chapter - 's cruelest",
+ "biology": "DNA replication as distractor for nucleohistone function Q",
+ "chemistry": "36 ATP as distractor in photosynthesis Q",
+ "physics": "Speed of light as distractor in EMF Q"
+ },
+ {
+ "name": "TRAP 4: Direction Reversal",
+ "desc": "Process stated backwards",
+ "biology": "K+ enters→open vs K+ exits→open",
+ "chemistry": "Q<K→forward vs Q<K→reverse",
+ "physics": "Critical angle dense→rare vs rare→dense"
+ },
+ {
+ "name": "TRAP 5: Specificity Trap",
+ "desc": "Too broad or too narrow answer",
+ "biology": "Collecting duct(correct) vs kidney(too broad)",
+ "chemistry": "p-p overlap(correct) vs orbital overlap(too broad)",
+ "physics": "Posterior pituitary(correct) vs pituitary(too broad)"
+ },
+ {
+ "name": "TRAP 6: Number Neighbour",
+ "desc": "Correct number ×10 or ±1 changed",
+ "biology": "46 chromosomes→44,48,23",
+ "chemistry": "sp3 angle=109.5°→107°,120°,90°",
+ "physics": "EMF=0.06V→0.6V(decimal trap 2020)"
+ },
+ {
+ "name": "TRAP 7: EXCEPT Reversal",
+ "desc": "Student picks correct answer on NOT/EXCEPT question by reflex",
+ "biology": "NOT shared by mammals+birds→picks warm-blooded(shared) instead of viviparity",
+ "chemistry": "NOT valid for iodoform→picks methyl ketone(valid)",
+ "physics": "Which does NOT change when lens cut→picks intensity instead of focal length"
+ }
+ ],
+ "science_reasoning_20_patterns": [
+ {
+ "n": 1,
+ "scenario": "Nature is orderly - predict eclipse",
+ "logic": "Consistent patterns in nature → predictable",
+ "answer": "Yes, eclipses predictable",
+ "trap": "Nature is random"
+ },
+ {
+ "n": 2,
+ "scenario": "Cycloheximide in cell culture",
+ "logic": "Inhibits 80S ribosomes",
+ "answer": "Protein fragments accumulate",
+ "trap": "ER or Golgi inhibited - wrong"
+ },
+ {
+ "n": 3,
+ "scenario": "Sealed dark chamber - plant",
+ "logic": "No photosynthesis (no light), respiration continues",
+ "answer": "O2 decreases",
+ "trap": "O2 increases"
+ },
+ {
+ "n": 4,
+ "scenario": "Sour milk/curd",
+ "logic": "Lactic acid → low pH → protein denaturation",
+ "answer": "Casein solidifies (protein denaturation)",
+ "trap": "Carbohydrate breakdown"
+ },
+ {
+ "n": 5,
+ "scenario": "Fog + light beam",
+ "logic": "Water droplets SCATTER (not absorb) light - Mie scattering",
+ "answer": "Beam visible (scattering)",
+ "trap": "Fog absorbs light"
+ },
+ {
+ "n": 6,
+ "scenario": "Soap + water",
+ "logic": "Hydrophobic tails disrupt H-bonds at surface",
+ "answer": "Surface tension DECREASES",
+ "trap": "Increases"
+ },
+ {
+ "n": 7,
+ "scenario": "Extra branch in parallel circuit",
+ "logic": "↓resistance → ↑current (V=IR constant)",
+ "answer": "Battery current increases",
+ "trap": "Current decreases"
+ },
+ {
+ "n": 8,
+ "scenario": "2α + 4β⁻ decay",
+ "logic": "ΔZ=(−4)+(+4)=0. ΔA=−8",
+ "answer": "Same element, lighter isotope",
+ "trap": "Different element"
+ },
+ {
+ "n": 9,
+ "scenario": "Stabilising natural selection",
+ "logic": "Extreme phenotypes removed, intermediate favoured",
+ "answer": "Variation DECREASES",
+ "trap": "Increases (disruptive selection)"
+ },
+ {
+ "n": 10,
+ "scenario": "Biological species definition",
+ "logic": "Interbreed + produce FERTILE offspring",
+ "answer": "Sterile hybrid = different species",
+ "trap": "Can physically mate"
+ },
+ {
+ "n": 11,
+ "scenario": "Hardy-Weinberg allele counting",
+ "logic": "aa=2 alleles, Aa=1 allele of each type",
+ "answer": "aa=29→58 'a'; Aa=81200 'a'; Total=81258",
+ "trap": "Counting individuals not alleles"
+ },
+ {
+ "n": 12,
+ "scenario": "River pollution + O2",
+ "logic": "Bacteria consume O2 faster than algae produce",
+ "answer": "O2 decreases downstream",
+ "trap": "Algae compensate"
+ },
+ {
+ "n": 13,
+ "scenario": "Terminal velocity",
+ "logic": "Weight=drag, net force=0, acceleration=0",
+ "answer": "Speed = CONSTANT (not zero)",
+ "trap": "Speed=zero"
+ },
+ {
+ "n": 14,
+ "scenario": "Body starts moving when...",
+ "logic": "Applied force must EXCEED static friction",
+ "answer": "Force > friction (strictly greater)",
+ "trap": "Force = friction"
+ },
+ {
+ "n": 15,
+ "scenario": "Cork buoyancy + tension",
+ "logic": "Density=25% water → weight=mg, buoyancy=4mg",
+ "answer": "Tension=4mg-mg=3mg",
+ "trap": "Forgetting both forces"
+ },
+ {
+ "n": 16,
+ "scenario": "Boyle's Law compression",
+ "logic": "P1V1=P2V2. 2.0×2.4=3.0×V2",
+ "answer": "V2=1.6 m³ (decrease=0.8)",
+ "trap": "Wrong formula setup"
+ },
+ {
+ "n": 17,
+ "scenario": "pH 7.5 - acidic or basic?",
+ "logic": "pH>7=BASIC, pH<7=acidic, pH=7=neutral",
+ "answer": "pH 7.5 = BASIC",
+ "trap": "pH 7.5 is acidic"
+ },
+ {
+ "n": 18,
+ "scenario": "Colchicine in dividing cells",
+ "logic": "Inhibits spindle (tubulin polymerisation)",
+ "answer": "METAPHASE arrest",
+ "trap": "Anaphase or G1"
+ },
+ {
+ "n": 19,
+ "scenario": "Colorblindness probability",
+ "logic": "Carrier mother × normal father → sons 50%",
+ "answer": "P(colorblind son) = 50%",
+ "trap": "25% (for all offspring)"
+ },
+ {
+ "n": 20,
+ "scenario": "Equilibrium reversed+doubled",
+ "logic": "Reverse→1/K. Double→K². Both→(1/K)²=K⁻²",
+ "answer": "K=10¹⁰ → 10⁻²⁰",
+ "trap": "Adding K values"
+ }
+ ],
+ "math_reasoning_14_traps": [
+ {
+ "n": 1,
+ "name": "Squaring Trap",
+ "rule": "Diameter ×n → area ×n². ALWAYS square.",
+ "example": "Diameter+50%: ×1.5² = ×2.25 (not ×1.5)",
+ "fail": "Multiplying by 1.5 instead of squaring"
+ },
+ {
+ "n": 2,
+ "name": "Series/Parallel Heater",
+ "rule": "Series: t=t1+t2. Parallel: t=t1t2/(t1+t2)",
+ "example": "t1=6,t2=3: Series=9min. Parallel=2min",
+ "fail": "Using parallel for series"
+ },
+ {
+ "n": 3,
+ "name": "Probability Divisibility",
+ "rule": "P=m/n → total MUST be divisible by n",
+ "example": "P=4/9: 64÷9=7.1 → IMPOSSIBLE",
+ "fail": "Accepting non-divisible total. 2020 exact Q"
+ },
+ {
+ "n": 4,
+ "name": "Percentage Identity",
+ "rule": "x% of y = y% of x is ALWAYS TRUE (both=xy/100)",
+ "example": "30% of 70 = 70% of 30 = 21",
+ "fail": "Thinking it's only sometimes true"
+ },
+ {
+ "n": 5,
+ "name": "Percentage Error",
+ "rule": "% error = |measured−actual|/ACTUAL ×100",
+ "example": "Measured=102g, actual=100g: 2/100×100=2%",
+ "fail": "Using measured in denominator"
+ },
+ {
+ "n": 6,
+ "name": "Wire Resistance",
+ "rule": "Length +x% → R×(1+x/100)². R∝L² at constant volume.",
+ "example": "Wire+10%: (1.1)²=1.21 → +21%",
+ "fail": "+10% directly (not squaring)"
+ },
+ {
+ "n": 7,
+ "name": "Average Speed Harmonic Mean",
+ "rule": "Equal distances: 2v1v2/(v1+v2)",
+ "example": "60km at 40, 60km at 60: avg=2×40×60/100=48km/h",
+ "fail": "Arithmetic mean → 50km/h"
+ },
+ {
+ "n": 8,
+ "name": "Sum+Product Method",
+ "rule": "x+y and xy given → (x-y)²=(x+y)²-4xy",
+ "example": "x+y=10, xy=10: (x-y)²=60, |x-y|=2√15≈7.75",
+ "fail": "Solving for x,y individually"
+ },
+ {
+ "n": 9,
+ "name": "Profit+Marked Price",
+ "rule": "Discount is on MARKED price (not cost)",
+ "example": "Cost=800, 30%profit→SP=1040. 20%below marked→Marked=1040/0.8=1300",
+ "fail": "Applying discount to cost price"
+ },
+ {
+ "n": 10,
+ "name": "Divisibility Multiple",
+ "rule": "Denominator of probability must divide total",
+ "example": "P=3/7: valid totals 7,14,21... NOT 10,12",
+ "fail": "Not checking divisibility"
+ },
+ {
+ "n": 11,
+ "name": "Log Combination",
+ "rule": "Combine ALL logs FIRST, then evaluate",
+ "example": "log3(63)+log3(5)-log3(35)=log3(63×5÷35)=log3(9)=2",
+ "fail": "Evaluating each log separately. 2020 exact Q"
+ },
+ {
+ "n": 12,
+ "name": "Concentric Circles Ratio",
+ "rule": "Shaded=n×inner → R²/r² ratio",
+ "example": "Shaded=3×inner: R²=4r² → R/r=2:1",
+ "fail": "Adding areas instead of ratio"
+ },
+ {
+ "n": 13,
+ "name": "Rectangular Solid Volume",
+ "rule": "V=√(lw × lh × wh)",
+ "example": "lw=12, lh=45, wh=60: V=√(12×45×60)=180",
+ "fail": "Solving l,w,h individually"
+ },
+ {
+ "n": 14,
+ "name": "Cylinder Volume Transfer",
+ "rule": "Volume conserved: πr1²h1=πr2²h2",
+ "example": "V=π(5²)(9)=225π. New h=4: r2=7.5→d=15cm",
+ "fail": "Not conserving volume"
+ }
+ ],
+ "fifty_facts_card": [
+ "1. ADH: MADE Hypothalamus. RELEASED Posterior pituitary. ACTS Collecting duct (NOT DCT).",
+ "2. DCT=CONDITIONAL Na+ (aldosterone). PCT=OBLIGATORY (no hormone).",
+ "3. S1=Lubb=AV valves CLOSE=start SYSTOLE. S2=Dubb=Semilunar CLOSE=start DIASTOLE.",
+ "4. Catecholamines→glycogenOLYSIS+piloerection+mydriasis+↑HR+↑BP. NEVER synthesis.",
+ "5. Pachytene=chiasmata FORM. Diplotene=chiasmata VISIBLE.",
+ "6. Leydig=testosterone. Sertoli=support+inhibin. NOT testosterone from Sertoli.",
+ "7. Dorsal root=SENSORY. Ventral root=MOTOR (Bell-Magendie).",
+ "8. Nissl granules=rough ER in cell body+DENDRITES ONLY. NOT axon.",
+ "9. Hardy-Weinberg: random mating=REQUIREMENT (not disruptor).",
+ "10. ETC=MOST ATP. Calvin cycle CONSUMES ATP.",
+ "11. Chlorophyll ABSORBS red+blue. REFLECTS green.",
+ "12. K+ enters guard cells→stomata OPEN.",
+ "13. Annelids=CLOSED circulation. Insects=OPEN.",
+ "14. Flatworms=ONE body opening only.",
+ "15. Analogy=SAME function DIFFERENT origin. Homology=SAME origin DIFFERENT function.",
+ "16. Lymph has NO red blood cells. ( 2020 exact Q)",
+ "17. Iodoform(+)=ethanol+methyl ketones. Carbylamine(+)=PRIMARY amines only.",
+ "18. Centrioles ABSENT in higher plant cells.",
+ "19. Viviparity=MAMMALS only. Birds=warm-blooded but oviparous. ( 2020 exact Q)",
+ "20. Nucleohistones=CONDENSE DNA. NOT replication. ( 2020 exact Q)",
+ "21. Physical adsorption=REVERSIBLE (Van der Waals). Chemisorption=IRREVERSIBLE.",
+ "22. NH3 dipole(1.47D)>NF3(0.23D). Lone pair ADDS in NH3 OPPOSES in NF3.",
+ "23. K3[Fe(CN)6]→4 ions: 3K+ + [Fe(CN)6]3-. CN- stays in complex.",
+ "24. Cu=[Ar]3d10 4s1. Cu2+=[Ar]3d9. Cr=[Ar]3d5 4s1. All exceptions to Aufbau.",
+ "25. Q<K→forward. Q>K→reverse. Q=K→equilibrium.",
+ "26. ↑Volume→MORE moles gas side. ↑Pressure→FEWER moles gas side.",
+ "27. ΔH<0+ΔS>0=ALWAYS spontaneous at ALL temperatures.",
+ "28. Weak acid: [H+]=√(Ka×C). Must include BOTH.",
+ "29. Conjugate base=REMOVE H+. Conjugate acid=ADD H+.",
+ "30. Thermos flask=ISOLATED system (no energy OR matter exchange).",
+ "31. Ortho-nitrophenol MORE volatile than para (intramolecular H-bond→lower BP).",
+ "32. Ozonolysis of ethene→HCHO only. ( 2020 exact Q)",
+ "33. Pi bond in sp2=lateral p-p overlap. NOT sp2-sp2 (that's sigma). ( 2020)",
+ "34. EMF=BLv=0.1×3×0.2=0.06V NOT 0.6V. ( 2020 exact Q)",
+ "35. Series heaters: t=t1+t2. Parallel: t=t1t2/(t1+t2).",
+ "36. Wire+10%→R+21% (NOT +10%). R∝L2.",
+ "37. Diameter+50%→area×2.25 (NOT ×1.5). Area∝r2.",
+ "38. Inside hollow conductor: E=0 AND V=surface value (NOT zero).",
+ "39. UCM: SPEED constant. Velocity+acceleration NOT constant. ( 2021)",
+ "40. White light YDSE: CENTRAL fringe=WHITE. Others=coloured. ( 2020)",
+ "41. Balmer=VISIBLE. Lyman=UV. Pfund=far IR. (Lady Baxter Pours Black Paint)",
+ "42. 2α+4β⁻→ΔZ=0(same element) ΔA=-8.",
+ "43. g at height=R→g/4. ( 2013)",
+ "44. KE doubles from 27°C→T=600K→327°C. ALWAYS convert to Kelvin.",
+ "45. x% of y=y% of x: ALWAYS TRUE (both=xy/100).",
+ "46. P=4/9→total MUST be divisible by 9. 64÷9=7.1→IMPOSSIBLE. ( 2020)",
+ "47. %error: denominator=ACTUAL value (not measured).",
+ "48. Cycloheximide→RIBOSOMES(80S). Colchicine→SPINDLE (metaphase arrest).",
+ "49. Half-life: ALWAYS subtract background first.",
+ "50. pH 7.5=BASIC. Fog=Mie SCATTERING. Body moves ONLY when force>friction."
+ ],
+ "exam_day_strategy": {
+ "neg_marking_rules": [
+ "0 eliminated: SKIP (expected value = 0)",
+ "1 eliminated: RISKY (expected = -0.17, attempt only if confident)",
+ "2 eliminated: ATTEMPT (expected = +0.25)",
+ "Certain: ALWAYS attempt",
+ "Math/Sci Reasoning: NO penalty → ALWAYS fill every single answer"
+ ],
+ "four_pass_system": [
+ "PASS 1 (~60min): Answer ALL certain questions. Skip anything uncertain.",
+ "PASS 2 (~40min): Return to skipped. Eliminate 2 options minimum, then attempt.",
+ "PASS 3 (~25min): Check flagged. Trust FIRST instinct unless new reasoning found.",
+ "PASS 4 (~10min): Fill ALL Math+Sci Reasoning. Sciences: if ≥1 eliminated."
+ ],
+ "subject_tactics": {
+ "biology": "Read each option as TRUE/FALSE independently. ONE wrong word = entire option wrong.",
+ "chemistry": "Always double-check UNITS. MPa/Pa, mL/L mismatches are deliberate traps.",
+ "physics": "Write WHAT YOU'RE SOLVING FOR before calculating. Formula → plug in → verify units.",
+ "sci_reasoning": "Do NOT overthink. Direct answers. Fog=scatters. Soap=breaks surface tension.",
+ "math_reasoning": "NEVER estimate. Calculate exactly. 2.24 and 2.25 are BOTH listed as options.",
+ "time_rule": ">90 seconds on any question → mark and MOVE ON. Return in Pass 2."
+ },
+ "except_protocol": "When you see NOT/EXCEPT/WHICH IS FALSE: STOP. Circle the word. Read each option as TRUE/FALSE. Looking for the FALSE one.",
+ "elimination_4_steps": [
+ "Eliminate: absolute words (always/never/only/all/none) - almost always wrong",
+ "Eliminate: too simple/obvious options",
+ "Eliminate: if two options very similar - both likely wrong",
+ "Choose: MORE SPECIFIC detail (collecting duct > kidney, p-p > orbital overlap)"
+ ]
+ },
+ "last_week_plan": [
+ {
+ "day": 1,
+ "focus": "BIOLOGY",
+ "topics": "Endocrine(ADH+aldosterone), nephron, meiosis stages, heart sounds, ETC+photosynthesis"
+ },
+ {
+ "day": 2,
+ "focus": "CHEMISTRY",
+ "topics": "Organic reactions(2020 confirmed), pi bond, Cu/Cr config, ΔH/ΔS 4 cases, adsorption"
+ },
+ {
+ "day": 3,
+ "focus": "PHYSICS",
+ "topics": "EMF=BLv, YDSE formula, spectral series, nuclear decay, elevator F, wire resistance"
+ },
+ {
+ "day": 4,
+ "focus": "REASONING",
+ "topics": "All 20 Sci Reasoning patterns + All 14 Math Reasoning traps with calculations"
+ },
+ {
+ "day": 5,
+ "focus": "FULL MOCK + REVIEW",
+ "topics": "Full 115-question mock under timed conditions. Review every wrong answer immediately."
+ },
+ {
+ "day": 6,
+ "focus": "TARGETED",
+ "topics": "Redo all wrong answers from mock. Focus on weakest 2 topics only."
+ },
+ {
+ "day": 7,
+ "focus": "LIGHT REVISION ONLY",
+ "topics": "Read 50-Fact Card once. Confusion pairs for 3 weakest topics. NO NEW MATERIAL. Sleep 8 hours."
+ }
+ ]
+}

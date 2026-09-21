@@ -1,0 +1,576 @@
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[IMAGE: Join our whatsapp channel]
+
+# Important Nuclear Physics MCQs | Physics MCQs
+
+## Nuclear Physics MCQs
+
+The nucleus of an atom consists of:
+
+The atomic nucleus is made of protons and neutrons, collectively called nucleons. Electrons orbit outside the nucleus.
+
+Isotopes are atoms of the same element with:
+
+Isotopes have the same atomic number (protons) but different mass numbers due to a varying number of neutrons.
+
+The mass of a neutron is approximately:
+
+The mass of a neutron is approximately 1.675 x 10⁻²⁷ kg, which is very close to the mass of a proton.
+
+One atomic mass unit (amu) is equivalent to:
+
+According to Einstein's mass-energy equivalence (E=mc²), 1 amu of mass is equivalent to 931.5 MeV of energy.
+
+The 'mass defect' in a nucleus is the:
+
+The mass of a stable nucleus is always slightly less than the sum of the masses of its individual protons and neutrons. This 'missing' mass is converted into binding energy.
+
+The force that holds the nucleons together in a nucleus is called the:
+
+The strong nuclear force is the fundamental force that binds protons and neutrons together, overcoming the electrostatic repulsion between protons.
+
+Which of the following has the highest penetrating power?
+
+Gamma rays are high-energy photons with no mass or charge, allowing them to penetrate matter much more deeply than charged particles like alpha or beta.
+
+An alpha particle is essentially a nucleus of:
+
+An alpha particle consists of two protons and two neutrons, which is the structure of a Helium-4 nucleus.
+
+In beta decay, a neutron is converted into:
+
+Negative beta decay involves a neutron changing into a proton, emitting an electron (the beta particle) and an antineutrino to conserve energy and lepton number.
+
+The half-life of a radioactive element is the time in which:
+
+Half-life is a statistical measure defining the time it takes for 50% of a given sample of radioactive nuclei to undergo decay.
+
+A sample contains 5 x 10¹² radioactive atoms. If its decay constant is 4 x 10⁻⁸ s⁻¹, what is the initial activity of the sample in Bq?
+
+Activity (A) is the product of the decay constant (λ) and the number of radioactive atoms (N). A = λN = (4×10⁻⁸ s⁻¹) × (5×10¹²) = 20×10⁴ Bq = 2.0 x 10⁵ Bq.
+
+What is the approximate radius of an Aluminum (²⁷Al) nucleus? (Use R₀ ≈ 1.2 fm)
+
+The nuclear radius is given by R = R₀A¹/³. So, R = (1.2 fm) × (27)¹/³ = 1.2 fm × 3 = 3.6 fm.
+
+The half-life of Technetium-99m is 6 hours. What percentage of a sample remains undecayed after one full day (24 hours)?
+
+24 hours corresponds to 4 half-lives (24/6 = 4). The fraction remaining is (1/2)⁴ = 1/16. In percentage, 1/16 is 6.25%.
+
+The SI unit of radioactivity is the:
+
+The Becquerel (Bq) is the SI unit, defined as one decay per second. The Curie is an older, non-SI unit.
+
+A Geiger-Müller counter is used to detect:
+
+A G-M counter works by detecting the ionization of gas inside its tube caused by the passage of radiation like alpha, beta, or gamma particles.
+
+The process of splitting a heavy nucleus into two lighter nuclei is called:
+
+Fission is the splitting of a large atomic nucleus into smaller ones, a process that releases a large amount of energy.
+
+In a nuclear reactor, the moderator is used to:
+
+Moderators (like heavy water or graphite) slow down the high-energy neutrons produced by fission, making them more likely to be captured by other U-235 nuclei and sustain the chain reaction.
+
+Which of the following is commonly used as a moderator in a nuclear reactor?
+
+Heavy water (D₂O) and graphite are common moderators because they are effective at slowing neutrons without absorbing them excessively.
+
+Nuclear fusion is the process in which:
+
+Fusion involves the combining of light nuclei, like hydrogen isotopes, into a heavier nucleus, releasing immense energy. It is the process that powers stars.
+
+The energy of the sun is primarily a result of:
+
+The Sun's core has extremely high temperature and pressure, allowing hydrogen nuclei to fuse into helium, releasing the energy we receive as sunlight.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+The Wilson cloud chamber is used to:
+
+In a cloud chamber, charged particles leave trails of condensation in a supersaturated vapor, making their paths visible for study.
+
+A solid-state detector is essentially a:
+
+Solid-state detectors use a semiconductor diode (a p-n junction) where radiation creates electron-hole pairs, generating a detectable electrical pulse.
+
+In the nuclear reaction U-235 + n -> Ba-141 + Kr-92 + 3n, the process is:
+
+This reaction shows a heavy Uranium nucleus splitting into two smaller nuclei (Barium and Krypton) and releasing more neutrons, which is the definition of nuclear fission.
+
+The binding energy per nucleon is maximum for:
+
+The peak of the binding energy curve is around Iron-56, making it the most stable nucleus. Fission and fusion both release energy by moving towards this peak.
+
+A radioactive sample has a half-life of 20 minutes. What fraction of the sample will be left undecayed after 1 hour?
+
+One hour contains 60 minutes, which is equal to three half-lives (60/20 = 3). The fraction remaining after 'n' half-lives is (1/2)ⁿ. So, after 3 half-lives, the fraction is (1/2)³ = 1/8.
+
+The mass defect of a certain nucleus is 0.04 amu. What is its binding energy? (Use 1 amu = 931.5 MeV)
+
+Binding Energy (in MeV) is calculated by multiplying the mass defect (in amu) by 931.5. So, Energy = 0.04 amu × 931.5 MeV/amu = 37.26 MeV.
+
+Gamma rays are:
+
+Gamma rays are a form of electromagnetic radiation (photons) with very high energy, no mass, and no charge.
+
+The charge of an alpha particle is:
+
+An alpha particle consists of two protons (each with charge +e) and two neutrons (no charge), giving it a total charge of +2e.
+
+The half-life of carbon-14 is approximately:
+
+The half-life of Carbon-14 is about 5730 years, which makes it suitable for dating ancient organic materials.
+
+Which of the following is not a fundamental force of nature?
+
+Friction is an emergent force resulting from electromagnetic interactions between surfaces. The four fundamental forces are Strong, Weak, Electromagnetic, and Gravitational.
+
+The phenomenon of natural radioactivity was discovered by:
+
+Henri Becquerel discovered radioactivity in 1896 when he observed that uranium salts could expose a photographic plate without any light source.
+
+In the equation E = mc², 'c' represents:
+
+In Einstein's famous mass-energy equivalence equation, 'c' is the constant representing the speed of light in a vacuum (approximately 3 x 10⁸ m/s).
+
+The control rods in a nuclear reactor are typically made of:
+
+Control rods are made of materials that are strong neutron absorbers, like Cadmium or Boron, to regulate or shut down the fission chain reaction.
+
+When a nucleus emits a gamma ray, its atomic number:
+
+Gamma decay is the release of energy from an excited nucleus. No protons or neutrons are lost, so both the atomic number (Z) and mass number (A) remain unchanged.
+
+After two half-lives, the fraction of the original radioactive sample that remains is:
+
+After one half-life, 1/2 remains. After a second half-life, half of the remaining sample decays, so (1/2) \* (1/2) = 1/4 remains.
+
+The decay constant (λ) is related to the half-life (T₁/₂) by the equation:
+
+The decay constant (λ), which represents the probability of decay per unit time, is inversely proportional to the half-life. The constant 0.693 is the natural logarithm of 2.
+
+The 'dead time' of a Geiger-Müller counter is the time:
+
+After detecting a particle, the G-M tube needs a brief recovery period to reset before it can accurately detect the next one. This period of insensitivity is the dead time.
+
+In a fusion reaction, the mass of the products is:
+
+Similar to fission, the fusion process converts a small amount of mass into a large amount of energy, so the resulting nucleus has less mass than the sum of the initial nuclei.
+
+The range of the strong nuclear force is approximately:
+
+The strong force is extremely powerful but only acts over very short distances, typically the diameter of a small nucleus (around 1 femtometer or 10⁻¹⁵ m).
+
+An antineutrino is emitted during:
+
+In negative beta decay, a neutron becomes a proton, and an electron and an antineutrino are emitted to conserve lepton number.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+A chain reaction in a nuclear reactor is sustained by:
+
+The fission of a uranium nucleus releases several neutrons, which then go on to cause other uranium nuclei to undergo fission, creating a self-sustaining chain reaction.
+
+The principle of a solid-state detector is based on the creation of:
+
+When radiation strikes the semiconductor material in a solid-state detector, it excites electrons, creating mobile electron-hole pairs that produce a measurable electrical signal.
+
+The study of the age of geological samples can be done using:
+
+Carbon dating is used for organic remains (up to ~50,000 years), while Uranium dating, with its much longer half-life, is used for rocks and geological formations.
+
+Which of the following particles has no charge and no mass (or very little mass)?
+
+Neutrinos are fundamental particles that are electrically neutral and have a very small, but non-zero, mass. They interact very weakly with other matter.
+
+The unit 'roentgen' is used to measure:
+
+The Roentgen is a unit of radiation exposure, defined by the amount of ionization it causes in a specific amount of air.
+
+A tracer is a:
+
+A radioactive tracer is an isotope that is attached to a compound and introduced into a system (like the human body) to follow its path by detecting the emitted radiation.
+
+In the reaction ¹⁴N + ⁴He -> X + ¹H, the nucleus X is:
+
+To conserve mass and atomic numbers: Mass number A = (14+4) - 1 = 17. Atomic number Z = (7+2) - 1 = 8. The element with Z=8 is Oxygen (O).
+
+The binding energy per nucleon curve shows that:
+
+Both processes move nuclei towards the most stable region of the curve (around Iron), thus releasing energy. Lighter nuclei fuse and heavier nuclei split to become more stable.
+
+Which of the following is the most stable nucleus?
+
+Iron-56 sits at the peak of the binding energy per nucleon curve, meaning it is the most stable and tightly bound nucleus.
+
+Background radiation is due to:
+
+Natural background radiation is the sum of radiation from all these sources: cosmic rays from space, terrestrial sources from the ground, and internal sources within our bodies.
+
+Pair production is the conversion of:
+
+When a high-energy photon (gamma ray) with at least 1.022 MeV passes near a nucleus, its energy can be converted into the mass of an electron and its antiparticle, a positron.
+
+The critical mass is the minimum mass of a fissile material required to:
+
+For a chain reaction to be self-sustaining, at least one neutron from each fission must cause another fission. Below the critical mass, too many neutrons escape the material.
+
+In radiotherapy, cancer cells are destroyed by:
+
+Radiotherapy uses high-energy radiation to damage the DNA of cancerous cells, disrupting their ability to reproduce and leading to their death.
+
+The atomic number (Z) of a nucleus represents the number of:
+
+The atomic number Z is the defining characteristic of a chemical element and is equal to the number of protons in its nucleus.
+
+Which statement is true for the strong nuclear force?
+
+The strong force acts equally between proton-proton, neutron-neutron, and proton-neutron pairs (charge-independent) but only over the very small distance of the nucleus.
+
+A nucleus of thorium ²³²Th decays to radium ²²⁸Ra. What type of decay is this?
+
+The mass number decreases by 4 (232-228) and the atomic number decreases by 2 (90-88), which corresponds to the emission of an alpha particle (a Helium nucleus).
+
+The half-life of a radioactive substance is 10 days. What will be the amount left after 30 days if the initial amount is 8 grams?
+
+30 days is equal to three half-lives (30/10 = 3). After 1st half-life: 4g. After 2nd: 2g. After 3rd: 1g.
+
+The ratio of the mass numbers of two nuclei is 64:27. What is the ratio of their nuclear radii?
+
+The nuclear radius R is proportional to the cube root of the mass number A (R ∝ A¹/³). Therefore, the ratio of the radii is (64/27)¹/³ = 4/3 or 4:3.
+
+The activity of a radioactive sample is 800 Bq. If its half-life is 5 days, what will its activity be after 20 days?
+
+20 days is equal to four half-lives (20/5 = 4). After each half-life, the activity is halved. So, the final activity will be 800 × (1/2)⁴ = 800 / 16 = 50 Bq.
+
+The mean life (τ) of a radioactive nuclide is related to its decay constant (λ) by:
+
+The mean life (average lifetime) of a nucleus is the reciprocal of its decay constant. It is slightly longer than the half-life.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+For a nuclear fusion reaction to occur, the temperature and pressure must be extremely high in order to:
+
+Nuclei are positively charged and repel each other. High temperature gives them enough kinetic energy to overcome this electrostatic repulsion and get close enough for the strong force to fuse them.
+
+Which of the following is NOT a component of a nuclear power reactor?
+
+Particle accelerators are used in research to study particles, but are not part of a commercial nuclear reactor, which relies on a self-sustaining chain reaction.
+
+In a Geiger-Müller counter, the gas used is typically:
+
+An inert gas like Argon is used because it is easily ionized. A quenching agent (like alcohol vapor) is added to stop the discharge after each detection.
+
+The 'quenching' process in a G-M tube is necessary to:
+
+Quenching absorbs excess energy and positive ions, preventing the tube from firing continuously after a single radiation event, thus resetting it for the next detection.
+
+Annihilation of matter occurs when:
+
+When a particle (like an electron) and its antiparticle (a positron) meet, they annihilate each other, converting their entire mass into energy, typically in the form of two gamma-ray photons.
+
+A radioactive tracer used in medical imaging should ideally have:
+
+A short half-life ensures it decays quickly and doesn't remain in the body. Gamma rays are used because they can easily exit the body to be detected by external cameras.
+
+Which of the following correctly lists radiation types in order of increasing ionizing power?
+
+Ionizing power is the ability to knock electrons off atoms. Large, highly charged alpha particles are the most ionizing, while uncharged gamma rays are the least.
+
+The concept of a nucleus was first proposed by Rutherford based on his:
+
+In the gold foil experiment, the unexpected deflection of some alpha particles led Rutherford to conclude that the atom's positive charge and mass are concentrated in a small, dense nucleus.
+
+The half-life of a radioactive nucleus is 200 seconds. What is its approximate mean life (average lifetime)?
+
+The mean life (τ) is related to the half-life (T₁/₂) by τ ≈ 1.44 × T₁/₂. So, τ ≈ 1.44 × 200 s = 288.6 s.
+
+What fraction of a radioactive sample remains after 9 years if its half-life is 3 years?
+
+The time elapsed is 9 years, which is 3 half-lives (9/3 = 3). The fraction remaining is (1/2)³ = 1/8.
+
+The activity of a sample is 1.2 x 10⁶ Bq, and its decay constant is 3.0 x 10⁻⁹ s⁻¹. Approximately how many radioactive atoms are present in the sample?
+
+From the activity formula A = λN, the number of atoms is N = A / λ. So, N = (1.2 x 10⁶ Bq) / (3.0 x 10⁻⁹ s⁻¹) = 0.4 x 10¹⁵ = 4.0 x 10¹⁴ atoms.
+
+If the decay constant of a radioactive sample is large, its half-life is:
+
+The decay constant represents the probability of decay. A higher probability (large constant) means the substance decays quickly, resulting in a short half-life.
+
+A 'thermal' neutron is a neutron that has:
+
+Thermal neutrons are in thermal equilibrium with their surroundings. These slow-moving neutrons have a much higher probability of being captured by a U-235 nucleus.
+
+The energy released in a nuclear reaction corresponds to the:
+
+According to E=mc², any energy released (or absorbed) during a reaction is directly proportional to the change (decrease or increase) in the total mass of the particles.
+
+The penetration of radiation through matter is a process that is:
+
+Whether a single particle of radiation interacts with matter is a matter of probability. We can predict the behavior of large numbers of particles but not a single one.
+
+Which particle is its own antiparticle?
+
+The photon, the quantum of light, has no charge or other quantum numbers that would distinguish it from its antiparticle. Therefore, it is its own antiparticle.
+
+The fuel in most common types of nuclear reactors is:
+
+Uranium-235 is the primary fissile isotope used in most commercial nuclear reactors. Natural uranium is enriched to increase the concentration of U-235.
+
+What happens to the neutron-to-proton ratio of a nucleus after it undergoes negative beta decay?
+
+In negative beta decay, a neutron (n) turns into a proton (p). This decreases the number of neutrons and increases the number of protons, thus decreasing the n/p ratio.
+
+A breeder reactor is designed to:
+
+Breeder reactors are designed to convert fertile material (like U-238) into fissile material (like Pu-239) at a rate faster than they consume their own fissile fuel.
+
+Calculate the energy released in the fusion reaction: ²₁H + ²₁H → ³₂He + ¹₀n. Given masses: ²H=2.0141 amu, ³He=3.0160 amu, n=1.0087 amu.
+
+Reactants mass = 2(2.0141) = 4.0282 amu. Products mass = 3.0160 + 1.0087 = 4.0247 amu. Δm = 4.0282 - 4.0247 = 0.0035 amu. Energy = 0.0035 × 931.5 ≈ 3.26 MeV.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+A radioactive source with a half-life of 28 years has an activity of 1000 Bq. How many years will it take for its activity to reduce to 125 Bq?
+
+The activity reduces from 1000 Bq to 125 Bq. 1000 → 500 → 250 → 125. This is 3 steps, meaning 3 half-lives have passed. Total time = 3 × 28 years = 84 years.
+
+A stationary nucleus of ²³⁸U decays, releasing 4.27 MeV of energy. What is the approximate kinetic energy of the resulting alpha particle?
+
+By conservation of momentum, the KE of the alpha particle is KE\_α = Q × (A-4)/A, where A is the mass number of the parent. KE\_α = 4.27 MeV × (234/238) ≈ 4.20 MeV.
+
+The visible tracks in a Wilson cloud chamber are made of:
+
+A charged particle ionizes the vapor as it passes through. These ions then act as nucleation sites for tiny droplets of liquid to condense, forming a visible trail.
+
+The atomic mass unit (amu) is defined as:
+
+By international agreement, the standard for the atomic mass unit is based on the Carbon-12 atom, which is defined as having a mass of exactly 12 amu.
+
+In the notation ᴬzX, the neutron number N is given by:
+
+The mass number (A) is the total number of nucleons (protons + neutrons), and the atomic number (Z) is the number of protons. Therefore, the number of neutrons is the difference: A - Z.
+
+Radioactive decay is a spontaneous process, which means:
+
+Spontaneous decay means it occurs randomly for any given nucleus and cannot be sped up or slowed down by external factors like temperature, pressure, or chemical environment.
+
+In a nuclear reaction, the total mass of reactants is 4.0028 amu and the total mass of products is 4.0010 amu. How much energy is released in the reaction?
+
+The energy released (Q-value) is the mass difference (Δm) multiplied by 931.5 MeV. Δm = 4.0028 - 4.0010 = 0.0018 amu. So, E = 0.0018 × 931.5 ≈ 1.677 MeV.
+
+The half-life of Radium-226 is 1600 years. What is its decay constant (λ) in yr⁻¹? (Use ln(2) ≈ 0.693)
+
+The decay constant λ is related to the half-life T₁/₂ by the formula λ = 0.693 / T₁/₂. So, λ = 0.693 / 1600 yr ≈ 4.33 x 10⁻⁴ yr⁻¹.
+
+The binding energy of a Lithium nucleus (⁷₃Li) is 39.2 MeV. What is its approximate binding energy per nucleon?
+
+The binding energy per nucleon is the total binding energy divided by the mass number (A). For Lithium-7, A=7. So, 39.2 MeV / 7 nucleons = 5.6 MeV/nucleon.
+
+Which of the following is a 'lepton'?
+
+Leptons are a class of fundamental particles that do not experience the strong nuclear force. The electron, muon, tau, and their corresponding neutrinos are all leptons.
+
+The activity of a radioactive sample is measured in Becquerels (Bq). This is a measure of:
+
+Activity is defined as the number of nuclear decays per unit time. One Becquerel (Bq) is equal to one decay per second.
+
+In the core of the sun, the proton-proton cycle results in the formation of:
+
+The primary fusion process in the Sun is the proton-proton chain, in which four hydrogen nuclei (protons) are ultimately converted into one helium nucleus, releasing energy.
+
+Which detector would be most suitable for accurately measuring the energy of incoming radiation?
+
+Solid-state detectors produce a signal whose size is proportional to the energy deposited by the radiation, allowing for precise energy measurement (spectroscopy). G-M counters cannot do this.
+
+A nucleus of ²¹⁰Po decays into ²⁰⁶Pb. How many alpha and beta decays have occurred?
+
+The mass number changes by 4, so there is 1 alpha decay (¹⁰Po -> ²⁰⁶X). This would make Z=82. The daughter is Pb (Z=82), but the parent Po is Z=84. To reduce Z by 2, one alpha decay is needed. No, wait.  ¹⁰Po (Z=84) -> ¹ alpha + ²⁰⁶X (Z=82). The daughter IS ²⁰⁶Pb (Z=82). Hmm, let me re-evaluate common decay chains. Let's assume a decay chain starting higher up. U-238 to Pb-206 is 8 alpha, 6 beta. That's too complex. Let's assume the question is a net change. A change of 4 in mass number = 1 alpha. A change of -2 in atomic number (84->82) is consistent with 1 alpha decay. But some decay chains involve beta decays in between. The question as stated is simply 1 alpha. Let me find a better example or stick to the direct interpretation. Let's stick to the simplest path. Oh, the prompt has a typo. Let's re-examine U-238 to Pb-206. A changes by 32. 32/4 = 8 alpha decays. This reduces Z by 16 (92->76). To get to Z=82, we need 6 beta decays (76+6=82). Let me use a clearer question. Let's re-use the Th->Ra question logic here. Let me fix the question to be clearer. Ok, I'll provide an explanation for the most direct path. Change in A = 210-206=4. This requires 4/4 = 1 alpha decay. This alpha decay changes Z by -2 (84 -> 82). The final Z is 82, so no beta decays are needed for charge balance. The correct answer must be '1 alpha, 0 beta'. I will adjust the options.
+
+The biological effect of radiation is measured in which unit?
+
+The Sievert (Sv) is the unit of equivalent dose, which accounts for both the amount of energy deposited (in Grays) and the biological effectiveness of the type of radiation.
+
+A stable nucleus generally has:
+
+For light elements, the stable ratio is ~1:1. For heavier elements, more neutrons are needed to counteract the increasing electrostatic repulsion between protons, so the n/p ratio increases.
+
+The force carrier (exchange particle) for the electromagnetic force is the:
+
+The photon is the quantum of the electromagnetic field and mediates the electromagnetic force between charged particles. Gluons mediate the strong force.
+
+Nuclear isomers are nuclei that have the same A and Z but differ in their:
+
+Isomers are nuclei with the same number of protons and neutrons but are in different excited, metastable energy states. They decay via gamma emission or internal conversion.
+
+The minimum energy required for a photon to cause pair production is:
+
+This energy must be at least the sum of the rest mass energies of the electron (0.511 MeV) and the positron (0.511 MeV), which totals 1.022 MeV.
+
+Which of the following processes is responsible for element-building (nucleosynthesis) in stars heavier than the sun?
+
+The CNO (Carbon-Nitrogen-Oxygen) cycle is a catalytic fusion process that is the dominant source of energy in stars more massive than our Sun.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+The 'coolant' in a nuclear reactor is a substance used to:
+
+The immense heat generated by fission in the reactor core is carried away by a coolant (like water, gas, or liquid metal) to a heat exchanger to produce steam for turbines.
+
+If a nucleus captures an electron from an inner atomic shell, the process is called:
+
+In electron capture, a proton-rich nucleus captures one of its own atomic electrons, converting a proton into a neutron and emitting a neutrino.
+
+Which of the following statements about neutrinos is FALSE?
+
+According to the theory of relativity, no particle with mass can travel at or faster than the speed of light. All other statements about neutrinos are true.
+
+The binding energy per nucleon curve's shape is due to the interplay between:
+
+The short-range strong force provides binding, while the long-range electromagnetic repulsion between protons tries to push the nucleus apart. This opposition shapes the curve.
+
+In a bubble chamber, the paths of particles are seen as:
+
+A bubble chamber contains a superheated liquid. A charged particle passing through creates ions that trigger the formation of tiny bubbles, leaving a visible track.
+
+The half-life of Radon-222 is 3.8 days. A sample will be reduced to 1/16th of its original amount in:
+
+To get to 1/16th, four half-lives must pass (1/2 -> 1/4 -> 1/8 -> 1/16). So, the total time is 4 \* 3.8 days = 15.2 days.
+
+Which particle completes this nuclear reaction: ⁹Be + ⁴He -> ¹²C + ?
+
+To balance the equation: Mass number A = (9+4) - 12 = 1. Atomic number Z = (4+2) - 6 = 0. A particle with A=1 and Z=0 is a neutron.
+
+Radioisotopes used in smoke detectors, such as Americium-241, typically emit:
+
+Americium-241 emits alpha particles, which ionize the air in a small chamber. Smoke entering the chamber disrupts this ionization, triggering the alarm.
+
+The term 'nucleon' refers to:
+
+Nucleon is the collective name for the main constituents of the atomic nucleus: protons and neutrons.
+
+The half-life of a radioisotope is 10 hours. How long will it take for 87.5% of the sample to decay?
+
+If 87.5% of the sample has decayed, 12.5% (or 1/8) remains. Since 1/8 = (1/2)³, three half-lives have passed. Total time = 3 × 10 hours = 30 hours.
+
+Given: mass of proton = 1.0073 amu, mass of neutron = 1.0087 amu. Calculate the mass defect of a Helium nucleus (⁴₂He) which has a mass of 4.0026 amu.
+
+A Helium nucleus has 2 protons and 2 neutrons. Total mass of nucleons = 2(1.0073) + 2(1.0087) = 4.0320 amu. Mass defect = 4.0320 - 4.0026 = 0.0304 amu.
+
+How much energy in Joules is equivalent to a mass of 2.0 nanograms (2.0 x 10⁻¹² kg)? (Use c = 3 x 10⁸ m/s)
+
+Using Einstein's equation E = mc², E = (2.0 × 10⁻¹² kg) × (3×10⁸ m/s)² = 2.0 × 10⁻¹² × 9 × 10¹⁶ = 1.8 x 10⁵ J.
+
+Why is the energy spectrum of beta particles continuous?
+
+In beta decay, the total available energy is shared in a variable ratio between the emitted electron and the antineutrino, resulting in a continuous energy spectrum for the electron.
+
+The purpose of a radiation shield around a nuclear reactor is primarily to absorb:
+
+Thick layers of concrete and lead are used to absorb the intense neutron and gamma radiation produced in the reactor core, protecting workers and the environment.
+
+If the radius of a nucleus with A=3 is R, what will be the approximate radius of a nucleus with A=81?
+
+The nuclear radius is proportional to the cube root of the mass number (A¹/³). The ratio of the mass numbers is 81/3 = 27. The cube root of 27 is 3. Therefore, the new radius will be 3R.
+
+If 1.0 kg of a substance is completely converted into energy, how much energy is produced? (c = 3 x 10⁸ m/s)
+
+Using Einstein's mass-energy equivalence, E = mc². E = (1.0 kg) × (3 x 10⁸ m/s)² = 9 x 10¹⁶ J.
+
+## Other Physics Topics MCQs
+
+We have also prepared the following set of MCQs for your Entry test preparation like MDCAT, ECAT and Armed forces test. WE WISH YOU BEST OF LUCK!
+
+[Force And Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/force-and-motion-mcqs/)
+
+[Work And Energy MCQs](https://www.mcquniverse.pk/physics-mcqs/work-and-energy-mcqs/)
+
+[Rotational And Circular Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/rotational-and-circular-motion-mcqs/)
+
+[Waves MCQs](https://www.mcquniverse.pk/physics-mcqs/waves-mcqs/)
+
+[Thermodynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/thermodynamics-mcqs/)
+
+[Electrostatics MCQs](https://www.mcquniverse.pk/physics-mcqs/electrostatics-mcqs/)
+
+[Current Electricity MCQs](https://www.mcquniverse.pk/physics-mcqs/current-electricity-mcqs/)
+
+[Electromagnetism MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetism-mcqs/)
+
+[Electromagnetic Induction MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetic-induction-mcqs/)
+
+[Electronics MCQs](https://www.mcquniverse.pk/physics-mcqs/electronics-mcqs/)
+
+[Dawn Of Modern Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/dawn-of-modern-physics-mcqs/)
+
+[Atomic Spectra MCQs](https://www.mcquniverse.pk/physics-mcqs/atomic-spectra-mcqs/)
+
+[Nuclear Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/nuclear-physics-mcqs/)
+
+[Fluid Dynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/fluid-dynamics-mcqs/)
+
+[Vectors And Equilibrium MCQs](https://www.mcquniverse.pk/physics-mcqs/vectors-and-equilibrium-mcqs/)
+
+### Leave a Reply [Cancel reply](/physics-mcqs/nuclear-physics-mcqs/#respond)
+
+Your email address will not be published. Required fields are marked \*
+
+Comment \*
+
+Name\*
+
+Email\*
+
+Website
+
+Save my name, email, and website in this browser for the next time I comment.
+
+### [MCQUniverse](https://www.mcquniverse.pk/)
+
+Free quizzes for all of you. Have A Nice Day!
+
+## Contact Info
+
+**Address:** Multan ,Punjab ,Pakistan
+
+**Email:** 
+admin@mcquniverse.pk
+
+## Info Links
+
+## MCQs Categories
+
+## Online Quiz
+
+© 2025 MCQ Universe. All rights reserved. Helping Pakistani students achieve their dreams.
+
+### Unlock All Quizzes & MCQs
+
+📌 How to Activate:
+
+**Alert:**Content is protected.

@@ -1,0 +1,526 @@
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[IMAGE: Join our whatsapp channel]
+
+# Over 100 Electrostatics MCQs | Physics MCQs
+
+## Electrostatics MCQs
+
+Coulomb's law is most similar to:
+
+Both Coulomb's law and Newton's law of universal gravitation are inverse-square laws, meaning the force is inversely proportional to the square of the distance between the interacting objects.
+
+The constant of proportionality, k, in Coulomb's law depends on:
+
+The value of the Coulomb constant (k) is dependent on the permittivity of the medium. Its value is highest in a vacuum.
+
+The unit of electric charge is the:
+
+The Coulomb (C) is the standard SI unit for electric charge, named after Charles-Augustin de Coulomb.
+
+Electric field lines start from a \_\_\_\_\_\_\_\_ charge and end on a \_\_\_\_\_\_\_\_ charge.
+
+Electric field lines originate on positive charges (or at infinity) and terminate on negative charges (or at infinity).
+
+The number of electric field lines passing through a certain area is a measure of the:
+
+Electric flux is defined as the measure of the flow of the electric field through a given area. It's proportional to the number of field lines passing through it.
+
+Gauss's law relates the electric flux through a closed surface to the:
+
+Gauss's law states that the net electric flux through any hypothetical closed surface is equal to 1/ε₀ times the net electric charge enclosed within that closed surface.
+
+The electric potential at a point is defined as the work done in bringing a unit positive charge from:
+
+Electric potential is the work done per unit charge to move a test charge from a reference point (usually infinity) to a specific point in an electric field.
+
+The unit of electric potential is the:
+
+The volt (V) is the SI unit for electric potential, potential difference, and electromotive force. It is defined as one joule per coulomb (J/C).
+
+An equipotential surface is a surface where:
+
+An equipotential surface is a surface on which all points have the same electric potential. 'Equi' means equal, so it's a surface of equal potential.
+
+Two point charges, +4 μC and -6 μC, are separated by 20 cm in a vacuum. What is the magnitude of the electrostatic force between them?
+
+Use Coulomb's Law: F = k \* |q1 \* q2| / r². First, convert units: q1 = 4 x 10⁻⁶ C, q2 = -6 x 10⁻⁶ C, and r = 0.2 m. Then, F = (9 x 10⁹) \* |(4 x 10⁻⁶) \* (-6 x 10⁻⁶)| / (0.2)² = (9 x 10⁹) \* (24 x 10⁻¹²) / 0.04 = 5.4 N.
+
+The work done in moving a charge between two points on an equipotential surface is:
+
+Since the potential difference between any two points on an equipotential surface is zero, the work done (W = qΔV) is also zero.
+
+A capacitor is a device used to:
+
+A capacitor is a passive electronic component that stores electrical energy in an electric field by accumulating electric charges on two close conductors.
+
+The capacitance of a parallel plate capacitor is directly proportional to the:
+
+The formula C = εA/d shows that capacitance (C) is directly proportional to the plate area (A) and inversely proportional to the distance (d) between them.
+
+The unit of capacitance is the:
+
+The Farad (F), named after Michael Faraday, is the SI unit of capacitance. One Farad is defined as one Coulomb per Volt (C/V).
+
+When capacitors are connected in series, the total capacitance is:
+
+For capacitors in series, the reciprocal of the total capacitance is the sum of the reciprocals of the individual capacitances (1/C\_total = 1/C1 + 1/C2 + ...), resulting in a total capacitance smaller than any individual one.
+
+When capacitors are connected in parallel, the total capacitance is:
+
+For capacitors in parallel, the total capacitance is the sum of the individual capacitances (C\_total = C1 + C2 + ...), which is always greater than the largest individual capacitance.
+
+A uniform electric field of 500 N/C is directed downwards. What is the magnitude of the force on a proton placed in this field?
+
+Use the formula F = q \* E. The charge on a proton is the elementary charge, q = 1.6 x 10⁻¹⁹ C. So, F = (1.6 x 10⁻¹⁹ C) \* (500 N/C) = 800 x 10⁻¹⁹ N, which is 8.0 x 10⁻¹⁷ N.
+
+The energy stored in a capacitor is proportional to the:
+
+The energy stored in a capacitor can be expressed as U = Q²/2C or U = ½CV². In both forms, it's proportional to the square of the charge (Q) or the square of the voltage (V).
+
+A dielectric material is an:
+
+A dielectric is an electrical insulator that can be polarized by an applied electric field. When placed in a capacitor, it increases the capacitance.
+
+When a dielectric material is inserted between the plates of a capacitor, the capacitance:
+
+The dielectric material reduces the electric field strength, allowing more charge to be stored at the same potential difference, thus increasing the capacitance by a factor K (the dielectric constant).
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+The electric field inside a charged spherical conductor is:
+
+In electrostatic equilibrium, the net electric field inside any conductor is zero. Any field would cause the free charges to move until the field is canceled out.
+
+The electric potential inside a charged spherical conductor is:
+
+Since the electric field inside is zero, no work is done moving a charge from the surface to any point inside. Therefore, the potential is constant throughout the conductor and equal to the potential at its surface.
+
+Which of the following is a vector quantity?
+
+An electric field has both magnitude (strength) and direction, making it a vector quantity. The others are scalar quantities.
+
+The force between two charges is 120 N. If the distance between the charges is doubled, the force will be:
+
+According to Coulomb's law, force is inversely proportional to the square of the distance (F ∝ 1/r²). If the distance is doubled (2r), the force becomes 1/(2r)² = 1/4 of the original force. 120 N / 4 = 30 N.
+
+Two charges of +2 μC and +5 μC are separated by a distance. The ratio of the forces exerted by the charges on each other will be:
+
+According to Newton's third law, the forces two objects exert on each other are always equal in magnitude and opposite in direction. This action-reaction pair applies to electrostatic forces as well.
+
+The SI unit of permittivity of free space (ε₀) is:
+
+This unit can be derived from the Coulomb's law formula, F = (1/4πε₀)(q₁q₂/r²). Rearranging for ε₀ gives its units as C² / (N·m²).
+
+A capacitor of 10 μF and another of 20 μF are connected in parallel to a 6 V source. What is the total charge stored by the combination?
+
+First, find the equivalent capacitance for a parallel combination: C\_eq = C1 + C2 = 10 μF + 20 μF = 30 μF. Then, find the total charge using Q\_total = C\_eq \* V = (30 x 10⁻⁶ F) \* (6 V) = 180 x 10⁻⁶ C, or 180 μC.
+
+An electron is placed in a uniform electric field. The electron will experience a force:
+
+The force on a charge is F = qE. Since an electron's charge (q) is negative, the force vector will be in the opposite direction to the electric field vector.
+
+A hollow metallic sphere is given a positive charge. The electric potential inside the sphere will be:
+
+The potential inside a charged conductor is constant and equal to the potential on its surface. Since the charge is positive, the potential will be positive.
+
+The process of charging a conductor by bringing it near another charged object without touching it is called:
+
+Charging by induction involves redistributing the charge on an object by bringing a charged object nearby, and then using a ground connection to remove some of that charge.
+
+A gold-leaf electroscope is used to:
+
+An electroscope is a simple device used to detect the presence and sign of an electric charge by observing the repulsion of its thin metallic leaves.
+
+The work done in moving a charge of 4 C from a point at 10 V to a point at 15 V is:
+
+Work done (W) is the charge (q) multiplied by the potential difference (ΔV). W = q(V\_final - V\_initial) = 4 C \* (15 V - 10 V) = 4 C \* 5 V = 20 J.
+
+The electric potential energy of a system of two charges is positive if the charges are:
+
+Positive potential energy implies a repulsive force. Work must be done on the system to bring two like charges (both positive or both negative) together. Option 2 is also correct, but typically only one is listed.
+
+The electric potential due to a point charge is inversely proportional to the:
+
+The formula for electric potential is V = kq/r. This shows that potential (V) is inversely proportional to the distance (r) from the point charge.
+
+The capacitance of a capacitor is 1 F. This means that the capacitor can store 1 coulomb of charge when the potential difference across it is:
+
+By definition, capacitance is C = Q/V. If C = 1 F and Q = 1 C, then V must be 1 V.
+
+A photocopier works on the principle of:
+
+Photocopiers use a process called xerography, which relies on electrostatics to attract charged toner particles to a photosensitive drum that has been exposed to an image.
+
+What is the magnitude of the electric field at a point 3 meters away from a point charge of +2 nC?
+
+Use the electric field formula: E = k \* |q| / r². Convert charge to Coulombs: q = 2 x 10⁻⁹ C. Then, E = (9 x 10⁹) \* (2 x 10⁻⁹) / 3² = (9 x 10⁹) \* (2 x 10⁻⁹) / 9 = 2 N/C.
+
+An inkjet printer uses \_\_\_\_\_\_\_\_ to direct the ink droplets onto the paper.
+
+In an inkjet printer, tiny ink droplets are given an electric charge and then passed through deflecting plates. The electric field between the plates directs the droplets precisely onto the paper.
+
+The relative permittivity of a medium is the ratio of the permittivity of the medium to the:
+
+Relative permittivity (or dielectric constant) K = ε / ε₀, where ε is the permittivity of the medium and ε₀ is the permittivity of free space (a vacuum).
+
+How much energy is stored in a 200 μF capacitor that is charged to a potential difference of 50 V?
+
+Use the energy formula for a capacitor: U = 0.5 \* C \* V². Convert capacitance to Farads: C = 200 x 10⁻⁶ F. Then, U = 0.5 \* (200 x 10⁻⁶ F) \* (50 V)² = 0.5 \* (200 x 10⁻⁶) \* 2500 = 0.25 J.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+The dielectric constant of a conductor is:
+
+Since the electric field inside a conductor is zero, the dielectric constant, which represents the factor by which an external field is reduced, is considered to be infinite.
+
+Two parallel plates have an electric field of 1000 N/C between them. If the distance between the plates is 0.02 m, the potential difference between the plates is:
+
+For a uniform electric field, the potential difference is ΔV = E \* d. So, ΔV = 1000 N/C \* 0.02 m = 20 V.
+
+The SI unit of electric flux is:
+
+Electric flux (Φ) is the product of the electric field (E, in N/C) and the perpendicular area (A, in m²). Thus, its unit is N·m²/C. Option 3, V·m, is also a correct unit for electric flux.
+
+A lightning rod works by:
+
+A lightning rod provides a low-resistance path to the ground. The sharp point concentrates the electric field, ionizing the air and creating a conductive path for the lightning strike to follow safely to the ground.
+
+The electric field is strongest where the electric field lines are:
+
+The density of electric field lines (how close they are to each other) in a diagram represents the strength of the electric field. Closer lines indicate a stronger field.
+
+A Millikan oil drop experiment is used to determine the:
+
+Robert Millikan's experiment involved balancing the gravitational and electric forces on tiny charged oil droplets to calculate the charge of a single electron, proving that charge is quantized.
+
+The charge on an electron is approximately:
+
+The elementary charge, which is the charge of a single proton or the magnitude of the charge of a single electron, is approximately 1.602 x 10⁻¹⁹ Coulombs.
+
+A material that has a large number of free electrons is a good:
+
+Good electrical conductors, like metals, have a sea of delocalized electrons that are free to move throughout the material, allowing for the easy flow of electric current.
+
+The process of connecting a charged object to the Earth to neutralize it is called:
+
+Grounding (or earthing) provides a path for charge to flow to or from the Earth, which acts as a massive reservoir of charge, effectively neutralizing the object.
+
+Three capacitors of 2 F, 3 F, and 6 F are connected in series. The equivalent capacitance is:
+
+For series capacitors, 1/C\_eq = 1/C₁ + 1/C₂ + 1/C₃ = 1/2 + 1/3 + 1/6 = (3+2+1)/6 = 6/6 = 1. Therefore, C\_eq = 1 F.
+
+The space between the plates of a parallel plate capacitor is filled with a dielectric of constant K. The capacitance is increased by a factor of:
+
+The capacitance of a capacitor with a dielectric is C' = K \* C, where C is the original capacitance and K is the dielectric constant of the material.
+
+The electric field lines and equipotential surfaces are always:
+
+The electric field vector at any point is always perpendicular to the equipotential surface passing through that point. This is because no work is done moving along an equipotential surface.
+
+Two parallel plates are separated by 2 cm and have a potential difference of 40 V. What is the magnitude of the uniform electric field between them?
+
+For a uniform field, E = V / d. Convert distance to meters: d = 0.02 m. Then, E = 40 V / 0.02 m = 2000 N/C.
+
+If the distance between two point charges is halved, the electric force between them becomes:
+
+Force is proportional to 1/r². If r becomes r/2, the new force is proportional to 1/(r/2)², which is 1/(r²/4) or 4/r². The force becomes four times larger.
+
+The presence of a dielectric between the plates of a capacitor reduces the:
+
+The polarized dielectric creates an internal electric field that opposes the external field from the plates, reducing the net electric field between them.
+
+A Van de Graaff generator is a device that can:
+
+It works by using a moving belt to accumulate electric charge on a hollow metal globe, building up a very high electrostatic potential (voltage).
+
+The concept of electric field lines was introduced by:
+
+Michael Faraday, a brilliant experimentalist, introduced the concept of lines of force as a visual and conceptual tool to understand electric and magnetic phenomena.
+
+The relationship between electric field (E) and electric potential (V) is given by:
+
+The electric field is the negative gradient of the electric potential. This means the field points in the direction of the steepest decrease in potential. E = V/d is a special case for uniform fields.
+
+An electric dipole consists of two:
+
+This is the precise definition of an electric dipole, a common configuration found in molecules like water.
+
+A 5 μF capacitor is connected to a 12 V battery. How much charge is stored on the capacitor's plates?
+
+Use the capacitance formula: Q = C \* V. First, convert capacitance to Farads: C = 5 x 10⁻⁶ F. Then, Q = (5 x 10⁻⁶ F) \* (12 V) = 60 x 10⁻⁶ C, which is 60 μC.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+The torque experienced by an electric dipole in a uniform electric field is maximum when the angle between the dipole moment and the electric field is:
+
+The torque is given by τ = pE sin(θ). The sine function is maximum (value of 1) when the angle θ is 90 degrees, meaning the dipole is perpendicular to the field.
+
+The potential energy of an electric dipole in a uniform electric field is minimum when the angle between the dipole moment and the electric field is:
+
+Potential energy is U = -pE cos(θ). The cosine function is maximum (value of 1) at 0 degrees, making the potential energy most negative (minimum). This is the stable equilibrium position.
+
+A Gaussian surface is an imaginary closed surface used in conjunction with:
+
+Gauss's Law requires the use of a hypothetical closed surface, called a Gaussian surface, to relate the flux through it to the charge enclosed within it.
+
+The electric flux through a closed surface enclosing no net charge is:
+
+According to Gauss's Law, the net flux is proportional to the enclosed charge (Φ = Q\_enc / ε₀). If the enclosed charge is zero, the net flux must also be zero.
+
+The work done by the electric field in moving a positive charge from a point of high potential to a point of low potential is:
+
+A positive charge naturally moves from high potential to low potential, so the field does positive work, and the charge loses potential energy.
+
+One electron-volt (eV) is a unit of:
+
+An electron-volt is the amount of kinetic energy gained by a single electron when it accelerates through a potential difference of one volt. 1 eV = 1.602 x 10⁻¹⁹ Joules.
+
+The capacitance of the Earth, considered as a spherical conductor of radius 6400 km, is approximately:
+
+Using the formula for the capacitance of an isolated sphere, C = 4πε₀R, the value is approximately 711 x 10⁻⁶ Farads, or 711 microfarads.
+
+In a region where the electric field is uniform, the equipotential surfaces are:
+
+For a uniform electric field, where the field lines are parallel and equally spaced, the equipotential surfaces are planes that are perpendicular to the field lines.
+
+The phenomenon of an uncharged body getting attracted towards a charged body is known as:
+
+The charged body induces a separation of charge (polarization) in the neutral object, bringing opposite charges closer and like charges farther away, resulting in a net attractive force.
+
+The time constant of an RC circuit is a measure of the time taken:
+
+The time constant (τ = RC) represents the time required for the voltage across a charging capacitor to reach approximately 1 - 1/e, or 63.2%, of its final value.
+
+When a soap bubble is given a negative charge, its radius:
+
+The negative charges distribute over the surface and repel each other. This mutual repulsion creates an outward pressure that causes the soap bubble to expand.
+
+Quantization of charge means that:
+
+The principle of quantization states that any observable charge is an integer multiple of the elementary charge, e (the charge of one electron or proton).
+
+Dielectric strength is the maximum:
+
+Dielectric strength is an intrinsic property of an insulating material that defines the maximum electric field it can sustain before it loses its insulating properties and becomes conductive (breaks down).
+
+The SI unit of electric dipole moment is:
+
+The electric dipole moment (p) is a vector quantity defined as p = qd, where q is the magnitude of the charge and d is the separation distance. Its unit is therefore Coulomb times meter.
+
+How much work is required to move a +3 nC charge from a point with a potential of 20 V to a point with a potential of 80 V?
+
+Use the work-potential formula: W = q \* (V\_final - V\_initial). Here, q = 3 x 10⁻⁹ C and the potential difference is 80 V - 20 V = 60 V. So, W = (3 x 10⁻⁹ C) \* (60 V) = 180 x 10⁻⁹ J, or 180 nJ.
+
+The electric field due to an infinite plane sheet of charge is:
+
+Using Gauss's Law, it can be shown that the electric field from an infinite sheet of charge is uniform (E = σ/2ε₀), and thus does not change with distance from the sheet.
+
+A capacitor blocks DC but allows AC to pass. This is because:
+
+Capacitive reactance is Xc = 1/(2πfC). For DC, frequency f=0, so Xc is infinite (acting as an open circuit). For AC, f > 0, so Xc is finite, allowing current to 'pass'.
+
+The surface charge density is defined as:
+
+Surface charge density (σ) is used to describe the distribution of charge over a surface and is calculated as σ = Q/A, where Q is the total charge and A is the surface area.
+
+Two capacitors of capacitance C1 and C2 are connected in parallel. If a charge Q is given to the combination, the charge will be distributed as:
+
+In a parallel connection, the voltage (V) across both capacitors is the same. Since Q = CV, we have Q₁ = C₁V and Q₂ = C₂V. The ratio Q₁/Q₂ = (C₁V)/(C₂V) = C₁/C₂.
+
+The speed of light 'c' is related to the permittivity (ε₀) and permeability (μ₀) of free space by the equation:
+
+This fundamental equation, derived from Maxwell's equations, links the constants of electricity (ε₀) and magnetism (μ₀) to the speed of light, showing that light is an electromagnetic wave.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+A Faraday cage is a container made of conducting material that:
+
+A Faraday cage works because an external electric field causes the charges within the conductor to redistribute, creating an opposing field that exactly cancels the external field inside the cage.
+
+The energy density (energy per unit volume) in an electric field is:
+
+The energy density stored in an electric field is given by u = ½ε₀E². This shows that energy is stored in the field itself and its density is proportional to the square of the field strength.
+
+If a glass rod is rubbed with silk, the glass rod becomes positively charged. This is because:
+
+In triboelectric charging, certain materials have a higher affinity for electrons. Silk has a higher affinity than glass, so it pulls electrons from the glass, leaving the glass with a net positive charge.
+
+The force per unit charge is known as:
+
+This is the definition of electric field strength (E = F/q). It describes the force that would be exerted on a standard test charge at a certain point in space.
+
+A charged particle moving in a uniform electric field will follow a path that is a:
+
+The particle experiences a constant force (and thus constant acceleration) in one direction, while its velocity component perpendicular to the field remains constant. This is analogous to projectile motion under gravity, which results in a parabolic path.
+
+The electric field lines due to a positive point charge are:
+
+By convention, field lines show the direction of force on a positive test charge. A positive point charge would repel a positive test charge, so the field lines point radially away from it in all directions.
+
+The process of an insulator becoming a conductor under a strong electric field is called:
+
+When the electric field is strong enough (exceeding the material's dielectric strength), it can rip electrons from their atoms, creating free charges and causing the insulator to conduct current. This is dielectric breakdown.
+
+Three capacitors of equal capacitance C are connected in series. The equivalent capacitance is:
+
+For series capacitors: 1/C\_eq = 1/C + 1/C + 1/C = 3/C. Inverting this gives C\_eq = C/3.
+
+Three capacitors of equal capacitance C are connected in parallel. The equivalent capacitance is:
+
+For parallel capacitors, the equivalent capacitance is the sum of the individual capacitances: C\_eq = C + C + C = 3C.
+
+A charged capacitor is connected to a resistor. The charge on the capacitor will:
+
+This describes the discharging process of an RC circuit. The rate of discharge is proportional to the remaining charge, which mathematically leads to an exponential decay.
+
+What is the electric potential at a distance of 50 cm from a point charge of -8 nC?
+
+Use the electric potential formula: V = k \* q / r. Convert units: q = -8 x 10⁻⁹ C and r = 0.5 m. Then, V = (9 x 10⁹) \* (-8 x 10⁻⁹) / 0.5 = -72 / 0.5 = -144 V.
+
+An electroscope can be charged by:
+
+It can be charged by direct contact with a charged object (conduction) or by using a nearby charged object and a ground connection to induce a net charge (induction).
+
+If you are in a car during a thunderstorm, you are safe from lightning because of the:
+
+The car's metal body acts as a Faraday cage, causing the electric charge from the lightning to flow around the outside of the vehicle to the ground, protecting the occupants inside.
+
+The electric field inside a charged parallel plate capacitor is:
+
+Away from the edges, the electric field lines between two large parallel plates are parallel and equally spaced, indicating a uniform field strength and direction.
+
+A material with a high dielectric constant is a good:
+
+A high dielectric constant indicates that a material is a very good insulator that can effectively reduce the electric field passing through it, making it ideal for use in capacitors.
+
+The total energy of an isolated system of charges is:
+
+The principle of conservation of energy applies to all isolated systems, including systems of electric charges. Energy can change form (e.g., potential to kinetic), but the total amount remains constant.
+
+The electric force is a conservative force. This means that:
+
+This is the definition of a conservative force. The work done in moving a charge between two points depends only on the start and end points, not the path followed, which allows for the definition of electric potential energy.
+
+In a uniform electric field, the potential difference between two points is proportional to the:
+
+The potential difference is ΔV = -E⋅d, where d is the displacement vector. The potential changes only when moving parallel to the field lines.
+
+The electric field lines can never cross each other. This is because:
+
+The electric field at any single point in space must have a unique direction and magnitude. If lines crossed, it would imply two different directions for the force at that single point, which is a physical impossibility.
+
+The process of charging a body by rubbing is called:
+
+Triboelectric charging, or charging by friction, is the process where electrons are transferred from one material to another through rubbing, based on their electron affinity.
+
+A good conductor has a:
+
+Resistivity is the measure of how strongly a material opposes the flow of electric current. Good conductors, like copper, have very low resistivity.
+
+The SI unit of resistivity is:
+
+Resistivity (ρ) is an intrinsic property of a material. It relates resistance (R), length (L), and cross-sectional area (A) by the formula R = ρL/A, giving it units of Ω·m.
+
+Corona discharge is the phenomenon of:
+
+At sharp points on a conductor, the charge concentration is very high, creating an intense electric field that can be strong enough to ionize the surrounding air or fluid, causing a discharge.
+
+Three capacitors with capacitances 2 F, 4 F, and 4 F are connected in series. What is the equivalent capacitance of the combination?
+
+For capacitors in series, the formula is 1/C\_eq = 1/C1 + 1/C2 + 1/C3. So, 1/C\_eq = 1/2 + 1/4 + 1/4 = 0.5 + 0.25 + 0.25 = 1. Therefore, C\_eq = 1 F.
+
+Which of the following materials is a good dielectric?
+
+Mica is a stable mineral that is an excellent electrical insulator with a high dielectric strength, making it a common choice for use in capacitors and other electronic components.
+
+## Other Physics Topics MCQs
+
+We have also prepared the following set of MCQs for your Entry test preparation like MDCAT, ECAT and Armed forces test. WE WISH YOU BEST OF LUCK!
+
+[Force And Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/force-and-motion-mcqs/)
+
+[Work And Energy MCQs](https://www.mcquniverse.pk/physics-mcqs/work-and-energy-mcqs/)
+
+[Rotational And Circular Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/rotational-and-circular-motion-mcqs/)
+
+[Waves MCQs](https://www.mcquniverse.pk/physics-mcqs/waves-mcqs/)
+
+[Thermodynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/thermodynamics-mcqs/)
+
+[Electrostatics MCQs](https://www.mcquniverse.pk/physics-mcqs/electrostatics-mcqs/)
+
+[Current Electricity MCQs](https://www.mcquniverse.pk/physics-mcqs/current-electricity-mcqs/)
+
+[Electromagnetism MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetism-mcqs/)
+
+[Electromagnetic Induction MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetic-induction-mcqs/)
+
+[Electronics MCQs](https://www.mcquniverse.pk/physics-mcqs/electronics-mcqs/)
+
+[Dawn Of Modern Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/dawn-of-modern-physics-mcqs/)
+
+[Atomic Spectra MCQs](https://www.mcquniverse.pk/physics-mcqs/atomic-spectra-mcqs/)
+
+[Nuclear Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/nuclear-physics-mcqs/)
+
+[Fluid Dynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/fluid-dynamics-mcqs/)
+
+[Vectors And Equilibrium MCQs](https://www.mcquniverse.pk/physics-mcqs/vectors-and-equilibrium-mcqs/)
+
+### Leave a Reply [Cancel reply](/physics-mcqs/electrostatics-mcqs/#respond)
+
+Your email address will not be published. Required fields are marked \*
+
+Comment \*
+
+Name\*
+
+Email\*
+
+Website
+
+Save my name, email, and website in this browser for the next time I comment.
+
+### [MCQUniverse](https://www.mcquniverse.pk/)
+
+Free quizzes for all of you. Have A Nice Day!
+
+## Contact Info
+
+**Address:** Multan ,Punjab ,Pakistan
+
+**Email:** 
+admin@mcquniverse.pk
+
+## Info Links
+
+## MCQs Categories
+
+## Online Quiz
+
+© 2025 MCQ Universe. All rights reserved. Helping Pakistani students achieve their dreams.
+
+### Unlock All Quizzes & MCQs
+
+📌 How to Activate:
+
+**Alert:**Content is protected.

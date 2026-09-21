@@ -1,0 +1,1076 @@
+ [Skip to content](#content)
+
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[MCQUniverse](https://www.mcquniverse.pk/)
+
+[Sign up](https://www.mcquniverse.pk/)[Sign up](https://www.mcquniverse.pk/)
+
+# Most Important Hydrocarbons MCQs with Answers | Chemistry
+
+## Hydrocarbons MCQs with Answers
+
+Which of the following is an example of an aromatic hydrocarbon?
+
+**Explanation:**
+
+Aromatic hydrocarbons are cyclic, planar compounds that exhibit resonance stabilization. Benzene (C₆H₆) is the classic example of an aromatic hydrocarbon, characterized by its delocalized pi electron system.
+
+What is the IUPAC name for the compound CH₃CH(CH₃)CH₂CH₃?
+
+**Explanation:**
+
+The longest continuous carbon chain is four carbons (butane). There is a methyl group (-CH₃) attached to the second carbon when numbered from the end that gives the substituent the lowest possible number.
+
+Which of the following represents an unsaturated hydrocarbon?
+
+**Explanation:**
+
+Unsaturated hydrocarbons contain carbon-carbon double or triple bonds. Butyne contains a carbon-carbon triple bond, making it an alkyne and thus unsaturated.
+
+The IUPAC name for CH₂=CH-CH₂-CH₃ is:
+
+**Either a or b**
+
+**Explanation:**
+
+Both "But-1-ene" and "1-Butene" are acceptable IUPAC names for this compound. The longest chain contains four carbons, and the double bond starts at the first carbon.
+
+Which type of hydrocarbon is characterized by a general formula of CₙH₂ₙ?
+
+Aromatic hydrocarbons
+
+**Explanation:**
+
+Alkenes are unsaturated hydrocarbons containing one carbon-carbon double bond, and their general formula is CₙH₂ₙ.
+
+What is the correct IUPAC name for HC≡C-CH₂-CH₃?
+
+**Both a and b**
+
+**Explanation:**
+
+The longest carbon chain containing the triple bond has four carbons, and the triple bond starts at the first carbon. Therefore, both "1-Butyne" and "But-1-yne" are correct IUPAC names.
+
+A hydrocarbon with a ring structure, but lacking the special stability of benzene, is classified as:
+
+**Explanation:**
+
+Cyclic aliphatic hydrocarbons (like cycloalkanes or cycloalkenes) have ring structures but do not possess the conjugated double bonds and resonance stability characteristic of aromatic compounds.
+
+Which of the following alkanes has the IUPAC name 2,2,4-trimethylpentane?
+
+**Explanation:**
+
+The longest continuous carbon chain is five carbons (pentane). There are methyl groups at the 2nd (two methyls) and 4th positions, when numbering from the end that gives the lowest set of locants.
+
+The term "aliphatic" in organic chemistry primarily refers to hydrocarbons that are:
+
+Cyclic and conjugated
+
+Containing a benzene ring
+
+Only straight-chain compounds
+
+**Open-chain or cyclic, but not aromatic**
+
+**Explanation:**
+
+Aliphatic hydrocarbons are non-aromatic carbon compounds. They can be straight-chain, branched-chain, or cyclic, but they do not contain the delocalized pi electron system found in aromatic compounds.
+
+Which step in a free radical substitution reaction involves the formation of new free radicals from existing ones?
+
+**Explanation:**
+
+In the propagation step, a free radical reacts with a stable molecule to form a new stable molecule and a new free radical, thus continuing the chain reaction.
+
+What type of bond cleavage occurs during the initiation step of a free radical halogenation of alkanes?
+
+Heterolytic cleavage
+
+Ionic cleavage
+
+Polar cleavage
+
+**Homolytic cleavage**
+
+**Explanation:**
+
+The initiation step typically involves the homolytic cleavage of a halogen molecule (e.g., Cl₂ → 2Cl•) by UV light or heat, producing two free radicals, each retaining one electron from the shared pair.
+
+In the free radical chlorination of methane, which species is responsible for abstracting a hydrogen atom from methane?
+
+Chlorine molecule (Cl₂)
+
+Methyl radical (•CH₃)
+
+Hydrogen chloride (HCl)
+
+**Chlorine radical (Cl•)**
+
+**Explanation:**
+
+The chlorine radical (Cl•) is highly reactive and abstracts a hydrogen atom from methane (CH₄ + Cl• → •CH₃ + HCl) in a propagation step, forming a methyl radical.
+
+Which of the following conditions is typically required to initiate the free radical halogenation of alkanes?
+
+High pressure
+
+Presence of a strong acid
+
+Presence of a noble gas
+
+**UV light or high temperature**
+
+**Explanation:**
+
+Free radical reactions are initiated by providing energy (e.g., UV light or heat) to break a bond homolytically, usually a halogen-halogen bond, creating free radicals.
+
+The reaction of ethane with chlorine in the presence of UV light primarily produces:
+
+Ethylene
+
+Ethyne
+
+Benzene
+
+**Chloroethane**
+
+**Explanation:**
+
+In the free radical substitution of ethane with chlorine, a hydrogen atom is replaced by a chlorine atom, leading to the formation of chloroethane (CH₃CH₂Cl). Multiple substitutions can occur, but monochlorination is typically the first step.
+
+In the free radical mechanism for the halogenation of alkanes, what is the role of UV light or heat?
+
+To break C-H bonds heterolytically
+
+To accelerate the termination steps
+
+To make the alkane more polar
+
+**To provide energy for the homolytic cleavage of the halogen molecule**
+
+**Explanation:**
+
+UV light or heat provides the activation energy necessary to break the relatively weak halogen-halogen bond homolytically, forming highly reactive halogen free radicals that initiate the reaction.
+
+Which of the following best describes a free radical?
+
+An ion with a positive charge
+
+A molecule with a lone pair of electrons
+
+An atom with a full octet of electrons
+
+**A species with an unpaired electron**
+
+**Explanation:**
+
+A free radical is an atom, molecule, or ion that has at least one unpaired valence electron. This unpaired electron makes free radicals highly reactive.
+
+The general mechanism of free radical substitution in alkanes involves three main steps. What is the correct order of these steps?
+
+Propagation, Initiation, Termination
+
+Initiation, Termination, Propagation
+
+Termination, Propagation, Initiation
+
+**Initiation, Propagation, Termination**
+
+**Explanation:**
+
+The reaction starts with Initiation (formation of radicals), continues with Propagation (radicals react to form new radicals and products), and ends with Termination (radicals combine to form stable molecules).
+
+Why are alkanes generally unreactive towards polar reagents but readily undergo free radical substitution?
+
+Because they are highly polar molecules.
+
+Because they have delocalized pi electrons.
+
+Because they readily form carbocations.
+
+**Because C-C and C-H bonds are non-polar**
+
+**Explanation:**
+
+The C-C and C-H bonds in alkanes are strong and essentially non-polar, so they are not easily attacked by electrophiles or nucleophiles (polar reagents). However, they can undergo homolytic cleavage, especially of C-H bonds, to form radicals which then participate in free radical substitution reactions.
+
+What is the approximate bond angle around each carbon atom in ethene (C₂H₄)?
+
+109.5°
+
+180°
+
+90°
+
+**120°**
+
+**Explanation:**
+
+Each carbon atom in ethene is sp² hybridized, which leads to a trigonal planar geometry around each carbon and approximate bond angles of 120°.
+
+The double bond in ethene consists of which types of bonds?
+
+Two sigma (σ) bonds
+
+Two pi (π) bonds
+
+One sigma (σ) and two pi (π) bonds
+
+**One sigma (σ) and one pi (π) bond**
+
+**Explanation:**
+
+A carbon-carbon double bond is formed by the overlap of sp² hybrid orbitals to form a sigma (σ) bond, and the sideway overlap of unhybridized p orbitals to form a pi (π) bond.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Which statement best describes the reactivity of alkenes compared to alkanes?
+
+Alkenes are less reactive due to their stable single bonds.
+
+Alkenes are more reactive due to the presence of a strong pi (π) bond.
+
+Alkenes have similar reactivity to alkanes.
+
+**Alkenes are more reactive due to the exposed and weaker pi (π) bond.**
+
+**Explanation:**
+
+The pi (π) bond in alkenes is weaker and more exposed than sigma bonds, making it susceptible to electrophilic attack. This makes alkenes generally more reactive than alkanes, which primarily undergo substitution reactions.
+
+Compounds that have the same molecular formula but different structural formulas are known as:
+
+Homologs
+
+Allotropes
+
+Polymers
+
+**Isomers**
+
+**Explanation:**
+
+Isomers are compounds that have the same molecular formula but differ in the arrangement of atoms. Structural isomers (or constitutional isomers) specifically have different connectivity of atoms.
+
+Which type of isomerism involves differences in the arrangement of atoms within the molecule due to restricted rotation around a double bond?
+
+Chain isomerism
+
+Position isomerism
+
+Functional group isomerism
+
+**Geometric (cis-trans) isomerism**
+
+**Explanation:**
+
+Geometric isomerism (a type of stereoisomerism) arises when there is restricted rotation around a bond (like a carbon-carbon double bond) and different groups are attached to the carbons of the double bond, leading to distinct spatial arrangements (cis or trans).
+
+Dehydration of ethanol (CH₃CH₂OH) using concentrated H₂SO₄ primarily yields:
+
+Ethane
+
+Ethyne
+
+Dimethyl ether
+
+**Ethene**
+
+**Explanation:**
+
+Dehydration of alcohols involves the removal of a water molecule. In the case of ethanol, under the influence of a strong dehydrating agent like concentrated sulfuric acid, ethene (CH₂=CH₂) is formed.
+
+Dehydrohalogenation of an alkyl halide (RX) involves the removal of:
+
+Hydrogen and oxygen
+
+Halogen only
+
+Hydrogen only
+
+**Hydrogen and a halogen**
+
+**Explanation:**
+
+Dehydrohalogenation is an elimination reaction where a hydrogen atom from one carbon and a halogen atom from an adjacent carbon are removed, typically in the presence of a strong base, to form an alkene.
+
+The addition of hydrogen to ethene in the presence of a catalyst like Ni or Pt is called:
+
+Halogenation
+
+Hydration
+
+Polymerization
+
+**Hydrogenation**
+
+**Explanation:**
+
+Hydrogenation is the addition of hydrogen (H₂) across a double bond, typically in the presence of a metal catalyst, converting an alkene into an alkane.
+
+According to Markovnikov's Rule, when an unsymmetrical reagent like HBr adds to an unsymmetrical alkene, the hydrogen atom attaches to the carbon atom that:
+
+Has fewer hydrogen atoms already
+
+Is more substituted
+
+Is bonded to the bromine atom
+
+**Has more hydrogen atoms already**
+
+**Explanation:**
+
+Markovnikov's Rule states that in the electrophilic addition of HX (where X is a halogen) to an unsymmetrical alkene, the hydrogen atom adds to the carbon atom of the double bond that already has a greater number of hydrogen atoms.
+
+The reaction of ethene with water in the presence of an acid catalyst (H₂SO₄) to form ethanol is known as:
+
+Hydrogenation
+
+Halogenation
+
+Polymerization
+
+**Hydration**
+
+**Explanation:**
+
+Hydration is the addition of water across a double bond, typically catalyzed by an acid, leading to the formation of an alcohol.
+
+What is the product formed when ethene reacts with bromine water (Br₂/H₂O)?
+
+1,2-Dibromoethane
+
+Bromoethane
+
+Ethane
+
+**2-Bromoethanol**
+
+**Explanation:**
+
+This is an example of halohydration. When ethene reacts with bromine water, the bromine adds to one carbon and a hydroxyl group (-OH) from water adds to the other carbon of the double bond, resulting in 2-bromoethanol.
+
+The polymerization of ethene leads to the formation of:
+
+Polypropylene
+
+Polystyrene
+
+Polyvinyl chloride
+
+**Polyethylene**
+
+**Explanation:**
+
+Polymerization is a process where many small monomer units join together to form a large polymer molecule. When ethene (ethylene) monomers polymerize, they form polyethylene.
+
+Which of the following is an example of a structural isomer of but-1-ene?
+
+Butane
+
+Cyclobutane
+
+But-2-ene
+
+**2-Methylpropene**
+
+**Explanation:**
+
+Structural isomers have the same molecular formula but different connectivity of atoms. But-1-ene (C₄H₈) and 2-methylpropene (C₄H₈) both have the formula C₄H₈ but differ in the arrangement of their carbon atoms and double bond position. But-2-ene is a positional isomer, not a structural isomer of but-1-ene in the context of different carbon skeletons.
+
+When ethene undergoes halogenation with Cl₂, what is the primary product?
+
+Chloroethane
+
+1,1-Dichloroethane
+
+2-Chloroethanol
+
+**1,2-Dichloroethane**
+
+**Explanation:**
+
+Halogenation of alkenes is an addition reaction where halogen atoms add across the double bond. For ethene and chlorine, the product is 1,2-dichloroethane.
+
+The addition of HCl to ethene yields:
+
+Ethane
+
+Chloroethene
+
+1,2-Dichloroethane
+
+**Chloroethane**
+
+**Explanation:**
+
+This is a hydrohalogenation reaction. The hydrogen atom adds to one carbon of the double bond and the chlorine atom adds to the other, resulting in chloroethane.
+
+Why do alkenes typically undergo addition reactions rather than substitution reactions?
+
+Because they are saturated compounds.
+
+Because the π bond is strong and resistant to cleavage.
+
+Because they readily form free radicals.
+
+**Because the π electrons are exposed and easily attacked by electrophiles.**
+
+**Explanation:**
+
+The pi (π) bond in alkenes contains loosely held, exposed electrons that act as nucleophiles and are readily attacked by electrophiles, leading to addition across the double bond.
+
+Which of the following catalysts is commonly used for the hydrogenation of alkenes?
+
+Zinc
+
+Sodium hydroxide
+
+Sulfuric acid
+
+**Platinum or Palladium or Nickel**
+
+**Explanation:**
+
+Hydrogenation of alkenes typically requires a metal catalyst such as platinum, palladium, or nickel to facilitate the addition of hydrogen across the double bond.
+
+The structural isomerism exhibited by but-1-ene and 2-methylpropene is an example of:
+
+Position isomerism
+
+Functional group isomerism
+
+Metamerism
+
+**Chain isomerism**
+
+**Explanation:**
+
+But-1-ene has a straight four-carbon chain, while 2-methylpropene has a branched three-carbon chain. They have the same molecular formula (C₄H₈) but different carbon skeletons, which defines chain isomerism.
+
+What type of reaction is the formation of ethanol from ethene and steam in the presence of an acid catalyst?
+
+Dehydrogenation
+
+Dehydration
+
+Substitution
+
+**Hydration**
+
+**Explanation:**
+
+This is the direct addition of water to the alkene across the double bond, resulting in an alcohol. This process is called hydration.
+
+Which reagent is used for the preparation of an alkene from a vicinal dihalide?
+
+Aqueous KOH
+
+Alcoholic KOH
+
+Conc. H₂SO₄
+
+**Zinc dust**
+
+**Explanation:**
+
+Vicinal dihalides undergo dehalogenation when treated with zinc dust, where the two halogen atoms are removed, forming an alkene. This is a common method for alkene preparation.
+
+According to molecular orbital theory, the benzene molecule consists of a planar hexagonal ring formed by:
+
+sp³ hybridized carbon atoms
+
+sp hybridized carbon atoms
+
+Unhybridized carbon atoms
+
+**sp² hybridized carbon atoms**
+
+**Explanation:**
+
+Each carbon atom in benzene is sp² hybridized. This leads to a planar hexagonal structure where each carbon forms three sigma bonds (two with adjacent carbons and one with a hydrogen atom).
+
+The delocalization of pi electrons in benzene results in a special stability known as:
+
+Inductive effect
+
+Hyperconjugation
+
+Aromaticity
+
+**Resonance energy**
+
+**Explanation:**
+
+The extra stability of benzene due to the delocalization of its pi electrons is quantified as resonance energy. This energy makes benzene significantly more stable than a hypothetical cyclohexatriene. While aromaticity is the property, resonance energy is the result of this delocalization contributing to stability.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Compared to alkenes, benzene primarily undergoes:
+
+Addition reactions
+
+Elimination reactions
+
+Rearrangement reactions
+
+**Substitution reactions**
+
+**Explanation:**
+
+Despite having double bonds, benzene's aromatic stability is preserved by substitution reactions (specifically electrophilic aromatic substitution) where a hydrogen atom is replaced, rather than addition reactions which would disrupt the delocalized pi system.
+
+Which of the following is an example of an addition reaction of benzene?
+
+Nitration
+
+Sulfonation
+
+Halogenation
+
+**Hydrogenation**
+
+**Explanation:**
+
+While benzene primarily undergoes substitution, it can undergo addition reactions under specific harsh conditions, such as hydrogenation (addition of hydrogen) to form cyclohexane, which breaks the aromaticity.
+
+The mechanism of electrophilic substitution in benzene involves the initial attack of an electrophile on the benzene ring, forming a:
+
+Carbanion
+
+Free radical
+
+Zwitterion
+
+**Carbocation**
+
+**Explanation:**
+
+In electrophilic aromatic substitution, the electrophile attacks the pi electron cloud of the benzene ring, forming a resonance-stabilized carbocation intermediate, also known as a sigma complex or arenium ion.
+
+In the nitration of benzene, the electrophile that attacks the benzene ring is:
+
+NO₂
+
+NO₃⁻
+
+HNO₃
+
+**NO₂⁺**
+
+**Explanation:**
+
+The electrophile for nitration is the nitronium ion (NO₂⁺), which is generated by the reaction of nitric acid with sulfuric acid (HNO₃ + 2H₂SO₄ → NO₂⁺ + H₃O⁺ + 2HSO₄⁻).
+
+What is the catalyst commonly used in the electrophilic halogenation of benzene (e.g., chlorination or bromination)?
+
+Ni or Pt
+
+Conc. H₂SO₄
+
+UV light
+
+**FeCl₃**
+
+**Explanation:**
+
+Electrophilic halogenation of benzene requires a Lewis acid catalyst (like FeCl₃ for chlorination or FeBr₃ for bromination) to polarize the halogen molecule and generate a more powerful electrophile.
+
+The Friedel-Crafts alkylation reaction of benzene introduces an alkyl group. What is the typical catalyst for this reaction?
+
+NaOH
+
+KMnO₄
+
+H₂O
+
+**Anhydrous AlCl₃**
+
+**Explanation:**
+
+Anhydrous aluminum chloride (AlCl₃) is the most common Lewis acid catalyst used in Friedel-Crafts alkylation to generate the electrophilic carbocation from an alkyl halide.
+
+The sulfonation of benzene involves the introduction of a -SO₃H group. What is the active electrophile in this reaction?
+
+SO₃²⁻
+
+H₂SO₄
+
+HSO₃⁻
+
+**SO₃**
+
+**Explanation:**
+
+The active electrophile for sulfonation is sulfur trioxide (SO₃), which is present in fuming sulfuric acid or generated from concentrated sulfuric acid.
+
+Which of the following statements about benzene is FALSE?
+
+All C-C bond lengths in benzene are identical.
+
+Benzene is more stable than a hypothetical cyclohexatriene.
+
+Benzene has a planar structure.
+
+**Benzene readily undergoes addition reactions.**
+
+**Explanation:**
+
+This statement is false. Benzene preferentially undergoes substitution reactions to maintain its aromatic stability, unlike typical alkenes which readily undergo addition reactions.
+
+When methylbenzene (toluene) undergoes nitration, the incoming nitro group (-NO₂) is directed primarily to which positions?
+
+Meta positions
+
+Only ortho position
+
+Only para position
+
+**Ortho and para positions**
+
+**Explanation:**
+
+The methyl group (-CH₃) is an activating group and an ortho/para director in electrophilic aromatic substitution due to its electron-donating effect via hyperconjugation.
+
+What is the product formed when benzene reacts with an acyl chloride (RCOCl) in the presence of anhydrous AlCl₃?
+
+Alkylbenzene
+
+Carboxylic acid
+
+Phenol
+
+**Phenylketone**
+
+**Explanation:**
+
+This is a Friedel-Crafts acylation reaction. An acyl group (RCO-) is introduced onto the benzene ring, forming a ketone where one of the groups attached to the carbonyl is a phenyl group.
+
+Which of the following groups is a deactivating and meta-directing group in electrophilic aromatic substitution?
+
+-OH (hydroxyl)
+
+-NH₂ (amino)
+
+-CH₃ (methyl)
+
+**-NO₂ (nitro)**
+
+**Explanation:**
+
+The nitro group (-NO₂) is a strong electron-withdrawing group, which deactivates the benzene ring towards electrophilic attack and directs incoming electrophiles to the meta position.
+
+When benzene undergoes Friedel-Crafts acylation, what is the key advantage over alkylation in terms of product control?
+
+Acylation leads to multiple substitutions easily.
+
+Acylation products can be easily deacylated.
+
+Acylation is reversible.
+
+**Acylation does not lead to carbocation rearrangements.**
+
+**Explanation:**
+
+Friedel-Crafts alkylation involves carbocations, which can undergo rearrangements, leading to mixtures of products. Friedel-Crafts acylation, on the other hand, involves stable acylium ions, which do not rearrange, thus providing better control over the product.
+
+Which of the following compounds will undergo electrophilic substitution faster than benzene?
+
+Nitrobenzene
+
+Chlorobenzene
+
+Benzoic acid
+
+**Toluene**
+
+**Explanation:**
+
+Toluene has a methyl group (-CH₃), which is an electron-donating group. Electron-donating groups activate the benzene ring towards electrophilic substitution by increasing electron density, making the reaction faster than with benzene itself.
+
+The conversion of benzene to cyclohexane under specific conditions is an example of:
+
+Electrophilic substitution
+
+Free radical substitution
+
+Oxidation
+
+**Catalytic hydrogenation**
+
+**Explanation:**
+
+The addition of hydrogen to benzene (hydrogenation) in the presence of a catalyst (e.g., Ni, Pt) converts it into cyclohexane, breaking the aromatic system and forming an aliphatic cyclic compound.
+
+What is the product of the reaction between benzene and Cl₂ in the presence of UV light and no catalyst?
+
+Chlorobenzene
+
+1,2-Dichlorobenzene
+
+Benzyl chloride
+
+**Hexachlorocyclohexane**
+
+**Explanation:**
+
+In the absence of a Lewis acid catalyst, and under UV light, benzene can undergo free radical addition reactions, leading to the addition of six chlorine atoms across the ring, forming hexachlorocyclohexane (e.g., Lindane).
+
+Which of the following is an ortho/para directing group and an activating group?
+
+-COOH
+
+-CN
+
+-COR
+
+**-OCH₃**
+
+**Explanation:**
+
+Methoxy group (-OCH₃) is an electron-donating group via resonance, which activates the ring and directs incoming electrophiles to the ortho and para positions.
+
+The sulfonation of benzene is reversible. What conditions favor the desulfonation ?
+
+Reaction with strong base
+
+Reaction with oxidizing agent
+
+Reaction with reducing agent
+
+**Heating with dilute acid**
+
+**Explanation:**
+
+Sulfonation is reversible. Heating benzenesulfonic acid with steam or dilute aqueous acid can reverse the reaction, removing the sulfonic acid group (removal of -SO₃H group) and regenerating benzene.
+
+When an activating group is present on the benzene ring, the rate of electrophilic substitution reaction:
+
+Decreases
+
+Remains unchanged
+
+Becomes zero
+
+**Increases**
+
+**Explanation:**
+
+Activating groups donate electron density to the benzene ring, making it more nucleophilic and thus more susceptible to attack by an electrophile, increasing the reaction rate.
+
+Which of the following reagents is typically used for the Friedel-Crafts acylation of benzene?
+
+An alkyl halide and AlCl₃
+
+A halogen and FeX₃
+
+Concentrated H₂SO₄
+
+**An acyl halide and AlCl₃**
+
+**Explanation:**
+
+Friedel-Crafts acylation involves the reaction of an acyl halide (RCOCl) or an acid anhydride with benzene in the presence of a Lewis acid catalyst like anhydrous AlCl₃.
+
+The resonance hybrid structure of benzene explains that:
+
+It has alternating single and double bonds.
+
+It exists as two rapidly interconverting Kekulé structures.
+
+It is a saturated compound.
+
+**All carbon-carbon bonds are identical and intermediate between single and double bonds.**
+
+**Explanation:**
+
+The resonance hybrid concept implies that the pi electrons are delocalized over the entire ring, resulting in all C-C bonds having equal length and character, intermediate between typical single and double bonds.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Which of the following reactions of benzene is also an electrophilic substitution reaction?
+
+Reaction with H₂/Ni
+
+Reaction with H₂O/H₂SO₄
+
+Reaction with Cl₂/UV light
+
+**Reaction with Br₂/FeBr₃**
+
+**Explanation:**
+
+Reaction with Br₂ in the presence of a Lewis acid catalyst (FeBr₃) is electrophilic aromatic substitution (bromination), where a bromine atom substitutes a hydrogen atom on the benzene ring.
+
+A strong deactivating group like -COOH (carboxyl) on a benzene ring will direct an incoming electrophile to which position?
+
+Ortho
+
+Para
+
+Ortho and para
+
+**Meta**
+
+**Explanation:**
+
+Carboxyl groups (-COOH) are electron-withdrawing by resonance and inductive effects, strongly deactivating the ring and directing incoming electrophiles to the meta position.
+
+The oxidation of benzene under typical conditions is difficult due to its:
+
+High molecular weight
+
+Planar structure
+
+Non-polar nature
+
+**Aromatic stability**
+
+**Explanation:**
+
+The delocalized pi electron system and significant resonance energy of benzene make it very stable and resistant to oxidation under conditions that would typically oxidize alkenes.
+
+Which of the following compounds is generally the most reactive towards electrophilic addition reactions?
+
+Ethane
+
+Ethyne
+
+Benzene
+
+**Ethene**
+
+**Explanation:**
+
+Alkenes are generally more reactive than alkynes towards electrophilic addition. While alkynes have a triple bond, the sp hybridized carbons make the pi electrons more tightly held. Also, the carbocation formed from an alkyne is less stable than that from an alkene. Benzene undergoes substitution due to aromaticity, and alkanes are saturated.
+
+The preparation of alkynes commonly involves which type of reaction?
+
+Addition reaction
+
+Substitution reaction
+
+Rearrangement reaction
+
+**Elimination reaction**
+
+**Explanation:**
+
+Alkynes are typically prepared through double elimination reactions, such as the dehydrohalogenation of dihaloalkanes (vicinal or geminal) using strong bases.
+
+Which statement best describes the acidity of terminal alkynes?
+
+They are less acidic than alkanes and alkenes.
+
+They are highly acidic, comparable to strong mineral acids.
+
+They are neutral compounds.
+
+**They are more acidic than alkanes and alkenes.**
+
+**Explanation:**
+
+The carbon atom in the C-H bond of a terminal alkyne is sp hybridized, which means it has higher s-character (50%) than sp² (33%) or sp³ (25%). This higher s-character makes the carbon more electronegative, drawing electron density closer to the nucleus, and thus making the hydrogen more acidic and easier to remove as a proton.
+
+The complete hydrogenation of acetylene in the presence of a catalyst like Ni or Pt yields:
+
+Ethene
+
+Methane
+
+Butane
+
+**Ethane**
+
+**Explanation:**
+
+Complete hydrogenation of an alkyne (acetylene) involves the addition of two moles of hydrogen across the triple bond, converting it into a fully saturated alkane. Thus, ethyne becomes ethane.
+
+Partial hydrogenation of alkynes to form cis-alkenes is achieved using which catalyst?
+
+Na in liquid NH₃
+
+**Lindlar's catalyst**
+
+**Explanation:**
+
+Lindlar's catalyst (Pd/BaOS₄ + quinoline) is a poisoned palladium catalyst that allows for the selective partial hydrogenation of alkynes to cis-alkenes, preventing further reduction to alkanes.
+
+According to Markovnikov's rule, the addition of HBr to propyne (CH₃C≡CH) will primarily yield:
+
+**Explanation:**
+
+In the hydrohalogenation of an unsymmetrical alkyne like propyne, the hydrogen atom adds to the carbon of the triple bond that has more hydrogen atoms (the terminal carbon), and the bromine adds to the more substituted carbon, resulting in 2-bromopropene.
+
+The hydration of alkynes (e.g., ethyne) in the presence of H₂SO₄ and HgSO₄ typically forms:
+
+Carboxylic acids
+
+Alkenes
+
+**Aldehydes or ketones**
+
+**Explanation:**
+
+Hydration of alkynes in the presence of mercuric sulfate and sulfuric acid proceeds via an enol intermediate, which rapidly tautomerizes to a more stable carbonyl compound. Ethyne yields acetaldehyde (an aldehyde), while higher alkynes yield ketones.
+
+Which of the following alkynes can react with ammoniacal silver nitrate solution (Tollens' reagent) to form a white precipitate?
+
+CH₃-C≡C-CH₃ (2-Butyne)
+
+CH₂=CH-C≡CH (Vinylacetylene)
+
+CH₂=CH-CH=CH₂ (1,3-Butadiene)
+
+**CH₃-CH₂-C≡CH (1-Butyne)**
+
+**Explanation:**
+
+Terminal alkynes (those with a C≡C-H bond) have an acidic hydrogen atom that can be replaced by metal ions. 1-Butyne is a terminal alkyne and will react with Tollens' reagent to form a silver acetylide precipitate. Internal alkynes (like 2-Butyne) do not have this acidic hydrogen.
+
+A reaction in which an atom or group of atoms is replaced by another atom or group of atoms in a molecule is known as a:
+
+Addition reaction
+
+Elimination reaction
+
+Rearrangement reaction
+
+**Substitution reaction**
+
+**Explanation:**
+
+In a substitution reaction, one atom or group is taken out and another is put in its place, while the overall saturation of the molecule often remains the same (e.g., replacement of H in an alkane by a halogen).
+
+Which type of reaction involves the joining of two or more molecules to form a single larger molecule, typically by breaking a pi bond?
+
+Substitution reaction
+
+Elimination reaction
+
+Polymerization reaction
+
+**Addition reaction**
+
+**Explanation:**
+
+An addition reaction involves the combination of two or more molecules to form a single product. This typically occurs across unsaturated bonds (double or triple bonds), where the pi bond breaks and new sigma bonds are formed. Polymerization is a specific type of addition reaction where many monomers add to form a very large molecule.
+
+## Other Chemistry Topics MCQs
+
+We have also prepared the following set of MCQsfor your Entry test preparation in quick way like MDCAT, ECAT and Armed forces test. WE WISH YOU BEST OF LUCK!
+
+[Basic Concept MCQs](https://www.mcquniverse.pk/chemistry-mcqs/basic-concept-mcqs/)
+
+[Atomic Structure MCQs](https://www.mcquniverse.pk/chemistry-mcqs/atomic-structure-mcqs/)
+
+[Gases MCQs](https://www.mcquniverse.pk/chemistry-mcqs/gases-mcqs/)
+
+[Liquids MCQs](https://www.mcquniverse.pk/chemistry-mcqs/liquids-mcqs/)
+
+[Solids MCQs](https://www.mcquniverse.pk/chemistry-mcqs/solids-mcqs/)
+
+[Chemical Equilibrium MCQs](https://www.mcquniverse.pk/chemistry-mcqs/chemical-equilibrium-mcqs/)
+
+[Reaction Kinectics MCQs](https://www.mcquniverse.pk/chemistry-mcqs/reaction-kinetics-quiz/)
+
+[Thermochemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/thermochemistry-mcqs/)
+
+[Electrochemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/electrochemistry-mcqs/)
+
+[Chemical Bonding MCQs](https://www.mcquniverse.pk/chemistry-mcqs/chemical-bonding-mcqs/)
+
+[Transition Elements MCQs](https://www.mcquniverse.pk/chemistry-mcqs/transition-elements-mcqs/)
+
+[S And P Block Elements MCQs](https://www.mcquniverse.pk/chemistry-mcqs/s-and-p-block-elements-mcqs/)
+
+[Fundamental Principles Of Organic Chemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/fundamental-principles-of-organic-chemistry-mcqs/)
+
+[Hydrocarbons MCQs](https://www.mcquniverse.pk/chemistry-mcqs/hydrocarbons-mcqs/)
+
+[Alkyl Halides MCQs](https://www.mcquniverse.pk/chemistry-mcqs/alkyl-halides-mcqs/)
+
+[Alcohols And Phenols MCQs](https://www.mcquniverse.pk/chemistry-mcqs/alcohols-and-phenols-mcqs/)
+
+[Aldehydes And Ketones MCQs](https://www.mcquniverse.pk/chemistry-mcqs/aldehydes-and-ketones-mcqs/)
+
+[Macromolecules MCQs](https://www.mcquniverse.pk/chemistry-mcqs/macromolecules-mcqs/)
+
+[Carboxylic Acid MCQs](https://www.mcquniverse.pk/chemistry-mcqs/carboxylic-acid-mcqs/)
+
+[Industrial Chemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/industrial-chemistry-mcqs/)
+
+### Leave a Reply [Cancel reply](/chemistry-mcqs/hydrocarbons-mcqs/#respond)
+
+×🌐 Website-Wide Premium Access
+
+### Unlock All Quizzes & MCQs
+
+🚀 **One Subscription Unlocks Everything!** 
+ Get 100% full access to ALL quizzes, MCQs & detailed explanations across the entire website.
+
+1 Week
+
+Rs 199
+
+Full Site Access
+
+BEST VALUE
+
+1 Month
+
+Rs 499
+
+Full Site Access
+
+📌 How to Activate:
+
+1. Send fee for your plan to JazzCash or EasyPaisa below.
+2. Click WhatsApp button & send payment screenshot to Admin.
+3. **Instant Activation** within 10 minutes!
+
+JazzCash 03048961191 Title: Rana HabibUllah
+
+EasyPaisa 03428699409 Title: Rana HabibUllah
+
+ [💬 Send Screenshot on WhatsApp](https://wa.me/923428699409?text=Hi,%20I%20want%20to%20activate%20full%20site%20premium%20access.) Maybe later
+
+ [Student Login](https://www.mcquniverse.pk/dashboard/) 
+
+**Alert:**Content is protected.
+
+Scroll to Top

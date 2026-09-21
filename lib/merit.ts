@@ -19,7 +19,7 @@
  *      hard "you WILL get admission" number is forbidden here.
  *
  * DATA OWNERSHIP: the college closing-merit table is DATA (published facts +
- * sources). AKUMA owns authored NOTES/MCQ content; this file holds only
+ * sources). FOUNDER owns authored NOTES/MCQ content; this file holds only
  * formula + sourced figures, so it does not step on content ownership.
  */
 
@@ -88,7 +88,7 @@ export const MERIT_BANDS: readonly MeritBand[] = [
     min: 93,
     label: 'Elite',
     reading:
-      'Historically secure for KEMU / King Edward / Aga Khan-tier top public colleges — but seat counts and quota rounds move annually.',
+      'Historically secure for KEMU / King Edward and other top public colleges — but seat counts and quota rounds move annually.',
   },
   {
     min: 88,
@@ -136,7 +136,7 @@ export const COLLEGE_UNIVERSITIES = {
 
 /**
  * Sourced closing-merit figures, 2024 cycle. LABEL = historical estimate,
- * not a guarantee. Expand with AKUMA-authored / officially-published data.
+ * not a guarantee. Expand with FOUNDER-authored / officially-published data.
  * (Some rows intentionally reference the university-level closing where a
  * college-level figure is not cleanly published — marked accordingly.)
  */

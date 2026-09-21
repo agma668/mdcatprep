@@ -1,0 +1,334 @@
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[IMAGE: Join our whatsapp channel]
+
+# Atomic Spectra MCQs | Physics MCQs
+
+## Atomic Spectra MCQs
+
+The spectral series of the hydrogen atom that lies in the ultraviolet region of the electromagnetic spectrum is called the:
+
+The Lyman series involves electron transitions down to the ground state (n=1). These are the largest energy drops, producing high-energy ultraviolet photons.
+
+According to Bohr's atomic model, the angular momentum of an electron in a stationary orbit is:
+
+Bohr's second postulate states that the angular momentum (L) is quantized and given by the formula L = n(h/2π), showing a direct proportionality to n.
+
+The transition of an electron from n=4 to n=2 in a hydrogen atom results in the emission of a photon in which series?
+
+The Balmer series is defined by all electron transitions that terminate at the n=2 energy level.
+
+The phenomenon where an excited atom emits a photon without any external trigger is known as:
+
+Spontaneous emission occurs naturally when an atom in an excited state returns to a lower energy state on its own, releasing a photon.
+
+The production of characteristic X-rays is a result of:
+
+When an inner-shell electron is ejected, an electron from a higher shell drops down to fill the vacancy, emitting a photon with energy characteristic of that specific element.
+
+For laser action to occur, a necessary condition is that there are more atoms in a higher energy state than in a lower one. This condition is called:
+
+Population inversion precisely describes the 'inverted' population of energy levels required for light amplification in a laser, where a higher state is more populated than a lower one.
+
+The energy of an electron in the nth orbit of a hydrogen atom is proportional to:
+
+The formula for the energy of an electron in the nth orbit is Eₙ = -E₀/n², showing it is proportional to 1/n².
+
+Which of the following properties is NOT characteristic of laser light?
+
+Incoherence is a property of ordinary light (like from a bulb), where photons are out of phase. Laser light is highly coherent.
+
+The minimum energy required to remove an electron from an atom in its ground state is known as:
+
+Ionization energy is the precise term for the energy needed to ionize an atom by completely removing an electron from its ground state.
+
+The Paschen series of the hydrogen spectrum is in which region?
+
+Transitions ending at n=3 (Paschen series) have smaller energy changes than Balmer transitions, placing their emitted photons in the infrared region.
+
+For an electron in a stationary Bohr orbit, its total energy is -3.4 eV. What is its kinetic energy (KE)?
+
+In the Bohr model, the total energy E\_T is the negative of the kinetic energy (E\_T = -KE). Therefore, the kinetic energy must be the positive value of the total energy, so KE = -(-3.4 eV) = +3.4 eV.
+
+The continuous spectrum of X-rays is produced due to:
+
+This process, known as Bremsstrahlung or 'braking radiation', produces photons of all energies up to the electron's maximum kinetic energy, creating a continuous spectrum.
+
+A state in which an excited atom can stay for a relatively long time (e.g., 10⁻³ s) is called a:
+
+A metastable state is an excited state with an unusually long lifetime, which is crucial for achieving population inversion in lasers.
+
+The radius of the first Bohr orbit for the hydrogen atom is r₁. The radius of the third Bohr orbit is:
+
+According to the Bohr model, the radius of the nth orbit is given by rₙ = n²r₁. For n=3, the radius is 3²r₁ = 9r₁.
+
+An absorption spectrum is characterized by:
+
+An absorption spectrum is created when atoms absorb light at specific wavelengths from a continuous source, leaving dark gaps or lines in the spectrum.
+
+In a He-Ne laser, the process of exciting Ne atoms through collisions with excited He atoms is called:
+
+This is called resonant energy transfer because the metastable energy levels of Helium and Neon atoms are very closely matched, allowing for an efficient transfer of energy via collision.
+
+The series limit of a spectral series corresponds to an electron transition from:
+
+The series limit represents the maximum energy photon (shortest wavelength) for that series, which occurs when a free electron (from n = ∞) is captured into the final state n.
+
+The energy of a photon emitted from a hydrogen atom is 10.2 eV. This corresponds to a transition from:
+
+The energy levels are E₁ = -13.6 eV and E₂ = -3.4 eV. The difference is ΔE = E₂ - E₁ = (-3.4) - (-13.6) = 10.2 eV.
+
+Rydberg's constant (R) is a physical constant related to:
+
+Rydberg's constant is the key component in the Rydberg formula, which accurately predicts the wavelengths of spectral lines in hydrogen and other atoms.
+
+The process of supplying energy to the atoms of a laser medium to achieve population inversion is called:
+
+'Pumping' is the general term for the process of supplying energy to the laser medium, whether through light (optical pumping) or electrical discharge.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Calculate the wavelength of the second line of the Balmer series for the hydrogen atom. (Rydberg constant R\_H ≈ 1.097 × 10⁷ m⁻¹)
+
+The Balmer series ends at n\_f=2. The 'second line' originates from n\_i=4. Using the Rydberg formula: 1/λ = R\_H (1/n\_f² - 1/n\_i²) = R\_H (1/2² - 1/4²) = R\_H (3/16). Therefore, λ = 16 / (3 R\_H) ≈ 4.86 × 10⁻⁷ m, which is 486 nm.
+
+The wavelength of characteristic X-rays depends on:
+
+The energy levels of atoms are unique to each element. Therefore, the energy (and wavelength) of photons emitted during inner-shell transitions is a 'characteristic' of the target material.
+
+The lines in the Balmer series of the hydrogen spectrum are formed by electron transitions from higher energy levels to:
+
+The Balmer series is specifically defined as the set of transitions where the electron's final energy level is n=2.
+
+The lifetime of an atom in an ordinary excited state is typically about:
+
+An ordinary excited state is very unstable, and the atom will spontaneously de-excite in a very short time, typically on the order of nanoseconds (10⁻⁸ s).
+
+An electron in a hydrogen atom jumps from n=3 to n=1. The number of possible spectral lines that can be emitted is:
+
+The electron can take two paths: a direct jump (3→1) or a cascade (3→2, then 2→1). These three distinct transitions (3→1, 3→2, 2→1) produce three different spectral lines.
+
+Bohr's model of the atom successfully explained:
+
+The model's greatest success was its accurate prediction of the specific wavelengths of the spectral lines of hydrogen and hydrogen-like ions (those with only one electron).
+
+In the process of stimulated emission, the emitted photon is identical to the incident photon in all aspects EXCEPT:
+
+The key principle of stimulated emission is that it produces a perfect 'clone' of the incident photon in terms of frequency, phase, and direction. This is what allows for light amplification.
+
+The Brackett series in the hydrogen spectrum is formed by electron transitions ending at which energy level?
+
+The Brackett series consists of all transitions where the electron's final energy level is n=4.
+
+The ground state energy of a hydrogen atom is -13.6 eV. What is the energy of the first excited state?
+
+The first excited state corresponds to n=2. Using the formula Eₙ = -13.6/n² eV, we get E₂ = -13.6/2² = -13.6/4 = -3.4 eV.
+
+The concept of discrete energy levels in an atom was first introduced by:
+
+Niels Bohr's key postulate was that electrons could only exist in specific, quantized energy levels, which directly explained the existence of atomic line spectra.
+
+The velocity of an electron in the first Bohr orbit is v₁. The velocity in the second orbit would be:
+
+The velocity of an electron in the nth orbit is inversely proportional to n (vₙ ∝ 1/n). Therefore, for n=2, the velocity is v₂ = v₁/2.
+
+The shortest wavelength in the Balmer series corresponds to a transition from:
+
+Shortest wavelength corresponds to the largest energy difference. For the Balmer series (ending at n=2), the largest energy drop is from the ionization limit (n = ∞).
+
+The laser used in barcode scanners is typically a:
+
+Helium-Neon (He-Ne) lasers produce a characteristic low-power red light, making them ideal and common for applications like barcode scanning.
+
+According to Bohr's third postulate, an electron emits a photon when it:
+
+A transition from a higher to a lower energy state releases a specific amount of energy, which is carried away by the emitted photon.
+
+The Pfund series of the hydrogen spectrum lies in the:
+
+Transitions ending at n=5 (Pfund series) involve very small energy changes, placing these lines in the far-infrared part of the spectrum.
+
+What is the energy required to ionize a singly ionized helium atom (He⁺)?
+
+The energy of an electron in a hydrogen-like ion is given by E\_n = -13.6 \* (Z²/n²) eV. For helium, the atomic number Z=2. Ionization energy is the energy needed to remove the electron from the ground state (n=1). So, E\_ion = -E₁ = -(-13.6 \* (2²/1²)) = 13.6 × 4 = 54.4 eV.
+
+A collection of atoms is bombarded with electrons. The resulting spectrum will most likely be:
+
+When atoms are excited by collisions and then de-excite, they emit photons at specific, discrete wavelengths, creating an emission line spectrum.
+
+The ratio of the longest wavelength of the Lyman series to the longest wavelength of the Balmer series is:
+
+Using the Rydberg formula, the longest Lyman wavelength (2→1) and longest Balmer wavelength (3→2) can be calculated. Their ratio λ\_Lyman / λ\_Balmer simplifies to 5/27.
+
+One of the major failings of the Rutherford atomic model was its inability to explain:
+
+According to classical physics, an orbiting electron should continuously radiate energy and spiral into the nucleus. The Rutherford model couldn't explain why atoms are stable.
+
+The total energy of an electron in a stationary orbit is negative. This indicates that:
+
+A negative total energy signifies a 'bound state'. It means that energy must be supplied to the electron to remove it from the influence of the nucleus.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+The minimum accelerating potential required to produce X-rays of wavelength λ is given by:
+
+This is derived from equating the kinetic energy of the electron (eV) to the maximum energy of the emitted photon (hf = hc/λ).
+
+In stimulated absorption, an atom in the ground state absorbs a photon and moves to an excited state. This is the reverse process of:
+
+Stimulated emission is the exact reverse: an incident photon causes an atom in an excited state to drop to the ground state, releasing a second photon.
+
+Which transition in a hydrogen atom emits a photon with the highest frequency?
+
+Highest frequency means highest energy (E=hf). The largest possible energy drop in a hydrogen atom is from the ionization limit (n=∞) to the ground state (n=1).
+
+X-rays are a form of:
+
+X-rays are high-energy photons and are part of the electromagnetic spectrum, with wavelengths shorter than ultraviolet light but longer than gamma rays.
+
+The 'pumping' mechanism in a ruby laser is:
+
+A ruby laser uses a powerful flash lamp (a light source) to excite the chromium ions in the ruby crystal. This method is known as optical pumping.
+
+As the principal quantum number 'n' increases, the difference in energy between consecutive orbits:
+
+The energy levels are given by Eₙ = -E₀/n². As n gets larger, the energy levels get closer together, so the gap between them decreases.
+
+The fact that each element has a unique line spectrum can be used for:
+
+Since each element has a unique spectral 'fingerprint', spectroscopy is a powerful tool for chemical analysis, like determining the composition of distant stars.
+
+According to de Broglie's hypothesis, the reason for an electron remaining in a stable orbit is that the circumference of the orbit must be:
+
+For a stable orbit, the electron must form a standing wave, which means the circumference (2πr) must contain an integer number of wavelengths (nλ). This condition, 2πr = nλ, directly leads to Bohr's postulate for the quantization of angular momentum.
+
+An X-ray tube operates with an accelerating potential of 50 kV. What is the minimum wavelength (cutoff wavelength) of the continuous X-ray spectrum produced?
+
+The kinetic energy of the electron (eV) is completely converted into the energy of the highest-energy photon (hf\_max = hc/λ\_min). So, eV = hc/λ\_min. A useful shortcut is λ\_min (in nm) ≈ 1240 / V (in volts). Thus, λ\_min ≈ 1240 / 50000 = 0.0248 nm, which is approximately 0.025 nm.
+
+If an electron in a hydrogen atom is in the n=4 state, what is the maximum number of unique spectral lines that can be emitted as it transitions to lower energy levels?
+
+The electron can cascade down in multiple steps. The total number of possible unique lines is given by the formula N = (n(n-1))/2, where n is the initial state. For n=4, N = (4(4-1))/2 = (4 × 3)/2 = 6. The possible transitions are 4→3, 4→2, 4→1, 3→2, 3→1, and 2→1.
+
+According to Moseley's Law, if the atomic number (Z) of the target anode in an X-ray tube is increased, the frequency of the characteristic X-rays:
+
+Moseley's Law states that the frequency of characteristic X-rays is proportional to the square of the atomic number (√f ∝ Z). A higher Z means the inner-shell electrons are more tightly bound, leading to larger energy differences during transitions and thus higher frequency photons.
+
+A four-level laser system is more efficient than a three-level system primarily because:
+
+In a three-level laser, the lower lasing level is the ground state, requiring over half the atoms to be pumped up. In a four-level laser, the lower lasing level is an intermediate excited state that is initially empty, making it much easier and less energy-intensive to create a population inversion.
+
+What is the ratio of the radius of the second Bohr orbit (n=2) to the radius of the fourth Bohr orbit (n=4) in a hydrogen atom?
+
+The radius of a Bohr orbit is directly proportional to the square of the principal quantum number (rₙ ∝ n²). Therefore, the ratio r₂ / r₄ = 2² / 4² = 4 / 16 = 1/4. The ratio is 1:4.
+
+Which of the following phenomena could NOT be explained by Bohr's atomic model?
+
+While Bohr's model successfully explained the spectra of single-electron systems like H and He⁺, it failed to account for several phenomena. These include the spectra of multi-electron atoms, the relative intensities of spectral lines, and the splitting of spectral lines in magnetic (Zeeman effect) and electric (Stark effect) fields.
+
+What is the function of the resonant cavity (mirrors) in a laser?
+
+The mirrors trap photons, forcing them to pass through the active medium multiple times. This causes more stimulated emission and amplifies the light into a powerful beam.
+
+The penetration power of X-rays is high because they have:
+
+A short wavelength implies high frequency and high photon energy (E=hf). This high energy allows them to pass through materials that block lower-energy visible light.
+
+The first line of the Paschen series results from the transition:
+
+The Paschen series ends at n=3. The 'first line' (longest wavelength) corresponds to the smallest energy jump, which is from the next level up, n=4.
+
+The concept of a central positive nucleus was a conclusion from:
+
+Rutherford's experiment, where alpha particles were deflected by a thin gold foil, led to the conclusion of a small, dense, positively charged nucleus.
+
+In a three-level laser system, the lasing transition occurs between the metastable state and:
+
+In a three-level system, atoms are pumped to a high energy state, quickly decay to the metastable state, and then lase by transitioning from the metastable state back down to the ground state.
+
+The color of light emitted in the Balmer series with the longest wavelength is:
+
+The longest wavelength (lowest energy) transition in the visible Balmer series is from n=3 to n=2. This specific line is called the H-alpha line and has a prominent red color.
+
+## Other Physics Topics MCQs
+
+We have also prepared the following set of MCQs for your Entry test preparation like MDCAT, ECAT and Armed forces test. WE WISH YOU BEST OF LUCK!
+
+[Force And Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/force-and-motion-mcqs/)
+
+[Work And Energy MCQs](https://www.mcquniverse.pk/physics-mcqs/work-and-energy-mcqs/)
+
+[Rotational And Circular Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/rotational-and-circular-motion-mcqs/)
+
+[Waves MCQs](https://www.mcquniverse.pk/physics-mcqs/waves-mcqs/)
+
+[Thermodynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/thermodynamics-mcqs/)
+
+[Electrostatics MCQs](https://www.mcquniverse.pk/physics-mcqs/electrostatics-mcqs/)
+
+[Current Electricity MCQs](https://www.mcquniverse.pk/physics-mcqs/current-electricity-mcqs/)
+
+[Electromagnetism MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetism-mcqs/)
+
+[Electromagnetic Induction MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetic-induction-mcqs/)
+
+[Electronics MCQs](https://www.mcquniverse.pk/physics-mcqs/electronics-mcqs/)
+
+[Dawn Of Modern Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/dawn-of-modern-physics-mcqs/)
+
+[Atomic Spectra MCQs](https://www.mcquniverse.pk/physics-mcqs/atomic-spectra-mcqs/)
+
+[Nuclear Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/nuclear-physics-mcqs/)
+
+[Fluid Dynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/fluid-dynamics-mcqs/)
+
+[Vectors And Equilibrium MCQs](https://www.mcquniverse.pk/physics-mcqs/vectors-and-equilibrium-mcqs/)
+
+### Leave a Reply [Cancel reply](/physics-mcqs/atomic-spectra-mcqs/#respond)
+
+Your email address will not be published. Required fields are marked \*
+
+Comment \*
+
+Name\*
+
+Email\*
+
+Website
+
+Save my name, email, and website in this browser for the next time I comment.
+
+### [MCQUniverse](https://www.mcquniverse.pk/)
+
+Free quizzes for all of you. Have A Nice Day!
+
+## Contact Info
+
+**Address:** Multan ,Punjab ,Pakistan
+
+**Email:** 
+admin@mcquniverse.pk
+
+## Info Links
+
+## MCQs Categories
+
+## Online Quiz
+
+© 2025 MCQ Universe. All rights reserved. Helping Pakistani students achieve their dreams.
+
+### Unlock All Quizzes & MCQs
+
+📌 How to Activate:
+
+**Alert:**Content is protected.

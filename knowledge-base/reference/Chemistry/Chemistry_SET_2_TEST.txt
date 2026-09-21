@@ -1,0 +1,1126 @@
+
+=== PAGE 1 ===
+Chemistry SET 2 TEST 
+ 
+1. Which of the following molecules has a linear shape? 
+A. H₂O 
+B. CO₂ 
+C. NH₃ 
+D. CH₄ 
+2. Boiling of water is a/an _______ change. 
+A. Endothermic 
+B. Exothermic 
+C. Non-energetic 
+D. Spontaneous 
+3. The toughness of the transition metals is due to: 
+A. Ability to form colour 
+B. Variable oxidation state 
+C. Binding energies 
+D. Paramagnetism 
+4. The rate of a chemical reaction generally increases with temperature because: 
+A. Activation energy increases 
+B. Number of effective collisions increases 
+C. Molecules move slower 
+D. Equilibrium constant decreases 
+5. Which of the following is considered the universal energy currency of the cell? 
+A. RNA 
+B. DNA 
+
+=== PAGE 2 ===
+C. ATP 
+D. NADH 
+6. Which statement is not correct about enzymes? 
+A. They are organic catalysts 
+B. An enzyme can catalyze all type of metabolic reactions 
+C. They are capable of acting independently of the cells 
+D. Enzymes are protein in nature 
+7. Through the salt bridge, there is a transfer of: 
+A. Current 
+B. Free Radicals 
+C. Ions 
+D. Molecules 
+8. Lower alkali metals react vigorously with water because lower metals have: 
+A. High ionization energy 
+B. High density 
+C. High electron affinity 
+D. High electropositivity 
+9. The bond angle in a regular tetrahedral molecule like CH₄ is: 
+A. 90° 
+B. 104.5° 
+C. 107.5° 
+D. 109.5° 
+10. Which is NOT a state function? 
+A. Enthalpy change 
+B. Internal energy change 
+C. Work 
+
+=== PAGE 3 ===
+D. Entropy change 
+11. The prosthetic group for glycoproteins is: 
+A. Phosphoric acid 
+B. DNA or RNA 
+C. Carbohydrates 
+D. Lipids 
+12. A catalyst speeds up a reaction by: 
+A. Increasing the enthalpy change 
+B. Lowering the activation energy 
+C. Increasing the concentration of products 
+D. Shifting the equilibrium to the right 
+13. In which complex does the transition metal show a zero oxidation state? 
+A. K₄[Fe(CN)₆] 
+B. [Ag(NH₃)₂]Cl 
+C. [Ni(CO)₄] 
+D. K₂[Pt(Cl)₆] 
+14. Stronger the reducing agent, smaller is the: 
+A. Oxidation potential 
+B. emf of cell 
+C. Redox potential 
+D. Reduction potential 
+15. Hydrogen bonding is strongest in which of the following? 
+A. H₂S 
+B. H₂O 
+C. HF 
+D. NH₃ 
+
+=== PAGE 4 ===
+16. Which molecule serves as the primary storage form of glucose in animals? 
+A. Cellulose 
+B. Starch 
+C. Glycogen 
+D. Glucagon 
+17. The central metal atom or ion along with ligands is called: 
+A. Co-ordination sphere 
+B. Co-ordination compound 
+C. Co-ordination Number 
+D. Chelate 
+18. The unit of the rate constant for a first-order reaction is: 
+A. mol L⁻¹ s⁻¹ 
+B. L mol⁻¹ s⁻¹ 
+C. s⁻¹ 
+D. mol² L⁻² s⁻¹ 
+19. Which of the following is true in the case of a Zn-Cu cell? 
+A. The flow of electrons takes place from copper to zinc 
+B. E°red of copper electrode is less than that of zinc electrode 
+C. Zinc acts as an anode and copper as cathode 
+D. All are correct 
+20. Which of the following elements is NOT present in all proteins? 
+A. Carbon 
+B. Sulphur 
+C. Hydrogen 
+D. Nitrogen 
+21. According to VSEPR theory, a molecule with 3 bonding pairs and 1 lone pair of 
+electrons has what geometry? 
+
+=== PAGE 5 ===
+A. Trigonal planar 
+B. Tetrahedral 
+C. Trigonal pyramidal 
+D. Bent 
+22. Oxidation state of the first transition series increases up to: 
+A. Ni 
+B. Mn 
+C. Cu 
+D. Fe 
+23. If the concentration of a reactant is doubled and the reaction rate quadruples, the 
+order of the reaction with respect to that reactant is: 
+A. Zero 
+B. First 
+C. Second 
+D. Third 
+24. The relationship between enthalpy change and internal energy change is: 
+A. ΔH = ΔE + PΔV 
+B. ΔE = PΔV + ΔH 
+C. ΔH = ΔE - PΔV 
+D. All are correct 
+25. A peptide bond is formed with the elimination of: 
+A. NH₃ 
+B. CH₄ 
+C. H₂O 
+D. CO₂ 
+26. The type of hybridization present in the carbon atoms of ethene (C₂H₄) is: 
+A. sp 
+
+=== PAGE 6 ===
+B. sp² 
+C. sp³ 
+D. dsp² 
+27. Majority of the elements of the periodic table are: 
+A. Semi-metals 
+B. Metals 
+C. Non-metals 
+D. Noble metals 
+28. The minimum energy required for molecules to react upon collision is called: 
+A. Kinetic energy 
+B. Potential energy 
+C. Activation energy 
+D. Threshold energy 
+29. In an exothermic reaction, heat transfers from: 
+A. Surrounding to system 
+B. System to system 
+C. System to surrounding 
+D. Surrounding to surrounding 
+30. Which of the following is an example of a simple monosaccharide? 
+A. Sucrose 
+B. Lactose 
+C. Glucose 
+D. Starch 
+31. Which of the following compounds contains both ionic and covalent bonds? 
+A. CH₄ 
+B. H₂O 
+
+=== PAGE 7 ===
+C. NaCl 
+D. NaOH 
+32. Transition elements form substitutional alloys easily because they have nearly: 
+A. Same atomic mass 
+B. Same atomic size 
+C. Same electronic configuration 
+D. Same oxidation state 
+33. The half-life of a first-order reaction is: 
+A. Directly proportional to initial concentration 
+B. Inversely proportional to initial concentration 
+C. Independent of initial concentration 
+D. Dependent on pressure 
+34. E°red of an element can be calculated by comparing it with: 
+A. New electrode of same element 
+B. Standard Hydrogen Electrode 
+C. 1M solution of ions of respective element 
+D. 2M solution of HCl 
+35. The secondary structure of a protein is maintained by H-bonding between: 
+A. N and H 
+B. C and H 
+C. O and C 
+D. O and H 
+36. A pi (π) bond is formed by the: 
+A. Head-on overlap of s-orbitals 
+B. Head-on overlap of p-orbitals 
+C. Sideways overlap of p-orbitals 
+
+=== PAGE 8 ===
+D. Overlap of sp³ hybrid orbitals 
+37. Which of the following group elements usually form alloys? 
+A. IA 
+B. IB 
+C. IIA 
+D. VIIA 
+38. Which of the following does NOT affect the rate of a solid-liquid reaction? 
+A. Surface area of the solid 
+B. Temperature 
+C. Concentration of the liquid 
+D. Volume of the container 
+39. The amount of heat required to convert one mole of a solid directly into its vapour 
+state at STP is called as: 
+A. Standard heat of sublimation 
+B. Molar heat of vaporization 
+C. Heat of reaction 
+D. Heat of neutralization 
+40. What is the fundamental building block of all nucleic acids (DNA and RNA)? 
+A. Amino acids 
+B. Fatty acids 
+C. Nucleotides 
+D. Monosaccharides 
+41. The bond order of N₂ is: 
+A. 1 
+B. 2 
+C. 3 
+D. 4 
+
+=== PAGE 9 ===
+42. BeO and MgO are quite _______ in water and CaO, BaO _______ with water. 
+A. Soluble, Non-reactive 
+B. Insoluble, reactive 
+C. Soluble, reactive 
+D. Insoluble, non-reactive 
+43. The rate determining step in a multi-step reaction is always the: 
+A. Fastest step 
+B. Slowest step 
+C. Last step 
+D. First step 
+44. Which equation represents the atomization of iodine? 
+A. I₂₍s₎ → I₂₍g₎ 
+B. ½ I₂₍s₎ → I₍s₎ 
+C. ½ I₂₍s₎ → I₍g₎ 
+D. I₂₍g₎ → 2I₍g₎ 
+45. When the inhibitor reacts with the enzyme and forms a strong covalent bond with 
+the active site of the enzyme then it is called: 
+A. Competitive inhibition 
+B. Reversible inhibition 
+C. Non-Competitive inhibition 
+D. Irreversible inhibition 
+46. Which of the following elements is most electronegative? 
+A. Oxygen 
+B. Nitrogen 
+C. Fluorine 
+D. Chlorine 
+47. Flame colour of Ca element is: 
+
+=== PAGE 10 ===
+A. Brick red 
+B. Red 
+C. Crimson red 
+D. Blue 
+48. For a zero-order reaction, a plot of concentration versus time yields a: 
+A. Curve with increasing slope 
+B. Curve with decreasing slope 
+C. Straight line with a positive slope 
+D. Straight line with a negative slope 
+49. If the internal energy of the system is increased: 
+A. Change in state of the system is increased 
+B. The chemical reaction may take place 
+C. The temperature of the system may increase 
+D. All of above 
+50. The simple sequence of the amino acids combined in a peptide chain is referred to 
+as the: 
+A. Secondary structure 
+B. Primary structure 
+C. Tertiary structure 
+D. Quaternary structure 
+51. Paramagnetism of the oxygen molecule (O₂) is best explained by: 
+A. Valence Bond Theory 
+B. VSEPR Theory 
+C. Molecular Orbital Theory 
+D. Crystal Field Theory 
+52. In balancing of redox equation when an element shows both increase and 
+decrease in oxidation state, it is called: 
+
+=== PAGE 11 ===
+A. Oxidation 
+B. Disproportionation 
+C. Reduction 
+D. Displacement reaction 
+53. Protein present in haemoglobin has a: 
+A. Primary structure 
+B. Tertiary structure 
+C. Secondary structure 
+D. Quaternary structure 
+54. Photochemical reactions are typically: 
+A. Zero order 
+B. First order 
+C. Second order 
+D. Third order 
+55. The oxidation number of oxygen in oxygen difluoride (OF₂) is: 
+A. -2 
+B. -1/2 
+C. -1 
+D. +2 
+56. A coordinate covalent bond is formed when: 
+A. Electrons are shared equally 
+B. Electrons are transferred 
+C. One atom donates both electrons for sharing 
+D. Electrons are completely delocalized 
+57. 2CO₍g₎ + O₂₍g₎ → 2CO₂₍g₎ + X kJ. In this equation, X kJ is: 
+A. Heat of formation of CO₂ 
+
+=== PAGE 12 ===
+B. Heat of reaction 
+C. Heat of combustion 
+D. Heat of sublimation 
+58. Which of the following pairs of ions are coloured in aqueous solution? 
+A. Ni²⁺, Cu⁺ 
+B. Sc³⁺, Co²⁺ 
+C. Sc³⁺, Ti³⁺ 
+D. Ni²⁺, Ti³⁺ 
+59. In competitive inhibition, the inhibitor: 
+A. Competes with enzyme 
+B. Binds with substrate 
+C. Irreversibly binds with the enzyme 
+D. Competes with substrate 
+60. The catalyst used in the hydrogenation of oils to form solid fats (a common 
+biochemical/industrial process) is usually: 
+A. Platinum 
+B. Iron 
+C. Nickel 
+D. Copper 
+61. The rate of a reaction becomes equal to the specific rate constant when the 
+concentrations of the reactants are: 
+A. Unity 
+B. Zero 
+C. Doubled 
+D. Halved 
+62. In a galvanic cell, the half-cell where oxidation occurs is called the: 
+A. Cathode 
+
+=== PAGE 13 ===
+B. Anode 
+C. Salt bridge 
+D. Standard electrode 
+63. Which of the following halogens has the highest electron affinity? 
+A. Fluorine 
+B. Chlorine 
+C. Bromine 
+D. Iodine 
+64. Hess’s Law is an application of: 
+A. First Law of Thermodynamics 
+B. Second Law of Thermodynamics 
+C. Third Law of Thermodynamics 
+D. Law of Mass Action 
+65. Which of the following amino acids contains a sulfur atom? 
+A. Glycine 
+B. Alanine 
+C. Cysteine 
+D. Valine 
+66. The geometrical shape of SF₆ is: 
+A. Tetrahedral 
+B. Trigonal bipyramidal 
+C. Octahedral 
+D. Square planar 
+67. Enzymes lower the activation energy of a reaction by: 
+A. Increasing the kinetic energy of molecules 
+B. Providing an alternative pathway for the reaction 
+
+=== PAGE 14 ===
+C. Decreasing the temperature of the system 
+D. Changing the enthalpy of the reaction 
+68. The oxidation number of chromium in K₂Cr₂O₇ is: 
+A. +2 
+B. +4 
+C. +6 
+D. +7 
+69. Alkali metals are strong reducing agents because of their: 
+A. Low ionization energies 
+B. High electronegativities 
+C. Small atomic radii 
+D. High electron affinities 
+70. The heat of neutralization for a strong acid and a strong base is always 
+approximately: 
+A. -13.7 kJ/mol 
+B. -57.4 kJ/mol 
+C. +57.4 kJ/mol 
+D. -28.5 kJ/mol 
+71. Lipids are predominantly composed of which elements? 
+A. Carbon, Hydrogen, Oxygen, Nitrogen 
+B. Carbon, Hydrogen, Oxygen 
+C. Carbon, Nitrogen, Phosphorus 
+D. Carbon, Sulfur, Oxygen 
+72. Which of the following is a diamagnetic molecule according to Molecular Orbital 
+Theory? 
+A. O₂ 
+B. N₂ 
+
+=== PAGE 15 ===
+C. B₂ 
+D. NO 
+73. The transition metals usually exhibit colored compounds due to: 
+A. d-d electronic transitions 
+B. High ionization energy 
+C. Metallic bonding 
+D. Low electronegativity 
+74. The standard hydrogen electrode (SHE) is assigned an arbitrary reduction 
+potential of: 
+A. 1.00 V 
+B. 0.00 V 
+C. -1.00 V 
+D. 0.50 V 
+75. What is the general electronic configuration of alkaline earth metals? 
+A. ns¹ 
+B. ns² 
+C. ns² np¹ 
+D. ns² np² 
+76. A reaction has a rate law: Rate = k[A]²[B]. What happens to the rate if the 
+concentration of A is halved? 
+A. It decreases by a factor of 2 
+B. It decreases by a factor of 4 
+C. It increases by a factor of 2 
+D. It remains unchanged 
+77. The most abundant carbohydrate in nature is: 
+A. Glucose 
+B. Fructose 
+
+=== PAGE 16 ===
+C. Starch 
+D. Cellulose 
+78. The bond dissociation energy is highest for which of the following? 
+A. C-C 
+B. C=C 
+C. C≡C 
+D. C-H 
+79. In an electrolytic cell, the cathode is the electrode where: 
+A. Oxidation occurs and it is positively charged 
+B. Reduction occurs and it is negatively charged 
+C. Oxidation occurs and it is negatively charged 
+D. Reduction occurs and it is positively charged 
+80. Which of the following is an intensive property? 
+A. Mass 
+B. Volume 
+C. Temperature 
+D. Enthalpy 
+81. The central atom in PCl₅ undergoes which type of hybridization? 
+A. sp³ 
+B. sp³d 
+C. sp³d² 
+D. dsp² 
+82. Ligands that can coordinate to a central metal ion through more than one donor 
+atom are called: 
+A. Monodentate 
+B. Polydentate / Chelating agents 
+C. Electrophiles 
+
+=== PAGE 17 ===
+D. Free radicals 
+83. Saponification is the alkaline hydrolysis of: 
+A. Carbohydrates 
+B. Proteins 
+C. Fats and oils 
+D. Nucleic acids 
+84. The Born-Haber cycle is primarily used to determine the: 
+A. Lattice energy of ionic solids 
+B. Ionization energy of gases 
+C. Hydration energy of ions 
+D. Electron affinity of non-metals 
+85. Which of the following properties generally decreases down a group in the 
+s-block? 
+A. Atomic radius 
+B. Ionic radius 
+C. Ionization energy 
+D. Metallic character 
+86. A substance that retards the rate of a chemical reaction is known as a(n): 
+A. Promoter 
+B. Auto-catalyst 
+C. Inhibitor 
+D. Initiator 
+87. The sequence of nucleotides in a DNA molecule stores: 
+A. Energy 
+B. Genetic information 
+C. Structural support 
+D. Enzymes 
+
+=== PAGE 18 ===
+88. The bond angle in water (H₂O) is slightly less than that in ammonia (NH₃) because: 
+A. Oxygen is more electronegative than nitrogen 
+B. Water has two lone pairs repelling the bonding pairs 
+C. Ammonia has a larger central atom 
+D. Water undergoes sp² hybridization 
+89. Which of the following elements is a liquid at room temperature? 
+A. Fluorine 
+B. Chlorine 
+C. Bromine 
+D. Iodine 
+90. During the rusting of iron, the metal behaves as: 
+A. An anode 
+B. A cathode 
+C. A salt bridge 
+D. An insulator 
+91. Which biochemical molecule acts as a biological catalyst? 
+A. Lipid 
+B. Carbohydrate 
+C. Enzyme 
+D. Vitamin 
+92. According to Collision Theory, for a reaction to occur, the colliding molecules 
+must possess: 
+A. Sufficient kinetic energy and proper orientation 
+B. High temperature and low pressure 
+C. Equal masses and equal velocities 
+D. A catalyst 
+93. The maximum oxidation state shown by manganese (Mn) is: 
+
+=== PAGE 19 ===
+A. +4 
+B. +5 
+C. +6 
+D. +7 
+94. In the molecule of CO₂, the carbon atom is: 
+A. sp³ hybridized 
+B. sp² hybridized 
+C. sp hybridized 
+D. Unhybridized 
+95. Denaturation of a protein typically disrupts all of the following structures EXCEPT: 
+A. Primary structure 
+B. Secondary structure 
+C. Tertiary structure 
+D. Quaternary structure 
+96. A process that occurs without the continuous input of energy from outside is 
+called a: 
+A. Non-spontaneous process 
+B. Spontaneous process 
+C. Reversible process 
+D. Isothermal process 
+97. The inertness of noble gases is primarily due to: 
+A. Their high atomic masses 
+B. Their completely filled valence shells 
+C. Their high electronegativities 
+D. Their low ionization energies 
+98. The specific heat of a substance is the amount of heat required to raise the 
+temperature of: 
+
+=== PAGE 20 ===
+A. One mole of the substance by 1°C 
+B. One gram of the substance by 1°C 
+C. One kilogram of the substance by 1°C 
+D. The entire system by 1°C 
+99. Which rule states that pairing of electrons in orbitals belonging to the same 
+subshell does not occur until each orbital is singly occupied? 
+A. Pauli Exclusion Principle 
+B. Aufbau Principle 
+C. Hund's Rule 
+D. Heisenberg Uncertainty Principle 
+100. In a DNA double helix, adenine pairs with: 
+A. Guanine 
+B. Cytosine 
+C. Thymine 
+D. Uracil 
+101. What is the unit of cell constant (l/A)? 
+A. cm⁻¹ 
+B. cm 
+C. cm² 
+D. cm⁻² 
+102. The energy of an activation complex is: 
+A. Lower than the reactants 
+B. Lower than the products 
+C. Higher than both reactants and products 
+D. Equal to the enthalpy of reaction 
+103. Which of the following blocks contains elements that are entirely metallic? 
+A. s-block 
+
+=== PAGE 21 ===
+B. p-block 
+C. d-block 
+D. Both A and C 
+104. Hydration energy depends heavily upon the: 
+A. Charge to size ratio of the ion 
+B. Atomic mass of the ion 
+C. Number of neutrons 
+D. Electron affinity 
+105. RNA differs from DNA by the presence of: 
+A. Deoxyribose sugar and Thymine 
+B. Ribose sugar and Uracil 
+C. Ribose sugar and Thymine 
+D. Deoxyribose sugar and Uracil 
+106. The dipole moment of a non-polar molecule like CH₄ is: 
+A. 1.0 D 
+B. 1.5 D 
+C. 0.0 D 
+D. 2.0 D 
+107. Which equation accurately represents the First Law of Thermodynamics? 
+A. q = ΔE + w 
+B. ΔE = q + w 
+C. ΔH = ΔE - PΔV 
+D. w = q + ΔE 
+108. An element with a standard reduction potential lower (more negative) than that of 
+hydrogen is: 
+A. Placed above hydrogen in the electrochemical series 
+B. A weaker reducing agent than hydrogen 
+
+=== PAGE 22 ===
+C. Unable to displace hydrogen from dilute acids 
+D. Placed below hydrogen in the electrochemical series 
+109. Most of the naturally occurring amino acids exist in which stereoisomeric form? 
+A. D-form 
+B. L-form 
+C. Meso-form 
+D. Racemic mixture 
+110. The catalyst used in the Contact Process for the manufacture of sulfuric acid is: 
+A. Fe 
+B. V₂O₅ 
+C. Ni 
+D. Pt 
+111. The geometry of a molecule with 2 bonding pairs and 2 lone pairs is: 
+A. Linear 
+B. Trigonal planar 
+C. V-shaped / Bent 
+D. Tetrahedral 
+112. The most common coordination number for transition metal complexes is: 
+A. 2 
+B. 4 
+C. 6 
+D. 8 
+113. If a system does work on its surroundings, the sign of the work (w) is 
+conventionally: 
+A. Positive 
+B. Negative 
+C. Zero 
+
+=== PAGE 23 ===
+D. Variable 
+114. Plaster of Paris is chemically: 
+A. CaSO₄ · 2H₂O 
+B. CaSO₄ · ½H₂O 
+C. MgSO₄ · 7H₂O 
+D. CaCO₃ 
+115. Zwitterions are formed by which class of biomolecules? 
+A. Carbohydrates 
+B. Lipids 
+C. Amino acids 
+D. Nucleic acids 
+116. Molecular orbital theory considers atomic orbitals to combine linearly. When they 
+add together, they form a: 
+A. Antibonding molecular orbital 
+B. Non-bonding molecular orbital 
+C. Bonding molecular orbital 
+D. Hybrid orbital 
+117. An increase in pressure will increase the rate of a reaction only if: 
+A. One or more reactants are gases 
+B. All reactants are solids 
+C. The reaction is exothermic 
+D. The reaction has zero order 
+118. Which element is the most abundant transition metal in the Earth's crust? 
+A. Copper 
+B. Zinc 
+C. Iron 
+D. Titanium 
+
+=== PAGE 24 ===
+119. A galvanic cell converts: 
+A. Electrical energy into chemical energy 
+B. Chemical energy into electrical energy 
+C. Thermal energy into electrical energy 
+D. Mechanical energy into chemical energy 
+120. Glycosidic bonds are primarily found in: 
+A. Proteins 
+B. Nucleic acids 
+C. Polysaccharides 
+D. Triglycerides 
+121. According to VSEPR theory, the predicted shape of the H₂S molecule is: 
+A. Linear 
+B. Bent / V-shaped 
+C. Trigonal planar 
+D. Tetrahedral 
+122. The standard reduction potential of a zinc electrode (Zn²⁺/Zn) is approximately: 
+A. +0.34 V 
+B. -0.34 V 
+C. +0.76 V 
+D. -0.76 V 
+123. What are the units of the rate constant (k) for a second-order reaction? 
+A. mol L⁻¹ s⁻¹ 
+B. L mol⁻¹ s⁻¹ 
+C. s⁻¹ 
+D. mol² L⁻² s⁻¹ 
+124. The Born-Haber cycle is primarily used to evaluate which of the following? 
+
+=== PAGE 25 ===
+A. Electronegativity 
+B. Lattice energy 
+C. Hydration energy 
+D. Activation energy 
+125. Which of the following alkali metals is the most reactive with water? 
+A. Lithium 
+B. Sodium 
+C. Potassium 
+D. Cesium 
+126. The characteristic blue color of aqueous copper(II) sulfate is due to the presence 
+of: 
+A. Cu⁺ ions 
+B. Cu²⁺ ions 
+C. SO₄²⁻ ions 
+D. H₂O molecules 
+127. The simplest naturally occurring amino acid, which lacks a chiral center, is: 
+A. Alanine 
+B. Valine 
+C. Glycine 
+D. Leucine 
+128. The ideal bond angle in a molecule of Boron Trifluoride (BF₃) is: 
+A. 90° 
+B. 109.5° 
+C. 120° 
+D. 180° 
+129. Which of the following is considered a secondary (rechargeable) cell? 
+A. Dry cell 
+
+=== PAGE 26 ===
+B. Silver oxide cell 
+C. Lead-acid accumulator 
+D. Standard hydrogen electrode 
+130. Radioactive decay of an element is an example of a: 
+A. Zero-order reaction 
+B. First-order reaction 
+C. Second-order reaction 
+D. Third-order reaction 
+131. The standard enthalpy of formation (ΔH°f) for naturally occurring elements in 
+their most stable standard state is: 
+A. Always positive 
+B. Always negative 
+C. Zero 
+D. Highly variable 
+132. Which of the following oxides of nitrogen is commonly known as "laughing 
+gas"? 
+A. NO 
+B. NO₂ 
+C. N₂O 
+D. N₂O₄ 
+133. Which of the following elements is classified as a typical transition element? 
+A. Calcium 
+B. Aluminum 
+C. Iron 
+D. Lead 
+134. In RNA, the nitrogenous base thymine is replaced by: 
+A. Adenine 
+
+=== PAGE 27 ===
+B. Guanine 
+C. Cytosine 
+D. Uracil 
+135. The carbon atoms in a benzene ring (C₆H₆) exhibit which type of hybridization? 
+A. sp 
+B. sp² 
+C. sp³ 
+D. dsp² 
+136. In both galvanic and electrolytic cells, oxidation always occurs at the: 
+A. Anode 
+B. Cathode 
+C. Salt bridge 
+D. Electrolyte surface 
+137. The Arrhenius equation quantitatively describes the effect of which variable on 
+the rate constant? 
+A. Pressure 
+B. Concentration 
+C. Temperature 
+D. Surface Area 
+138. For an endothermic reaction, the change in enthalpy (ΔH) is: 
+A. Positive 
+B. Negative 
+C. Zero 
+D. Equal to the activation energy 
+139. Elements of Group IIA in the periodic table are commonly known as: 
+A. Alkali metals 
+B. Alkaline earth metals 
+
+=== PAGE 28 ===
+C. Halogens 
+D. Noble gases 
+140. Which group of elements is historically referred to as the "coinage metals"? 
+A. Zn, Cd, Hg 
+B. Fe, Co, Ni 
+C. Cu, Ag, Au 
+D. Ru, Rh, Pd 
+141. Which of the following carbohydrates is a disaccharide? 
+A. Glucose 
+B. Fructose 
+C. Sucrose 
+D. Cellulose 
+142. A pi (π) bond is formed by the: 
+A. Head-to-head overlap of s-orbitals 
+B. Head-to-head overlap of p-orbitals 
+C. Lateral / sideways overlap of p-orbitals 
+D. Overlap of hybrid orbitals 
+143. When concentrated aqueous NaCl (brine) is electrolyzed, the gas discharged at 
+the anode is: 
+A. Hydrogen (H₂) 
+B. Oxygen (O₂) 
+C. Chlorine (Cl₂) 
+D. Sodium vapor 
+144. As a typical chemical reaction proceeds, the rate of the reaction generally: 
+A. Increases 
+B. Decreases 
+C. Remains constant 
+
+=== PAGE 29 ===
+D. Fluctuates 
+145. The specific heat capacity of liquid water is approximately: 
+A. 1.0 J g⁻¹ K⁻¹ 
+B. 2.1 J g⁻¹ K⁻¹ 
+C. 4.18 J g⁻¹ K⁻¹ 
+D. 8.31 J g⁻¹ K⁻¹ 
+146. The most abundant noble gas in the Earth's atmosphere is: 
+A. Helium 
+B. Neon 
+C. Argon 
+D. Krypton 
+147. Paramagnetism in transition metal complexes is primarily due to the presence of: 
+A. Completely filled d-orbitals 
+B. Unpaired electrons 
+C. High nuclear charge 
+D. Large ionic radii 
+148. Biological enzymes are highly sensitive to changes in: 
+A. Only temperature 
+B. Only pH 
+C. Both temperature and pH 
+D. Substrate concentration only 
+149. Diamond is an example of which type of solid? 
+A. Ionic solid 
+B. Metallic solid 
+C. Molecular solid 
+D. Covalent network solid 
+
+=== PAGE 30 ===
+150. In the Nernst equation, what does the symbol 'n' represent? 
+A. Number of moles of reactant 
+B. Number of electrons transferred in the redox reaction 
+C. Avogadro's number 
+D. The reaction quotient 
+151. A catalyst increases the rate of a chemical reaction by: 
+A. Increasing the overall enthalpy change 
+B. Providing an alternative pathway with a lower activation energy 
+C. Shifting the equilibrium to the right 
+D. Increasing the average kinetic energy of the molecules 
+152. Thermodynamic state functions depend only upon the: 
+A. Path taken by the system 
+B. Initial and final states of the system 
+C. Heat absorbed by the system 
+D. Work done on the system 
+153. The chemical formula for baking soda (sodium bicarbonate) is: 
+A. Na₂CO₃ 
+B. NaHCO₃ 
+C. NaOH 
+D. NaCl 
+154. The two most common oxidation states of Iron (Fe) are: 
+A. +1 and +2 
+B. +2 and +3 
+C. +3 and +4 
+D. +4 and +6 
+155. The amide linkage connecting amino acids in a protein chain is specifically called 
+a: 
+
+=== PAGE 31 ===
+A. Glycosidic bond 
+B. Phosphodiester bond 
+C. Peptide bond 
+D. Ester bond 
+156. Which of the following represents the strongest type of intermolecular force? 
+A. London dispersion forces 
+B. Dipole-dipole interactions 
+C. Hydrogen bonding 
+D. Ion-induced dipole forces 
+157. Fuel cells convert the chemical energy of a continuous fuel supply directly into: 
+A. Thermal energy 
+B. Mechanical energy 
+C. Electrical energy 
+D. Nuclear energy 
+158. In a zero-order reaction, the rate of the reaction is: 
+A. Directly proportional to reactant concentration 
+B. Inversely proportional to reactant concentration 
+C. Independent of reactant concentration 
+D. Proportional to the square of reactant concentration 
+159. A bomb calorimeter is typically used to measure the enthalpy of: 
+A. Neutralization 
+B. Solution 
+C. Formation 
+D. Combustion 
+160. Elements in Group VIIA of the periodic table are collectively known as: 
+A. Chalcogens 
+
+=== PAGE 32 ===
+B. Pnictogens 
+C. Halogens 
+D. Noble gases 
+161. In coordination chemistry, ligands act as: 
+A. Lewis acids 
+B. Lewis bases 
+C. Arrhenius acids 
+D. Bronsted-Lowry acids 
+162. The deficiency disease known as scurvy is caused by a lack of: 
+A. Vitamin A 
+B. Vitamin B12 
+C. Vitamin C (Ascorbic acid) 
+D. Vitamin D 
+163. A carbon-carbon triple bond (C≡C) consists of: 
+A. Three sigma bonds 
+B. One sigma bond and two pi bonds 
+C. Two sigma bonds and one pi bond 
+D. Three pi bonds 
+164. In a hydrogen-oxygen fuel cell, the final chemical product is: 
+A. H₂O₂ 
+B. OH⁻ 
+C. H₂O 
+D. O₃ 
+165. A reaction that occurs entirely in one single step is called a(n): 
+A. Complex reaction 
+B. Elementary reaction 
+
+=== PAGE 33 ===
+C. Reversible reaction 
+D. Chain reaction 
+166. The mathematical expression ΔH = ΔE + PΔV relates enthalpy to: 
+A. Entropy 
+B. Internal energy 
+C. Free energy 
+D. Specific heat 
+167. Borax is a naturally occurring compound of which element? 
+A. Beryllium 
+B. Boron 
+C. Barium 
+D. Bismuth 
+168. The catalyst most commonly used in the Haber process for synthesizing 
+ammonia is: 
+A. Platinum 
+B. Nickel 
+C. Iron 
+D. Vanadium pentoxide 
+169. Cholesterol and testosterone belong to which major class of biological 
+molecules? 
+A. Proteins 
+B. Carbohydrates 
+C. Lipids (Steroids) 
+D. Nucleic acids 
+170. A chemical bond formed between two elements with a very large difference in 
+electronegativity will be predominantly: 
+A. Non-polar covalent 
+B. Polar covalent 
+
+=== PAGE 34 ===
+C. Ionic 
+D. Metallic 
+171. The total electrical charge carried by one mole of electrons is equal to: 
+A. 1 Ampere 
+B. 1 Volt 
+C. 1 Coulomb 
+D. 1 Faraday 
+172. The unstable, high-energy arrangement of atoms at the peak of the activation 
+energy barrier is called the: 
+A. Reaction intermediate 
+B. Activated complex (Transition state) 
+C. Product aggregate 
+D. Catalyst complex 
+173. The heat absorbed or evolved by a system at constant volume (qv) is equal to the 
+change in: 
+A. Enthalpy (ΔH) 
+B. Entropy (ΔS) 
+C. Internal Energy (ΔE) 
+D. Gibbs Free Energy (ΔG) 
+174. Phosphorus typically exhibits which set of oxidation states in its common 
+compounds? 
+A. +1 and +3 
+B. +2 and +4 
+C. +3 and +5 
+D. -1 and -2 
+175. Which of the following is a classic example of a hexadentate chelating agent? 
+A. Ammonia (NH₃) 
+B. Water (H₂O) 
+
+=== PAGE 35 ===
+C. Oxalate ion (C₂O₄²⁻) 
+D. EDTA 
+176. The central metal ion present in a molecule of hemoglobin is: 
+A. Magnesium 
+B. Iron 
+C. Cobalt 
+D. Zinc 
+177. According to Molecular Orbital Theory, how many unpaired electrons are present 
+in an O₂ molecule? 
+A. 0 
+B. 1 
+C. 2 
+D. 3 
+178. The primary function of a salt bridge in a galvanic cell is to: 
+A. Allow electrons to flow between half-cells 
+B. Maintain electrical neutrality in the half-cells 
+C. Provide water for the redox reactions 
+D. Act as an electrode 
+179. Photochemical reactions, whose rates depend strictly on the intensity of 
+absorbed light rather than reactant concentration, are generally: 
+A. Zero order 
+B. First order 
+C. Second order 
+D. Third order 
+180. Hess's Law of constant heat summation is directly based on the principle of: 
+A. Conservation of mass 
+B. Conservation of energy 
+
+=== PAGE 36 ===
+C. Conservation of momentum 
+D. Entropy maximization 
+181. The bond angle in a regular tetrahedral molecule like methane (CH₄) is: 
+A. 90° 
+B. 104.5° 
+C. 107.5° 
+D. 109.5° 
+182. Which of the following thermodynamic properties is a measure of the 
+randomness or disorder of a system? 
+A. Enthalpy (H) 
+B. Entropy (S) 
+C. Internal Energy (E) 
+D. Free Energy (G) 
+183. Which of the following elements is classified as an s-block element? 
+A. Carbon 
+B. Magnesium 
+C. Chlorine 
+D. Iron 
+184. The rate constant of a chemical reaction is independent of: 
+A. Temperature 
+B. Activation energy 
+C. Presence of a catalyst 
+D. Initial concentration of reactants 
+185. The structure of DNA was famously elucidated as a double helix by: 
+A. Watson and Crick 
+B. Linus Pauling 
+C. Rosalind Franklin 
+
+=== PAGE 37 ===
+D. Gregor Mendel 
+186. Which of the following coordination compounds exhibits optical isomerism? 
+A. [PtCl₄]²⁻ 
+B. [Co(en)₃]³⁺ 
+C. [Ni(CO)₄] 
+D. [Cu(NH₃)₄]²⁺ 
+187. The standard reduction potentials of four metals P, Q, R, and S are -3.05 V, -1.66 
+V, +0.34 V, and +0.80 V respectively. Which of them is the strongest reducing agent? 
+A. P 
+B. Q 
+C. R 
+D. S 
+188. For a reversible reaction at chemical equilibrium, the value of Gibbs free energy 
+change (ΔG) is: 
+A. Positive 
+B. Negative 
+C. Zero 
+D. Infinity 
+189. The hybridization of the central nitrogen atom in an ammonia (NH₃) molecule is: 
+A. sp 
+B. sp² 
+C. sp³ 
+D. dsp³ 
+190. Which of the following polysaccharides is used by plants for structural support 
+in cell walls? 
+A. Amylose 
+B. Amylopectin 
+C. Glycogen 
+
+=== PAGE 38 ===
+D. Cellulose 
+191. The unit of the rate of a chemical reaction is typically expressed as: 
+A. mol L⁻¹ 
+B. mol L⁻¹ s⁻¹ 
+C. s⁻¹ 
+D. L mol⁻¹ s⁻¹ 
+192. Which of the following metals burns with a characteristic brick-red flame? 
+A. Sodium 
+B. Potassium 
+C. Calcium 
+D. Strontium 
+193. The term "coordination number" of a metal ion in a complex refers to the: 
+A. Total number of electrons around the central metal 
+B. Total number of bonds formed by the metal with ligands 
+C. Number of coordinate covalent bonds attached directly to the central metal ion 
+D. Oxidation state of the metal ion 
+194. The hydrolysis of sucrose yields which of the following equimolar mixtures? 
+A. Glucose and Galactose 
+B. Glucose and Fructose 
+C. Fructose and Galactose 
+D. Two molecules of Glucose 
+195. According to the First Law of Thermodynamics, energy can be: 
+A. Created out of nothing 
+B. Destroyed completely 
+C. Converted from one form to another 
+D. Converted into absolute mass 
+
+=== PAGE 39 ===
+196. Which halogen exhibits a solid state at room temperature and readily sublimes? 
+A. Fluorine 
+B. Chlorine 
+C. Bromine 
+D. Iodine 
+197. The minimum kinetic energy that colliding reactant molecules must possess to 
+undergo a chemical reaction is called: 
+A. Lattice energy 
+B. Activation energy 
+C. Ionization energy 
+D. Bond dissociation energy 
+198. Which of the following functional groups is characteristic of all amino acids? 
+A. Carboxyl and hydroxyl groups 
+B. Amino and carbonyl groups 
+C. Amino and carboxyl groups 
+D. Hydroxyl and ester groups 
+199. The electronic configuration of a chromium atom (Cr, atomic number 24) in its 
+ground state is: 
+A. [Ar] 4s² 3d⁴ 
+B. [Ar] 4s¹ 3d⁵ 
+C. [Ar] 4s² 3d³ 
+D. [Ar] 4s⁰ 3d⁶ 
+200. In an electrochemical cell, the function of the salt bridge is to complete the 
+electrical circuit and: 
+A. Pump electrons from cathode to anode 
+B. Prevent the accumulation of charge imbalance in the half-cells 
+C. Supply metal ions to the electrolyte solutions 
+D. Generate thermal energy 
+
+=== PAGE 40 ===
+ 
+ 

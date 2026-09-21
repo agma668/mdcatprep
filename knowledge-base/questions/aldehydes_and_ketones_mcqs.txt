@@ -1,0 +1,1124 @@
+ [Skip to content](#content)
+
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[MCQUniverse](https://www.mcquniverse.pk/)
+
+[Sign up](https://www.mcquniverse.pk/)[Sign up](https://www.mcquniverse.pk/)
+
+# Most Important Aldehydes And Ketones MCQs with Answers
+
+## Aldehydes And Ketones MCQs with Answers
+
+Which of the following functional groups is characteristic of both aldehydes and ketones?
+
+Hydroxyl group
+
+Carboxyl group
+
+Ether group
+
+**Carbonyl group**
+
+**Explanation:**
+
+Organic compounds containing the carbonyl functional group (C=O) are called carbonyl compounds, which include both aldehydes and ketones.
+
+In an aldehyde, the carbonyl group is bonded to at least one:
+
+Alkyl group
+
+Oxygen atom
+
+Carbon atom
+
+**Hydrogen atom**
+
+**Explanation:**
+
+In aldehydes, the carbonyl group is bonded to at least one hydrogen atom, and thus it occurs at the end of a chain.
+
+What is the general formula for a ketone?
+
+**Explanation:**
+
+A ketone may be represented by the general formula R-C(=O)-R', where the carbonyl group is bonded to two carbon atoms within a chain.
+
+The common name for H-C(=O)-H is:
+
+**Explanation:**
+
+H-C(=O)-H is commonly known as Formaldehyde.
+
+What is the IUPAC name for CH₃-C(=O)-H?
+
+Propanal
+
+**Explanation:**
+
+The IUPAC name for CH₃-C(=O)-H is Ethanal. IUPAC names of aldehydes are derived from alkanes by replacing the 'e' with 'al'.
+
+Which of the following aldehydes would have "Propionaldehyde" as its common name?
+
+**Explanation:**
+
+Propionic acid has three carbons, so its corresponding aldehyde is CH₃-CH₂-C(=O)-H, which is called Propionaldehyde.
+
+In the common naming of aldehydes, Greek letters are used to indicate the positions of other groups. Which letter indicates the carbon atom adjacent to the carbonyl group?
+
+**Explanation:**
+
+The carbon adjacent to the carbonyl group is designated as the α-carbon in common naming.
+
+What is the common name for CH₃-C(=O)-CH₃?
+
+Ethyl methyl ketone
+
+Diethyl ketone
+
+**Explanation:**
+
+CH₃-C(=O)-CH₃ is commonly known as Acetone. It is also called Dimethyl ketone.
+
+When naming ketones using common names, how are the alkyl groups listed?
+
+By size (smallest to largest)
+
+By size (largest to smallest)
+
+In order of their attachment to the carbonyl carbon
+
+**Explanation:**
+
+Common names of ketones list the alkyl groups in alphabetical order before the word 'ketone'.
+
+What is the IUPAC name for CH₃-CH₂-C(=O)-CH₃?
+
+Acetone
+
+Ethyl methyl ketone
+
+**Butanone**
+
+**Explanation:**
+
+CH₃-CH₂-C(=O)-CH₃ is a four-carbon compound with a ketone at the second carbon, so its IUPAC name is Butanone (or 2-Butanone).
+
+Aldehydes are generally obtained by the oxidation of which type of alcohols?
+
+Tertiary alcohols
+
+Secondary alcohols
+
+Phenols
+
+**Primary alcohols**
+
+**Explanation:**
+
+Aldehydes are obtained by the oxidation of primary alcohols.
+
+Ketones are generally prepared by the oxidation of which type of alcohols?
+
+Primary alcohols
+
+Tertiary alcohols
+
+Enols
+
+**Secondary alcohols**
+
+**Explanation:**
+
+Ketones are prepared by the oxidation of secondary alcohols.
+
+Besides the oxidation of secondary alcohols, ketones can also be prepared by the:
+
+Hydration of alkanes
+
+Dehydration of primary alcohols
+
+Reduction of carboxylic acids
+
+**Hydration of alkynes**
+
+**Explanation:**
+
+Ketones are also prepared by hydration of alkynes.
+
+In the laboratory preparation of formaldehyde, methyl alcohol vapours and air are passed over which catalyst at 300 °C?
+
+Nickel catalyst
+
+Zinc oxide
+
+Palladium chloride
+
+**Platinised asbestos**
+
+**Explanation:**
+
+Formaldehyde is prepared in the laboratory by passing a mixture of methyl alcohol vapours and air over platinised asbestos or copper or silver catalyst at 300 °C.
+
+Formalin is a mixture containing 40% formaldehyde, 8% methyl alcohol, and what percentage of water?
+
+25%
+
+60%
+
+40%
+
+**52%**
+
+**Explanation:**
+
+Formalin is a mixture of 40% formaldehyde, 8% methyl alcohol and 52% water.
+
+For the industrial preparation of formaldehyde, methanol vapours and air are passed over which catalyst at 500 °C?
+
+Platinum
+
+Copper
+
+Zinc amalgam
+
+**Iron oxide-molybdenum oxide**
+
+**Explanation:**
+
+Formaldehyde is manufactured by passing a mixture of methanol vapours and air over iron oxide-molybdenum oxide or silver catalyst at 500 °C.
+
+In the laboratory preparation of acetaldehyde, ethyl alcohol is oxidized using:
+
+Neutral KMnO₄ solution
+
+Basic K₂Cr₂O₇ solution
+
+Hydrogen peroxide
+
+**Acidified sodium dichromate solution**
+
+**Explanation:**
+
+Acetaldehyde is prepared in the laboratory by the oxidation of ethyl alcohol with acidified sodium dichromate solution.
+
+Why is acetaldehyde distilled off immediately during its laboratory preparation from ethyl alcohol oxidation?
+
+To increase the yield
+
+To prevent its polymerization
+
+To separate it from unreacted ethyl alcohol
+
+**To prevent its further oxidation to acetic acid**
+
+**Explanation:**
+
+The acetaldehyde formed in liquid state is immediately distilled off during its preparation to prevent its oxidation to acetic acid.
+
+Acetaldehyde can also be prepared by the dry distillation of a mixture of calcium salts of which two acids?
+
+Acetic acid and propanoic acid
+
+Butyric acid and formic acid
+
+Oxalic acid and malonic acid
+
+**Formic acid and acetic acid**
+
+**Explanation:**
+
+Acetaldehyde can also be prepared by the dry distillation of a mixture of calcium salts of formic acid and acetic acid.
+
+Industrially, acetaldehyde is prepared by the air oxidation of ethylene using which catalyst system?
+
+Ni/Al₂O₃
+
+FeO₃/Mo₂O₃
+
+Raney Nickel
+
+**Palladium chloride catalyst**
+
+**Explanation:**
+
+Acetaldehyde is prepared industrially by air oxidation of ethylene using palladium chloride catalyst with a cupric chloride promoter.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Acetone is prepared by the dry distillation of:
+
+Calcium formate
+
+Calcium propanoate
+
+Calcium oxalate
+
+**Calcium acetate**
+
+**Explanation:**
+
+Acetone is prepared by dry distillation of calcium acetate.
+
+The industrial method for formaldehyde production uses a temperature of 500 °C, while the laboratory method uses:
+
+100 °C
+
+200 °C
+
+400 °C
+
+**300 °C**
+
+**Explanation:**
+
+The industrial method uses 500°C, while the laboratory method for formaldehyde uses 300°C.
+
+In the preparation of formaldehyde in the laboratory, what is used to draw air through methyl alcohol?
+
+A condenser
+
+A heating mantle
+
+A dropping funnel
+
+**A suction pump**
+
+**Explanation:**
+
+Air is drawn through methyl alcohol with the help of a suction pump.
+
+The reaction: 2CH₃OH + O₂ —Pt-asbestos, 300°C→ 2H−C=O + 2H₂O represents the laboratory preparation of:
+
+Acetaldehyde
+
+Acetone
+
+Ethanol
+
+**Formaldehyde**
+
+**Explanation:**
+
+This reaction specifically shows the laboratory preparation of formaldehyde.
+
+The carbonyl group possesses a σ-bond and a π-bond, allowing it to primarily undergo which type of reactions?
+
+Elimination reactions
+
+Substitution reactions
+
+Rearrangement reactions
+
+**Addition reactions**
+
+**Explanation:**
+
+The carbonyl group has a σ-bond and a π-bond, allowing it to undergo addition reactions. Most reagents react with the carbonyl group by adding to it.
+
+Why is the carbonyl group considered a polar group?
+
+Carbon is more electronegative than oxygen.
+
+The double bond restricts electron movement.
+
+It has a linear geometry.
+
+**Oxygen tends to attract electrons to itself, creating partial charges.**
+
+**Explanation:**
+
+As oxygen is more electronegative, it tends to attract the electrons to itself, making the carbonyl group a polar group.
+
+In the carbonyl group (C=O), which atom has a partial positive charge and is electrophilic?
+
+Oxygen atom
+
+Both carbon and oxygen atoms
+
+Neither carbon nor oxygen atom
+
+**Carbon atom**
+
+**Explanation:**
+
+The carbon atom in the carbonyl group has a partial positive charge and is electrophilic.
+
+The characteristic reactions of carbonyl compounds are primarily:
+
+Electrophilic substitution reactions
+
+Free radical addition reactions
+
+Acid-base reactions
+
+**Nucleophilic addition reactions**
+
+**Explanation:**
+
+Most of the reactions of the carbonyl group are considered to be nucleophilic addition reactions, which are the characteristic reactions of carbonyl compounds.
+
+In nucleophilic addition reactions of aldehydes and ketones, which part of the reagent typically combines with the electrophilic carbon of the carbonyl group?
+
+The positive part
+
+The neutral part
+
+Both positive and negative parts simultaneously
+
+**The negative part**
+
+**Explanation:**
+
+In these reactions, the negative part of the reagent combines with the electrophilic carbon of the carbonyl group.
+
+How does a base catalyst affect nucleophilic addition reactions of carbonyl compounds?
+
+It decreases the electrophilic character of the carbonyl carbon.
+
+It increases the positive character of the carbonyl carbon.
+
+It facilitates the removal of the positive part of the reagent.
+
+**It increases the nucleophilic character of the reagent.**
+
+**Explanation:**
+
+A base catalyst increases the nucleophilic character of the reagent.
+
+How does an acid catalyst promote nucleophilic attack in carbonyl compounds?
+
+By generating a strong nucleophile
+
+By decreasing the electrophilic character of the carbonyl carbon
+
+By stabilizing the negative charge on oxygen.
+
+**By increasing the electrophilic character of the carbonyl carbon atom.**
+
+**Explanation:**
+
+An acid catalyst promotes the nucleophilic attack by increasing the positive character (electrophilic character) of the carbonyl carbon atom.
+
+In nucleophilic addition reactions of aldehydes and ketones, the positive part of the reagent, which is usually hydrogen, goes to which atom?
+
+The carbon atom of the carbonyl group
+
+An adjacent alkyl group
+
+The solvent
+
+**The oxygen atom of the carbonyl group**
+
+**Explanation:**
+
+The positive part of the reagent, which is usually hydrogen, goes to the oxygen atom of the carbonyl group.
+
+Which statement accurately compares the adduct formed in base-catalysed versus acid-catalysed nucleophilic addition reactions?
+
+The adduct is different for each catalyst.
+
+Base-catalysed reactions form a more stable adduct.
+
+Acid-catalysed reactions form a more stable adduct.
+
+**The adduct is the same for both catalysts.**
+
+**Explanation:**
+
+Whether the addition is base-catalysed or acid-catalysed, the adduct is the same.
+
+The first step in a base-catalysed nucleophilic addition reaction involves:
+
+Protonation of the carbonyl oxygen.
+
+Attack of an electrophile on the carbonyl carbon.
+
+Formation of a carbocation.
+
+**The base reacting with the reagent to generate the nucleophile.**
+
+**Explanation:**
+
+A base-catalysed nucleophilic addition reaction will take place with a strong nucleophilic reagent. The base reacts with the reagent and generates the nucleophile.
+
+What is the general characteristic reaction of carbonyl compounds like aldehydes and ketones?
+
+Electrophilic substitution
+
+Free radical addition
+
+Elimination
+
+**Nucleophilic addition**
+
+**Explanation:**
+
+Most reactions of the carbonyl group are nucleophilic addition reactions, which are characteristic of carbonyl compounds.
+
+In nucleophilic addition reactions, which atom of the carbonyl group is attacked by the nucleophile?
+
+Oxygen atom
+
+Both carbon and oxygen atoms simultaneously
+
+Hydrogen atom (if present)
+
+**Carbon atom**
+
+**Explanation:**
+
+The negative part of the reagent (nucleophile) combines with the electrophilic carbon of the carbonyl group.
+
+Which of the following describes the role of a base catalyst in nucleophilic addition reactions?
+
+It protonates the carbonyl oxygen.
+
+It increases the electrophilic character of the carbonyl carbon.
+
+It removes water from the reaction.
+
+**It increases the nucleophilic character of the reagent.**
+
+**Explanation:**
+
+A base catalyst increases the nucleophilic character of the reagent, making it a stronger nucleophile.
+
+How does an acid catalyst facilitate nucleophilic addition reactions?
+
+By decreasing the electrophilic character of the carbonyl carbon.
+
+By generating a stronger nucleophile.
+
+By stabilizing the negative charge on the attacking nucleophile.
+
+**By increasing the positive character of the carbonyl carbon atom.**
+
+**Explanation:**
+
+An acid catalyst promotes nucleophilic attack by increasing the electrophilic character(positive character) of the carbonyl carbon atom through protonation of the carbonyl oxygen.
+
+The addition of hydrogen cyanide (HCN) to aldehydes and ketones results in the formation of:
+
+Alkenes
+
+Carboxylic acids
+
+Amines
+
+**Cyanohydrins**
+
+**Explanation:**
+
+Aldehydes and ketones react with hydrogen cyanide to form cyanohydrins.
+
+In the addition of HCN to a carbonyl compound, the reaction is usually catalysed by:
+
+Strong acid
+
+Lewis acid
+
+Neutral salt
+
+**Strong base**
+
+**Explanation:**
+
+The addition of HCN to carbonyl compounds is usually catalysed by a strong base like NaOH or K₂CO₃. The base produces a cyanide ion (CN⁻), which is a strong nucleophile.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Which of the following is a key step in the base-catalysed addition of HCN?
+
+Protonation of the carbonyl oxygen.
+
+Attack by H⁺ on the carbonyl carbon.
+
+Elimination of water.
+
+**Reaction of the base with HCN to generate CN⁻.**
+
+**Explanation:**
+
+In the first step of base-catalysed addition of HCN, the base reacts with HCN to generate the strongly nucleophilic cyanide ion (CN⁻).
+
+What type of compounds are formed when Grignard reagents react with aldehydes and ketones, followed by hydrolysis?
+
+Carboxylic acids
+
+Alkanes
+
+Ethers
+
+**Alcohols**
+
+**Explanation:**
+
+Grignard reagents react with aldehydes and ketones to form addition products which, on hydrolysis, yield alcohols.
+
+Reaction of formaldehyde with a Grignard reagent, followed by hydrolysis, gives a:
+
+Secondary alcohol
+
+Tertiary alcohol
+
+Ether
+
+**Primary alcohol**
+
+**Explanation:**
+
+Formaldehyde reacts with Grignard reagents to yield primary alcohols.
+
+Reaction of any aldehyde (other than formaldehyde) with a Grignard reagent, followed by hydrolysis, gives a:
+
+Primary alcohol
+
+Tertiary alcohol
+
+Alkene
+
+**Secondary alcohol**
+
+**Explanation:**
+
+Any aldehyde other than formaldehyde reacts with Grignard reagents to yield secondary alcohols.
+
+Reaction of a ketone with a Grignard reagent, followed by hydrolysis, gives a:
+
+Primary alcohol
+
+Secondary alcohol
+
+Aldehyde
+
+**Tertiary alcohol**
+
+**Explanation:**
+
+Ketones react with Grignard reagents to yield tertiary alcohols.
+
+What is the product formed when sodium bisulphite adds to an aldehyde or ketone?
+
+An insoluble solid
+
+An alkene
+
+A carboxylic acid
+
+**A bisulphite addition product**
+
+**Explanation:**
+
+Aldehydes and ketones react with a saturated solution of sodium bisulphite (NaHSO₃) to form bisulphite addition products.
+
+The bisulphite addition product is generally crystalline and water-soluble. How can the original aldehyde or ketone be regenerated from it?
+
+By oxidation
+
+By reduction
+
+By reaction with HCN
+
+**By heating with acid or alkali**
+
+**Explanation:**
+
+The original aldehyde or ketone can be regenerated from the bisulphite addition product by heating with an acid or alkali. This property is used in the separation and purification of carbonyl compounds.
+
+The addition of sodium bisulphite is reversible. For which type of carbonyl compounds is this addition particularly useful for purification?
+
+Only large ketones
+
+Only aromatic aldehydes
+
+High molecular weight aldehydes only
+
+**Low molecular weight aldehydes and ketones**
+
+**Explanation:**
+
+Bisulphite addition products are generally crystalline solids. This reaction is particularly useful for the separation and purification of low molecular weight aldehydes and ketones from non-carbonyl compounds.
+
+What type of reaction involves the joining of two molecules with the elimination of a small molecule like water?
+
+Substitution reaction
+
+Addition reaction
+
+Rearrangement reaction
+
+**Condensation reaction**
+
+**Explanation:**
+
+Condensation reaction is a reaction where two or more molecules combine with the elimination of a simple molecule like water, ammonia, or an alcohol.
+
+What kind of compounds are formed when aldehydes and ketones react with ammonia derivatives?
+
+Ethers
+
+Alcohols
+
+Carboxylic acids
+
+**Compounds containing the C=N-G group and water**
+
+**Explanation:**
+
+Aldehydes and ketones react with ammonia derivatives, G-NH₂, to form compounds containing the group, C=N-G and water.
+
+The reaction of aldehydes and ketones with ammonia derivatives is considered a condensation reaction because:
+
+It requires high pressure.
+
+It forms a larger molecule.
+
+It is reversible.
+
+**Water is lost after addition occurs.**
+
+**Explanation:**
+
+This reaction is known as a condensation reaction or addition-elimination reaction because water is lost after addition occurs.
+
+The reaction of aldehydes and ketones with ammonia derivatives is typically catalysed by:
+
+Base
+
+Light
+
+Heat
+
+**Acid**
+
+**Explanation:**
+
+The reaction of aldehydes and ketones with ammonia derivatives is acid catalysed.
+
+Why are aldehydes generally more reactive than ketones towards nucleophilic addition reactions?
+
+Aldehydes are more sterically hindered.
+
+The carbonyl carbon in aldehydes is less electrophilic.
+
+Aldehydes have stronger C=O bonds.
+
+**Ketones have two bulky alkyl groups increasing steric hindrance and decreasing electrophilicity.**
+
+**Explanation:**
+
+Ketones are less reactive than aldehydes due to two reasons: (1) steric hindrance: ketones have two bulky alkyl groups, increasing hindrance to nucleophilic attack; (2) electronic effects: two alkyl groups in ketones release electrons, decreasing the positive charge on the carbonyl carbon and making it less electrophilic compared to aldehydes.
+
+Which of the following compounds would be most reactive towards nucleophilic addition?
+
+Acetone
+
+Acetaldehyde
+
+Diethyl ketone
+
+**Formaldehyde**
+
+**Explanation:**
+
+Formaldehyde (HCHO) is the most reactive aldehyde/ketone towards nucleophilic addition because it has the least steric hindrance (two hydrogen atoms attached to the carbonyl carbon) and no electron-donating alkyl groups to reduce the electrophilicity of the carbonyl carbon. Reactivity decreases as steric hindrance and electron donation increase.
+
+Aldehydes can be reduced to which type of alcohol?
+
+Tertiary alcohol
+
+Secondary alcohol
+
+Dihydric alcohol
+
+**Primary alcohol**
+
+**Explanation:**
+
+Aldehydes are reduced to primary alcohols.
+
+Ketones can be reduced to which type of alcohol?
+
+Primary alcohol
+
+Tertiary alcohol
+
+Trihydric alcohol
+
+**Secondary alcohol**
+
+**Explanation:**
+
+Ketones are reduced to secondary alcohols.
+
+Which of the following is a common reducing agent used for the reduction of aldehydes and ketones to alcohols?
+
+KMnO₄
+
+K₂Cr₂O₇
+
+Tollens' reagent
+
+**NaBH₄**
+
+**Explanation:**
+
+Aldehydes and ketones can be reduced to alcohols by sodium borohydride (NaBH₄) or lithium aluminum hydride (LiAlH₄).
+
+The reduction of aldehydes and ketones using hydrogen in the presence of a catalyst like nickel or platinum is known as:
+
+Oxidation
+
+Hydration
+
+Dehydration
+
+**Hydrogenation**
+
+**Explanation:**
+
+The addition of hydrogen across the carbonyl group in the presence of a catalyst like nickel or platinum is called catalytic hydrogenation.
+
+What type of reaction is the reduction of a carbonyl group to a hydroxyl group?
+
+Oxidation
+
+Substitution reaction
+
+Elimination reaction
+
+**Addition reaction**
+
+**Explanation:**
+
+The reduction of aldehydes and ketones is a type of addition reaction, specifically the addition of hydrogen.
+
+Which of the following reducing agents is generally more powerful and used for a wider range of reductions, including carboxylic acids?
+
+NaBH₄
+
+Zn-Hg/HCl
+
+Na/C₂H₅OH
+
+**LiAlH₄**
+
+**Explanation:**
+
+Lithium aluminum hydride (LiAlH₄) is a more powerful reducing agent than sodium borohydride (NaBH₄) and can reduce carboxylic acids and their derivatives, whereas NaBH₄ is selective for aldehydes and ketones.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+When 2-propanone (acetone) is reduced, what is the product formed?
+
+1-propanol
+
+Propanal
+
+Propane
+
+**2-propanol**
+
+**Explanation:**
+
+Acetone is a ketone; ketones reduce to secondary alcohols. 2-propanone reduces to 2-propanol.
+
+The reduction of ethanal will yield:
+
+Methane
+
+Ethanoic acid
+
+Ethane
+
+**Ethanol**
+
+**Explanation:**
+
+Ethanal is an aldehyde; aldehydes reduce to primary alcohols. Ethanal reduces to ethanol.
+
+The general equation for the reduction of an aldehyde to a primary alcohol can be represented as:
+
+R-CHO + [O] → R-COOH
+
+R-C(=O)-R' + 2[H] → R-CH(OH)-R'
+
+R-CH₂OH → R-CHO + H₂
+
+**R-CHO + 2[H] → R-CH₂OH**
+
+**Explanation:**
+
+This equation shows the addition of two hydrogen atoms to an aldehyde to form a primary alcohol.
+
+Which reduction method for aldehydes and ketones involves the use of sodium and ethanol?
+
+Catalytic hydrogenation
+
+Clemmensen reduction
+
+Wolff-Kishner reduction
+
+**Bouveault-Blanc reduction**
+
+**Explanation:**
+
+The reduction of aldehydes and ketones using sodium and ethanol is known as the Bouveault-Blanc reduction.
+
+Aldehydes are generally oxidized to which class of compounds?
+
+Alcohols
+
+Alkenes
+
+Esters
+
+**Carboxylic acids**
+
+**Explanation:**
+
+Aldehydes are readily oxidized to carboxylic acids containing the same number of carbon atoms.
+
+Why are aldehydes more easily oxidized than ketones?
+
+Because of the presence of an alkyl group.
+
+Because of steric hindrance.
+
+Because ketones have stronger C=O bonds.
+
+**Because of the presence of a hydrogen atom directly attached to the carbonyl carbon.**
+
+**Explanation:**
+
+Aldehydes are easily oxidized because they contain a hydrogen atom attached to the carbonyl carbon. Ketones lack this hydrogen atom, making them more resistant to oxidation.
+
+Which of the following is a strong oxidizing agent used to oxidize aldehydes to carboxylic acids?
+
+NaBH₄
+
+LiAlH₄
+
+Sodium bisulphite
+
+**Acidified potassium dichromate**
+
+**Explanation:**
+
+Aldehydes can be oxidized by strong oxidizing agents like acidified potassium dichromate (K₂Cr₂O₇/H₂SO₄) or potassium permanganate (KMnO₄).
+
+Which reagent is commonly used to distinguish between aldehydes and ketones due to its ability to oxidize aldehydes but not most ketones?
+
+Grignard reagent
+
+Sodium borohydride
+
+Hydrogen cyanide
+
+**Tollens' reagent**
+
+**Explanation:**
+
+Tollens' reagent is a mild oxidizing agent that oxidizes aldehydes but generally not ketones, making it useful for distinguishing between them.
+
+What is the characteristic visible change observed when an aldehyde reacts with Tollens' reagent?
+
+Formation of a yellow precipitate.
+
+Evolution of a gas.
+
+Disappearance of purple color.
+
+**Formation of a silver mirror or black precipitate.**
+
+**Explanation:**
+
+When an aldehyde is warmed with Tollens' reagent, a shining silver mirror is formed on the inner side of the test tube, or a black precipitate of silver may appear.
+
+Tollens' reagent is an ammoniacal solution of:
+
+Cupric oxide
+
+Ferric chloride
+
+Lead acetate
+
+**Silver nitrate**
+
+**Explanation:**
+
+Tollens' reagent is an ammoniacal solution of silver nitrate.
+
+When an aldehyde is oxidized by Fehling's solution, what characteristic change is observed?
+
+Formation of a silver mirror.
+
+Evolution of carbon dioxide.
+
+Formation of a yellow solution.
+
+**Disappearance of blue color and formation of a red precipitate.**
+
+**Explanation:**
+
+Fehling's solution is a deep blue alkaline solution of cupric ions. When warmed with an aldehyde, the blue color disappears, and a red precipitate of cuprous oxide (Cu₂O) is formed.
+
+Fehling's solution consists of two solutions, Fehling's solution A and Fehling's solution B. What is Fehling's solution B?
+
+Aqueous copper sulfate
+
+Ammoniacal silver nitrate
+
+Dilute nitric acid
+
+**Alkaline solution of sodium potassium tartrate**
+
+**Explanation:**
+
+Fehling's solution B is an alkaline solution of sodium potassium tartrate (Rochelle salt). Fehling's solution A is an aqueous solution of copper sulfate.
+
+Ketones can be oxidized under vigorous conditions (strong oxidizing agents and high temperature) resulting in the cleavage of C-C bonds adjacent to the carbonyl group. What is the usual outcome regarding the number of carbon atoms in the products?
+
+Products with more carbon atoms than the original ketone.
+
+Products with the same number of carbon atoms as the original ketone.
+
+Alkenes with fewer carbon atoms.
+
+**A mixture of carboxylic acids with fewer carbon atoms than the original ketone.**
+
+**Explanation:**
+
+Under vigorous conditions, ketones undergo oxidation by the breaking of C-C bonds adjacent to the carbonyl group, forming a mixture of carboxylic acids with fewer carbon atoms than the original ketone.
+
+The Haloform reaction is a specific oxidation reaction that detects the presence of:
+
+All aldehydes
+
+All ketones
+
+Carboxylic acids
+
+**secondary alcohols**
+
+**Explanation:**
+
+The haloform reaction (e.g., iodoform test) is used to detect the presence of methyl ketones (compounds containing a CH₃-C(=O)- group) or secondary alcohols that can be oxidized to methyl ketones.
+
+## Other Chemistry Topics MCQs
+
+We have also prepared the following set of MCQsfor your Entry test preparation in quick way like MDCAT, ECAT and Armed forces test. WE WISH YOU BEST OF LUCK!
+
+[Basic Concept MCQs](https://www.mcquniverse.pk/chemistry-mcqs/basic-concept-mcqs/)
+
+[Atomic Structure MCQs](https://www.mcquniverse.pk/chemistry-mcqs/atomic-structure-mcqs/)
+
+[Gases MCQs](https://www.mcquniverse.pk/chemistry-mcqs/gases-mcqs/)
+
+[Liquids MCQs](https://www.mcquniverse.pk/chemistry-mcqs/liquids-mcqs/)
+
+[Solids MCQs](https://www.mcquniverse.pk/chemistry-mcqs/solids-mcqs/)
+
+[Chemical Equilibrium MCQs](https://www.mcquniverse.pk/chemistry-mcqs/chemical-equilibrium-mcqs/)
+
+[Reaction Kinectics MCQs](https://www.mcquniverse.pk/chemistry-mcqs/reaction-kinetics-quiz/)
+
+[Thermochemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/thermochemistry-mcqs/)
+
+[Electrochemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/electrochemistry-mcqs/)
+
+[Chemical Bonding MCQs](https://www.mcquniverse.pk/chemistry-mcqs/chemical-bonding-mcqs/)
+
+[Transition Elements MCQs](https://www.mcquniverse.pk/chemistry-mcqs/transition-elements-mcqs/)
+
+[S And P Block Elements MCQs](https://www.mcquniverse.pk/chemistry-mcqs/s-and-p-block-elements-mcqs/)
+
+[Fundamental Principles Of Organic Chemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/fundamental-principles-of-organic-chemistry-mcqs/)
+
+[Hydrocarbons MCQs](https://www.mcquniverse.pk/chemistry-mcqs/hydrocarbons-mcqs/)
+
+[Alkyl Halides MCQs](https://www.mcquniverse.pk/chemistry-mcqs/alkyl-halides-mcqs/)
+
+[Alcohols And Phenols MCQs](https://www.mcquniverse.pk/chemistry-mcqs/alcohols-and-phenols-mcqs/)
+
+[Aldehydes And Ketones MCQs](https://www.mcquniverse.pk/chemistry-mcqs/aldehydes-and-ketones-mcqs/)
+
+[Macromolecules MCQs](https://www.mcquniverse.pk/chemistry-mcqs/macromolecules-mcqs/)
+
+[Carboxylic Acid MCQs](https://www.mcquniverse.pk/chemistry-mcqs/carboxylic-acid-mcqs/)
+
+[Industrial Chemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/industrial-chemistry-mcqs/)
+
+### Leave a Reply [Cancel reply](/chemistry-mcqs/aldehydes-and-ketones-mcqs/#respond)
+
+×🌐 Website-Wide Premium Access
+
+### Unlock All Quizzes & MCQs
+
+🚀 **One Subscription Unlocks Everything!** 
+ Get 100% full access to ALL quizzes, MCQs & detailed explanations across the entire website.
+
+1 Week
+
+Rs 199
+
+Full Site Access
+
+BEST VALUE
+
+1 Month
+
+Rs 499
+
+Full Site Access
+
+📌 How to Activate:
+
+1. Send fee for your plan to JazzCash or EasyPaisa below.
+2. Click WhatsApp button & send payment screenshot to Admin.
+3. **Instant Activation** within 10 minutes!
+
+JazzCash 03048961191 Title: Rana HabibUllah
+
+EasyPaisa 03428699409 Title: Rana HabibUllah
+
+ [💬 Send Screenshot on WhatsApp](https://wa.me/923428699409?text=Hi,%20I%20want%20to%20activate%20full%20site%20premium%20access.) Maybe later
+
+ [Student Login](https://www.mcquniverse.pk/dashboard/) 
+
+**Alert:**Content is protected.
+
+Scroll to Top

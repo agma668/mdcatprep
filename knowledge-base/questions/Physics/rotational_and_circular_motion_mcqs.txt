@@ -1,0 +1,1496 @@
+ [Skip to content](#content)
+
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[MCQUniverse](https://www.mcquniverse.pk/)
+
+[Sign up](https://www.mcquniverse.pk/)[Sign up](https://www.mcquniverse.pk/)
+
+# Rotational And Circular Motion MCQs | Physics MCQs
+
+## Rotational And Circular Motion MCQs
+
+What is the SI unit of angular displacement?
+
+**Explanation:**
+
+Radian is the standard international (SI) unit for measuring angles in physics.
+
+The relationship between linear velocity (v) and angular velocity (ω) is:
+
+v = ω/r
+
+v = r/ω
+
+v = r²ω
+
+**v = rω**
+
+**Explanation:**
+
+This shows that for a given angular velocity, the linear (tangential) velocity is greater at a larger radius.
+
+Centripetal acceleration is always directed:
+
+Tangent to the circular path
+
+Away from the center
+
+In the direction of velocity
+
+**Towards the center**
+
+**Explanation:**
+
+This acceleration is responsible for continuously changing the direction of the velocity vector to keep the object on a circular path.
+
+The rotational analogue of mass is:
+
+Angular momentum
+
+Angular velocity
+
+**Moment of inertia**
+
+**Explanation:**
+
+Moment of inertia (I) measures an object's resistance to changes in its rotational motion, just as mass measures resistance to changes in linear motion.
+
+Torque is defined as the cross product of:
+
+Force and velocity
+
+Mass and angular acceleration
+
+Force and position vector
+
+**Position vector and force**
+
+**Explanation:**
+
+Specifically, τ = r × F. The order is important in a cross product.
+
+If no external torque acts on a system, which quantity is conserved?
+
+Kinetic energy
+
+Angular velocity
+
+Moment of inertia
+
+**Angular momentum**
+
+**Explanation:**
+
+This is the law of conservation of angular momentum, the rotational analogue to the conservation of linear momentum.
+
+The rotational kinetic energy of a body is given by:
+
+**Explanation:**
+
+This is the rotational analogue of the linear kinetic energy formula, with mass replaced by moment of inertia (I) and velocity by angular velocity (ω).
+
+A geostationary satellite orbits the Earth. What is its angular velocity?
+
+Equal to the Sun's angular velocity
+
+Greater than the Earth's angular velocity
+
+**Equal to the Earth's angular velocity**
+
+**Explanation:**
+
+To appear stationary from the ground, it must complete one orbit in the same time the Earth completes one rotation.
+
+The time period of a geostationary satellite is:
+
+1 hour
+
+30 days
+
+365 days
+
+**24 hours**
+
+**Explanation:**
+
+This is the time it takes for the Earth to complete one rotation on its axis, so the satellite's period must match.
+
+Artificial gravity in a space station can be created by:
+
+Increasing the station's mass
+
+Moving at high speed
+
+Decreasing the air pressure
+
+**Rotating the station**
+
+**Explanation:**
+
+Rotation creates a centripetal force on occupants, which they perceive as a 'gravity-like' force pushing them towards the outer wall.
+
+How many radians are in 180 degrees?
+
+**Explanation:**
+
+A full circle is 2π radians (360°), so half a circle (180°) is π radians.
+
+The direction of angular velocity is determined by the:
+
+Left-hand rule
+
+Law of gravitation
+
+Newton's second law
+
+**Right-hand rule**
+
+**Explanation:**
+
+Curl the fingers of your right hand in the direction of rotation; your thumb points in the direction of the angular velocity vector.
+
+For a rigid body rotating with constant angular velocity, its angular acceleration is:
+
+Constant but non-zero
+
+**Zero**
+
+**Explanation:**
+
+Acceleration is the rate of change of velocity. If angular velocity is constant, its rate of change is zero.
+
+The force required to keep an object moving in a circle is called:
+
+Centrifugal force
+
+Gravitational force
+
+Frictional force
+
+**Centripetal force**
+
+**Explanation:**
+
+This is the net force, directed towards the center, that is required to cause circular motion.
+
+Moment of inertia depends on the mass of the body and the:
+
+Angular velocity
+
+Applied torque
+
+Linear velocity
+
+**Distribution of mass about the axis**
+
+**Explanation:**
+
+The farther the mass is from the axis of rotation, the greater the moment of inertia (I = Σmᵢrᵢ²).
+
+Which has a larger moment of inertia: a solid sphere or a hollow sphere of the same mass and radius?
+
+Solid sphere
+
+They have the same moment of inertia
+
+Depends on the angular velocity
+
+**Hollow sphere**
+
+**Explanation:**
+
+Since all the mass of the hollow sphere is at the maximum radius, its moment of inertia (I = 2/3 MR²) is greater than the solid sphere's (I = 2/5 MR²).
+
+The dimensions of angular momentum are:
+
+[MLT⁻¹]
+
+[ML²T⁻²]
+
+[MT⁻²]
+
+**[ML²T⁻¹]**
+
+**Explanation:**
+
+Angular momentum (L = r × p) has dimensions of radius [L] times linear momentum [MLT⁻¹], resulting in [ML²T⁻¹].
+
+Orbital velocity of a satellite close to the Earth is approximately:
+
+11.2 km/s
+
+9.8 m/s
+
+3.0 × 10⁸ m/s
+
+**7.9 km/s**
+
+**Explanation:**
+
+This is the critical velocity needed to maintain a low Earth orbit, balancing gravity's pull.
+
+Weightlessness experienced by an astronaut in orbit is due to:
+
+Zero gravity at that altitude
+
+The spacecraft shielding from gravity
+
+The high speed of the spacecraft
+
+**The astronaut and spacecraft being in constant free-fall**
+
+**Explanation:**
+
+Both the astronaut and the station are continuously falling towards Earth but have enough tangential velocity to miss it, creating the sensation of weightlessness.
+
+For a car on a banked curve (angle θ), the centripetal force is provided by:
+
+The car's weight
+
+The force of friction only
+
+The vertical component of the normal force
+
+**The horizontal component of the normal force**
+
+**Explanation:**
+
+When the road is banked, the normal force has a horizontal component pointing towards the center of the curve, providing the centripetal force.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+What is the angular speed of the minute hand of a clock in rad/s?
+
+π/3600
+
+π/60
+
+2π
+
+**π/1800**
+
+**Explanation:**
+
+The minute hand completes one revolution (2π rad) in 60 minutes (3600 s). So, ω = 2π/3600 = π/1800 rad/s.
+
+A flywheel gains a speed of 540 rpm in 6 seconds. Its angular acceleration is:
+
+6π rad/s²
+
+9π rad/s²
+
+18π rad/s²
+
+**3π rad/s²**
+
+**Explanation:**
+
+First, convert 540 rpm to rad/s: 540 × (2π/60) = 18π rad/s. Then, α = Δω/Δt = (18π - 0)/6 = 3π rad/s².
+
+The equations of rotational motion are valid only for:
+
+Constant angular velocity
+
+Variable angular acceleration
+
+Any rotational motion
+
+**Constant angular acceleration**
+
+**Explanation:**
+
+Just like the linear kinematic equations, the rotational versions assume that the angular acceleration is constant.
+
+A dancer spinning on ice pulls her arms in. Her angular speed:
+
+Decreases
+
+Remains the same
+
+Becomes zero
+
+**Increases**
+
+**Explanation:**
+
+By pulling her arms in, she decreases her moment of inertia (I). Since angular momentum (L=Iω) is conserved, her angular speed (ω) must increase.
+
+The reaction force to the centripetal force is:
+
+The centrifugal force
+
+The gravitational force
+
+There is no reaction force
+
+**A force on the agent providing the centripetal force**
+
+**Explanation:**
+
+By Newton's 3rd law, if A exerts a centripetal force on B, then B exerts an equal and opposite force back on A.
+
+What is the work done by the centripetal force in uniform circular motion?
+
+Positive
+
+Negative
+
+Depends on the radius
+
+**Zero**
+
+**Explanation:**
+
+The centripetal force is always perpendicular to the displacement. Since work is Fdcosθ and θ = 90°, the work done is zero.
+
+An object moves from (2, 3) to (4, 5). The angular displacement about the origin is:
+
+Positive (counter-clockwise)
+
+Zero
+
+Undefined
+
+**Negative (clockwise)**
+
+**Explanation:**
+
+The initial angle is arctan(3/2) ≈ 56.3°. The final angle is arctan(5/4) ≈ 51.3°. The angle decreased, so the displacement is clockwise.
+
+A solid cylinder and a hollow cylinder (same mass/radius) roll down an incline. Which reaches the bottom first?
+
+The hollow cylinder
+
+They reach at the same time
+
+Depends on the incline angle
+
+**The solid cylinder**
+
+**Explanation:**
+
+The solid cylinder has a smaller moment of inertia, so more potential energy is converted into translational (linear) KE, making it faster.
+
+The expression for centripetal acceleration (a\_c) in terms of ω and r is:
+
+a\_c = ωr²
+
+a\_c = ω/r
+
+a\_c = ω²/r
+
+**a\_c = ω²r**
+
+**Explanation:**
+
+This is derived from a\_c = v²/r by substituting v = rω, which gives a\_c = (rω)²/r = ω²r.
+
+In the SI system, the unit of torque is:
+
+Joule (J)
+
+Watt (W)
+
+Pascal (Pa)
+
+**Newton-meter (N·m)**
+
+**Explanation:**
+
+Torque is force times the lever arm distance, so its unit is the product of the unit of force (Newton) and distance (meter).
+
+For a satellite, the square of its orbital period is proportional to the:
+
+Square of its orbital radius
+
+Mass of the satellite
+
+Orbital velocity
+
+**Cube of its orbital radius**
+
+**Explanation:**
+
+This is a statement of Kepler's Third Law of planetary motion.
+
+A body moves in a circle with increasing speed. The angle between its velocity and acceleration is:
+
+90°
+
+180°
+
+Greater than 90°
+
+**Less than 90°**
+
+**Explanation:**
+
+The total acceleration has a centripetal component (at 90° to velocity) and a tangential component (parallel to velocity). The resultant vector is at an acute angle.
+
+Which of the following physical quantities is a pseudovector (axial vector)?
+
+Linear velocity
+
+Force
+
+Linear displacement
+
+**Torque**
+
+**Explanation:**
+
+Torque is defined by a cross product, and its direction is determined by the right-hand rule, which is a convention.
+
+The moment of inertia of a thin rod (mass M, length L) about an axis through its center is:
+
+ML²
+
+(1/3)ML²
+
+(1/2)ML²
+
+**(1/12)ML²**
+
+**Explanation:**
+
+This is the standard formula for a thin rod rotated about its center of mass.
+
+A satellite in a 'parking orbit' is one which is:
+
+In a geostationary orbit
+
+In an orbit around the Sun
+
+No longer in use
+
+**Temporarily in a low orbit before boosting higher**
+
+**Explanation:**
+
+Spacecraft are often placed in a stable, low parking orbit to check systems before moving to their final trajectory.
+
+The angular momentum of a rigid body is the product of its moment of inertia and:
+
+Angular acceleration
+
+Linear velocity
+
+Time period
+
+**Angular velocity**
+
+**Explanation:**
+
+The formula L = Iω is the rotational analogue of linear momentum p = mv.
+
+In uniform circular motion, which quantity remains constant?
+
+Velocity
+
+Acceleration
+
+Displacement
+
+**Speed**
+
+**Explanation:**
+
+The term 'uniform' in uniform circular motion specifically means that the magnitude of the velocity (the speed) is constant.
+
+A disc is rotating with angular velocity ω. If a child sits on it, what is conserved?
+
+Kinetic energy
+
+Potential energy
+
+Linear momentum
+
+**Angular momentum**
+
+**Explanation:**
+
+Since sitting on the disc is an internal process for the child-disc system with no external torque, total angular momentum is conserved.
+
+A car moves at 10 m/s on a circular track of radius 50 m. What is its centripetal acceleration?
+
+0.2 m/s²
+
+5 m/s²
+
+500 m/s²
+
+**2 m/s²**
+
+**Explanation:**
+
+Using the formula a\_c = v²/r, we get (10 m/s)² / 50 m = 100 / 50 = 2 m/s².
+
+One radian is approximately equal to:
+
+360°
+
+180°
+
+90°
+
+**57.3°**
+
+**Explanation:**
+
+Since 2π radians = 360°, one radian = 360° / (2π) ≈ 57.3°.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Communication satellites are usually placed in which type of orbit?
+
+Polar orbit
+
+Elliptical orbit
+
+Low Earth orbit (LEO)
+
+**Geostationary orbit**
+
+**Explanation:**
+
+A geostationary orbit allows a satellite to remain over the same point on Earth's surface, which is ideal for continuous communication.
+
+A body rotates through an angle of 3 revolutions. The angle in radians is:
+
+3π
+
+3/π
+
+6/π
+
+**6π**
+
+**Explanation:**
+
+Since one revolution is 2π radians, three revolutions is 3 × 2π = 6π radians.
+
+The linear acceleration of a point on a rotating wheel is the vector sum of its tangential acceleration and:
+
+Gravitational acceleration
+
+Angular acceleration
+
+Zero
+
+**Centripetal acceleration**
+
+**Explanation:**
+
+Total linear acceleration is the vector sum of the tangential component (changing speed) and the centripetal component (changing direction).
+
+For an object in equilibrium, the net torque acting on it must be:
+
+Maximum
+
+Constant but non-zero
+
+Equal to the net force
+
+**Zero**
+
+**Explanation:**
+
+For rotational equilibrium, there must be no net turning effect, meaning the sum of all torques is zero.
+
+Escape velocity is √2 times the:
+
+Speed of light
+
+Speed of sound
+
+Terminal velocity
+
+**Orbital velocity for a close orbit**
+
+**Explanation:**
+
+The formula for orbital velocity is v\_o = √(GM/R) and for escape velocity is v\_e = √(2GM/R). Therefore, v\_e = √2 v\_o.
+
+A hoop and a solid disk (same mass/radius) are released from an incline. The hoop's speed at the bottom will be:
+
+Greater than the disk's speed
+
+Equal to the disk's speed
+
+Zero
+
+**Less than the disk's speed**
+
+**Explanation:**
+
+Because the hoop has a larger moment of inertia, it will have a smaller translational velocity compared to the disk.
+
+Which law explains why a spinning top remains upright?
+
+Newton's First Law
+
+Conservation of Energy
+
+Kepler's Laws
+
+**Conservation of Angular Momentum**
+
+**Explanation:**
+
+A spinning object has angular momentum. To change its direction (i.e., to make it fall), a torque is required. Rapid spinning makes it resistant to such torques.
+
+A point P on the rim of a rolling wheel has maximum velocity when it is:
+
+At the bottom of the wheel
+
+At the same level as the center
+
+The velocity is always constant
+
+**At the top of the wheel**
+
+**Explanation:**
+
+At the top, the tangential velocity (v) and the translational velocity (v) are in the same direction, so the resultant velocity is v + v = 2v.
+
+The term 'g' in artificial gravity (e.g., '2g') refers to:
+
+Mass in grams
+
+The universal gravitational constant
+
+The speed of the habitat
+
+**Earth's surface gravity (≈ 9.8 m/s²)**
+
+**Explanation:**
+
+Artificial gravity is often measured in multiples of Earth's gravitational acceleration. '2g' means an acceleration of 2 × 9.8 m/s².
+
+If Earth shrank to half its radius (mass constant), the length of a day would be:
+
+24 hours
+
+12 hours
+
+48 hours
+
+**6 hours**
+
+**Explanation:**
+
+Moment of inertia I ∝ R². If R becomes R/2, I' becomes I/4. By conservation of angular momentum (Iω = I'ω'), ω' becomes 4ω. A faster rotation means a shorter day: T' = T/4 = 24/4 = 6 hours.
+
+Tangential acceleration in circular motion changes the object's:
+
+Direction of velocity
+
+Angular velocity
+
+Mass
+
+**Speed**
+
+**Explanation:**
+
+Tangential acceleration acts along the tangent to the path, thus changing the object's speed.
+
+For a conical pendulum, the centripetal force is provided by:
+
+The weight of the mass
+
+The tension in the string
+
+The vertical component of tension
+
+**The horizontal component of tension**
+
+**Explanation:**
+
+Tension has a vertical component that balances weight and a horizontal component that provides the centripetal force.
+
+The rate of change of angular momentum is equal to the:
+
+Applied force
+
+Moment of inertia
+
+Angular acceleration
+
+**Applied torque**
+
+**Explanation:**
+
+This is the rotational equivalent of Newton's second law: τ = dL/dt.
+
+Why doesn't water fall out of a bucket swirled in a vertical circle?
+
+Centrifugal force pushes the water out
+
+Gravity is zero at the top
+
+Adhesive forces are too strong
+
+**Gravity and normal force provide centripetal force**
+
+**Explanation:**
+
+At the top, both gravity and the normal force (if needed) act downwards, providing the centripetal force to keep the water moving in a circle.
+
+The total energy of a satellite in a stable orbit is:
+
+Always positive
+
+Always zero
+
+Equal to its kinetic energy
+
+**Always negative**
+
+**Explanation:**
+
+The negative potential energy is greater in magnitude than the positive kinetic energy, signifying a bound system.
+
+A wheel with angular momentum 10 J·s is stopped by a 2 N·m torque. How long does it take?
+
+0.2 s
+
+2 s
+
+20 s
+
+**5 s**
+
+**Explanation:**
+
+Since τ = ΔL/Δt, then Δt = ΔL/τ = 10 J·s / 2 N·m = 5 s.
+
+The moment of inertia of a body does NOT depend on:
+
+The mass of the body
+
+The distribution of mass
+
+The axis of rotation
+
+**The angular velocity of the body**
+
+**Explanation:**
+
+Moment of inertia is an intrinsic property of an object's mass distribution, independent of its motion.
+
+If a body is in rotational equilibrium, which statement must be true?
+
+It is not rotating
+
+Net force is zero
+
+Its angular momentum is zero
+
+**Its angular acceleration is zero**
+
+**Explanation:**
+
+Rotational equilibrium means the net torque is zero, so there is no change in angular velocity (i.e., zero angular acceleration).
+
+For a rolling sphere, what is the ratio of rotational KE to total KE?
+
+1/2
+
+2/5
+
+5/7
+
+**2/7**
+
+**Explanation:**
+
+KE\_rot = (1/2)Iω² = (1/5)Mv². KE\_total = (7/10)Mv². The ratio is (1/5)/(7/10) = 2/7.
+
+A person's weight at the North Pole is W. Their apparent weight at the equator is:
+
+Greater than W
+
+Equal to W
+
+Zero
+
+**Less than W**
+
+**Explanation:**
+
+At the equator, part of the gravitational force provides the centripetal force for rotation. The apparent weight is thus reduced: W\_app = mg - mω²r.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Angular impulse is equal to the change in:
+
+Angular velocity
+
+Rotational kinetic energy
+
+Moment of inertia
+
+**Angular momentum**
+
+**Explanation:**
+
+Just as linear impulse equals the change in linear momentum, angular impulse (τΔt) equals the change in angular momentum (ΔL).
+
+If a satellite is moved to an orbit of larger radius, its speed:
+
+Increases
+
+Remains the same
+
+Becomes zero
+
+**Decreases**
+
+**Explanation:**
+
+To maintain a stable orbit at a greater distance, less orbital speed is required to balance the weaker gravitational pull.
+
+A 10 N·m torque is applied to a flywheel (I = 2 kg·m²). The angular acceleration is:
+
+0.2 rad/s²
+
+12 rad/s²
+
+20 rad/s²
+
+**5 rad/s²**
+
+**Explanation:**
+
+Using τ = Iα, we get α = τ/I = 10 N·m / 2 kg·m² = 5 rad/s².
+
+The work done by a torque τ in rotating a body through an angle θ is:
+
+W = τ/θ
+
+W = τω
+
+W = τα
+
+**W = τθ**
+
+**Explanation:**
+
+This is the rotational work formula, analogous to linear work W = Fd.
+
+Which quantity has the same dimensions as angular momentum?
+
+Work
+
+Power
+
+Torque
+
+**Planck's Constant (h)**
+
+**Explanation:**
+
+Planck's constant has units of Joule-seconds (J·s), which gives dimensions of [ML²T⁻²]·[T] = [ML²T⁻¹], the same as angular momentum.
+
+A body starts from rest with angular acceleration of 2 rad/s². What is its angular displacement after 4 s?
+
+4 rad
+
+8 rad
+
+32 rad
+
+**16 rad**
+
+**Explanation:**
+
+Using θ = ωᵢt + (1/2)αt², with ωᵢ = 0, we get θ = (1/2)(2)(4)² = 16 rad.
+
+A fan rotating at 1200 rpm stops in 10 seconds. The average angular deceleration is:
+
+2π rad/s²
+
+20π rad/s²
+
+40π rad/s²
+
+**4π rad/s²**
+
+**Explanation:**
+
+First, ωᵢ = 1200 × (2π/60) = 40π rad/s. Then, α = (ω\_f - ωᵢ)/t = (0 - 40π)/10 = -4π rad/s². The magnitude is 4π rad/s².
+
+The direction of the torque vector is:
+
+Along the position vector r
+
+Along the force vector F
+
+Opposite to the position vector r
+
+**Perpendicular to the plane containing r and F**
+
+**Explanation:**
+
+This is the definition of the cross product τ = r × F. The direction is given by the right-hand rule.
+
+If a platform's radius is halved and its angular velocity is doubled, the centripetal acceleration will be:
+
+Halved
+
+Quadrupled
+
+Unchanged
+
+**Doubled**
+
+**Explanation:**
+
+The original acceleration is a = rω². The new acceleration is a' = (r/2)(2ω)² = (r/2)(4ω²) = 2(rω²) = 2a.
+
+What is the frequency of a geostationary satellite?
+
+1 Hz
+
+1/3600 Hz
+
+24 Hz
+
+**1/86400 Hz**
+
+**Explanation:**
+
+The period (T) is 24 hours = 86400 s. Frequency is f = 1/T, so f = 1/86400 Hz.
+
+A circular disk has I = (1/2)MR² about its center. What is its moment of inertia about a diameter?
+
+(1/2)MR²
+
+MR²
+
+(2/5)MR²
+
+**(1/4)MR²**
+
+**Explanation:**
+
+By the perpendicular axis theorem, I\_z = I\_x + I\_y. For a disk, I\_x = I\_y and I\_z = (1/2)MR². So, 2I\_x = (1/2)MR², which gives I\_x = (1/4)MR².
+
+If a particle's linear momentum is constant, its angular momentum is conserved only if:
+
+The force on it is zero
+
+The torque is constant
+
+It moves in a circle
+
+**It moves along a line through the reference point**
+
+**Explanation:**
+
+Angular momentum is L = r × p. If the particle moves along a line passing through the reference point, r is parallel to p, so their cross product L is zero and conserved.
+
+The critical speed at the top of a vertical loop for a mass to complete the loop is:
+
+√(2gR)
+
+√(5gR)
+
+gR
+
+**√(gR)**
+
+**Explanation:**
+
+At the top, the minimum centripetal force is provided by gravity alone (tension T=0). So, mg = mv²/R, which gives v = √(gR).
+
+Einstein's theory of gravitation interprets gravity as:
+
+A force acting at a distance
+
+An exchange of gravitons
+
+An electromagnetic phenomenon
+
+**The curvature of spacetime**
+
+**Explanation:**
+
+In general relativity, massive objects warp spacetime, and this curvature is what we perceive as gravity.
+
+A solid sphere rotates in free space. If it expands (mass constant), its angular velocity will:
+
+Increase
+
+Remain unchanged
+
+Become zero
+
+**Decrease**
+
+**Explanation:**
+
+As the radius increases, the moment of inertia (I ∝ R²) increases. Since angular momentum (L = Iω) is conserved, the angular velocity (ω) must decrease.
+
+The dimensions of the universal gravitational constant G are:
+
+[MLT⁻²]
+
+[ML⁻¹T⁻²]
+
+[L²T⁻²]
+
+**[M⁻¹L³T⁻²]**
+
+**Explanation:**
+
+From F = G(m₁m₂/r²), we rearrange to get G = Fr²/(m₁m₂). The dimensions are [MLT⁻²][L²]/[M²] = [M⁻¹L³T⁻²].
+
+The rotational power delivered by a torque τ is given by:
+
+P = τθ
+
+P = τα
+
+P = τ/ω
+
+**P = τω**
+
+**Explanation:**
+
+This is the rotational equivalent of the linear power formula P = Fv.
+
+For an object rolling without slipping, the condition relating v and ω is:
+
+v < rω
+
+v > rω
+
+v = r/ω
+
+**v = rω**
+
+**Explanation:**
+
+This condition ensures that the point of contact with the surface is instantaneously at rest.
+
+If the angular velocity vector of a spinning body points out of the page, it is spinning:
+
+Clockwise
+
+Into the page
+
+Impossible to tell
+
+**Counter-clockwise**
+
+**Explanation:**
+
+Using the right-hand rule, if you curl your fingers counter-clockwise, your thumb points out of the page.
+
+A couple is a pair of forces that are:
+
+Equal and in the same direction
+
+Unequal and opposite
+
+Equal, opposite, and collinear
+
+**Equal, opposite, and separated by a distance**
+
+**Explanation:**
+
+This arrangement produces a pure torque (turning effect) without any net translational force.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+A flywheel is used in an engine to:
+
+Increase the engine's power
+
+Reduce friction
+
+Increase the engine's speed
+
+**Smooth out fluctuations in rotational speed**
+
+**Explanation:**
+
+Due to its large moment of inertia, a flywheel resists changes in angular speed, storing and releasing energy to maintain a nearly constant rotation.
+
+The orbital period of a planet depends on its average orbital radius and:
+
+The mass of the planet
+
+The planet's temperature
+
+The planet's rotational speed
+
+**The mass of the sun**
+
+**Explanation:**
+
+According to Kepler's Third Law as derived by Newton, T² = (4π²/GM\_sun)r³. The period depends on the mass of the central body.
+
+The SI unit of moment of inertia is:
+
+kg·m
+
+kg·m/s
+
+kg·m²/s
+
+**kg·m²**
+
+**Explanation:**
+
+Moment of inertia is defined as I = Σmᵢrᵢ², so its units are mass (kg) times distance squared (m²).
+
+At what height 'h' is gravity half its surface value? (R is Earth's radius)
+
+R/2
+
+R
+
+√2 R
+
+**(√2 - 1)R**
+
+**Explanation:**
+
+We need g' = g/2. So, GM/(R+h)² = GM/(2R²). This gives (R+h)² = 2R², so R+h = √2 R, and h = (√2-1)R.
+
+An object in uniform circular motion has a constant:
+
+Linear momentum vector
+
+Acceleration vector
+
+Position vector
+
+**Angular momentum vector**
+
+**Explanation:**
+
+For uniform circular motion, the magnitude (Iω) and direction (along the axis) of the angular momentum vector are both constant.
+
+The total angular momentum of a system is conserved when the net external \_\_\_\_\_\_\_\_ is zero.
+
+Force
+
+Impulse
+
+Work
+
+**Torque**
+
+**Explanation:**
+
+This is the fundamental condition for the conservation of angular momentum.
+
+A body rotates with constant angular deceleration. A graph of its angular velocity (ω) vs. time (t) is a:
+
+Parabola
+
+Hyperbola
+
+Straight line with positive slope
+
+**Straight line with negative slope**
+
+**Explanation:**
+
+The equation is ω\_f = ωᵢ + αt. With a constant negative α, this is the equation of a straight line (y = c + mx) with a negative slope.
+
+The escape velocity from the Moon is less than from Earth because the Moon has:
+
+No atmosphere
+
+A higher temperature
+
+A slower rotational speed
+
+**Smaller mass and smaller radius**
+
+**Explanation:**
+
+Escape velocity is v\_e = √(2GM/R). The Moon's smaller mass (M) and radius (R) both contribute to a lower escape velocity.
+
+The work-energy theorem for rotation states that net work equals the change in:
+
+Angular momentum
+
+Potential energy
+
+Moment of inertia
+
+**Rotational kinetic energy**
+
+**Explanation:**
+
+This is the rotational analogue of the linear work-energy theorem. Here, W\_torque = ΔKE\_rotational.
+
+Which statement about centripetal and centrifugal forces is correct?
+
+They are an action-reaction pair
+
+Centrifugal is real, centripetal is fictitious
+
+Both are real forces
+
+**Centripetal is real, centrifugal is fictitious**
+
+**Explanation:**
+
+Centripetal force is the real net force causing circular motion. Centrifugal force is an apparent outward force in a non-inertial (rotating) frame.
+
+A turntable rotates at 33 rpm. The angular velocity in rad/s is approximately:
+
+33 rad/s
+
+207 rad/s
+
+0.55 rad/s
+
+**3.5 rad/s**
+
+**Explanation:**
+
+33 rev/min × (2π rad/rev) × (1 min/60 s) = 66π/60 ≈ 3.46 rad/s.
+
+A satellite in an elliptical orbit has its greatest speed when it is:
+
+Farthest from the planet (apogee)
+
+At the ends of the minor axis
+
+Constant throughout the orbit
+
+**Closest to the planet (perigee)**
+
+**Explanation:**
+
+By conservation of angular momentum (L=mvr), when the radius 'r' is smallest, the velocity 'v' must be largest.
+
+Two gears are in mesh (40 teeth and 10 teeth). When the small gear makes 4 revolutions, the large gear makes:
+
+4 revolutions
+
+8 revolutions
+
+16 revolutions
+
+**1 revolution**
+
+**Explanation:**
+
+The gear ratio is 40:10 or 4:1. For every 4 revolutions of the smaller gear, the larger gear makes 1 revolution.
+
+A ballerina spins with arms outstretched. When she brings her arms in:
+
+Her rotational kinetic energy is conserved
+
+Her angular momentum decreases
+
+Her moment of inertia increases
+
+**Her angular velocity increases**
+
+**Explanation:**
+
+She decreases her moment of inertia (I). To conserve angular momentum (L=Iω), her angular velocity (ω) must increase.
+
+The center of mass of a rigid body:
+
+Must be inside the body
+
+Is always at its geometric center
+
+Depends on the body's velocity
+
+**May be outside the body**
+
+**Explanation:**
+
+A hollow sphere, a ring, or an L-shaped object can have a center of mass located in empty space.
+
+A car turns on a level road. The centripetal force is provided by:
+
+The normal force
+
+The weight of the car
+
+The engine's thrust
+
+**Static friction between tires and road**
+
+**Explanation:**
+
+Static friction acts horizontally, towards the center of the turn, preventing the car from skidding outwards.
+
+The value of gravitational acceleration 'g' is maximum at the:
+
+Tropic of Cancer
+
+Same at all places
+
+**Explanation:**
+
+The Earth is slightly flattened, making the poles closer to the center. This, plus the lack of rotational effect, makes 'g' maximum at the poles.
+
+An object in a state of 'free fall' is said to be:
+
+In zero gravity
+
+Accelerating upwards
+
+Moving at constant velocity
+
+**Explanation:**
+
+In free fall, an object experiences no support force, leading to the sensation of weightlessness, even though gravity is still acting on it.
+
+The time period of a simple pendulum in an orbiting satellite is:
+
+Zero
+
+Same as on Earth
+
+Slightly less than on Earth
+
+**Explanation:**
+
+In free fall, the effective gravity (g\_eff) is zero. Since T = 2π√(L/g\_eff), as g\_eff → 0, T → ∞. The pendulum will not oscillate.
+
+The 'g-force' experienced by a pilot in a sharp turn is a measure of:
+
+The gravitational field strength
+
+The aircraft's speed
+
+The engine's thrust
+
+**Apparent weight as a multiple of normal weight**
+
+**Explanation:**
+
+The term 'g-force' refers to the total acceleration felt by the pilot, which creates a sensation of increased apparent weight.
+
+## Other Physics Topics MCQs
+
+We have also prepared the following set of MCQs for your Entry test preparation like MDCAT, ECAT and Armed forces test. WE WISH YOU BEST OF LUCK!
+
+[Force And Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/force-and-motion-mcqs/)
+
+[Work And Energy MCQs](https://www.mcquniverse.pk/physics-mcqs/work-and-energy-mcqs/)
+
+[Rotational And Circular Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/rotational-and-circular-motion-mcqs/)
+
+[Waves MCQs](https://www.mcquniverse.pk/physics-mcqs/waves-mcqs/)
+
+[Thermodynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/thermodynamics-mcqs/)
+
+[Electrostatics MCQs](https://www.mcquniverse.pk/physics-mcqs/electrostatics-mcqs/)
+
+[Current Electricity MCQs](https://www.mcquniverse.pk/physics-mcqs/current-electricity-mcqs/)
+
+[Electromagnetism MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetism-mcqs/)
+
+[Electromagnetic Induction MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetic-induction-mcqs/)
+
+[Electronics MCQs](https://www.mcquniverse.pk/physics-mcqs/electronics-mcqs/)
+
+[Dawn Of Modern Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/dawn-of-modern-physics-mcqs/)
+
+[Atomic Spectra MCQs](https://www.mcquniverse.pk/physics-mcqs/atomic-spectra-mcqs/)
+
+[Nuclear Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/nuclear-physics-mcqs/)
+
+[Fluid Dynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/fluid-dynamics-mcqs/)
+
+[Vectors And Equilibrium MCQs](https://www.mcquniverse.pk/physics-mcqs/vectors-and-equilibrium-mcqs/)
+
+### Leave a Reply [Cancel reply](/physics-mcqs/rotational-and-circular-motion-mcqs/#respond)
+
+×🌐 Website-Wide Premium Access
+
+### Unlock All Quizzes & MCQs
+
+🚀 **One Subscription Unlocks Everything!** 
+ Get 100% full access to ALL quizzes, MCQs & detailed explanations across the entire website.
+
+1 Week
+
+Rs 199
+
+Full Site Access
+
+BEST VALUE
+
+1 Month
+
+Rs 499
+
+Full Site Access
+
+📌 How to Activate:
+
+1. Send fee for your plan to JazzCash or EasyPaisa below.
+2. Click WhatsApp button & send payment screenshot to Admin.
+3. **Instant Activation** within 10 minutes!
+
+JazzCash 03048961191 Title: Rana HabibUllah
+
+EasyPaisa 03428699409 Title: Rana HabibUllah
+
+ [💬 Send Screenshot on WhatsApp](https://wa.me/923428699409?text=Hi,%20I%20want%20to%20activate%20full%20site%20premium%20access.) Maybe later
+
+ [Student Login](https://www.mcquniverse.pk/dashboard/) 
+
+**Alert:**Content is protected.
+
+Scroll to Top

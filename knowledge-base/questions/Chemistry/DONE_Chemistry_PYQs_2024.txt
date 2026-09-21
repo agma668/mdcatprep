@@ -1,0 +1,2238 @@
+
+=== PAGE 1 ===
+1. Number of moles in an element is directly proportional to:
+A. Mass of an element
+B. Empirical formula mass
+C. Molar mass of an element
+D. Formula mass
+2. The type and relative amount of each isotope in an element can be found by:
+A. R spectroscopy
+B. U. V spectroscopy
+C. Mass Spectrometry
+D. N.M.R
+3. The atomic masses of element depend upon:
+A. Atomic number
+B. Number of electrons
+C. Number of isotopes & their abundance
+D. None of the above
+4. No individual atom in the sample of 1 mole of Neon has a mass of 20.18 a.m.u. because
+it:
+A. Overall mass of an isobar
+B. It is a fractional mass
+C. It is molar mass of Ne
+D. Average atomic mass of Ne
+5. The p orbital has
+A. 2 lobes
+B. 3 lobes
+C. 4 lobes
+D. 5 lobes
+6. Which of the following electronic configuration is correct for carbon?
+A. 1s22s22p3
+B. 1s22s22p2
+C. 1s22s22p1
+D. 1s22s22p0
+7. Intermolecular forces between molecules of ideal gas are
+A. Strong
+B. Moderate
+C. Weak
+D. Absent
+8. The real gases show deviation from ideal behavior at:
+A. Low temperature and low pressure
+B. High temperature and high pressure
+C. Low temperature and high pressure
+D. High temperature and low pressure
+9. In order to boil water at 110◦C, external pressure should be
+A. 20 - 760 torr
+B. 760 - 1200 torr
+C. 665-670 torr
+D. 660-700 torr
+1
+
+=== PAGE 2 ===
+10. Which one of the following DO NOT have tendency to form hydrogen bonding?
+A. Ammonia
+B. Ethyl alcohol
+C. Carboxylic acid
+D. Hydrocarbon
+11. Boiling point of a liquid is a temperature at which:
+A. Surface tension is greater than the atmospheric pressure
+B. Viscosity is less than the atmospheric pressure
+C. Vapour pressure equals the atmospheric pressure
+D. Viscosity equals the atmospheric pressure
+12. Whenever the crystalline solids are broken they do so along definite planes as
+A. Cleavage planes
+B. Refractory planes
+C. Sagittal planes
+D. Coronal planes
+13. One of the following is NOT an example of amorphous solids
+A. Plastic
+B. Glass
+C. Glucose
+D. Rubber
+14. In graphite the carbon atoms are arranged in which of the following structure?
+A. Rhombic
+B. Hexagonal
+C. Tetragonal
+D. Trigonal
+15. The principle that states that if a stress is applied to a system at equilibrium the system
+nullify the effect of stress as far as possible is:
+A. Haber’s
+B. Le-Chatelier
+C. Boyle’s
+D. Charles’
+16. Identify the CORRECT option required for the maximum yield of ammonia by Haber’s
+process:
+A. High pressure low temperature continual removal of ammonia
+B. Low pressure low temperature continual removal of ammonia
+C. High pressure high temperature continual removal of ammonia
+D. High pressure low temperature continual addition of ammonia
+17. Consider the following reaction in equilibrium and tell addition of which chemical will
+turn the cloudy solution into clear solution? BiCl3 + H2O →BiOCl + 2HCl
+A. BiCl3
+B. H2O
+C. BiOCl
+D. HCl
+18. Identify the correct formula to calculate rate of reaction:
+A. Change in concentration of substance / Time taken for the change
+B. Time taken for the change × Change in concentration of substance
+C. Time taken for the change + Change in concentration of substance × 100
+D. Time taken for the change × Change in concentration of substance
+2
+
+=== PAGE 3 ===
+19. Consider the hypothetical equation aA + bB →cC + dD: Which of the following represents
+correct rate equation?
+A. Rate = k[A][B]
+B. Rate = k[A]a[B]b
+C. Rate = k[A]a
+D. Rate = k[B]b
+20. If a reaction rate does not change with concentration then it is
+A. 3rd order
+B. 2nd order
+C. 1st order
+D. Zero order
+21. Which of the following is CORRECT Arrhenius equation?
+A. K = Ae−Ea/RT
+B. K = Ae−1/RT
+C. K = Ae−Ea/T
+D. K = Ae−Ea/UT
+22. In endothermic reaction, the heat content of the
+A. Reactants and products is equal
+B. Reactants is more than that of products
+C. Products is more than that of reactants
+D. Reactants & Products will not change
+23. All of the following steps are used to calculate the lattice energy in Born-Haber cycle
+EXCEPT
+A. Atomizing the metal
+B. Ionizing the metal
+C. Delonize the metal
+D. Ionize non metal
+24. The enthalpy change when 1 Mole of water is formed by the reaction of acid with an alkali
+under standard conditions is known as:
+A. Enthalpy of formation
+B. Enthalpy of reaction
+C. Enthalpy of combustion
+D. Enthalpy of neutralization
+25. Oxidation number of ’Mn’ in KMnO4 is
+A. 0
+B. 1
+C. -7
+D. 7
+26. Which step is Irrelevant with respect to balancing of redox equations by oxidation number
+method?
+A. Split the reaction into two half reactions
+B. Assign oxidation number to all the atoms involved in the equation
+C. Identify the element undergoing change in oxidation number
+D. Equalize the number of electrons lost and gained
+3
+
+=== PAGE 4 ===
+27. Which of the following is NOT a correct feature of electrolytic cells?
+A. Reduction occurs at cathode
+B. Oxidation occurs at anode
+C. Alternating current source is connected to electrodes
+D. Electrochemical reaction takes place
+28. Which of the following has a coordinate bond?
+A. NaCl
+B. CaO
+C. NH3BF3
+D. H2O
+29. Which of the following is NOT a feature of Valence Shell Electron Pair Repulsion theory?
+A. It determines the shape of molecule
+B. Pairs of electrons repel each other
+C. It helps in understanding interaction of medicinal drug molecules
+D. Only lone pairs participate in determining geometry of molecules
+30. Which of the following has smallest atomic radius
+A. Mg
+B. S
+C. P
+D. Na
+31. The difference of lithium from the other alkali metals is mainly because of:
+A. Large radius and low charge density
+B. Small radius and low charge density
+C. Large radius and high charge density
+D. Small radius and high charge density
+32. Which of the following is not Basic in nature
+A. Aluminum oxide
+B. Magnesium oxide
+C. Potassium oxide
+D. Sodium oxide
+33. The solubility of sulphates of alkaline metals generally
+A. Increase down the group
+B. Decrease down the group
+C. Increase then decrease down the group
+D. Doesn’t change down the group
+34. Which of the following is NOT an Alloy
+A. Steel
+B. Brass
+C. Bronze
+D. Graphite
+35. Electronic configuration of chromium (Proton number 24) is:
+A. [Ar]3d4, 4s2
+B. [Ar]3d3, 4s1
+C. [Ar]3d5, 4s1
+D. [Ar]3d4, 4s1
+4
+
+=== PAGE 5 ===
+36. Which of the following is NOT a property of transition elements?
+A. High melting points
+B. Good conductors of electricity
+C. Hard metals
+D. Ions and compounds are colorless
+37. 1-Butene and two Butene are showing which type of Isomerism?
+A. Functional Group
+B. Metamerism
+C. Geometric
+D. Position
+38. Which type of Isomerism is displayed by compounds having same structural formula but
+different position of atoms on both sides of carbon bond?
+A. Chain
+B. Metamerism
+C. Geometric
+D. Tautomerism
+39. Homocyclic organic compounds are subdivided into two types namely:
+A. Alicyclic and Aromatic
+B. Alkenes & Alkynes
+C. Aromatic and Non aromatic
+D. Saturated & Unsaturated
+40. Which of the following is an example of substituent group which release electrons to
+benzene ring:
+A. –NR+
+3
+B. –CN
+C. NH2
+D. –NO2
+41. In Friedel Craft acylation an acyl group is introduced in benzene ring in the presence of
+catalyst:
+A. AlCl3
+B. H2SO4
+C. Sunlight
+D. V2O5
+42. Identify correct ascending order of reactivity of alkyl halides:
+A. Cl,Br,I,F
+B. F,Cl,Br,I
+C. Br,I,F,Cl
+D. I,F,Cr,Br
+43. Identify the correct statement related to substitution and elimination of alkyl halides:
+A. Strong bases cause substitution in preference to elimination
+B. Role of leaving groups in elimination is similar to substitution
+C. Substitution is favored more than elimination by decreasing solvent polarity
+D. Decrease in temperature will favor elimination more than substitution
+44. Alkyl Halides involving –C–X bond breakage and –C–Nu bond formation simultaneously
+would follow which one of the following mechanisms
+A. SN1
+B. SN2
+C. E1
+D. E2
+5
+
+=== PAGE 6 ===
+45. C2H2O is the general formula of:
+A. Ether
+B. Carboxylic acid
+C. Ketones
+D. Carbolic acid
+46. The blue color of Fehling solution is changed to red when warmed with an aldehyde due
+to formation of which of the following?
+A. NO2
+B. Cu2O
+C. AgO
+D. SO2
+47. Reaction of HCN with formaldehyde is a:
+A. Nucleophilic addition reaction
+B. Nucleophilic substitution reaction
+C. Electrophilic addition reaction
+D. Electrophilic substitution reaction
+48. Which of the following alcohols can give Iodoform reaction?
+A. Methanol
+B. 1-Butanol
+C. 1-Propanol
+D. Ethanol
+49. Common name of 2-hydroxy propanoic acid is:
+A. Tartaric acid
+B. Lactic acid
+C. Phthalic acid
+D. Formic acid
+50. Which of the following is correct regarding phenol
+A. Phenol and water are equally acidic
+B. Phenol is less acidic than carboxylic acid
+C. Phenol is less acidic than water
+D. Phenol is less acidic than ethanol
+51. When carboxylic acid are heated with alcohol in the presence of sulphuric acid one of the
+following is formed
+A. Amides
+B. Acyl chloride
+C. Esters
+D. Acid Anhydride
+52. Which one of the following is not an amino acid
+A. Folic acid
+B. Glutamic acid
+C. Glycine
+D. Lysine
+53. Which compound is used as a reference for calculating the extent of stability of benzene?
+A. Cyclohexane
+B. Cyclohexene
+C. 1,3, 5-cyclohexene
+D. 1,3,5-cyclohexatriene
+6
+
+=== PAGE 7 ===
+54. When CO2 reacts with propyl magnesium chloride followed by acid hydrolysis the product
+formed is
+A. Butanoic acid
+B. Ethanoic acid
+C. Pentanoic acid
+D. Propanoic acid
+55. What is the range of atomic numbers of the 3d series of transition elements?
+A. 20-30
+B. 21-30
+C. 22-30
+D. 24-30
+56. What will be the number of atoms in 2 moles of water molecule?
+A. 6.02 × 1023
+B. 1.24 × 1024
+C. 1.92 × 1024
+D. 3.61 × 1024
+57. Consider a reaction of A into B if K value is 3 × 10−12 at 200◦C then what will be the
+value of K at 250◦C?
+A. K = 9 × 10−3 s−1
+B. K = 12 × 10−3 s−1
+C. K = 6 × 10−12 s−1
+D. K = 15 × 10−12 s−1
+58. For boiling point vapor pressure of liquid DOES NOT depend upon
+A. amount of liquid
+B. external atmospheric pressure
+C. intermolecular forces
+D. type of bond
+59. NaCl is an example of
+arrangement of crystal lattice.
+A. Monoclinic
+B. Octahedral
+C. Tetrahedral
+D. Triangular
+60. Formula for partial pressure calculation of any component in mixture of gases is
+A. Pi = Pt/Xi
+B. Pi = Pt + Xi
+C. Pi = Pt × R
+D. Pi = Pt × Xi
+61. What will be the internal energy of a system at constant volume?
+A. ∆E = 0
+B. ∆E = q + P
+C. ∆E = q + P∆V
+D. ∆E = qv
+62. Which of the following law helps to calculate the absolute temperature?
+A. Avogadro’s Law
+B. Boyle’s Law
+C. Charles Law
+D. Dalton’s Law
+7
+
+=== PAGE 8 ===
+63. The IUPAC name of given organic compound is CH3–CH(Cl)–CH2–CH2–CHO
+A. 2-Chloropentanal
+B. 2-Chloropentanol
+C. 4-Chloropentanal
+D. 4-Chloropentanol
+64. Which type of reaction will be occur when an alcohol reacts with a carboxylic acid?
+A. Dehydration reaction
+B. Dehydrogenation reaction
+C. Esterification reaction
+D. Reduction reaction
+65. Diamagnetic behavior of Flourine molecule is due to presence of
+A. paired electrons in d orbitals
+B. paired electrons in p orbitals
+C. unpaired electrons in d orbitals
+D. unpaired electrons in p orbitals
+66. Metallic character of alkaline earth metals
+down the groups.
+A. decreases
+B. gradually increases then decreases
+C. increases
+D. remains same
+67. Which of the following is the unit of rate of reaction?
+A. (mol dm−3)−1 s1
+B. mol(dm3)s−1
+C. mol(dm3)−1 s
+D. mol(dm3)−1 s−1
+68. If percentage yield of chemical reaction is 60% actual yield is 15g what is its theoretical
+yield?
+A. 18g
+B. 20g
+C. 25g
+D. 30g
+69. The IUPAC name of Malonic acid CH2(COOH)2 is
+A. 1, 2-Ethanedioic acid
+B. 1, 3-Propanedioic acid
+C. 1, 4-butanedioic acid
+D. 1, 6-Hexadecanoic acid
+70. What is the IUPAC name of given compound? CH3–CH=CH–CH2–C≡CH
+A. 2-Hexen-5-yne
+B. 2-Hexen-6-yne
+C. 4-Hexen-1-yne
+D. 5-Hexen-1-yne
+71. Which of the following metal forms superoxide when reacted with oxygen?
+A. Beryllium
+B. Lithium
+C. Magnesium
+D. Potassium
+8
+
+=== PAGE 9 ===
+72. Chemical equilibrium given below will shift to backward direction by
+A. decreasing pressure and increasing temperature
+B. decreasing the temperature
+C. increasing the concentration of NO & O2
+D. increasing the pressure
+73. Which of the following element will show electronic configuration of outermost shell like
+ns2, np5?
+A. C
+B. Cl
+C. S
+D. Si
+74. What will be formula of work when work is done on the system by the surrounding?
+A. W = –P/∆V
+B. W = –P∆V
+C. W = P/∆V
+D. W = P∆V
+75. Which product is formed by the reaction of phenol with concentrated nitric acid?
+A. Adipic acid
+B. m-Nitrophenol
+C. Picric acid
+D. p-Nitrophenol
+76. What is the percentage mass ratio of carbon and hydrogen in benzene?
+A. 01:01:00
+B. 03:01:00
+C. 06:01:00
+D. 12:01:00
+77. Transition element Vanadium mostly act as
+A. Amphoteric
+B. Neutral
+C. Oxidizing agent
+D. Reducing agent
+78. Which type of redox reaction takes place at cathode of the electrochemical cell?
+A. Decomposition
+B. Dissociation
+C. Oxidation
+D. Reduction
+79. Which type of catalyst is used during electrophilic substitution reactions of benzene?
+A. Amphoteric
+B. Lewis’s acid
+C. Lewis’s base
+D. Transition metals
+80. The correct stability order of M+4 cations is
+A. Ge+4 < Pb+4 < Sn+4
+B. Ge+4 < Sn+4 < Pb+4
+C. Ge+4 > Pb+4 > Sn+4
+D. Ge+4 > Sn+4 > Pb+4
+9
+
+=== PAGE 10 ===
+81. Which type of isomerism is shown by fumaric acid and maleic acid?
+A. Functional group isomers
+B. Geometrical isomers
+C. Optical isomers
+D. Position isomers
+82. Unimolecular nucleophilic substitution reaction involves
+A. 1st order kinetics
+B. 2nd order kinetics
+C. 3rd order kinetics
+D. zero order kinetics
+83. What will be the molarity of HCl solution with pH = 4?
+A. 0.0001
+B. 0.0004
+C. 0.004
+D. 4
+84. If weak acid is diluted with water then H+ ions concentration will
+A. decrease
+B. gradually decreases then increase
+C. increase
+D. remain same
+85. Which one the following is NOT an example of electrochemical cell?
+A. Electrolytic cell
+B. Photovoltaic cell
+C. Solar cell
+D. Voltic cell
+86. The saturated alicyclic hydrocarbons have the general formula
+A. CnH2n
+B. CnH2n+1
+C. CnH2n+2
+D. CnH2n−2
+87. If half-life of a chemical reaction is 30 minutes, how much time is required for its 87.5%
+completion?
+A. 30 min
+B. 60 min
+C. 90 min
+D. 120 min
+88. The oxidation of methanal results in the formation of
+A. Acetic acid
+B. Formic acid
+C. Methanol
+D. Propanoic acid
+89. Which of the following metal hydroxide is the strongest base?
+A. Ca(OH)2
+B. LiOH
+C. Mg(OH)2
+D. NaOH
+10
+
+=== PAGE 11 ===
+90. Which one of the following molecules has zero dipole movement?
+A. Ammonia
+B. Carbon dioxide
+C. Hydrogen fluoride
+D. Water
+91. How many electrons will be accommodated in sub-shell with Azimuthal quantum number
+l = 2?
+A. 2
+B. 6
+C. 10
+D. 12
+92. Which of the following mixture will constitute the buffer solution?
+A. Acetic acid & sodium acetate
+B. Acetic acid & ammonia
+C. Acetic acid and its ammonium acetate
+D. Ammonia & ammonium acetate
+93. What will be the IUPAC name of neopentane?
+A. 2, 2-Dimethypentane
+B. 2, 2-Dimethypropane
+C. 2-Methylbutane
+D. 3-Methylbutane
+94. According to law of mass action, Kp > Kc when reaction occurs with
+A. decrease in volume on product side
+B. increase in volume on product side
+C. increase in volume on reactant side
+D. simultaneous increase and decrease of product
+95. The correct reactivity order of the following compounds towards nucleophile is
+A. H-CO-H < H-CO-R < R-CO-R
+B. H-CO-H > H-CO-R > R-CO-R
+C. H-CO-R < H-CO-H < R-CO-R
+D. H-CO-H > R-CO-R > H-CO-R
+96. The anion derived by deprotonation of an alcohol acts as
+A. Acidic moiety
+B. Electrophile
+C. Lewis acid
+D. Lewis base
+97. Who stated that enthalpy change in a chemical reaction is same whether the reaction
+takes place in single step or in several steps?
+A. Arrhenius’ Law
+B. Born Haber’s Law
+C. Dalton’s Law
+D. Hess’s Law
+98. Which type of substituent will increase the acidic strength of phenols?
+A. Electron donating substituents
+B. Electron withdrawing substituents
+C. Lewis’s bases
+D. Nucleophiles
+11
+
+=== PAGE 12 ===
+99. Water is liquid at room temperature as compared to ammonia and hydrogen disulphide
+due to presence of
+A. Co-ordinate covalent bond
+B. Hydrogen bond
+C. Ionic bond
+D. Metallic bond
+100. Which of the following is an example of molecular solid?
+A. Al3N2
+B. CO2
+C. CsF
+D. NaCl
+101. What will be mole ratio of Al to O2 after balancing equation given below?
+A. 01:01:00
+B. 02:03:00
+C. 03:04:00
+D. 04:03:00
+102. Which product will be formed finally on the reduction of acetic acid with LiAlH4?
+A. Ethanal
+B. Ethane
+C. Ethanoic acid
+D. Ethanol
+103. The melting and boiling point of alcohols are high as compared to corresponding alkanes
+due to
+A. Dipole-dipole interaction
+B. Hydrogen bonding
+C. Ionic interactions
+D. Van der Waal interactions
+104. How many moles of oxygen gas are needed for combustion of 2 moles of propane?
+A. 8
+B. 10
+C. 12
+D. 14
+105. The e/m ratio of proton is
+that of an electron.
+A. 1837 times greater than
+B. equal to
+C. greater than
+D. smaller than
+106. Ca + S →CaS. If 2.0g of Calcium and 4.0g of Sulphur are available for reaction. Then
+amount of product formed is:
+A. 4.6g
+B. 2.6g
+C. 3.6g
+D. 6.6g
+107. Select the greatest number of particles in the followings:
+A. 2g of Sodium (atomic mass of sodium = 23)
+B. 2g of Hydrogen gas (atomic mass of H = 1)
+C. 2g of Nitrogen gas (atomic mass of N = 14)
+D. 2g of Carbon dioxide gas (atomic mass of C = 12, O = 16)
+12
+
+=== PAGE 13 ===
+108. The value of ’l’ for 4p orbital is:
+A. 0
+B. 1
+C. 2
+D. 3
+109. The element having the electronic configuration of noble gas notation [Kr] 5s2 4d6 is:
+A. Sr
+B. Ru
+C. Pd
+D. Zr
+110. Choose the allowed sets of quantum numbers from the following:
+A. n=3, l=2, m=0, s=+1/2
+B. n=3, l=3, m=0, s=-1/2
+C. n=4, l=3, m=4, s=+1/2
+D. n=4, l=2, m=4, s=-1/2
+111. A gas has a volume of 10 dm3 at 10 ◦C. At what temperature the volume of the gas is
+reduced to half?
+A. 283K
+B. 586K
+C. 141.5K
+D. 373K
+112. The relationship between the absolute temperature and the velocity of gas molecules is
+given by:
+A. Crms =
+p
+3RT/M
+B. PV = nRT
+C. V =
+p
+2Ek/m
+D. PV = 1/3 n m C2
+113. The maximum polarizability is exhibited in:
+A. C6H14
+B. C2H8
+C. C4H12
+D. C2H6
+114. Which of the following compounds has a characteristic heat of fusion EXCEPT?
+A. NaCl
+B. Aluminium oxide
+C. Iron oxide
+D. Silicates
+115. If the external pressure is reduced to half, the boiling point of ethanol will be:
+A. Greater than 78 ◦C
+B. Less than 78 ◦C
+C. Equal to 78 ◦C
+D. Reduced to half
+116. Iodine is a poor conductor of electricity because of:
+A. Face centered cubic structure
+B. Body centered cubic structure
+C. Tetragonal structure
+D. Hexagonal structure
+13
+
+=== PAGE 14 ===
+117. Predict the shape of CsCl having radius ratio of 0.93:
+A. Tetrahedral
+B. Octahedral
+C. Body centered cubic
+D. Hexagonal
+118. The solubility product of PbS at 25 ◦C is 4.0 × 10−28. Then ionic concentration (S) will
+be:
+A. 4 × 10−14
+B. 2 × 10−14
+C. 1 × 10−14
+D. 23.0 × 10−16
+119. What conditions should be applied to minimize the leftover reactants in Ammonia syn-
+thesis?
+A. 200 atm, 500 ◦C
+B. 100 atm, 200 ◦C
+C. 100 atm, 400 ◦C
+D. 200 atm, 400 ◦C
+120. Select the buffer solution having highest pH:
+A. 0.1M CH3COOH, 0.01M CH3COO−
+B. 0.1M CH3COOH, 0.05M CH3COO−
+C. 0.1M CH3COOH, 0.10M CH3COO−
+D. 0.1M CH3COOH, 0.15M CH3COO−
+121. The formation of hydrogen gas can be increased by reacting which Zn sample with 1M
+HCl solution?
+A. 1g Zn Rod
+B. 1g Zn Pallets
+C. 1g Zn Ribbon
+D. 1g Zn Powder
+122. 6CO2 + 6H2O
+Sunlight
+−−−−−→C6H12O6 + 6O2. Predict the order of reaction:
+A. 2nd
+B. 1st
+C. Zero
+D. 3rd
+123. Which of the following mechanism is consistent with the rate law Rate = K[NO]2 [H2]?
+A. 2NO + H2 →N2 + H2O2 (slow); H2O2 + H2 →2H2O (fast)
+B. NO + H2O →N2 + H2O2 (slow); H2O2 + H2 →2H2O (fast)
+C. 2NO + 2H2 →N2O + H2 (slow); N2O + H2 →H2O2 (fast)
+D. NO + NO →N2 + O2 (slow); O2 + H2 →H2O (fast)
+124. ∆H◦for the sublimation of one mole of iodine from the following equations will be: H2(g)
++ I2(g) →2HI(g) (51.8 kJ/mol), H2(g) + I2(s) →2HI(g) (-10.5 kJ/mol)
+A. 41.3 kJ/mol
+B. 62.3 kJ/mol
+C. 53.5 kJ/mol
+D. 36.5 kJ/mol
+14
+
+=== PAGE 15 ===
+125. Identify standard enthalpy of a reaction for the following reaction:
+A. H2(g) + 1/2 O2(g) →H2O(l)
+B. CO(g) + 1/2 O2(g) →CO2(g)
+C. 2Al(s) + Fe2O3(s) →Al2O3(s) + 2Fe(s)
+D. S(s) + 3/2 O2(g) →SO3(g)
+126. Expansion takes place when a gas is evolved during a chemical reaction between marble
+chips and dilute HCl. Predict the energy change and work done:
+A. w is positive, q is negative
+B. w is negative, q is positive
+C. q is positive, no work done
+D. w is positive, q is positive
+127. Zn rod acts as cathode when coupled with magnesium electrode. This is because the
+reduction potential of:
+A. Zn > Mg
+B. Zn < Mg
+C. Zn = Mg
+D. Zn = 0
+128. Placing a rod of iron metal in a solution of CuSO4:
+A. Cu will be deposited
+B. Fe is precipitated out
+C. Cu and Fe both dissolve
+D. No reaction takes place
+129. In CH3Cl, bond length of C–Cl is 176.7 pm and covalent radius of Cl atom is 99.4 pm,
+the covalent radius of carbon atom is:
+A. 66.3 pm
+B. 276.1 pm
+C. 175.4 pm
+D. 77.3 pm
+130. Correct order of decreasing electron affinities of group VII is:
+A. F > Cl > Br > I
+B. Cl > F > Br > I
+C. F < Cl < Br < I
+D. Cl < F < Br < I
+131. Predict the highest bond energy of the following single bond:
+A. C–H
+B. C–N
+C. C–O
+D. C–C
+132. Identify the type of hybridization of nitrogen in the following molecule: [N≡N–Cl] or
+N+=N–Cl−:
+A. sp
+B. sp2
+C. sp3
+D. dsp2
+15
+
+=== PAGE 16 ===
+133. Compound X + Na2CO3 →Compound Y + CO2 + H2O. If Compound Y is a sodium
+salt of carboxylic acid, what is X?
+A. CH2=CH–CH2–CH3
+B. CH3CH2CHO
+C. CH3COOCH3
+D. CH3CH2COOH
+134. Compound A + I2 + Na2CO3 →Compound B + RCOONa + NaI + H2O. Identify
+compound B (the yellow precipitate of iodoform test):
+A. Acetone
+B. Acetic acid
+C. Acetamide
+D. Iodoform (or Haloform)
+135. Select the carboxylic acid with the highest melting point:
+A. Ethanoic acid
+B. Propanoic acid
+C. Butanoic acid
+D. Pentanoic acid
+136. Identify the following compounds having shortest bond length (C–O or C–N):
+A. Methyl amine
+B. Formamide
+C. Formic acid
+D. Ethanol
+137. Identify the alkene which gives only one type of aldehyde upon ozonolysis:
+A. 1-pentene
+B. 2-methyl propene
+C. 2-butene
+D. 2,3 dimethyl-2-butene
+138. Identify the correct increasing order of reactivity of carbonyl compounds towards nucle-
+ophilic addition:
+A. HCHO < CH3CHO < CH3COCH3 ≤CH3CH2CHO
+B. CH3CHO < CH3COCH3 < CH3CH3CHO < HCHO
+C. CH3CH2CHO < CH3COCH3 < HCHO < CH3CHO
+D. CH3COCH3 < CH3CH2CHO < CH3CHO < HCHO
+139. Bakelite is formed upon polymerization of:
+A. Phenol + HCHO in dilute base
+B. Phenol + NaOH
+C. Phenol + H2SO4
+D. Phenol + CH3COCl
+140. The increasing order of reactivity of alcohols towards nucleophile (C–O bond cleavage) is:
+A. 2-methyl-2-pentanol < 3-methyl-2-pentanol < 2-methyl-1-pentanol
+B. 2-methyl-2-pentanol > 3-methyl-2-pentanol > 2-methyl-1-pentanol
+C. 2-methyl-1-pentanol < 3-methyl-2-pentanol < 2-methyl-2-pentanol
+D. 2-methyl-1-pentanol > 3-methyl-2-pentanol > 2-methyl-2-pentanol
+141. The most reactive alcohol towards Lucas reagent is:
+A. 2-butanol
+B. 2-methyl-1-butanol
+C. 2-methyl-2-butanol
+D. 2,2-dimethyl-1-butanol
+16
+
+=== PAGE 17 ===
+142. The most readily sulphonated compound is:
+A. Benzene
+B. Chlorobenzene
+C. Nitrobenzene
+D. Toluene
+143. Select the alkene showing geometrical isomerism:
+A. 3 methyl-1-butene
+B. Methyl cyclopentane
+C. 2,3-dimethyl-2-butene
+D. 3-methyl-2-pentene
+144. Trend in ionization energy of third period elements (Na, Mg, Al, Si) in increasing order
+will be:
+A. Na < Mg < Al < Si
+B. Na < Al < Mg < Si
+C. Si < Al < Na < Mg
+D. Al < Si < Na < Mg
+145. When a metal carbonate is heated, which of the following compounds will most readily
+decompose?
+A. BaCO3
+B. MgCO3
+C. BeCO3
+D. SrCO3
+146. Which one of the following molecules has a zero-dipole moment?
+A. BF3
+B. NF3
+C. NH3
+D. H2O
+147. The unhybridized p orbital in sp2 hybridization is
+A. In the same plane
+B. Out of the plane
+C. Parallel to sp2 orbitals
+D. Perpendicular to sp2 orbitals
+148. 760 torr is equal to
+Pascal
+A. 1
+B. 76
+C. 760
+D. 101325
+149. How many grams of CO2 can be produced by thermally decomposing 10 moles of
+ZnCO3(s)?
+A. 320
+B. 360
+C. 400
+D. 440
+150. Molar heat of vaporization of water is
+A. 40.7 cal/mol
+B. 40.7 J/mol
+C. 40.7 kcal/mol
+D. 40.7 kJ/mol
+17
+
+=== PAGE 18 ===
+151. Distillation under very reduced pressure is
+distillation
+A. Destructive
+B. Fractional
+C. Steam
+D. Vacuum
+152. The example of metallic solid is
+A. B
+B. C
+C. Cu
+D. Si
+153. When a crystalline substance conducts current in one direction but not through other
+directions of the crystal, this property is
+A. Allotropy
+B. Anisotropy
+C. Isomorphism
+D. Polymorphism
+154. Forward reaction is the one that
+A. Is very slow at the beginning of the reaction
+B. Reacts to form reactants
+C. Speeds up gradually and at equilibrium its rate becomes constant
+D. Takes place from left to right as given in chemical equation
+155. How many moles of NaCl are produced from 16.5g of HCl, according to the neutralization
+reaction? HCl(aq) + NaOH(aq) →NaCl(aq) + H2O(l)
+A. 0.252
+B. 0.452
+C. 0.652
+D. 0.852
+156. In the production of SO3 from SO2 and Oxygen, the yield of SO3 is increased by
+A. Adding a catalyst
+B. Adding more SO2
+C. Increasing temperature
+D. Removing oxygen
+157. Consider N2 + 3H2 ⇀
+↽2NH3, ∆H = −92.46 kJ/mol. The optimum temperature (◦C) to
+produce ammonia is
+A. 0
+B. 450
+C. 5000
+D. Constant temperature
+158. The unit of Kc for the system PCl5 ⇀
+↽PCl3 + Cl2 is
+A. dm3/mol
+B. mol/dm3
+C. mol/dm6
+D. mol2/dm6
+18
+
+=== PAGE 19 ===
+159. For a first order reaction A →B, the rate constant is 0.0458 s−1. Calculate rate of the
+reaction if the concentration of reactant is 0.35 mol dm−3.
+A. 0.012 mol dm−3 s−1
+B. 0.014 mol dm−3 s−1
+C. 0.016 mol dm−3 s−1
+D. 0.018 mol dm−3 s−1
+160. A reaction is first order with respect to A and second order with respect to B, the rate
+equation is
+A. Rate = k [A]
+B. Rate = k [A][B]
+C. Rate = k [A]2[B]
+D. Rate = k [A][B]2
+161. What mass of aluminium oxide (Al2O3) is produced from 18.5g of Al metal, when it
+reacts completely with oxygen gas according to the following equation? 4Al(s) + 3O2(g)
+→2Al2O3(s)
+A. 30.8g
+B. 32.6g
+C. 34.9g
+D. 36.5g
+162. Calculate the work done when 1 mole of an ideal gas expands from 15 dm3 to 20 dm3
+against a constant external pressure of 2 atmospheres.
+A. -10 atm dm3
+B. -5 atm dm3
+C. 5 atm dm3
+D. 10 atm dm3
+163. When 1 mole of ice melts at 0◦C and constant pressure of 1 atmosphere, 6025 J of heat
+is absorbed by the system. The molar volume of ice and water are 0.020 and 0.018 dm3,
+respectively. Calculate ∆E. (1 dm3 atm = 101.33 J)
+A. 6010.20J
+B. 6015.20J
+C. 6020.20J
+D. 6025.20J
+164. One slice of bread with a tablespoon of peanut butter on it contains 20g carbohydrate,
+10g protein, and 9g fat. Calculate total energy consumed in this intake.
+A. 158kcal
+B. 173kcal
+C. 201kcal
+D. 218kcal
+165. ∆H can be measured indirectly by applying
+A. Avogadro’s law
+B. Faraday’s law
+C. Gas’s law
+D. Hess’s law
+19
+
+=== PAGE 20 ===
+166. The heat of sublimation of potassium is 98 kJ/mol, the heat of dissociation of bromine
+gas is 192.5 kJ/mol. The ionization energy of K is 414 kJ/mol. The electron affinity of Br
+is -334.7 kJ/mol and the heat of formation of KBr is -405.8 kJ/mol. Calculate the lattice
+energy of KBr.
+A. -679.3
+B. -669.5
+C. 669.5
+D. 679.3
+167. Which one of the following is a strong electrolyte in solution?
+A. Acetic acid
+B. Ammonium hydroxide
+C. Carbonic acid
+D. Potassium iodide
+168. When 4 g of magnesium was heated in excess of oxygen. Calculate the theoretical yield
+of magnesium oxide (MgO).
+A. 3.7g
+B. 4.2g
+C. 5.4g
+D. 6.6g
+169. The electrode potential of the standard hydrogen electrode is chosen as
+A. -1 V
+B. 0 V
+C. 1 V
+D. 2 V
+170. Electronegativity of Al is approximately equal to that of
+A. B
+B. Be
+C. Mg
+D. Na
+171. Which of the following alkali metal forms only normal oxide with O2?
+A. K
+B. Li
+C. Na
+D. Rb
+172. Third period element that initially reacts rapidly with oxygen to form a protective oxide
+coating that prevents further reactions is
+A. Al
+B. Mg
+C. Na
+D. Si
+173. Cu2+ salt solution is blue in colour due to transition of electrons from
+A. d to d orbital
+B. p to d orbital
+C. p to p orbital
+D. s to p orbital
+20
+
+=== PAGE 21 ===
+174. Potassium ferrocyanide is which type of salt?
+A. Complex
+B. Double
+C. Mixed
+D. Normal
+175. Name of ketone functional group is
+A. Amino
+B. Carbonyl
+C. Carboxyl
+D. Formyl
+176. Pyridine belongs to which class of organic compounds?
+A. Alicyclic
+B. Heterocyclic
+C. Homocyclic
+D. Hydrocarbon
+177. Which of the following elements cannot be detected directly in a given organic compound?
+A. Chlorine
+B. Nitrogen
+C. Oxygen
+D. Phosphorous
+178. The homolytic fission of C–H bond in an alkane result in
+A. Alkyl free radical
+B. Carbanion
+C. Carbocation
+D. Methylpropane
+179. Addition of HBr to isobutylene mainly gives
+A. isobutyl bromide
+B. n-butyl bromide
+C. sec-butyl bromide
+D. tert-butyl bromide
+180. Dehydrohalogenation of alkylhalide is carried out in presence of
+A. Alcoholic KOH
+B. Aqueous KOH
+C. Conc. H2SO4
+D. Zn dust
+181. The pKb of n-propyl amine is
+A. 3.24
+B. 3.28
+C. 3.32
+D. 3.35
+182. The carbon atom carrying positive charge and attached to three other atoms or groups is
+called
+A. Carbanion
+B. Carbene
+C. Carbocation
+D. Oxonium
+21
+
+=== PAGE 22 ===
+183. Which of the following has the highest boiling point?
+A. ethyl alcohol
+B. isopropyl alcohol
+C. n-propyl alcohol
+D. tert-butyl alcohol
+184. The reaction of an alcohol with sodium produces
+A. Aldehyde
+B. Alkoxide
+C. Ethane
+D. Ethene
+185. Oxidation of secondary alcohol gives
+A. Carboxylic acid
+B. Ether
+C. Ketone
+D. Phenol
+186. Which aldehyde is more reactive towards nucleophilic addition?
+A. Acetaldehyde
+B. Butyraldehyde
+C. Formaldehyde
+D. Propionaldehyde
+187. Acetic acid can be prepared by the hydrolysis of
+A. Ethanal
+B. Ethonal
+C. Methanoic acid
+D. Methyl cyanide
+188. How many moles are there in 60g of sodium hydroxide (NaOH)?
+A. 2
+B. 4
+C. 6
+D. 8
+189. Heating 24.8g of copper carbonate (CuCO3) in a crucible produced only 13.9g of copper
+oxide (CuO). What is the percentage yield of copper oxide?
+A. 0.8179
+B. 0.8398
+C. 0.8687
+D. 0.8968
+190. Efficiency of chemical reaction can be checked by calculating
+A. Actual yield
+B. Theoretical yield
+C. Percentage yield
+D. Amount of the reactant unused
+191. Actual yield will reach the ideal (theoretical) value if the % yield of the reaction is,
+A. 0.1
+B. 0.5
+C. 0.9
+D. 1
+22
+
+=== PAGE 23 ===
+192. Which of the following sub-shell does not exist?
+A. 1p
+B. 1s
+C. 5d
+D. 6f
+193. The splitting of spectral lines in magnetic field is
+A. Aufbau principle
+B. Pauli exclusion principle
+C. Stark effect
+D. Zeeman effect
+194. Which element has the electronic configuration of noble-gas notation [Kr], 5s2, 4d2
+A. Mo
+B. Se
+C. Sr
+D. Zr
+195. Total number of electron pairs present in the valence shell of central atom in water are
+A. 2
+B. 3
+C. 4
+D. 5
+196. What is the mass of 1 mole of calcium carbonate (CaCO3)?
+A. 50g
+B. 75g
+C. 100g
+D. 125g
+197. Which one of the following molecules has a pyramidal structure?
+A. C2H4
+B. CH4
+C. H2O
+D. NH3
+198. Chelate means:
+A. Bidentate
+B. Ion
+C. Monodentate
+D. Crab claws
+199. The shape of an ammonia molecule is:
+A. Angular
+B. Tetrahedral
+C. Linear
+D. Pyramidal
+200. It is used as a preservative and antibacterial agent in livestock feed:
+A. Butyric acid
+B. Formic acid
+C. Caroic acid
+D. Propionic acid
+23
+
+=== PAGE 24 ===
+201. The charge of electron is:
+A. 1.602 × 10−16 C
+B. 1.602 × 10−15 C
+C. 1.602 × 10−17 C
+D. 1.602 × 10−19 C
+202. The equilibrium of this reaction would not be affected by an increase in pressure:
+A. 2SO2 + O2 ⇀
+↽2SO3
+B. N2 + O2 ⇀
+↽2NO
+C. 2NO + Cl2 ⇀
+↽2NOCl
+D. PCl5 ⇀
+↽PCl3 + Cl2
+203. The density of benzene is:
+A. 0.80 g/cm3
+B. 0.88 g/cm3
+C. 0.85 g/cm3
+D. 0.82 g/cm3
+204. According to Raoult’s law, the relative lowering of vapor pressure is equal to:
+A. Mole fraction of solute
+B. Mole fraction of solvent
+C. Parts per million
+D. Molarity
+205. When an unsymmetrical alkene undergoes addition reactions, the negative part of attack-
+ing reagent is added to that double-bonded carbon atom which contains:
+A. Highest number of chloride atoms
+B. Lesser number of hydrogen atoms
+C. Highest number of hydrogen atoms
+D. Moderate number of hydrogen atoms
+206. According to Charles, at 0 K (-273.15◦C) the volume of a gas should be:
+A. -2
+B. Zero
+C. -1
+D. 2
+207. The paramagnetic behavior of molecules such as oxygen molecules cannot be explained
+by:
+A. Molecular orbital theory
+B. Hybridization
+C. Valence bond theory
+D. Valence shell electron pair repulsion theory
+208. The decomposition of H2O2 is inhibited by:
+A. MnO2
+B. Ethanol
+C. Glycerin
+D. V2O5
+209. It transports oxygen from the lungs to every tissue of the body:
+A. Hemoglobin
+B. Proteins
+C. Hormones
+D. Lipids
+24
+
+=== PAGE 25 ===
+210. The bond length between C–C in benzene is:
+A. 1.34 ˚A
+B. 1.39 ˚A
+C. 1.56 ˚A
+D. 1.38 ˚A
+211. ”In an orbital of an atom, no two electrons can have the same set of four quantum numbers,
+at least one quantum number must be different.” This statement is:
+A. Aufbau principle
+B. Pauli’s exclusion principle
+C. Hund’s rule
+D. Wissewser rule
+212. IUPAC name of isopropyl alcohol is:
+A. 1-butanol
+B. 2-propanol
+C. 1-propanol
+D. 2-butanol
+213. The unit of rate constant for the first order reaction is:
+A. conc.s−1
+B. M2s−1
+C. s−1
+D. M−1s−1
+214. Volume is a:
+A. Intensive property
+B. Entropy
+C. Path function
+D. State function
+215. Collection of gas over water is an example of:
+A. Boyle’s law
+B. Avogadro’s law
+C. Dalton’s law
+D. Graham’s law
+216. Dry ice is the example of:
+A. Molecular solid
+B. Metallic solid
+C. Covalent solid
+D. Ionic solid
+217. Low atmospheric pressure system is called:
+A. Diffusion
+B. Depression
+C. Effusion
+D. Contraction
+218. The pH value of human blood is:
+A. 7.8
+B. 7.35
+C. 7.33
+D. 6.62
+25
+
+=== PAGE 26 ===
+219. It is used to distinguish between primary, secondary, and tertiary alcohol:
+A. Tollens Reagent
+B. Grignard Reagent
+C. Benedict Reagent
+D. Lucas Reagent
+220. An example of an endothermic reaction is:
+A. Photosynthesis
+B. Synthesis of NH3
+C. Nuclear fission
+D. Burning of fuel and coal
+221. Stoichiometry is the study of
+relationship between reactants and products in a
+chemical reaction by using a balanced chemical equation:
+A. Quantitative
+B. Qualitative
+C. Chemical
+D. Descriptive
+222. Ketones, when treated with LiAlH4, reduce to:
+A. Primary alcohol
+B. Tertiary alcohol
+C. Alcohol
+D. Secondary alcohol
+223. The term ”active mass” used in the Law of Mass Action means:
+A. Number of moles per dm3
+B. Number of moles per dm2
+C. Gram per dm3
+D. Number of moles
+224. The neutron was discovered by:
+A. Max Planck
+B. Neil Bohr
+C. J.J. Thomson
+D. James Chadwick
+225. When chlorobenzene reacts with sodium hydroxide at 350◦C and 150 atmospheric pres-
+sure, it gives rise to the formation of:
+A. Sodium chromate
+B. Phenol
+C. Sodium phenoxide
+D. Sodium sulfate
+226. The carboxylic acid is stronger than:
+A. PCl5
+B. HNO3
+C. HCl
+D. CH3OH
+227. The initial discovery of natural gas in Pakistan dates back to when it was found in the
+Sui area of Baluchistan:
+A. 1955
+B. 1954
+C. 1956
+D. 1952
+26
+
+=== PAGE 27 ===
+228. Reduction of aldehydes & ketones by Zn-Hg amalgam and concentrated HCl results in
+conversion to an alkane. This reaction is known as:
+A. Down Reduction
+B. Cope Reduction
+C. Wolff-Kishner Reduction
+D. Clemmensen Reduction
+229. Deficiency of
+causes loss of weight, appetite, and taste:
+A. K
+B. P
+C. Fe
+D. Zn
+230. The rate of SN1 mechanism depends upon:
+A. Concentration of nucleophile
+B. Concentration of both substrate and nucleophile
+C. Polar non-polar solvent
+D. Concentration of substrate only
+231. Total number of alpha amino acids are:
+A. 19
+B. 27
+C. 22
+D. 25
+232. Aldehydes & ketones can be converted to alkane. This reaction is called:
+A. Wolff-Kishner reaction
+B. Grignard reaction
+C. Friedel-Craft reaction
+D. Clemmensen reaction
+233. An example of a bidentate ligand among the following is:
+A. Br−
+B. CN−
+C. C2O2−
+4
+D. OH−
+234. Fuel cell is a typical galvanic cell which is based on reaction between:
+A. Hydrogen and copper
+B. Methane and oxygen
+C. Hydrogen and oxygen
+D. Nitrogen and oxygen
+235. The alkali metal that gives a yellow color during a flame test is:
+A. Ba
+B. Na
+C. K
+D. Cs
+236. Which of the following possesses the weakest London dispersion forces?
+A. F2
+B. Br2
+C. Cl2
+D. He
+27
+
+=== PAGE 28 ===
+237. Which of the following liquids shows maximum surface tension?
+A. Water
+B. Mercury
+C. Ethyl alcohol
+D. Chloroform
+238. Hydroquinone is a phenol; it contains two –OH groups at:
+A. Position 1 and 2
+B. Position 1 and 3
+C. Position 2 and 4
+D. Position 1 and 4
+239. Generally, actual yield is:
+A. Less than theoretical yield
+B. Equal to the theoretical yield
+C. Greater than theoretical yield
+D. Greater than percent yield
+240. Formic acid is naturally found in:
+A. Butter
+B. Goat
+C. Milk
+D. Ants
+241. Urea was first synthesized by Wohler from an inorganic material named:
+A. Ammonium bicarbonate
+B. Ammonium nitrate
+C. Ammonium oxalate
+D. Ammonium cyanate
+242. Oil of Vitriol refers to:
+A. Caustic soda
+B. Alum
+C. Borax
+D. Sulfuric acid
+243. The number of five-membered and six-membered rings in Buckyball are respectively:
+A. 40 and 20
+B. 12 and 12
+C. 5 and 15
+D. 12 and 20
+244. It is an example of a crystalline solid:
+A. Plastics
+B. Charcoal
+C. Glass
+D. Alum
+245. The structure of primary amines is:
+A. Trigonal
+B. Tetrahedral pyramidal
+C. Planar
+D. Linear
+28
+
+=== PAGE 29 ===
+246. Mostly p block elements react with
+to form binary compounds:
+A. Oxygen
+B. Water
+C. Halogens
+D. Nitrogen
+247. Maximum number of electrons in a given sub-shell are calculated by:
+A. n2
+B. 2(n+1)
+C. 2n2
+D. 2l+1
+248. This shape is found in AX2 when the bond angle is 180◦:
+A. Pyramidal
+B. Bent
+C. Triangle
+D. Linear
+249. A colloidal solution of liquid into liquid is known as:
+A. Solid foam
+B. Foam
+C. Fog
+D. Emulsion
+250. These hydrocarbons contain one or more double or triple bonds between the two adjacent
+carbon atoms in their structure:
+A. Alkenes and alcohol
+B. Alkenes and cycloalkanes
+C. Alkanes and alkyl halides
+D. Alkenes and alkynes
+251. Conjugated acid of NH3 is:
+A. NH+
+4
+B. NH
+C. NH2
+D. NH−
+2
+252. The sign of heat ”q” is positive for a system when:
+A. The temperature of system drops
+B. Heat flows from surrounding to system
+C. Heat flows from system to surrounding
+D. No flow of heat between system to surrounding
+253. Which of the following is used for galvanizing iron sheet?
+A. Tin
+B. Zinc
+C. Aluminum
+D. Copper
+254. Water is:
+A. Weak electrolyte
+B. Strong electrolyte
+C. Very strong electrolyte
+D. Moderate electrolyte
+29
+
+=== PAGE 30 ===
+255. Which of the following elements react rapidly with water at room temperature?
+A. Cu (Copper)
+B. Na (Sodium)
+C. Fe (Iron)
+D. Al (Aluminum)
+256. Natural gas consists mainly of:
+A. Butane
+B. Propane
+C. Methane
+D. Ethane
+257. The IUPAC name for formaldehyde is:
+A. Proponal
+B. Ethanal
+C. Methanal
+D. Butanal
+258. What change in oxidation number of Cu takes place in the following reaction: Cu +
+4HNO3 →Cu(NO3)2 + 2NO2 + 2H2O
+A. 0 to -1
+B. 0 to +1
+C. 0 to -2
+D. 0 to +2
+259. Suppose the following system has reached equilibrium at a certain temperature:
+N2O4(g) →2NO2(g) Adding N2O4 to the system will:
+A. Start forward reaction
+B. Start reverse reaction
+C. Not disturb equilibrium
+D. Raise the temperature of system
+260. 5 calories are equivalent to
+Joule.
+A. 4.184
+B. 10.26
+C. 20.92
+D. 25.65
+261. Which one of the following statements is NOT correct?
+A. Formaldehyde is a gas at room temperature
+B. Formaldehyde is a liquid at room temperature
+C. Oxidation of methyl alcohol can produce formaldehyde
+D. Dry distillation of calcium formate can produce formaldehyde
+262. Select the correct one:
+A. Only electrons of atoms get shuffled during chemical reaction
+B. All the sub-atomic particles of an atom take part in chemical reaction
+C. Protons of an atom spearhead chemical reaction
+D. Protons and neutrons of an atom collectively make chemical reactions possible
+263. Le Chatelier’s principle does NOT give information about the effect of the following on
+equilibrium
+A. Time
+B. Pressure
+C. Temperature
+D. Concentration
+30
+
+=== PAGE 31 ===
+264. Conversion of Fahrenheit to Celsius scale by:
+A. ◦C = 5
+9(◦F + 32)
+B. ◦C = 9
+5(◦F −32)
+C. ◦C = 5
+9(◦F −32)
+D. ◦C = 9
+5(◦F + 32)
+265. Having knowledge of the bond energies of alkyl halides; the most reactive one is the
+A. Iodo-compound
+B. Bromo-compound
+C. Chloro-compound
+D. Fluoro-compound
+266. Amino acids, which are not synthesized by the human body are:
+A. Non-essential amino acids
+B. Essential amino acids
+C. Dietary amino acids
+D. Synthetic amino acids
+267. Transition metal compounds containing unpaired electrons are:
+A. Always diamagnetic
+B. Attracted by the magnet
+C. Not attracted by the magnet
+D. Repelled by the magnet
+268. Which of the following is NOT the state of matter:
+A. Plasma
+B. Liquids
+C. Gases
+D. Ether
+269. In organic chemistry, a nucleus liking agent, rich in electrons, is defined as:
+A. A nucleotide
+B. A nucleophile
+C. An electrophile
+D. Electron affluent
+270. The term ’Transition Temperature’ is used for the temperature:
+A. at which one crystalline form of a substance changes into another
+B. at which liquid crystals are formed in a liquid
+C. within which the habit of a crystal remains the same
+D. showing a sharp change in the anisotropic properties of a crystal
+271. The non-protein part of an enzyme is called:
+A. Activator
+B. Co-enzyme
+C. Substrate
+D. Apoenzyme
+272. The concentration of rectified spirit is:
+A. 0.85
+B. 0.9
+C. 0.95
+D. 1
+31
+
+=== PAGE 32 ===
+273. Alkyl halides can yield ethers when heated in the presence of the metallic compound:
+A. AgO
+B. CuO
+C. Cu2O2
+D. FeO
+274. The lipids which have a tetracyclic compound are called Steroids. The tetracyclic com-
+pound is:
+A. Benzene
+B. Tetracyclic
+C. Cyclopentane
+D. Phenanthrene
+275. The equilibrium constant has no units if the number of moles of products are:
+A. Less than reactants
+B. More than reactants
+C. Equal to reactants
+D. Half of reactants
+276. Which statement is NOT correct for cathode rays?
+A. Have consist of moving material particles
+B. Have definite mass
+C. Have definite velocity
+D. Travel with the velocity of light
+277. Sodium nitrate (NaNO3), on heating, decomposes forming:
+A. Na2O and NO2
+B. NaNO2 and O2
+C. Na, NO2 and O2
+D. Na2O, NO2 and O1
+278. A molecule of ethane has
+bonds.
+A. four
+B. five
+C. six
+D. seven
+279. The only group of lines occurring in the visible region of the hydrogen spectrum is labeled
+as the
+A. Paschen series
+B. Pfund series
+C. Balmer series
+D. Lyman series
+280. Electric current in solutions is carried by:
+A. Ions
+B. Canal rays
+C. Free protons
+D. Free electrons
+281. In alkane series, all the linkages between carbon atoms is / are
+bond(s).
+A. single
+B. double
+C. triple
+D. quadruple
+32
+
+=== PAGE 33 ===
+282. In a chemical reaction, a limiting reactant is that:
+A. Which is present in excess
+B. Which is not in excess
+C. Which acts as catalyst
+D. Which is not taking part in the reaction
+283. Units of change in enthalpy of a system are
+A. cc
+B. ◦C
+C. J
+D. Pa
+284. Electrically diamond is a:
+A. Good conductor
+B. Non-conductor
+C. Semi-conductor
+D. None of these
+285. Which of the following food product has lower energy per gram?
+A. Milk
+B. Ghee
+C. Butter
+D. Glucose
+286. Which of the following is used for galvanizing iron sheet?
+A. Tin
+B. Zinc
+C. Aluminum
+D. Copper
+287. On heating acetic acid in the presence of P2O5, dehydration occurs with the formation of
+A. Acetamide
+B. Octyl acetate
+C. Methyl acetate
+D. Acetic anhydride
+288. One picometer (pm) = ?
+A. 10−6m
+B. 10−8m
+C. 10−10m
+D. 10−12m
+289. Isotopes differ from each other on the basis of:
+A. Number of electrons
+B. Mass number
+C. Electronic configuration
+D. Crystal lattice
+290. Carbon atom is used to measure relative:
+A. Atomic size
+B. Atomic number
+C. Atomic mass
+D. Atomic volume
+33
+
+=== PAGE 34 ===
+291.
+is regarded as the simplest and the parent member of aromatic class of compounds.
+A. Methanol
+B. Acetylene
+C. Benzene
+D. Acetic acid
+292. The procedure for the preparation of ethers in which an alcohol is first allowed to react
+with metallic sodium is called:
+A. Tollen’s synthesis
+B. Fehling’s Synthesis
+C. Willamson’s synthesis
+D. Grignard’s synthesis
+293. Inter molecular repulsive forces in gases are due to
+A. Ionic bonding
+B. Vander Waal’s forces
+C. Dipoles
+D. Covalent bonding
+294. The polymer formed from a single type of monomer is called:
+A. Terpolymer
+B. Copolymer
+C. Homopolymer
+D. Thermosetting polymer
+295. When a hydrogen atom of an alkane is removed, the resulting group is called:
+A. Aryl
+B. Alkyl
+C. Alkenyl
+D. Phenyl
+296. The IUPAC name of the following compound is: CH3–CH2–C(Cl)(CH3)–CH2–CH3
+A. 3-chloromethylhexane
+B. 3-chloro-3-ethylbutane
+C. 3-chloro-3-methylpentane
+D. Hexylchloride
+297. The early chemists never succeeded in synthesizing organic compounds and their failure
+led them to believe that organic compounds could be manufactured:
+A. with pure reagents
+B. by and within living things
+C. with pure organic solvents
+D. at very high temperature and pressure
+298. Oxidation number of Mn in K2MnO4 is:
+A. 4
+B. 5
+C. 6
+D. 7
+299. Which of the following compound is not an alcohol:
+A. C3H7OH
+B. C4H9OH
+C. C4H8CH3OH
+D. None of the given options
+34
+
+=== PAGE 35 ===
+300. Benzene when reacts with chlorine, in presence of sunlight gives an additional product i.e
+A. HCl
+B. Chloroform
+C. Hexachlorobenzene
+D. Polyvinyl chloride (PVC)
+301. The sum of pH and pOH for pure water at 25◦C is
+A. 10
+B. 10−14
+C. 14
+D. 25
+302. An electron in an atom is completely described by its
+quantum numbers.
+A. Eight
+B. Six
+C. Five
+D. Four
+303. Which of the following is not a result of capillary action?
+A. Rise of water from soil to plant
+B. Movement of blood in veins
+C. Absorption of water by the cotton
+D. Spreading of ink on blotting paper
+304. When potassium chromate is treated with an acid, it produces:
+A. Water
+B. Sodium chloride
+C. Potassium sulfate
+D. Potassium dichromate
+305. The total number of moles present in 2.8 g of an ethylene molecule are:
+A. 0.1 g
+B. 0.2 g
+C. 1 g
+D. 2 g
+306. The magnetic quantum number of the 4f orbital would be:
+A. -2, -3, -1, 0, +2, +3, +1, +4
+B. -2, -3, -1, 0, +2, +3, +1
+C. -3, -4, -2, -1, 0, +4, +3, +2, +1
+D. -3, -2, -1, 0, +1, +2, +3
+307. Which of the following ions is readily hydrated?
+A. Mg2+
+B. Ba2+
+C. Na+
+D. Cs+
+308. What is the IUPAC name of the compound CH3–CH2(CH3)–CH2–CH2(CH3)–CH3?
+A. 1,2-Dimethylpentane
+B. 2,4-Dimethylpentane
+C. n-Heptane
+D. Di-isoheptane
+35
+
+=== PAGE 36 ===
+309. What is the IUPAC name of the compound CH2=CH–CH=CH3–CH=CH–CH3?
+A. 1,3,5-Heptatriene
+B. 2,4,6-Heptatriene
+C. Hepta-1,3,5-triene
+D. Hepta-2,4,6-triene
+310. How many active sets of electrons are in water (H2O)?
+A. 2
+B. 3
+C. 4
+D. 8
+311. When alkaline earth metals react with nitrogen, the compound formed is:
+A. M3N2
+B. M2N2
+C. M2N3
+D. M3N3
+312. The solubility of AgCl decreases by adding:
+A. H2SO4
+B. HF
+C. NaCl
+D. H2O
+313. Repulsion between lone pairs of electrons is:
+A. Low
+B. No repulsion
+C. High
+D. Moderate
+314. Which is the correct sequence of electron filling in subshells?
+A. 1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p, 5s
+B. 1s, 2s, 3s, 3p, 3d, 4p, 4s, 5s
+C. 1s, 2p, 3s, 3d, 4s, 4p, 5s
+D. 1s, 2s, 2p, 3s, 4s, 4p, 3d
+315. Which of the following is not a redox reaction?
+A. CaCO3 →Ca + CO3
+B. Fe2+ →Fe3+
+C. 2H2 + O2 →2H2O
+D. Cu2+ + 2e−→Cu
+316. In Cannizzaro’s reaction, formaldehyde reacts with:
+A. Chloroform
+B. NaOH
+C. Water
+D. HCL
+317. Carboxylic acids react with which of the following to form acyl halides?
+A. SOCl2
+B. HCl
+C. NaCl
+D. None of these
+36
+
+=== PAGE 37 ===
+318. Which of the following is more acidic?
+A. HF
+B. HCl
+C. HBr
+D. HI
+319. What is the general formula of an alkene?
+A. CnH2n
+B. CnH2n+2
+C. CnH2n−2
+D. None of these
+320. Grignard reagent reacts with CO2 to form:
+A. Ester
+B. Alkane
+C. Carboxylic acid
+D. Ketone
+321. In ethene, how many unhybridized p orbitals overlap to form π bonds?
+A. 1
+B. 2
+C. 4
+D. 8
+322. Which of the following does not belong to the s-block?
+A. Li
+B. Cs
+C. Fe
+D. He
+323. The number of electrons in a shell is:
+A. n2
+B. 2n2
+C. 2 l + 2
+D. 2 (l + 2)
+324. The number of electrons in the M shell is:
+A. 2
+B. 10
+C. 18
+D. 6
+325. Which of the following shows maximum ideal behavior?
+A. He
+B. H2
+C. CO2
+D. SO2
+326. Which law defines that if a chemical reaction can occur through multiple pathways, the
+net enthalpy change remains the same provided the initial and final states are the same?
+A. Hooke’s Law
+B. Hess’s Law
+C. First Law of Thermodynamics
+D. Henry’s Law
+37
+
+=== PAGE 38 ===
+327. Which element is reduced in the equation Cl2 + H2S →2HCl + S?
+A. Cl2
+B. S
+C. H2
+D. H2S
+328. Sigma bonds are formed by:
+A. Linear overlapping
+B. Sidewise overlapping
+C. Lateral overlapping
+D. Parallel overlapping
+329. Unequal distribution of alkyl groups on both sides of a carbon atom is known as:
+A. Tautomerism
+B. Metamerism
+C. Functional isomerism
+D. Structural isomerism
+330. Dehydration of alcohol gives:
+A. Alkane
+B. Alkene
+C. Alkyne
+D. Ester
+331. The bond angle between C–C in diamond is:
+A. 104.5◦
+B. 109◦
+C. 180◦
+D. 90◦
+332. In methanol, the hybridization of carbon is:
+A. sp3
+B. sp2
+C. sp
+D. sp2d
+333. Which reaction occurs at the cathode?
+A. Oxidation
+B. Reduction
+C. Redox
+D. None
+334. Which catalyst is used in the halogenation of benzene?
+A. Ni
+B. Fe
+C. FeCl3
+D. N2O5
+335. The electrophile in the nitration of benzene is:
+A. NO+
+B. NO+
+2
+C. N2O+
+5
+D. NO+
+3
+38
+
+=== PAGE 39 ===
+Answer Key
+1. A
+2. C
+3. C
+4. D
+5. A
+6. B
+7. D
+8. C
+9. B
+10. D
+11. C
+12. A
+13. C
+14. B
+15. B
+16. A
+17. D
+18. A
+19. B
+20. D
+21. A
+22. C
+23. C
+24. D
+25. D
+26. A
+27. C
+28. C
+29. D
+30. B
+31. D
+32. A
+33. B
+34. D
+35. C
+36. D
+37. D
+38. C
+39. A
+40. C
+41. A
+42. B
+43. B
+44. B
+45. C
+46. B
+47. A
+48. D
+49. B
+50. B
+51. C
+52. A
+53. D
+54. A
+55. B
+56. D
+57. D
+58. A
+59. B
+60. D
+61. D
+62. C
+63. C
+64. C
+65. B
+66. C
+67. D
+68. C
+69. B
+70. C
+71. D
+72. A
+73. B
+74. D
+75. C
+76. D
+77. A
+78. D
+79. B
+80. D
+81. B
+82. A
+83. A
+84. A
+85. B
+86. A
+87. C
+88. B
+89. D
+90. B
+91. C
+92. A
+93. B
+94. B
+95. B
+96. D
+97. D
+98. B
+99. B
+100. B
+101. D
+102. D
+103. B
+104. B
+105. D
+106. C
+107. B
+108. B
+109. B
+110. A
+111. C
+112. A
+113. A
+114. D
+115. B
+116. A
+117. C
+118. B
+119. D
+120. D
+121. D
+122. C
+123. A
+124. B
+125. B
+126. A
+127. A
+128. A
+129. D
+130. B
+131. A
+132. A
+133. D
+134. A
+135. A
+136. C
+137. C
+138. D
+139. A
+140. C
+141. C
+142. D
+143. D
+144. A
+145. C
+146. A
+147. D
+148. D
+149. D
+150. D
+151. D
+152. C
+153. B
+154. D
+155. B
+156. B
+157. B
+158. B
+159. C
+160. D
+161. C
+162. A
+163. D
+164. C
+165. D
+166. A
+167. D
+168. D
+169. B
+170. B
+171. B
+172. A
+173. A
+174. A
+175. B
+176. B
+177. C
+178. A
+179. D
+180. A
+181. C
+182. C
+183. C
+184. B
+185. C
+186. C
+187. D
+188. A
+189. C
+190. C
+191. D
+192. A
+193. D
+194. D
+195. C
+196. C
+197. D
+198. D
+199. D
+200. D
+201. D
+202. B
+203. B
+204. A
+205. B
+206. B
+207. C
+208. C
+209. A
+210. B
+211. B
+212. B
+213. C
+214. D
+215. C
+216. A
+217. B
+218. B
+219. D
+220. A
+221. A
+222. D
+223. A
+224. D
+225. C
+226. D
+227. D
+228. D
+229. D
+230. D
+231. C
+232. D
+233. C
+234. C
+235. B
+236. D
+237. A
+238. A
+239. A
+240. D
+241. D
+242. D
+243. D
+244. D
+245. B
+246. C
+247. D
+248. D
+249. D
+250. D
+251. A
+252. B
+253. B
+254. A
+255. B
+256. C
+257. C
+258. D
+259. A
+260. C
+261. B
+262. A
+263. A
+264. C
+265. A
+266. B
+267. B
+268. D
+269. B
+270. A
+271. B
+272. C
+273. A
+274. D
+275. C
+276. D
+277. B
+278. D
+279. C
+280. A
+281. A
+282. B
+283. C
+284. B
+285. A
+286. B
+287. D
+288. D
+289. B
+290. C
+291. C
+292. C
+293. B
+294. C
+295. B
+296. C
+297. B
+298. C
+299. D
+300. C
+301. C
+302. D
+303. B
+304. D
+305. A
+306. D
+307. A
+308. B
+309. A
+310. C
+311. A
+312. C
+313. C
+314. A
+315. A
+316. B
+317. A
+318. D
+319. A
+320. C
+321. B
+322. C
+323. B
+324. C
+325. A
+326. B
+327. A
+328. A
+329. B
+330. B
+331. B
+332. A
+333. B
+334. C
+335. B
+39

@@ -1,0 +1,1402 @@
+ [Skip to content](#content)
+
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[MCQUniverse](https://www.mcquniverse.pk/)
+
+[Sign up](https://www.mcquniverse.pk/)[Sign up](https://www.mcquniverse.pk/)
+
+# Force And Motion MCQs | Physics MCQs
+
+## Force And Motion MCQs
+
+A body moves 6 m north, 8 m east, and 10 m vertically upwards. What is the magnitude of the resultant displacement from the initial position?
+
+10 m
+
+12 m
+
+24 m
+
+**10√2 m**
+
+**Explanation:**
+
+The resultant displacement is found using the 3D Pythagorean theorem: d = √(x² + y² + z²) = √(8² + 6² + 10²) = √(64 + 36 + 100) = √200 = 10√2 m.
+
+The area under a velocity-time graph represents:
+
+Instantaneous velocity
+
+**Explanation:**
+
+Since velocity is displacement per unit time, the product of velocity and time (the area under the graph) gives the total displacement.
+
+A projectile is thrown with an initial velocity of 10 m/s at an angle of 60° with the horizontal. What is the horizontal component of its velocity at the highest point?
+
+0 m/s
+
+8.66 m/s
+
+10 m/s
+
+**5 m/s**
+
+**Explanation:**
+
+The horizontal component of velocity (v\_x = v cosθ) remains constant throughout projectile motion. So, v\_x = 10 \* cos(60°) = 10 \* 0.5 = 5 m/s.
+
+According to Newton's first law of motion, an object will remain at rest or in uniform motion in a straight line unless:
+
+It is very heavy.
+
+It has momentum.
+
+Its energy is conserved.
+
+**An external force acts on it.**
+
+**Explanation:**
+
+Newton's first law, the law of inertia, states that an object's state of motion will not change unless acted upon by a net external force.
+
+A force of 10 N acts on a body of mass 2 kg. What is the acceleration produced?
+
+20 m/s²
+
+0.2 m/s²
+
+8 m/s²
+
+**5 m/s²**
+
+**Explanation:**
+
+According to Newton's second law, F = ma. Therefore, acceleration a = F/m = 10 N / 2 kg = 5 m/s².
+
+Impulse is defined as:
+
+The rate of change of momentum.
+
+The product of mass and acceleration.
+
+The product of force and velocity.
+
+**The change in momentum.**
+
+**Explanation:**
+
+The impulse-momentum theorem states that the impulse (FΔt) applied to an object is equal to the change in its momentum (Δp).
+
+In an elastic collision between two bodies:
+
+Only momentum is conserved.
+
+Only kinetic energy is conserved.
+
+Neither momentum nor kinetic energy is conserved.
+
+**Both momentum and kinetic energy are conserved.**
+
+**Explanation:**
+
+The defining characteristic of a perfectly elastic collision is the conservation of both total momentum and total kinetic energy of the system.
+
+A bullet of mass 20 g is fired from a gun of mass 10 kg with a velocity of 150 m/s. What is the recoil velocity of the gun?
+
+-3 m/s
+
+0.3 m/s
+
+3 m/s
+
+**-0.3 m/s**
+
+**Explanation:**
+
+By conservation of momentum, m\_gun \* v\_gun + m\_bullet \* v\_bullet = 0. So, v\_gun = -(m\_bullet \* v\_bullet) / m\_gun = -(0.02 kg \* 150 m/s) / 10 kg = -0.3 m/s.
+
+The work done is zero if the angle between the force and displacement is:
+
+**Explanation:**
+
+Work is calculated as W = Fd cosθ. Since cos(90°) = 0, the work done is zero when the force is perpendicular to the displacement.
+
+The kinetic energy of a body of mass 'm' moving with velocity 'v' is:
+
+**Explanation:**
+
+The standard formula for kinetic energy, the energy of motion, is KE = ½mv².
+
+The slope of a displacement-time graph gives:
+
+Acceleration
+
+**Explanation:**
+
+Velocity is the rate of change of displacement (v = Δd/Δt), which corresponds to the slope of the displacement-time graph.
+
+Which of the following is a vector quantity?
+
+Distance
+
+**Explanation:**
+
+Momentum (p = mv) has both magnitude and direction, making it a vector quantity. Speed, distance, and mass are scalars.
+
+A car accelerates from rest to 20 m/s in 10 seconds. The distance it covers in this time is:
+
+50 m
+
+200 m
+
+2 m
+
+**100 m**
+
+**Explanation:**
+
+First, find acceleration: a = Δv/t = 20/10 = 2 m/s². Then use s = v\_i\*t + ½at² = 0\*10 + ½(2)(10)² = 100 m.
+
+Action and reaction forces described by Newton's third law:
+
+Act on the same body.
+
+Cancel each other out.
+
+Are always perpendicular to each other.
+
+**Are always equal in magnitude and opposite in direction.**
+
+**Explanation:**
+
+Newton's third law states that for every action, there is an equal and opposite reaction. These forces act on different bodies.
+
+The rate of doing work is called:
+
+Energy
+
+Momentum
+
+Impulse
+
+**Power**
+
+**Explanation:**
+
+Power is defined as the work done per unit of time (P = W/t), measured in Watts (Joules/second).
+
+For a projectile, the angle of projection for maximum horizontal range is:
+
+30°
+
+60°
+
+90°
+
+**45°**
+
+**Explanation:**
+
+The range formula R = (v\_i² sin(2θ))/g is maximized when sin(2θ) = 1, which occurs when 2θ = 90°, so θ = 45°.
+
+A body of mass 5 kg is lifted vertically to a height of 2 m. The work done against gravity is (take g = 9.8 m/s²):
+
+10 J
+
+49 J
+
+19.6 J
+
+**98 J**
+
+**Explanation:**
+
+Work done against gravity is equal to the gain in potential energy: W = PE = mgh = 5 kg \* 9.8 m/s² \* 2 m = 98 J.
+
+Which of the following remains constant for a body in uniform circular motion?
+
+Velocity
+
+Acceleration
+
+Momentum
+
+**Speed**
+
+**Explanation:**
+
+In uniform circular motion, the direction of velocity is constantly changing, but its magnitude (speed) remains constant.
+
+The S.I. unit of impulse is:
+
+N m
+
+N/s
+
+kg m/s²
+
+**N s**
+
+**Explanation:**
+
+Impulse is Force × time, so its unit is the Newton-second (N s). It is equivalent to the unit of momentum, kg m/s.
+
+An object of mass 'm' falls from rest from a height 'h'. Its velocity just before striking the ground is:
+
+mgh
+
+2gh
+
+√(gh)
+
+**√(2gh)**
+
+**Explanation:**
+
+By conservation of energy, initial PE = final KE. So, mgh = ½mv². Solving for v gives v = √(2gh).
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+The time rate of change of linear momentum of a body is equal to:
+
+Its acceleration
+
+Its impulse
+
+Its kinetic energy
+
+**The applied force**
+
+**Explanation:**
+
+Newton's second law can be stated as F = Δp/Δt, meaning the net force is equal to the rate of change of momentum.
+
+If the velocity of a body is doubled, its kinetic energy will be:
+
+Halved
+
+Doubled
+
+Unchanged
+
+**Four times the original value**
+
+**Explanation:**
+
+Kinetic energy (KE = ½mv²) is proportional to the square of the velocity. If v becomes 2v, KE becomes ½m(2v)² = 4(½mv²).
+
+In an inelastic collision:
+
+Both momentum and kinetic energy are conserved.
+
+Kinetic energy is conserved but momentum is not.
+
+Neither momentum nor kinetic energy is conserved.
+
+**Momentum is conserved but kinetic energy is not.**
+
+**Explanation:**
+
+In any collision within an isolated system, momentum is conserved. In an inelastic collision, some kinetic energy is converted to other forms (heat, sound).
+
+A body is moving with constant velocity. The net force on it is:
+
+In the direction of motion
+
+Opposite to the direction of motion
+
+Perpendicular to the direction of motion
+
+**Zero**
+
+**Explanation:**
+
+Constant velocity means acceleration is zero. According to F=ma, if acceleration is zero, the net force must also be zero.
+
+The trajectory of a projectile (in the absence of air resistance) is a:
+
+Straight line
+
+Circle
+
+Hyperbola
+
+**Parabola**
+
+**Explanation:**
+
+The combination of constant horizontal velocity and constant vertical acceleration due to gravity results in a parabolic path.
+
+What is the work done by the centripetal force on a body moving in a circle?
+
+Positive
+
+Negative
+
+Infinite
+
+**Zero**
+
+**Explanation:**
+
+The centripetal force is always perpendicular to the direction of motion (the velocity vector). Since W = Fd cos(90°), the work done is zero.
+
+A 1 kg object has a potential energy of 1 J relative to the ground. What is its height? (take g = 9.8 m/s²)
+
+1 m
+
+9.8 m
+
+10 m
+
+**0.102 m**
+
+**Explanation:**
+
+From PE = mgh, we get h = PE / (mg) = 1 J / (1 kg \* 9.8 m/s²) ≈ 0.102 m.
+
+The law of conservation of momentum applies to a system of colliding objects only if:
+
+The objects are of equal mass.
+
+The collision is elastic.
+
+The objects stick together after collision.
+
+**There is no net external force on the system.**
+
+**Explanation:**
+
+The conservation of linear momentum is a fundamental principle that holds for any isolated system, meaning a system with no net external force acting on it.
+
+If the momentum of a body is doubled, its kinetic energy becomes:
+
+Double
+
+Half
+
+Constant
+
+**Four times**
+
+**Explanation:**
+
+Using the relationship KE = p²/(2m), if momentum 'p' is doubled to '2p', the new kinetic energy becomes (2p)²/(2m) = 4p²/(2m), which is four times the original.
+
+Instantaneous velocity is the limiting value of the average velocity when the time interval approaches:
+
+Infinity
+
+A constant value
+
+One second
+
+**Zero**
+
+**Explanation:**
+
+Instantaneous velocity is the derivative of displacement with respect to time, which is defined as the limit of the average velocity as Δt → 0.
+
+Which of the following effects cannot be produced by an applied force?
+
+Change the speed
+
+Change the direction of motion
+
+Change the shape of the body
+
+**Change the mass of the body**
+
+**Explanation:**
+
+In classical mechanics, mass is an intrinsic, constant property of an object. A force can change its motion or shape, but not its mass.
+
+A force of 5 N acts on a body for 0.1 s. The change in its momentum is:
+
+50 kg m/s
+
+5 kg m/s
+
+0.02 kg m/s
+
+**0.5 kg m/s**
+
+**Explanation:**
+
+The change in momentum is equal to the impulse, which is Force × time. Δp = 5 N \* 0.1 s = 0.5 Ns or 0.5 kg m/s.
+
+A stone is dropped from a tower. It will reach the ground in 4 s. The height of the tower is (take g = 9.8 m/s²):
+
+39.2 m
+
+19.6 m
+
+9.8 m
+
+**78.4 m**
+
+**Explanation:**
+
+Using the equation of motion s = v\_i\*t + ½at², with v\_i = 0, s = ½(9.8)(4)² = 0.5 \* 9.8 \* 16 = 78.4 m.
+
+The range of a projectile is the same for angles of projection:
+
+30° and 45°
+
+45° and 90°
+
+60° and 90°
+
+**30° and 60°**
+
+**Explanation:**
+
+The horizontal range of a projectile is the same for complementary angles of projection (angles that add up to 90°), such as 30° and 60°.
+
+The work-energy theorem states that the work done on an object is equal to the change in its:
+
+Potential energy
+
+Momentum
+
+Total energy
+
+**Kinetic energy**
+
+**Explanation:**
+
+The work-energy theorem provides a direct link between the net work done on an object and the change in its kinetic energy (W\_net = ΔKE).
+
+Horsepower is a unit of:
+
+Work
+
+Force
+
+Energy
+
+**Power**
+
+**Explanation:**
+
+Horsepower is a non-SI unit of power, where 1 hp is approximately equal to 746 watts.
+
+If a lighter and a heavier body have the same momentum, which one has greater kinetic energy?
+
+The heavier body
+
+Both have the same kinetic energy
+
+It cannot be determined
+
+**The lighter body**
+
+**Explanation:**
+
+Using KE = p²/(2m), for a constant momentum 'p', kinetic energy is inversely proportional to mass. Thus, the lighter body (smaller m) has more kinetic energy.
+
+A ball is thrown vertically upward. At the maximum height:
+
+Its velocity is zero and acceleration is zero.
+
+Its velocity is not zero and acceleration is zero.
+
+Its velocity is not zero and acceleration is not zero.
+
+**Its velocity is zero and acceleration is not zero.**
+
+**Explanation:**
+
+At the highest point of its trajectory, the instantaneous vertical velocity is zero, but the acceleration due to gravity (g ≈ 9.8 m/s²) is still acting on it, pointing downwards.
+
+Which law of motion gives the measure of force?
+
+First law
+
+Third law
+
+Law of gravitation
+
+**Second law**
+
+**Explanation:**
+
+Newton's second law (F=ma) provides a quantitative relationship to measure force based on the mass and acceleration of an object.
+
+A body starts from rest and moves with uniform acceleration. The ratio of the distance covered in the 1st second to the distance covered in the 2nd second is:
+
+1:1
+
+1:2
+
+1:4
+
+**1:3**
+
+**Explanation:**
+
+The distance covered in the nth second is proportional to (2n-1). For n=1, it's 1. For n=2, it's 3. Thus, the ratio is 1:3.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+A force can be completely described by its:
+
+Magnitude only
+
+Direction only
+
+Magnitude and point of application
+
+**Magnitude and direction**
+
+**Explanation:**
+
+Force is a vector quantity, and as such, it requires both a magnitude (how strong it is) and a direction to be fully described.
+
+The 'reaction' force does not cancel the 'action' force because:
+
+The action force is greater than the reaction force.
+
+They are in the same direction.
+
+The reaction force exists only after the action force is removed.
+
+**They act on different bodies.**
+
+**Explanation:**
+
+Action-reaction pairs act on the two different interacting bodies. Forces can only cancel out if they act on the same body.
+
+An explosion breaks a rock into three pieces. Which of the following is conserved?
+
+Kinetic energy
+
+Velocity
+
+Mass
+
+**Momentum**
+
+**Explanation:**
+
+An explosion is caused by internal forces. In the absence of external forces, the total momentum of the system (the rock pieces) is conserved.
+
+At what angle must two forces of equal magnitude act so that the resultant is equal to either of them?
+
+45°
+
+60°
+
+90°
+
+**120°**
+
+**Explanation:**
+
+Using the law of cosines for vector addition, R² = A² + B² + 2ABcosθ. If R=A=B, then A² = A² + A² + 2A²cosθ, which simplifies to cosθ = -1/2. Thus, θ = 120°.
+
+A lift is moving up with an acceleration 'a'. The apparent weight of a person of mass 'm' will be:
+
+mg
+
+m(g-a)
+
+0
+
+**m(g+a)**
+
+**Explanation:**
+
+The normal force (apparent weight) must support the true weight (mg) and also provide the upward acceleration (ma). Thus, N = mg + ma = m(g+a).
+
+When a body moves from the equator to the poles, its weight:
+
+Decreases
+
+Remains the same
+
+Becomes zero
+
+**Increases**
+
+**Explanation:**
+
+The value of 'g' is slightly greater at the poles than at the equator due to the Earth's shape and rotation. Since Weight = mg, the weight increases.
+
+The time of flight of a projectile is given by:
+
+(v\_i sinθ)/g
+
+(v\_i cosθ)/g
+
+(v\_i² sin²θ)/(2g)
+
+**(2v\_i sinθ)/g**
+
+**Explanation:**
+
+The time of flight is the total time the projectile is in the air. It is twice the time taken to reach the maximum height, which is (v\_i sinθ)/g.
+
+Work done by a variable force is determined by:
+
+Multiplying force by distance
+
+The slope of the force-displacement graph
+
+The product of force and time
+
+**The area under the force-displacement graph**
+
+**Explanation:**
+
+For a variable force, the work done is the integral of F with respect to displacement, which is geometrically represented by the area under the Force-Displacement graph.
+
+A conservative force is one where the work done:
+
+Depends on the path taken.
+
+Is always zero.
+
+Is always positive.
+
+**Is independent of the path taken.**
+
+**Explanation:**
+
+The work done by a conservative force (like gravity) between two points depends only on the initial and final positions, not on the path followed between them.
+
+The escape velocity from the Earth's surface is approximately:
+
+9.8 m/s
+
+7.9 km/s
+
+3.0 x 10^8 m/s
+
+**11.2 km/s**
+
+**Explanation:**
+
+Escape velocity is the minimum speed an object needs to break free from a planet's gravitational pull without further propulsion. For Earth, this is about 11.2 km/s.
+
+If the displacement of a particle is zero, the distance covered:
+
+Must be zero
+
+Is not zero
+
+Is negative
+
+**May or may not be zero**
+
+**Explanation:**
+
+Displacement is a vector (start to end point), while distance is a scalar (total path). An object can travel a non-zero distance and return to its starting point, making its displacement zero while distance non zero.
+
+A body is moving with a velocity of 10 m/s. If the motion is uniform, what will be the velocity after 10 s?
+
+100 m/s
+
+0 m/s
+
+20 m/s
+
+**10 m/s**
+
+**Explanation:**
+
+Uniform motion implies constant velocity. Therefore, the velocity does not change over time.
+
+A man in a car is moving with a velocity of 36 km/hr. His speed with respect to the car is:
+
+10 m/s
+
+36 km/hr
+
+Infinite
+
+**Zero**
+
+**Explanation:**
+
+Relative to the car's frame of reference, the man is not changing his position. Therefore, his speed with respect to the car is zero.
+
+The slope of a velocity-time graph for retardation is:
+
+Positive
+
+Zero
+
+Curved
+
+**Negative**
+
+**Explanation:**
+
+Retardation (deceleration) means the velocity is decreasing. A decreasing velocity is represented by a negative slope on a velocity-time graph.
+
+The distance covered by a freely falling body in 2 seconds is (take g = 9.8 m/s²):
+
+4.9 m
+
+9.8 m
+
+39.2 m
+
+**19.6 m**
+
+**Explanation:**
+
+Using s = v\_i\*t + ½gt², with v\_i = 0, the distance is s = ½(9.8)(2)² = 19.6 m.
+
+Which of Newton's laws of motion is also called the law of inertia?
+
+Second Law
+
+Third Law
+
+Law of Universal Gravitation
+
+**First Law**
+
+**Explanation:**
+
+Newton's First Law describes an object's tendency to resist changes in its state of motion, which is the definition of inertia.
+
+A force of 100 N acts on a body of mass 2 kg for 10 s. The change in momentum is:
+
+500 kg m/s
+
+200 kg m/s
+
+50 kg m/s
+
+**1000 kg m/s**
+
+**Explanation:**
+
+The change in momentum (impulse) is calculated as Force × time. Δp = 100 N × 10 s = 1000 Ns or 1000 kg m/s.
+
+In a perfectly inelastic collision, the coefficient of restitution 'e' is:
+
+1
+
+Between 0 and 1
+
+-1
+
+**0**
+
+**Explanation:**
+
+In a perfectly inelastic collision, the objects stick together after impact, meaning their relative velocity of separation is zero. The coefficient of restitution e is the ratio of relative separation velocity to relative approach velocity, so e=0.
+
+The maximum height of a projectile is given by:
+
+(v\_i² sin(2θ))/g
+
+(2v\_i sinθ)/g
+
+(v\_i sinθ)/g
+
+**(v\_i² sin²θ)/(2g)**
+
+**Explanation:**
+
+This formula relates the initial vertical velocity component to the maximum height reached against gravity, derived from v\_f² = v\_i² + 2as.
+
+A person is holding a bucket of water and walking on a level road with a uniform velocity. The work done by the person on the bucket is:
+
+Positive
+
+Negative
+
+Dependent on the mass of the bucket
+
+**Zero**
+
+**Explanation:**
+
+The force exerted by the person is vertically upwards to counteract gravity, while the displacement is horizontal. The angle between them is 90°, and since W = Fd cos(90°), the work done is zero.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Power can be defined as the dot product of:
+
+Force and displacement
+
+Force and time
+
+Force and acceleration
+
+**Force and velocity**
+
+**Explanation:**
+
+Since Power = Work/time = (Force ⋅ displacement)/time, and velocity = displacement/time, Power = Force ⋅ velocity.
+
+Which of the following is a non-conservative force?
+
+Gravitational force
+
+Elastic spring force
+
+Electrostatic force
+
+**Frictional force**
+
+**Explanation:**
+
+A non-conservative force is one where the work done depends on the path taken. Friction is a classic example as it dissipates mechanical energy as heat.
+
+Two bodies of masses m1 and m2 have equal kinetic energies. The ratio of their linear momenta is:
+
+m1 : m2
+
+m2 : m1
+
+1 : 1
+
+**√m1 : √m2**
+
+**Explanation:**
+
+Since p = √(2m(KE)), if KE is constant, then momentum 'p' is directly proportional to the square root of mass, √m.
+
+The horizontal range of a projectile is maximum when the angle of projection is 45°. The maximum height at this angle is:
+
+Equal to the range
+
+Half of the range
+
+Twice the range
+
+**One-fourth of the range**
+
+**Explanation:**
+
+For θ = 45°, R\_max = v\_i²/g and H = v\_i²(sin²45)/(2g) = v\_i²/(4g). Therefore, H = R\_max / 4.
+
+A bomb of mass 9 kg explodes into two pieces of masses 3 kg and 6 kg. The velocity of the 3 kg mass is 16 m/s. The kinetic energy of the 6 kg mass is:
+
+96 J
+
+384 J
+
+768 J
+
+**192 J**
+
+**Explanation:**
+
+By momentum conservation, 3\*16 + 6\*v = 0, so v = -8 m/s. The kinetic energy of the 6 kg mass is KE = ½mv² = ½(6)(-8)² = 192 J.
+
+A passenger in a moving bus is thrown forward when the bus suddenly stops. This is explained by:
+
+Newton's Second Law
+
+Newton's Third Law
+
+The principle of conservation of energy
+
+**Newton's First Law**
+
+**Explanation:**
+
+This phenomenon is due to inertia. The passenger's body continues to move forward with the bus's initial velocity while the bus itself stops.
+
+The unit of weight in the S.I. system is:
+
+Kilogram (kg)
+
+Gram (g)
+
+Dyne
+
+**Newton (N)**
+
+**Explanation:**
+
+Weight is the force of gravity acting on a mass (Weight = mg). The S.I. unit for force is the Newton (N).
+
+Two forces of 3 N and 4 N are acting on a body. Which of the following cannot be the resultant force?
+
+1 N
+
+5 N
+
+7 N
+
+**8 N**
+
+**Explanation:**
+
+The resultant force must be between the minimum possible value (4N - 3N = 1N) and the maximum possible value (4N + 3N = 7N). 8N is outside this range.
+
+A cricketer catches a ball of mass 150 g moving at 20 m/s. If the catching process takes 0.1 s, the average force exerted is:
+
+3 N
+
+300 N
+
+0.3 N
+
+**30 N**
+
+**Explanation:**
+
+Force is the rate of change of momentum. F = Δp/Δt = (mΔv)/Δt = (0.15 kg \* 20 m/s) / 0.1 s = 30 N.
+
+A car travels the first half of a distance at 30 km/hr and the second half at 50 km/hr. The average speed is:
+
+40 km/hr
+
+42 km/hr
+
+20 km/hr
+
+**37.5 km/hr**
+
+**Explanation:**
+
+Average speed for equal distances is the harmonic mean: V\_avg = 2v1v2 / (v1 + v2) = 2(30)(50) / (30 + 50) = 3000 / 80 = 37.5 km/hr.
+
+A body under the action of several forces will have zero acceleration if:
+
+The body is very heavy.
+
+The forces are all in the same direction.
+
+The forces are conservative.
+
+**The vector sum of all the forces is zero.**
+
+**Explanation:**
+
+According to Newton's Second Law (F\_net = ma), if the net force (the vector sum of all forces) is zero, the acceleration must be zero. This is the condition for equilibrium.
+
+If an object is moving at a constant velocity, which statement must be true?
+
+A constant force is acting on it in the direction of motion.
+
+There are no forces acting on the object.
+
+The object is accelerating.
+
+**The net force on the object is zero.**
+
+**Explanation:**
+
+Constant velocity means zero acceleration. From F=ma, if acceleration is zero, the net force on the object must also be zero.
+
+A 10 N force is required to keep an object moving at a constant velocity of 2 m/s. The work done in 5 seconds is:
+
+20 J
+
+50 J
+
+25 J
+
+**100 J**
+
+**Explanation:**
+
+First, find the distance: d = v × t = 2 m/s × 5 s = 10 m. Then, work done W = F × d = 10 N × 10 m = 100 J.
+
+Which of the following pairs of physical quantities have the same dimensions?
+
+Force and Power
+
+Work and Power
+
+Energy and Momentum
+
+**Momentum and Impulse**
+
+**Explanation:**
+
+Momentum (p = mv) and Impulse (I = FΔt) both have the dimensions [MLT⁻¹]. The impulse-momentum theorem states that they are equivalent.
+
+A ball is dropped from a satellite revolving around the Earth at a height of 120 km. The ball will:
+
+Fall to the Earth
+
+Move away from the Earth
+
+Move in a straight line tangentially to the satellite's orbit
+
+**Continue to move with the same speed along the original orbit of the satellite**
+
+**Explanation:**
+
+When released, the ball has the same orbital velocity as the satellite. It effectively becomes a new, independent satellite in the same orbit, moving alongside the original one.
+
+What is the angle between the velocity and acceleration vectors of a body in uniform circular motion?
+
+0°
+
+45°
+
+180°
+
+**90°**
+
+**Explanation:**
+
+In uniform circular motion, the velocity vector is always tangent to the circle, while the centripetal acceleration vector is always directed towards the center. Thus, they are always perpendicular.
+
+A body of mass 2 kg is thrown up vertically with a kinetic energy of 490 J. The height at which the KE becomes half its original value is:
+
+50 m
+
+25 m
+
+10 m
+
+**12.5 m**
+
+**Explanation:**
+
+When KE is halved, the other half (490/2 = 245 J) is converted to potential energy. Using PE = mgh, h = PE/mg = 245 / (2 \* 9.8) = 12.5 m.
+
+Two projectiles are fired from the same point with the same speed at angles of 60° and 30°. Which will be the same for both?
+
+Maximum height
+
+Time of flight
+
+Initial vertical velocity
+
+**Horizontal range**
+
+**Explanation:**
+
+The horizontal range is the same for complementary angles of projection (angles that sum to 90°), such as 30° and 60°.
+
+An elevator is moving downwards with an acceleration 'a'. The apparent weight of a person of mass 'm' inside is:
+
+mg
+
+m(g+a)
+
+0
+
+**m(g-a)**
+
+**Explanation:**
+
+The net downward force (mg - N) provides the downward acceleration (ma). The apparent weight (Normal force N) is N = mg - ma = m(g-a).
+
+When a 1 N force acts on a 1 kg mass that is free to move, the object moves with:
+
+A speed of 1 m/s
+
+A speed of 1 km/s
+
+An acceleration of 9.8 m/s²
+
+**An acceleration of 1 m/s²**
+
+**Explanation:**
+
+This is a direct application of Newton's second law, F=ma. So, a = F/m = 1 N / 1 kg = 1 m/s².
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+A gun fires a bullet of mass 50 g with a velocity of 30 m/s. The gun is pushed back with a velocity of 1 m/s. The mass of the gun is:
+
+30 kg
+
+15 kg
+
+0.5 kg
+
+**1.5 kg**
+
+**Explanation:**
+
+By conservation of momentum, m\_gun \* v\_gun = m\_bullet \* v\_bullet. So, m\_gun = (0.05 kg \* 30 m/s) / 1 m/s = 1.5 kg.
+
+The kinetic energy of a body is increased by 300%. The linear momentum of the body will increase by:
+
+150%
+
+200%
+
+300%
+
+**100%**
+
+**Explanation:**
+
+A 300% increase means the new KE is 4 times the original. Since p = √(2m(KE)), the new momentum will be √4 = 2 times the original, which is a 100% increase.
+
+A body is projected horizontally from the top of a tower. The shape of the path traced by it is:
+
+Straight line
+
+Circular
+
+Elliptical
+
+**Parabolic**
+
+**Explanation:**
+
+This is a form of projectile motion. The constant horizontal velocity and constant vertical acceleration due to gravity combine to form a parabolic trajectory.
+
+An isolated system is one in which which of the following is conserved?
+
+Velocity
+
+Acceleration
+
+Force
+
+**Momentum**
+
+**Explanation:**
+
+An isolated system is defined as a system with no net external force. In such a system, the total linear momentum is always conserved.
+
+A rocket works on the principle of:
+
+Conservation of Energy
+
+Conservation of Mass
+
+Conservation of Charge
+
+**Conservation of Momentum**
+
+**Explanation:**
+
+A rocket expels mass (exhaust gas) at high velocity in one direction. By the conservation of momentum (and Newton's Third Law), the rocket gains an equal amount of momentum in the opposite direction.
+
+If the kinetic energy of a particle is doubled, then its momentum will be:
+
+2 times the initial momentum
+
+4 times the initial momentum
+
+Unchanged
+
+**√2 times the initial momentum**
+
+**Explanation:**
+
+Since momentum is proportional to the square root of kinetic energy (p = √2m(KE)), doubling the KE means the new momentum will be √2 times the original momentum.
+
+When a body moves with a constant speed along a circle:
+
+No force acts on it.
+
+Its acceleration is zero.
+
+Its velocity is constant.
+
+**No work is done on it.**
+
+**Explanation:**
+
+The centripetal force is always perpendicular to the displacement, so the work done by this force is zero. Also, since speed is constant, the kinetic energy does not change, meaning no net work is done.
+
+A ball of mass 0.5 kg moving at 10 m/s collides with a wall and rebounds with the same speed. If the contact time is 0.01 s, what is the force on the wall?
+
+500 N
+
+0 N
+
+5 N
+
+**1000 N**
+
+**Explanation:**
+
+The change in momentum is Δp = m(v\_f - v\_i) = 0.5(10 - (-10)) = 10 kg m/s. The force is F = Δp / Δt = 10 / 0.01 = 1000 N.
+
+A stone is tied to a string and whirled in a circle. If the string breaks, the stone flies:
+
+Radially inwards
+
+Radially outwards
+
+Straight down
+
+**Tangentially to the circular path**
+
+**Explanation:**
+
+Due to inertia (Newton's First Law), the stone will continue to move in the direction of its instantaneous velocity at the moment the centripetal force from the string disappears. This direction is tangent to the circle.
+
+A person in an open car moving at constant velocity throws a ball vertically up. The ball falls:
+
+Outside the car
+
+In the car, ahead of the person
+
+In the car, behind the person
+
+**Exactly in the hand which threw it up**
+
+**Explanation:**
+
+Ignoring air resistance, the ball retains the car's constant horizontal velocity. It travels horizontally along with the car while moving vertically, landing back in the person's hand.
+
+A machine gun fires n bullets per second, each of mass m, with velocity v. The force exerted on the gun is:
+
+**Explanation:**
+
+The force is the rate of change of momentum. The total momentum imparted to the bullets per second is (n \* m \* v). This is the magnitude of the reaction force on the gun.
+
+A force of (2i + 3j) N acts on a body and displaces it by (4i - 2j) m. The work done is:
+
+14 J
+
+8 J
+
+-6 J
+
+**2 J**
+
+**Explanation:**
+
+Work is the dot product of the force and displacement vectors: W = F ⋅ d = (2)(4) + (3)(-2) = 8 - 6 = 2 J.
+
+The second equation of motion is:
+
+v\_f = v\_i + at
+
+v\_f² = v\_i² + 2as
+
+F = ma
+
+**s = v\_i\*t + ½at²**
+
+**Explanation:**
+
+The second equation of motion relates displacement (s), initial velocity (v\_i), time (t), and uniform acceleration (a).
+
+## Other Physics Topics MCQs
+
+We have also prepared the following set of MCQs for your Entry test preparation like MDCAT, ECAT and Armed forces test. WE WISH YOU BEST OF LUCK!
+
+[Force And Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/force-and-motion-mcqs/)
+
+[Work And Energy MCQs](https://www.mcquniverse.pk/physics-mcqs/work-and-energy-mcqs/)
+
+[Rotational And Circular Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/rotational-and-circular-motion-mcqs/)
+
+[Waves MCQs](https://www.mcquniverse.pk/physics-mcqs/waves-mcqs/)
+
+[Thermodynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/thermodynamics-mcqs/)
+
+[Electrostatics MCQs](https://www.mcquniverse.pk/physics-mcqs/electrostatics-mcqs/)
+
+[Current Electricity MCQs](https://www.mcquniverse.pk/physics-mcqs/current-electricity-mcqs/)
+
+[Electromagnetism MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetism-mcqs/)
+
+[Electromagnetic Induction MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetic-induction-mcqs/)
+
+[Electronics MCQs](https://www.mcquniverse.pk/physics-mcqs/electronics-mcqs/)
+
+[Dawn Of Modern Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/dawn-of-modern-physics-mcqs/)
+
+[Atomic Spectra MCQs](https://www.mcquniverse.pk/physics-mcqs/atomic-spectra-mcqs/)
+
+[Nuclear Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/nuclear-physics-mcqs/)
+
+[Fluid Dynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/fluid-dynamics-mcqs/)
+
+[Vectors And Equilibrium MCQs](https://www.mcquniverse.pk/physics-mcqs/vectors-and-equilibrium-mcqs/)
+
+### 1 thought on “Force And Motion MCQs | Physics MCQs”
+
+1. **Muhammad Zain**
+
+ My name is zain. I want to join navy.
+
+### Leave a Reply [Cancel reply](/physics-mcqs/force-and-motion-mcqs/#respond)
+
+×🌐 Website-Wide Premium Access
+
+### Unlock All Quizzes & MCQs
+
+🚀 **One Subscription Unlocks Everything!** 
+ Get 100% full access to ALL quizzes, MCQs & detailed explanations across the entire website.
+
+1 Week
+
+Rs 199
+
+Full Site Access
+
+BEST VALUE
+
+1 Month
+
+Rs 499
+
+Full Site Access
+
+📌 How to Activate:
+
+1. Send fee for your plan to JazzCash or EasyPaisa below.
+2. Click WhatsApp button & send payment screenshot to Admin.
+3. **Instant Activation** within 10 minutes!
+
+JazzCash 03048961191 Title: Rana HabibUllah
+
+EasyPaisa 03428699409 Title: Rana HabibUllah
+
+ [💬 Send Screenshot on WhatsApp](https://wa.me/923428699409?text=Hi,%20I%20want%20to%20activate%20full%20site%20premium%20access.) Maybe later
+
+ [Student Login](https://www.mcquniverse.pk/dashboard/) 
+
+**Alert:**Content is protected.
+
+Scroll to Top

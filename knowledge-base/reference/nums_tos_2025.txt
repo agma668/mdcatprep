@@ -1,0 +1,1213 @@
+NUMS MDCAT-2025
+ SYLLABUS
+
+ Paper-I: (Biology, Chemistry, Physics, English)
+ Paper-II: (Psychological TEST)
+ TABLE OF CONTENTS
+
+Ser Content Page No
+
+1. Preamble....................................................................................... 01
+
+2. Structure, Weightage & Difficulty Levels .............................................. 02
+
+ 03
+MDCAT CURRICULUM
+
+3. Section 1: Biology ........................................................................... 03
+
+4. Section 2: Chemistry ....................................................................... 09
+
+5. Section 3: Physics ........................................................................... 19
+
+6. Section 4: English ........................................................................... 26
+PREAMBLE
+
+National University of Medical Sciences (NUMS) endeavors to set supreme bench mark
+for the NUMS Entry Test for admission to its Constituent, Affiliated and all Military (Armed
+Forces) Administered Medical and Dental Colleges. To afford level playing field to all the
+aspiring candidates, the minimum criteria for the syllabus is the "must know knowledge",
+based on the common topics approved by various curriculum regulatory authorities in
+Pakistan. At the same time, being highly competitive examination, the candidates are
+advised to have a broad-based study and not restrict themselves to limited syllabi only.
+One of the greatest challenges was to devise a common syllabus which encompasses
+not only the content taught in the premedical years but to note the topics missing from
+various syllabi. The NUMS MDCAT syllabus will not favor any group or place another to
+any disadvantage.
+NUMS MDCAT is designed to evaluate the problem solving, critical thinking, and
+knowledge of natural, behavioral, and social sciences concepts and principles of a
+candidate required to the study of medicine. NUMS MDCAT will be a standardized
+multiple-choice paper-based examination. NUMS MDCAT will also test the aspirants
+other abilities like intuitive and critical thinking skills.
+Whereas the subject contents are quality assured through diverse and experienced
+faculty, the psychological test component of NUMS MDCAT evaluates a candidate from
+the perspective of aptitude and mental robustness to face the highly challenging medical
+studies.
+
+ 1|Page
+2. STRUCTURE, WEIGHTAGE AND DIFFICULTY LEVELS
+
+ � Paper-I Total number of MCQs: 150
+
+ � Paper-I Duration of MDCAT: 2 hours & 45 minutes
+
+ � Paper-II Total number of MCQ: 50
+
+STRUCTURE � Paper-II Duration of Psychological Test: 15 minutes
+ � Format: Paper-based MCQs
+
+ � Minimum pass marks for Medical College Admission: 55%
+
+ � Minimum pass marks for Dental College Admission: 50%
+
+ � No negative marking
+
+SUBJECT
+
+ No of MCQ
+
+ PAPER-I
+
+Biology 65
+
+Chemistry 40
+
+Physics 30
+
+English 15
+
+ Total 150
+
+PAPER-II
+
+Psychological Test 50
+
+Grand Total 200
+
+DIFFICULTY � 15 % MCQs -------- Easy
+LEVEL � 70 % MCQs -------- Moderate
+ � 15 % MCQs -------- Hard
+
+ Note: in Biology, Chemistry and Physics section 70 % questions will be recall and 30
+
+% will be application level.
+
+ Paper 1 : One Best Answer MCQ with 4 options
+
+ Paper 2 : (psychological test) : One Best Answer MCQ with 7 options
+
+ 2|Page
+3. SECTION 1: BIOLOGY
+
+1.1 Content List for Biology
+
+Sr. No Content
+ 1 Biodiversity (a cellular life/ variety of life)
+ 2 Bio-energetic
+ 3 Biological Molecules
+ 4 Cell Structure and function
+ 5 Coordination and control/ nervous & chemical Coordination
+ 6 Diversity among Animals
+ 7 Enzymes
+ 8 Evolution
+ 9 Life process in Animals & Plants (nutrition/ gaseous exchange/ transport)
+ 10 Prokaryotes
+ 11 Reproduction
+ 12 Support & movement
+ 13 Variation & genetics/ inheritance
+
+1.2 Subtopics & Learning Objectives
+
+ 1 SUBTOPICS
+ BIODIVERSITY � Classification of viruses
+ (ACELLULAR � Discovery of viruses
+LIFE/ VARIETY OF � Structure of viruses � Viral disease (for example AIDS)
+ LEARNING OBJETIVES
+ LIFE) 1.1 Trace the discovery of virus
+ 1.2. Classify viruses on basis of their structure/ number of strands/
+ 2 diseases/ host etc.
+BIOENERGETICS 1.3. Identify symptoms, mode of transmission and cause of viral
+ disease (AIDS)
+ SUBTOPICS
+ � Anaerobic respiration (respiration without oxygen)
+ � Electron transport chain
+ � Glycolysis/glycolytic pathway/aerobic respiration
+ � Light dependent and light independent phases/reactions,
+ � Oxidative phosphorylation /cyclic and non- cyclic phosphorylation,
+ � Photosynthesis,
+
+ 3|Page
+ 3 � Production of ATP
+ BIOLOGICAL � Role of light, water, CO2, /factors effecting photosynthesis
+ MOLECULES LEARNING OBJECTIVES
+ 2.1. Explain the process of photosynthesis
+ 4 2.2. Explain the role of factors (light, water, CO2) affecting
+CELL STRUCTURE photosynthesis 2.3. Explain light dependent and independent
+ phases/reaction
+ & FUNCTION 2.4. Differentiate among Electron transport chain, phosphorylation,
+ glycolysis, aerobic and anaerobic respiration
+ SUBTOPICS
+ � Introduction to biological molecules
+ � Water
+ � Carbohydrates
+ � Proteins
+ � Lipids
+ � Conjugated molecules (glycolipids, glycoproteins)
+ LEARNING OBJECTIVES
+ 3.1. Define and classify biological molecules.
+ 3.2. Discuss the importance of biological molecules
+ 3.3. Describe biologically important properties of water (polarity,
+ hydrolysis, specific heat, water as solvent and reagent, density,
+ cohesion/ionization) 3.4. Discuss carbohydrates: monosaccharides
+ (glucose), oligosaccharides (cane sugar, sucrose, lactose),
+ polysaccharides (starches, cellulose, glycogen) 3.5. Describe
+ proteins: amino acids, structure of proteins
+ 3.6. Describe lipids: phospholipids, triglycerides, alcohol and esters
+ (acylglycerol)
+ 3.7. Give an account of RNA
+ 3.8. Discuss conjugated molecules (glycol lipids, glycol proteins)
+ SUBTOPICS
+ � Cell wall,
+ � Cytoplasm and cell organelles
+ - Nucleus
+ - Endoplasmic reticulum
+ - Mitochondria
+ - Golgi apparatus/ golgi complex / golgi bodies
+ - Lysosomes
+ - Plastids/chloroplasts
+ - Vacuoles
+ � Prokaryote and eukaryote
+ � Fluid mosaic model
+ LEARNING OBJECTIVES
+ 4.1. Compare the structure of typical animal and plant cell
+ 4.2. Compare and contrast the structure of prokaryotic cells with
+ eukaryotic cells
+
+ 4|Page
+ 5 4.3 Outline the structure and function of the following organelles:
+COORDINATION & nucleus, endoplasmic reticulum, golgi apparatus, mitochondria
+ 4.4. Discuss fluid mosaic model of cell membrane
+ CONTROL/ SUBTOPICS
+ NERVOUS & � Nervous system
+ CHEMICAL - Nerve impulse
+ COORDINATION - Steps involved in nervous coordination
+ - Neurons (Structure and Types)
+ 6 � Transmission of action potential between cells-synapse
+ DIVERSITY - Electrical synapses
+AMONG ANIMALS - Chemical synapses
+ - Transmission of nerve impulse across synapse
+ 7 � Hormones
+ ENZYMES � Endocrine glands
+ � Feedback mechanism
+ - Positive feedback mechanism
+ - Negative feedback mechanism
+ � Reflexes and reflex arc
+ � Levels of the spinal cord and its main functions
+ � Parts of the brain with their main functions
+ LEARNING OBJECTIVES
+ 5.1. Recognize receptors as transducers sensitive to various
+ stimuli.
+ 5.2. Define neurons
+ 5.3. Explain the structure of a typical neuron (cell body, dendrites,
+ axon and myelin sheath and Schwann cells)
+ 5.4. Define nerve impulse
+ 5.5. List the levels of the spinal cord
+ 5.6. List the functions of the spinal cord
+ 5.7. Classify reflexes
+ 5.8. Briefly explain the functions of components of a reflex arc
+ 5.9. List the main parts of the brain (e.g., components of brain stem,
+ mid brain, cerebellum, cerebrum)
+ 5.10. Describe the functions of each part
+ SUBTOPICS � Characteristics and diversity among the animals
+ (animal phyla, characteristics)
+ LEARNING OBJETIVES
+ 6.1. Describe general characteristic of animals
+ SUBTOPICS
+ � Introduction/characteristics of enzymes
+ � Mechanism of action of enzymes
+ � Factors effecting rate of enzyme action
+ � Enzyme inhibition
+ LEARNING OBJECTIVES
+ 7.1. Describe the distinguishing characteristics of enzymes
+ 7.2. Explain mechanism of action of enzymes
+
+ 5|Page
+ 8 7.3. Describe effects of factor on enzyme action (temperature, pH,
+ EVOLUTION concentration)
+ 7.4. Describe enzyme inhibitors
+ 9 SUBTOPICS
+LIFE PROCESSES � Concepts of evolution
+ � Inheritance of acquired characteristics
+ IN ANIMALS & � Darwinism
+ PLANTS � Darwins theory evolution
+ � Neo-Darwinisms
+ (NUTRITION/ � Evidence of evolution
+ GASEOUS LEARNING OBJECTIVES
+ EXCHANGE/ 8.1. Explain origin of life according to concept of evolution
+ 8.2. Describe the theory of inheritance of acquired characters, as
+ TRANSPORT) proposed by Lamarck.
+ 8.3. Explain the theory of natural selection as proposed by Darwin
+ SUBTOPICS
+ � Carnivorous plants/parasitic nutrition (pitcher plant, venus fly trap,
+ sundew)
+ � Water and mineral uptake by roots, xylem and phloem
+ � Osmotic pressure/potential
+ � Cardiovascular system (including human heart structure, blood
+ vessels)
+ � Respiratory system
+ � Digestive system
+ � Immune & system
+ � Lymphatic system
+ LEARNING OBJECTIVES
+ 9.1. Discuss the examples of carnivorous plants (pitcher plant,
+ venus fly trap, sundew)
+ 9.2. Describe osmotic pressure and its importance in life processes
+ in animals and plants
+ 9.3. Describe water and minerals uptake by roots, xylem and
+ phloem
+ 9.4. List general structure of human heart
+ 9.5. Define the phases of a cardiac cycle
+ 9.6. List the differences and functions of capillaries, arteries and
+ veins 9.7. Describe lymphatic system (organs, nodules, vessels)
+ 9.8. Define and discuss the functions and importance of main
+ components of immune system
+ 9.9. Discuss the functions of main part of respiratory system
+ 9.10. Discuss the role of surfactant in gas exchange
+ 9.11. Discuss the process of gas exchange in human lungs
+ 9.12. List the parts of human digestive system
+ 9.13. Explain the functions of the main parts of the digestive system
+ including associated structures and glands
+
+ 6|Page
+ 10 SUBTOPICS
+PROKARYOTES � Cellular Structure of bacteria
+ � Shape and size of bacteria
+ (KINGDOM � Importance and control of bacteria
+ MONERA) LEARNING OBJECTIVES
+ 10.1. Describe cellular structures of bacteria
+ 11 10.2. Explain diversity in shape and size in bacteria
+REPRODUCTION 10.3. Highlight the importance of bacteria and control of harmful
+ bacteria
+ 12 SUBTOPICS
+ SUPPORT & � Male reproductive system
+ MOVEMENT � Female reproductive system (including menstrual cycle)
+ � Sexually transmitted diseases
+ LEARNING OBJECTIVES
+ 11.1. Describe the functions of various parts of the male & female
+ reproductive systems and the hormones that regulate those
+ functions
+ 11.2. Describe the menstrual cycle (female reproductive cycle)
+ emphasizing the role of hormones
+ 11.3. List the common sexually transmitted diseases along with
+ their causative agents and main symptoms
+ SUBTOPICS
+ � Cartilage
+ � Types of muscles - Skeletal muscles - Cardiac muscles - Smooth
+ muscles
+ � Structure of skeletal muscles
+ � Mechanism of skeletal muscle contraction
+ � Types of joints
+ � Arthritis
+ LEARNING OBJECTIVES
+ 12.1. Define cartilage, muscle and bone
+ 12.2. Explain the main characteristics of cartilage and bone along
+ with functions of both
+ 12.3. Compare characteristics of smooth muscles, cardiac muscles
+ and skeletal muscles
+ 12.4. Explain the ultra-structure of skeletal muscles
+ 12.5. Describe in brief the process of skeletal muscle contraction
+ 12.6. Classify joints
+ 12.7. Define arthritis
+ SUBTOPICS
+ � Mendel's law of inheritance
+ � Gregor John Mendel and his work
+ � Mendel's experiment
+ � Inheritance of single trait
+ � Mendel's principles of inheritance
+ � Inheritance of two traits
+
+ 7|Page
+ 13 � Law of independent assortment
+VARIATION & � Scope of independent assortment in variation
+ � Statistics and probability relevant to genetics
+ GENETICS/ � Multiple alleles
+INHERITANCE � Gene linkages and crossing over
+ � Sex linkages in drosophila
+ � Sex linkage in human
+ � Genetics of hemophilia
+ LEARNING OBJECTIVES
+ 13.1. Associate inheritance with the laws of Mendel.
+ 13.2. Explain the law of independent assortment, using a suitable
+ example. 13.3. Describe the terms gene linkage and crossing over
+ 13.4. Explain how gene linkage counters independent assortment
+ and crossing-over modifies the progeny
+ 13.5. Describe the concept of sex-linkage.
+ 13.6. Briefly describe Inheritance of sex -linked traits
+ 13.7. Analyze the inheritance of hemophilia.
+
+ 8|Page
+4. SECTION 2: CHEMISTRY
+
+2.1. Content List for Chemistry
+
+Sr. No Content
+ 1 Introduction to fundamental concepts of chemistry
+ 2 Atomic Structure
+ 3 Gases
+ 4 Liquids
+ 5 Solids
+ 6 Chemical Equilibrium
+ 7 Reaction Kinetics
+ 8 Thermo-chemistry and Energetics of chemical reactions
+ 9 Electrochemistry
+ 10 Chemical bonding
+ 11 S and p block elements
+ 12 Transition Elements
+ 13 Fundamental principles of organic chemistry
+ 14 Chemistry of Hydrocarbons
+ 15 Alkyl halides
+ 16 Alcohols & phenols
+ 17 Aldehydes and Ketones
+ 18 Carboxylic acid
+ 19 Macromolecules
+
+2.2. Subtopics & Learning Objectives
+
+ SUBTOPICS
+ � Atomic mass
+ � Empirical formula
+ � Molecular formula
+ � Concept of mole
+ � Construction of mole ratios as conversion factors in
+ stoichiometry calculations
+
+ 9|Page
+ 1 � Avogadros number
+ INTRODUCTION OF � Important assumptions of stoichiometric calculations
+ � Stoichiometry
+ FUNDAMENTAL � Limiting reactant
+ CONCEPTS OF � Percentage yield
+ LEARNING OBJETIVES
+ CHEMISTRY 1.1. Construct mole ratios from balanced equations for use as
+ conversion factors in stoichiometric problems.
+ 2 1.2. Perform stoichiometric calculations with balanced equations
+ATOMIC STRUCTURE using moles, representative particles, masses and volumes of
+ gases (at STP).
+ 1.3. Explain the limiting reagent in a reaction,
+ 1.4. Calculate the maximum number of product(s) produced and
+ the amount of any unreacted excess reagent.
+ 1.5. Given information from which any two of the following may be
+ determined, calculate the third: theoretical yield, actual yield,
+ percentage yield.
+ 1.6. Calculate the theoretical yield and the percent yield when
+ given the balanced equation, the amounts of reactants and the
+ actual yield
+ SUBTOPICS
+ � Concept of orbitals
+ � Electronic configuration
+ � Discovery and properties of proton (positive rays)
+ � Quantum numbers
+ � Shapes of orbitals
+ LEARNING OBJECTIVES
+ 2.1. Describe discovery and properties of proton (positive rays)
+ 2.2. Define photon as a unit of radiation energy.
+ 2.3. Describe the concept of orbitals.
+ 2.4. Distinguish among principle energy levels, energy sub-
+ levels, and atomic orbitals.
+ 2.5. Describe the general shapes of s, p, and orbitals.
+ 2.6. Describe the hydrogen atom using the quantum theory.
+ 2.7. Use the Aufbau Principle, the Pauli Exclusion Principle, and
+ Hunds Rule to write the electronic configuration of the atoms.
+ 2.8. Write electronic configuration of atoms.
+ SUBTOPICS
+ � Properties of gases
+ � Gas laws
+ � Boyles law
+ � Charless law
+ � General gas equation
+ � Kinetic molecular theory of gases
+ � Ideal gas equation
+ LEARNING OBJECTIVES
+
+ 10 | P a g e
+ 3 3.1. List the postulates of kinetic molecular theory.
+GASES 3.2. Describe the motion of particles of a gas according to kinetic
+ theory.
+ 4 3.3. State the values of standard temperature and pressure (STP).
+LIQUIDS 3.4. Describe the effect of change in pressure on the volume of
+ gas.
+ 5 3.5. Describe the effect of change in temperature on the volume
+SOLIDS of gas.
+ 3.6. Explain the significance of absolute zero, giving its value in
+ degree Celsius and Kelvin.
+ 3.7. Derive ideal gas equation using Boyles, Charles and
+ Avogadros law. 3.8. Explain the significance and different units
+ of ideal gas constant.
+ 3.9. Distinguish between real and ideal gases
+ SUBTOPICS
+ � Properties of liquids
+ � Intermolecular forces
+ � Hydrogen bonding
+ � Vapor pressure
+ � Boiling point and external pressure
+ LEARNING OBJECTIVES
+ 4.1. Describe simple properties of liquids e.g. diffusion,
+ compression, expansion, motion of molecules, spaces between
+ them, intermolecular forces and kinetic energy based on kinetic
+ molecular theory.
+ 4.2. Explain physical properties of liquids such as evaporation,
+ vapor pressure, boiling point.
+ 4.3. Describe the hydrogen bonding in H2O, NH3 and HF
+ molecules.
+ 4.4. Anomalous behavior of water when its density shows
+ maximum at 4 degree centigrade
+ SUBTOPICS
+ � Introduction
+ � Types of solids
+ � Ionic solids
+ � Molecular solids
+ � Crystal lattice
+ LEARNING OBJECTIVES
+ 5.1. Describe crystal line solids.
+ 5.2. Name three factors that affect the shape of an ionic crystal.
+ 5.3. Give a brief description of ionic and molecular solids.
+ 5.4. Describe crystal lattice.
+ 5.5. Define lattice energy.
+
+ 11 | P a g e
+ 6 SUBTOPICS
+ CHEMICAL � Reversible and irreversible reactions
+ EQUILIBIRIUM � State of chemical equilibrium
+ � Equilibrium constant expression for important reaction
+ 7 � Applications of equilibrium constant
+REACTION KINETICS � Solubility product
+ � The Le Chateliers principle
+ � Synthesis of ammonia by Habers Process
+ � Common ion effect
+ � Buffer solutions
+ � Equilibrium of slightly soluble ionic compounds (solubility
+ product)
+ LEARNING OBJETIVES
+ 6.1. Define chemical equilibrium in terms of a reversible reaction.
+ 6.2. Write both forward and reverse reactions and describe them
+ acroscopic characteristics of each.
+ 6.3. State Le Chateliers Principle and be able to apply it to
+ systems in equilibrium with changes in concentration, pressure,
+ temperature, or the addition of catalyst.
+ 6.4. Define and explain solubility product.
+ 6.5. Define and explain the common ion effect giving suitable
+ examples.
+ 6.6. Describe buffer solutions and explain types of buffers.
+ 6.7. Explain synthesis of ammonia by Habers Process.
+ SUBTOPICS
+ � Rate of reaction
+ � Determination of the rate of a chemical reaction
+ � Factors affecting rate of reaction
+ � Specific rate constant or velocity constant
+ � Units of rate constant
+ � Order of reaction and its determination
+ LEARNING OBJECTIVES
+ 7.1. Define chemical kinetics.
+ 7.2. Explain the terms rate of reaction, rate equation, order of
+ reaction, rate constant and rate determining step.
+ 7.3. Explain qualitatively factors affecting rate of reaction.
+ 7.4. Given the order with respect to each reactant, write the rate
+ law for the reaction.
+ 7.5. Explain the meaning of the terms ,,activation energy and
+ activated complex.
+ 7.6. Relate the ideas of activation energy and the activated
+ complex to the rate of a reaction.
+ 7.7. Explain effects of concentration, temperature and surface
+ area on reaction rates.
+ 7.8. Describe the role of the rate constant in the theoretical
+ determination of reaction rate.
+
+ 12 | P a g e
+ 8 SUBTOPICS
+THERMOCHEMISTRY � System, surrounding and state function
+ � Definitions of terms used in thermodynamics
+ & ENERGETICS OF � Standard states and standard enthalpy changes
+ CHEMICAL � Energy in chemical reactions
+ REACTIONS � First Law of thermodynamics
+ � Sign of H
+ 9 � Enthalpy of a reaction
+ELECTROCHEMISTRY � Hesss law of constant heat summation
+ LEARNING OBJECTIVES
+ 8.1. Define thermodynamics.
+ 8.2. Classify reactions as exothermic or endothermic.
+ 8.3. Define the terms system, surrounding, boundary, state
+ function, heat, heat capacity, internal energy, work done and
+ enthalpy of a substance.
+ 8.4. Name and define the units of thermal energy.
+ 8.5. Explain the first law of thermodynamics for energy
+ conservation. 8.6. Apply Hesss Law to construct simple energy
+ cycles.
+ 8.7. Describe enthalpy of a reaction.
+ SUBTOPICS
+ � Oxidation number or state
+ � Explanation of electrolysis
+ � Electrode potential
+ � Balancing of redox equations by ion-electron method
+ � Balancing redox equations by oxidation number change method
+ LEARNING OBJECTIVES
+ 9.1. Give the characteristics of a redox reaction.
+ 9.2. Define oxidation and reduction in terms of a change in
+ oxidation number.
+ 9.3. Use the oxidation-number change method to identify atoms
+ being oxidize do reduced in redox reactions.
+ 9.4. Define cathode, anode, electrode potential and S.H.E
+ (Standard Hydrogen Electrode).
+ 9.5. Define the standard electrode potential of an electrode.
+ 9.6. Use the ion-electron method/oxidation number method to
+ balance chemical equations.
+
+ SUBTOPICS
+ � Energetic of bond formation
+ � Atomic sizes
+ � Atomic radii
+ � Ionic radii
+ � Covalent radii
+
+ 13 | P a g e
+ 10 � Ionization energy
+CHEMICAL BONDING � Electron affinity
+ � Electro negativity
+ 11 � Bond energy
+ S AND P BLOCK � Bond length
+ � Types of bonds
+ ELEMENTS � Electrovalent or Ionic Bond
+ � Covalent bond
+ � Co-ordinate or dative covalent bond
+ � Ionic character of covalent bond
+ � Sigma and Pi bond
+ � Hybridization
+ � sp3 -Hybridization
+ � sp2 -Hybridization
+ � sp-hybridization
+ � The Valence Shell Electron Pair Repulsion theory
+ � Postulates of VSEPR theory
+ � Applications of VSEPR theory
+ LEARNING OBJECTIVES
+ 10.1. Use VSEPR theory to describe the shapes of molecules.
+ 10.2. Describe the features of sigma and pi bonds.
+ 10.3. Describe the shapes of simple molecules using orbital
+ hybridization.
+ 10.4. Determine the shapes of some molecules from the number
+ of bonded pairs and lone pairs of electrons around the central
+ atom.
+ 10.5. Predict the molecular polarity from the shapes of molecules.
+ 10.6. Explain what is meant by the term ionic character of a
+ covalent bond.
+ 10.7. Describe how knowledge of molecular polarity can be used
+ to explain some physical and chemical properties of molecules.
+ 10.8. Define bond energies and explain how they can be used to
+ compare bonds strengths of different chemical bonds.
+ 10.9. Define and explain the terms atomic radii, ionic radii,
+ covalent radii, ionization energy, electron affinity, electro
+ negativity, bond energy and bond length.
+ SUBTOPICS
+ � Electronic configuration
+ � Chemical properties of s-block elements
+ � Group1 Elements (Alkali Metals)
+ � Atomic and Physical properties
+ � Trends in reactivity
+ � Group2 Elements (Alkaline earth metals)
+ � Trends in reactivity
+ � Physical and chemical properties
+
+ 14 | P a g e
+ 12 � Group trends: atomic radii, ionic radii, electro negativity,
+ TRANSITION ionization potential, electropositivity or metallic character, melting
+ ELEMENTS and boiling points
+ LEARNING OBJECTIVES
+ 13 11.1. Recognize the demarcation of the periodic table into s block,
+ FUNDAMENTAL p block, d block, and f block.
+ PRICIPLES OF 11.2. Describe how physical properties like atomic radius,
+ ionization energy, electro negativity, electrical conductivity and
+ ORGANIC melting and boiling points of elements change within a group and
+ CHEMISTRY within a period in the periodic table.
+ 11.3. Describe reactions of Group l elements with water, oxygen
+ 14 and chlorine.
+ CHEMISTRY OF 11.4. Describe reactions of Group II elements with water, oxygen
+HYDROCARBONS and nitrogen.
+ 11.5. Describe reactions of Group III elements with water, oxygen
+ and chlorine.
+ SUBTOPICS
+ � General characteristics
+ LEARNING OBJECTIVES
+ 12.1. Describe electronic structures of elements and ions of d-
+ block elements.
+ SUBTOPICS
+ � Classification of organic compound
+ � Isomerism
+ LEARNING OBJECTIVES
+ 13.1. Define organic chemistry and organic compounds.
+ 13.2. Classify organic compounds on structural basis.
+ 13.3. Define functional group.
+ 13.4. Explain isomerism and its types.
+ SUBTOPICS
+ � Open chain and closed chain hydrocarbons
+ � Nomenclature of alkanes, alkenes and alkynes
+ � Benzene: Properties, structure, modern representation,
+ reactions, resonance method, electrophilic substitution,
+ � The molecular orbital treatment of benzene.
+ LEARNING OBJECTIVES
+ 14.1. Classify hydrocarbons as aliphatic and aromatic.
+ 14.2. Describe nomenclature of alkanes.
+ 14.3. Define free radical initiation, propagation and termination.
+ 14.4. Describe the mechanism of free radical substitution in
+ alkanes exemplified by methane and ethane.
+ 14.5. Explain the IUPAC nomenclature of alkenes.
+ 14.6. Explain the shape of ethane molecule in terms of sigma and
+ pi C-C bonds.
+ 14.7. Describe the structure and reactivity of alkenes as
+ exemplified by ethane.
+
+ 15 | P a g e
+ 15 14.8. Define and explain with suitable examples the terms
+ALKYL HALIDES isomerism and structural isomerism.
+ 14.9. Explain dehydration of alcohols and dehydrohalogenation of
+ RX for the preparation of ethane.
+ 14.10. Describe the chemistry of alkenes by the following
+ reactions of ethene: Hydrogenation, hydrohalogenation,
+ hydration, halogenation, halohydration, polymerization.
+ 14.11. Explain the shape of the benzene molecule (molecular
+ orbital treatment).
+ 14.12. Define resonance, resonance energy and relative stability.
+ 14.13. Compare the reactivity of benzene with alkanes and
+ alkenes. 14.14. Describe addition reactions of benzene and
+ methylbenzene. 14.15. Describe the mechanism of electrophilic
+ substitution in benzene. 14.16. Discuss chemistry of benzene and
+ methylbenzene by nitration, sulphonation, halogenation, Friedal
+ Crafts alkylation and acylation. 14.17. Apply the knowledge of
+ positions of substituents in the electrophilic substitution of
+ benzene.
+ 14.18. Use the IUPAC naming system for alkynes.
+ 14.19. Compare the reactivity of alkynes with alkanes, alkenes
+ and arenes.
+ 14.20. Describe the preparation of alkynes using elimination
+ reactions. 14.21. Describe acidity of alkynes.
+ 14.22. Discuss chemistry of alkynes by hydrogenation,
+ hydrohalogenation, and hydration.
+ 14.23. Describe and differentiate between substitution and
+ addition reactions.
+ SUBTOPICS
+ � Classification of alkyl halides
+ � Nomenclature
+ � Reactions
+ � Mechanism of nucleophilic substitution reaction SN1, SN2, E1
+ and E2 reaction
+ LEARNING OBJECTIVES
+ 15.1. Name alkyl halides using IUPAC system.
+ 15.2. Discuss the structure and reactivity of RX.
+ 15.3. Describe the mechanism and types of nucleophilic
+ substitution reactions.
+ 15.4. Describe the mechanism and types of elimination reactions.
+
+ SUBTOPICS
+ � Alcohols:
+ - Classification: Primary, secondary and tertiary alcohols
+ -Nomenclature
+ - Reactivity
+
+ 16 | P a g e
+ 16 � Phenols:
+ ALCOHOLS AND - Physical properties
+ - Nomenclature
+ PHENOLS - Acidity
+ - Reactivity
+ 17 LEARNING OBJECTIVES
+ ALDEHYDES & 16.1. Explain nomenclature and structure of alcohols.
+ 16.2. Explain the reactivity of alcohols.
+ KETONES 16.3. Describe the chemistry of alcohols by preparation of ethers
+ and esters.
+ 18 16.4. Explain the nomenclature and structure of phenols.
+CARBOXYLIC ACIDS 16.5. Discuss the reactivity of phenol and their chemistry by
+ electrophilic aromatic substitution.
+ 16.6. Differentiate between an alcohol and phenol.
+ SUBTOPICS
+ � Nomenclature
+ � Preparation
+ � Reactions
+ LEARNING OBJECTIVES
+ 17.1. Explain nomenclature and structure of aldehydes and
+ ketones. 17.2. Discuss the preparation of aldehydes and ketones.
+ 17.3. Describe reactivity of aldehydes and ketones and their
+ comparison.
+ 17.4. Describe acid and base catalyzed nucleophilic addition
+ reactions of aldehydes and ketones.
+ 17.5. Discuss the chemistry of aldehydes and ketones by their
+ reduction to alcohols.
+ 17.6. Describe oxidation reactions of aldehydes and ketones.
+ SUBTOPICS
+ � Nomenclature
+ � Classification
+ � Physical properties
+ � Preparations of carboxylic acids
+ � Reactivity
+ LEARNING OBJECTIVES
+ 18.1. Describe nomenclature, chemistry and preparation of
+ carboxylic acids.
+ 18.2. Discuss reactivity of carboxylic acids.
+ 18.3. Describe the chemistry of carboxylic acids by conversion to
+ carboxylic acid derivatives: acyl halides, acid an hydrides, esters,
+ amides and reactions involving inter conversion of these.
+ SUBTOPICS
+ � Proteins
+ � Enzymes
+
+19
+
+ 17 | P a g e
+MACRO MOLECULES LEARNING OBJECTIVES
+ 19.1. Explain the basis of classification and structure-function
+ relationship of proteins.
+ 19.2. Describe the role of various proteins in maintaining body
+ functions and their nutritional importance.
+ 19.3. Describe the role of enzymes as biocatalysts
+
+ 18 | P a g e
+5. SECTION 3: PHYSICS
+
+3.1. Content List for Physics
+
+Sr. No Content
+ 1 Force and motion
+ 2 Work and energy
+ 3 Rotational and circular motion
+ 4 Waves
+ 5 Thermodynamics
+ 6 Electrostatics
+ 7 Current Electricity
+ 8 Electromagnetism
+ 9 Electromagnetic Induction
+ 10 Electronics
+ 11 Dawn of modern Physics
+ 12 Atomic spectra
+ 13 Nuclear Physics
+
+3.2. Subtopics & Learning Objectives
+
+ SUBTOPICS
+ � Displacement
+ � Velocity
+ � Displacement-time graph
+ � Acceleration
+ � Uniform acceleration
+ � Variable acceleration
+ � Graphical representation of acceleration with velocity time
+ graph
+ � Newton's laws of motion
+ � Newton's first law of motion
+ � Newton's second law of motion
+ � Newton's third law of motion
+ � Linear Momentum
+ � Law of conservation of momentum
+ � Collision
+
+ 19 | P a g e
+ 1 � Elastic collision
+FORCE AND � Elastic collision in one dimension
+ � Elastic collision in one dimension under different cases
+ MOTION � Projectile motion
+ � Characteristics of projectile motion
+ � Time off light
+ � Maximum height
+ � Horizontal range
+ LEARNING OBJETIVES
+ 1.1. Describe displacement.
+ 1.2. Describe average velocity of objects.
+ 1.3. Interpret displacement-time graph of objects moving along
+ the same straight line.
+ 1.4. Define uniform acceleration
+ 1.5. Distinguish between uniform and variable acceleration.
+ 1.6. Explain that projectile motion is two-dimensional motion in
+ a vertical plane. 1.7. Communicate the ideas of a projectile in
+ the absence of air resistance.
+ 1.8. Explain Horizontal component (VH) of velocity is constant.
+ 1.9. Acceleration is in the vertical direction and is the same as
+ that of a vertically freefalling object.
+ 1.10. Differentiate between the characteristics of horizontal
+ motion and vertical motion
+ 1.11. Evaluate, using equations of uniformly accelerated
+ motion for a given initial velocity of frictionless projectile, the
+ following issues: a. How much higher does it go? b. How far
+ would it go along the level land? c. Where would it be after a
+ given time? d. How long will it remain in air? e. Determine for a
+ projectile launched from ground height f. Launch angle that
+ results in the maximum range g. Relation between the launch
+ angles that result in the same range.
+ 1.12. Apply Newtons laws to explain the motion of objects in a
+ variety of context.
+ 1.13. Describe the Newtons second law of motion as rate of
+ change of momentum.
+ 1.14. Correlate Newtons third law of motion and conservation
+ of momentum. 1.15. Solve different problems of elastic and
+ inelastic collisions between two bodies in one dimension by
+ using law of conservation of momentum.
+ 1.16. Describe that momentum is conservational situations.
+ 1.17. Identify that for a perfectly elastic collision, the relative
+ speed of approach is equal to the relative speed of separation.
+ SUBTOPICS
+ � Work
+ � Energy
+ � Kinetic energy
+
+ 20 | P a g e
+ 2 � Potential energy
+ WORK AND � Gravitational potential energy
+ � Power
+ ENERGY LEARNING OBJECTIVES
+ 2.1. Describe the concept of work in terms of the product of
+ 3 force F and displacement d in the direction of force.
+ROTATIONAL AND 2.2. Define energy
+CIRCULAR MOTION 2.3. Explain kinetic energy
+ 2.4. Explain the difference between potential energy and
+ gravitational potential energy.
+ 2.5. Describe that the gravitational potential energy is
+ measured from a reference level and can be positive or
+ negative, to denote the orientation from the reference levels.
+ 2.6. Express power as scalar product of force and velocity.
+ 2.7. Explain that work done against friction is dissipated as heat
+ in the environment.
+ 2.8. State the implications of energy losses in practical devices
+ SUBTOPICS
+ � Angular displacement
+ � Revolution
+ � Degree
+ � Radian
+ � Angular velocity
+ � Relation between linear and angular variables
+ � Relation between linear and angular displacements
+ � Relation between linear and angular velocities
+ � Relation between linear and angular accelerations
+ � Centripetal force
+ � Forces causing centripetal acceleration
+ LEARNING OBJECTIVES
+ 3.1. Define angular displacement, express angular
+ displacement in radians.
+ 3.2. Define revolution, degree and radian
+ 3.3. Define and Explain the term angular velocity
+ 3.4. Find out the relationship between the following:
+ a. Relation between linear and angular variables
+ b. Relation between linear and angular displacements
+ c. Relation between linear and angular velocities
+ d. Relation between linear and angular accelerations
+ SUBTOPICS
+ � Progressive waves
+ � Crest
+ � Trough
+ � Amplitude
+ � Wavelength
+ � Time period and frequency
+
+ 21 | P a g e
+ 4 � Types of progressive waves
+WAVES � Transverse waves
+ � Longitudinal waves
+ � Periodic waves
+ � Transverse periodic waves
+ � Longitudinal periodic waves
+ � Speed of sound in air
+ � Principle of superposition/superposition of sound waves
+ � Stationary waves/standing waves
+ � Stationary waves in a stretched string/fundamental frequency
+ and harmonics
+ � Doppler effect
+ � Observer is moving towards a stationary source
+ � Observer is moving away from a stationary source
+ � When the source is moving towards the stationary observer
+ � When the source is moving away from the stationary observer
+ � Simple harmonic motion (SHM)
+ � Characteristics of simple harmonic motion
+ � Instant aeneous displacement
+ � Amplitude
+ � Vibration
+ � Time period
+ � Frequency
+ LEARNING OBJETIVES
+ 4.1. Describe the meaning of wave motion as illustrated by
+ vibrations in ropes and springs.
+ 4.2. Demonstrate that mechanical waves require a medium for
+ their propagation while electromagnetic waves do not.
+ 4.3. Define and apply the following terms to the wave model;
+ medium, displacement, amplitude, period, compression,
+ rarefaction, crest, trough, wavelength, velocity.
+ 4.4. Solve problems using the equation: v=fl.
+ 4.5. Describe that energy is transferred due to a progressive
+ wave.
+ 4.6. Compare transverse and longitudinal waves.
+ 4.7. Explain that speed of sound depends on the properties of
+ medium in which it propagates and describe Newtons formula
+ of speed of waves.
+ 4.8. Describe the Laplace correction in Newtons formula for
+ speed of sound in air.
+ 4.9. Identify the factors on which speed of sound in air depends.
+ 4.10. Describe the principle of super position of two waves from
+ coherent sources.
+ 4.11. Describe the phenomenon of interference of sound
+ waves.
+
+ 22 | P a g e
+ 5 4.12. Explain the formation of stationary waves using graphical
+THERMODYNAMICS method
+ 4.13. Define the terms, node and antinodes.
+ 6 4.14. Describe modes of vibration of strings.
+ELECTROSTATICS 4.15. Describe formation of stationary waves in vibrating air
+ columns.
+ 4.16. Explain the principle of Superposition
+ 4.17. Explain S.H.M and explain the characteristics of S.H.M.
+ SUBTOPICS
+ � First law of thermodynamics
+ � Specific heat and Molar specific heat/specific heat capacity
+ LEARNING OBJECTIVES
+ 5.1. Describe that thermal energies transferred from a region of
+ higher temperature to a region of lower temperature.
+ 5.2. Differentiate between specific heat and molar specific heat.
+ 5.3. Calculate work done by a thermodynamic system during a
+ volume change. 5.4. Describe the first law of thermodynamics
+ expressed in terms of the change in internal energy, the heating
+ of the system and work done on the system.
+ 5.5. Explain that first law of thermodynamics expresses the
+ conservation of energy.
+ 5.6. Define the terms, specific heat and molar specific heats of
+ a gas.
+ 5.7. Apply first law of thermodynamics to derive Cp-Cv= R.
+ SUBTOPICS
+ � Coulombs law
+ � Coulombs law in material media
+ � Electric field and its intensity
+ � Electric field intensity due to an infinite sheet of charge
+ � Electric field intensity between two oppositely charged parallel
+ plates
+ � Electric potential
+ � Capacitor
+ � Capacitance of a capacitor and its unit
+ � Capacitance of a parallel plate capacitor
+ � Energy Stored in a Capacitor
+ � Charging and Discharging a Capacitor
+ LEARNING OBJECTIVES
+ 6.1. State Coulombs law and explain that force between two-
+ point charges is reduced in a medium other than free space
+ using Coulombs law
+ 6.2. Describe the concept of an electric field as an example of
+ a field of force
+ 6.3. Calculate the magnitude and direction of the electric field
+ at a point due to two charges with the same or opposite signs
+
+ 23 | P a g e
+ 7 6.4. Sketch the electric field lines for two-point charges of equal
+ CURRENT magnitude with same or opposite signs
+ ELECTRICITY 6.5. Describe and draw the electric field due to an infinite size
+ conducting plate of positive or negative charge
+ 8 6.6 Define electric potential at a point in terms of the work done
+ELECTROMAGNE in bringing unit positive charge from infinity to that point
+ 6.7. Define the unit of potential
+ TISM 6.8. Derive an expression for electric potential at a point due to
+ a point charge 6.9. Demonstrate charging and discharging of a
+ capacitor through a resistance
+ SUBTOPICS
+ � Ohms Law
+ � Electrical resistance
+ � Specific resistance or resistivity
+ � Effect of temperature on resistance
+ � Temperature coefficient of resistance
+ � Variation of resistivity with temperature
+ � Internal resistance of a supply
+ � Electric power
+ � Unit of electric power
+ � Kilowatt-hours
+ LEARNING OBJECTIVES
+ 7.1. Describe the concept of steady current.
+ 7.2. State Ohms law.
+ 7.3. Define resistivity and explain its dependence upon
+ temperature.
+ 7.4. Explain the internal resistance of sources and its
+ consequences for external circuits.
+ 7.5. Describe the conditions for maximum power transfer
+
+ SUBTOPICS
+ � Magnetic field
+ � Magnetic Flux
+ � Magnetic Flux Density
+ LEARNING OBJECTIVES
+ 8.1. Define magnetic flux density and its units.
+ 8.2. Describe the concept of magnetic flux(�) as scalar product
+ of magnetic field(B) and area(A)using the relation
+ �B=BA=B.A.
+ 8.3. Describe quantitatively the path followed by a charged
+ particle hot into a magnetic field in a direction perpendicular to
+ the field.
+ 8.4. Explain that a force may act on a charged particle in a
+ uniform magnetic field.
+ SUBTOPICS
+ � Electromagnetic induction
+
+ 24 | P a g e
+ 9 � Faradays Law
+ ELECTROMAGNE � Lenzs Law
+ � Lenzs Law and conservation of energy
+ TIC INDUCTION � Generating Electricity-Alternating Current Generator
+ � Transformers
+ 10 LEARNING OBJECTIVES
+ ELECTRONICS 9.1. State Faradays law of electromagnetic induction.
+ 9.2. Account for Lenzs law to predict the direction of an
+ 11 induced current and relate to the principle of conservation of
+DAWN OF MODERN energy.
+ 9.3. Describe the construction of a transformer and explain how
+ PHYSICS it works.
+ 9.4. Describe how set-up and step-down transformers can be
+ 12 used to ensure efficient transfer of electricity along cables.
+ SPECTRA SUBTOPICS
+ � Rectification
+ LEARNING OBJECTIVES
+ 10.1. Define rectification and describe the use of diodes for half
+ and full wave rectifications.
+ SUBTOPICS
+ � The particle model of light
+ LEARNING OBJECTIVES
+ 11.1. Explain the particle model of light in terms of photons with
+ particular energy
+ SUBTOPICS
+ � Atomic spectra/ line spectrum
+ LEARNING OBJECTIVES
+ 12.1. Describe and explain Atomic spectra/ line spectrum
+
+ 13 SUBTOPICS
+NUCLEAR PHYSICS � Spontaneous and random nuclear decay/the law of
+ radioactive decay
+ � Half Life and rate of decay
+ � Biological effects of radiation
+ � Biological and medical uses of radiation
+ LEARNING OBJECTIVES
+ 13.1. Describe as impel model for the atom to include protons,
+ neutrons and electrons.
+ 13.2. Identify the spontaneous and random nature of nuclear
+ decay.
+ 13.3. Describe the term half-life and solve problems using the
+ equation
+ 13.4. Describe biological effects of radiation state and explain
+ the different medical uses of radiation.
+
+ 25 | P a g e
+6. SECTION 4: ENGLISH
+
+ The aim of English section of MDCAT is to measure the applicants skills
+
+ in English language and to evaluate how prepared them are for
+
+ undertaking graduate studies in medicine in English. The test applies a
+
+AIM common standard to everyone to be able to evaluate the preparation of
+
+ the applicants from different sectors, regions and socioeconomic
+
+ backgrounds.
+
+OBJECTIVES The benchmarks for the test have been developed in the light of the
+ Syllabus used in HSSC and CIE. Since the students who take the
+ MDCAT come from a wide range of educational contexts, the test
+ comprises items that may be applied to a broadband of language
+ competencies that are not exclusive to one particular type of Syllabus.
+ 1. To ensure complete alignment between the English Syllabus used in
+ various sectors at the HSSC and CIE level and the test items
+ 2. To create a balance of items from different benchmarks of the English
+ Syllabi outlined for MDCAT
+ 3. To make sure that difficult and ambiguous items beyond the scope of
+ high school education are not included
+ 4. To design the test specifications
+ 5. To design, select, and arrange test task items
+
+4.1. Benchmarks & Content
+
+OBJECTIVE BENCHMARK CONTENT
+ Use one or more of the High and low frequency
+1.Comprehend key following strategies to words from the course
+ determine meaning of key book or to be selected from
+vocabulary vocabulary: similar contexts or the
+ 1.1 contextual clues and contexts the HSSC and
+2.Demonstrate control of illustrations CIE students may be
+tenses and sentence 1.2 background or prior familiar with.
+structure knowledge
+ 1.3 morphology, syntax, All present, past tenses
+ phonics, knowledge of word Four types of sentences,
+ relationships Conditionals Types of
+ 1.4 knowledge of synonyms, clauses Fragments
+ antonyms, homophones
+ 2.1 Use correct tenses and
+ sentence structure in writing
+ 2.2 Identify mistakes in the
+ use of tenses and sentence
+ structure in written texts
+
+ 26 | P a g e
+3. Demonstrate ability to 3.1 Identify sentences with Use the texts prescribed/
+ used in HSSC or CIE for
+differentiate between correct grammatical and style differentiating between
+ correctly and incorrectly
+correct and incorrect structures written sentences. The test
+ items to be selected from
+structure of sentences & 3.2 Identify sentences with the type of texts written by
+ HSSC and CIE students
+Use of writing conventions incorrect grammatical and and from the contexts
+ common to both the
+of spelling, capitalization style structures streams
+
+and Punctuation 3.3 Identify Use inappropriate Use the texts prescribed/
+ used in HSSC or CIE for
+ capitalization and selecting test items as well
+ as determining the degree
+ punctuation such as semi of their complexity
+
+ colons, commas in a series, The test items to be
+ selected from the contexts
+ apostrophes in possessives, common to the texts at
+ HSSC and CIE level
+ proper nouns, and
+ Use the texts and
+ abbreviations sentences prescribed/
+ used in HSSC or CIE for
+4. Demonstrate correct use 4.1. Use correct subject-verb differentiating between
+of subject-verb agreement correctly and incorrectly
+& of articles and agreement in written texts written sentences
+prepositions Use the texts prescribed/
+ 4.2 Identify mistakes in the used in HSSC or CIE as
+ samples for reading
+ use of subject verb- comprehension
+
+ agreement in written texts
+
+ 4.3 Use appropriate articles
+
+ and prepositions in different
+
+ written contexts
+
+ 4.4 Identify mistakes in the
+
+ use of articles and
+
+ prepositions in sentences or
+
+ short texts
+
+ 4.5 Select the appropriate
+
+ article or preposition for a
+
+ particular context
+
+5. Demonstrate ability to 5.1 Identify errors of word
+identify mistakes in
+sentences or short written order, style, vocabulary etc. in
+texts. These errors could
+be of inappropriate word sentences
+order, vocabulary etc.
+6. Demonstrate ability to 6.1 Comprehend simple, brief
+comprehend short written passages
+text and select the most 6.2 Select the most suitable
+appropriate responses responses to the questions
+ posed (text- explicit)
+
+ 27 | P a g e
+

@@ -7,7 +7,7 @@
 // shows you WHY each wrong option was tempting and how to neutralise it. That
 // is the highest-yield exam skill alone: recognising the trap, not just
 // knowing the fact. Data lives in lib/distractor-autopsies.ts, keyed by the
-// question's stable `key`, authored by AKUMA.
+// question's stable `key`, authored by FOUNDER.
 //
 // HONESTY RULE: if no autopsy exists for a question, this renders NOTHING.
 // We never invent a trap. `autopsyFor` returns undefined → we render null.

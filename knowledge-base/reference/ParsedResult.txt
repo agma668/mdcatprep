@@ -1,0 +1,56 @@
+
+****** Result for Image/Page 1 ******
+Biology
+
+**SAT Subject Biology Practice Question 23: Answer and Explanation**
+
+*Question: 23*
+
+4. Which of these is likely to reduce enzyme activity?
+
+I. Increasing pH level 
+II. Decreasing temperature 
+III. Placing enzyme in a nonpolar liquid 
+
+A. I only 
+B. II only 
+C. III only 
+D. I and II 
+E. I, II, and III
+
+*Correct Answer: E*
+
+**Explanation:**
+
+Altering temperature and pH beyond the optimal range for the enzyme is likely to reduce enzyme activity. In addition, because proteins function in an aqueous (water) solution, and water is polar, a protein will fold with its hydrophilic (water-seeking) amino acids closer to the surface and its hydrophobic (water-avoiding) amino acids closer to the center. Moving the enzyme to a nonpolar solution will alter its tertiary structure, as hydrophobic amino acids move to the surface instead.
+
+**SAT Subject Biology Practice Question 5: Answer and Explanation**
+
+*Question: 5*
+
+5. What is the correct sequence of these events in the cell cycle?
+
+I. Nuclear membrane dissolves. 
+II. Cell size increases. 
+III. Two daughter cells form. 
+IV. DNA replicates.
+
+A. I, IV, II, III 
+B. I, IV, III, II 
+C. II, I, IV, III 
+D. II, IV, I, III 
+E. IV, II, III, I
+
+*Correct Answer: D*
+
+**Explanation:**
+
+In the G1 and G2 phases of the cell cycle, a newly formed cell grows. It replicates its DNA in the S phase. In mitosis, the nuclear membrane dissolves as the nucleus is replicated. After mitosis, cytokinesis forms two identical daughter cells.
+
+*Next steps*
+Use your browser's back button to return to your test results.
+Do another SAT biology subject practice tests.
+****** Result for Image/Page 2 ******
+
+
+--- Free Plan: Response limited to 1 PDF page ---

@@ -16,7 +16,7 @@
 //     rule: string   // the one-line exam rule this question tests
 //   }
 //
-// Content authored by AKUMA (orchestrator / academic content owner).
+// Content authored by FOUNDER (orchestrator / academic content owner).
 
 export type DistractorAutopsy = {
   trapPerOption: Record<string, { why: string; counter: string }>

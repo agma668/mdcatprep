@@ -1,0 +1,1182 @@
+
+=== PAGE 1 ===
+401. The value of Planck’s constant is:
+A. 6.6262 × 10−30 J · s
+B. 6.6262 × 10−32 J · s
+C. 6.6262 × 10+34 J · s
+D. 6.6262 × 10−34 J · s
+402. The Balmer series of hydrogen spectrum appears in the:
+A. Infrared region
+B. Ultraviolet region
+C. X-ray region
+D. Visible region
+403. The potential through which an electron should be accelerated, so that, on collision it can
+lift the electron in the atom from its ground state to some higher state is known as:
+A. Ionization potential
+B. Excitation potential
+C. String potential
+D. Acceleration potential
+404. Which of the following is the longest wavelength of radiation for the Paschen series?
+A. 187000000 m
+B. 187000000/m
+C. 0.00000187 m
+D. 0.00000187/m
+405. The Balmer series of hydrogen is important because it:
+A. Is the only one for which the quantum theory can be used
+B. Is the only series that occurs for hydrogen
+C. Is in the visible region
+D. Involves the lowest possible quantum number n
+406. If the wavelength of light coming from a galaxy shifts towards the red end of the spectrum
+then the galaxy is:
+A. Approaching Earth
+B. Receding from Earth
+C. Stationary
+D. Approaching Earth or is stationary
+407. The line spectrum of hydrogen atom contains spectral lines in the region of:
+A. Ultraviolet
+B. Infrared
+C. Visible
+D. All of these
+408. The speed of electron in the first Bohr orbit is:
+A. 2.19 × 106 m s−1
+B. 2.19 × 10−6 m s−1
+C. 2.19 × 104 m s−1
+D. 2.19 × 10−4 m s−1
+409. In the hydrogen spectrum, Brackett series lies in:
+A. Ultraviolet region
+B. Visible region
+C. Infrared region
+D. X-rays region
+1
+
+=== PAGE 2 ===
+410. If an electron in the hydrogen atom jumps from second to first orbit, the emitted radiation
+has a wavelength of
+A. 4/3RH
+B. 3/4RH
+C. RH
+D. 4RH
+411. According to Bohr’s model of the hydrogen atom, electrons move in specific orbits around
+the nucleus called:
+A. Quanta
+B. Shell
+C. Clouds
+D. Wavelengths
+412. Which radiation cannot be generated under electron transitions in different orbits?
+A. Infrared
+B. Ultraviolet
+C. X-rays
+D. Gamma rays
+413. The longest wavelength observed in Balmer series is:
+A. 36R/5
+B. 36R/7
+C. 36R/11
+D. 36R/13
+414. The shortest wavelength of the Lyman series is:
+A. RH
+B. 1/RH
+C. 3RH
+D. 5/RH
+415. If electronic transitions in the hydrogen atom terminate in the second orbit, the emitted
+series is known as:
+A. Brackett series
+B. Paschen series
+C. Lyman series
+D. Balmer series
+416. In electromagnetic spectrum of radiations, the wavelength spectrum that is visible to
+humans lies in the range of:
+A. 400–700 nm
+B. 300–600 nm
+C. 200–500 nm
+D. 100–400 nm
+417. The radius of third Bohr orbit is:
+A. 0.529 × 32 Å
+B. 0.529 × 22 Å
+C. 0.529 × 42 Å
+D. 0.529 Å
+2
+
+=== PAGE 3 ===
+418. The ground state of an atom corresponds to a state of:
+A. Minimum energy
+B. Maximum energy
+C. Zero energy
+D. Cannot be determined
+419. The series limit for the Balmer series of hydrogen spectrum occurs at 3664 Å. Calculate
+the ionization energy of the hydrogen atom.
+A. 21.7 × 10−19 J
+B. 13.6 × 10−19 J
+C. 3.4 × 10−19 J
+D. 8.2 × 10−19 J
+420. Which of the following best describes the emission spectrum of atomic hydrogen?
+A. Several discrete series of lines with both intensity and spacings between lines decreasing
+as the wavenumber increases with each series
+B. A continuous spectrum with no distinct lines
+C. A few broad, overlapping lines
+D. A single, sharp line
+421. According to Bohr’s theory of the hydrogen atom, only those atomic orbits with radius r
+and atomic shell n around the nucleus are allowed which have the angular momentum:
+A. nh/2π
+B. n2h/2π
+C. h/2π
+D. n3h/2π
+422. If R is the Rydberg constant for hydrogen, then the wave number of the first line in the
+Lyman series is:
+A. 4R/3
+B. R/4
+C. 4/R
+D. 3R/4
+423. The kinetic energy of an electron in the first Bohr orbit of a hydrogen atom is:
+A. 13.6 J
+B. 13.6 eV
+C. −13.6 eV
+D. 13.6 keV
+424. Two spectral lines in the hydrogen atom spectrum are close together. This likely means:
+A. The energy difference is zero
+B. The energy difference is small
+C. The light intensity is low
+D. The atom becomes unstable
+425. Which series of the hydrogen spectrum lies in the visible region?
+A. Balmer
+B. Brackett
+C. Lyman
+D. Paschen
+3
+
+=== PAGE 4 ===
+426. The Lyman series of the hydrogen spectrum lies in the:
+A. Far-infrared region
+B. Infrared region
+C. Ultraviolet region
+D. Visible region
+427. The ratio of longest to shortest wavelengths in Brackett series of hydrogen spectrum is:
+A. 25/9
+B. 17/6
+C. 9/5
+D. 4/3
+428. Which of the following statements is correct? I. Nuclear radiation with the least pene-
+trating power has the greatest ionization power. II. Nuclear radiation with the greatest
+penetrating power has the least ionization power.
+A. I only
+B. II only
+C. Both I and II
+D. Neither I nor II
+429. The longest wavelength of Lyman series is equal to?
+A. 1/RH
+B. 9/RH
+C. 4/3RH
+D. 4/2RH
+430. During an electronic transition, an atom cannot emit:
+A. Gamma rays
+B. Infrared radiation
+C. Ultraviolet radiation
+D. Visible light
+431. Which photon carries the most energy?
+A. Blue
+B. Violet
+C. Red
+D. Green
+432. Which of the following regarding X-rays is INCORRECT?
+A. Have higher wavelength than visible light
+B. They are part of electromagnetic spectrum
+C. They are highly penetrating in soft body tissues
+D. They are high energy photons
+433. Fast moving electrons stopped by a heavy metallic target in an evacuated glass tube give
+rise to:
+A. β-rays
+B. γ-rays
+C. X-rays
+D. Cosmic rays
+434. Which X-ray photon has the longest wavelength?
+A. Kα
+B. Kβ
+C. Kγ
+D. Mα
+4
+
+=== PAGE 5 ===
+435. If a photon of gamma ray and one of X-ray are compared, then:
+A. X-ray photon has more energy
+B. Both have same energy
+C. Gamma-ray photon has more energy
+D. Both have same wavelength
+436. Two forces equal in magnitude but opposite in direction and not acting along the same
+line constitute a couple:
+A. Independent of the location of origin
+B. Dependent on the location of origin
+C. Always produces a net force
+D. Always produces a net torque
+E. A and D
+437. The angular momentum of a particle changes from 0 to 720 J · s in 4 s. The magnitude of
+torque is:
+A. 2880 N · m
+B. 180 N · m
+C. 360 N · m
+D. 1440 N · m
+438. In a three-dimensional Cartesian coordinate system (x, y, z), vector A has components
+(4, 3, 2) and vector B has components (1, 5, 2). What is the dot product of vectors A and
+B?
+A. 23
+B. −23
+C. 0
+D. 19
+439. Which one is not a vector quantity?
+A. Angular displacement
+B. Impulse
+C. Moment of inertia
+D. Momentum
+440. Consider these two vectors A = 2i + 3j and B = −6i + 4j. The angle between these two
+vectors is
+A. 0◦
+B. 90◦
+C. 120◦
+D. 180◦
+441. Which pair includes a vector quantity and a scalar quantity respectively?
+A. Force, kinetic energy
+B. Velocity, acceleration
+C. Acceleration, displacement
+D. Mass, momentum
+442. Magnetic flux is the dot product of:
+A. Magnetic field and scalar area
+B. Magnetic field and vector area
+C. Magnetic field per unit scalar area
+D. Magnetic field per unit vector area
+5
+
+=== PAGE 6 ===
+443. The dot product of two vectors is negative. If one vector lies along the positive x-axis,
+then the projection of second vector is along:
+A. x-axis
+B. −x-axis
+C. y-axis
+D. −y-axis
+444. The result of vector product of two vectors:
+A. number
+B. unit
+C. number and unit
+D. magnitude and a unit vector
+445. Which of the following is a vector quantity?
+A. Electric Flux
+B. Work done
+C. Electric Potential Energy
+D. None of the given options
+446. Angular displacement is a vector quantity only when the:
+A. Time of circular motion is large enough
+B. Time of circular motion has no effect
+C. Time of circular motion is moderate
+D. Time of circular motion is small enough
+447. Kinetic energy is the product of two vectors. It is:
+A. Dot product of velocities
+B. Cross product of velocities
+C. Product of mass and velocity
+D. Half product of mass and velocity squared
+448. The magnitude of the vector product of two vectors is
+√
+3 times the scalar product. The
+angle between the two vectors is:
+A. 45◦
+B. 90◦
+C. 30◦
+D. 60◦
+449. The circular line has a fixed distance from:
+A. Any point
+B. A fixed point
+C. A point on a circle
+D. A point from outside
+450. Angular displacement is measured in:
+A. Degree
+B. Revolutions
+C. Radians
+D. All
+451. In angular motion, one complete rotation is:
+A. π radians
+B. 2π radians
+C. π/2 radians
+D. π/4 radians
+6
+
+=== PAGE 7 ===
+452. Which one of the following is the SI unit of angular displacement?
+A. Degree
+B. Radian
+C. Revolution
+D. Steradian
+453. The true statement about angular displacement is:
+A. It always increases with time
+B. It is treated as a vector for small rotations
+C. It is always a scalar quantity
+D. It is measured in meters
+454. For a rigid body that rotates about a fixed axis, the angle swept out by a line passing
+through any point on the body and intersecting the axis of rotation perpendicularly is
+called
+A. Angular acceleration
+B. Angular displacement
+C. Angular momentum
+D. Angular velocity
+455. The angle formed at the center of a circle as a body moves from one position to another
+is
+A. Angular displacement
+B. Angular velocity
+C. Angular acceleration
+D. Angular momentum
+456. The number of revolutions per second of a body is known as:
+A. Linear frequency
+B. Angular frequency
+C. Time period
+D. Amplitude
+457. One radian is analogous to:
+A. 57◦3′
+B. 57◦3′′
+C. 57◦18′
+D. 57◦18′′
+458. One degree is equal to:
+A. π/90 radians
+B. π/180 radians
+C. π/270 radians
+D. π/360 radians
+459. π radians are equivalent to:
+A. 30◦
+B. 270◦
+C. 90◦
+D. 180◦
+7
+
+=== PAGE 8 ===
+460. The angle subtended at the center of a circle by an arc equal to 1/60th of a degree is
+called:
+A. One minute
+B. One radian
+C. One second
+D. One steradian
+461. The number of revolutions in 3π radians is:
+A. 1/60
+B. 3/2
+C. 2
+D. 6
+462. A wheel makes 3 complete revolutions. What is the total number of radians through
+which a point on the wheel has rotated?
+A. 2π
+B. 3π
+C. 6π
+D. 9π
+463. A body moving in a circle, half revolution in terms of radians is equivalent
+A. π
+B. π/6
+C. π/2
+D. 2π
+464. How many radians are in one degree?
+A. 0.0174 rad
+B. 0.174 rad
+C. 1.745 rad
+D. 0.00174 rad
+465. The relation between radian and degree is:
+A. 1 rad = 57.3◦
+B. 1◦= 57.3 rad
+C. 1 rad = 1◦
+D. 1◦= π rad
+466. 1 radian is equal to:
+A. 57.3◦
+B. 573◦
+C. 5.73◦
+D. 37.5◦
+467. The number of revolutions in 5π radian is:
+A. 1
+B. 1.5
+C. 2
+D. 2.5
+468. 1 rad =
+A. 0.159 rev
+B. 57.3 rev
+C. 0.01745 rev
+D. 0.0028◦
+8
+
+=== PAGE 9 ===
+469. The angle subtended at the centre of a circle by an arc whose length is equal to twice the
+radius of the circle is equal to:
+A. One revolution
+B. One radian
+C. Two degree
+D. Two radian
+470. A body moving along a circle completes two revolutions. If the radius of the circular path
+is r, the total angular displacement covered is:
+A. 0
+B. 2π
+C. 2πr
+D. 4π
+471. Which rule helps determine the direction of angular velocity?
+A. Head-to-tail rule
+B. Kirchhoff’s rule
+C. Left-hand rule
+D. Right-hand rule
+472. According to the right-hand rule, the direction of angular displacement is along the:
+A. Curl of fingers
+B. First finger
+C. Pointing thumb
+D. Second finger
+473. If an object is moving anticlockwise along a circular path, in a horizontal plane on a page
+then the direction of its angular velocity is:
+A. Tangential to any point on the circle
+B. Towards centre of the circle
+C. Perpendicular to the plane and pointing out of the page
+D. Perpendicular to the plane and pointing into the page
+474. For positive angular displacement, the rotation would be:
+A. Clockwise
+B. Anti-clockwise
+C. Parallel
+D. Perpendicular
+475. A body is moving on a circular path in the xy-plane. Its angular displacement will be
+directed along:
+A. x-axis
+B. y-axis
+C. z-axis
+D. Radius
+476. A body is rotating clockwise with decreasing angular velocity. Its angular acceleration is
+directed:
+A. Into the plane of rotation
+B. Along the radius
+C. Out of the plane of rotation
+D. Along the tangent to the circle
+9
+
+=== PAGE 10 ===
+477. When a body moves in a circle, the angle between its linear velocity v and angular velocity
+ω is:
+A. 0◦
+B. 90◦
+C. 180◦
+D. 600◦
+478. The relation between linear and angular acceleration is:
+A. a = rα
+B. a = r/α
+C. a = r2α
+D. a = rα2
+479. If a particle moves along a circular path of radius r with angular displacement θ (in
+radians), then the arc length s is given by:
+A. r/θ
+B. rθ
+C. r2θ
+D. θ/r2
+480. In circular motion, if angular displacement is kept constant, decreasing the radius will
+A. Increase linear displacement
+B. Increase linear velocity
+C. Decrease linear displacement
+D. Not affect linear displacement
+481. A wheel of radius 0.4 m has an angular acceleration of 6 rad/s2. The linear acceleration
+is:
+A. 1.2 m/s2
+B. 1.2 m/s
+C. 2.4 m/s
+D. 2.4 m/s2
+482. A tractor wheel has a radius of 2 m. If a point on its rim covers π/2 rad, then the linear
+distance travelled by the wheel on the ground is:
+A. 1.57 m
+B. 3.14 m
+C. 45 m
+D. 180 m
+483. An object is moving along a circular path of radius 4 m. What will be its angular dis-
+placement if it moves 14 m on this circular path?
+A. 5.5 radian
+B. 5.0 radian
+C. 4.5 radian
+D. 3.5 radian
+484. A wheel of radius 1 m covers an angular displacement of 180◦. Its linear displacement is:
+A. 3.14 m
+B. 6.28 m
+C. π rad
+D. 0.157 m
+10
+
+=== PAGE 11 ===
+485. Which of the following is the correct set of relations?
+A. S = r × θ, v = r × ω, a = r × α
+B. S = θ × r, v = ω × r, a = α × r
+C. S = r × θ, v = ω × r, a = α × r
+D. S = θ × r, v = r × ω, a = r × α
+486. A point mass moves through a circular arc of length ’l’ and radius ’r’ in time ’t’. Its
+angular velocity is:
+A. l/rt
+B. r/lt
+C. 2r/lt
+D. 2πr/t
+487. If a stone of mass 1 kg is whirled in a horizontal circle (radius = 1 m), then the period is:
+A. π radians
+B. 2π radians
+C. π/2 radians
+D. π/4 radians
+488. A rotating pulley completes 12 revolutions in 4 seconds. Calculate its average angular
+velocity in revolutions per second.
+A. 3
+B. 4
+C. 5
+D. 6
+489. Which of the following is the angular velocity of an electric motor if it is 400 RPM?
+A. 51.2 rad/s
+B. 41.9 rad/s
+C. 45.2 rad/s
+D. 38.5 rad/s
+490. A particle is executing uniform circular motion in a circle of radius 100 mm. If its speed
+is 10 cm/s, then its angular velocity is:
+A. 10 rad/s
+B. 0.1 rad/s
+C. 10 revolutions/s
+D. None of the given options
+491. An aircraft makes a turn in a horizontal circle of radius 100 m. It is travelling with a
+velocity of 250 m/s. The angular velocity of the aircraft will be:
+A. 1.5 rad/s
+B. 2.5 rad/s
+C. 3 rad/s
+D. 3.5 rad/s
+492. An electric motor turns at 400 revolutions per minute. Its angular velocity in rad/s will
+be:
+A. 20π/3
+B. 30π/3
+C. 40π/3
+D. 30π/4
+11
+
+=== PAGE 12 ===
+493. A rotating wheel completes 12 revolutions in 4 s. Find the average angular velocity in
+rad/sec.
+A. 10.4 rad/s
+B. 18.8 rad/s
+C. 3.14 rad/s
+D. 6.28 rad/s
+494. One wheel has a diameter of 30 inches and a second wheel has a diameter of 20 inches.
+The first wheel travels a certain distance in 240 revolutions. In how many revolutions did
+the second wheel travel the same distance?
+A. 170
+B. 160
+C. 360
+D. 420
+495. When brakes of a car are applied, the angular velocity of a flywheel reduces from
+900 cycle/min to 720 cycle/min in 6 sec. The angular retardation is:
+A. π rad/s2
+B. 9π rad/s2
+C. 8π rad/s2
+D. 2/3π rad/s2
+496. The velocity of a car travelling on a straight road is 36 km/h at an instant of time. Now
+travelling with a uniform acceleration for 10 s, the velocity becomes exactly double. If
+the wheel radius of the car is 25 cm, then which of the following numbers is closest to the
+number of revolutions that the wheel makes during this 10 s?
+A. 84
+B. 95
+C. 126
+D. 135
+497. An object rotates with a frequency of 300 Hz. How many revolutions will it turn through
+in 15 s?
+A. 20
+B. 40π
+C. 4500
+D. 9000π
+498. A wheel, 1 m in diameter, makes 30 rev/min. The linear speed of a point on its rim in
+m/s is:
+A. π
+B. π/2
+C. 15
+D. 30
+499. In 30 s, the crankshaft of a truck engine operating at 2400 rev/min turns through:
+A. 80 rad
+B. 1200 rad
+C. 7200 rad
+D. 7540 rad
+12
+
+=== PAGE 13 ===
+500. Which of the following is the angular speed in radians per hour of the daily rotation of
+our earth?
+A. 2π
+B. 4π
+C. π/6
+D. π/12
+501. A solar day is the time interval between two successive appearances of the sun overhead.
+The time that is referred to the rotation of the Earth about its axis is called:
+A. Universal time
+B. Length of the day
+C. Time interval
+D. Solar day
+502. The ratio of angular speed of the moon around the Earth to its angular speed about its
+own axis is:
+A. 2:1
+B. 1:6
+C. 1:30
+D. 1:1
+503. Consider the following examples of motion: I. The daily motion of the Earth about its own
+axis. II. The motion of planets around the Sun. III. A sugarcane crushing machine run
+by a camel moving in a circular path around the machine. IV. Rotation of the flywheel
+about its axis. Which of the following is circular or rotational motion?
+A. I, II, and III only
+B. I, II, and IV only
+C. I, III, and IV only
+D. All of the above
+504. If a particle is moving with uniform circular motion, then:
+A. Velocity and acceleration are antiparallel
+B. Velocity and acceleration are parallel
+C. Velocity and acceleration are perpendicular
+D. Zero acceleration
+505. If a particle moving in a circle describes equal angles in equal times, its velocity vector:
+A. Remains constant
+B. Changes in magnitude
+C. Changes in direction
+D. Changes both in magnitude and direction
+506. Which of the following statements is false for a particle moving in a circle with constant
+angular speed?
+A. The velocity vector is tangent to the circle
+B. The acceleration vector is tangent to the circle
+C. The acceleration vector points to the centre of the circle
+D. The velocity vector and acceleration vector are perpendicular to each other
+507. The best example of uniform circular motion is:
+A. Motion of the Earth around the Sun
+B. Motion of a mass on a vertical circle
+C. Motion of the minute hand of a clock
+D. Motion of a spinning top
+13
+
+=== PAGE 14 ===
+508. An object that is moving with constant speed travels once around a circular path. Which
+of the following is (are) true concerning this motion? (I) The displacement is zero (II)
+The average speed is zero (III) The acceleration is zero
+A. I only
+B. II only
+C. I and III only
+D. III only
+509. The centripetal acceleration of an object moving along a circle of radius r with an angular
+speed ω is given by the formula:
+A. a = rω2
+B. a = rω
+C. a = r2ω
+D. a = r2ω2
+510. A particle of mass m is moving on a circular path of radius r with velocity v, then
+centripetal force acting on it is F. If the velocity of particle increases by 2 times and
+radius of circular path increases by 4 times then new centripetal force F ′ will be:
+A. F ′ = 2F
+B. F ′ = 1
+2F
+C. F ′ = 4F
+D. F ′ = F
+511. A roller coaster is moving with 30 m s−1 on a circular track of radius 30 m. The net mass
+of coaster + passengers is m. The centripetal force acting on it is:
+A. 900m
+B. 10m
+C. 450m
+D. 30m
+512. A car is moving in a circular path at a constant speed. What provides the necessary
+centripetal force to keep the car moving in this path?
+A. The car’s inertia resisting any change in direction
+B. The car’s mass pulling it towards the centre of the circle
+C. The engine’s power pushing the car forward
+D. The friction between the tyres and the road
+513. When the mass of a body moving along a circle becomes half and radius becomes double,
+and v is constant, the centripetal force becomes
+A. Double
+B. Half
+C. One fourth
+D. Remains same
+514. The radial acceleration is also considered as:
+A. Angular acceleration
+B. Centripetal acceleration
+C. Tangential acceleration
+D. Translatory acceleration
+515. When angular speed of body is doubled, the centripetal acceleration becomes:
+A. Doubled
+B. Thrice
+C. Four times
+D. Remains the same
+14
+
+=== PAGE 15 ===
+516. A body is moving in a circle with constant speed. Which of the following statements is
+true?
+A. There is a force acting on the body at a tangent to the circle
+B. There is a force acting on the body toward the center of the circle
+C. There is no acceleration in the body
+D. There is a force acting on the body away from the center of the circle
+517. A cyclist moving on a circular track skids because:
+A. The limiting friction is perpendicular to the centripetal force
+B. The limiting friction is greater than the required centripetal force
+C. The limiting friction is opposite to the centripetal force
+D. The limiting friction is equal to the required centripetal force
+E. The limiting friction is less than the required centripetal force
+518. The instantaneous acceleration of an object moving with uniform speed in a circle towards
+the centre is called:
+A. Centrifugal acceleration
+B. Centripetal acceleration
+C. Tangential acceleration
+D. Angular acceleration
+519. Which one of the following provides centripetal force in a circular motion of a body?
+A. vertical component of weight
+B. horizontal component of weight
+C. weight of body
+D. Force of friction
+520. The centripetal force in terms of angular velocity is
+A. Fc = mrω
+B. Fc = mrω2
+C. Fc = mrα2
+D. Fc = mrα
+521. A body of mass m moving in a circle of radius r is executing uniform circular motion. If
+the mass of the body is doubled, then the centripetal force acting upon the body is:
+A. Reduced to half
+B. Remains the same
+C. Doubled
+D. None of the given options
+522. The direction of centripetal acceleration in a circle?
+A. Opposite to the centripetal force
+B. Tangent to the circle
+C. Parallel to the circle
+D. Parallel to the centripetal force
+523. In the SI system, centripetal force is measured in:
+A. J
+B. N
+C. T
+D. W
+15
+
+=== PAGE 16 ===
+524. A motorcyclist going round a circular track at constant speed has:
+A. Constant linear velocity
+B. Constant acceleration
+C. Constant angular velocity
+D. Constant force
+525. Centrifugal force =
+A. mv2/r
+B. m2v/r
+C. mv/r2
+D. mv2/r
+526. The period of uniform circular motion is given by:
+A. T = ω/2r
+B. T = 2π/ω
+C. T = 2πω
+D. T = 2rT
+527. A body moves in a circle with constant speed, radius r, and time period T. The centripetal
+acceleration is:
+A. ac = 4πr2/T
+B. ac = 4π2r/T 2
+C. ac = 4πr/T
+D. ac = 4π2r2/T
+528. A fighter plane is moving in a vertical circle of radius r. Its minimum velocity at the
+highest point of the circle will be:
+A. √3gr
+B. √2gr
+C. √gr
+D.
+√
+gr/2
+529. The tension in the string at the top of the vertical circle is
+A. zero
+B. mg
+C. 2mg
+D. 4mg
+530. At what angle should the curved path be banked if a car is moving with a speed of 12 m/s
+at a radius of 36 m?
+A. 10◦
+B. 15◦
+C. 20◦
+D. 22◦
+531. The ratio of angular speed of the minute hand to the hour hand of a watch is:
+A. 1:8
+B. 6:1
+C. 1:12
+D. 12:1
+16
+
+=== PAGE 17 ===
+532. A clock shows the time 4 O’clock. The angular displacement of the hour hand with respect
+to the minute hand is:
+A. π/3
+B. π/6
+C. 2π/3
+D. 3π/2
+533. The length of the second hand of a watch is 1 cm. The velocity of the tip of the second
+hand in cm/s is:
+A. 2π
+B. 2π/60
+C. 2π/(12 × 60)
+D. 2π/(24 × 60)
+534. The ratio of magnitudes of the angular velocity of the hour hand of a watch to that of the
+Earth’s rotation is:
+A. 1:24
+B. 12:1
+C. 1:2
+D. 2:1
+535. When a neutron enters a magnetic field B perpendicular with velocity v, its acceleration
+is:
+A. Zero
+B. Centripetal
+C. Positive
+D. Uniform and non-zero
+536. The path of a neutron moving perpendicular to a magnetic field is:
+A. Curve
+B. Straight line
+C. Circular path
+D. Ellipse or parabola
+537. When a charged particle enters the magnetic field parallel to it, it will
+A. deflect towards north
+B. deflect towards south
+C. move straight
+D. move in circular path
+538. Every particle of a rotating disc moves with:
+A. Constant linear velocity
+B. Constant angular velocity
+C. Constant tangential velocity
+D. Constant linear displacement
+539. A disc, a hoop and a sphere are rolling down from an inclined plane simultaneously. Which
+object will reach the bottom first?
+A. Hoop
+B. Disc
+C. Sphere
+D. All at the same time
+17
+
+=== PAGE 18 ===
+540. A disc, a hoop and a sphere of the same mass and radius are rolled down from a frictionless
+inclined plane. Which has greater speed on reaching the ground?
+A. Disc
+B. Hoop
+C. Sphere
+D. All have the same speed
+541. In rotatory motion, angular momentum plays a role which is analogous to that played by
+in linear motion?
+A. Linear velocity
+B. Linear momentum
+C. Linear acceleration
+D. Inertia
+542. If the body is rotating with uniform angular velocity, then its torque is:
+A. 0
+B. 90◦
+C. 1
+D. −1
+543. The physical quantity which produces angular acceleration in the body is:
+A. Force
+B. Moment of inertia
+C. Impulse
+D. Torque
+544. The dimension of angular momentum is:
+A. [ML2T−1]
+B. [M−1L2T−1]
+C. [ML−1T−1]
+D. [M−1L−1T]
+545. Find the gravitational force of attraction between two balls each weighing 10 kg, when
+placed at a distance of 1 m apart.
+A. 6.674 × 10−9 N
+B. 7.71 × 10−9 N
+C. 8.91 × 10−9 N
+D. 9.91 × 10−9 N
+546. In a rotating spaceship, to produce artificial gravity, what does the centripetal force do?
+A. Has no effect inside the spaceship
+B. Increases spaceship’s rotation
+C. Pulls objects towards the centre
+D. Pushes the objects towards the outer wall
+547. Average distance of the earth from the sun is L1. If one year of another planet whose
+average distance from the sun is L2, then that planet’s year will be:
+A. (L2/L1)1/2 days
+B. (L2/L1)3/2 days
+C. (L2/L1)2/3 days
+D. (L2/L1)2 days
+18
+
+=== PAGE 19 ===
+548. Which of the following is a non-conservative force?
+A. Frictional force
+B. Effort × distance
+C. Effort −distance
+D. Effort + distance
+549. Which one of the following is a non-conservative force?
+A. Electric force
+B. Elastic spring force
+C. Gravitational force
+D. Frictional force
+550. A canon is placed on a smooth surface. When it fires a shell, the canon moves backward,
+this recoil occurs due to:
+A. Law of conservation of energy
+B. Backward thrust of the gases
+C. Newton’s third law of motion
+D. Newton’s first law of motion
+551. In an elastic collision, the total kinetic energy:
+A. Dissipates after collision
+B. Increases after the collision
+C. Reduces after the collision
+D. Before and after collision remains the same
+552. A wheel of radius 1 m rotates through an angular displacement of 180◦. What is the linear
+displacement of a point on its rim?
+A. 1.57 m
+B. 3.14 m
+C. 6.28 m
+D. 0.157 m
+553. The SI unit of angular displacement is:
+A. Degree
+B. Revolution
+C. Radian
+D. Steradian
+554. A body rotates with a frequency of 300 Hz. How many revolutions does it complete in
+15 s?
+A. 3000
+B. 4500
+C. 6000
+D. 9000
+555. In uniform circular motion, the angle between linear velocity v and angular velocity ω is:
+A. 0◦
+B. 45◦
+C. 90◦
+D. 180◦
+556. The relation between linear acceleration and angular acceleration is:
+A. a = r/α
+B. a = rα
+C. a = r2α
+D. a = α/r
+19
+
+=== PAGE 20 ===
+557. The centripetal force in terms of angular velocity is:
+A. F = mrω
+B. F = mrω2
+C. F = mrα
+D. F = mrα2
+558. One degree is equal to:
+A. π/90 rad
+B. π/180 rad
+C. π/270 rad
+D. π/360 rad
+559. A particle moves with constant speed in a circular path. Which statement is true?
+A. Velocity remains constant.
+B. Acceleration is zero.
+C. Velocity changes only in direction.
+D. Both speed and velocity remain constant.
+560. A wheel completes 12 revolutions in 4 s. Its average angular velocity in revolutions per
+second is:
+A. 2 rev/s
+B. 3 rev/s
+C. 4 rev/s
+D. 6 rev/s
+561. Which quantity is not a vector?
+A. Angular displacement
+B. Momentum
+C. Impulse
+D. Moment of inertia
+562. A body moves through an arc length s on a circle of radius r. The angular displacement
+is:
+A. θ = s/r
+B. θ = sr
+C. θ = r/s
+D. θ = r2/s
+563. If the angular speed of a body is doubled, the centripetal acceleration becomes:
+A. Doubled
+B. Tripled
+C. Four times
+D. Unchanged
+564. A car moves around a circular track at constant speed. The required centripetal force is
+provided by:
+A. Weight of the car
+B. Engine power
+C. Friction between tyres and road
+D. Air resistance
+565. A wheel makes 3 complete revolutions. Through what angle has it rotated?
+A. 3π rad
+B. 4π rad
+C. 6π rad
+D. 9π rad
+20
+
+=== PAGE 21 ===
+566. Which of the following is the best example of uniform circular motion?
+A. Motion of a spinning top
+B. Motion of a mass in a vertical circle
+C. Motion of the minute hand of a clock
+D. Motion of a pendulum
+567. A particle moves in a circle of radius 4 m and covers an arc length of 14 m. Its angular
+displacement is closest to:
+A. 2.5 rad
+B. 3.5 rad
+C. 4.5 rad
+D. 5.5 rad
+568. The direction of centripetal acceleration is:
+A. Tangential to the circle
+B. Away from the centre
+C. Towards the centre of the circle
+D. Perpendicular to the plane of rotation
+569. One complete revolution is equal to:
+A. π rad
+B. 2π rad
+C. 4π rad
+D. π/2 rad
+570. A body moving anticlockwise in the xy-plane has its angular velocity directed:
+A. Along the x-axis
+B. Along the y-axis
+C. Out of the plane (+z direction)
+D. Into the plane (−z direction)
+571. A particle moving in a circle describes equal angles in equal intervals of time. Its velocity
+vector:
+A. Remains constant
+B. Changes only in magnitude
+C. Changes only in direction
+D. Changes in both magnitude and direction
+572. The period of uniform circular motion is:
+A. T = ω/2π
+B. T = 2π/ω
+C. T = 2πω
+D. T = π/ω2
+573. A wheel of radius 0.4 m has an angular acceleration of 6 rad/s2. The linear acceleration
+is:
+A. 1.2 m/s2
+B. 2.4 m/s2
+C. 3.6 m/s2
+D. 4.8 m/s2
+21
+
+=== PAGE 22 ===
+574. The angular speed of the Earth about its own axis is:
+A. 2π rad/h
+B. π/12 rad/h
+C. π/6 rad/h
+D. π/24 rad/h
+575. Which physical quantity produces angular acceleration in a rotating body?
+A. Force
+B. Impulse
+C. Torque
+D. Moment of inertia
+576. A body moving in a circle with constant speed has a centripetal acceleration equal to:
+A. v/r
+B. v2/r
+C. vr
+D. r/v2
+577. Angular displacement is treated as a vector quantity only when:
+A. The time interval is very large
+B. The angular displacement is very small
+C. The angular velocity is constant
+D. The radius is constant
+578. The angular velocity of an electric motor rotating at 400 rpm is:
+A. 20π/3 rad/s
+B. 30π/3 rad/s
+C. 40π/3 rad/s
+D. 50π/3 rad/s
+579. If a particle completes one full revolution, its displacement is:
+A. Equal to the circumference
+B. Equal to the radius
+C. Zero
+D. Equal to the diameter
+580. A body moves with constant speed in a circle. Which quantity remains constant?
+A. Linear velocity
+B. Angular velocity
+C. Linear acceleration
+D. Direction of centripetal force
+581. One radian is approximately equal to:
+A. 37.5◦
+B. 45◦
+C. 57.3◦
+D. 90◦
+582. If the mass of a body is doubled while its speed and radius remain unchanged, the cen-
+tripetal force becomes:
+A. Half
+B. Double
+C. Four times
+D. Unchanged
+22
+
+=== PAGE 23 ===
+583. The linear speed of a particle moving in a circle is related to angular speed by:
+A. v = ω/r
+B. v = rω
+C. v = r/ω
+D. v = r2ω
+584. A body moving in a horizontal circle rotates anticlockwise.
+The direction of angular
+velocity is:
+A. Into the page
+B. Out of the page
+C. Along the tangent
+D. Towards the centre
+585. A wheel of diameter 1 m rotates at 30 rev/min. The linear speed of a point on its rim is:
+A. π/2 m/s
+B. π m/s
+C. 2π m/s
+D. 30π m/s
+586. The ratio of the angular speed of the minute hand to the hour hand of a clock is:
+A. 1 : 12
+B. 6 : 1
+C. 12 : 1
+D. 24 : 1
+587. The direction of linear velocity in circular motion is always:
+A. Towards the centre
+B. Away from the centre
+C. Tangential to the path
+D. Along the angular velocity
+588. If the radius of a circular path is doubled while angular speed remains constant, the
+centripetal acceleration becomes:
+A. Half
+B. Double
+C. Four times
+D. Unchanged
+589. The ratio of the angular speed of the Moon around the Earth to its angular speed about
+its own axis is:
+A. 2 : 1
+B. 1 : 6
+C. 1 : 30
+D. 1 : 1
+590. A particle moving in a circle with constant angular speed has its acceleration directed:
+A. Along the tangent
+B. Towards the centre
+C. Away from the centre
+D. Parallel to its velocity
+591. The period of uniform circular motion is:
+A. T = ω/2π
+B. T = 2π/ω
+C. T = 2πω
+D. T = π/ω2
+23
+
+=== PAGE 24 ===
+592. A charged particle enters a magnetic field parallel to the field. It will:
+A. Move in a circle
+B. Move in a spiral
+C. Move in a straight line
+D. Stop immediately
+593. The SI unit of centripetal force is:
+A. J
+B. N
+C. T
+D. W
+594. The relation between arc length s and angular displacement θ is:
+A. s = r/θ
+B. s = rθ
+C. s = r2θ
+D. s = θ/r
+595. A body rotating with uniform angular velocity experiences a torque equal to:
+A. 0
+B. 1
+C. 90◦
+D. −1
+596. Which of the following is not an example of rotational motion?
+A. Flywheel rotating about its axis
+B. Earth rotating about its axis
+C. Planets revolving around the Sun
+D. Ceiling fan rotating about its axis
+597. The minimum speed required at the highest point of a vertical circle is:
+A. √gr
+B. √2gr
+C. √3gr
+D.
+√
+gr/2
+598. A cyclist skids on a circular track because:
+A. Friction is greater than the required centripetal force.
+B. Friction is equal to the required centripetal force.
+C. Friction is less than the required centripetal force.
+D. Friction acts tangentially.
+599. The physical quantity analogous to linear momentum in rotational motion is:
+A. Torque
+B. Angular displacement
+C. Angular momentum
+D. Moment of inertia
+600. A neutron entering a magnetic field perpendicular to its velocity will:
+A. Move in a circular path.
+B. Move in a straight line.
+C. Experience centripetal acceleration.
+D. Move in a spiral path.
+24
+
+=== PAGE 25 ===
+601. The dimensions of angular momentum are:
+A. [ML2T−1]
+B. [MLT−2]
+C. [ML−1T−1]
+D. [M−1L2T−1]
+25

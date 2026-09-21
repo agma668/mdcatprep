@@ -1,0 +1,241 @@
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[IMAGE: Join our whatsapp channel]
+
+# Most Important Reaction Kinetics MCQs with Answers
+
+## Reaction Kinetics MCQs with Answers
+
+If iron is not 100% pure, which of the following best describes the reaction rate?
+
+**2Fe + 3H₂O + O₂ → Fe₂O₃·3H₂O**
+
+Which of the following reactions is usually slow?
+
+For a chemical reaction to take place:
+
+The reaction rate increases due to a temperature rise from 10 K to 100 K. What is the resulting increase in rate?
+
+By increasing the concentration of reactants, the reaction rate:
+
+Select the correct rate law from given data
+
+The following table:
+
+| [A] moles dm⁻³ | [B] moles dm⁻³ | Rate of reaction ( mol dm⁻³ sec⁻¹) |
+| --- | --- | --- |
+| 01 | 0.1 | 2×**10⁻⁵** |
+| 0.2 | 0.1 | 4×**10⁻⁵** |
+| 0.1 | 0.2 | 4×**10⁻⁵** |
+| 0.2 | 0.2 | 8×**10⁻⁵** |
+
+The rate of a reaction involving ions can be studied using:
+
+Which method is useful for determining the rate of reactions that involve small volume changes in solutions?
+
+Which rate determination method is suitable for reactions in solutions where changes in refractive index occur?
+
+The specific rate constant of a chemical reaction is the reaction rate when the concentration of the reactant is:
+
+What is the unit of the rate constant for a third-order reaction?
+
+A second-order reaction behaves like a first-order reaction when:
+
+The half-life of a first-order decomposition reaction for a substance dissolved in CCl₄ is 2.5 hours at 30°C. If the initial mass of the substance is 160 g, how much will remain after 10 hours?
+
+The hydrolysis of ethyl acetate into acetic acid and ethanol in the presence of a mineral acid follows which reaction order?
+
+For the reaction A + 2B ⟶ C, the rate law is given by **Rate = k[A]**. What is the order of the reaction?
+
+For the reaction **A ⟶ B**, the rate of reaction doubles when the concentration of **A** is increased four times. The order of the reaction with respect to **A** is:
+
+The rate of a reaction increases by a factor of **8** when the concentration of the reactant is doubled and by a factor of **27** when the concentration is tripled. What is the order of the reaction?
+
+The slowest step in a multi-step reaction that determines the overall reaction rate is called the
+
+Which of the following factors does NOT affect the rate of a chemical reaction?
+
+The rate of a reaction is defined as:
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+What are the units of the rate of reaction when concentration is in mol dm⁻³ and time in seconds?
+
+The instantaneous rate of reaction is:
+
+According to the law of mass action, the rate of reaction is proportional to:
+
+In the rate equation Rate=k[A]ᵐ[B]ⁿ , the exponents m and n represent:
+
+The overall order of the reaction 2A+B→products with rate law Rate=k[A]²[B]¹ is:
+
+The order of a reaction can be:
+
+A reaction whose rate is independent of the concentration of reactants is called:
+
+The half-life of a first order reaction:
+
+The half-life of a second order reaction is:
+
+For a third order reaction, the half-life is:
+
+Which of the following is true about the rate constant k?
+
+The rate equation for the decomposition of nitrogen pentoxide (N₂O₅) is experimentally found to be:
+
+A pseudo first order reaction is characterized by:
+
+The reaction intermediate is:
+
+For the reaction 2NO₂ + CO → NO + CO₂ + NO₃, the rate law is found to be:
+
+The units of the rate constant for a second order reaction are:
+
+The rate of reaction decreases with time because:
+
+The half-life period of a radioactive isotope undergoing first order decay is:
+
+The order of reaction is experimentally determined by:
+
+The rate determining step in a reaction mechanism is:
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+If a reaction has rate law Rate = k[A]¹ᐟ²,  the order of reaction is:
+
+For a zero order reaction, the rate is:
+
+The rate constant for a reaction at a given temperature is:
+
+The rate law for the reaction 2FeCl₃ + 6KI → 2FeI₃ + 6KCl + I₂ is experimentally found to be:
+
+The half-life of a second order reaction is given by:
+
+The rate of a reaction is measured by:
+
+In a reaction where the rate law is Rate = k[A]¹[B]⁰ , the overall order is:
+
+Which of the following statements about reaction intermediates is correct?
+
+In a reaction where the rate law is Rate = k[A]⁰, what happens to the rate if the concentration of A is doubled?
+
+The activation energy of a reaction is:
+
+Which factor generally increases the rate constant k of a reaction?
+
+For a reaction with rate law Rate = k[A]², if the concentration of A is tripled, the rate will:
+
+The rate determining step is often:
+
+In a reaction where the rate is proportional to [A]¹[B]⁰, the overall order is:
+
+The half-life of a zero order reaction is:
+
+Which of the following reactions is likely to be zero order?
+
+For a reaction A → products, the rate law is Rate = k[A]ᵐ. If doubling [A] increases the rate by four times, the order m is:
+
+Which of the following is true for the half-life of a first order reaction?
+
+The rate constant k has units of s⁻¹ in which order of reaction?
+
+Which of the following best describes a pseudo first order reaction?
+
+The rate of reaction is measured by:
+
+If a reaction has a rate constant k = 0.05 s⁻¹, what is the half-life of this first order reaction?
+
+t₁/₂ = 0.693 / k
+
+## Other Chemistry Topics MCQs
+
+We have also prepared the following set of MCQsfor your Entry test preparation in quick way like MDCAT, ECAT and Armed forces test. WE WISH YOU BEST OF LUCK!
+
+[Basic Concept MCQs](https://www.mcquniverse.pk/chemistry-mcqs/basic-concept-mcqs/)
+
+[Atomic Structure MCQs](https://www.mcquniverse.pk/chemistry-mcqs/atomic-structure-mcqs/)
+
+[Gases MCQs](https://www.mcquniverse.pk/chemistry-mcqs/gases-mcqs/)
+
+[Liquids MCQs](https://www.mcquniverse.pk/chemistry-mcqs/liquids-mcqs/)
+
+[Solids MCQs](https://www.mcquniverse.pk/chemistry-mcqs/solids-mcqs/)
+
+[Chemical Equilibrium MCQs](https://www.mcquniverse.pk/chemistry-mcqs/chemical-equilibrium-mcqs/)
+
+[Reaction Kinectics MCQs](https://www.mcquniverse.pk/chemistry-mcqs/reaction-kinetics-quiz/)
+
+[Thermochemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/thermochemistry-mcqs/)
+
+[Electrochemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/electrochemistry-mcqs/)
+
+[Chemical Bonding MCQs](https://www.mcquniverse.pk/chemistry-mcqs/chemical-bonding-mcqs/)
+
+[Transition Elements MCQs](https://www.mcquniverse.pk/chemistry-mcqs/transition-elements-mcqs/)
+
+[S And P Block Elements MCQs](https://www.mcquniverse.pk/chemistry-mcqs/s-and-p-block-elements-mcqs/)
+
+[Fundamental Principles Of Organic Chemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/fundamental-principles-of-organic-chemistry-mcqs/)
+
+[Hydrocarbons MCQs](https://www.mcquniverse.pk/chemistry-mcqs/hydrocarbons-mcqs/)
+
+[Alkyl Halides MCQs](https://www.mcquniverse.pk/chemistry-mcqs/alkyl-halides-mcqs/)
+
+[Alcohols And Phenols MCQs](https://www.mcquniverse.pk/chemistry-mcqs/alcohols-and-phenols-mcqs/)
+
+[Aldehydes And Ketones MCQs](https://www.mcquniverse.pk/chemistry-mcqs/aldehydes-and-ketones-mcqs/)
+
+[Macromolecules MCQs](https://www.mcquniverse.pk/chemistry-mcqs/macromolecules-mcqs/)
+
+[Carboxylic Acid MCQs](https://www.mcquniverse.pk/chemistry-mcqs/carboxylic-acid-mcqs/)
+
+[Industrial Chemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/industrial-chemistry-mcqs/)
+
+### Leave a Reply [Cancel reply](/chemistry-mcqs/reaction-kinetics-mcqs/#respond)
+
+Your email address will not be published. Required fields are marked \*
+
+Comment \*
+
+Name\*
+
+Email\*
+
+Website
+
+Save my name, email, and website in this browser for the next time I comment.
+
+### [MCQUniverse](https://www.mcquniverse.pk/)
+
+Free quizzes for all of you. Have A Nice Day!
+
+## Contact Info
+
+**Address:** Multan ,Punjab ,Pakistan
+
+**Email:** 
+admin@mcquniverse.pk
+
+## Info Links
+
+## MCQs Categories
+
+## Online Quiz
+
+© 2025 MCQ Universe. All rights reserved. Helping Pakistani students achieve their dreams.
+
+### Unlock All Quizzes & MCQs
+
+📌 How to Activate:
+
+**Alert:**Content is protected.

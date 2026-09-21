@@ -1,0 +1,1212 @@
+ [Skip to content](#content)
+
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[MCQUniverse](https://www.mcquniverse.pk/)
+
+[Sign up](https://www.mcquniverse.pk/)[Sign up](https://www.mcquniverse.pk/)
+
+# Most Important Alcohols And Phenols MCQs with Answers
+
+## **Alcohols And Phenols MCQs** with Answers
+
+What is the general formula for alcohols, where R represents an alkyl group?
+
+**Explanation:**
+
+Alcohols are represented by the general formula ROH, where R is an alkyl group.
+
+Alcohols containing one -OH group are classified as:
+
+Polyhydric alcohols
+
+Dihydric alcohols
+
+Trihydric alcohols
+
+**Monohydric alcohols**
+
+**Explanation:**
+
+Monohydric alcohols contain one -OH group.
+
+How are alcohols classified if they contain two, three, or more -OH groups?
+
+Monohydric alcohols
+
+Simple alcohols
+
+Primary alcohols
+
+**Polyhydric alcohols**
+
+**Explanation:**
+
+Polyhydric alcohols may contain two, three, or more OH groups and are named as dihydric or trihydric alcohols, etc..
+
+In a primary alcohol, the -OH functional group is attached to which type of carbon atom?
+
+Tertiary carbon atom
+
+Secondary carbon atom
+
+Quaternary carbon atom
+
+**Primary carbon atom**
+
+**Explanation:**
+
+In primary alcohols, the -OH functional group is attached with a primary carbon atom.
+
+Which of the following describes a secondary alcohol?
+
+-OH attached to a carbon bonded to three other carbons.
+
+-OH attached to a carbon bonded to one other carbon.
+
+-OH attached directly to a benzene ring.
+
+**-OH attached to a carbon bonded to two other carbons.**
+
+**Explanation:**
+
+In secondary alcohols, the -OH functional group is attached with a secondary carbon atom.
+
+Methyl alcohol is the common name for which alcohol?
+
+**Explanation:**
+
+CH₃OH is commonly known as Methyl alcohol, and its IUPAC name is Methanol.
+
+According to IUPAC rules, what is the parent hydrocarbon for naming an alcohol?
+
+The shortest carbon chain.
+
+The carbon chain without the hydroxyl group.
+
+The chain containing the most branches.
+
+**The longest chain of carbon atoms containing the hydroxyl group.**
+
+**Explanation:**
+
+In the IUPAC system, the longest chain of carbon atoms containing the hydroxyl group is taken as the parent hydrocarbon.
+
+In IUPAC nomenclature, the ending 'e' of the alkane name is replaced by what suffix for alcohols?
+
+**Explanation:**
+
+The ending 'e' of alkane is replaced by 'ol'.
+
+For CH₃CH₂CH₂OH, what is its IUPAC name?
+
+Propyl alcohol
+
+**Explanation:**
+
+The carbon chain is numbered from the end that gives the -OH group the lowest possible number. For CH₃CH₂CH₂OH, the -OH is on the first carbon, so it is 1-Propanol.
+
+What is the common name for CH₃CH(OH)CH₃?
+
+n-Propyl alcohol
+
+sec-Propyl alcohol
+
+Propyl glycol
+
+**Isopropyl alcohol**
+
+**Explanation:**
+
+The common name for CH₃CH(OH)CH₃ is Isopropyl alcohol.
+
+When more than one -OH group is attached to a carbon chain, how are they indicated in the IUPAC name?
+
+By changing the alkane prefix.
+
+By adding 'hydroxy' as a suffix.
+
+By indicating only one -OH group.
+
+**By appropriate suffix such as diol, triol, etc.**
+
+**Explanation:**
+
+If more than one -OH group is attached, they are indicated by appropriate suffixes like diol, triol, etc..
+
+In unsaturated alcohols, how is the carbon chain numbered according to IUPAC rules?
+
+The point of unsaturation gets the lower number.
+
+The chain is numbered alphabetically.
+
+The longest carbon chain without considering functional groups.
+
+**The hydroxyl group gets the lower number.**
+
+**Explanation:**
+
+The unsaturated alcohols are numbered in such a way that the hydroxyl group rather than the point of unsaturation gets the lower number.
+
+Which of the following bonds in an alcohol typically breaks when a nucleophile attacks?
+
+O-H bond
+
+C-H bond
+
+H-H bond
+
+**C-O bond**
+
+**Explanation:**
+
+If a nucleophile attacks, it is the C-O bond which breaks in an alcohol.
+
+When an electrophile attacks an alcohol, which bond is typically broken?
+
+C-C bond
+
+C-O bond
+
+R-H bond
+
+**O-H bond**
+
+**Explanation:**
+
+If an electrophile attacks on alcohol, it is the O-H bond which breaks.
+
+What is the order of reactivity of alcohols when the C-O bond breaks?
+
+Primary > Secondary > Tertiary
+
+Secondary > Primary > Tertiary
+
+All react equally
+
+**Tertiary > Secondary > Primary**
+
+**Explanation:**
+
+The order of reactivity of alcohols when the C-O bond breaks is Tertiary alcohol > Secondary alcohol > Primary alcohol.
+
+What is the order of reactivity of alcohols when the O-H bond breaks?
+
+Tertiary > Secondary > Primary
+
+Secondary > Primary > Tertiary
+
+All react equally
+
+**Primary > Secondary > Tertiary**
+
+**Explanation:**
+
+The order of reactivity of alcohols when the O-H bond breaks is Primary alcohol > Secondary alcohol > Tertiary alcohol.
+
+What is the product formed when ethanol reacts with thionyl chloride (SOCl₂)?
+
+Ethyl ether
+
+Ethanal
+
+Ethyl acetate
+
+**Ethyl chloride**
+
+**Explanation:**
+
+C₂H₅OH + SOCl₂ → C₂H₅Cl + SO₂ + HCl. The reaction of ethanol with thionyl chloride yields ethyl chloride.
+
+The reaction of an alcohol with a carboxylic acid in the presence of an acid catalyst forms which class of organic compounds?
+
+Ethers
+
+Aldehydes
+
+Ketones
+
+**Esters**
+
+**Explanation:**
+
+Alcohols react with carboxylic acids (e.g., CH₃COOH) to form esters (e.g., CH₃COOC₂H₅) and water.
+
+What type of reaction occurs when an alcohol reacts with metallic sodium?
+
+Oxidation
+
+Reduction
+
+Dehydration
+
+**Salt formation**
+
+**Explanation:**
+
+Alcohols react with sodium to form sodium alkoxides (salts) and hydrogen gas (2C₂H₅OH + 2Na → 2C₂H₅ONa + H₂).
+
+When ethanol is heated with concentrated H₂SO₄ at 140°C, what is the main product?
+
+Ethene
+
+Ethanal
+
+Ethyl hydrogen sulfate
+
+**Diethyl ether**
+
+**Explanation:**
+
+When 2C₂H₅OH is heated with concentrated H₂SO₄ at 140°C, it forms diethyl ether (C₂H₅OC₂H₅) and water.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+What is the best reagent for the oxidation of primary and secondary alcohols to aldehydes and ketones, respectively?
+
+HCl/ZnCl₂
+
+NaOH
+
+PCl₅
+
+**Acid dichromate**
+
+**Explanation:**
+
+The best reagent for converting alcohols into aldehydes and ketones is acid dichromate.
+
+What happens to tertiary alcohols in the presence of acid dichromate?
+
+They are easily oxidized to ketones.
+
+They are oxidized to carboxylic acids.
+
+They are unreactive.
+
+**They undergo elimination reactions to give alkenes.**
+
+**Explanation:**
+
+Tertiary alcohols are resistant to oxidation and instead undergo elimination reactions to give alkenes in the presence of acid dichromate.
+
+Which reagent can convert ethanol into ethyl chloride, along with phosphorus oxychloride and HCl?
+
+PCl₃
+
+SOCl₂
+
+HCl
+
+**PCl₅**
+
+**Explanation:**
+
+C₂H₅OH + PCl₅ → C₂H₅Cl + POCl₃ + HCl. Phosphorus pentachloride reacts with ethanol to produce ethyl chloride.
+
+The dehydration of ethanol with concentrated H₂SO₄ at 180°C yields:
+
+Diethyl ether
+
+Ethane
+
+Ethyne
+
+**Ethene**
+
+**Explanation:**
+
+Ethanol reacts with concentrated H₂SO₄ at 180°C to give ethene (CH₂=CH₂) and water.
+
+Which statement accurately describes the solubility of lower alcohols in water?
+
+They are insoluble in water.
+
+They are sparingly soluble in water.
+
+Their solubility increases with higher molecular weight.
+
+**They are readily soluble in water.**
+
+**Explanation:**
+
+Lower alcohols are readily soluble in water.
+
+The solubility of alcohols in water is primarily due to what type of bonding?
+
+Ionic bonding
+
+Covalent bonding
+
+Metallic bonding
+
+**Hydrogen bonding**
+
+**Explanation:**
+
+The solubility of alcohols is due to hydrogen bonding, which is prominent in lower alcohols.
+
+How do the melting and boiling points of alcohols compare to their corresponding alkanes?
+
+They are lower than corresponding alkanes.
+
+They are similar to corresponding alkanes.
+
+They are negligible.
+
+**They are higher than corresponding alkanes.**
+
+**Explanation:**
+
+Melting and boiling points of alcohols are higher than corresponding alkanes.
+
+The higher melting and boiling points of alcohols compared to alkanes are attributed to:
+
+Stronger covalent bonds in alcohols.
+
+Larger molecular size of alcohols.
+
+Weaker London dispersion forces in alcohols.
+
+**Presence of hydrogen bonding in alcohols.**
+
+**Explanation:**
+
+This is also due to hydrogen bonding which is present in alcohols but absent in alkanes.
+
+What happens when ethanol reacts with concentrated HCl in the presence of anhydrous ZnCl₂?
+
+An oily layer forms immediately.
+
+An oily layer forms in five to ten minutes.
+
+No reaction occurs.
+
+**An oily layer forms only on heating.**
+
+**Explanation:**
+
+Primary alcohols, like ethanol, form an oily layer only on heating with the Lucas reagent (anhydrous ZnCl₂).
+
+Which of the following describes the reaction of ethanol with iodine in the presence of NaOH?
+
+It produces a colorless solution.
+
+It produces a blue precipitate.
+
+No reaction occurs.
+
+**It produces yellow crystals of iodoform.**
+
+**Explanation:**
+
+Ethanol gives iodoform with iodine in the presence of NaOH, indicated by the formation of yellow crystals.
+
+How can methanol be distinguished from ethanol chemically?
+
+By its boiling point.
+
+By Lucas test.
+
+By its density.
+
+**By the iodoform test.**
+
+**Explanation:**
+
+Ethanol gives the iodoform test, while methanol does not, providing a chemical distinction.
+
+Methanol is also known as 'wood spirit' because:
+
+It is found naturally in wood.
+
+It is used to preserve wood.
+
+It smells like wood.
+
+**It was formerly prepared by distillation of wood.**
+
+**Explanation:**
+
+Formerly, methanol was prepared by distillation of wood, which is why it is also called wood spirit.
+
+What is the optimal temperature range for the fermentation process used in ethanol production?
+
+0-10°C
+
+50-60°C
+
+80-100°C
+
+**25-35°C**
+
+**Explanation:**
+
+The optimum temperature for the process of fermentation is 25-35°C.
+
+Why does the alcohol concentration obtained by fermentation never exceed 14%?
+
+Above this limit, alcohol becomes insoluble.
+
+The reaction becomes too slow.
+
+The starting material runs out.
+
+**Beyond this limit, enzymes become inactive.**
+
+**Explanation:**
+
+Alcohol obtained by fermentation is only up to 12% and never exceeds 14% because beyond this limit enzymes become inactive.
+
+What is 'rectified spirit'?
+
+100% pure ethanol
+
+Ethanol mixed with methanol.
+
+Alcohol obtained directly from fermentation.
+
+**95% alcohol obtained by distillation of fermented alcohol.**
+
+**Explanation:**
+
+Alcohol obtained by fermentation is distilled again and again to obtain 95% alcohol which is called rectified spirit.
+
+To obtain absolute alcohol from rectified spirit, what substance is used to absorb moisture?
+
+Sodium chloride
+
+Sulfuric acid
+
+Activated carbon
+
+**Calcium oxide**
+
+**Explanation:**
+
+Absolute alcohol can also be obtained by redistillation of rectified spirit in the presence of Calcium oxide (CaO), which absorbs its moisture.
+
+What are phenols?
+
+Aliphatic compounds with -OH groups.
+
+Aromatic compounds with one or more -OH groups attached to an alkyl chain.
+
+Compounds with a carbonyl group.
+
+**Aromatic compounds containing one or more -OH groups directly attached with carbon of benzene ring.**
+
+**Explanation:**
+
+Aromatic compounds which contain one or more OH groups directly attached with carbon of benzene ring are called Phenols.
+
+What is the simplest example of a phenol?
+
+Benzyl alcohol
+
+Cyclohexanol
+
+Toluene
+
+**Carbolic acid**
+
+**Explanation:**
+
+The simplest example is phenol, which is also known as Carbolic acid (C₆H₅OH).
+
+Phenol was first obtained from:
+
+Petroleum
+
+Natural gas
+
+Wood distillation
+
+**Coaltar**
+
+**Explanation:**
+
+Phenol was first obtained from coaltar by Runge in 1834.
+
+How are alcohols and phenols structurally related to water?
+
+They are unrelated to water.
+
+They are isomers of water.
+
+They are ionic compounds of water.
+
+**They are derivatives of water.**
+
+**Explanation:**
+
+Alcohols, phenols, and ethers are classes of organic compounds which are much closer to water in structure and hence considered as derivatives of water.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+What functional group do both alcohols and phenols contain?
+
+Carbonyl group
+
+Carboxyl group
+
+Ether group
+
+**Hydroxyl group**
+
+**Explanation:**
+
+Both contain hydroxyl (-OH) group so they may also be termed as hydroxy derivatives of alkanes and benzene respectively.
+
+In terms of structure, how does phenol differ from an aliphatic alcohol?
+
+Phenol has an -OH group attached to an alkyl group.
+
+Phenol has two -OH groups.
+
+Phenol contains a carbon-carbon double bond.
+
+**Phenol has an -OH group attached to an aromatic ring.**
+
+**Explanation:**
+
+Phenols have the -OH group directly attached to a benzene ring, while aliphatic alcohols have it attached to an alkyl group.
+
+Which of the following is the correct representation for phenol?
+
+CH₃OH
+
+C₂H₅OH
+
+CH₃COOH
+
+**C₆H₅OH**
+
+**Explanation:**
+
+The simplest example is phenol which is also known as Carbolic acid i.e. C₆H₅OH.
+
+What is the common trivial name for C₆H₅OH?
+
+Benzyl alcohol
+
+Hydroxybenzene
+
+Phenyl alcohol
+
+**Carbolic acid**
+
+**Explanation:**
+
+Phenol is also known as Carbolic acid.
+
+Phenol is described as a colourless, crystalline, deliquescent solid with a characteristic phenolic odour. What is its melting point?
+
+25°C
+
+68.5°C
+
+100°C
+
+**41°C**
+
+**Explanation:**
+
+Phenol is a colourless, crystalline, deliquescent solid with characteristic phenolic odour having melting point 41°C.
+
+At what temperature does phenol become completely soluble?
+
+Below 41°C
+
+Exactly 68.5°C
+
+Above 100°C
+
+**Above 68.5°C**
+
+**Explanation:**
+
+Phenol is sparingly soluble in water forming pink solution at room temperature but completely soluble above 68.5°C.
+
+Phenol is poisonous and is used as a disinfectant in which of the following?
+
+Food processing plants
+
+Drinking water purification
+
+Agricultural fields
+
+**Hospitals and washrooms**
+
+**Explanation:**
+
+Phenol is poisonous and used as a disinfectant in hospitals and washrooms.
+
+Phenol primarily shows two types of reactions. What are they?
+
+Reactions due to C-H bond and C-C bond.
+
+Reactions due to oxidation and reduction.
+
+Reactions due to alkyl group and aromatic group.
+
+**Reactions due to -OH group and reactions due to benzene ring.**
+
+**Explanation:**
+
+Phenol shows two types of reactions: 1. Reactions due to -OH group, 2. Reactions due to benzene ring.
+
+Compared to alcohols, how reactive are phenols to nucleophiles?
+
+More reactive
+
+Equally reactive
+
+Reactivity is not related to nucleophiles.
+
+**Less reactive**
+
+**Explanation:**
+
+Phenols are less reactive to nucleophiles so nucleophilic attack is less favoured.
+
+Which type of attack is favored on the benzene ring of phenol?
+
+Nucleophilic attack
+
+Free radical attack
+
+Hydrolysis
+
+**Electrophilic attack**
+
+**Explanation:**
+
+Electrophilic attack on the ring is easy.
+
+How does the acidity of phenol compare to that of alcohols and carboxylic acids?
+
+Less acidic than alcohols, more acidic than carboxylic acids.
+
+Equally acidic as alcohols, equally acidic as carboxylic acids.
+
+More acidic than both alcohols and carboxylic acids.
+
+**More acidic than alcohols, less acidic than carboxylic acids.**
+
+**Explanation:**
+
+Phenol is much more acidic than alcohols but less acidic than carboxylic acids.
+
+What is effect of Phenol on litmus paper?
+
+Turns blue litmus red.
+
+Turns red litmus blue.
+
+Makes litmus paper colorless.
+
+**No affect.**
+
+**Explanation:**
+
+Phenol dissolves readily in alkalies but it is too weak to affect the litmus paper or to evolve CO₂ from carbonates.
+
+What is the approximate pH of a phenol solution in water?
+
+Around 1-2
+
+Around 7
+
+Around 10-11
+
+**Around 5 or 6**
+
+**Explanation:**
+
+Phenol is partially soluble in water and its solution has a pH of around 5 or 6.
+
+The acidic nature of phenol is primarily due to the stability of which ion?
+
+Hydronium ion
+
+Benzene cation
+
+Hydroxyl ion
+
+**Phenoxide ion**
+
+**Explanation:**
+
+The reason why phenol is acidic lies in the nature of the phenoxide ion. The negative charge on oxygen atom can become involved with the π-electron cloud on the benzene ring, leading to delocalization and stabilization of the phenoxide ion.
+
+What is the product when phenol reacts with acetyl chloride in the presence of a base?
+
+Phenol ether
+
+Benzene
+
+Phenolic acid
+
+**Phenyl acetate**
+
+**Explanation:**
+
+Phenol reacts with acetyl chloride in the presence of a base to form ester (Phenyl acetate).
+
+What is formed when phenol is reduced with zinc dust?
+
+Cyclohexanol
+
+Toluene
+
+Aniline
+
+**Benzene**
+
+**Explanation:**
+
+When phenol is reduced with Zn, it forms benzene and ZnO.
+
+Nitration of phenol with dilute nitric acid at 25°C typically yields a mixture of:
+
+Only o-nitrophenol
+
+Only p-nitrophenol
+
+2,4,6-Trinitrophenol
+
+**o-Nitrophenol and p-Nitrophenol**
+
+**Explanation:**
+
+Phenol reacts with dil. HNO₃ at 25°C to give o-Nitrophenol and p-Nitrophenol.
+
+What is the product when an aqueous solution of phenol reacts with bromine water?
+
+Bromobenzene
+
+o-Bromophenol
+
+p-Bromophenol
+
+**2,4,6-Tribromophenol**
+
+**Explanation:**
+
+An aqueous solution of phenol reacts with bromine water to give white ppt. of 2,4,6-tribromophenol.
+
+How does the solubility of phenol in water compare to that of lower alcohols?
+
+Phenol is more soluble than lower alcohols.
+
+Phenol has similar solubility to lower alcohols.
+
+Phenol is insoluble, while alcohols are soluble.
+
+**Phenol is less soluble than lower alcohols at room temperature.**
+
+**Explanation:**
+
+Phenol is sparingly soluble in water at room temperature, while lower alcohols are readily soluble.
+
+Which compound is more acidic: alcohol or phenol?
+
+Alcohol
+
+Both are equally acidic
+
+Neither is acidic
+
+**Phenol**
+
+**Explanation:**
+
+Phenol is much more acidic than alcohols due to the resonance stabilization of the phenoxide ion.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+What is the typical pH range of an aqueous solution of phenol?
+
+Strongly acidic (pH < 3)
+
+Neutral (pH 7)
+
+Basic (pH > 7)
+
+**Weakly acidic (pH 5-6)**
+
+**Explanation:**
+
+Phenol's solution in water has a pH of around 5 or 6, indicating weak acidity.
+
+When reacted with sodium hydroxide, which of the following will react to form a salt?
+
+Ethanol
+
+Methanol
+
+All alcohols
+
+**Phenol**
+
+**Explanation:**
+
+Phenol is acidic enough to react with strong bases like NaOH to form sodium phenoxide. Alcohols are too weak acids to react with NaOH.
+
+What is the visible result when bromine water is added to an aqueous solution of phenol?
+
+A clear solution
+
+Yellow crystals
+
+A red-brown color persists
+
+**A white precipitate**
+
+**Explanation:**
+
+Phenol reacts with bromine water to give a white precipitate of 2,4,6-tribromophenol. Alcohols do not typically react this way.
+
+Which test can be used to distinguish between a primary alcohol and a tertiary alcohol?
+
+Iodoform test
+
+Litmus test
+
+Fehling's test
+
+**Lucas test**
+
+**Explanation:**
+
+The Lucas test (using anhydrous ZnCl₂/conc. HCl) differentiates primary, secondary, and tertiary alcohols based on the time taken for turbidity to appear. Tertiary alcohols react immediately, secondary in 5–10 minutes, and primary only on heating.
+
+When an alcohol reacts with metallic sodium, what gas is evolved?
+
+Oxygen
+
+Carbon dioxide
+
+Nitrogen
+
+**Hydrogen**
+
+**Explanation:**
+
+Both alcohols and phenols react with active metals like sodium to liberate hydrogen gas (e.g., 2ROH + 2Na → 2RONa + H₂).
+
+Which of the following will give a positive iodoform test (formation of yellow crystals)?
+
+Methanol
+
+Phenol
+
+Propan-2-ol
+
+**Ethanol**
+
+**Explanation:**
+
+Ethanol (and other compounds with a CH₃CH(OH)- group or CH₃CO- group) gives a positive iodoform test. Methanol and phenol do not.
+
+When ferric chloride (FeCl₃) solution is added to phenol, what is the characteristic observation?
+
+A white precipitate
+
+A red precipitate
+
+No visible change
+
+**A characteristic purple/violet color**
+
+**Explanation:**
+
+Phenols give a characteristic purple or violet color with neutral ferric chloride solution due to the formation of a complex. Alcohols do not give this test.
+
+Which statement about the reactivity of the benzene ring in phenol compared to benzene itself is correct?
+
+The benzene ring in phenol is less reactive towards electrophilic substitution.
+
+The reactivity is the same for both.
+
+Phenol does not undergo electrophilic substitution.
+
+**The benzene ring in phenol is more reactive towards electrophilic substitution.**
+
+**Explanation:**
+
+The -OH group is an activating group, making the benzene ring in phenol much more reactive towards electrophilic aromatic substitution than benzene itself.
+
+What is the effect of phenol on litmus paper?
+
+Turns blue litmus red immediately.
+
+Turns red litmus blue.
+
+Bleaches litmus paper.
+
+**No effect on litmus paper.**
+
+**Explanation:**
+
+Phenol is a weak acid and is generally too weak to affect litmus paper, although it's acidic enough to react with strong bases.
+
+Why is phenol more acidic than cyclohexanol?
+
+Because phenol has a longer carbon chain.
+
+Because cyclohexanol has more hydrogen atoms.
+
+Because the -OH group in cyclohexanol is bulkier.
+
+**Because the phenoxide ion is stabilized by resonance.**
+
+**Explanation:**
+
+The negative charge on the oxygen of the phenoxide ion (formed after deprotonation of phenol) is delocalized into the benzene ring through resonance, making the phenoxide ion more stable and thus phenol more acidic. Cyclohexanol forms an alkoxide ion which lacks such resonance stabilization.
+
+Which method is commonly used for the industrial preparation of methanol?
+
+Fermentation of molasses
+
+Hydration of ethene
+
+Reduction of formaldehyde
+
+**Reaction of carbon monoxide and hydrogen**
+
+**Explanation:**
+
+Methanol is industrially prepared from carbon monoxide and hydrogen (water gas) using ZnO+Cr₂O₃ catalyst.
+
+What is "denatured alcohol"?
+
+Absolute alcohol
+
+Pure methanol
+
+Ethanol mixed with water
+
+**Ethanol made unfit for drinking**
+
+**Explanation:**
+
+Denatured alcohol is ethanol made unfit for drinking by adding small amounts of poisonous substances like methanol (methylated spirit), pyridine, or acetone.
+
+One of the industrial methods for preparing phenol involves the reaction of chlorobenzene. What is this method commonly known as?
+
+Wurtz reaction
+
+Friedel-Crafts reaction
+
+Kolbe's reaction
+
+**Dow's method**
+
+**Explanation:**
+
+Phenol can be prepared industrially from chlorobenzene by Dow's method, which involves reaction with 10% NaOH at high temperature and pressure.
+
+Which of the following describes the nature of phenol regarding its interaction with litmus paper?
+
+Turns blue litmus red vigorously.
+
+Turns red litmus blue.
+
+Acts as a strong base.
+
+**Too weak to affect litmus paper.**
+
+**Explanation:**
+
+While acidic, phenol is a weak acid and is generally too weak to affect litmus paper.
+
+What industrially important polymer is formed when phenol reacts with formaldehyde?
+
+**Explanation:**
+
+Phenol reacts with formaldehyde (methanal) in the presence of acid or alkali to yield a polymer called bakelite.
+
+Which of the following compounds is generally considered inert towards chemical reagents due to its structure?
+
+Ethanol
+
+Phenol
+
+Acetic acid
+
+**Diethyl ether**
+
+**Explanation:**
+
+Ethers, like diethyl ether, are generally quite inert towards chemical reagents due to the non-polar nature and stability of the C-O-C bond, making them good solvents.
+
+How do the boiling points of ethers compare to isomeric alcohols?
+
+Ethers have higher boiling points.
+
+Ethers have similar boiling points.
+
+Boiling points are not comparable.
+
+**Ethers have lower boiling points.**
+
+**Explanation:**
+
+Ethers have lower boiling points than their isomeric alcohols because they lack the ability to form intermolecular hydrogen bonds among themselves (though they can form H-bonds with water).
+
+Which type of ether has two identical alkyl or aryl groups attached to the oxygen atom?
+
+Mixed ether
+
+Unsymmetrical ether
+
+Cyclic ether
+
+**Simple or symmetrical ether**
+
+**Explanation:**
+
+Simple or symmetrical ethers have two identical alkyl or aryl groups attached to the oxygen atom (e.g., dimethyl ether, diethyl ether).
+
+What is the IUPAC name for CH₃OCH₃?
+
+Diethyl ether
+
+Dimethyl ether
+
+**Explanation:**
+
+According to IUPAC rules, ethers are named as alkoxyalkanes. For CH₃OCH₃, it is methoxymethane.
+
+Why are lower alcohols (like methanol and ethanol) soluble in water?
+
+Due to their non-polar nature.
+
+Due to the formation of ionic bonds with water.
+
+Due to strong London dispersion forces.
+
+**Due to their ability to form hydrogen bonds with water.**
+
+**Explanation:**
+
+The solubility of lower alcohols in water is primarily attributed to the formation of hydrogen bonds between the hydroxyl group of the alcohol and water molecules.
+
+## Other Chemistry Topics MCQs
+
+We have also prepared the following set of MCQsfor your Entry test preparation in quick way like MDCAT, ECAT and Armed forces test. WE WISH YOU BEST OF LUCK!
+
+[Basic Concept MCQs](https://www.mcquniverse.pk/chemistry-mcqs/basic-concept-mcqs/)
+
+[Atomic Structure MCQs](https://www.mcquniverse.pk/chemistry-mcqs/atomic-structure-mcqs/)
+
+[Gases MCQs](https://www.mcquniverse.pk/chemistry-mcqs/gases-mcqs/)
+
+[Liquids MCQs](https://www.mcquniverse.pk/chemistry-mcqs/liquids-mcqs/)
+
+[Solids MCQs](https://www.mcquniverse.pk/chemistry-mcqs/solids-mcqs/)
+
+[Chemical Equilibrium MCQs](https://www.mcquniverse.pk/chemistry-mcqs/chemical-equilibrium-mcqs/)
+
+[Reaction Kinectics MCQs](https://www.mcquniverse.pk/chemistry-mcqs/reaction-kinetics-quiz/)
+
+[Thermochemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/thermochemistry-mcqs/)
+
+[Electrochemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/electrochemistry-mcqs/)
+
+[Chemical Bonding MCQs](https://www.mcquniverse.pk/chemistry-mcqs/chemical-bonding-mcqs/)
+
+[Transition Elements MCQs](https://www.mcquniverse.pk/chemistry-mcqs/transition-elements-mcqs/)
+
+[S And P Block Elements MCQs](https://www.mcquniverse.pk/chemistry-mcqs/s-and-p-block-elements-mcqs/)
+
+[Fundamental Principles Of Organic Chemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/fundamental-principles-of-organic-chemistry-mcqs/)
+
+[Hydrocarbons MCQs](https://www.mcquniverse.pk/chemistry-mcqs/hydrocarbons-mcqs/)
+
+[Alkyl Halides MCQs](https://www.mcquniverse.pk/chemistry-mcqs/alkyl-halides-mcqs/)
+
+[Alcohols And Phenols MCQs](https://www.mcquniverse.pk/chemistry-mcqs/alcohols-and-phenols-mcqs/)
+
+[Aldehydes And Ketones MCQs](https://www.mcquniverse.pk/chemistry-mcqs/aldehydes-and-ketones-mcqs/)
+
+[Macromolecules MCQs](https://www.mcquniverse.pk/chemistry-mcqs/macromolecules-mcqs/)
+
+[Carboxylic Acid MCQs](https://www.mcquniverse.pk/chemistry-mcqs/carboxylic-acid-mcqs/)
+
+[Industrial Chemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/industrial-chemistry-mcqs/)
+
+### Leave a Reply [Cancel reply](/chemistry-mcqs/alcohols-and-phenols-mcqs/#respond)
+
+×🌐 Website-Wide Premium Access
+
+### Unlock All Quizzes & MCQs
+
+🚀 **One Subscription Unlocks Everything!** 
+ Get 100% full access to ALL quizzes, MCQs & detailed explanations across the entire website.
+
+1 Week
+
+Rs 199
+
+Full Site Access
+
+BEST VALUE
+
+1 Month
+
+Rs 499
+
+Full Site Access
+
+📌 How to Activate:
+
+1. Send fee for your plan to JazzCash or EasyPaisa below.
+2. Click WhatsApp button & send payment screenshot to Admin.
+3. **Instant Activation** within 10 minutes!
+
+JazzCash 03048961191 Title: Rana HabibUllah
+
+EasyPaisa 03428699409 Title: Rana HabibUllah
+
+ [💬 Send Screenshot on WhatsApp](https://wa.me/923428699409?text=Hi,%20I%20want%20to%20activate%20full%20site%20premium%20access.) Maybe later
+
+ [Student Login](https://www.mcquniverse.pk/dashboard/) 
+
+**Alert:**Content is protected.
+
+Scroll to Top

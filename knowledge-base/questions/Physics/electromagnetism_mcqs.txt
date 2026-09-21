@@ -1,0 +1,546 @@
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[IMAGE: Join our whatsapp channel]
+
+# Electromagnetism MCQs | Physics MCQs
+
+## Electromagnetism MCQs
+
+The magnetic field inside a long, current-carrying solenoid is:
+
+For a long solenoid, the field lines are concentrated and nearly parallel inside, creating a uniform field.
+
+A proton enters a uniform magnetic field perpendicularly. The path of the proton will be a:
+
+The magnetic force provides the necessary centripetal force for circular motion, as it is always perpendicular to the velocity.
+
+The current in a 50 mH inductor changes from 10 A to 2 A in 0.2 seconds. What is the magnitude of the average EMF induced in the inductor?
+
+Using E = -L (ΔI / Δt). The magnitude is E = (50 x 10⁻³ H) \* |(2-10)A| / 0.2s = 0.05 \* (8 / 0.2) = 0.05 \* 40 = 2.0 V.
+
+Lenz's Law is a consequence of the law of conservation of:
+
+The induced current opposes the change in flux, meaning work must be done against this opposition, which is converted into electrical energy.
+
+The SI unit of magnetic flux is the:
+
+One Weber is equal to one Tesla-meter squared (T·m²), representing the total magnetic field lines passing through a surface.
+
+A transformer is a device that:
+
+Transformers operate on the principle of mutual induction to step up or step down AC voltages.
+
+The force on a current-carrying conductor in a magnetic field is maximum when the angle between the conductor and the field is:
+
+The force is given by F = ILBsin(θ). Since sin(90 degrees) = 1, the force is at its maximum value.
+
+An AC generator works on the principle of:
+
+The rotation of a coil in a magnetic field changes the magnetic flux, inducing an electromotive force (EMF).
+
+The direction of the induced current in a circuit is always such as to oppose the change in magnetic flux that produces it. This is a statement of:
+
+This law specifically addresses the direction of the induced current, attributing it to the conservation of energy.
+
+What is the charge-to-mass ratio (e/m) for an electron?
+
+This value is determined experimentally by observing the electron's motion in electric and magnetic fields.
+
+In a step-up transformer, the secondary coil has:
+
+More turns in the secondary increase voltage, stepping it up.
+
+A galvanometer can be converted into an ammeter by connecting a:
+
+A low-resistance shunt connected in parallel allows most of the current to bypass the galvanometer, enabling the measurement of larger currents.
+
+Motional EMF is induced when a conductor:
+
+The movement of the conductor through the magnetic field causes a change in magnetic flux, inducing an EMF.
+
+The energy stored in an inductor is given by the formula:
+
+This equation correctly describes the energy stored in the magnetic field of an inductor.
+
+Magnetic flux will be maximum when the angle between the magnetic field and the area vector is:
+
+Flux is given by Φ = BAcos(θ). When θ = 0 degrees, cos(0 degrees) = 1, which is the maximum value.
+
+In the equation for the magnetic force on a charge, F = qvBsin(θ), θ is the angle between:
+
+The angle θ is defined as the angle between the velocity vector of the charge and the magnetic field vector.
+
+The phenomenon of producing an EMF in a coil due to a change of current in the same coil is called:
+
+This process, also known as inductance, describes how a coil induces a 'back EMF' in itself to oppose a change in current.
+
+A CRO (Cathode Ray Oscilloscope) uses which of the following to deflect the electron beam?
+
+Most CROs use pairs of deflection plates that create electric fields to control the beam's vertical and horizontal position.
+
+An ideal transformer has 100% efficiency. This means:
+
+Efficiency is the ratio of output power to input power. 100% efficiency means no power is lost in the transformation.
+
+The torque on a current-carrying loop in a magnetic field is maximum when the plane of the loop is:
+
+When the plane of the loop is parallel to the field, the forces on the sides create the largest turning effect (torque).
+
+Which of the following materials is most suitable for the core of an electromagnet?
+
+Soft iron is easily magnetized and demagnetized, making it ideal for creating a strong temporary magnet.
+
+If the speed of a charged particle moving through a magnetic field is doubled, the magnetic force on it will:
+
+According to the formula F = qvBsin(θ), the force is directly proportional to the velocity 'v'.
+
+In a velocity selector, a charged particle will pass through undeflected if the electric and magnetic forces cancel. If the electric field is 600 N/C and the magnetic field is 0.02 T, what is the speed of the undeflected particle?
+
+For zero deflection, qE = qvB, which simplifies to v = E/B. v = (600 N/C) / (0.02 T) = 30000 m/s = 3 x 10⁴ m/s.
+
+The magnetic field outside an ideal toroid is:
+
+Due to its geometry, the magnetic field lines are completely contained within the windings of an ideal toroid.
+
+According to Faraday's law, the induced EMF is directly proportional to the:
+
+Faraday's Law states that E = -N (dΦ/dt), meaning the EMF is proportional to how quickly the flux changes.
+
+To convert a galvanometer into a voltmeter, one should connect a:
+
+A large series resistor (a multiplier) limits the current flowing through the galvanometer, allowing the device to be connected in parallel with a component to measure a large potential difference.
+
+Two parallel wires carry current in the same direction. The force between them will be:
+
+The magnetic field produced by one wire interacts with the current in the other wire, resulting in a force that pulls them together.
+
+A changing electric flux creates a:
+
+This is one of the core concepts of Maxwell's equations (specifically, the Maxwell-Ampere law). A changing electric field acts as a source of a magnetic field.
+
+The unit Henry (H) can also be expressed as:
+
+Since inductance L = Φ / I, its unit is Weber per Ampere.
+
+Back EMF in a motor is greatest at:
+
+Back EMF is proportional to the rotational speed of the motor's armature. The faster it spins, the greater the rate of change of flux, and the larger the back EMF.
+
+The working principle of a moving coil galvanometer is that a current-carrying coil in a magnetic field experiences:
+
+The forces on opposite sides of the coil create a turning couple, or torque, which causes the coil to rotate.
+
+Eddy currents are undesirable in a transformer because they:
+
+These induced currents circulate within the core, and due to the core's resistance, they dissipate energy in the form of heat (I²R losses).
+
+A stationary charge in a magnetic field experiences a force of:
+
+The magnetic force formula is F = qvBsin(θ). If the velocity v=0, the force is zero. Magnetic fields only exert forces on moving charges.
+
+To reduce energy loss due to eddy currents, transformer cores are:
+
+The core is built from thin, insulated iron sheets. This lamination increases the overall resistance and confines the eddy currents to small loops, significantly reducing energy loss.
+
+A current of 2 A is flowing in a coil of inductance 5 H. The energy stored in the coil is:
+
+Using the formula E = 1/2 LI², we get E = 1/2 \* (5) \* (2²) = 1/2 \* (5) \* (4) = 10 J.
+
+The relationship between the magnetic field B, velocity v, and motional EMF (E) in a conductor of length L is given by:
+
+This is the correct formula for motional EMF when the field, velocity, and conductor are mutually perpendicular.
+
+What is the primary cause of the magnetic field of the Earth?
+
+The movement of molten iron and nickel in the outer core creates a self-sustaining dynamo effect, generating the Earth's magnetic field.
+
+If the number of turns in a solenoid is doubled while keeping the length and current constant, the magnetic field inside will:
+
+The formula for the magnetic field is B = μ₀nI, where n = N/L. If N is doubled, n is doubled, and B is doubled.
+
+A device that measures very small currents with high sensitivity is the:
+
+A galvanometer is the core instrument designed to detect and measure minute electric currents.
+
+What is the path of an electron projected parallel to a uniform magnetic field?
+
+The angle θ between velocity and the magnetic field is 0 degrees. Since sin(0 degrees)=0, the magnetic force is zero, and the particle continues undeflected.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+A 20 cm long wire carries a current of 10 A and is placed in a 0.4 T magnetic field. If the wire makes an angle of 30° with the field, what is the magnetic force on the wire?
+
+Using F = ILBsin(θ). F = (10 A) \* (0.2 m) \* (0.4 T) \* sin(30°) = 2 \* 0.4 \* 0.5 = 0.4 N.
+
+The mutual inductance between two coils depends on their:
+
+Factors like the number of turns, area, separation, and relative orientation of the coils determine how much of the flux from one coil links with the other.
+
+The magnetic field at the center of a circular current loop is:
+
+The formula B = (μ₀I) / (2R) shows that the magnetic field is inversely proportional to the radius of the loop.
+
+An ideal step-down transformer decreases:
+
+A step-down transformer is designed specifically to reduce the AC voltage.
+
+The presence of a magnetic field can be detected by a:
+
+The needle of a magnetic compass is a small magnet that will align itself with external magnetic field lines.
+
+A proton (mass = 1.67 x 10⁻²⁷ kg, charge = 1.6 x 10⁻¹⁹ C) moves at 2 x 10⁶ m/s and enters a 0.1 T magnetic field at a right angle. What is the radius of its circular path?
+
+Using r = mv/qB. r = (1.67 x 10⁻²⁷ \* 2 x 10⁶) / (1.6 x 10⁻¹⁹ \* 0.1) ≈ 0.21 m or 21 cm.
+
+For a DC motor, the current drawn is maximum when the motor has:
+
+At startup, speed is zero, so back EMF is zero. With no opposition to the supply voltage, the current (I = V/R) is at its maximum.
+
+Ampere's Law is used to calculate:
+
+Ampere's Law provides a powerful method for calculating the magnetic field for current distributions with high degrees of symmetry, like long wires and solenoids.
+
+An ideal solenoid has 1000 turns per meter and carries a current of 2 A. What is the magnetic field inside it? (Use µ₀ = 4π x 10⁻⁷ T·m/A)
+
+Using B = µ₀nI. B = (4π x 10⁻⁷ T·m/A) \* (1000 m⁻¹) \* (2 A) = 8π x 10⁻⁴ T.
+
+An electron and a proton enter a magnetic field with the same velocity, perpendicular to the field. They will be deflected:
+
+The radius of the circular path is r = mv/qB. Since the proton is much more massive, its radius will be larger. The direction of deflection will be opposite due to their opposite charges.
+
+The purpose of the split-ring commutator in a DC generator is to:
+
+This action ensures that the current in the external circuit always flows in the same direction, converting the internally generated AC into a pulsating DC output.
+
+Magnetic lines of force:
+
+This reflects the fact that there are no magnetic monopoles; every north pole is accompanied by a south pole.
+
+A 10 cm wire carrying a current of 5 A is placed in a magnetic field of 0.2 T. If the wire is perpendicular to the field, the force on the wire is:
+
+Using F = ILBsin(θ), with L = 0.1 m and sin(90 degrees)=1, we get F = (5)(0.1)(0.2) = 0.1 N.
+
+The strength of the magnetic field is indicated by the:
+
+Where the lines are closer together, the magnetic field is stronger. Where they are farther apart, the field is weaker.
+
+In a region where the magnetic field is zero, a moving charge will experience:
+
+According to the Lorentz force equation, F = qvBsin(θ), if B=0, then F=0. No magnetic field means no magnetic force.
+
+The direction of the magnetic force on a positive charge is determined by the:
+
+This rule correctly determines the direction of force on a positive charge moving in a magnetic field, where the thumb is velocity, fingers are the field, and the palm is the force.
+
+If a current-carrying solenoid is suspended freely, it will align itself in which direction?
+
+A solenoid behaves like a bar magnet with a north and a south pole. It will align itself with the Earth's magnetic field lines.
+
+The sensitivity of a galvanometer is increased by decreasing the:
+
+The torsional constant represents the stiffness of the suspension. A smaller 'c' means the coil twists more easily for a given torque, leading to higher sensitivity.
+
+A conductor of length 1 m moves at right angles to a magnetic field of 1 T with a velocity of 2 m/s. The induced EMF is:
+
+Using the motional EMF formula E = BLv, we get E = (1)(1)(2) = 2 V.
+
+In a transformer, the primary coil has 100 turns and the secondary has 200 turns. If the input voltage is 120 V AC, the output voltage will be:
+
+The voltage ratio is equal to the turns ratio: Vs/Vp = Ns/Np. So, Vs = 120 \* (200/100) = 240 V.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Which of the following does NOT affect the magnitude of the induced EMF in a coil?
+
+Resistance affects the magnitude of the induced \*current\* (I = E/R), but not the induced EMF (E) itself.
+
+A 'back current' that opposes the current supplied to a motor is generated by:
+
+The rotation of the motor's coil in the magnetic field induces an EMF (back EMF) that opposes the supply voltage, thus creating a 'back current'.
+
+The unit of self-inductance, the Henry, is equivalent to:
+
+From the formula E = -L (ΔI / Δt), we can rearrange to L = -E (Δt / ΔI), giving units of (Volt)(second)/Ampere.
+
+Two parallel wires carry currents in opposite directions. The magnetic field at a point midway between them is:
+
+Using the right-hand grip rule, the field from the first wire and the field from the second wire are in the same direction at the midpoint, so they add together. Since the point is midway, the total field is double the field from one wire.
+
+A step-up transformer increases power.
+
+A transformer changes voltage and current, but for an ideal transformer, the power (P=VI) remains constant. A step-up transformer increases voltage but decreases current.
+
+The magnetic domain is a small region in which:
+
+In ferromagnetic materials, atoms group into domains where their magnetic moments are aligned, creating a strong local magnetic field.
+
+What happens to the radius of a charged particle's circular path in a magnetic field if its kinetic energy is doubled?
+
+Since radius r is proportional to velocity v, and velocity is proportional to the square root of kinetic energy (v is proportional to sqrt(K)), doubling K will multiply the radius by sqrt(2).
+
+An ammeter is always connected in \_\_\_\_\_\_\_\_, and a voltmeter is always connected in \_\_\_\_\_\_\_\_.
+
+An ammeter must be in series to measure the flow of current through it. A voltmeter must be in parallel to measure the potential difference across a component.
+
+The work done by a magnetic field on a moving charge is always:
+
+The magnetic force is always perpendicular to the velocity of the charge. Since work done is W = Fdcos(θ) and θ = 90 degrees, the work done is zero. The magnetic field only changes the direction of the charge, not its speed or kinetic energy.
+
+An RLC circuit is in resonance. If the inductance L is doubled, what must happen to the capacitance C to maintain resonance?
+
+The resonant frequency ω = 1/sqrt(LC). To keep ω constant, if L is doubled, C must be halved so that the product LC remains the same.
+
+In an AC generator, the induced EMF is maximum when the coil is:
+
+When the plane of the coil is horizontal (moving parallel to the field), the sides of the coil are cutting the flux at the maximum rate.
+
+The core of a transformer is laminated to:
+
+The insulating layers between the laminations break up the paths of induced currents (eddy currents), significantly reducing heat loss.
+
+A uniform magnetic field is directed into the page. An electron enters from the top and moves downwards. The force on the electron will be to the:
+
+Using the right-hand rule for a positive charge gives a force to the right. Since an electron is negative, the force is in the opposite direction, to the left.
+
+The time period of a charged particle undergoing circular motion in a uniform magnetic field is independent of its:
+
+The time period T = 2πr / v and the radius r = mv / qB. Substituting for r gives T = 2πm / qB. The velocity 'v' cancels out.
+
+Which device is a practical application of mutual induction?
+
+A transformer relies on a changing current in one coil (the primary) inducing a changing magnetic flux and thus an EMF in a nearby second coil (the secondary).
+
+If you drop a bar magnet through a vertical copper tube, its acceleration will be:
+
+As the magnet falls, it induces eddy currents in the copper tube. According to Lenz's law, these currents create a magnetic field that opposes the magnet's motion, resulting in a braking force and an acceleration less than g.
+
+A galvanometer has a resistance of G and a current Ig gives full-scale deflection. The shunt resistance S required to convert it into an ammeter of range I is:
+
+The potential difference across the galvanometer (Ig \* G) must equal the potential difference across the shunt (Is \* S = (I - Ig) \* S). Rearranging for S gives the correct formula.
+
+The magnetic permeability of free space, μ₀, has a value of:
+
+This is the defined value for the permeability of free space, fundamental to electromagnetism.
+
+In a CRT, the purpose of the grid is to:
+
+The grid is made negative with respect to the cathode. By varying this negative potential, it controls the number of electrons passing through, thus controlling the brightness of the spot on the screen.
+
+If the current in a coil changes from 5 A to 2 A in 0.1 s, inducing an EMF of 3 V, the self-inductance of the coil is:
+
+Using E = -L (ΔI / Δt), we have 3 = -L \* ((2-5) / 0.1) = -L \* (-3 / 0.1) = L \* (30). So, L = 3/30 = 0.1 H.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+The main difference between a DC generator and an AC generator is the:
+
+An AC generator uses slip rings to maintain a continuous connection, producing an alternating current. A DC generator uses a split-ring commutator to reverse the connection every half turn, producing a direct current.
+
+A long straight wire carries a current. The magnetic field lines are:
+
+The right-hand grip rule shows that the magnetic field lines form circles in a plane perpendicular to the wire.
+
+The torque on a current loop is zero when the angle between the magnetic field and the normal to the plane of the loop is:
+
+The torque is given by τ = NIABsin(θ), where θ is the angle between the field and the normal. If θ = 0 degrees, sin(0 degrees)=0, so the torque is zero. The forces are pulling outwards, not causing rotation.
+
+A 50 cm long conductor moves at a constant speed of 4 m/s at right angles to a uniform magnetic field of 0.2 T. What is the motional EMF induced in the conductor?
+
+Using E = BLv. E = (0.2 T) \* (0.5 m) \* (4 m/s) = 0.4 V.
+
+A changing magnetic flux of 1 Wb/s in a coil induces an EMF of 1 V. This is a statement of:
+
+Faraday's Law of Induction, E = -N (dΦ/dt), directly relates the rate of change of magnetic flux to the induced EMF. For N=1, a rate of 1 Wb/s produces 1 V.
+
+If the current through an inductor is doubled, the energy stored in it:
+
+The energy stored is given by E = 1/2 LI². If I is doubled, the energy becomes 1/2 L(2I)² = 4(1/2 LI²), which is four times the original energy.
+
+The operation of a metal detector is based on:
+
+A metal detector uses a coil to generate a changing magnetic field. When a metal object is nearby, this field induces eddy currents in the metal. These currents, in turn, generate their own magnetic field that is detected by a second coil in the detector.
+
+In a velocity selector, the net force on a charged particle is zero. This means the magnetic force and the electric force are:
+
+For the net force to be zero, the electric force (FE = qE) and the magnetic force (FB = qvB) must be equal in magnitude and point in opposite directions, so they cancel out.
+
+A transformer cannot work with a DC source because:
+
+A steady DC current creates a constant magnetic field and thus a constant magnetic flux. Transformers require a \*changing\* magnetic flux to induce a voltage in the secondary coil, according to Faraday's Law.
+
+The SI unit for magnetic field strength (B) is the Tesla (T). An equivalent unit is:
+
+From the force equation on a wire, F=ILB, we can rearrange to B=F/IL. The units are Newtons / (Amperes \* meters).
+
+A current-carrying loop is placed in a uniform magnetic field. The net magnetic force on the loop is:
+
+In a uniform magnetic field, the forces on opposite sides of the loop are equal in magnitude and opposite in direction, so they cancel out, resulting in zero net force.
+
+The final image on the screen of a Cathode Ray Oscilloscope is:
+
+The electron beam strikes a fluorescent screen, causing a single point to glow. This spot is then moved around by deflection plates to trace out a waveform.
+
+An ideal transformer with a primary voltage of 240 V has a secondary voltage of 12 V. If the current in the secondary coil is 2.0 A, what is the current in the primary coil?
+
+For an ideal transformer, input power equals output power (VpIp = VsIs). So, Ip = (VsIs) / Vp = (12 V \* 2.0 A) / 240 V = 0.1 A.
+
+The phenomenon where a changing current in one coil induces an EMF in a neighboring coil is called:
+
+This is the definition of mutual induction, the principle behind transformers.
+
+Increasing the frequency of AC supply to a transformer will:
+
+The output voltage of an ideal transformer depends on the turns ratio and the input voltage, not the frequency.
+
+A wire loop is rotated in a uniform magnetic field. The frequency of rotation is doubled. The maximum induced EMF will:
+
+The induced EMF in a generator is given by E = NBAωsin(ωt). Since angular frequency ω = 2πf, the maximum EMF (E\_max = NBAω) is directly proportional to the frequency. Doubling the frequency doubles the maximum EMF.
+
+Paramagnetic materials are weakly:
+
+Paramagnetic materials have unpaired electrons that align with an external magnetic field, causing a weak attraction.
+
+A charge of 2.0 µC moves at a speed of 3 x 10⁶ m/s perpendicularly through a magnetic field of 0.5 T. What is the magnitude of the magnetic force on the charge?
+
+Using F = qvBsin(θ), with sin(90°)=1. F = (2 x 10⁻⁶ C) \* (3 x 10⁶ m/s) \* (0.5 T) = 3.0 N.
+
+What is the function of the soft iron core in a moving coil galvanometer?
+
+The soft iron core concentrates the magnetic field lines, making the field stronger. When shaped cylindrically, it also ensures the field is radial, meaning the torque is proportional to the current for a wider range of deflection.
+
+The power loss in a transformer due to the repeated magnetization and demagnetization of the core is called:
+
+This energy loss is represented by the area of the material's hysteresis loop. It is the energy required to re-orient the magnetic domains in the core with each AC cycle.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+If a magnet is cut into two pieces, what is the result?
+
+Cutting a magnet simply creates two smaller magnets, each complete with its own north and south pole.
+
+The magnetic force is strongest when the charged particle moves \_\_\_\_\_\_\_\_ to the magnetic field lines.
+
+The force is given by F=qvBsin(θ). The sine function is maximum (value of 1) when the angle θ is 90 degrees.
+
+An ideal solenoid is one whose:
+
+This condition ensures that the magnetic field inside is strong and uniform, and the field outside is negligible, which is the definition of an ideal solenoid.
+
+The output of a DC generator is a:
+
+Due to the commutator action, the output voltage rises from zero to a maximum and back to zero, but always with the same polarity. This creates a pulsating DC.
+
+An inductor with an inductance of 80 mH carries a steady current of 5 A. How much energy is stored in its magnetic field?
+
+Using E = 1/2 LI². E = 0.5 \* (80 x 10⁻³ H) \* (5 A)² = 0.5 \* 0.08 \* 25 = 1.0 J.
+
+Two inductors of inductance L₁ and L₂ are connected in series. The total inductance is:
+
+Similar to resistors in series, inductances in series add up (assuming no mutual inductance).
+
+The study of charges at rest is called:
+
+This branch of physics deals with the phenomena and properties of stationary or slow-moving electric charges with no acceleration.
+
+In a mass spectrometer, a charged particle's path radius is proportional to its:
+
+The radius of the circular path is given by r = mv/qB. Therefore, for a given velocity, field, and charge, the radius is directly proportional to the mass. This allows separation of isotopes.
+
+A flat surface with an area of 0.2 m² is placed in a uniform magnetic field of 0.5 T. What is the magnetic flux through the area if the field is perpendicular to the surface?
+
+Using Φ = BAcos(θ). Since the field is perpendicular to the surface, the angle θ with the normal is 0°, and cos(0°)=1. So, Φ = (0.5 T) \* (0.2 m²) = 0.1 Wb.
+
+Lenz's Law provides the \_\_\_\_\_\_\_\_ of the induced current.
+
+Lenz's Law is specifically used to determine the direction of the induced current by stating that it will flow in a direction that opposes the change in flux that created it.
+
+## Other Physics Topics MCQs
+
+We have also prepared the following set of MCQs for your Entry test preparation like MDCAT, ECAT and Armed forces test. WE WISH YOU BEST OF LUCK!
+
+[Force And Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/force-and-motion-mcqs/)
+
+[Work And Energy MCQs](https://www.mcquniverse.pk/physics-mcqs/work-and-energy-mcqs/)
+
+[Rotational And Circular Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/rotational-and-circular-motion-mcqs/)
+
+[Waves MCQs](https://www.mcquniverse.pk/physics-mcqs/waves-mcqs/)
+
+[Thermodynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/thermodynamics-mcqs/)
+
+[Electrostatics MCQs](https://www.mcquniverse.pk/physics-mcqs/electrostatics-mcqs/)
+
+[Current Electricity MCQs](https://www.mcquniverse.pk/physics-mcqs/current-electricity-mcqs/)
+
+[Electromagnetism MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetism-mcqs/)
+
+[Electromagnetic Induction MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetic-induction-mcqs/)
+
+[Electronics MCQs](https://www.mcquniverse.pk/physics-mcqs/electronics-mcqs/)
+
+[Dawn Of Modern Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/dawn-of-modern-physics-mcqs/)
+
+[Atomic Spectra MCQs](https://www.mcquniverse.pk/physics-mcqs/atomic-spectra-mcqs/)
+
+[Nuclear Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/nuclear-physics-mcqs/)
+
+[Fluid Dynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/fluid-dynamics-mcqs/)
+
+[Vectors And Equilibrium MCQs](https://www.mcquniverse.pk/physics-mcqs/vectors-and-equilibrium-mcqs/)
+
+### Leave a Reply [Cancel reply](/physics-mcqs/electromagnetism-mcqs/#respond)
+
+Your email address will not be published. Required fields are marked \*
+
+Comment \*
+
+Name\*
+
+Email\*
+
+Website
+
+Save my name, email, and website in this browser for the next time I comment.
+
+### [MCQUniverse](https://www.mcquniverse.pk/)
+
+Free quizzes for all of you. Have A Nice Day!
+
+## Contact Info
+
+**Address:** Multan ,Punjab ,Pakistan
+
+**Email:** 
+admin@mcquniverse.pk
+
+## Info Links
+
+## MCQs Categories
+
+## Online Quiz
+
+© 2025 MCQ Universe. All rights reserved. Helping Pakistani students achieve their dreams.
+
+### Unlock All Quizzes & MCQs
+
+📌 How to Activate:
+
+**Alert:**Content is protected.

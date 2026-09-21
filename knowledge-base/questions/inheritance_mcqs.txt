@@ -1,0 +1,1444 @@
+ [Skip to content](#content)
+
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[MCQUniverse](https://www.mcquniverse.pk/)
+
+[Sign up](https://www.mcquniverse.pk/)[Sign up](https://www.mcquniverse.pk/)
+
+# Most Important Inheritance MCQs with Answers | Biology MCQs
+
+## Inheritance MCQs with Answers
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Who is famously known as the 'Father of Genetics' for his foundational work on heredity?
+
+Charles Darwin
+
+James Watson
+
+Francis Crick
+
+**Gregor Mendel**
+
+**Explanation:**
+
+Gregor Mendel conducted pioneering experiments with pea plants that laid the groundwork for modern genetics, hence earning him the title 'Father of Genetics'.
+
+The study of heredity and variation of inherited characteristics is called:
+
+**Explanation:**
+
+Genetics is the branch of biology concerned with the study of genes, genetic variation, and heredity in organisms.
+
+A specific position on a chromosome occupied by a gene is called a:
+
+**Explanation:**
+
+A locus is the specific physical location or position of a gene on a chromosome.
+
+Different forms of the same gene are known as:
+
+**Explanation:**
+
+Alleles are alternative forms of a gene that are found at the same place on a chromosome.
+
+In a monohybrid cross, if a purebred tall pea plant (TT) is crossed with a purebred short pea plant (tt), what will be the genotype of the F1 generation?
+
+A mix of TT and tt
+
+**Explanation:**
+
+All offspring in the F1 generation will be heterozygous (Tt) because 'T' is dominant over 't'.
+
+What is the phenotypic ratio observed in the F2 generation of a monohybrid cross involving complete dominance?
+
+**Explanation:**
+
+For a monohybrid cross with COMPLETE DOMINANCE, the F2 phenotypic ratio is typically 3 dominant : 1 recessive.
+
+Which of the following terms describes an individual with two identical alleles for a particular gene?
+
+**Explanation:**
+
+Homozygous refers to an individual having two identical alleles for a specific gene (e.g., TT or tt).
+
+The observable physical characteristics of an organism, determined by its genetic makeup, are called its:
+
+Allele
+
+**Explanation:**
+
+Phenotype refers to the observable characteristics of an organism, resulting from gene expression and environmental factors.
+
+If the genotype of an organism is 'Aa', it is considered to be:
+
+Homozygous dominant
+
+Homozygous recessive
+
+**Heterozygous**
+
+**Explanation:**
+
+An individual with two different alleles (Aa) is described as heterozygous.
+
+The Law of Segregation states that:
+
+Alleles for different traits assort independently.
+
+Dominant alleles always mask recessive alleles.
+
+Genes located on the same chromosome are always inherited together.
+
+**Each individual has two alleles for a trait, which separate during gamete formation.**
+
+**Explanation:**
+
+Mendel's Law of Segregation states that during gamete formation, the two alleles for a heritable trait separate so each gamete gets only one allele.
+
+A recessive allele expresses its trait:
+
+Only if present with a dominant allele.
+
+Only if in a heterozygous condition.
+
+Either in heterozygous or homozygous form.
+
+**Only if in a homozygous condition.**
+
+**Explanation:**
+
+A recessive allele only shows its effect when an organism has two copies of that allele, i.e., is homozygous recessive.
+
+What is the genotypic ratio observed in the F2 generation of a monohybrid cross involving complete dominance?
+
+3:1
+
+9:3:3:1
+
+1:1
+
+**1:2:1**
+
+**Explanation:**
+
+The genotypic ratio is 1 homozygous dominant : 2 heterozygous : 1 homozygous recessive.
+
+If a heterozygous tall pea plant (Tt) is self-pollinated, what percentage of the offspring will be short (tt)?
+
+**Explanation:**
+
+The offspring will have a 1:2:1 genotypic ratio, so 1 out of 4 (25%) will be short (tt).
+
+In a dihybrid cross, how many different phenotypic combinations are expected in the F2 generation under independent assortment?
+
+2
+
+3
+
+9
+
+**4**
+
+**Explanation:**
+
+A dihybrid cross produces four distinct phenotypic combinations in the F2 generation in the ratio 9:3:3:1.
+
+The phenotypic ratio of 9:3:3:1 is characteristic of which type of cross?
+
+Monohybrid cross
+
+Test cross
+
+Back cross
+
+**Dihybrid cross**
+
+**Explanation:**
+
+The 9:3:3:1 phenotypic ratio is seen in the F2 generation of a dihybrid cross between two heterozygous individuals.
+
+Mendel's Law of Independent Assortment states that:
+
+Alleles for the same trait segregate independently.
+
+Dominant alleles are always expressed.
+
+Traits are always inherited together.
+
+**Genes located on different chromosomes assort independently during gamete formation.**
+
+**Explanation:**
+
+This law explains how genes located on different chromosomes are inherited independently of one another.
+
+Which of the following is a limitation of the Law of Independent Assortment?
+
+It only applies to monohybrid crosses.
+
+It does not account for dominant alleles.
+
+It only applies to purebred organisms.
+
+**It does not apply to linked genes.**
+
+**Explanation:**
+
+Genes that are located close together on the same chromosome (linked genes) do not assort independently.
+
+Dihybrid crosses demonstrate that the inheritance of one trait:
+
+Always influences the inheritance of another trait.
+
+Is completely dependent on the inheritance of another trait.
+
+Is only possible if traits are recessive.
+
+**Does not affect the inheritance of another trait, if genes are unlinked.**
+
+**Explanation:**
+
+Dihybrid crosses show that traits controlled by different genes on separate chromosomes assort independently.
+
+The usefulness of the Law of Independent Assortment lies in explaining:
+
+Why all offspring are identical.
+
+How recessive traits disappear from a population.
+
+The process of natural selection.
+
+**The production of new combinations of traits in offspring.**
+
+**Explanation:**
+
+Independent assortment contributes to genetic diversity by producing new combinations of alleles in offspring.
+
+In a cross between two pea plants heterozygous for seed shape (Rr) and seed color (Yy), how many unique gametes can each parent produce?
+
+1
+
+2
+
+3
+
+**4**
+
+**Explanation:**
+
+Each RrYy parent can produce 4 unique gametes: RY, Ry, rY, and ry due to independent assortment.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+What is the phenotype ratio in the F2 generation of a dihybrid cross?
+
+1:1:1:1
+
+3:1
+
+4:3
+
+**9:3:3:1**
+
+**Explanation:**
+
+9 both dominant : 3 first dominant, second recessive : 3 first recessive, second dominant : 1 both recessive.
+
+If a parent has the genotype AABb, what are the possible gametes it can produce?
+
+AA, Bb
+
+A, B
+
+AABB, AAbb
+
+**AB, Ab**
+
+**Explanation:**
+
+The parent can produce AB and Ab gametes since AA only contributes A, and Bb contributes either B or b.
+
+The scope of independent assortment in variation refers to its role in:
+
+Reducing genetic diversity.
+
+Increasing the number of identical offspring.
+
+Ensuring all offspring are purebred.
+
+**Creating new combinations of alleles on different chromosomes.**
+
+**Explanation:**
+
+Independent assortment increases genetic variation by mixing alleles of genes on different chromosomes.
+
+What is the probability of a coin landing on heads twice in a row?
+
+1/2
+
+1/8
+
+1
+
+**1/4**
+
+**Explanation:**
+
+The probability of heads in one toss is 1/2. For two tosses: 1/2 × 1/2 = 1/4.
+
+In a cross between two individuals, Aa x Aa, what is the probability of producing an 'AA' offspring?
+
+1/2
+
+3/4
+
+1
+
+**1/4**
+
+**Explanation:**
+
+From the Punnett square: AA, Aa, Aa, aa → 1 out of 4 chance for AA, which is 1/4.
+
+If the probability of inheriting allele 'A' is 1/2 and the probability of inheriting allele 'B' is 1/2, what is the probability of inheriting both 'A' and 'B' (assuming independent assortment)?
+
+1/2
+
+1/8
+
+1
+
+**1/4**
+
+**Explanation:**
+
+Using the product rule: 1/2 × 1/2 = 1/4 chance of inheriting both A and B.
+
+A pedigree chart is a diagram that shows:
+
+The dietary habits of a family.
+
+The migratory patterns of a species.
+
+The evolutionary timeline of an organism.
+
+**The inheritance of traits across generations in a family.**
+
+**Explanation:**
+
+A pedigree is used to track the inheritance of traits across generations in a family.
+
+If a couple has three children, what is the probability that all three will be girls?
+
+1/2
+
+1/4
+
+1/6
+
+**1/8**
+
+**Explanation:**
+
+Each child has a 1/2 chance of being a girl. For three girls: 1/2 × 1/2 × 1/2 = 1/8.
+
+In incomplete dominance, the heterozygous genotype results in a phenotype that is:
+
+Identical to one of the homozygous parents.
+
+A combination of both parental phenotypes appearing distinctly.
+
+Completely new and unrelated to either parent.
+
+**Identical to neither homozygous parent, but an intermediate blend.**
+
+**Explanation:**
+
+In incomplete dominance, neither allele is completely dominant over the other, leading to a heterozygous phenotype that is an intermediate blend.
+
+Which of the following is a classic example of incomplete dominance?
+
+Human ABO blood groups
+
+Human MN blood groups
+
+Pea plant height
+
+**Flower color in 4 O'clock plants**
+
+**Explanation:**
+
+Flower color in 4 O'clock plants (Mirabilis jalapa) shows incomplete dominance, producing pink flowers from red and white parents.
+
+If a red-flowered 4 O'clock plant (RR) is crossed with a white-flowered 4 O'clock plant (WW), what is the phenotype of the F1 generation?
+
+All red flowers
+
+All white flowers
+
+A mix of red and white flowers
+
+**All pink flowers**
+
+**Explanation:**
+
+Crossing RR and WW in incomplete dominance results in all heterozygous RW offspring, which are pink.
+
+What is the genotypic ratio expected in the F2 generation of a cross between two pink-flowered 4 O'clock plants?
+
+3:1
+
+9:3:3:1
+
+1:1
+
+**1:2:1**
+
+**Explanation:**
+
+RW x RW gives genotypes: 1 RR (red), 2 RW (pink), 1 WW (white) — a 1:2:1 ratio.
+
+In incomplete dominance, the phenotypic ratio of the F2 generation for a monohybrid cross is typically:
+
+3:1
+
+9:3:3:1
+
+1:1
+
+**1:2:1**
+
+**Explanation:**
+
+In incomplete dominance, phenotypes match genotypes in a 1:2:1 ratio.
+
+A plant with pink flowers is crossed with a white-flowered plant. If pink is heterozygous (RW) and white is homozygous (WW), what percentage of the offspring will have white flowers?
+
+0%
+
+25%
+
+100%
+
+**50%**
+
+**Explanation:**
+
+RW x WW → 50% RW (pink), 50% WW (white). So, 50% white flowers.
+
+In incomplete dominance, if a character has alleles R (red) and W (white), an individual with genotype RW would exhibit which phenotype?
+
+Red
+
+White
+
+Red and white patches
+
+**Pink**
+
+**Explanation:**
+
+RW shows an intermediate phenotype — pink — in incomplete dominance.
+
+Co-dominance is characterized by:
+
+The blending of parental phenotypes in heterozygotes.
+
+The complete masking of one allele by another.
+
+The expression of a trait only in homozygous recessive individuals.
+
+**The simultaneous and distinct expression of both alleles in the heterozygote.**
+
+**Explanation:**
+
+In co-dominance, both alleles are fully and distinctly expressed in the heterozygote.
+
+Which of the following human blood group systems is a classic example of co-dominance?
+
+Rh blood group
+
+MN blood group
+
+ABO blood group
+
+**Both MN and ABO blood groups**
+
+**Explanation:**
+
+Both MN and ABO (specifically A & B alleles) are co-dominant systems.
+
+In the human MN blood group system, an individual with the genotype LMLN will express:
+
+Only M antigen
+
+Only N antigen
+
+Neither M nor N antigens
+
+**Both M and N antigens**
+
+**Explanation:**
+
+LMLN genotype expresses both M and N antigens due to co-dominance.
+
+What is a key difference between incomplete dominance and co-dominance?
+
+In incomplete dominance, only one allele is expressed in phenotype; in co-dominance, both phenotypes are distinctly expressed.
+
+In incomplete dominance, dominant alleles are stronger; in co-dominance, they are weaker.
+
+Incomplete dominance involves multiple genes; co-dominance involves only one.
+
+**In incomplete dominance, a blend of phenotypes occurs; in co-dominance, both phenotypes are distinctly expressed.**
+
+**Explanation:**
+
+Incomplete dominance results in blended phenotype; co-dominance results in both traits showing distinctly.
+
+If two individuals, both with MN blood type, have children, what are the possible genotypes of their offspring?
+
+Only LMLN
+
+Only LMLM and LNLN
+
+Only LMLM and LMLN
+
+**LMLM, LMLN, and LNLN**
+
+**Explanation:**
+
+LMLN × LMLN yields LMLM, LMLN, and LNLN — classic 1:2:1 ratio.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Which genetic interaction results in a third, distinct phenotype that is not a blend, but shows traits of both alleles?
+
+Complete dominance
+
+Incomplete dominance
+
+Epistasis
+
+**Co-dominance**
+
+**Explanation:**
+
+Co-dominance results in both traits being fully and distinctly expressed.
+
+The presence of more than two alleles for a gene in a population is known as:
+
+Incomplete dominance
+
+Co-dominance
+
+Polygenic inheritance
+
+**Multiple alleles**
+
+**Explanation:**
+
+Multiple alleles means more than two allele options exist in the gene pool, though each individual inherits only two.
+
+The best-known example of multiple alleles in humans is the inheritance of:
+
+Eye color
+
+Height
+
+Sex-linked traits
+
+**ABO blood groups**
+
+**Explanation:**
+
+ABO blood grouping is a classic example of multiple alleles (IA, IB, i).
+
+How many alleles are responsible for determining the ABO blood group in humans at the population level?
+
+1
+
+2
+
+4
+
+**3**
+
+**Explanation:**
+
+There are three common alleles — IA, IB, and i — for ABO blood group determination.
+
+An individual with blood type A can have which of the following genotypes?
+
+IBIB or IBi
+
+IAIB
+
+ii
+
+**IAIA or IAi**
+
+**Explanation:**
+
+Blood type A can be either IAIA (homozygous) or IAi (heterozygous).
+
+A person with AB blood type has the genotype:
+
+IAIA
+
+IBIB
+
+ii
+
+**IAIB**
+
+**Explanation:**
+
+AB blood type results from co-dominant alleles IA and IB being present together.
+
+If a child has O blood type (genotype ii), and the mother has A blood type (genotype IAi), what must be the father's blood type genotype?
+
+IAIA
+
+IBIB
+
+ii
+
+**It must contain at least one 'i' allele (e.g., IAi, IBi, or ii).**
+
+**Explanation:**
+
+To produce an 'ii' child, both parents must pass on an 'i'. So the father must carry at least one 'i'.
+
+Which allele in the ABO blood group system is recessive to both IA and IB alleles?
+
+IA
+
+IB
+
+All are co-dominant
+
+**i**
+
+**Explanation:**
+
+The 'i' allele is recessive and only expresses the O phenotype when paired as ii.
+
+Which of the following antigens are present on the surface of red blood cells in an individual with B blood type?
+
+A antigens
+
+Both A and B antigens
+
+Neither A nor B antigens
+
+**B antigens**
+
+**Explanation:**
+
+Individuals with blood type B have B antigens on the surface of their red blood cells.
+
+A person with AB blood type has which antibodies in their plasma?
+
+Anti-A antibodies
+
+Anti-B antibodies
+
+Both Anti-A and Anti-B antibodies
+
+**Neither Anti-A nor Anti-B antibodies**
+
+**Explanation:**
+
+AB individuals have both A and B antigens and therefore lack anti-A and anti-B antibodies to prevent agglutination.
+
+An individual with O blood type produces which of the following antibodies?
+
+Anti-A only
+
+Anti-B only
+
+Neither Anti-A nor Anti-B
+
+**Both Anti-A and Anti-B**
+
+**Explanation:**
+
+People with O blood type lack A and B antigens and produce both anti-A and anti-B antibodies.
+
+Why is O-negative blood considered the "universal donor"?
+
+It has both A and B antigens.
+
+It has A, B, and Rh antibodies.
+
+It only contains plasma.
+
+**It lacks A, B, and Rh antigens.**
+
+**Explanation:**
+
+O-negative blood lacks A, B, and Rh antigens, minimizing the risk of agglutination in recipients.
+
+Why is AB-positive blood considered the "universal recipient"?
+
+It lacks all major antigens.
+
+It has a unique type of hemoglobin.
+
+It is very rare.
+
+**It has no antibodies against A, B, or Rh antigens.**
+
+**Explanation:**
+
+AB-positive individuals can receive any ABO or Rh blood type as they do not have anti-A, anti-B, or anti-Rh antibodies.
+
+If a person with A blood type receives a transfusion of B blood type, what will likely happen?
+
+The blood will mix without issue.
+
+The donor's antibodies will attack the recipient's cells.
+
+The recipient's blood type will change to AB.
+
+**The recipient's antibodies will attack donor's cells.**
+
+**Explanation:**
+
+Anti-B antibodies in the recipient will attack B antigens, causing agglutination and a transfusion reaction.
+
+Which of the following genotypes represents a person with B blood type?
+
+I A I A
+
+I A I B
+
+ii
+
+**I B I B or I B i**
+
+**Explanation:**
+
+B blood type results from either I B I B (homozygous) or I B i (heterozygous) genotypes.
+
+A couple has blood types A and B. Can they have a child with O blood type?
+
+No, never.
+
+Yes, if the father is homozygous dominant.
+
+Only if father or mother is O.
+
+**Yes, if both parents are heterozygous.**
+
+**Explanation:**
+
+If both A and B parents carry the recessive 'i' allele, their child can inherit ii and be type O.
+
+Which blood type lacks both A and B antigens on the surface of red blood cells?
+
+A
+
+B
+
+AB
+
+**O**
+
+**Explanation:**
+
+Type O blood lacks both A and B surface antigens.
+
+The presence or absence of which antigen determines if a person's blood type is positive or negative within the Rh system?
+
+A antigen
+
+B antigen
+
+M antigen
+
+**D antigen (Rh factor)**
+
+**Explanation:**
+
+The Rh system is based on the D antigen. Its presence makes blood Rh-positive.
+
+An Rh-negative individual will develop anti-Rh antibodies if exposed to:
+
+Rh-negative blood
+
+Plasma
+
+White blood cells
+
+**Rh-positive blood**
+
+**Explanation:**
+
+Exposure to Rh-positive blood causes the Rh-negative person to produce anti-Rh antibodies.
+
+What is the primary concern for a second Rh-positive fetus carried by an Rh-negative mother if no preventative measures are taken?
+
+The fetus will develop Rh-negative blood.
+
+The mother will become Rh-positive.
+
+The fetus will spontaneously abort due to ABO incompatibility.
+
+**Maternal anti-Rh antibodies may cross the placenta and destroy fetal red blood cells.**
+
+**Explanation:**
+
+If the mother was sensitized in a previous pregnancy, anti-Rh antibodies can attack the second Rh-positive fetus's RBCs.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Hemolytic Disease of the Newborn (Erythroblastosis Fetalis) is most likely to occur when:
+
+Rh-positive mother carries her second or subsequent Rh-negative fetus.
+
+Rh-negative mother carries her first Rh-positive fetus.
+
+Rh-positive mother receives Rh-negative blood.
+
+**Rh-negative mother carries her second or subsequent Rh-positive fetus.**
+
+**Explanation:**
+
+This condition arises in Rh-negative mothers with Rh-positive fetuses after sensitization in a prior pregnancy.
+
+A common preventative measure to avoid Erythroblastosis Fetalis is the administration of:
+
+Antibiotics to the mother.
+
+Vitamin K to the newborn.
+
+Blood transfusion to the mother during pregnancy.
+
+**Rh immunoglobulin (RhoGAM) to the Rh-negative mother.**
+
+**Explanation:**
+
+RhoGAM prevents sensitization of the Rh-negative mother's immune system to Rh-positive fetal cells.
+
+Which of the following is NOT a typical symptom or consequence of severe Erythroblastosis Fetalis in a newborn?
+
+Anemia
+
+Jaundice
+
+Enlarged spleen and liver
+
+**Increased red blood cell production**
+
+**Explanation:**
+
+Increased RBC production is a compensatory response, not a symptom. The condition is marked by anemia and jaundice.
+
+The Rh factor is an antigen found on the surface of:
+
+White blood cells
+
+Platelets
+
+Plasma proteins
+
+**Red blood cells**
+
+**Explanation:**
+
+The Rh factor is located on red blood cells and plays a major role in blood compatibility.
+
+If a father is Rh-positive (homozygous dominant RR) and the mother is Rh-negative (rr), what is the likelihood of their first child being Rh-positive?
+
+0%
+
+25%
+
+50%
+
+**100%**
+
+**Explanation:**
+
+All offspring will be heterozygous (Rr) and thus Rh-positive.
+
+Besides ABO and Rh, which other blood group system is an example of co-dominance?
+
+Duffy blood group
+
+Kidd blood group
+
+Kell blood group
+
+**MN blood group**
+
+**Explanation:**
+
+The MN blood group is a classic example of co-dominance where both M and N antigens are expressed.
+
+Minor blood group systems, other than ABO and Rh, generally:
+
+Cause severe complications in all blood transfusions.
+
+Are only found in very rare individuals.
+
+Determine blood type compatibility more than ABO and Rh.
+
+**Usually do not complicate routine blood transfusions.**
+
+**Explanation:**
+
+Minor blood group systems exist but typically do not interfere with standard blood transfusions.
+
+The fact that there are more than two hundred minor blood groups indicates:
+
+That only ABO and Rh are important.
+
+That blood transfusions are rarely safe.
+
+That blood types are constantly changing.
+
+**A high level of genetic diversity in human blood characteristics.**
+
+**Explanation:**
+
+The existence of over 200 minor blood groups highlights genetic diversity in blood typing.
+
+Which of the following best defines polygenic inheritance?
+
+A single gene affecting multiple traits.
+
+Genes located on sex chromosomes.
+
+Genes that blend their effects.
+
+**Multiple genes affecting a single trait.**
+
+**Explanation:**
+
+Polygenic inheritance refers to the inheritance of quantitative traits (e.g., height, skin color) controlled by two or more genes, each contributing additively.
+
+Human skin color is a classic example of a trait governed by:
+
+Monogenic inheritance
+
+Co-dominance
+
+Sex-linked inheritance
+
+**Polygenic inheritance**
+
+**Explanation:**
+
+Human skin color shows continuous variation, characteristic of polygenic inheritance where multiple genes contribute.
+
+Which of the following is a characteristic of polygenic traits?
+
+They exhibit discrete phenotypic categories.
+
+They are always controlled by a single dominant allele.
+
+They show clear Mendelian ratios (e.g., 3:1).
+
+**Their expression is often influenced by environmental factors.**
+
+**Explanation:**
+
+Polygenic traits often show continuous variation and are influenced by environmental factors besides genetic contribution.
+
+If genes A, B, and C all contribute to the same trait additively, this is an example of:
+
+Epistasis
+
+Incomplete dominance
+
+Pleiotropy
+
+**Polygenic inheritance**
+
+**Explanation:**
+
+Multiple genes contributing additively to a trait indicate polygenic inheritance.
+
+The inheritance of grain color in wheat, which can show a range of shades from white to dark red, is an example of:
+
+Mendelian inheritance
+
+Sex-linked inheritance
+
+Lethal alleles
+
+**Polygenic inheritance**
+
+**Explanation:**
+
+Grain color in wheat shows continuous variation controlled by multiple genes, a hallmark of polygenic inheritance.
+
+What is epistasis?
+
+When one gene affects multiple, unrelated traits.
+
+When two alleles present at different locus are expressed simultaneously.
+
+When a gene has more than two alleles in a population.
+
+**When one gene's expression is masked by another gene at a different locus.**
+
+**Explanation:**
+
+Epistasis is when one gene masks or modifies the expression of another gene at a different locus.
+
+The coat color in Labrador retrievers, where the E/e gene determines pigment deposition and the B/b gene determines black/brown, is a classic example of:
+
+Incomplete dominance
+
+Co-dominance
+
+Polygenic inheritance
+
+**Epistasis**
+
+**Explanation:**
+
+In Labradors, the E/e gene is epistatic to B/b; ee genotype masks the B/b effect, resulting in yellow coat.
+
+In epistasis, the gene that masks or modifies the expression of another gene is called the:
+
+Hypostatic gene
+
+Recessive gene
+
+Modifier gene
+
+**Epistatic gene**
+
+**Explanation:**
+
+The gene that masks/modifies another's expression in epistasis is the epistatic gene.
+
+A common modified Mendelian phenotypic ratio observed in recessive epistasis (e.g., in sweet peas for pigment) is:
+
+9:3:3:1
+
+12:3:1
+
+1:2:1
+
+**9:3:4**
+
+**Explanation:**
+
+Recessive epistasis typically shows a 9:3:4 phenotypic ratio.
+
+In the pigment production in sweet peas, if a recessive genotype (cc) prevents the production of color regardless of the other gene's alleles (A/a), this is an example of:
+
+Dominant epistasis
+
+Complementary gene action
+
+Inhibitory gene action
+
+**Recessive epistasis**
+
+**Explanation:**
+
+Homozygous recessive cc masks the effect of gene A/a, an example of recessive epistasis.
+
+The exchange of genetic material between homologous chromosomes during meiosis is called:
+
+Independent assortment
+
+Segregation
+
+Linkage
+
+**Crossing over**
+
+**Explanation:**
+
+Crossing over during meiosis causes exchange of chromosome segments, increasing genetic variation.
+
+How does crossing over affect genetic variation?
+
+It reduces genetic variation by keeping genes linked.
+
+It ensures that all offspring are identical to parents.
+
+It prevents mutation.
+
+**It creates new combinations of alleles on chromosomes.**
+
+**Explanation:**
+
+Crossing over breaks linkage and creates new allele combinations, increasing genetic diversity.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+If two genes are located very far apart on the same chromosome, their inheritance pattern will most closely resemble that of:
+
+Incomplete dominance.
+
+Complete linkage.
+
+Co-dominance.
+
+**Independent assortment.**
+
+**Explanation:**
+
+Genes far apart have high recombination frequency and behave like independently assorting genes.
+
+Which organism is famously used as a model to study gene linkage and crossing over, particularly concerning traits like wing length and eye color?
+
+Pisum sativum
+
+Homo sapiens
+
+Escherichia coli
+
+**Drosophila melanogaster**
+
+**Explanation:**
+
+Drosophila melanogaster (Fruit fly) is a key genetic model for studying linkage and recombination.
+
+In the XX-XY system of sex determination, which chromosome carries the primary genes responsible for maleness?
+
+X chromosome
+
+Autosomes
+
+Both X and Y chromosomes
+
+**Y chromosome**
+
+**Explanation:**
+
+The Y chromosome carries the SRY gene responsible for male development.
+
+In the XX-XO system of sex determination, What is the genotype for males?
+
+XY
+
+YY
+
+XXY
+
+**XO**
+
+**Explanation:**
+
+Males have one X chromosome and no second sex chromosome (XO).
+
+Which term refers to any chromosome that is not a sex chromosome?
+
+Allosome
+
+Holo chromosome
+
+Heterosome
+
+**Autosome**
+
+**Explanation:**
+
+Autosomes are chromosomes not involved in sex determination.
+
+A trait that is inherited on a sex chromosome (usually the X chromosome) is called:
+
+Autosomal dominant
+
+Autosomal recessive
+
+Sex-limited
+
+**Sex-linked**
+
+**Explanation:**
+
+Sex-linked traits are genes located on sex chromosomes, often X-linked.
+
+Which gender is typically more affected by X-linked recessive disorders in humans?
+
+Females
+
+Both equally
+
+Neither gender is affected
+
+**Explanation:**
+
+Males express X-linked recessive disorders because they have only one X chromosome.
+
+Color blindness in humans is an example of a(n):
+
+Autosomal dominant disorder
+
+Autosomal recessive disorder
+
+Y-linked disorder
+
+**X-linked recessive disorder**
+
+**Explanation:**
+
+Red-green color blindness is an X-linked recessive disorder.
+
+Genes that are located only on the Y chromosome and are passed directly from father to son are called:
+
+X-linked genes
+
+Autosomal genes
+
+Sex-influenced genes
+
+**Holandric genes**
+
+**Explanation:**
+
+Holandric genes are Y-linked genes passed only from father to son.
+
+A trait that appears in both genders but is expressed differently or more frequently in one gender due to hormonal influence is:
+
+Sex-limited
+
+Sex-linked
+
+**Explanation:**
+
+Sex-influenced traits are autosomal traits expressed differently based on sex hormones.
+
+A trait that is expressed only in one gender, despite being present in both genders' genotypes, is:
+
+Sex-linked
+
+Sex-influenced
+
+**Sex-limited**
+
+**Explanation:**
+
+Sex-limited traits express in only one sex even if gene is present in both.
+
+Haemophilia, a blood clotting disorder, is a well-known example of a(n):
+
+Autosomal dominant disorder
+
+Autosomal recessive disorder
+
+Y-linked disorder
+
+**X-linked recessive disorder**
+
+**Explanation:**
+
+Haemophilia is an X-linked recessive disorder, mainly affecting males.
+
+If a carrier female for an X-linked recessive disorder (X A X a) has children with an unaffected male (X A Y), what is the probability that a son will be affected?
+
+0%
+
+25%
+
+100%
+
+**50%**
+
+**Explanation:**
+
+A carrier mother has 50% chance of passing the affected X to a son, who will express the disorder.
+
+Duchenne Muscular Dystrophy (DMD) is an X-linked recessive disorder. If a mother is a carrier and the father is unaffected, what is the probability that their daughter will be a carrier?
+
+0%
+
+25%
+
+100%
+
+**50%**
+
+**Explanation:**
+
+Daughters have 50% chance of inheriting the affected X and becoming carriers.
+
+In the ZZ-ZW system of sex determination (e.g., in birds), who is having ZW?
+
+Males
+
+Both males and females
+
+Neither one
+
+**Females**
+
+**Explanation:**
+
+In ZZ-ZW system, females are heterogametic (ZW) while males are homogametic (ZZ).
+
+Which of the following is true regarding sex-linked traits?
+
+They are always found on the Y chromosome.
+
+They are inherited independently of sex.
+
+They only affect reproductive organs.
+
+**Their expression pattern can differ between males and females.**
+
+**Explanation:**
+
+Sex-linked traits often show different expression in males and females due to chromosomal differences.
+
+If a trait is controlled by a gene on an autosome, but its expression is only in males, it is an example of a:
+
+Sex-linked trait
+
+Sex-influenced trait
+
+Holandric trait
+
+**Sex-limited trait**
+
+**Explanation:**
+
+Sex-limited traits are expressed only in one sex despite being autosomal.
+
+## Other Biology MCQs
+
+Want to look through some MCQs for your Upcoming tests, take a look at the following Grammar tests:
+
+[Acellular Life MCQs](https://www.mcquniverse.pk/biology-mcqs/acellular-life-mcqs/)
+
+[Enzymes MCQs](https://www.mcquniverse.pk/biology-mcqs/enzymes-mcqs/)
+
+[Cell Structure and Function MCQs](https://www.mcquniverse.pk/biology-mcqs/cell-structure-and-function-mcqs/)
+
+[Bioenergetics MCQs](https://www.mcquniverse.pk/biology-mcqs/bioenergetics-mcqs/)
+
+[Biological Molecules MCQs](https://www.mcquniverse.pk/biology-mcqs/biological-molecules-mcqs/)
+
+[Animalia MCQs](https://www.mcquniverse.pk/biology-mcqs/animalia-mcqs/)
+
+[Prokaryotes MCQs](https://www.mcquniverse.pk/biology-mcqs/prokaryotes-mcqs/)
+
+[Evolution MCQs](https://www.mcquniverse.pk/biology-mcqs/evolution-mcqs/)
+
+[Respiration MCQs](https://www.mcquniverse.pk/biology-mcqs/respiration-mcqs/)
+
+[Reproduction MCQs](https://www.mcquniverse.pk/biology-mcqs/reproduction-mcqs/)
+
+[Plants MCQs](https://www.mcquniverse.pk/biology-mcqs/plants-mcqs/)
+
+[Support and Movement MCQs](https://www.mcquniverse.pk/biology-mcqs/support-and-movement-mcqs/)
+
+[Body Fluids And Circulation MCQs](https://www.mcquniverse.pk/biology-mcqs/body-fluids-and-circulation-mcqs/)
+
+[Inheritance MCQs](https://www.mcquniverse.pk/biology-mcqs/inheritance-mcqs/)
+
+[Immunity MCQs](https://www.mcquniverse.pk/biology-mcqs/immunity-mcqs/)
+
+[Coordination and Control MCQs](https://www.mcquniverse.pk/biology-mcqs/coordination-and-control-mcqs/)
+
+[Hemostasis MCQs](https://www.mcquniverse.pk/biology-mcqs/hemostasis-mcqs/)
+
+[Digestion MCQs](https://www.mcquniverse.pk/biology-mcqs/digestion-mcqs/)
+
+[Biotechnology MCQs](https://www.mcquniverse.pk/biology-mcqs/biotechnology-mcqs/)
+
+### Leave a Reply [Cancel reply](/biology-mcqs/inheritance-mcqs/#respond)
+
+×🌐 Website-Wide Premium Access
+
+### Unlock All Quizzes & MCQs
+
+🚀 **One Subscription Unlocks Everything!** 
+ Get 100% full access to ALL quizzes, MCQs & detailed explanations across the entire website.
+
+1 Week
+
+Rs 199
+
+Full Site Access
+
+BEST VALUE
+
+1 Month
+
+Rs 499
+
+Full Site Access
+
+📌 How to Activate:
+
+1. Send fee for your plan to JazzCash or EasyPaisa below.
+2. Click WhatsApp button & send payment screenshot to Admin.
+3. **Instant Activation** within 10 minutes!
+
+JazzCash 03048961191 Title: Rana HabibUllah
+
+EasyPaisa 03428699409 Title: Rana HabibUllah
+
+ [💬 Send Screenshot on WhatsApp](https://wa.me/923428699409?text=Hi,%20I%20want%20to%20activate%20full%20site%20premium%20access.) Maybe later
+
+ [Student Login](https://www.mcquniverse.pk/dashboard/) 
+
+**Alert:**Content is protected.
+
+Scroll to Top

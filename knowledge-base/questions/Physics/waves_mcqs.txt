@@ -1,0 +1,1456 @@
+ [Skip to content](#content)
+
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[MCQUniverse](https://www.mcquniverse.pk/)
+
+[Sign up](https://www.mcquniverse.pk/)[Sign up](https://www.mcquniverse.pk/)
+
+# Waves MCQs | Physics MCQs
+
+## Waves MCQs
+
+Which of a following is a primary characteristic of a mechanical wave?
+
+It can travel through a vacuum.
+
+It transports energy and matter.
+
+Its speed is constant in all media.
+
+**It requires a medium.**
+
+**Explanation:**
+
+This is the defining feature of a mechanical wave; it needs a substance (solid, liquid, or gas) to travel through.
+
+In a transverse wave, the particles of the medium oscillate in which direction relative to the wave's direction of propagation?
+
+Parallel to propagation.
+
+In a circular motion.
+
+They do not oscillate.
+
+**Perpendicular to propagation.**
+
+**Explanation:**
+
+This is the definition of a transverse wave. Imagine the up-and-down motion of a rope as a wave passes along its length.
+
+The distance between two consecutive crests or troughs of a wave is known as the:
+
+**Explanation:**
+
+This is the spatial period of the wave, the distance over which the wave's shape repeats.
+
+The relationship between wave speed (v), frequency (f), and wavelength (λ) is given by:
+
+v = f / λ
+
+v = λ / f
+
+f = v × λ
+
+**v = f × λ**
+
+**Explanation:**
+
+This fundamental wave equation correctly states that wave speed is the product of how often a wave cycle passes (frequency) and the length of that cycle (wavelength).
+
+Newton's formula for the speed of sound in a gas assumed the process of compressions and rarefactions was:
+
+**Explanation:**
+
+Newton proposed that the temperature of the gas remains constant as the sound wave passes, which means heat exchange has time to occur.
+
+Laplace corrected Newton's formula by suggesting the process is adiabatic. This correction involves multiplying the pressure by a factor of:
+
+**Explanation:**
+
+Newton assumed sound propagation was isothermal, giving v = √(P/ρ). Laplace corrected this by considering the process adiabatic, replacing P with γP, which gives v = √(γP/ρ). Thus, the correction is a factor of √γ.
+
+The speed of sound in a gas is independent of:
+
+**Explanation:**
+
+According to the ideal gas law, if the pressure of a gas changes, its density changes proportionally. Since speed depends on the ratio of elastic modulus (related to pressure) to density, the effect cancels out, making speed independent of pressure.
+
+When two waves meet at a point in a medium simultaneously, the resultant displacement is the vector sum of the individual displacements. This is known as the:
+
+Huygens' Principle
+
+Doppler Effect
+
+Principle of Interference
+
+**Principle of Superposition**
+
+**Explanation:**
+
+This fundamental principle states that the net response at a given place and time caused by two or more stimuli is the sum of the responses which would have been caused by each stimulus individually.
+
+Constructive interference occurs when two waves meet in phase, meaning their path difference is:
+
+(n + 1/2)λ
+
+Odd multiple of λ/4
+
+Zero only
+
+**Explanation:**
+
+This condition ensures that crests align with crests and troughs align with troughs, leading to a resultant wave with maximum amplitude.
+
+The phenomenon of beats is produced by the superposition of two waves of slightly different:
+
+**Explanation:**
+
+The slight difference in frequency causes the waves to periodically drift in and out of phase, producing the characteristic waxing and waning of loudness known as beats.
+
+If two tuning forks of frequencies 256 Hz and 260 Hz are sounded together, the number of beats heard per second is:
+
+**Explanation:**
+
+The beat frequency is equal to the absolute difference between the frequencies of the two sources: |f₁ - f₂| = |260 - 256| = 4 Hz.
+
+When a wave is reflected from a denser medium, what is the phase change it undergoes?
+
+0 degrees
+
+90 degrees
+
+270 degrees
+
+**180 degrees**
+
+**Explanation:**
+
+Reflection from a denser (or fixed) boundary causes the wave to be inverted. This inversion corresponds to a phase shift of 180 degrees.
+
+Stationary waves are formed by the superposition of two identical waves traveling:
+
+In same direction, phase diff π.
+
+In same direction, same phase.
+
+Perpendicular to each other.
+
+**In opposite directions.**
+
+**Explanation:**
+
+The interference of an incident wave and its reflection traveling in the opposite direction creates points of no displacement (nodes) and maximum displacement (antinodes), forming a standing wave.
+
+In a stationary wave, the points of zero amplitude are called:
+
+Antinodes
+
+Crests
+
+Troughs
+
+**Nodes**
+
+**Explanation:**
+
+These are the points that remain stationary at all times due to complete destructive interference.
+
+The distance between two consecutive nodes in a stationary wave is:
+
+λ
+
+λ/4
+
+2λ
+
+**λ/2**
+
+**Explanation:**
+
+A single 'loop' of a standing wave, from one node to the next, spans exactly half a wavelength.
+
+For a stretched string of length L fixed at both ends, the wavelength of the fundamental mode of vibration (first harmonic) is:
+
+L
+
+L/2
+
+4L
+
+**2L**
+
+**Explanation:**
+
+The simplest standing wave pattern on a string fixed at both ends has nodes at the ends and an antinode in the middle. This shape represents half of a full wavelength, so the full wavelength is twice the length of the string.
+
+For an air column in a pipe closed at one end, which of the following is true for the resonant modes?
+
+All harmonics are present.
+
+Only even harmonics are present.
+
+No harmonics are present.
+
+**Only odd harmonics are present.**
+
+**Explanation:**
+
+The requirement of a node at the closed end and an antinode at the open end means that only frequencies that are odd multiples of the fundamental frequency can create standing waves.
+
+The Doppler effect is the apparent change in a wave's \_\_\_\_\_\_\_\_ due to relative motion between the source and the observer.
+
+Speed
+
+Amplitude
+
+Phase
+
+**Frequency**
+
+**Explanation:**
+
+This is the defining characteristic of the Doppler effect. As the source and observer move closer, wave crests are encountered more often (higher frequency), and as they move apart, less often (lower frequency).
+
+When a sound source moves towards a stationary observer, the apparent frequency heard by the observer:
+
+Decreases
+
+Remains the same
+
+Becomes zero
+
+**Increases**
+
+**Explanation:**
+
+The source 'catches up' to the sound waves it emits, effectively compressing them and increasing the frequency at which they reach the observer.
+
+Which of the following is an application of the Doppler effect?
+
+Tuning a musical instrument.
+
+Using sunglasses to reduce glare.
+
+Creating an echo.
+
+**Radar gun for speed measurement.**
+
+**Explanation:**
+
+Radar guns send out a radio wave, which reflects off the moving car. The change in frequency of the reflected wave is measured and used to calculate the car's speed.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+The compressions and rarefactions in a longitudinal wave are analogous to what features of a transverse wave?
+
+Amplitude and wavelength
+
+Nodes and antinodes
+
+Frequency and period
+
+**Crests and troughs**
+
+**Explanation:**
+
+A compression is a region of high density/pressure, similar to a crest (maximum positive displacement). A rarefaction is a region of low density/pressure, similar to a trough (maximum negative displacement).
+
+What happens to the wavelength of a wave when it passes from a denser to a rarer medium?
+
+It decreases.
+
+It remains unchanged.
+
+It becomes zero.
+
+**It increases.**
+
+**Explanation:**
+
+When a wave enters a rarer (less dense) medium, its speed generally increases. Since frequency remains constant, and v=fλ, the wavelength must increase.
+
+The energy of a wave is directly proportional to the square of its:
+
+Wavelength
+
+Frequency
+
+Speed
+
+**Amplitude**
+
+**Explanation:**
+
+The energy transported by a wave is proportional to the square of its amplitude. A wave with twice the amplitude carries four times the energy.
+
+In an open organ pipe (open at both ends), the fundamental frequency corresponds to a standing wave with:
+
+Nodes at both ends.
+
+Node at one end, antinode at other.
+
+Two nodes, three antinodes.
+
+**Antinodes at both ends.**
+
+**Explanation:**
+
+This is the simplest standing wave pattern that can fit in a pipe open at both ends. This pattern (Antinode-Node-Antinode) spans half a wavelength.
+
+For a given temperature, the speed of sound is greatest in which state of matter?
+
+Liquids
+
+Gases
+
+Plasma
+
+**Solids**
+
+**Explanation:**
+
+Solids are generally much more elastic and denser than liquids or gases. The increase in the elastic modulus is far more significant than the increase in density, leading to a much higher speed of sound (v=√(E/ρ)).
+
+The effect of humidity on the speed of sound in air is that the speed:
+
+Decreases
+
+Remains unchanged
+
+Becomes zero
+
+**Increases**
+
+**Explanation:**
+
+Humid air is less dense than dry air because water molecules (H₂O) have less mass than the nitrogen (N₂) and oxygen (O₂) molecules they replace. Since speed is inversely proportional to the square root of density, lower density means higher speed.
+
+Two waves are said to be coherent if they have:
+
+Same amplitude and frequency.
+
+Same speed and amplitude.
+
+Same wavelength and are in phase.
+
+**Same frequency, constant phase difference.**
+
+**Explanation:**
+
+This is the definition of coherence. The phase relationship between the waves does not change over time, which is necessary to observe a stable interference pattern.
+
+The loudness of a sound is most closely related to its:
+
+Frequency
+
+Wavelength
+
+Speed
+
+**Amplitude**
+
+**Explanation:**
+
+Loudness is the human perception of sound intensity, which is directly related to the amplitude of the sound wave. A larger amplitude corresponds to a louder sound.
+
+Which phenomenon demonstrates that light waves are transverse?
+
+Interference
+
+Diffraction
+
+Reflection
+
+**Polarization**
+
+**Explanation:**
+
+Polarization involves restricting the orientation of wave oscillations to a single plane. This is only possible if the oscillations are perpendicular to the direction of wave travel, which is the definition of a transverse wave.
+
+If the tension in a stretched string is quadrupled, its fundamental frequency of vibration becomes:
+
+Half
+
+Quadrupled
+
+Unchanged
+
+**Doubled**
+
+**Explanation:**
+
+The frequency of a vibrating string is proportional to the square root of the tension (f ∝ √T). Therefore, if the tension is quadrupled, the frequency becomes √4 = 2 times the original.
+
+A wave pulse is a disturbance that is:
+
+Continuous and periodic.
+
+Always transverse.
+
+Stationary.
+
+**Of short duration.**
+
+**Explanation:**
+
+A pulse is a single, non-repeated disturbance, like a single flick of a rope.
+
+The time period of a simple pendulum is T. If its length is quadrupled, the new time period will be:
+
+T/2
+
+4T
+
+T/4
+
+**2T**
+
+**Explanation:**
+
+The period of a simple pendulum is given by T = 2π√(L/g). If L becomes 4L, the new period will be 2π√(4L/g) = 2 × (2π√(L/g)) = 2T.
+
+A 'shock wave' or 'sonic boom' is produced when an object travels:
+
+Slower than sound.
+
+At the speed of sound.
+
+In a high-speed circular path.
+
+**Faster than sound.**
+
+**Explanation:**
+
+When an object exceeds the speed of sound, it outruns its own sound waves. These wave fronts pile up and form a cone-shaped shock wave, which is heard as a sonic boom when it passes an observer.
+
+The quality or timbre of a musical sound depends on:
+
+Fundamental frequency only.
+
+Amplitude of the wave.
+
+Speed of sound.
+
+**Harmonics and their intensities.**
+
+**Explanation:**
+
+The quality of a sound or timbre is what distinguishes a violin from a piano playing the same note (same fundamental frequency). This difference is due to the presence of different overtones (harmonics) at various loudness levels.
+
+The bending of waves as they pass through a narrow opening or around an obstacle is called:
+
+Reflection
+
+Refraction
+
+Interference
+
+**Diffraction**
+
+**Explanation:**
+
+This phenomenon describes the spreading out of waves as they encounter a barrier or opening. It is most noticeable when the size of the opening is comparable to the wavelength.
+
+Two points on a wave are in the same phase if the distance between them is:
+
+λ/2
+
+λ/4
+
+λ/3
+
+**nλ**
+
+**Explanation:**
+
+If two points are separated by an integer number of full wavelengths, they are at the exact same point in their respective cycles and are thus in phase.
+
+The speed of a transverse wave on a stretched string is given by v = √(T/μ). The term μ represents:
+
+Mass of the string.
+
+Length of the string.
+
+Tension in the string.
+
+**Linear mass density.**
+
+**Explanation:**
+
+The term μ represents the inertia of the string. A thicker or denser string (higher μ) will have a slower wave speed for a given tension.
+
+If the length of a pipe closed at one end is 0.25 m, what is the wavelength of its fundamental resonant frequency?
+
+0.25 m
+
+0.5 m
+
+2.0 m
+
+**1.0 m**
+
+**Explanation:**
+
+For a pipe closed at one end, the fundamental mode consists of one-quarter of a wavelength fitting inside the pipe (L = λ/4). Therefore, the wavelength is λ = 4L = 4 × 0.25 = 1.0 m.
+
+An observer is moving away from a stationary source of sound. The apparent pitch heard by the observer will be:
+
+Higher than actual pitch.
+
+Same as actual pitch.
+
+Fluctuating.
+
+**Lower than actual pitch.**
+
+**Explanation:**
+
+As the observer moves away, they encounter wave crests less frequently than if they were stationary, resulting in a lower perceived frequency (pitch).
+
+Which of the following does NOT change when a wave enters a new medium?
+
+Speed
+
+Wavelength
+
+Direction
+
+**Frequency**
+
+**Explanation:**
+
+The frequency of a wave is determined by its source and does not change as the wave propagates from one medium to another. The oscillations at the boundary must match on both sides.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+The intensity of a wave from a point source decreases with distance (r) from the source according to which relationship?
+
+I ∝ 1/r
+
+I ∝ r
+
+I ∝ r²
+
+**I ∝ 1/r²**
+
+**Explanation:**
+
+The energy from a point source spreads out over the surface of a sphere, whose area is 4πr². Since the total power is constant, the intensity (Power/Area) is inversely proportional to the square of the distance.
+
+A string vibrates in 5 segments (loops). This corresponds to which harmonic?
+
+3rd harmonic
+
+4th harmonic
+
+10th harmonic
+
+**5th harmonic**
+
+**Explanation:**
+
+For a string fixed at both ends, the number of segments (or antinodes) directly corresponds to the harmonic number. So, 5 segments is the 5th harmonic.
+
+What is the phase difference between particles at a node and an adjacent antinode in a stationary wave?
+
+0 degrees
+
+180 degrees
+
+360 degrees
+
+**90 degrees**
+
+**Explanation:**
+
+Particles at an antinode reach maximum displacement when particles at a node have zero displacement. Their velocity and displacement are 90 degrees out of phase.
+
+The phenomenon of 'resonance' occurs when the frequency of an applied force is:
+
+Much higher than natural frequency.
+
+Much lower than natural frequency.
+
+Half the natural frequency.
+
+**Equal to natural frequency.**
+
+**Explanation:**
+
+When the driving frequency matches the object's natural frequency of vibration, energy is transferred most efficiently, leading to a large increase in the amplitude of oscillation. This is resonance.
+
+A sound wave has a frequency of 500 Hz and a speed of 340 m/s. What is its wavelength?
+
+1.47 m
+
+170000 m
+
+0.50 m
+
+**0.68 m**
+
+**Explanation:**
+
+Using the wave equation v = fλ, we can rearrange to find the wavelength: λ = v/f = 340 / 500 = 0.68 m.
+
+If a wave reflects from a 'free end' or a less dense medium, the reflected wave has a phase change of:
+
+90 degrees
+
+180 degrees
+
+270 degrees
+
+**0 degrees**
+
+**Explanation:**
+
+When reflecting from a boundary that is free to move (a 'soft' reflection), the wave does not get inverted. It reflects with no change in its phase.
+
+In the equation for a progressive wave, y = A sin(kx - ωt), the term 'k' is known as the:
+
+Amplitude
+
+Angular frequency
+
+Phase constant
+
+**Wave number**
+
+**Explanation:**
+
+The Wave number (propagation constant), k, is related to the wavelength by k = 2π/λ. It describes the spatial variation of the wave.
+
+The energy in a stationary wave is:
+
+Transported continuously.
+
+Zero everywhere.
+
+Maximum at the nodes.
+
+**Confined between nodes.**
+
+**Explanation:**
+
+In a stationary wave, energy is not propagated. Instead, it oscillates between kinetic energy of the particles and potential energy of the medium, localized within each loop (between nodes).
+
+A siren (1000 Hz) moves away from an observer towards a cliff at 10 m/s. What is the frequency of the echo heard? (v\_sound = 330 m/s)
+
+970 Hz
+
+1000 Hz
+
+1062 Hz
+
+**1031 Hz**
+
+**Explanation:**
+
+Sound reaching the stationary cliff is Doppler-shifted because the source moves toward it: f\_wall = f \* v/(v - u) = 1000 \* 330/(330 - 10) = 1031.25 Hz. The cliff (stationary) reflects this frequency unchanged, and the stationary observer receives it with no further shift. Hence the echo ≈ 1031 Hz
+
+The second overtone of a closed organ pipe is equivalent to which harmonic?
+
+3rd harmonic
+
+4th harmonic
+
+6th harmonic
+
+**5th harmonic**
+
+**Explanation:**
+
+For a closed pipe, the harmonics are the odd integers (1st, 3rd, 5th, ...). The fundamental is the 1st harmonic. The first overtone is the 3rd harmonic. The second overtone is the 5th harmonic.
+
+The maximum velocity of a particle in a simple harmonic wave (v\_max = ωA) occurs when the particle is at:
+
+The extreme position.
+
+Midway between mean and extreme.
+
+Any point (velocity is constant).
+
+**The equilibrium position.**
+
+**Explanation:**
+
+As the particle passes through its equilibrium position, the restoring force is zero, but its kinetic energy and speed are at their maximum.
+
+How does the speed of sound in air change if the absolute temperature is quadrupled?
+
+Becomes four times faster.
+
+Becomes half as fast.
+
+Remains unchanged.
+
+**Becomes twice as fast.**
+
+**Explanation:**
+
+Since the speed of sound v is proportional to the square root of the absolute temperature T (v ∝ √T), quadrupling T (making it 4T) will change the speed to √4v = 2v.
+
+Two sound waves have frequencies of 400 Hz and 405 Hz. What is the time interval between successive beats?
+
+5 s
+
+805 s
+
+0.0025 s
+
+**0.2 s**
+
+**Explanation:**
+
+The beat frequency is f\_beat = |f₁ - f₂| = |405 - 400| = 5 Hz. The time period (interval) between beats is the reciprocal of the beat frequency, so T = 1/f\_beat = 1/5 = 0.2 s.
+
+An open organ pipe is 0.5 m long. What is the frequency of its third harmonic? (v\_sound = 340 m/s)
+
+340 Hz
+
+680 Hz
+
+510 Hz
+
+**1020 Hz**
+
+**Explanation:**
+
+For an open pipe, all harmonics are present. The fundamental is f₁ = v/2L = 340/1 = 340 Hz. The third harmonic is f₃ = 3f₁ = 3 × 340 = 1020 Hz.
+
+What is the phase difference between two points on a progressive wave separated by a distance of λ/4?
+
+π radians
+
+2π radians
+
+π/4 radians
+
+**π/2 radians**
+
+**Explanation:**
+
+A full wavelength (λ) corresponds to a full cycle, which is a phase of 2π radians. Therefore, a quarter wavelength (λ/4) corresponds to a quarter of a cycle, which is a phase difference of 2π/4 = π/2 radians (90°).
+
+Red shift in the light from distant galaxies is an example of:
+
+Interference
+
+Polarization
+
+Diffraction
+
+**The Doppler effect**
+
+**Explanation:**
+
+Distant galaxies are moving away from us. This relative motion causes the light waves to be 'stretched', shifting their frequency towards the red end of the spectrum (lower frequency, longer wavelength).
+
+When a longitudinal wave travels through a medium, what is transported?
+
+Matter only
+
+Energy and matter
+
+Neither energy nor matter
+
+**Energy only**
+
+**Explanation:**
+
+Waves are a mechanism for transferring energy without a net transfer of the medium itself. The particles of the medium oscillate but return to their equilibrium positions.
+
+The second overtone of a vibrating string fixed at both ends corresponds to which harmonic?
+
+2nd harmonic
+
+4th harmonic
+
+1st harmonic
+
+**3rd harmonic**
+
+**Explanation:**
+
+For a string, the fundamental is the 1st harmonic. The next frequency is the 2nd harmonic (first overtone). The one after that is the 3rd harmonic (second overtone).
+
+In a displacement-position graph of a wave, the amplitude is represented by the:
+
+Horizontal distance between crests.
+
+Slope of the graph.
+
+Area under one cycle.
+
+**Maximum vertical displacement.**
+
+**Explanation:**
+
+The amplitude is defined as the maximum displacement or distance moved by a point on the wave from its equilibrium position.
+
+In a resonance tube, if the first resonance is at length L₁ and the second is at L₂, the wavelength is:
+
+L₂ - L₁
+
+(L₂ - L₁)/2
+
+L₁ + L₂
+
+**2(L₂ - L₁)**
+
+**Explanation:**
+
+The first resonance occurs at approximately L₁ = λ/4 and the second at L₂ = 3λ/4. The difference between them is L₂ - L₁ = 3λ/4 - λ/4 = λ/2. Therefore, λ = 2(L₂ - L₁).
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+In the equation y = A sin(kx - ωt), the term ω represents the:
+
+Wave number
+
+Wave speed
+
+Wavelength
+
+**Angular frequency**
+
+**Explanation:**
+
+The term ω is the angular frequency, which is related to the frequency f by ω = 2πf. It describes the temporal variation of the wave.
+
+If the density of a gas is quadrupled at constant pressure, the speed of sound will:
+
+Be doubled
+
+Become four times
+
+Remain unchanged
+
+**Be halved**
+
+**Explanation:**
+
+The speed of sound is given by v = √(γP/ρ). If density ρ becomes 4ρ, the new speed will be v' = √(γP/(4ρ)) = (1/√4)v = v/2.
+
+Destructive interference will be complete if the two interfering waves have:
+
+Same freq, different amplitudes, π phase difference.
+
+Different freqs, same amplitude, in phase.
+
+Same freq, amplitude, and in phase.
+
+**Same freq, amplitude, and π phase difference.**
+
+**Explanation:**
+
+For complete cancellation, the waves must have the same frequency to maintain a constant phase relationship, the same amplitude so the crests and troughs can perfectly cancel, and a phase difference of π (180°) so a crest meets a trough.
+
+All particles in a stationary wave between two consecutive nodes vibrate:
+
+With same frequency and amplitude.
+
+With different frequencies and amplitudes.
+
+In opposite phase, different amplitudes.
+
+**With same frequency, different amplitudes.**
+
+**Explanation:**
+
+All particles within a single loop oscillate together (in phase) with the same frequency, but their amplitude depends on their position, being zero at the nodes and maximum at the antinode.
+
+The speed of light in a vacuum is 3×10⁸ m/s. What is its speed in a medium with a refractive index of 1.5?
+
+Remains the same.
+
+Increases.
+
+Becomes 4.5×10⁸ m/s.
+
+**Becomes 2×10⁸ m/s.**
+
+**Explanation:**
+
+The refractive index is defined as n = c/v, where c is the speed of light in vacuum and v is the speed in the medium. So, v = c/n = (3×10⁸)/1.5 = 2×10⁸ m/s.
+
+A string of length L has frequency f. If length is halved and tension is doubled, the new frequency will be:
+
+f
+
+2f
+
+f/√2
+
+**2√2 f**
+
+**Explanation:**
+
+The formula for fundamental frequency is f = (1/2L)√(T/μ). The new frequency f' = (1/2(L/2))√(2T/μ) = (1/L)√(2T/μ) = 2√2 × (1/2L)√(T/μ) = 2√2 f.
+
+The 'pitch' of a musical note is determined by its:
+
+Amplitude
+
+Waveform
+
+Speed
+
+**Frequency**
+
+**Explanation:**
+
+Pitch is the perceptual property of sounds that allows their ordering on a frequency-related scale. A high frequency corresponds to a high pitch, and a low frequency corresponds to a low pitch.
+
+A car (20 m/s, horn 500 Hz) chases a cyclist (10 m/s). What is the frequency heard by the cyclist? (v\_sound = 340 m/s)
+
+500 Hz
+
+484.4 Hz
+
+531.3 Hz
+
+**515.6 Hz**
+
+**Explanation:**
+
+The general Doppler formula is f' = f((v ± v\_o)/(v ∓ v\_s)). Since the observer is moving away from the source, we use (v - v\_o) in the numerator. Since the source is moving towards the observer, we use (v - v\_s) in the denominator. So, f' = 500((340 - 10)/(340 - 20)) = 500(330/320) = 515.6 Hz.
+
+Which of these is NOT a mechanical wave?
+
+Sound waves
+
+Water waves
+
+Waves on a string
+
+**Radio waves**
+
+**Explanation:**
+
+Radio waves are a type of electromagnetic radiation and can travel through the vacuum of space. They do not require a medium.
+
+The SI unit of wave number (k) is:
+
+m
+
+s⁻¹
+
+rad/s
+
+**rad/m or m⁻¹**
+
+**Explanation:**
+
+The wave number is defined as k = 2π/λ. Since 2π is in radians (dimensionless) and λ is in meters, the unit for k is radians per meter, or simply inverse meters (m⁻¹).
+
+At the crest of a transverse wave, the instantaneous acceleration of a particle is:
+
+Zero.
+
+Maximal and upward.
+
+Constant.
+
+**Maximal and downward.**
+
+**Explanation:**
+
+A particle undergoing simple harmonic motion has maximum acceleration at its extreme positions. At a crest, the particle is at its maximum positive displacement, and the acceleration is maximum in the negative (downward) direction.
+
+The wave velocity (v) is related to the maximum particle velocity (v\_max) by:
+
+v = v\_max
+
+v = (k/ω)v\_max
+
+No general relation.
+
+**No simple relation.**
+
+**Explanation:**
+
+Wave velocity v = ω/k is constant for a given medium, while maximum particle velocity v\_max = ωA depends on the wave's amplitude and frequency. They are two distinct concepts.
+
+Huygens' principle can be used to explain:
+
+Particle nature of light.
+
+Photoelectric effect.
+
+Quantization of energy.
+
+**Reflection, refraction, and diffraction.**
+
+**Explanation:**
+
+Huygens' principle, which states that every point on a wavefront is a source of secondary wavelets, can be used to derive the laws of reflection and refraction, and to explain the phenomenon of diffraction.
+
+A wave is described by y(x,t) = 0.05 sin(2πx - 4πt). What is its speed?
+
+0.5 m/s
+
+4 m/s
+
+8 m/s
+
+**2 m/s**
+
+**Explanation:**
+
+The general form is y = A sin(kx - ωt). By comparison, k = 2π and ω = 4π. The wave speed is v = ω/k = (4π)/(2π) = 2 m/s.
+
+Ultrasound has a frequency that is:
+
+Below 20 Hz
+
+Between 20 Hz and 20 kHz
+
+Exactly 20 kHz
+
+**Above 20 kHz**
+
+**Explanation:**
+
+Ultrasound refers to sound waves with frequencies higher than the upper audible limit of human hearing, which is typically around 20 kilohertz (20,000 Hz).
+
+When temperature increases, the frequency of a tuning fork:
+
+Increases
+
+Remains the same
+
+Becomes zero
+
+**Decreases**
+
+**Explanation:**
+
+As temperature rises, the metal of the tuning fork expands (thermal expansion). This makes the prongs slightly longer and reduces the elasticity, causing it to vibrate more slowly and thus lowering its frequency.
+
+In stationary waves, the net transfer of energy is:
+
+Maximum
+
+Constant but not zero
+
+Dependent on amplitude
+
+**Zero**
+
+**Explanation:**
+
+A key characteristic of stationary waves is that there is no net flow of energy along the wave. Energy is localized within the segments between nodes, oscillating between kinetic and potential forms.
+
+A sonometer wire of length L vibrates in its fundamental mode. The standing wave has:
+
+One node, one antinode.
+
+One node, two antinodes.
+
+Two nodes, two antinodes.
+
+**Two nodes, one antinode.**
+
+**Explanation:**
+
+The fundamental mode for a wire fixed at both ends has nodes at the two ends and a single antinode in the middle.
+
+Which of the following properties of a wave is independent of the others?
+
+Speed
+
+Wavelength
+
+Frequency
+
+**Amplitude**
+
+**Explanation:**
+
+Amplitude determines the energy of the wave but is independent of the wave's speed, frequency, or wavelength. You can have a high-frequency wave with a small amplitude, or a low-frequency wave with a large amplitude.
+
+Earthquake waves are an example of:
+
+Transverse waves only
+
+Longitudinal waves only
+
+Electromagnetic waves
+
+**Both transverse and longitudinal**
+
+**Explanation:**
+
+Earthquakes generate primary (P) waves, which are longitudinal, and secondary (S) waves, which are transverse, as well as surface waves.
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+Premium Content Unlock Full Access
+
+Get all MCQs & Detailed Explanations
+
+A bat emits ultrasound (50 kHz) and hears an echo after 0.1 s. How far away is the insect? (v\_sound = 340 m/s)
+
+34 m
+
+8.5 m
+
+5000 m
+
+**17 m**
+
+**Explanation:**
+
+The total distance traveled by the sound is d = v × t = 340 × 0.1 = 34 m. This is the distance to the insect and back. Therefore, the distance to the insect is half of the total distance, which is 34/2 = 17 m.
+
+Two waves of equal amplitude and frequency interfere. The resultant amplitude is maximum when the phase difference is:
+
+π/2
+
+π
+
+3π/2
+
+**2nπ (n is integer)**
+
+**Explanation:**
+
+Maximum constructive interference occurs when the waves are perfectly in phase. This happens when their phase difference is zero or any integer multiple of 2π (a full cycle).
+
+A wave pulse on a string moves from a less dense to a more dense section. The pulse will be:
+
+Only transmitted.
+
+Only reflected and inverted.
+
+Partly transmitted, partly reflected, not inverted.
+
+**Partly transmitted, partly reflected & inverted.**
+
+**Explanation:**
+
+When a wave goes from a less dense to a more dense medium (like from a light string to a heavy one), it is like hitting a 'hard' boundary. Part of the wave is transmitted, and the reflected part is inverted (phase change of 180°).
+
+The effect of loading a tuning fork with wax is to:
+
+Increase its frequency.
+
+Increase amplitude.
+
+Decrease amplitude.
+
+**Decrease its frequency.**
+
+**Explanation:**
+
+Adding mass (the wax) to the prongs of the tuning fork increases their inertia, causing them to oscillate more slowly. This results in a lower frequency of vibration.
+
+A train approaches a station platform at 20 m/s, blowing a 200 Hz whistle. What is the wavelength heard by a person on the platform? (v\_sound = 340 m/s)
+
+1.7 m
+
+1.8 m
+
+1.5 m
+
+**1.6 m**
+
+**Explanation:**
+
+As the train approaches, it compresses the sound waves in front of it. The new, shortened wavelength is λ' = (v - v\_s)/f = (340 - 20)/200 = 320/200 = 1.6 m. The apparent frequency would be f' = v/λ' = 340/1.6 = 212.5 Hz.
+
+Sound waves cannot be polarized because they:
+
+Are transverse waves.
+
+Have a very high speed.
+
+Have a very long wavelength.
+
+**Are longitudinal waves.**
+
+**Explanation:**
+
+Polarization involves restricting the plane of oscillation. Since the particles in a longitudinal wave oscillate parallel to the direction of propagation, there is only one dimension of oscillation to begin with, and thus it cannot be restricted further. Polarization is a property exclusive to transverse waves.
+
+Silence zones are created in an auditorium due to:
+
+Constructive interference
+
+Beats
+
+Resonance
+
+**Destructive interference**
+
+**Explanation:**
+
+In large halls, sound waves reflecting off different surfaces can meet at certain points out of phase, leading to destructive interference and creating areas where the sound is significantly quieter or 'dead'.
+
+A simple pendulum has a time period T on Earth. If it is taken to the Moon (gravity is 1/6th of Earth's), its new time period will be:
+
+T/6
+
+T/√6
+
+6T
+
+**√6 T**
+
+**Explanation:**
+
+The formula for the period is T = 2π√(L/g). Since g becomes g/6, the new period T' = 2π√(L/(g/6)) = √6(2π√(L/g)) = √6 T.
+
+Which statement is true for both longitudinal and transverse waves?
+
+They can be polarized.
+
+They travel as compressions.
+
+Particles vibrate parallel to wave propagation.
+
+**They transfer energy.**
+
+**Explanation:**
+
+This is the fundamental purpose of all mechanical waves: to transfer energy without transferring matter. Even electromagnetic waves transfer energy.
+
+The intensity of a sound wave is proportional to the square of:
+
+Wavelength
+
+Wave speed
+
+Time period
+
+**Amplitude**
+
+**Explanation:**
+
+The intensity (power per unit area) of a wave is proportional to the square of its amplitude. It is also proportional to the square of its frequency.
+
+A closed organ pipe and an open organ pipe of the same length are sounded. The ratio of their fundamental frequencies is:
+
+**Explanation:**
+
+For a closed pipe, f\_c = v/4L. For an open pipe, f\_o = v/2L. The ratio f\_c : f\_o is (v/4L) : (v/2L), which simplifies to 1/4 : 1/2, or 1:2.
+
+The phenomenon where a vibrating body causes another body to vibrate with the same frequency is called:
+
+Beats
+
+Resonance
+
+Damped oscillation
+
+**Forced vibration**
+
+**Explanation:**
+
+When a vibrating body is brought into contact with another, it can force the second body to vibrate. This is the general phenomenon.
+
+Two cars move in opposite directions at the same speed. If one blows a horn, the pitch heard by the other driver will be:
+
+Highest when moving away.
+
+Highest when just crossing.
+
+Same as the original pitch.
+
+**Highest when approaching.**
+
+**Explanation:**
+
+When the source and observer are moving towards each other, the relative speed is at its maximum, leading to the largest possible increase in frequency (highest pitch).
+
+The distance between a node and the next antinode in a stationary wave is:
+
+λ
+
+λ/2
+
+2λ
+
+**λ/4**
+
+**Explanation:**
+
+A node is a point of zero displacement and an antinode is a point of maximum displacement. The distance between them is a quarter of a full wavelength.
+
+The spreading of a wave passing through an aperture is more pronounced when the:
+
+Wavelength is smaller than aperture.
+
+Frequency is very high.
+
+Amplitude is large.
+
+**Wavelength is comparable to aperture.**
+
+**Explanation:**
+
+Diffraction effects are most significant when the size of the obstacle or opening is on the order of the wavelength of the waves.
+
+If the tension of a string is increased by 21%, the percentage increase in its fundamental frequency will be approximately:
+
+**Explanation:**
+
+Frequency is proportional to the square root of tension (f ∝ √T). If tension increases by 21%, it becomes 1.21T. The new frequency will be proportional to √(1.21T) = 1.1√T. This is a 10% increase.
+
+A progressive wave is represented by y = 5 sin(100πt - 2πx). What is the wavelength of the wave?
+
+2 m
+
+0.5 m
+
+100 m
+
+**1 m**
+
+**Explanation:**
+
+By comparing the equation with the standard form y = A sin(ωt - kx), we see that the wave number k = 2π. Since k = 2π/λ, we have 2π = 2π/λ, which gives λ = 1 m.
+
+Which of the following is an essential condition for producing beats?
+
+The sources have the same frequency.
+
+The sources have the same amplitude.
+
+The sources are moving.
+
+**The sources have slightly different frequencies.**
+
+**Explanation:**
+
+This is the defining condition for beats. The slight difference causes the phase relationship to cycle between constructive and destructive interference, producing the periodic change in loudness.
+
+Water waves are an example of:
+
+Transverse waves only
+
+Longitudinal waves only
+
+Stationary waves
+
+**Both transverse and longitudinal waves**
+
+**Explanation:**
+
+Particles of water on the surface move in a roughly circular or elliptical path, which has both a vertical (transverse) and a horizontal (longitudinal) component of motion.
+
+## Other Physics Topics MCQs
+
+We have also prepared the following set of MCQs for your Entry test preparation like MDCAT, ECAT and Armed forces test. WE WISH YOU BEST OF LUCK!
+
+[Force And Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/force-and-motion-mcqs/)
+
+[Work And Energy MCQs](https://www.mcquniverse.pk/physics-mcqs/work-and-energy-mcqs/)
+
+[Rotational And Circular Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/rotational-and-circular-motion-mcqs/)
+
+[Waves MCQs](https://www.mcquniverse.pk/physics-mcqs/waves-mcqs/)
+
+[Thermodynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/thermodynamics-mcqs/)
+
+[Electrostatics MCQs](https://www.mcquniverse.pk/physics-mcqs/electrostatics-mcqs/)
+
+[Current Electricity MCQs](https://www.mcquniverse.pk/physics-mcqs/current-electricity-mcqs/)
+
+[Electromagnetism MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetism-mcqs/)
+
+[Electromagnetic Induction MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetic-induction-mcqs/)
+
+[Electronics MCQs](https://www.mcquniverse.pk/physics-mcqs/electronics-mcqs/)
+
+[Dawn Of Modern Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/dawn-of-modern-physics-mcqs/)
+
+[Atomic Spectra MCQs](https://www.mcquniverse.pk/physics-mcqs/atomic-spectra-mcqs/)
+
+[Nuclear Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/nuclear-physics-mcqs/)
+
+[Fluid Dynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/fluid-dynamics-mcqs/)
+
+[Vectors And Equilibrium MCQs](https://www.mcquniverse.pk/physics-mcqs/vectors-and-equilibrium-mcqs/)
+
+### Leave a Reply [Cancel reply](/physics-mcqs/waves-mcqs/#respond)
+
+×🌐 Website-Wide Premium Access
+
+### Unlock All Quizzes & MCQs
+
+🚀 **One Subscription Unlocks Everything!** 
+ Get 100% full access to ALL quizzes, MCQs & detailed explanations across the entire website.
+
+1 Week
+
+Rs 199
+
+Full Site Access
+
+BEST VALUE
+
+1 Month
+
+Rs 499
+
+Full Site Access
+
+📌 How to Activate:
+
+1. Send fee for your plan to JazzCash or EasyPaisa below.
+2. Click WhatsApp button & send payment screenshot to Admin.
+3. **Instant Activation** within 10 minutes!
+
+JazzCash 03048961191 Title: Rana HabibUllah
+
+EasyPaisa 03428699409 Title: Rana HabibUllah
+
+ [💬 Send Screenshot on WhatsApp](https://wa.me/923428699409?text=Hi,%20I%20want%20to%20activate%20full%20site%20premium%20access.) Maybe later
+
+ [Student Login](https://www.mcquniverse.pk/dashboard/) 
+
+**Alert:**Content is protected.
+
+Scroll to Top

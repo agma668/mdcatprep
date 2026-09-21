@@ -1,0 +1,410 @@
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[IMAGE: Join our whatsapp channel]
+
+# Most Important Carboxylic Acid MCQs with Answers
+
+## Carboxylic Acid MCQs with Answers
+
+Which of the following functional groups defines a carboxylic acid?
+
+The functional group for carboxylic acids is the carboxyl group, which is written as -COOH.
+
+The carboxyl group is a combination of which two groups?
+
+The carboxyl group is made up of a carbonyl group (>C=O) and a hydroxyl group (-OH).
+
+What is the IUPAC name for formic acid?
+
+Formic acid is also known as Methanoic acid in IUPAC nomenclature.
+
+Acetic acid was first isolated from which source?
+
+Acetic acid was first isolated from vinegar.
+
+What is the common name for CH₃CH₂CH₂COOH?
+
+CH₃CH₂CH₂COOH is commonly known as Butyric acid.
+
+Which of the following is an example of an aliphatic dicarboxylic acid?
+
+Oxalic acid (Ethanedioic acid) is an example of an aliphatic dicarboxylic acid.
+
+How many carboxyl groups are present in a tricarboxylic acid?
+
+Carboxylic acids are classified based on the number of carboxyl groups; 'tri' indicates three.
+
+The IUPAC names of saturated monocarboxylic acids are derived from alkanes by changing the ending 'e' to:
+
+The IUPAC names of saturated monocarboxylic acids are alkanoic acids, ending with -oic acid.
+
+Which of the following is the general formula for an aliphatic carboxylic acid?
+
+The general formula is R-COOH or R-C(=O)OH, where R is H or an alkyl group.
+
+What type of carboxylic acid is benzoic acid?
+
+Benzoic acid is an aromatic monocarboxylic acid due to the benzene ring.
+
+Primary alcohols and aldehydes can be oxidized to carboxylic acids using which of the following reagents?
+
+Potassium dichromate in acidic medium is a strong oxidizing agent for this purpose.
+
+The hydrolysis of alkanenitriles to carboxylic acids requires boiling with:
+
+Boiling with mineral acids or alkalis hydrolyzes nitriles to carboxylic acids.
+
+How many carbon atoms does the carboxylic acid produced from an alkyl halide via alkanenitrile hydrolysis have, compared to the original alkyl halide?
+
+Cyanide adds one carbon atom during the reaction, increasing the chain length.
+
+Carboxylic acids can be prepared from Grignard reagents by reacting them with:
+
+Grignard reagents react with CO₂ followed by acidification to form carboxylic acids.
+
+In the preparation of carboxylic acids from Grignard reagents, the addition product is reacted with:
+
+The addition product is acidified with a mineral acid to yield the acid.
+
+The hydrolysis of esters to form carboxylic acids is typically done by boiling with:
+
+This forms a salt which on acidification gives carboxylic acid.
+
+Symmetrical alkenes when heated with alkaline KMnO₄ are cleaved at the double bond to form:
+
+Alkaline KMnO₄ cleaves double bonds oxidatively to yield carboxylic acids.
+
+What is the smell characteristic of the first three aliphatic acids (formic, acetic, propionic acid)?
+
+They are colorless liquids with a characteristic pungent odor.
+
+Why are the first four members of aliphatic acids very soluble in water?
+
+Hydrogen bonding with water molecules makes them highly soluble.
+
+Carboxylic acids have relatively high boiling points due to:
+
+Hydrogen bonding between carboxylic acid molecules leads to higher boiling points.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+In non-polar solvents like benzene, carboxylic acids exist as:
+
+In non-polar solvents, two acid molecules dimerize through hydrogen bonding.
+
+What is the melting point trend observed for carboxylic acids with an even number of carbon atoms compared to their odd-numbered counterparts?
+
+Even-numbered acids pack more efficiently in solids, leading to higher melting points.
+
+Which of the following is a laboratory method for preparing acetic acid?
+
+Ethyl alcohol is oxidized to acetic acid in laboratory synthesis.
+
+The hydrolysis of ethanenitrile to acetic acid proceeds through which intermediate?
+
+The intermediate formed is acetamide, which hydrolyzes to acetic acid.
+
+What is 'glacial acetic acid' characterized by?
+
+Pure acetic acid solidifies at 17 °C, resembling ice — hence the term 'glacial'.
+
+Which of the following statements about the carboxyl group's reactivity is true?
+
+The carboxyl group displays the chemistry of both the carbonyl and the hydroxyl groups.
+
+In most reactions of carboxylic acids, which part of the molecule is typically retained?
+
+In most reactions of carboxylic acids, the carboxyl group is retained.
+
+The reactivity of carboxylic acid molecules is primarily a consequence of the presence of which group?
+
+The reactivity of these molecules is a consequence of the presence of the carbonyl group.
+
+Carboxylic acids are considered weaker acids compared to:
+
+Carboxylic acids are weaker acids than mineral acids.
+
+When dissolved in water, carboxylic acids furnish which ion?
+
+They furnish H⁺ when dissolved in water.
+
+What is formed when carboxylic acids react with bases like NaOH or KOH?
+
+Carboxylic acids react with bases (NaOH, KOH) to form salts.
+
+Which gas is evolved when carboxylic acids decompose carbonates and bicarbonates?
+
+Carboxylic acids decompose carbonates and bicarbonates evolving carbon dioxide gas with effervescence.
+
+The reaction of acetic acid with sodium carbonate produces sodium acetate, water, and:
+
+2CH₃COOH + Na₂CO₃ → 2CH₃COONa + CO₂ + H₂O
+
+When carboxylic acids react with active metals (Na, K, Ca, Mg), what is evolved along with the formation of their salts?
+
+Carboxylic acids react with active metals (Na, K, Ca, Mg etc.) to form their salts with the evolution of hydrogen gas.
+
+The -OH group of carboxylic acids can be replaced by which of the following to form acid derivatives?
+
+The -OH group can thus be replaced by X, OR and NH₂ to form halides, esters and amides, respectively.
+
+What type of reaction occurs when a nucleophile attacks the carboxyl group, followed by the displacement of the -OH group?
+
+The addition of a nucleophile to the carboxyl group is always followed by the displacement of the -OH group by some other group, producing a carboxylic acid derivative.
+
+The reaction of CH₃COOH with PCl₅ produces CH₃COCl, POCl₃, and:
+
+CH₃COOH + PCl₅ → CH₃COCl + POCl₃ + HCl
+
+Heating carboxylic acids with alcohols in the presence of concentrated H₂SO₄ leads to the formation of:
+
+When carboxylic acids are heated with alcohols in the presence of concentrated H₂SO₄, esters are formed.
+
+What is the characteristic smell of esters, often leading to their use as artificial flavors?
+
+Esters have a fruity smell and are used as artificial flavors.
+
+What are ammonium salts formed when carboxylic acids react with ammonia?
+
+Carboxylic acids react with ammonia to form ammonium salts which on heating produce acid amides.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Which reagent is used to dehydrate carboxylic acids on strong heating to form acid anhydrides?
+
+Carboxylic acids are dehydrated on heating strongly in the presence of phosphorus pentoxide.
+
+What is the product of the partial reduction of carboxylic acids with lithium aluminum hydride (LiAlH₄)?
+
+Carboxylic acids on reaction with lithium aluminum hydride (LiAlH₄) are reduced to alcohols.
+
+What are carboxylic acids completely reduced to when reacted with HI and red phosphorus?
+
+Carboxylic acids on reduction with HI and red phosphorus give alkanes.
+
+Which of the following is true regarding the reactivity of carboxylic acids based on the carbonyl group?
+
+The reactivity of these molecules is a consequence of the presence of the carbonyl group.
+
+When CH₃COOH reacts with SOCl₂, what are the products?
+
+The reaction of CH₃COOH with SOCl₂ produces acetyl chloride (CH₃COCl), sulfur dioxide (SO₂), and hydrochloric acid (HCl).
+
+What happens to the proton (H⁺) in the presence of water (H₂O) when a carboxylic acid dissociates?
+
+In the presence of water (H₂O), the proton breaks away as H₃O⁺ ion.
+
+What type of functional group is formed when the -OH group of a carboxylic acid is replaced by −NH₂?
+
+The -OH group can be replaced by X, OR, and NH₂ to form halides, esters, and amides, respectively.
+
+Which of the following is a key step in the mechanism of ester formation from carboxylic acids and alcohols?
+
+The first step in the mechanism of ester formation (esterification) is the protonation of the carboxylic acid.
+
+What is the product when ammonium acetate (CH₃COONH₄) is heated?
+
+Ammonium salts formed by the reaction of carboxylic acids with ammonia produce acid amides upon heating (CH₃COONH₄ → CH₃CONH₂ + H₂O).
+
+The overall process by which carboxylic acids react with alcohols to form esters and water is known as:
+
+The formation of an ester when carboxylic acids are heated with alcohols in the presence of concentrated H₂SO₄ is known as esterification.
+
+What happens to the -OH group of a carboxylic acid when it forms a derivative like an acyl halide, ester, or amide?
+
+The addition of a nucleophile to the carboxyl group is always followed by the displacement of the -OH group by some other group, producing a carboxylic acid derivative.
+
+Which of the following is NOT a common carboxylic acid derivative discussed in the text?
+
+The -OH group can be replaced by X, OR and NH₂ to form halides, esters and amides, respectively.
+
+What is the product when acetic acid (CH₃COOH) reacts with PCl₅?
+
+The reaction of CH₃COOH with PCl₅ yields CH₃COCl (Acetyl chloride), POCl₃, and HCl.
+
+Which reagent is used to convert carboxylic acids into acyl chlorides, along with SO₂ and HCl as by-products?
+
+Carboxylic acids react with SOCl₂ to form acyl chlorides, SO₂, and HCl.
+
+The formation of an ester from a carboxylic acid and an alcohol in the presence of concentrated H₂SO₄ is known as:
+
+When carboxylic acids are heated with alcohols in the presence of concentrated H₂SO₄, esters are formed.
+
+Which of the following compounds has a fruity smell and is used as an artificial flavor?
+
+Esters have a fruity smell and are used as artificial flavours.
+
+What is the product formed when carboxylic acids react with NH₃ and are subsequently heated?
+
+Carboxylic acids react with ammonia to form ammonium salts which on heating produce acid amides.
+
+The dehydration of carboxylic acids using phosphorus pentoxide (P₂O₅) on strong heating leads to the formation of:
+
+Carboxylic acids are dehydrated on heating strongly in the presence of phosphorus pentoxide to form acid anhydrides.
+
+Which of the following is a common step in the mechanism of forming acyl chlorides from carboxylic acids using SOCl₂?
+
+The mechanism for the reaction of CH₃COOH with SOCl₂ shows the formation of an intermediate where sulfur is bonded to the carboxyl oxygen and a chlorine atom.
+
+What is the product of the reaction between ethanoic acid (CH₃COOH) and ethanol (C₂H₅OH) in the presence of H₂SO₄?
+
+CH₃COOH + C₂H₅OH → CH₃COOC₂H₅ + H₂O.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+The conversion of a carboxylic acid into an acyl halide involves the replacement of the -OH group by a:
+
+The -OH group can be replaced by X (halogen) to form halides.
+
+The reaction of CH₃COOH with NH₃ initially forms an ammonium salt (CH₃COONH₄). This is an example of a reaction involving:
+
+Carboxylic acids react with bases (like ammonia) to form salts by removing the hydrogen atom of the carboxyl group.
+
+What is the name of the derivative formed when the -OH group of a carboxylic acid is replaced by an -OR group?
+
+The -OH group can be replaced by OR to form esters.
+
+Which reagent is used to convert acyl chlorides to carboxylic acids?
+
+Acyl halides are readily hydrolyzed by water to form their corresponding carboxylic acids.
+
+What is the product when an acid anhydride reacts with an alcohol?
+
+Acid anhydrides react with alcohols to form esters and a carboxylic acid.
+
+How can an ester be converted back to its parent carboxylic acid?
+
+Esters can be hydrolyzed back to carboxylic acids and alcohols. When done with strong bases, it's called saponification.
+
+What is the product when an amide is hydrolyzed in the presence of an acid or a base?
+
+Amides undergo hydrolysis in the presence of acid or base to yield a carboxylic acid and an amine (or an ammonium salt).
+
+Which of the following reactions is an example of an interconversion between carboxylic acid derivatives?
+
+All options represent interconversion reactions of carboxylic acid derivatives.
+
+The reaction of an acyl chloride with an alcohol yields:
+
+Acyl chlorides are highly reactive and react with alcohols to form esters.
+
+What product is formed when an acyl chloride reacts with ammonia?
+
+Acyl chlorides react with ammonia to form amides.
+
+Which derivative can be used to synthesize an amide from a carboxylic acid without going through the ammonium salt intermediate?
+
+Acyl halides react directly with ammonia or amines to form amides without needing an intermediate salt.
+
+The reaction of an acid anhydride with an amine produces:
+
+Acid anhydrides react with amines to form amides and a carboxylic acid (or its salt).
+
+Which of the following reagents is most suitable for the reduction of an ester to an alcohol?
+
+Esters can be reduced to alcohols using strong reducing agents like LiAlH₄.
+
+What is the primary characteristic that makes acyl halides highly reactive among carboxylic acid derivatives?
+
+Halide ions are excellent leaving groups, making acyl halides very reactive.
+
+The conversion of an acid anhydride to a carboxylic acid can be achieved by:
+
+Acid anhydrides react with water (HYDROLYSIS) to form two molecules of carboxylic acid.
+
+## Other Chemistry Topics MCQs
+
+We have also prepared the following set of MCQsfor your Entry test preparation in quick way like MDCAT, ECAT and Armed forces test. WE WISH YOU BEST OF LUCK!
+
+[Basic Concept MCQs](https://www.mcquniverse.pk/chemistry-mcqs/basic-concept-mcqs/)
+
+[Atomic Structure MCQs](https://www.mcquniverse.pk/chemistry-mcqs/atomic-structure-mcqs/)
+
+[Gases MCQs](https://www.mcquniverse.pk/chemistry-mcqs/gases-mcqs/)
+
+[Liquids MCQs](https://www.mcquniverse.pk/chemistry-mcqs/liquids-mcqs/)
+
+[Solids MCQs](https://www.mcquniverse.pk/chemistry-mcqs/solids-mcqs/)
+
+[Chemical Equilibrium MCQs](https://www.mcquniverse.pk/chemistry-mcqs/chemical-equilibrium-mcqs/)
+
+[Reaction Kinectics MCQs](https://www.mcquniverse.pk/chemistry-mcqs/reaction-kinetics-quiz/)
+
+[Thermochemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/thermochemistry-mcqs/)
+
+[Electrochemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/electrochemistry-mcqs/)
+
+[Chemical Bonding MCQs](https://www.mcquniverse.pk/chemistry-mcqs/chemical-bonding-mcqs/)
+
+[Transition Elements MCQs](https://www.mcquniverse.pk/chemistry-mcqs/transition-elements-mcqs/)
+
+[S And P Block Elements MCQs](https://www.mcquniverse.pk/chemistry-mcqs/s-and-p-block-elements-mcqs/)
+
+[Fundamental Principles Of Organic Chemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/fundamental-principles-of-organic-chemistry-mcqs/)
+
+[Hydrocarbons MCQs](https://www.mcquniverse.pk/chemistry-mcqs/hydrocarbons-mcqs/)
+
+[Alkyl Halides MCQs](https://www.mcquniverse.pk/chemistry-mcqs/alkyl-halides-mcqs/)
+
+[Alcohols And Phenols MCQs](https://www.mcquniverse.pk/chemistry-mcqs/alcohols-and-phenols-mcqs/)
+
+[Aldehydes And Ketones MCQs](https://www.mcquniverse.pk/chemistry-mcqs/aldehydes-and-ketones-mcqs/)
+
+[Macromolecules MCQs](https://www.mcquniverse.pk/chemistry-mcqs/macromolecules-mcqs/)
+
+[Carboxylic Acid MCQs](https://www.mcquniverse.pk/chemistry-mcqs/carboxylic-acid-mcqs/)
+
+[Industrial Chemistry MCQs](https://www.mcquniverse.pk/chemistry-mcqs/industrial-chemistry-mcqs/)
+
+### Leave a Reply [Cancel reply](/chemistry-mcqs/carboxylic-acid-mcqs/#respond)
+
+Your email address will not be published. Required fields are marked \*
+
+Comment \*
+
+Name\*
+
+Email\*
+
+Website
+
+Save my name, email, and website in this browser for the next time I comment.
+
+### [MCQUniverse](https://www.mcquniverse.pk/)
+
+Free quizzes for all of you. Have A Nice Day!
+
+## Contact Info
+
+**Address:** Multan ,Punjab ,Pakistan
+
+**Email:** 
+admin@mcquniverse.pk
+
+## Info Links
+
+## MCQs Categories
+
+## Online Quiz
+
+© 2025 MCQ Universe. All rights reserved. Helping Pakistani students achieve their dreams.
+
+### Unlock All Quizzes & MCQs
+
+📌 How to Activate:
+
+**Alert:**Content is protected.

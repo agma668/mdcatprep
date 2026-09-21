@@ -1,0 +1,514 @@
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[IMAGE: Join our whatsapp channel]
+
+# Thermodynamics MCQs | Physics MCQs
+
+## Thermodynamics MCQs
+
+What is the study of the relationships between heat, work, and energy called?
+
+Thermodynamics is the branch of physics that deals with heat, work, and temperature, and their relation to energy, radiation, and the physical properties of matter.
+
+Which of the following is a statement of the First Law of Thermodynamics?
+
+This is the principle of conservation of energy, which is the foundation of the First Law of Thermodynamics.
+
+What is the internal energy of an ideal gas dependent on?
+
+For an ideal gas, the internal energy is the sum of the kinetic energies of its molecules, which is directly proportional to the absolute temperature.
+
+In an isothermal process, which of the following remains constant?
+
+The prefix 'iso-' means equal, and 'thermal' relates to heat or temperature.
+
+In an adiabatic process, what is true about the heat transfer?
+
+An adiabatic process is defined as one in which no heat is transferred into or out of the system (Q=0).
+
+What is the work done by a gas during an isobaric expansion?
+
+For a constant pressure (isobaric) process, the work done is the product of the constant pressure and the change in volume.
+
+The efficiency of a Carnot engine depends on:
+
+The efficiency of an ideal Carnot engine is determined solely by the absolute temperatures of the heat source (hot reservoir) and heat sink (cold reservoir).
+
+What is the measure of the disorder or randomness of a system called?
+
+Entropy is a thermodynamic property that is a measure of the molecular disorder or randomness of a system.
+
+According to the Second Law of Thermodynamics, the entropy of an isolated system:
+
+The Second Law states that the total entropy of an isolated system can never decrease over time; it increases for irreversible (natural) processes and remains constant for reversible processes.
+
+What is the SI unit of entropy?
+
+Entropy is defined as heat divided by temperature, so its units are energy per temperature (J/K).
+
+A refrigerator is an example of a:
+
+A refrigerator is a specific type of heat pump that moves heat from a cold space (inside the fridge) to a warmer space (the room).
+
+If 8400 J of heat is added to a 2 kg block of copper, raising its temperature from 10°C to 20°C, what is the specific heat capacity of copper?
+
+The formula for heat transfer is Q = mcΔT. The temperature change ΔT is 20°C - 10°C = 10°C (which is a change of 10 K). Rearranging to find c: c = Q / (mΔT) = 8400 J / (2 kg \* 10 K) = 420 J/(kg·K).
+
+The molar specific heat at constant pressure (Cₚ) is always greater than the molar specific heat at constant volume (Cᵥ) for an ideal gas because:
+
+At constant pressure, the supplied heat energy is used for both increasing the internal energy and doing work of expansion. At constant volume, all the heat goes into increasing the internal energy.
+
+The relationship between Cₚ and Cᵥ for an ideal gas is:
+
+This is Mayer's formula, which relates the two molar specific heats to the ideal gas constant R.
+
+The triple point of water is:
+
+The triple point is a unique condition of temperature and pressure where all three phases (solid, liquid, gas) of a substance can coexist in thermodynamic equilibrium.
+
+Which of the following processes is irreversible?
+
+Once gases are mixed through diffusion, they will not spontaneously separate. This is an example of an irreversible process that increases entropy.
+
+The work done in a cyclic process is equal to:
+
+The net work done during a cyclic process is represented by the area inside the loop on a pressure-volume (P-V) diagram.
+
+A heat engine takes in 100 J of heat from a hot reservoir and exhausts 60 J of heat to a cold reservoir. What is its efficiency?
+
+Efficiency = (Work output / Heat input). Work output = Heat input - Heat output = 100 J - 60 J = 40 J. So, efficiency = (40 J / 100 J) \* 100% = 40%.
+
+The equation of state for an ideal gas is:
+
+This is the ideal gas law, which relates pressure (P), volume (V), number of moles (n), the ideal gas constant (R), and temperature (T).
+
+The zeroth law of thermodynamics deals with:
+
+The zeroth law states that if two systems are each in thermal equilibrium with a third system, then they are in thermal equilibrium with each other. This establishes the concept of temperature.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+The specific heat capacity of a substance is the amount of heat required to raise the temperature of:
+
+This is the definition of specific heat capacity, an intensive property of a substance.
+
+What is the process called when a substance changes directly from a solid to a gas?
+
+Sublimation is the phase transition of a substance directly from the solid to the gas state, without passing through the liquid state.
+
+The latent heat of fusion is the heat required to:
+
+The term 'fusion' refers to melting. Latent heat is the energy absorbed or released during a phase change at a constant temperature.
+
+Which of the following is an extensive property?
+
+An extensive property is a property that depends on the amount of matter in a sample. Volume, mass, and internal energy are extensive.
+
+Which of the following is an intensive property?
+
+An intensive property does not depend on the amount of matter. Density, temperature, and pressure are intensive.
+
+The efficiency of a practical heat engine is always:
+
+The Carnot engine represents the maximum possible efficiency for any heat engine operating between two given temperatures, due to its ideal, reversible nature.
+
+The first law of thermodynamics is a statement of:
+
+The first law is a version of the law of conservation of energy, adapted for thermodynamic systems, relating internal energy, heat, and work.
+
+In an isochoric process, what remains constant?
+
+The term 'isochoric' comes from the Greek words 'isos' (equal) and 'khora' (space or volume).
+
+In an isobaric process, what remains constant?
+
+The term 'isobaric' comes from the Greek words 'isos' (equal) and 'baros' (weight or pressure).
+
+The change in internal energy of a system in a cyclic process is:
+
+Internal energy is a state function. Since a cyclic process returns the system to its initial state, the net change in internal energy is zero.
+
+Heat can be transferred by:
+
+These are the three fundamental modes of heat transfer.
+
+The transfer of heat by the movement of a fluid is called:
+
+Convection is the heat transfer due to the bulk movement of molecules within fluids such as gases and liquids.
+
+The transfer of heat through electromagnetic waves is called:
+
+Thermal radiation is the emission of energy as electromagnetic waves. It does not require a medium to travel.
+
+The transfer of heat through direct contact is called:
+
+Conduction is the process where heat is transmitted through a substance from a region of higher temperature to a region of lower temperature without any movement of the material itself.
+
+The absolute zero of temperature is:
+
+Absolute zero (0 Kelvin) is the lowest possible temperature, where all classical molecular motion ceases.
+
+The work done on a system is considered:
+
+By physics sign convention for the first law (ΔU = Q - W), work done on a system (compression) is negative, as it increases the internal energy.
+
+The work done by a system is considered:
+
+By physics sign convention for the first law (ΔU = Q - W), work done by a system (expansion) is positive, as it decreases the internal energy.
+
+The heat absorbed by a system is considered:
+
+By convention, heat absorbed by a system (endothermic) is positive, as it increases the internal energy.
+
+The heat released by a system is considered:
+
+By convention, heat released by a system (exothermic) is negative, as it decreases the internal energy.
+
+The coefficient of performance of a refrigerator is given by:
+
+The coefficient of performance (COP) is the ratio of the desired output (heat removed from the cold reservoir, Qc) to the required input (work done, W).
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+The coefficient of performance of a heat pump is given by:
+
+The coefficient of performance (COP) for a heat pump is the ratio of the desired output (heat delivered to the hot reservoir, Qh) to the required input (work done, W).
+
+A Carnot engine operates between a hot reservoir at 327°C and a cold reservoir at 27°C. What is its theoretical maximum efficiency?
+
+First, convert temperatures to Kelvin: Tₕ = 327 + 273 = 600 K; T꜀ = 27 + 273 = 300 K. The efficiency (η) is calculated using the formula η = 1 - (T꜀ / Tₕ). So, η = 1 - (300 K / 600 K) = 1 - 0.5 = 0.5, which is 50%.
+
+A process that can be reversed without leaving any change in the system or the surroundings is called:
+
+This is the definition of a reversible process, which is an idealization used in thermodynamics.
+
+Which of the following is an example of a state function?
+
+A state function (like internal energy, pressure, temperature, volume) depends only on the current state of the system, not on the path taken to reach that state.
+
+Which of the following is an example of a path function?
+
+A path function (like heat and work) is a property that depends on the path taken to get from an initial to a final state.
+
+The third law of thermodynamics states that the entropy of a perfect crystal at absolute zero is:
+
+This is the statement of the third law. At absolute zero, a perfect crystal has a minimum possible entropy, which is defined as zero.
+
+A system that can exchange both energy and matter with its surroundings is called:
+
+An example is a pot of boiling water without a lid, which exchanges heat (energy) and water vapor (matter) with the air.
+
+A system that can exchange energy but not matter with its surroundings is called:
+
+An example is a sealed can of soup being heated. It can absorb heat (energy) but no matter can enter or leave.
+
+A system that cannot exchange either energy or matter with its surroundings is called:
+
+An example is a perfectly insulated thermos. It is an idealization as perfect isolation is not achievable in practice.
+
+The internal energy of a system can be changed by:
+
+The first law of thermodynamics (ΔU = Q - W) shows that the change in internal energy (ΔU) is the sum of heat added (Q) and work done on the system (-W).
+
+The temperature of a substance is a measure of the:
+
+Temperature is directly proportional to the average translational kinetic energy of the particles in a substance.
+
+The specific heat of a gas in an isothermal process is:
+
+In an isothermal process (ΔT=0), heat can be added without changing the temperature. Since C = Q/(mΔT), dividing by zero gives an infinite specific heat.
+
+The specific heat of a gas in an adiabatic process is:
+
+In an adiabatic process, there is no heat exchange (Q=0). Since C = Q/(mΔT), the specific heat is zero.
+
+The ratio of the molar specific heats, γ = Cₚ/Cᵥ, for a monatomic gas is:
+
+For a monatomic gas, Cᵥ = (3/2)R and Cₚ = (5/2)R, so γ = (5/2)R / (3/2)R = 5/3 ≈ 1.67.
+
+The ratio of the molar specific heats, γ = Cₚ/Cᵥ, for a diatomic gas is:
+
+For a diatomic gas, Cᵥ = (5/2)R and Cₚ = (7/2)R, so γ = (7/2)R / (5/2)R = 7/5 = 1.4.
+
+The work done in an isochoric process is:
+
+In an isochoric process, the volume is constant (ΔV=0). Since W = PΔV, no work is done.
+
+A Carnot cycle consists of:
+
+A Carnot cycle is a theoretical thermodynamic cycle consisting of four reversible steps: isothermal expansion, adiabatic expansion, isothermal compression, and adiabatic compression.
+
+The efficiency of a Carnot engine is given by:
+
+The efficiency of a Carnot engine depends only on the absolute temperatures of the cold (Tc) and hot (Th) reservoirs.
+
+The first law of thermodynamics can be written as:
+
+This equation states that the change in a system's internal energy (ΔU) is equal to the heat added to the system (Q) minus the work done by the system (W).
+
+The change in entropy is defined as:
+
+For a reversible process, the change in entropy (ΔS) is the heat transferred (ΔQ) divided by the absolute temperature (T) at which the transfer occurs.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+The area under a T-S diagram represents:
+
+Since ΔQ = TΔS for a reversible process, the heat transferred is the integral of TdS, which is the area under the curve on a Temperature-Entropy (T-S) diagram.
+
+A perpetual motion machine of the first kind is impossible because it would violate the:
+
+This type of machine would create energy from nothing, violating the first law (conservation of energy).
+
+A perpetual motion machine of the second kind is impossible because it would violate the:
+
+This type of machine would convert heat completely into work with 100% efficiency, which violates the second law.
+
+The Clausius statement of the second law of thermodynamics states that:
+
+This statement describes the natural direction of heat flow and is the principle behind refrigeration.
+
+The Kelvin-Planck statement of the second law of thermodynamics states that:
+
+This statement means it's impossible to create a device operating in a cycle that extracts heat from a single reservoir and converts it entirely into work.
+
+The heat capacity of a body is the amount of heat required to raise its temperature by:
+
+This is the definition of heat capacity (an extensive property), which is different from specific heat capacity (an intensive property).
+
+The process of converting a liquid to a vapor at a temperature below its boiling point is called:
+
+Evaporation is a surface phenomenon where a liquid turns into a gas at any temperature below the boiling point.
+
+The amount of heat required to change the state of a substance without changing its temperature is called:
+
+Latent heat is the energy absorbed or released during a phase transition (like melting or boiling) that occurs at a constant temperature.
+
+The latent heat of vaporization is the heat required to:
+
+The term 'vaporization' refers to boiling. It's the energy needed to overcome intermolecular forces in the liquid state.
+
+The critical temperature of a gas is the temperature:
+
+Above the critical temperature, a substance exists as a supercritical fluid, which has properties of both a gas and a liquid.
+
+The Joule-Thomson effect describes the change in temperature of a gas when it is:
+
+This process, also known as throttling, is a constant enthalpy process and is fundamental to refrigeration and gas liquefaction.
+
+For an ideal gas, the Joule-Thomson coefficient is:
+
+An ideal gas has no intermolecular forces, so its temperature does not change upon free expansion (throttling).
+
+The temperature at which the Joule-Thomson coefficient changes sign is called the:
+
+Below the inversion temperature, a gas cools upon expansion (positive coefficient). Above it, the gas heats up (negative coefficient).
+
+The mean free path of a gas molecule is the average distance traveled:
+
+This is a key concept in the kinetic theory of gases that relates to properties like viscosity and thermal conductivity.
+
+The pressure of an ideal gas is proportional to the:
+
+According to the kinetic theory of gases, pressure arises from the collisions of molecules with the container walls.
+
+The root mean square speed of the molecules of a gas is proportional to:
+
+The root mean square speed is given by v\_rms = √(3RT/M), so it is proportional to √T.
+
+The Maxwell-Boltzmann distribution describes the:
+
+The Maxwell-Boltzmann distribution is a probability distribution for the speeds of particles in a gas at a certain temperature.
+
+The law of equipartition of energy states that the average energy associated with each degree of freedom of a molecule is:
+
+This law states that the total energy of a system is shared equally among all its degrees of freedom, where k is the Boltzmann constant.
+
+A monatomic gas has how many degrees of freedom?
+
+A monatomic gas (like Helium or Neon) has three translational degrees of freedom (movement in x, y, and z directions).
+
+A diatomic gas has how many degrees of freedom at ordinary temperatures?
+
+A diatomic gas (like O₂ or N₂) has three translational and two rotational degrees of freedom at ordinary temperatures.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+The van der Waals equation of state is a modification of the ideal gas law that takes into account:
+
+The van der Waals equation provides a more realistic model for the behavior of real gases by correcting for molecular size and attraction.
+
+Stefan's law states that the total energy radiated per unit surface area of a black body per unit time is proportional to the:
+
+This is the Stefan-Boltzmann law, expressed as P = σAT⁴, which describes the power radiated from a black body.
+
+Wien's displacement law states that the peak wavelength of black-body radiation is:
+
+This law (λ\_max = b/T) explains why hotter objects glow with shorter wavelengths (e.g., from red hot to white hot).
+
+A black body is an object that:
+
+A black body is an idealized physical body that absorbs all incident electromagnetic radiation, regardless of frequency or angle of incidence.
+
+The emissivity of a black body is:
+
+Emissivity is a measure of how well a surface radiates energy. A perfect black body is a perfect emitter, so its emissivity is 1.
+
+The thermal conductivity of a material is a measure of its ability to:
+
+Thermal conductivity quantifies how effectively a material transfers heat through conduction.
+
+The rate of heat conduction through a material is proportional to the:
+
+This is described by Fourier's law of heat conduction, which states that the rate of heat flow is proportional to the area and the temperature gradient.
+
+A system absorbs 2000 J of heat from its surroundings and does 500 J of work on its surroundings. What is the change in the internal energy of the system?
+
+According to the First Law of Thermodynamics, ΔU = Q - W. Here, Q is positive (+2000 J) because heat is absorbed, and W is positive (+500 J) because work is done by the system. Therefore, ΔU = 2000 J - 500 J = 1500 J.
+
+The SI unit of thermal conductivity is:
+
+The unit for thermal conductivity is watts per meter-Kelvin.
+
+Newton's law of cooling states that the rate of loss of heat from a body is proportional to the:
+
+This law is an approximation that applies when the temperature difference between the object and its surroundings is small.
+
+The thermodynamic temperature scale is also known as the:
+
+The Kelvin scale is the standard thermodynamic temperature scale, as it is based on an absolute zero point.
+
+The triple point of water is defined to be exactly:
+
+This fixed point is used to define the Kelvin scale. It is also equivalent to 0.01 °C.
+
+The efficiency of a heat engine is defined as the ratio of:
+
+Efficiency measures how effectively a device converts the heat it receives into useful work.
+
+The entropy of the universe is:
+
+According to the second law of thermodynamics, the entropy of the universe (an isolated system) always increases in any spontaneous process.
+
+Which statement best describes a reversible process?
+
+A reversible process is defined as one that can be reversed by an infinitesimal change in conditions, ensuring the system remains in equilibrium throughout.
+
+All natural processes are:
+
+All real-world processes are irreversible due to factors like friction, heat loss, and other dissipative effects that increase the total entropy.
+
+The enthalpy of a system is defined as:
+
+Enthalpy (H) is a thermodynamic property defined as the sum of the internal energy (U) and the product of pressure (P) and volume (V).
+
+The change in enthalpy is equal to the heat transferred at constant:
+
+This is a key property of enthalpy, making it very useful for analyzing processes that occur at constant pressure, such as many chemical reactions.
+
+The Gibbs free energy of a system is defined as:
+
+Gibbs free energy (G) is defined as enthalpy (H) minus the product of temperature (T) and entropy (S).
+
+A spontaneous process occurs at constant temperature and pressure if the change in Gibbs free energy is:
+
+A negative change in Gibbs free energy (ΔG < 0) indicates that a process is spontaneous under these conditions.
+
+A gas inside a piston expands from an initial volume of 0.2 m³ to a final volume of 0.5 m³ at a constant pressure of 150 kPa. How much work is done by the gas?
+
+For an isobaric (constant pressure) process, work done is W = PΔV. First, convert pressure: 150 kPa = 150,000 Pa. The change in volume is ΔV = 0.5 m³ - 0.2 m³ = 0.3 m³. So, W = 150,000 Pa \* 0.3 m³ = 45,000 J, which is equal to 45 kJ.
+
+The Helmholtz free energy of a system is defined as:
+
+Helmholtz free energy (A) is defined as internal energy (U) minus the product of temperature (T) and entropy (S). It represents the 'useful' work obtainable from a closed system at constant temperature and volume.
+
+## Other Physics Topics MCQs
+
+We have also prepared the following set of MCQs for your Entry test preparation like MDCAT, ECAT and Armed forces test. WE WISH YOU BEST OF LUCK!
+
+[Force And Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/force-and-motion-mcqs/)
+
+[Work And Energy MCQs](https://www.mcquniverse.pk/physics-mcqs/work-and-energy-mcqs/)
+
+[Rotational And Circular Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/rotational-and-circular-motion-mcqs/)
+
+[Waves MCQs](https://www.mcquniverse.pk/physics-mcqs/waves-mcqs/)
+
+[Thermodynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/thermodynamics-mcqs/)
+
+[Electrostatics MCQs](https://www.mcquniverse.pk/physics-mcqs/electrostatics-mcqs/)
+
+[Current Electricity MCQs](https://www.mcquniverse.pk/physics-mcqs/current-electricity-mcqs/)
+
+[Electromagnetism MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetism-mcqs/)
+
+[Electromagnetic Induction MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetic-induction-mcqs/)
+
+[Electronics MCQs](https://www.mcquniverse.pk/physics-mcqs/electronics-mcqs/)
+
+[Dawn Of Modern Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/dawn-of-modern-physics-mcqs/)
+
+[Atomic Spectra MCQs](https://www.mcquniverse.pk/physics-mcqs/atomic-spectra-mcqs/)
+
+[Nuclear Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/nuclear-physics-mcqs/)
+
+[Fluid Dynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/fluid-dynamics-mcqs/)
+
+[Vectors And Equilibrium MCQs](https://www.mcquniverse.pk/physics-mcqs/vectors-and-equilibrium-mcqs/)
+
+### Leave a Reply [Cancel reply](/physics-mcqs/thermodynamics-mcqs/#respond)
+
+Your email address will not be published. Required fields are marked \*
+
+Comment \*
+
+Name\*
+
+Email\*
+
+Website
+
+Save my name, email, and website in this browser for the next time I comment.
+
+### [MCQUniverse](https://www.mcquniverse.pk/)
+
+Free quizzes for all of you. Have A Nice Day!
+
+## Contact Info
+
+**Address:** Multan ,Punjab ,Pakistan
+
+**Email:** 
+admin@mcquniverse.pk
+
+## Info Links
+
+## MCQs Categories
+
+## Online Quiz
+
+© 2025 MCQ Universe. All rights reserved. Helping Pakistani students achieve their dreams.
+
+### Unlock All Quizzes & MCQs
+
+📌 How to Activate:
+
+**Alert:**Content is protected.

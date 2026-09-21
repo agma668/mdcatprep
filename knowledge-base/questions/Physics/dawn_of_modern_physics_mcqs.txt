@@ -1,0 +1,588 @@
+**[Contact Us](https://www.mcquniverse.pk/contact/)                     [About Us](https://www.mcquniverse.pk/about-us/)**
+
+**[Terms And Condition](https://www.mcquniverse.pk/terms-and-conditions/)** **[Privacy Policy](https://www.mcquniverse.pk/privacy-policy/)**
+
+[IMAGE: Join our whatsapp channel]
+
+# Dawn Of Modern Physics MCQs | Physics MCQs
+
+## Dawn Of Modern Physics MCQs
+
+An ideal black body is:
+
+An ideal black body is defined as a body that absorbs all incident radiation and is also a perfect emitter of radiation, with the emission spectrum depending only on its temperature.
+
+According to Planck's quantum theory, energy is radiated or absorbed:
+
+Planck's fundamental postulate is that energy is quantized, meaning it is emitted or absorbed in discrete packets (quanta), resolving the ultraviolet catastrophe.
+
+The energy of a single photon is directly proportional to its:
+
+The relationship is given by the formula E = hf, where 'h' is Planck's constant. Energy is directly proportional to frequency.
+
+The photoelectric effect is the phenomenon where:
+
+The photoelectric effect is correctly defined as the emission of electrons (photoelectrons) from a material upon exposure to electromagnetic radiation of a suitable frequency.
+
+In the photoelectric effect, the kinetic energy of the emitted photoelectrons depends on the:
+
+According to Einstein's photoelectric equation (K.E. = hf - φ), the maximum kinetic energy of photoelectrons is determined by the frequency of the incident light, not its intensity.
+
+The minimum frequency of incident light required to cause photoemission is called the:
+
+The threshold frequency is the correct term for the minimum frequency needed to overcome the work function of the metal and eject an electron.
+
+The Compton effect demonstrates that:
+
+The Compton effect, where an X-ray photon scatters off an electron and loses energy, is explained by treating the photon as a particle with momentum (p = h/λ), conserving both energy and momentum in the collision.
+
+In the Compton effect, the scattered photon has a \_\_\_\_\_\_\_ wavelength compared to the incident photon.
+
+The photon transfers some of its energy to the electron. Since energy and wavelength are inversely related (E = hc/λ), a decrease in energy results in an increase in wavelength.
+
+Pair production is a process where a photon creates:
+
+Pair production is the conversion of energy (a high-energy photon) into matter, creating a particle-antiparticle pair (electron and positron) to conserve charge and other quantum numbers.
+
+For pair production to occur, the minimum energy of the photon must be:
+
+The photon's energy must be at least equal to the sum of the rest mass energies of the electron (0.51 MeV) and the positron (0.51 MeV), totaling 1.02 MeV.
+
+The reverse process of pair production is known as:
+
+Pair annihilation occurs when a particle and its antiparticle (e.g., electron and positron) collide, converting their mass back into energy, typically in the form of two photons.
+
+The de Broglie hypothesis states that:
+
+De Broglie extended wave-particle duality to all matter, proposing that any moving particle with momentum 'p' has an associated wavelength given by λ = h/p.
+
+The de Broglie wavelength of a particle is given by the equation:
+
+The de Broglie equation correctly relates a particle's wavelength (λ) to its momentum (p) via Planck's constant (h).
+
+The wave nature of electrons was experimentally confirmed by:
+
+Davisson and Germer observed that a beam of electrons scattered by a nickel crystal produced a diffraction pattern, which is a definitive characteristic of waves.
+
+Heisenberg's Uncertainty Principle states it is impossible to simultaneously know a particle's:
+
+The principle's most common formulation states a fundamental limit to the precision with which the position and momentum of a particle can be known simultaneously (ΔxΔp ≥ h/4π).
+
+If the uncertainty in the position of a particle is decreased, the uncertainty in its momentum:
+
+The relationship is inverse; according to the uncertainty principle, if you know the position more precisely (smaller Δx), you must know the momentum less precisely (larger Δp).
+
+The work function (φ) of a metal is:
+
+The work function is a property of a given metal that defines the minimum energy (binding energy) needed for an electron to escape from its surface.
+
+A photocell is a device that converts:
+
+Photocells operate based on the photoelectric effect, generating a current when exposed to light, thus converting light energy into electrical energy.
+
+A radioactive nucleus has a half-life of 5000 years. What fraction of the original sample will be left after 20,000 years?
+
+Number of half-lives = 20,000 years / 5000 years = 4. The fraction remaining is (1/2) to the power of 4, which is 1/16.
+
+The binding energy of a Uranium-235 nucleus is 1786 MeV. What is the binding energy per nucleon?
+
+Binding energy per nucleon = Total binding energy / number of nucleons = 1786 MeV / 235 = 7.6 MeV.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+According to special relativity, the laws of physics are the same in all:
+
+This is the first postulate of special relativity. It applies to inertial (non-accelerating) frames of reference, stating that there is no absolute or preferred state of rest.
+
+The second postulate of special relativity states that the speed of light in a vacuum:
+
+This radical postulate states that the speed of light, 'c', is a universal constant, independent of the motion of the source or the observer.
+
+Which of the following is a consequence of special relativity?
+
+Time dilation (moving clocks run slower), length contraction, and mass-energy equivalence are all key consequences derived from the two postulates of special relativity.
+
+The equation E=mc² expresses the:
+
+This famous equation shows that mass is a form of energy and that a small amount of mass can be converted into a large amount of energy, and vice versa.
+
+An electron microscope has higher resolution than an optical one because:
+
+The ability to resolve fine details is limited by the wavelength of the probe. High-energy electrons have a very short de Broglie wavelength, allowing for much higher resolution than is possible with longer-wavelength visible light.
+
+In a nuclear reaction, the mass defect is calculated to be 0.05 atomic mass units (amu). How much energy is released in Mega-electron Volts (MeV)?
+
+The energy released is found by multiplying the mass defect by 931.5 MeV/amu. Energy = 0.05 amu \* 931.5 MeV/amu = 46.575 MeV.
+
+In blackbody radiation, the 'ultraviolet catastrophe' was the failure of:
+
+The classical Rayleigh-Jeans law incorrectly predicted that the energy radiated by a blackbody would increase infinitely as the wavelength decreased into the UV region, a clear contradiction of experimental data.
+
+If light below the threshold frequency hits a metal, what happens if its intensity is increased?
+
+Photoemission depends on the energy of individual photons (frequency), not the number of photons (intensity). If the photon energy is below the work function, no amount of intensity will cause emission.
+
+A radioactive isotope has a half-life of 15 hours. If a sample initially contains 800 grams of this isotope, how much will remain after 60 hours?
+
+The number of half-lives is 60 hours / 15 hours = 4. After 1st half-life: 400g. After 2nd: 200g. After 3rd: 100g. After 4th: 50g.
+
+Which particle has the longest de Broglie wavelength when all are moving at the same speed?
+
+Since de Broglie wavelength is inversely proportional to momentum (λ = h/mv), the particle with the smallest mass (the electron) will have the longest wavelength for a given speed.
+
+The rest mass of a photon is:
+
+Photons are massless particles. They possess energy and momentum due to their motion at speed 'c', but they have no rest mass.
+
+A fusion reaction combines two Deuterium nuclei (mass = 2.0141 amu each) to form a Helium-4 nucleus (mass = 4.0026 amu). Calculate the energy released in MeV.
+
+Initial mass = 2 \* 2.0141 = 4.0282 amu. Mass defect = 4.0282 - 4.0026 = 0.0256 amu. Energy = 0.0256 amu \* 931.5 MeV/amu = 23.8 MeV.
+
+The half-life of Iodine-131 is 8 days. If a hospital receives a shipment of 20 mg, how much Iodine-131 will be left after 24 days?
+
+The number of half-lives is 24 days / 8 days = 3. After 1st half-life: 10 mg. After 2nd: 5 mg. After 3rd: 2.5 mg.
+
+Find the energy required to split a Carbon-12 nucleus into its constituent particles if its mass defect is 0.09894 amu.
+
+The energy required is the binding energy. Energy = mass defect \* 931.5 MeV/amu = 0.09894 \* 931.5 = 92.16 MeV.
+
+In pair annihilation, an electron and a positron typically produce:
+
+Producing two photons traveling in opposite directions allows for the conservation of both energy and momentum, as the initial momentum of the electron-positron system is often zero.
+
+The stopping potential in a photoelectric experiment is a measure of the:
+
+The stopping potential is the reverse voltage required to stop the most energetic electrons, so their maximum kinetic energy is equal to the work done by this potential (K.E.max = eVs).
+
+The concept of wave-particle duality applies to:
+
+Wave-particle duality is a fundamental principle of quantum mechanics, stating that everything exhibits both wave and particle properties depending on the experiment being performed.
+
+Wien's displacement law states the peak wavelength of blackbody radiation is:
+
+The law (λ\_max \* T = constant) correctly states that as an object's temperature increases, the peak of its emission spectrum shifts to shorter wavelengths.
+
+The Compton shift (Δλ) is maximum when the scattering angle is:
+
+The formula for the shift is Δλ = (h/mₑc)(1 - cosθ). This value is maximized when cosθ = -1, which occurs at a backscattering angle of θ = 180°.
+
+The existence of a threshold frequency in the photoelectric effect is best explained by:
+
+The particle theory states that a single photon must have enough energy (hf) to overcome the work function (φ). If hf < φ, no emission occurs, regardless of intensity, thus explaining the threshold.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+The NAVSTAR Global Positioning System (GPS) must account for effects from:
+
+GPS requires corrections from both: special relativity for the high speed of the satellites (time dilation) and general relativity for the weaker gravitational field they experience.
+
+Planck's constant (h) has units of:
+
+From the equation E=hf, we can see that h=E/f. The units are Joules / (1/second), which is Joule-seconds (J·s), a unit of angular momentum or action.
+
+Which phenomenon provides evidence for the quantization of energy?
+
+Max Planck's successful solution to the blackbody radiation problem required the revolutionary assumption that the energy of oscillators was quantized.
+
+Annihilation of matter results in the creation of:
+
+Mass is converted into energy according to E=mc², typically producing high-energy photons (gamma rays).
+
+The energy of a photon is 3.3 x 10⁻¹⁹ J. What is its frequency? (h = 6.6 x 10⁻³⁴ J·s)
+
+Using the formula f = E/h, we get (3.3 × 10⁻¹⁹ J) / (6.6 × 10⁻³⁴ J·s) = 0.5 × 10¹⁵ Hz, which is also 5.0 x 10¹⁴ Hz.
+
+Relativistic mass increase is significant only at:
+
+The relativistic factor gamma (γ) only becomes significantly greater than 1, causing a noticeable mass increase, as velocity approaches the speed of light, c.
+
+The uncertainty principle implies that:
+
+The principle is a fundamental property of nature. The wavelike nature of a particle means its position and momentum are inherently 'fuzzy' and cannot be simultaneously defined with perfect precision.
+
+If a red light and a blue light have the same intensity, which one has more photons per second?
+
+Intensity is total energy per second. Since blue light photons have more energy individually than red light photons, more of the lower-energy red photons are needed to deliver the same total energy per second.
+
+The Davisson-Germer experiment involved the scattering of electrons from a:
+
+The regular atomic spacing in the nickel crystal acted as a natural diffraction grating for the electron waves, producing the observed interference pattern.
+
+A particle's de Broglie wavelength is 1 nm. If its momentum is doubled, its new wavelength will be:
+
+Since wavelength is inversely proportional to momentum (λ = h/p), doubling the momentum will halve the wavelength.
+
+Classical physics is a good approximation of modern physics at:
+
+In the realm of everyday experience (slow speeds, large objects), the effects of relativity and quantum mechanics are negligible, and classical physics provides extremely accurate predictions.
+
+The photoelectric current is directly proportional to the:
+
+Higher intensity means more photons arriving per second. If the frequency is above the threshold, this results in more electrons being ejected per second, leading to a larger current.
+
+The 'h' in the equation E=hf stands for:
+
+Max Planck introduced this fundamental constant of nature (h ≈ 6.626 x 10⁻³⁴ J·s) to explain the quantization of energy in blackbody radiation.
+
+The fact that the photoelectric effect is almost instantaneous supports:
+
+The wave model predicted a time delay for energy to accumulate. The instantaneous emission supports the particle model, where a single photon's energy is transferred to an electron in a single, immediate event.
+
+An observer on a spaceship moving at 0.9c would observe time on Earth to be:
+
+This is a consequence of time dilation and the principle of relativity. From the spaceship's frame of reference, Earth is the moving clock, and it is therefore observed to be running slower.
+
+The energy-time uncertainty principle is given by:
+
+This relation (often written with ħ = h/2π) indicates that a state that exists for a short time (small Δt) has a large uncertainty in its energy (large ΔE).
+
+Modern physics began as an attempt to explain phenomena that:
+
+Phenomena like blackbody radiation, the photoelectric effect, and atomic spectra directly contradicted the predictions of classical theories, necessitating the new approaches of relativity and quantum mechanics.
+
+An observer moving at a relativistic speed with a light source will measure the speed of the emitted light as:
+
+This is the second postulate of special relativity: the speed of light in a vacuum, 'c', is constant for all inertial observers, regardless of the source's or observer's motion.
+
+The Stefan-Boltzmann law relates the total power radiated by a black body to its:
+
+The law (P = σAT⁴) states that the total power radiated is directly proportional to the fourth power of the absolute temperature.
+
+In the photoelectric effect, if the frequency of the incident light is doubled, the max K.E. of photoelectrons will:
+
+Let K₁ = hf - φ. The new energy is K₂ = h(2f) - φ = 2hf - φ. Substituting hf = K₁ + φ gives K₂ = 2(K₁ + φ) - φ = 2K₁ + φ. Since φ > 0, K₂ > 2K₁.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+A radioactive isotope has a half-life of 15 hours. If a sample initially contains 800 grams of this isotope, how much will remain after 60 hours?
+
+The number of half-lives is 60 hours / 15 hours = 4. After 1st half-life: 400g. After 2nd: 200g. After 3rd: 100g. After 4th: 50g.
+
+Which statement best describes the 'Compton Wavelength'?
+
+Setting the photon energy equal to the electron's rest mass energy (E = hc/λ = mₑc²) gives the Compton wavelength, λ\_c = h/(mₑc).
+
+Macroscopic objects in motion do not show observable wave properties because:
+
+Due to their large mass, macroscopic objects have enormous momentum, resulting in a de Broglie wavelength (λ = h/p) so small that diffraction effects are impossible to detect.
+
+Pair production can only occur in the vicinity of a nucleus because it is needed to:
+
+A photon cannot decay into a pair in empty space as momentum cannot be conserved. The nearby nucleus absorbs some recoil momentum, satisfying the conservation law.
+
+According to the energy-time uncertainty principle, a virtual particle that exists for a very short time can have a:
+
+The relation ΔE Δt ≥ ħ/2 implies that if the lifetime Δt is small, the uncertainty in energy ΔE must be large, allowing for temporary 'borrowing' of energy.
+
+What is the decay constant for Carbon-14 if its half-life is 5730 years? (Use ln(2) = 0.693)
+
+Decay constant lambda = 0.693 / Half-life = 0.693 / 5730 years = 0.000121 per year, or 1.21 x 10⁻⁴ per year.
+
+A sample has an initial activity of 1200 decays per minute. If its half-life is 4 minutes, what will its activity be after 12 minutes?
+
+The number of half-lives is 12 minutes / 4 minutes = 3. After 1st half-life: 600. After 2nd: 300. After 3rd: 150 decays per minute.
+
+Calculate the energy released when 1 gram (0.001 kg) of matter is completely converted into energy. (Use speed of light, c = 3 x 10⁸ m/s)
+
+Using E = mc². Energy = 0.001 kg \* (3 x 10⁸ m/s)² = 0.001 \* (9 x 10¹⁶) = 9 x 10¹³ Joules.
+
+An astronaut ages slower traveling at near-light speed. From the astronaut's perspective:
+
+According to the principle of relativity, all motion is relative. From the astronaut's frame, Earth is the moving object, so its clock appears to run slower.
+
+What happens to the total energy radiated by a black body as its temperature is increased?
+
+According to the Stefan-Boltzmann law, the total radiated power (energy per time) increases dramatically with the fourth power of the temperature.
+
+A metal has a work function of 2.0 eV. What is the maximum wavelength of light that can cause photoemission?
+
+The threshold wavelength is λ₀ = hc/φ. First convert φ to Joules: 2.0 eV \* 1.6e-19 J/eV = 3.2e-19 J. Then λ₀ = (6.63e-34 \* 3e8) / 3.2e-19 ≈ 6.2e-7 m = 620 nm.
+
+The momentum of a photon is given by:
+
+This relationship is derived from the de Broglie relation (p = h/λ) and applies to photons as well as massive particles.
+
+An electron and a proton are accelerated through the same potential difference. Which has the shorter de Broglie wavelength?
+
+Both gain the same kinetic energy (K.E.). Since p = √(2m\*K.E.), the more massive proton has greater momentum and therefore a shorter wavelength (λ = h/p).
+
+The 'frame dragging' effect is a prediction of:
+
+Frame dragging is a prediction of General Relativity where a massive rotating object 'drags' the fabric of spacetime around with it.
+
+The intensity of a beam of light is a measure of:
+
+Intensity is power per unit area. Since power is energy per time, intensity is proportional to the number of photons arriving per unit area per unit time.
+
+A 1-meter stick on a spaceship moves at 0.8c. What length would an Earth observer measure?
+
+The contracted length is L = L₀√(1 - v²/c²). So, L = 1 \* √(1 - 0.8²) = √(1 - 0.64) = √0.36 = 0.6 m.
+
+Which of these is NOT a postulate of the special theory of relativity?
+
+Mass-energy equivalence (E=mc²) is a profound consequence derived from the two postulates, but it is not a starting assumption (postulate) itself.
+
+In an electron microscope, the 'lenses' used to focus the electron beam are:
+
+Since electrons are charged particles, their path can be bent and focused by carefully shaped magnetic fields, which act as magnetic lenses.
+
+A photon scatters off a stationary electron. Which of the following is impossible?
+
+A decrease in wavelength would mean the photon gained energy. This is impossible as it would violate the conservation of energy, since the electron was initially at rest.
+
+The resolution of a measurement is fundamentally limited by:
+
+Due to the wave nature of matter and radiation, it is impossible to resolve details smaller than the wavelength of the probe being used to observe the system. This is a fundamental limit.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+If you determine an electron's position with great accuracy, what is the consequence?
+
+The uncertainty principle dictates an inverse relationship. A small uncertainty in position (Δx) necessarily leads to a large uncertainty in momentum (Δp).
+
+The total relativistic energy of a particle (E = γm₀c²) consists of:
+
+The total energy is the sum of the energy a particle has due to its mass (m₀c²) and the additional energy it has due to its motion (K.E.).
+
+The idea that light is quantized (photons) was first proposed by Einstein to explain:
+
+Einstein's 1905 paper explained the features of the photoelectric effect by postulating that light itself is made of discrete energy quanta, which he called photons.
+
+A star appears yellowish-white. If its temperature were to double, it would likely appear:
+
+According to Wien's displacement law, doubling the temperature shifts the peak emission to a much shorter wavelength, into the blue or ultraviolet part of the spectrum.
+
+Which of the following is conserved during pair annihilation?
+
+Momentum, total energy (mass-energy), and charge are all fundamental quantities that are conserved in this process.
+
+The 'relativity of simultaneity' means that:
+
+This is a key consequence of special relativity. Whether two spatially separated events occur at the same time depends on the observer's state of motion.
+
+The energy of a photon in a beam of light depends only on its:
+
+The relationship is given by Planck's fundamental equation, E = hf.
+
+How much energy in Joules is equivalent to a mass of 2 kilograms? (Use speed of light, c = 3 x 10⁸ m/s)
+
+Using Einstein's equation E = mc². Energy = 2 kg \* (3 x 10⁸ m/s)² = 2 \* (9 x 10¹⁶) = 1.8 x 10¹⁷ Joules.
+
+A radioactive sample has a decay constant (lambda) of 0.0231 per day. What is its half-life in days? (Use ln(2) = 0.693)
+
+Half-life T = 0.693 / lambda. So, T = 0.693 / 0.0231 per day = 30 days.
+
+In the Davisson-Germer experiment, the diffraction pattern was produced because:
+
+Diffraction effects are prominent only when the wavelength of a wave is similar in size to the aperture or spacing of a grating, which in this case was the crystal lattice.
+
+The Michelson-Morley experiment was designed to detect:
+
+The experiment's 'null result' famously failed to detect the hypothetical ether wind, which was a crucial step towards the development of special relativity.
+
+A particle with zero rest mass must travel:
+
+From the energy-momentum relation E² = (pc)² + (m₀c²)², if rest mass m₀=0, then E=pc. This relationship only holds for particles, like photons, that travel at speed c.
+
+What is the relativistic momentum of a proton moving at 0.99c?
+
+Relativistic momentum is p = γm₀v. At 0.99c, the Lorentz factor γ is approximately 7.1, so the momentum is over 7 times its classical value.
+
+If a particle's energy uncertainty is zero, what does this imply about the measurement time?
+
+From ΔE Δt ≥ ħ/2, if ΔE = 0, then Δt must be infinitely large. This means a state with a perfectly defined energy must be stable and exist forever.
+
+The 'quantization' of a physical quantity means that it:
+
+This is the definition of quantization. The quantity is restricted to specific, discrete levels rather than being able to take on any continuous value.
+
+Why can pair production not be caused by a visible light photon?
+
+Visible light photons have energies of a few electron-volts, which is far below the minimum energy threshold of 1.02 MeV required to create an electron-positron pair.
+
+The phenomenon of wave-particle duality was first introduced for:
+
+Einstein's explanation of the photoelectric effect solidified the idea that light, long considered a wave, also has particle-like properties (photons).
+
+According to special relativity, which of the following is an invariant quantity?
+
+The spacetime interval, defined as (Δs)² = (cΔt)² - (Δx)², is an invariant quantity in special relativity, meaning all inertial observers will calculate the same value for it.
+
+The failure of classical physics to explain blackbody radiation is known as:
+
+The classical Rayleigh-Jeans law predicted infinite energy emission at short wavelengths, a failure famously dubbed the 'Ultraviolet Catastrophe'.
+
+If the stopping potential for a certain metal is 1.5 V, what is the max K.E. of the photoelectrons?
+
+The maximum kinetic energy is directly related to the stopping potential by K.E.max = e\*Vs. A stopping potential of 1.5 Volts corresponds to a kinetic energy of 1.5 electron-Volts.
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+Get all MCQs & Detailed Explanations
+
+In the Compton effect, the greatest change in wavelength occurs when the photon is scattered by:
+
+This 'backscattering' angle of 180° corresponds to the maximum energy transfer to the electron and thus the maximum increase in the photon's wavelength.
+
+A particle is confined to a box. If the size of the box is decreased, the uncertainty in its momentum will:
+
+Confining the particle to a smaller space decreases the uncertainty in its position (Δx). By the Heisenberg Uncertainty Principle, this must cause an increase in the uncertainty of its momentum (Δp).
+
+The 'twin paradox' is resolved by considering that:
+
+The situation is not symmetrical. The traveling twin must accelerate to leave, turn around, and return. This acceleration places them in non-inertial frames, breaking the symmetry and causing a real age difference.
+
+What is the rest mass energy of an electron? (mₑ = 9.11 x 10⁻³¹ kg)
+
+Using E = m₀c², the electron's rest mass energy is calculated to be approximately 0.511 Mega-electron-volts (MeV), a fundamental constant in particle physics.
+
+The spectrum of radiation from a black body is:
+
+A black body emits radiation at all wavelengths, forming a continuous spectrum whose shape and peak intensity depend only on the body's temperature.
+
+If an incident photon in a Compton scattering event has energy E, the scattered photon will have energy E' such that:
+
+The photon transfers some of its energy to the electron, so its final energy (E') must be less than its initial energy (E), unless the scattering angle is zero.
+
+A photocell works on the principle of:
+
+A photocell is a direct application where incident light ejects electrons from a surface, creating a measurable electric current, which is the definition of the photoelectric effect.
+
+Calculate the binding energy per nucleon for Helium-4, which has a total binding energy of 28.3 MeV.
+
+Helium-4 has 4 nucleons (2 protons, 2 neutrons). Binding energy per nucleon = Total binding energy / number of nucleons = 28.3 MeV / 4 = 7.075 MeV.
+
+An ancient wooden artifact has a Carbon-14 activity of 25% that of a modern sample. What is the age of the artifact? (Half-life of C-14 = 5730 years)
+
+An activity of 25% (or 1/4th) means two half-lives have passed (100% -> 50% -> 25%). The age is 2 \* 5730 years = 11460 years.
+
+What is the radius of a Germanium nucleus (A=70) if the empirical radius constant is 1.2 x 10⁻¹⁵ m? (Use the cube root of 70 is approx. 4.12)
+
+The radius R = R₀ \* (A to the power of 1/3). R = (1.2 x 10⁻¹⁵ m) \* 4.12 = 4.944 x 10⁻¹⁵ m.
+
+According to de Broglie, the wave associated with a particle is a:
+
+In the modern quantum interpretation, the square of the amplitude of the matter wave at a point is proportional to the probability of finding the particle at that point.
+
+The equation m = m₀ / √(1 - v²/c²) describes:
+
+This formula shows that the measured (relativistic) mass 'm' of an object increases with its velocity relative to the observer, from its rest mass 'm₀'.
+
+Which experiment provided the most direct evidence for the wave nature of electrons?
+
+The Davisson-Germer experiment showed that a beam of electrons could be diffracted by a crystal lattice, a behavior that is exclusively characteristic of waves.
+
+The work function of a material depends on:
+
+The work function is an intrinsic, characteristic property of a specific material, representing how tightly its electrons are bound to the surface.
+
+A sample initially contains 6.4 x 10²⁰ radioactive atoms. If its half-life is 100 years, how many atoms will have decayed after 500 years?
+
+Number of half-lives = 500 / 100 = 5. Atoms remaining = (6.4 x 10²⁰) \* (1/32) = 0.2 x 10²⁰. Atoms decayed = Initial - Remaining = (6.4 x 10²⁰) - (0.2 x 10²⁰) = 6.2 x 10²⁰ atoms.
+
+The activity of a sample is 8000 Bq. After 6 hours, its activity is 1000 Bq. What is its half-life?
+
+The activity reduced from 8000 -> 4000 -> 2000 -> 1000. This is a reduction by a factor of 8 (2\*2\*2), which means 3 half-lives have passed in 6 hours. So, the half-life is 6 hours / 3 = 2 hours.
+
+An electron and a positron, each with a rest mass energy of 0.511 MeV, annihilate each other. What is the total energy of the photons produced?
+
+The total energy produced is the sum of the rest mass energies of both particles. Total Energy = 0.511 MeV + 0.511 MeV = 1.022 MeV.
+
+In order to observe an object, the wavelength of the probing radiation must be:
+
+The resolution of any imaging system is fundamentally limited by diffraction. To 'see' an object's features, the wavelength used must be smaller than those features.
+
+The 'Dawn of Modern Physics' refers to the period when:
+
+The late 19th and early 20th centuries saw the emergence of problems (like blackbody radiation) that classical physics could not solve, heralding the new era of modern physics.
+
+## Other Physics Topics MCQs
+
+We have also prepared the following set of MCQs for your Entry test preparation like MDCAT, ECAT and Armed forces test. WE WISH YOU BEST OF LUCK!
+
+[Force And Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/force-and-motion-mcqs/)
+
+[Work And Energy MCQs](https://www.mcquniverse.pk/physics-mcqs/work-and-energy-mcqs/)
+
+[Rotational And Circular Motion MCQs](https://www.mcquniverse.pk/physics-mcqs/rotational-and-circular-motion-mcqs/)
+
+[Waves MCQs](https://www.mcquniverse.pk/physics-mcqs/waves-mcqs/)
+
+[Thermodynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/thermodynamics-mcqs/)
+
+[Electrostatics MCQs](https://www.mcquniverse.pk/physics-mcqs/electrostatics-mcqs/)
+
+[Current Electricity MCQs](https://www.mcquniverse.pk/physics-mcqs/current-electricity-mcqs/)
+
+[Electromagnetism MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetism-mcqs/)
+
+[Electromagnetic Induction MCQs](https://www.mcquniverse.pk/physics-mcqs/electromagnetic-induction-mcqs/)
+
+[Electronics MCQs](https://www.mcquniverse.pk/physics-mcqs/electronics-mcqs/)
+
+[Dawn Of Modern Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/dawn-of-modern-physics-mcqs/)
+
+[Atomic Spectra MCQs](https://www.mcquniverse.pk/physics-mcqs/atomic-spectra-mcqs/)
+
+[Nuclear Physics MCQs](https://www.mcquniverse.pk/physics-mcqs/nuclear-physics-mcqs/)
+
+[Fluid Dynamics MCQs](https://www.mcquniverse.pk/physics-mcqs/fluid-dynamics-mcqs/)
+
+[Vectors And Equilibrium MCQs](https://www.mcquniverse.pk/physics-mcqs/vectors-and-equilibrium-mcqs/)
+
+### Leave a Reply [Cancel reply](/physics-mcqs/dawn-of-modern-physics-mcqs/#respond)
+
+Your email address will not be published. Required fields are marked \*
+
+Comment \*
+
+Name\*
+
+Email\*
+
+Website
+
+Save my name, email, and website in this browser for the next time I comment.
+
+### [MCQUniverse](https://www.mcquniverse.pk/)
+
+Free quizzes for all of you. Have A Nice Day!
+
+## Contact Info
+
+**Address:** Multan ,Punjab ,Pakistan
+
+**Email:** 
+admin@mcquniverse.pk
+
+## Info Links
+
+## MCQs Categories
+
+## Online Quiz
+
+© 2025 MCQ Universe. All rights reserved. Helping Pakistani students achieve their dreams.
+
+### Unlock All Quizzes & MCQs
+
+📌 How to Activate:
+
+**Alert:**Content is protected.
