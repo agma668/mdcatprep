@@ -20,6 +20,10 @@ import {
  *    drip) are excluded from the rows AND from the totals, so a visitor never
  *    sees an invented student or an aggregate inflated by fake activity.
  *  - analytics: community aggregates over real students' attempts only.
+ *  - activityCalendar: one bucket per UTC day across a trailing 53-week
+ *    window, for the public streak wall. Same demo exclusion, its own bounded
+ *    fetch, and null when the read fails — the wall then hides rather than
+ *    drawing a fabricated grid.
  *
  * Fail-open policy: the hero always renders (falling back to true static
  * floors when the DB is unreachable); the board/analytics sections hide
@@ -43,6 +47,8 @@ export interface PublicAnalyticsStats {
   questionsAnswered: number;
   /** Questions answered by real students in the last 30 days. */
   answeredLast30Days: number;
+  /** Distinct real students with at least one attempt in the last 7 days. */
+  activeStudentsThisWeek: number;
   /** Community size, floored at the baseline in lib/stats.ts. */
   students: number;
   /** ISO timestamp of when these counts were computed. */
@@ -53,6 +59,28 @@ export interface PublicStats {
   hero: PublicHeroStats;
   board: { entries: LeaderboardEntry[]; stats: LeaderboardStats } | null;
   analytics: PublicAnalyticsStats | null;
+  /** Community-wide per-day activity for the public streak wall. */
+  activityCalendar: CommunityActivityCalendar | null;
+}
+
+/** One day of community-wide practice activity. Shape ported from the cadet
+ *  site's public-stats seam so the streak wall is the same component there and
+ *  here — only the accent tokens differ. */
+export interface CommunityActivityDay {
+  /** YYYY-MM-DD in UTC. */
+  date: string;
+  /** Attempts recorded by real students on this day. */
+  attempts: number;
+}
+
+export interface CommunityActivityCalendar {
+  /** One entry per day, oldest first, covering the trailing window. */
+  days: CommunityActivityDay[];
+  /** Total attempts across the window (sum of days). */
+  totalAttempts: number;
+  /** Distinct days with at least one attempt. */
+  activeDays: number;
+  asOf: string;
 }
 
 const TIMEOUT_MS = 8000;
@@ -155,12 +183,88 @@ export async function getCommunityProofStats(): Promise<CommunityProofStats | nu
   }
 }
 
+/**
+ * One bucket per UTC day across a trailing 53-week window, for the public
+ * streak wall. Demo accounts are excluded exactly as everywhere else.
+ *
+ * Fetched in pages with a row cursor: a bare `.limit(N)` silently caps at
+ * PostgREST's server max-rows (~1,000), so one read of a busy year would hand
+ * the wall a partial history that contradicts the proof bar above it on the
+ * same page. The cursor walks forward on `created_at`, a short page ends the
+ * walk, and rounds are bounded so a pathological table cannot spin here.
+ *
+ * Returns null (wall hides) rather than a partial or guessed grid.
+ */
+async function fetchActivityCalendar(
+  service: ServiceClient,
+  demoIds: string[]
+): Promise<CommunityActivityCalendar | null> {
+  const WINDOW_DAYS = 371; // 53 weeks — a full year on the public wall
+  try {
+    const sinceIso = new Date(Date.now() - WINDOW_DAYS * 86400000).toISOString();
+    const buckets = new Map<string, number>();
+    const MAX_ROUNDS = 60; // 1,000 rows/round → ~60k attempts, far past need
+    let rounds = 0;
+    let cursor = sinceIso;
+    let exhausted = false;
+    while (!exhausted && rounds < MAX_ROUNDS) {
+      rounds++;
+      const base = service
+        .from("question_attempts")
+        .select("created_at")
+        .gte("created_at", sinceIso)
+        .gt("created_at", cursor)
+        .order("created_at", { ascending: true })
+        .limit(1000);
+      const { data: pageRows, error: pageErr } =
+        demoIds.length > 0
+          ? await base.not("student_id", "in", `(${demoIds.join(",")})`)
+          : await base;
+      if (pageErr) break;
+      const page = (pageRows ?? []) as Array<{ created_at: string | null }>;
+      for (const row of page) {
+        if (!row.created_at) continue;
+        const d = new Date(row.created_at);
+        if (Number.isNaN(d.getTime())) continue;
+        const key = d.toISOString().slice(0, 10);
+        buckets.set(key, (buckets.get(key) ?? 0) + 1);
+      }
+      if (page.length < 1000) {
+        exhausted = true; // short page = end of data (correct even for 0 rows)
+      } else {
+        const last = page[page.length - 1]?.created_at;
+        if (last) cursor = last;
+        else exhausted = true;
+      }
+    }
+
+    // Continuous day list, oldest first, gaps filled with 0 — an empty period
+    // must render as an honest quiet grid, never a fabricated pattern.
+    const days: CommunityActivityDay[] = [];
+    const startUtc = new Date(Date.now() - (WINDOW_DAYS - 1) * 86400000);
+    startUtc.setUTCHours(0, 0, 0, 0);
+    let total = 0;
+    let active = 0;
+    for (let i = 0; i < WINDOW_DAYS; i++) {
+      const d = new Date(startUtc.getTime() + i * 86400000);
+      const key = d.toISOString().slice(0, 10);
+      const attempts = buckets.get(key) ?? 0;
+      days.push({ date: key, attempts });
+      total += attempts;
+      if (attempts > 0) active++;
+    }
+    return { days, totalAttempts: total, activeDays: active, asOf: new Date().toISOString() };
+  } catch {
+    return null;
+  }
+}
+
 export async function getPublicStats(): Promise<PublicStats> {
   let service;
   try {
     service = createServiceClient();
   } catch {
-    return { hero: contentHero(), board: null, analytics: null };
+    return { hero: contentHero(), board: null, analytics: null, activityCalendar: null };
   }
 
   const body = async (): Promise<PublicStats> => {
@@ -169,7 +273,7 @@ export async function getPublicStats(): Promise<PublicStats> {
     // build a public board — hide those sections rather than guess.
     const demos = await fetchDemoAccounts(service);
     if (!demos) {
-      return { hero: contentHero(), board: null, analytics: null };
+      return { hero: contentHero(), board: null, analytics: null, activityCalendar: null };
     }
     const demoIds = demos.ids;
     const demoNameSet = demos.fullNames;
@@ -178,7 +282,7 @@ export async function getPublicStats(): Promise<PublicStats> {
     // (lib/stats.ts owns those figures), so there is nothing left to count here.
     const boardRes = await service.rpc("leaderboard", { p_limit: 60 });
     if (boardRes.error) {
-      return { hero: contentHero(), board: null, analytics: null };
+      return { hero: contentHero(), board: null, analytics: null, activityCalendar: null };
     }
 
     const realRows = ((boardRes.data ?? []) as Array<{
@@ -192,8 +296,13 @@ export async function getPublicStats(): Promise<PublicStats> {
     const excludeDemo = <T extends { not: (col: string, op: string, value: string) => T }>(q: T): T =>
       demoIds.length > 0 ? q.not("student_id", "in", `(${demoIds.join(",")})`) : q;
 
-    const [{ count: approvedCount }, { count: realTotal }, { count: realCorrect }, { count: realMonth }] =
-      await Promise.all([
+    const [
+      { count: approvedCount },
+      { count: realTotal },
+      { count: realCorrect },
+      { count: realMonth },
+      weekRows,
+    ] = await Promise.all([
         service
           .from("profiles")
           .select("id", { count: "exact", head: true })
@@ -212,6 +321,17 @@ export async function getPublicStats(): Promise<PublicStats> {
             .from("question_attempts")
             .select("student_id", { count: "exact", head: true })
             .gte("created_at", new Date(Date.now() - 30 * 86400000).toISOString())
+        ),
+        // Distinct-student set for the week — the "practising this week"
+        // figure. PostgREST caps one read at ~1,000 rows, the same cap the
+        // dashboard's own proof stats accept; a Set over that page is the
+        // cheapest honest way to dedupe without a new RPC.
+        excludeDemo(
+          service
+            .from("question_attempts")
+            .select("student_id")
+            .gte("created_at", new Date(Date.now() - 7 * 86400000).toISOString())
+            .limit(2000)
         ),
       ]);
 
@@ -234,6 +354,9 @@ export async function getPublicStats(): Promise<PublicStats> {
           )
         : null;
 
+    const weekStudents = (weekRows?.data ?? []) as Array<{ student_id: string | null }>;
+    const activeThisWeek = new Set(weekStudents.map((r) => r.student_id)).size;
+
     const analytics: PublicAnalyticsStats | null =
       realTotal === null || realCorrect === null
         ? null
@@ -241,11 +364,20 @@ export async function getPublicStats(): Promise<PublicStats> {
             accuracy: realTotal > 0 ? Math.round(((realCorrect ?? 0) / realTotal) * 100) : 0,
             questionsAnswered: realTotal,
             answeredLast30Days: realMonth ?? 0,
+            activeStudentsThisWeek: activeThisWeek,
             students: hero.students,
             asOf: new Date().toISOString(),
           };
 
-    return { hero, board, analytics };
+    // The calendar gets its OWN budget: it is the one part of this seam that
+    // walks pages, so a slow read must cost the wall and nothing else — the
+    // board and the numbers above it keep their existing latency.
+    const activityCalendar = await Promise.race([
+      fetchActivityCalendar(service, demoIds),
+      new Promise<null>((resolve) => setTimeout(() => resolve(null), 3000)),
+    ]);
+
+    return { hero, board, analytics, activityCalendar };
   };
 
   try {
@@ -253,12 +385,12 @@ export async function getPublicStats(): Promise<PublicStats> {
       body(),
       new Promise<PublicStats>((resolve) =>
         setTimeout(
-          () => resolve({ hero: contentHero(), board: null, analytics: null }),
+          () => resolve({ hero: contentHero(), board: null, analytics: null, activityCalendar: null }),
           TIMEOUT_MS
         )
       ),
     ]);
   } catch {
-    return { hero: contentHero(), board: null, analytics: null };
+    return { hero: contentHero(), board: null, analytics: null, activityCalendar: null };
   }
 }

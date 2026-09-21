@@ -58,7 +58,7 @@ function resolveBaseUrl(): string {
   const explicit = process.env.MAINTENANCE_BASE_URL?.trim();
   if (explicit) return explicit.replace(/\/+$/, "");
   // Only trust NEXT_PUBLIC_SITE_URL when the host explicitly set it — the
-  // getSiteUrl() fallback domain (cadetcollegeprep.com) is not yet live.
+  // getSiteUrl()'s fallback (medprep.pk) is a placeholder, not a live domain.
   const site = process.env.NEXT_PUBLIC_SITE_URL?.trim();
   if (site) return site.replace(/\/+$/, "");
   if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;

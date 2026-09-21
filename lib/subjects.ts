@@ -7,6 +7,7 @@ export const CCH_SUBJECTS = [
   { name: 'Chemistry', icon: '⚗️' },
   { name: 'Physics', icon: '⚛️' },
   { name: 'English', icon: '📖' },
+  { name: 'Logical Reasoning', icon: '🧠' },
 ] as const
 
 export const CCH_SUBJECT_NAMES: readonly string[] = CCH_SUBJECTS.map(s => s.name)
@@ -23,15 +24,16 @@ export function subjectIcon(name: string | null | undefined): string {
 /**
  * Exam-specific subject mappings. Each entry test covers specific subjects.
  * Students should only see subjects relevant to their target exam. MDCAT and
- * NUMS share the PMDC syllabus (NUMS adds a Logical Reasoning section the
- * bank does not have yet — honest count comes from the DB, not this list).
+ * NUMS share the PMDC syllabus, except that NUMS Paper-I also carries a Logical
+ * Reasoning section — that bank now exists (lib/past-paper-bank.ts), which is
+ * why NUMS lists it and the national MDCAT does not.
  */
 export const COLLEGE_SUBJECTS: Record<string, readonly string[]> = {
   'MDCAT': ['Biology', 'Chemistry', 'Physics', 'English'],
-  'NUMS': ['Biology', 'Chemistry', 'Physics', 'English'],
+  'NUMS': ['Biology', 'Chemistry', 'Physics', 'English', 'Logical Reasoning'],
   'UHS': ['Biology', 'Chemistry', 'Physics', 'English'],
   'SZABMU': ['Biology', 'Chemistry', 'Physics', 'English'],
-  'AKU': ['Biology', 'Chemistry', 'Physics', 'English'],
+  'ETEA': ['Biology', 'Chemistry', 'Physics', 'English'],
   'BIOLOGY': ['Biology'],
   'CHEMISTRY': ['Chemistry'],
   'PHYSICS': ['Physics'],

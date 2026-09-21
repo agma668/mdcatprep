@@ -26,6 +26,14 @@ export type QuizQuestion = {
   explanation: string | null;
   difficulty: string | null;
   college: string | null;
+  /**
+   * Past-paper provenance, when the question genuinely came from a real paper.
+   * Null for original exam-style questions — a year is never invented, and an
+   * absent year is shown as nothing rather than guessed at.
+   */
+  past_paper_exam?: string | null;
+  past_paper_year?: number | null;
+  past_paper_section?: string | null;
 };
 
 /** Anything question-shaped (optional or null fields are tolerated). */
@@ -51,7 +59,23 @@ export function toQuizQuestion(q: QuestionLike): QuizQuestion {
     explanation: typeof q.explanation === "string" ? q.explanation : null,
     difficulty: typeof q.difficulty === "string" ? q.difficulty : null,
     college: typeof q.college === "string" ? q.college : null,
+    past_paper_exam: typeof q.past_paper_exam === "string" ? q.past_paper_exam : null,
+    past_paper_year: typeof q.past_paper_year === "number" ? q.past_paper_year : null,
+    past_paper_section: typeof q.past_paper_section === "string" ? q.past_paper_section : null,
   };
+}
+
+/**
+ * "UHS MDCAT 2025 · Code D" for a question tagged to a past paper, or null when
+ * the question is original and carries no year. One formatter so every surface
+ * phrases provenance the same way.
+ */
+export function pastPaperTag(q: QuestionLike): string | null {
+  if (typeof q.past_paper_exam !== "string" || !q.past_paper_exam) return null
+  const year = typeof q.past_paper_year === "number" ? ` ${q.past_paper_year}` : ""
+  const section =
+    typeof q.past_paper_section === "string" && q.past_paper_section ? ` · ${q.past_paper_section}` : ""
+  return `${q.past_paper_exam}${year}${section}`
 }
 
 /** Canonical model for questions that always come from the DB bank. */

@@ -4,6 +4,7 @@ import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { Navbar } from "@/components/landing/Navbar";
 import { FluidCursor } from "@/components/landing/FluidCursor";
 import { Hero } from "@/components/landing/Hero";
+import { SocialProofBar } from "@/components/landing/SocialProofBar";
 import { Features } from "@/components/landing/Features";
 import { HowItWorks } from "@/components/landing/HowItWorks";
 import { WhyMED } from "@/components/landing/WhyMED";
@@ -20,6 +21,7 @@ import { getSiteUrl, SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
 const MCQDemoSection = nextDynamic(() => import("@/components/landing/MCQDemoSection").then(m => ({ default: m.MCQDemoSection })), { loading: () => null });
 const AnalyticsPreview = nextDynamic(() => import("@/components/landing/AnalyticsPreview").then(m => ({ default: m.AnalyticsPreview })), { loading: () => null });
 const LeaderboardPreview = nextDynamic(() => import("@/components/landing/LeaderboardPreview").then(m => ({ default: m.LeaderboardPreview })), { loading: () => null });
+const CommunityStreakWall = nextDynamic(() => import("@/components/landing/CommunityStreakWall").then(m => ({ default: m.CommunityStreakWall })), { loading: () => null });
 const ScrollEffects = nextDynamic(() => import("@/components/landing/ScrollEffects").then(m => ({ default: m.ScrollEffects })));
 const SmoothScroll = nextDynamic(() => import("@/components/landing/SmoothScroll").then(m => ({ default: m.SmoothScroll })), { loading: () => null });
 const ExamCountdown = nextDynamic(() => import("@/components/dashboard/ExamCountdown").then(m => ({ default: m.ExamCountdown })), { loading: () => null });
@@ -114,6 +116,11 @@ export default async function Home() {
           }}
         />
 
+        {/* Compact social-proof stat bar — the first reassurance under the top
+            CTA, before the colleges strip. Reads the same seam as the hero, so
+            a figure here can never disagree with a figure there. */}
+        <SocialProofBar analytics={stats.analytics} />
+
         <TrustStrip />
 
         {/* WhatsApp group banner */}
@@ -160,6 +167,16 @@ export default async function Home() {
         {stats.analytics && (
           <section id="analytics-preview">
             <AnalyticsPreview analytics={stats.analytics} />
+          </section>
+        )}
+        {/* The community streak wall — every real attempt of the last year on
+            one scrollable grid. Only mounts on verified data; an unreachable
+            DB hides it rather than showing a fabricated pattern. */}
+        {stats.activityCalendar && (
+          <section id="community-streak-wall" className="py-6">
+            <div className="container-page">
+              <CommunityStreakWall days={stats.activityCalendar.days} />
+            </div>
           </section>
         )}
         {/* The flattest band on the page was carrying its heaviest message. The
