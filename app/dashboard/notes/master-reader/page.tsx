@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { NotesPaperShield } from "@/components/dashboard/NotesPaperShield";
+import { listKbDocs } from "@/lib/kb-notes";
 import {
   MCAT_NOTES_PREAMBLE,
   MCAT_NOTES_SECTIONS,
@@ -79,6 +81,44 @@ export default async function MasterNotesReaderPage() {
             download — this reader is the only way in.
           </p>
         </div>
+
+        {/* KB library — the founder's consolidated notes, one protected reader per doc */}
+        {(() => {
+          const docs = listKbDocs();
+          const bySubject = new Map<string, typeof docs>();
+          for (const d of docs) {
+            const k = d.subject || "General";
+            if (!bySubject.has(k)) bySubject.set(k, []);
+            bySubject.get(k)!.push(d);
+          }
+          return (
+            <div className="rounded-[var(--radius-lg)] border border-[var(--line-2)] bg-[var(--srf-1)] px-5 py-4 mb-6">
+              <p className="text-sm font-semibold text-[var(--steel-100)]">Master notes library — {docs.length} documents</p>
+              <p className="text-xs text-[var(--steel-300)] mt-1 mb-3">
+                Every document opens in this same protected, watermarked reader.
+              </p>
+              <div className="space-y-3">
+                {[...bySubject.entries()].map(([subject, ds]) => (
+                  <div key={subject}>
+                    <p className="text-[11px] font-bold uppercase tracking-wide text-[var(--steel-300)] mb-1">{subject}</p>
+                    <div className="grid gap-1.5 sm:grid-cols-2">
+                      {ds.map((d) => (
+                        <Link
+                          key={d.slug}
+                          href={`/dashboard/notes/master-reader/${d.slug}`}
+                          className="flex items-center justify-between gap-2 rounded-md border border-[var(--line-1)] bg-[var(--srf-2)] px-3 py-2 text-[13px] text-[var(--steel-100)] hover:border-[var(--signal-600)]"
+                        >
+                          <span className="truncate">{d.title}</span>
+                          <span className="shrink-0 text-[11px] text-[var(--steel-300)]">{d.sizeLabel}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
 
         {/* The paper itself: white sheet, print-grade typography, no-select.
             noprint class keeps browser print dialogs from producing a clean copy. */}
