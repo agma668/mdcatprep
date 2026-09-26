@@ -8,10 +8,23 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/admin', '/dashboard', '/login', '/signup', '/pending', '/rejected', '/suspended'],
+        disallow: [
+          '/admin',
+          '/dashboard',
+          '/api/',
+          '/login',
+          '/signup',
+          '/pending',
+          '/rejected',
+          '/suspended',
+          '/forgot-password',
+          '/reset-password',
+          '/account-deleted',
+        ],
       },
       {
-        // Explicitly allow AI search crawlers for maximum visibility
+        // Explicitly allow AI search crawlers — this is the AEO wedge. Classic
+        // competitors predate this layer entirely.
         userAgent: ['GPTBot', 'ChatGPT-User', 'PerplexityBot', 'ClaudeBot', 'anthropic-ai', 'Google-Extended'],
         allow: '/',
       },

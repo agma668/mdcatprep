@@ -30,7 +30,20 @@ for (const pg of pages) {
       if (mod !== null) { modPath = cand; break; }
     }
     if (mod === null) { console.log(`MODULE NOT IN COMMIT: @/${imp}  (imported by ${pg})`); bad++; continue; }
-    const exps = new Set([...mod.matchAll(/export (?:const|function|type|interface|async function) ([A-Za-z0-9_]+)/g)].map((m) => m[1]));
+    const exps = new Set([
+      ...[...mod.matchAll(/export (?:const|function|type|interface|async function) ([A-Za-z0-9_]+)/g)].map((m) => m[1]),
+      // Grouped forms: `export type { A, B }` and `export { A, B as C }` —
+      // the regex above misses them (public-notes.ts uses both).
+      ...[...mod.matchAll(/export (?:type )?\{([^}]+)\}/g)].flatMap((m) =>
+        m[1]
+          .split(",")
+          .map((s) => {
+            const parts = s.trim().replace(/^type\s+/, "").split(/\s+as\s+/);
+            return (parts[1] ?? parts[0] ?? "").trim();
+          })
+          .filter(Boolean)
+      ),
+    ]);
     const used = [...src.matchAll(new RegExp(`import\\s*\\{([^}]+)\\}\\s*from\\s*"@/${imp.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`, "g"))];
     for (const u of used) {
       for (const name of u[1].split(",").map((s) => s.trim().replace(/^type\s+/, "").split(/\s+as\s+/)[0]).filter(Boolean)) {

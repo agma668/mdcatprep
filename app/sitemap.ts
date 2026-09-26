@@ -1,38 +1,33 @@
 import type { MetadataRoute } from 'next'
 import { getSiteUrl } from '@/lib/site'
+import { SEO_PAGES, topicalDrillPaths } from '@/lib/seo-pages'
 
+/**
+ * Sitemap from the ONE list (lib/seo-pages.ts) — the same source the IndexNow
+ * pinger submits, so a new page is sitemapped AND pinged with no second place
+ * to forget. SEO_PAGES covers the hand-written public pages; topicalDrillPaths
+ * adds the chapter drills derived from the same seam the drill route
+ * prerenders from. Indexable pages only; noindex utility pages stay out.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
   const url = getSiteUrl()
   const now = new Date()
 
-  const publicPages = [
-    { path: '', priority: 1 },
-    { path: '/founder', priority: 0.8 },
-    { path: '/daily-quiz', priority: 0.7 },
-    { path: '/flashcards', priority: 0.8 },
-    { path: '/diagnostic', priority: 0.9 },
-    { path: '/faq', priority: 0.8 },
-    { path: '/resources', priority: 0.9 },
-    { path: '/notes', priority: 0.9 },
-    { path: '/topicals', priority: 0.9 },
-    { path: '/topicals/biology', priority: 0.8 },
-    { path: '/topicals/chemistry', priority: 0.8 },
-    { path: '/topicals/physics', priority: 0.8 },
-    { path: '/notes/biology', priority: 0.8 },
-    { path: '/notes/chemistry', priority: 0.8 },
-    { path: '/notes/physics', priority: 0.8 },
-    { path: '/notes/english', priority: 0.8 },
-    { path: '/past-papers', priority: 0.8 },
-    { path: '/blog', priority: 0.9 },
-    { path: '/blog/mdcat-guide', priority: 0.9 },
-    { path: '/privacy', priority: 0.5 },
-    { path: '/copyright', priority: 0.4 },
-  ]
+  const staticPages: MetadataRoute.Sitemap = SEO_PAGES.map(
+    ({ path, priority, changeFrequency }) => ({
+      url: `${url}${path}`,
+      lastModified: now,
+      changeFrequency,
+      priority,
+    }),
+  )
 
-  return publicPages.map(({ path, priority }) => ({
+  const drills: MetadataRoute.Sitemap = topicalDrillPaths().map((path) => ({
     url: `${url}${path}`,
     lastModified: now,
-    changeFrequency: 'weekly',
-    priority,
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
   }))
+
+  return [...staticPages, ...drills]
 }

@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache'
 import { createClient } from '@/lib/supabase/server'
 import { requireAdmin } from '@/lib/auth'
 import { createServiceClient } from '@/lib/supabase/service'
+import { triageFeedback, formatTriagePrefix } from '@/lib/jev'
 
 const MAX_LENGTH = 2000
 const MIN_LENGTH = 3
@@ -15,6 +16,11 @@ export type SubmitFeedbackResult = { success: true } | { error: string }
  * the signed-in student's id is captured server-side (not from the form) so
  * admins can see who gave the feedback without the student typing anything.
  * Anonymous visitors submit with a NULL user_id.
+ *
+ * Jev triage (lib/jev.ts) classifies the message before insert. The contract
+ * is fail-open: when triage fails or the key is missing, the row is stored
+ * exactly as before — the prefix is appended ONLY on a genuine result, so a
+ * missing label never masquerades as a real one.
  */
 export async function submitFeedback(
   message: string,
@@ -34,8 +40,11 @@ export async function submitFeedback(
     data: { user },
   } = await supabase.auth.getUser()
 
+  const triage = await triageFeedback(clean)
+  const stored = triage ? `${formatTriagePrefix(triage)} ${clean}` : clean
+
   const { error } = await supabase.from('feedback').insert({
-    message: clean,
+    message: stored,
     user_id: user?.id ?? null,
     page: page?.slice(0, 200) || null,
   })

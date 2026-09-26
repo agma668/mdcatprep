@@ -51,6 +51,17 @@ next-env.d.ts
 # supabase CLI temp artifacts
 /supabase/.temp/
 
+# Unverified / scratch scaffolding (NOT product code — kept local only):
+/supabase/seed-bank-515.sql
+/lib/real-paper-chem-2023.ts
+/scripts/_bank*.json
+/scripts/_dump_bank.mts
+/scripts/_parse_bank.py
+/scripts/_seed_*.sql
+/scripts/_sql_batches/
+/scripts/_sqlchunks/
+/scripts/_probe*.mjs
+
 # Ruflo local secrets and runtime data
 .env
 .env.local
