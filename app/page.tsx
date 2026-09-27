@@ -15,6 +15,7 @@ import { CTA } from "@/components/landing/CTA";
 import { RegisterSection } from "@/components/landing/RegisterSection";
 import { TrustStrip } from "@/components/landing/TrustStrip";
 import { Footer } from "@/components/landing/Footer";
+import { ExamHubSelector } from "@/components/exams/ExamHubSelector";
 import { getPublicStats } from "@/lib/public-stats";
 import { getSiteUrl, SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
 
@@ -200,6 +201,9 @@ export default async function Home() {
         </section>
         <section id="cadet-colleges">
           <CollegeCarousel />
+        </section>
+        <section id="exam-portals" className="py-12 bg-secondary/20 border-y border-border">
+          <ExamHubSelector />
         </section>
         <section id="faq">
           <FAQ />
