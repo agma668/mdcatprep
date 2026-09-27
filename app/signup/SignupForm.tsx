@@ -142,18 +142,32 @@ export function SignupForm({ refCode }: { refCode: string }) {
           htmlFor="signup-exam"
           className="block text-sm font-semibold text-white mb-1.5"
         >
-          Exam Target{" "}
-          <span className="text-[var(--steel-400)] font-normal">
-            (optional)
-          </span>
+          Select Your Target Exam Track
         </label>
-        <input
+        <select
           id="signup-exam"
-          type="text"
           name="exam_target"
-          className="w-full px-4 py-2.5 border border-white/10 rounded-[var(--radius-md)] text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-shadow bg-white/[0.06]"
-          placeholder="MDCAT 2026, NUMS, ETEA..."
-        />
+          required
+          defaultValue="MDCAT"
+          className="w-full px-4 py-2.5 border border-white/10 rounded-[var(--radius-md)] text-sm text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-shadow bg-[#0a1a2e]"
+        >
+          <optgroup label="Medical Entrance (PMDC & NUMS)">
+            <option value="MDCAT">MDCAT (UHS / SZABMU / KMU / DUHS)</option>
+            <option value="NUMS">NUMS MDCAT & AMC</option>
+            <option value="HEC USAT-M">HEC USAT-M (Pre-Medical)</option>
+            <option value="MBBS Notes">MBBS MedSchool Clinical Notes</option>
+          </optgroup>
+          <optgroup label="Engineering & Computing (NUST / GIKI / LUMS)">
+            <option value="NUST (NET)">NUST (NET - Engineering & CS)</option>
+            <option value="GIKI">GIKI Engineering Entrance Test</option>
+            <option value="LUMS">LUMS (SBASSE / SDSB Admissions)</option>
+            <option value="HEC USAT-E">HEC USAT-E / CS (Pre-Engineering)</option>
+          </optgroup>
+          <optgroup label="Military & Armed Forces (PMA / ISSB)">
+            <option value="PMA Long Course">PMA Long Course (Verbal, Non-Verbal & Academic)</option>
+            <option value="ISSB Intelligence">ISSB Psychological & Intelligence Tests</option>
+          </optgroup>
+        </select>
       </div>
 
       {refCode && <input type="hidden" name="ref" value={refCode} />}
