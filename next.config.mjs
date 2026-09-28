@@ -42,6 +42,11 @@ const securityHeaders = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Allow the Base44 preview origin so Next doesn't block dev assets/HMR.
+  // The var is injected by the Base44 compose; absent locally it's a no-op.
+  allowedDevOrigins: process.env.BASE44_PUBLIC_HOST_SUFFIX
+    ? [`3000-${process.env.BASE44_PUBLIC_HOST_SUFFIX}`]
+    : [],
   env: {
     NEXT_PUBLIC_SW_EPOCH: swEpoch,
   },

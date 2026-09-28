@@ -1,0 +1,43 @@
+# Base44 development compose — runs the Next.js app from the cloned source
+# with live reload. Do not use the repo's own compose (if any) — this one is
+# wired for the Base44 preview environment.
+services:
+  web:
+    image: node:22-slim
+    working_dir: /app
+    # Bind-mount the cloned source so edits appear without a rebuild.
+    volumes:
+      - .:/app
+      # Keep container-installed node_modules isolated from the host.
+      - web_node_modules:/app/node_modules
+      - web_next_cache:/app/.next
+    ports:
+      - "3000:3000"
+    environment:
+      # Next.js dev-server origin allowlist — the preview origin must be
+      # allowed or Next blocks dev assets/HMR.
+      - BASE44_PUBLIC_HOST_SUFFIX=${BASE44_PUBLIC_HOST_SUFFIX}
+      - NODE_ENV=development
+    env_file:
+      - /run/base44/app.env
+    # Install deps (cached in the named volume) then start the dev server.
+    # Turbopack is the default bundler in Next 16; -H 0.0.0.0 binds all
+    # interfaces so the preview proxy can reach it.
+    command: sh -c "npm install --no-audit --no-fund && npx next dev -H 0.0.0.0 -p 3000"
+    restart: on-failure
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://localhost:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 90s
+
+volumes:
+  web_node_modules:
+  web_next_cache:

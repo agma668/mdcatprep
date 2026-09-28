@@ -1,0 +1,158 @@
+{
+  "previewPort": 3000,
+  "healthPath": "/api/health",
+  "startCommand": "docker compose -f docker-compose.base44.yml up -d",
+  "secrets": [
+    {
+      "name": "SUPABASE_SERVICE_ROLE_KEY",
+      "description": "Supabase service-role key (Project Settings → API → service_role secret). Required for admin/server-side DB operations; the public landing page renders without it via built-in publishable-key fallbacks.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "NEXT_PUBLIC_SUPABASE_URL",
+      "description": "Supabase project URL. Optional — the app has a built-in fallback publishable pair.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+      "description": "Supabase publishable/anon key. Optional — the app has a built-in fallback.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "NEXT_PUBLIC_SITE_URL",
+      "description": "Canonical site URL for SEO (defaults to https://medprep.pk).",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "EMAILJS_SERVICE_ID",
+      "description": "EmailJS service ID for enrollment/approval/rejection emails. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "EMAILJS_TEMPLATE_ID_ENROLLMENT",
+      "description": "EmailJS template ID for enrollment emails. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "EMAILJS_TEMPLATE_ID_APPROVAL",
+      "description": "EmailJS template ID for approval emails. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "EMAILJS_TEMPLATE_ID_REJECTION",
+      "description": "EmailJS template ID for rejection emails. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "EMAILJS_PUBLIC_KEY",
+      "description": "EmailJS public key. Optional.",
+      "requiredAtBoot": false,
+      "generatedForBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "EMAILJS_PRIVATE_KEY",
+      "description": "EmailJS private key. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "VAPID_PUBLIC_KEY",
+      "description": "VAPID public key for web push notifications. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "VAPID_PRIVATE_KEY",
+      "description": "VAPID private key for web push notifications. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "VAPID_SUBJECT",
+      "description": "VAPID subject (mailto: or https: URL) for web push. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "NEXT_PUBLIC_VAPID_PUBLIC_KEY",
+      "description": "Public VAPID key inlined into the client bundle. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "WHATSAPP_ACCESS_TOKEN",
+      "description": "WhatsApp Cloud API access token for daily quiz messaging. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "WHATSAPP_PHONE_NUMBER_ID",
+      "description": "WhatsApp Cloud API phone number ID. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "WHATSAPP_VERIFY_TOKEN",
+      "description": "WhatsApp webhook verify token. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "GOOGLE_CLIENT_ID",
+      "description": "Google OAuth client ID for Google Drive content ingestion. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "GOOGLE_CLIENT_SECRET",
+      "description": "Google OAuth client secret. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "GOOGLE_REFRESH_TOKEN",
+      "description": "Google OAuth refresh token. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "GOOGLE_DRIVE_FOLDER_ID",
+      "description": "Google Drive folder ID for content ingestion. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "TYPESAFE_API_KEY",
+      "description": "Typesafe AI SDK API key. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "CRON_SECRET",
+      "description": "Secret protecting cron API routes. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "INDEXNOW_KEY",
+      "description": "IndexNow key for SEO ping. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    },
+    {
+      "name": "MAINTENANCE_BASE_URL",
+      "description": "Base URL for maintenance cron. Optional.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": false
+    }
+  ]
+}
