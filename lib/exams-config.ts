@@ -6,6 +6,7 @@ export interface ExamConfig {
   tagline: string;
   badge: string;
   route: string;
+  practiceRoute?: string; // Optional topical drill route (mirrors /usat/practice pattern)
   accentColor: string; // CSS variable or Tailwind color class
   subjects: { id: string; name: string; count: number }[];
   features: {
@@ -16,6 +17,7 @@ export interface ExamConfig {
     pastPapers: boolean;
     psychTest?: boolean;
     intelligenceTest?: boolean;
+    practiceRoute?: string;
   };
 }
 
@@ -71,6 +73,7 @@ export const EXAMS_CONFIG: Record<ExamCategory, ExamConfig> = {
     tagline: 'Engineering & Business Admissions Masterclass',
     badge: 'Engineering & CS',
     route: '/nust/dashboard',
+    practiceRoute: '/nust/practice',
     accentColor: 'from-blue-600 to-indigo-700',
     subjects: [
       { id: 'net-math', name: 'Mathematics / Quantitative', count: 200 },
@@ -84,6 +87,7 @@ export const EXAMS_CONFIG: Record<ExamCategory, ExamConfig> = {
       notes: true,
       flashcards: true,
       pastPapers: true,
+      practiceRoute: '/nust/practice',
     },
   },
   usat: {
