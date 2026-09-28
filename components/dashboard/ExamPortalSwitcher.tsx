@@ -30,7 +30,6 @@ export function ExamPortalSwitcher({ currentExam = 'mdcat' }: { currentExam?: st
         <option value="pma" className="bg-card text-foreground">PMA Long Course & ISSB</option>
         <option value="nust" className="bg-card text-foreground">NUST / GIKI / LUMS (NET)</option>
         <option value="usat" className="bg-card text-foreground">HEC USAT (M / E / CS)</option>
-        <option value="mbbs" className="bg-card text-foreground">MBBS Clinical Notes</option>
       </select>
     </div>
   );
