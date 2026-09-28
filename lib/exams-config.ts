@@ -1,4 +1,4 @@
-export type ExamCategory = 'mdcat' | 'pma' | 'nust' | 'usat' | 'mbbs';
+export type ExamCategory = 'mdcat' | 'pma' | 'nust' | 'usat';
 
 export interface ExamConfig {
   id: ExamCategory;
@@ -110,26 +110,7 @@ export const EXAMS_CONFIG: Record<ExamCategory, ExamConfig> = {
       pastPapers: true,
     },
   },
-  mbbs: {
-    id: 'mbbs',
-    name: 'MBBS MedSchool Notes',
-    tagline: '1st to Final Year Professional Exam Guides & Anatomy',
-    badge: 'Medical Professionals',
-    route: '/mbbs/dashboard',
-    accentColor: 'from-rose-600 to-pink-700',
-    subjects: [
-      { id: 'anatomy', name: 'Gross Anatomy & Embryology', count: 80 },
-      { id: 'physiology', name: 'Medical Physiology', count: 70 },
-      { id: 'biochemistry', name: 'Medical Biochemistry', count: 60 },
-      { id: 'pathology', name: 'General & Special Pathology', count: 90 },
-      { id: 'pharmacology', name: 'Pharmacology & Therapeutics', count: 80 },
-    ],
-    features: {
-      practice: true,
-      mockTests: false,
-      notes: true,
-      flashcards: true,
-      pastPapers: true,
-    },
-  },
+  /* mbbs deliberately excluded from this release — question bank and clinical
+   notes development is extensive and was scoped to a future phase. all other
+   exam verticals (MDCAT, USAT, PMA, NUST/GIKI/LUMS) remain fully functional. */
 };
