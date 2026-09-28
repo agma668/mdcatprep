@@ -17,3 +17,20 @@ Two things specific to this repo:
   brought up to Cadet's UI/UX deliberately (see the `OUTPUT → sibling MED Prep
   site` row on the Cadet Prep board); it inherits the shared rules and nothing
   project-specific. Add a board here when it earns one.
+
+## Base44 dev environment
+
+- **Run:** `docker compose -f docker-compose.base44.yml up -d` — Node 22 +
+  `next dev` (Turbopack) on port 3000, source bind-mounted so edits hot-reload.
+- **No local DB.** Supabase is a remote project; the publishable URL/anon key
+  are built into `lib/env.ts` as fallbacks, so public pages render without any
+  env vars. `SUPABASE_SERVICE_ROLE_KEY` is only needed for server-side/admin
+  queries — `getPublicStats()` and the middleware catch its absence and fail
+  open (hero stats from static floors, board/analytics hidden).
+- **No secrets required to boot.** All boot-critical config has built-in
+  fallbacks. Optional integrations (Resend, WhatsApp, VAPID, EmailJS, Google
+  Drive, TYPESAFE_API_KEY, CRON_SECRET) can be added via the secrets dashboard
+  but are not needed for the landing page or auth.
+- **Preview origin:** `allowedDevOrigins` in `next.config.mjs` reads
+  `BASE44_PUBLIC_HOST_SUFFIX` so the preview proxy origin is accepted.
+- **Verify:** `curl localhost:3000/api/health` → `{"status":"ok",...}`.
