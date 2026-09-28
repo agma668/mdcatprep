@@ -21,6 +21,8 @@ export function Hero({
   // Real counts fetched from the live database by the page (lib/public-stats.ts) —
   // colleges, distinct subjects with questions, published MCQs. Rendered as
   // plain server markup so the page never shows a placeholder zero.
+  // Every figure comes from lib/stats.ts (the single owner) — the component
+  // formats and lays out, it never sources a number of its own.
   stats: { colleges: number; subjects: number; mcqs: number; students: number; asOf: string };
 }) {
   // "Online Access" is a service fact (the platform is up round the clock), not
@@ -40,6 +42,44 @@ export function Hero({
       aria-label="Hero"
       className="relative flex min-h-screen flex-col justify-center overflow-hidden pt-16"
     >
+      {/* === GLASSY TOP BAR SHOWING ALL TEST CATEGORIES === */}
+      <div className="absolute top-0 left-0 right-0 z-10 border-b border-border/80 bg-card/80 backdrop-blur md:py-3">
+        <div className="container-page flex flex-wrap gap-2 justify-center md:justify-start">
+          {/* Medical Entrance */}
+          <Button
+            variant="outline"
+            size="sm"
+            className="text-xs font-medium uppercase tracking-wider px-4 py-1.5 rounded-[var(--radius-md)] border border-border/50 text-foreground hover:border-border transition-colors bg-gradient-to-r from-emerald-500/10 to-teal-600/10 text-emerald-400"
+          >
+            MDCAT & NUMS
+          </Button>
+          {/* HEC USAT */}
+          <Button
+            variant="outline"
+            size="sm"
+            className="text-xs font-medium uppercase tracking-wider px-4 py-1.5 rounded-[var(--radius-md)] border border-border/50 text-foreground hover:border-border transition-colors bg-gradient-to-r from-purple-600/10 to-violet-700/10 text-purple-400"
+          >
+            HEC USAT-M / USAT-E / USAT-CS
+          </Button>
+          {/* Military */}
+          <Button
+            variant="outline"
+            size="sm"
+            className="text-xs font-medium uppercase tracking-wider px-4 py-1.5 rounded-[var(--radius-md)] border border-border/50 text-foreground hover:border-border transition-colors bg-gradient-to-r from-amber-600/10 to-yellow-700/10 text-amber-400"
+          >
+            PMA & ISSB
+          </Button>
+          {/* Engineering */}
+          <Button
+            variant="outline"
+            size="sm"
+            className="text-xs font-medium uppercase tracking-wider px-4 py-1.5 rounded-[var(--radius-md)] border border-border/50 text-foreground hover:border-border transition-colors bg-gradient-to-r from-blue-600/10 to-indigo-700/10 text-blue-400"
+          >
+            NUST / GIKI / LUMS
+          </Button>
+        </div>
+      </div>
+
       {/* Aurora field — cold signal and beacon light, drifting only with the
           scroll parallax writer (no infinite keyframe loop). */}
       {/* Antigravity-style interactive particle field — dashes scatter and
@@ -99,11 +139,11 @@ export function Hero({
                 hydration finishes" rather than first paint. Carrying both also
                 animated every block twice. */}
             <div className="hero-intro">
-              {/* Active MDCAT & NUMS Prep platform announcement */}
+              {/* Platform announcement — now for ALL Pakistan tests */}
               <div className="mb-6 flex items-start justify-center gap-2.5 lg:justify-start">
                 <Rocket aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-[var(--signal-300)]" />
                 <p className="text-base font-bold leading-snug text-[var(--steel-100)] sm:text-lg">
-                  <span className="text-liquid-gold">Free MDCAT, NUMS & Medical Exam Prep Platform</span>
+                  <span className="text-liquid-gold">Free MDCAT, USAT, PMA & NUST Prep Platform</span>
                   {" "}&mdash; Access resources & entire platform 100% free.
                 </p>
               </div>
@@ -118,21 +158,24 @@ export function Hero({
               <div className="mb-6 flex justify-center lg:justify-start">
                 <Badge variant="accent">
                   <GraduationCap className="h-3.5 w-3.5" aria-hidden="true" />
-                  Pakistan&apos;s Premier MDCAT & NUMS Medical Entrance Prep Platform
+                  Pakistan&apos;s Premier MDCAT, USAT, PMA & NUST Prep Platform
                 </Badge>
               </div>
 
               <h1 className="mb-6 text-4xl text-[var(--steel-100)] sm:text-5xl md:text-6xl">
                 Your Path to{" "}
-                <span className="text-gradient">MDCAT & NUMS</span>{" "}
+                <span className="text-gradient">All Pakistan Competitive Exams</span>{" "}
                 Success Starts Here.
               </h1>
 
               <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-[var(--steel-300)] sm:text-xl">
-                Free medical entrance exam preparation for MDCAT, NUMS, UHS, SZABMU, KMU, and all medical universities.
-                Take a quick diagnostic to find your level, then practice{" "}
+                Free competitive exam preparation for MDCAT, NUMS, UHS, SZABMU, KMU, DUHS,
+                BUMHS, HEC USAT-M/E/CS, PMA Long Course, ISSB, NUST NET, GIKI Entrance,
+                LUMS SBASSE & SDSB admissions — and all Pakistani university entry tests.
+                Take a quick diagnostic to find your level, then practice
                 {formatStat(stats.mcqs)} exam-style MCQs with instant explanations
-                across Biology, Chemistry, Physics, and English.
+                across Biology, Chemistry, Physics, Mathematics, English, Intelligence,
+                and all subject areas.
               </p>
 
               {/* px-8, not px-10, and both labels are nowrap. On lg the text
