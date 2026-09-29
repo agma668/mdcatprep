@@ -17,3 +17,19 @@ Two things specific to this repo:
   brought up to Cadet's UI/UX deliberately (see the `OUTPUT → sibling MED Prep
   site` row on the Cadet Prep board); it inherits the shared rules and nothing
   project-specific. Add a board here when it earns one.
+
+## Base44 dev environment
+
+- **Stack:** Next.js 16.2.10 (Turbopack) + React 19 + Supabase (remote) + Tailwind 4.
+- **No local database needed.** The app talks to a remote Supabase project.
+  `lib/env.ts` has **built-in fallback publishable keys** for the Supabase URL
+  and anon key, so the app boots and renders public pages with zero env vars.
+- **Optional credentials** (all degrade gracefully when missing):
+  `SUPABASE_SERVICE_ROLE_KEY` (admin/server operations — throws when missing,
+  caught at call sites), `EMAILJS_*`, `RESEND_API_KEY`, `VAPID_*`,
+  `WHATSAPP_*`, `GOOGLE_*`, `TYPESAFE_API_KEY`.
+- **Health:** `GET /api/health` — cheap liveness, no DB dependency.
+- **Compose:** `docker compose -f docker-compose.base44.yml up -d` (node:22-slim,
+  bind-mounted source, `npm ci` then `next dev -H 0.0.0.0 -p 3000`).
+- **Preview origin:** `allowedDevOrigins` in `next.config.mjs` uses
+  `BASE44_PUBLIC_HOST_SUFFIX` so Next accepts the preview origin's dev assets.

@@ -45,6 +45,12 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_SW_EPOCH: swEpoch,
   },
+  // Allow the Base44 preview origin to load dev assets/HMR. The platform
+  // sets BASE44_PUBLIC_HOST_SUFFIX per-sandbox; without this Next blocks the
+  // preview origin's requests to dev-only assets.
+  allowedDevOrigins: process.env.BASE44_PUBLIC_HOST_SUFFIX
+    ? [`3000-${process.env.BASE44_PUBLIC_HOST_SUFFIX}`]
+    : [],
   experimental: {
     serverActions: {
       bodySizeLimit: "25mb",
