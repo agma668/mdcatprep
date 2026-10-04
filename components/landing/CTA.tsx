@@ -145,7 +145,7 @@ export function CTA() {
         {/* Static, not revealed: three plain facts don't need an entrance. */}
         <div className="mt-12 flex flex-col items-center justify-center gap-6 text-center sm:flex-row">
           {[
-            { icon: GraduationCap, text: "Qualified teachers" },
+            { icon: GraduationCap, text: "Free for every student" },
             { icon: MessageCircle, text: "WhatsApp support" },
             { icon: Users, text: "Students across Pakistan" },
           ].map(({ icon: Icon, text }) => (

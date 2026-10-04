@@ -31,7 +31,7 @@ export const FAQS: FAQItem[] = [
   {
     question: "Do you have past papers?",
     answer:
-      "No — and neither does anyone you should trust if they claim the real upcoming paper. What we do have: exam-style questions written from scratch on the official PMDC syllabus, plus solved past-paper archives you can study from. You always see which pattern each set targets.",
+      "Yes. The Past Papers section lists the MDCAT and NUMS papers we hold, sorted by board and year, and each one says plainly whether an official answer key exists. Alongside them you get exam-style questions written from scratch on the official PMDC syllabus, so you always know what is a real paper and what is practice.",
   },
   {
     question: "How is MED Prep different from a regular coaching academy?",

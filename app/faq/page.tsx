@@ -97,7 +97,7 @@ const FAQS = [
       },
       {
         q: "Does MED Prep have past papers?",
-        a: `Our high-yield notes are built from analysis of real MDCAT papers and mocks — over ${formatStat(ANALYSIS_CORPUS)} questions parsed, with repeat facts marked by how often they appear. The exam-style MCQ bank models the actual test pattern. Official past papers belong to their examining bodies, so we teach the facts that repeat instead of republishing them.`,
+        a: `Yes. The Past Papers section lists the MDCAT and NUMS papers we hold, sorted by board and year, and each one says whether an official answer key exists. Our high-yield notes are built from analysis of ${formatStat(ANALYSIS_CORPUS)} real-paper questions, with repeat facts marked by how often they appear. The exam-style MCQ bank is original writing that models the actual test pattern.`,
       },
       {
         q: "Can I use MED Prep on my phone?",
