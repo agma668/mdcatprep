@@ -60,6 +60,8 @@ is district-based), board, FSc year, phone (for payment later), preferred langua
 ## 2. What "students actually pay" requires (no marketing, just product and trust)
 ---------------------------------------------------------------------
 
+DECISION 2026-10-06 (founder): everything stays free for now and the site says so. Payment work is parked; the rest of this section is the plan for when he reopens it.
+
 The site is free today. People pay when five things are all true. Check them in order; do not charge before the first three pass.
 
 1. Trust: every number on the site is real, every answer key is right, no fake teachers, no invented counts. (Section 5, WS5)
@@ -214,7 +216,7 @@ For each exam, a pattern page whose every line is verified on the official notic
 - Source and verification badge on questions ("verified", "original", "past paper 2024 UHS").
 - Fake or demo activity (any cron that writes demo rows) must be off in production or clearly labelled demo.
 
-### WS6 Payments and business (after the gates)
+### WS6 Payments and business (PARKED by founder 2026-10-06: all free for now)
 - Decide merchant path (see section 2). Manual MVP first.
 - Entitlements table, admin page to grant and revoke, receipts, refund rule.
 - Premium scope to test: full mocks with ranking, weekly plan, offline packs, Urdu explanations, result-day help.
@@ -236,7 +238,14 @@ For each exam, a pattern page whose every line is verified on the official notic
 ---------------------------------------------------------------------
 ## 6. Decisions only the founder can make
 ---------------------------------------------------------------------
-1. Keep or delete the "900 students" floor (recommendation: delete).
+RESOLVED 2026-10-06 by the founder:
+- Student headcount stays private. Public wording is "Free practice for students across Pakistan preparing for MDCAT, NUMS, NUST, GIKI, LUMS and HEC tests." No student count is shown on the landing page, the dashboard social-proof bar or the leaderboard any more. Honest note: the wording says the site is FOR students across Pakistan, not that many use it, because real usage data does not support "many" yet. Flip it when the data does.
+- HEC Balochistan/FATA test date: leave for now; another AI verifies and posts on the board.
+- Official PMDC MDCAT 2026/27 notice: another AI fetches it and fixes the FAQ pattern text.
+- Payments: all free for now; no payment work.
+Still open: domain, cleared past-paper sources, language priority, NET sprint versus repeater focus.
+
+1. (resolved) Keep or delete the "900 students" floor.
 2. Confirm HEC Balochistan/FATA test date from hec.gov.pk and ETC portal; send the official notice text so we build from it.
 3. Domain: buy and attach one, or stay on the vercel URL for now.
 4. Which sources are cleared for past papers beyond the ones already registered (list them in writing).

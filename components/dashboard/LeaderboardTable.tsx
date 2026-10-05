@@ -3,7 +3,7 @@
 import { TrackedLink } from "@/components/TrackedLink";
 import Link from "next/link";
 import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
-import { Trophy, Flame, Users, Target, TrendingUp } from "lucide-react";
+import { Trophy, Flame, Target, TrendingUp } from "lucide-react";
 import type { LeaderboardEntry, LeaderboardStats, SelfRankInfo } from "@/lib/leaderboard";
 import { ChallengeButton } from "./ChallengeButton";
 
@@ -30,15 +30,7 @@ export function LeaderboardTable({
   return (
     <div className="space-y-6">
       {/* Community stats band */}
-      <div className="grid grid-cols-3 gap-3">
-        <div className="glass-tile-glow rounded-[var(--radius-lg)] border border-white/10 p-4 text-center">
-          <p className="flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-muted)]">
-            <Users className="w-3.5 h-3.5" /> Students
-          </p>
-          <p className="mt-1 text-2xl font-extrabold tabular-nums text-white">
-            {fmtInt(stats.totalStudents)}
-          </p>
-        </div>
+      <div className="grid grid-cols-2 gap-3">
         <div className="glass-tile-glow rounded-[var(--radius-lg)] border border-white/10 p-4 text-center">
           <p className="flex items-center justify-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-muted)]">
             <Target className="w-3.5 h-3.5" /> Questions

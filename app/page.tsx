@@ -108,6 +108,9 @@ export default async function Home() {
                   Browse past papers
                 </Link>
               </div>
+              <p className="mt-5 max-w-[52ch] text-sm leading-relaxed text-[var(--steel-300)]">
+                Free practice for students across Pakistan preparing for MDCAT, NUMS, NUST, GIKI, LUMS and HEC tests. No fees, no card, nothing locked.
+              </p>
               <dl className="mt-10 flex flex-wrap gap-x-10 gap-y-4 border-t border-[var(--line-1)] pt-6">
                 <div>
                   <dt className="text-sm text-[var(--steel-400)]">Practice MCQs</dt>

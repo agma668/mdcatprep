@@ -1,6 +1,6 @@
 "use client";
 
-import { Users, TrendingUp, Clock } from "lucide-react";
+import { Users, TrendingUp } from "lucide-react";
 import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
 import type { CommunityProofStats } from "@/lib/public-stats";
 import { StatsAsOf } from "@/components/shared/StatsAsOf";
@@ -34,15 +34,7 @@ export function SocialProof({ stats }: { stats: CommunityProofStats | null }) {
         </span>
         <span className="inline-flex items-center gap-1.5">
           <Users className="w-3.5 h-3.5" />
-          <span className="text-white/55 font-medium">
-            {stats.activeStudentsThisWeek} student{stats.activeStudentsThisWeek === 1 ? "" : "s"} practising this week
-          </span>
-        </span>
-        <span className="inline-flex items-center gap-1.5">
-          <Clock className="w-3.5 h-3.5" />
-          <span className="text-white/55 font-medium">
-            {fmtInt(stats.studentsJoined)} students joined
-          </span>
+          <span className="text-white/55 font-medium">Practising alongside students across Pakistan</span>
         </span>
       </div>
       <StatsAsOf asOf={stats.asOf} />
