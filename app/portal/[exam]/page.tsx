@@ -71,6 +71,51 @@ export default async function ExamPortalPage({ params }: PageProps) {
           </div>
         </section>
 
+        {/* Sub-Tests Selector Section (Boss requirement: select exact test inside portal) */}
+        {config.subtests && config.subtests.length > 0 && (
+          <section className="max-w-6xl mx-auto px-4 pt-12">
+            <div className="bg-card border border-border rounded-2xl p-6 sm:p-8 shadow-sm">
+              <div className="flex items-center justify-between mb-6">
+                <div>
+                  <h2 className="text-xl font-bold text-foreground">Select Your Exact Target Test</h2>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Similar boards and exams share this unified portal. Choose your specific exam to tailor your practice sessions and past paper drills.
+                  </p>
+                </div>
+                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-accent/10 text-accent">
+                  {config.subtests.length} Boards / Variations
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {config.subtests.map((sub) => (
+                  <Link
+                    key={sub.id}
+                    href={`${config.route}?subtest=${sub.id}`}
+                    className="group bg-background border border-border/80 hover:border-accent rounded-xl p-4 transition-all duration-300 flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-xs font-bold text-accent">Target Board</span>
+                        <span className="text-[10px] text-muted-foreground bg-secondary px-2 py-0.5 rounded">Active</span>
+                      </div>
+                      <h3 className="font-bold text-foreground text-sm group-hover:text-accent transition-colors">
+                        {sub.name}
+                      </h3>
+                      <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                        {sub.description}
+                      </p>
+                    </div>
+                    <div className="mt-4 pt-3 border-t border-border/40 flex items-center justify-between text-xs font-semibold text-accent">
+                      <span>Launch Practice →</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Subject Breakdown & Features */}
         <section className="max-w-6xl mx-auto px-4 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
