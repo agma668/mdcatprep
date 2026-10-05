@@ -1,5 +1,17 @@
 // Apex Pakistan — PMA Long Course Initial Test Question Bank
-// Covers Verbal Intelligence, Non-Verbal Reasoning, and Academic MCQs (GK, Pak Studies, Islamiyat, Math, English).
+// Verbal Intelligence, Non-Verbal Reasoning (SVG figures), and Academic MCQs.
+// All questions are original exam-style writing for Apex Pakistan — no official
+// PMA or ISSB paper is reproduced.
+
+// Deterministic figure spec. The question variant renders the incomplete /
+// in-progress visual; option figures are derived per letter by `pmaOptionFigure`
+// so the page and the bank can never disagree about what an option looks like.
+export type PmaFigure =
+  | { style: 'matrix-sides'; nextSides?: number }
+  | { style: 'dot-progression'; total: number; filled?: number }
+  | { style: 'rotation-series'; rotateStepDeg?: number }
+  | { style: 'single-mirrored'; mirror?: boolean; rotateDeg?: number; mirrorLine?: boolean }
+  | { style: 'sequence-sides'; nextSides?: number };
 
 export type PMAQuestion = {
   key: string;
@@ -13,7 +25,51 @@ export type PMAQuestion = {
   correct_answer: 'A' | 'B' | 'C' | 'D';
   explanation: string;
   difficulty: 'easy' | 'medium' | 'hard';
+  figure?: PmaFigure;
 };
+
+// For figure questions the option text is unused (options are rendered as SVG);
+// each mapping below is the single deterministic expansion of the spec.
+export function pmaOptionFigure(spec: PmaFigure): Record<'A' | 'B' | 'C' | 'D', PmaFigure> {
+  switch (spec.style) {
+    case 'matrix-sides':
+      return {
+        A: { ...spec, nextSides: 5 },
+        B: { ...spec, nextSides: 4 },
+        C: { ...spec, nextSides: 3 },
+        D: { ...spec, nextSides: 0 },
+      };
+    case 'sequence-sides':
+      return {
+        A: { ...spec, nextSides: 6 },
+        B: { ...spec, nextSides: 0 },
+        C: { ...spec, nextSides: 4 },
+        D: { ...spec, nextSides: 3 },
+      };
+    case 'dot-progression':
+      return {
+        A: { ...spec, filled: 4 },
+        B: { ...spec, filled: 5 },
+        C: { ...spec, filled: 6 },
+        D: { ...spec, filled: 7 },
+      };
+    case 'rotation-series':
+      // Option variant renders ONE arrow at a fixed absolute angle.
+      return {
+        A: { ...spec, rotateStepDeg: 135 },
+        B: { ...spec, rotateStepDeg: 0 },
+        C: { ...spec, rotateStepDeg: 90 },
+        D: { ...spec, rotateStepDeg: 270 },
+      };
+    case 'single-mirrored':
+      return {
+        A: { ...spec, mirror: true, rotateDeg: 0, mirrorLine: false },
+        B: { ...spec, mirror: false, rotateDeg: 0, mirrorLine: false },
+        C: { ...spec, mirror: false, rotateDeg: 90, mirrorLine: false },
+        D: { ...spec, mirror: false, rotateDeg: 180, mirrorLine: false },
+      };
+  }
+}
 
 export const PMA_QUESTIONS: PMAQuestion[] = [
   // --- VERBAL INTELLIGENCE ---
@@ -40,20 +96,20 @@ export const PMA_QUESTIONS: PMAQuestion[] = [
     option_c: 'FX',
     option_d: 'FU',
     correct_answer: 'A',
-    explanation: 'First letter advances by +1 (A, B, C, D, E), second letter moves backward by -1 (Z, Y, X, W, V). Result is EV.',
+    explanation: 'First letter advances by +1 (A, B, C, D, E), second letter moves backward by −1 (Z, Y, X, W, V). Result is EV.',
     difficulty: 'easy',
   },
   {
     key: 'pma-v-003',
     category: 'Verbal',
     topic: 'Coding & Decoding',
-    question_text: 'If FISH is coded as GJKI, how is BIRD coded in that same code?',
-    option_a: 'CJSE',
-    option_b: 'CHSE',
-    option_c: 'DKSE',
-    option_d: 'BKSE',
+    question_text: 'If FISH is coded as HKVJ, how is BIRD coded in that same code?',
+    option_a: 'DKTF',
+    option_b: 'CJSE',
+    option_c: 'DJTF',
+    option_d: 'EKUG',
     correct_answer: 'A',
-    explanation: 'Each letter is shifted forward by +1: F→G, I→J, S→I (wait F+1=G, I+1=J, S+1=T? Let\'s check: F(6)->G(7), I(9)->J(10), S(19)->T(20). Here sample says GJKI. Let\'s use standard shift: B+1=C, I+1=J, R+1=S, D+1=E -> CJSE.',
+    explanation: 'Each letter shifts forward by 2: F→H, I→K, S→V, H→J. Applying the same shift to BIRD: B→D, I→K, R→T, D→F, giving DKTF.',
     difficulty: 'medium',
   },
   {
@@ -83,110 +139,76 @@ export const PMA_QUESTIONS: PMAQuestion[] = [
     difficulty: 'medium',
   },
 
-  // --- NON-VERBAL INTELLIGENCE ENGINE (Visual Matrix Patterns) ---
+  // --- NON-VERBAL INTELLIGENCE (SVG figures — original figures, drawn in components/pma/PmaFigure.tsx) ---
   {
     key: 'pma-nv-001',
     category: 'Non-Verbal',
-    topic: 'Pattern Completion',
-    question_text: 'Which option completes the pattern? [3×3 grid with shading progressing from top-left to bottom-right]',
-    option_a: 'Increasing diagonal shading',
-    option_b: 'Decreasing diagonal shading',
-    option_c: 'Horizontal stripes',
-    option_d: 'Vertical stripes',
+    topic: 'Matrix Reasoning',
+    question_text: 'In this 2×2 matrix, the shape in each row gains one side from left to right. Which option completes the matrix at the bottom-right?',
+    option_a: '',
+    option_b: '',
+    option_c: '',
+    option_d: '',
     correct_answer: 'A',
-    explanation: 'The shading gradient progresses along the main diagonal from top-left (light) to bottom-right (dark), so the next cell continues the pattern.',
-    difficulty: 'easy',
+    explanation: 'Top row: triangle (3 sides) → square (4 sides). The bottom row must follow the same rule: square (4 sides) → pentagon (5 sides), which is option A. B repeats the square, C drops back to a triangle, and D replaces it with a circle.',
+    difficulty: 'medium',
+    figure: { style: 'matrix-sides' },
   },
   {
     key: 'pma-nv-002',
     category: 'Non-Verbal',
     topic: 'Series Completion',
-    question_text: 'Identify the missing shape in the sequence: Circle → Triangle → Square → ?',
-    option_a: 'Pentagon',
-    option_b: 'Hexagon',
-    option_c: 'Circle',
-    option_d: 'Rectangle',
-    correct_answer: 'A',
-    explanation: 'The sequence follows regular polygon shapes with increasing number of sides: 3→4→5→6 sides. Pentagon has 5 sides.',
+    question_text: 'Each frame in the series removes one filled dot. What does the next frame look like?',
+    option_a: '',
+    option_b: '',
+    option_c: '',
+    option_d: '',
+    correct_answer: 'B',
+    explanation: 'The frame shows 8 dots with 6 filled. Removing one filled dot per step means the next frame has exactly 5 filled dots: option B. A removes two, C repeats the current frame unchanged, and D adds one.',
     difficulty: 'easy',
+    figure: { style: 'dot-progression', total: 8, filled: 6 },
   },
   {
     key: 'pma-nv-003',
     category: 'Non-Verbal',
-    topic: 'Matrix Reasoning',
-    question_text: 'In the 3×3 grid, each row and column contains one of each shape. What is the missing shape at position (2,3)?',
-    option_a: 'Circle',
-    option_b: 'Triangle',
-    option_c: 'Square',
-    option_d: 'Star',
-    correct_answer: 'C',
-    explanation: 'Each row and column must contain one Circle, one Triangle, and one Square. The missing position completes the set with a Square.',
+    topic: 'Series by Rotation',
+    question_text: 'The arrow rotates 45° clockwise in each frame. Which option is the next frame in the series?',
+    option_a: '',
+    option_b: '',
+    option_c: '',
+    option_d: '',
+    correct_answer: 'A',
+    explanation: 'The frames show the arrow at 0°, 45° and 90°. Continuing the 45° clockwise turn puts the next arrow at 135°: option A. B returns to 0°, C repeats 90°, and D points at 270°.',
     difficulty: 'medium',
+    figure: { style: 'rotation-series' },
   },
   {
     key: 'pma-nv-004',
     category: 'Non-Verbal',
-    topic: 'Series by Rotation',
-    question_text: 'A shape rotates 90° clockwise each step. What is the 5th shape?',
-    option_a: 'Original orientation',
-    option_b: 'Rotated 90°',
-    option_c: 'Rotated 180°',
-    option_d: 'Rotated 270°',
-    correct_answer: 'D',
-    explanation: 'Step 1: 0°, Step 2: 90°, Step 3: 180°, Step 4: 270°, Step 5: 360° = original orientation rotated full circle.',
+    topic: 'Mirror Images',
+    question_text: 'Select the mirror image of this flag when the mirror is placed on the dashed line.',
+    option_a: '',
+    option_b: '',
+    option_c: '',
+    option_d: '',
+    correct_answer: 'A',
+    explanation: 'A vertical mirror flips left and right, so the pennant moves from the right of the pole to the left while staying at the top: option A. B is the original, unmirrored flag, C is rotated 90°, and D is rotated 180° — rotation is not reflection.',
     difficulty: 'medium',
+    figure: { style: 'single-mirrored', mirrorLine: true },
   },
   {
     key: 'pma-nv-005',
     category: 'Non-Verbal',
-    topic: 'Odd One Out',
-    question_text: 'Which shape is the odd one out?',
-    option_a: 'Shape with 3 sides',
-    option_b: 'Shape with 4 sides',
-    option_c: 'Shape with 5 sides',
-    option_d: 'Shape with 6 sides',
+    topic: 'Polygon Series',
+    question_text: 'Each shape in the series gains one side. Which shape comes next?',
+    option_a: '',
+    option_b: '',
+    option_c: '',
+    option_d: '',
     correct_answer: 'A',
-    explanation: 'All shapes except the triangle have an even number of sides (4, 5, 6). The triangle is the only one with an odd number of sides (3).',
+    explanation: 'The series runs 3 → 4 → 5 sides, so the next shape has 6 sides: the hexagon in option A. B is a circle, C a square, and D a triangle.',
     difficulty: 'easy',
-  },
-  {
-    key: 'pma-nv-006',
-    category: 'Non-Verbal',
-    topic: 'Mirror Images',
-    question_text: 'Select the mirror image of the given shape when the mirror is placed vertically to the right.',
-    option_a: 'Left-right reversed shape',
-    option_b: 'Up-down reversed shape',
-    option_c: 'Rotated 45° clockwise',
-    option_d: 'Unchanged shape',
-    correct_answer: 'A',
-    explanation: 'A vertical mirror to the right reverses the shape left-to-right, creating a mirror image.',
-    difficulty: 'medium',
-  },
-  {
-    key: 'pma-nv-007',
-    category: 'Non-Verbal',
-    topic: 'Counting Sides',
-    question_text: 'What is the total number of sides in the given composite shape?',
-    option_a: '10',
-    option_b: '12',
-    option_c: '14',
-    option_d: '16',
-    correct_answer: 'B',
-    explanation: 'The composite shape combines a triangle (3 sides) and a square (4 sides) sharing one side, resulting in 3 + 4 - 1 (shared) = 6 + 2 (inner angles) = 12 sides total.',
-    difficulty: 'hard',
-  },
-  {
-    key: 'pma-nv-008',
-    category: 'Non-Verbal',
-    topic: 'Spatial Reasoning',
-    question_text: 'If the top layer is removed, which shape is at the bottom?',
-    option_a: 'Circle',
-    option_b: 'Triangle',
-    option_c: 'Square',
-    option_d: 'Star',
-    correct_answer: 'A',
-    explanation: 'The stacking order from top to bottom is: Circle → Triangle → Square → Star. Removing the top Circle reveals the Triangle underneath.',
-    difficulty: 'medium',
+    figure: { style: 'sequence-sides' },
   },
 
   // --- ACADEMIC SECTION ---
@@ -254,5 +276,5 @@ export const PMA_QUESTIONS: PMAQuestion[] = [
     correct_answer: 'A',
     explanation: 'Simple past tense active ("cooked") becomes "was/were + past participle" in passive ("was cooked").',
     difficulty: 'easy',
-  }
+  },
 ];

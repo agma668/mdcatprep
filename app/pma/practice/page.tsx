@@ -1,90 +1,106 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { USAT_ELITE_BANK } from '@/lib/usat-comprehensive-bank';
+import { useCallback, useRef, useState } from 'react';
 import Link from 'next/link';
+import { PMA_QUESTIONS, pmaOptionFigure } from '@/lib/pma-questions';
+import { PmaFigure } from '@/components/pma/PmaFigure';
+
+const CATEGORIES = ['All', 'Verbal', 'Non-Verbal', 'Academic'] as const;
+type Category = (typeof CATEGORIES)[number];
+type OptionKey = 'A' | 'B' | 'C' | 'D';
 
 export default function PMAPracticePage() {
-  const [selectedSubject, setSelectedSubject] = useState<string>('All');
+  const [selectedCat, setSelectedCat] = useState<Category>('All');
   const [currentIdx, setCurrentIdx] = useState(0);
-  const [selectedAnswers, setSelectedAnswers] = useState<Record<string, 'A' | 'B' | 'C' | 'D'>>({});
-  const [showResults, setShowResults] = useState(false);
+  const [answers, setAnswers] = useState<Record<string, OptionKey>>({});
+  const [revealed, setRevealed] = useState<Record<string, true>>({});
   const [examStarted, setExamStarted] = useState(false);
   const [timerRunning, setTimerRunning] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState(20);
-  const [questionSkipped, setQuestionSkipped] = useState(false);
-
-  const filteredQuestions = selectedSubject === 'All'
-    ? USAT_ELITE_BANK
-    : USAT_ELITE_BANK.filter(q => q.subject === selectedSubject);
-
-  const totalQuestions = filteredQuestions.length;
-  const currentQ = filteredQuestions[currentIdx] || filteredQuestions[0];
-  const userChoice = selectedAnswers[currentQ.key];
-  const isAnswered = userChoice !== undefined;
-  const isCorrect = isAnswered && currentQ.correct_answer === userChoice;
-
-  // Timer state
   const timerRef = useRef<number | null>(null);
 
-  const startTimer = () => {
-    setTimeRemaining(20);
-    setTimerRunning(true);
-    timerRef.current = window.setInterval(() => {
-      setTimeRemaining(prev => {
-        if (prev <= 1) {
-          clearInterval(timerRef.current!);
-          setTimerRunning(false);
-          setQuestionSkipped(true);
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-  };
+  const pool = selectedCat === 'All' ? PMA_QUESTIONS : PMA_QUESTIONS.filter((q) => q.category === selectedCat);
+  const total = pool.length;
+  const currentQ = pool[currentIdx] ?? pool[0];
+  const userChoice = answers[currentQ.key];
+  const isAnswered = userChoice !== undefined;
+  const isRevealed = revealed[currentQ.key] === true;
+  const showExplanation = isAnswered || isRevealed;
+  const isCorrect = isAnswered && currentQ.correct_answer === userChoice;
 
-  const stopTimer = () => {
+  const answeredCount = pool.filter((q) => answers[q.key] !== undefined).length;
+  const correctCount = pool.filter((q) => answers[q.key] === q.correct_answer).length;
+
+  const optionFigures = currentQ.figure ? pmaOptionFigure(currentQ.figure) : null;
+
+  function stopTimer() {
     if (timerRef.current) {
       clearInterval(timerRef.current);
       timerRef.current = null;
     }
     setTimerRunning(false);
-  };
+  }
 
-  const handleSelectOption = (option: 'A' | 'B' | 'C' | 'D') => {
-    setSelectedAnswers(prev => ({ ...prev, [currentQ.key]: option }));
+  // The clock is armed only by event handlers (start/select/navigate), so the
+  // closure captures the on-screen question at arm time and is always fresh
+  // when it expires. Expiry reveals the rationale; the student then reads it
+  // and advances at their own pace.
+  function startTimer() {
     stopTimer();
-    setQuestionSkipped(false);
-  };
+    setTimeRemaining(20);
+    setTimerRunning(true);
+    let remaining = 20;
+    const key = currentQ.key;
+    const wasAnswered = answers[key] !== undefined;
+    timerRef.current = window.setInterval(() => {
+      remaining -= 1;
+      setTimeRemaining(remaining);
+      if (remaining <= 0) {
+        if (timerRef.current) {
+          clearInterval(timerRef.current);
+          timerRef.current = null;
+        }
+        setTimerRunning(false);
+        if (!wasAnswered) {
+          setRevealed((prev) => (prev[key] ? prev : { ...prev, [key]: true }));
+        }
+      }
+    }, 1000);
+  }
 
-  const nextQuestion = () => {
-    if (currentIdx < totalQuestions - 1) {
-      setCurrentIdx(prev => prev + 1);
-      setSelectedAnswers({});
-      setShowResults(false);
-      setTimerRunning(false);
+  const goTo = useCallback(
+    (idx: number) => {
+      const clamped = Math.max(0, Math.min(total - 1, idx));
+      setCurrentIdx(clamped);
+      const target = pool[clamped];
+      const needsClock = examStarted && answers[target.key] === undefined && !revealed[target.key];
+      if (needsClock) startTimer();
+      else stopTimer();
       setTimeRemaining(20);
-    }
-  };
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- startTimer/stopTimer are stable timers around setState
+    [total, examStarted, answers, revealed, selectedCat]
+  );
 
-  const prevQuestion = () => {
-    if (currentIdx > 0) {
-      setCurrentIdx(prev => prev - 1);
-      setSelectedAnswers({});
-      setShowResults(false);
-      setTimerRunning(false);
-      setTimeRemaining(20);
-    }
-  };
+  function handleSelect(option: OptionKey) {
+    setAnswers((prev) => ({ ...prev, [currentQ.key]: option }));
+    stopTimer();
+  }
 
-  // Auto-advance when timer runs out (no answer selected)
-  useEffect(() => {
-    if (timeRemaining === 0 && !isAnswered && !questionSkipped) {
-      nextQuestion();
-    }
-  }, [timeRemaining, isAnswered, questionSkipped, currentIdx]);
+  function startExam() {
+    setExamStarted(true);
+    startTimer();
+  }
 
-  const subjects = ['All', 'Verbal Intelligence', 'Non-Verbal Intelligence', 'Academic', 'ISSB Psychological'];
+  function resetForCategory(cat: Category) {
+    stopTimer();
+    setSelectedCat(cat);
+    setCurrentIdx(0);
+    setAnswers({});
+    setRevealed({});
+    setExamStarted(false);
+    setTimeRemaining(20);
+  }
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col justify-between font-sans">
@@ -94,7 +110,7 @@ export default function PMAPracticePage() {
           <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Link href="/portal/pma" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-                ← PMA Portal
+                &larr; PMA Portal
               </Link>
               <span className="text-border">/</span>
               <span className="font-extrabold text-sm text-foreground">Intelligence Practice</span>
@@ -105,11 +121,26 @@ export default function PMAPracticePage() {
           </div>
         </header>
 
-        {/* Timer & Progress Bar */}
+        {/* Timer Display */}
+        {examStarted && (
+          <div className="mt-6 text-center">
+            <div className={`text-3xl font-bold ${timeRemaining <= 5 && timerRunning ? 'text-rose-400' : 'text-amber-400'}`}>
+              {timeRemaining}
+            </div>
+            <div className="mt-1 text-sm text-amber-300">Seconds per question &mdash; the rationale is revealed if time runs out</div>
+            <div className="mx-auto mt-2 h-1 w-48 overflow-hidden rounded-full bg-secondary">
+              <div
+                className={`h-full transition-all duration-1000 ease-linear ${timeRemaining <= 5 ? 'bg-rose-500' : 'bg-amber-500'}`}
+                style={{ width: `${(timeRemaining / 20) * 100}%` }}
+              />
+            </div>
+          </div>
+        )}
+
         {!examStarted && (
-          <div className="mb-6 text-center">
+          <div className="mt-8 text-center">
             <button
-              onClick={() => setExamStarted(true)}
+              onClick={startExam}
               className="px-6 py-3 rounded-xl bg-amber-600 text-amber-100 font-semibold text-sm hover:bg-amber-500 transition-colors"
             >
               Start Timed Practice
@@ -117,42 +148,40 @@ export default function PMAPracticePage() {
           </div>
         )}
 
-        {/* Timer Display */}
-        {examStarted && timerRunning && (
-          <div className="mb-6 text-center">
-            <div className="text-3xl font-bold text-amber-400">{timeRemaining}</div>
-            <div className="mt-2 text-sm text-amber-300">Seconds per question — auto-skips if unanswered</div>
-          </div>
-        )}
-
         {/* Main Workspace */}
         <main className="max-w-4xl mx-auto px-4 py-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
             <div>
-              <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight">PMA Long Course — Intelligence Practice</h1>
-              <p className="text-sm text-muted-foreground mt-1">Verbal & Non-Verbal intelligence tests with 20-second timed questions. Auto-skip if unanswered.</p>
+              <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight">PMA Long Course &mdash; Intelligence Practice</h1>
+              <p className="text-sm text-muted-foreground mt-1">
+                Verbal &amp; non-verbal intelligence with 20-second timed questions. Original sample questions written in the
+                PMA initial-test style &mdash; not official PMA papers.
+              </p>
+              <p className="text-xs text-muted-foreground mt-1">
+                Score: {correctCount} correct &middot; {answeredCount}/{total} answered
+              </p>
             </div>
 
-            {/* Subject Tabs */}
+            {/* Category Tabs */}
             <div className="flex flex-wrap gap-1.5 bg-secondary/50 p-1.5 rounded-xl border border-border">
-              {subjects.map(sub => (
+              {CATEGORIES.map((cat) => (
                 <button
-                  key={sub}
-                  onClick={() => { setSelectedSubject(sub); setCurrentIdx(0); setExamStarted(false); setSelectedAnswers({}); setQuestionSkipped(false); stopTimer(); }}
+                  key={cat}
+                  onClick={() => resetForCategory(cat)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                    selectedSubject === sub
+                    selectedCat === cat
                       ? 'bg-amber-600 text-amber-100 shadow'
                       : 'text-muted-foreground hover:text-foreground'
                   }`}
                 >
-                  {sub}
+                  {cat}
                 </button>
               ))}
             </div>
           </div>
 
           {/* Question Card */}
-          {filteredQuestions.length === 0 ? (
+          {total === 0 ? (
             <div className="bg-card border border-border rounded-2xl p-12 text-center">
               <p className="text-muted-foreground">No questions found for this category.</p>
             </div>
@@ -162,9 +191,9 @@ export default function PMAPracticePage() {
               <div className="flex items-center justify-between text-xs text-muted-foreground border-b border-border pb-4">
                 <div className="flex items-center gap-2">
                   <span className="px-2.5 py-1 rounded bg-secondary text-secondary-foreground font-bold">
-                    {currentQ.subject}
+                    {currentQ.category}
                   </span>
-                  <span>• Topic: {currentQ.topic}</span>
+                  <span>&bull; Topic: {currentQ.topic}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className={`px-2 py-0.5 rounded font-medium uppercase text-[10px] ${
@@ -173,9 +202,16 @@ export default function PMAPracticePage() {
                   }`}>
                     {currentQ.difficulty}
                   </span>
-                  <span>Question {currentIdx + 1} of {filteredQuestions.length}</span>
+                  <span>Question {currentIdx + 1} of {total}</span>
                 </div>
               </div>
+
+              {/* Question Figure (non-verbal) */}
+              {currentQ.figure && (
+                <div className="flex justify-center py-2">
+                  <PmaFigure spec={currentQ.figure} label="Question figure" className="h-28 w-28 text-foreground" />
+                </div>
+              )}
 
               {/* Question Text */}
               <div className="text-base md:text-lg font-semibold text-foreground leading-relaxed">
@@ -184,56 +220,67 @@ export default function PMAPracticePage() {
 
               {/* Options */}
               <div className="space-y-3 pt-2">
-                {(['A', 'B', 'C', 'D'] as const).map(optKey => {
-                  const optText = currentQ[`option_${optKey.toLowerCase() as 'a'|'b'|'c'|'d'}`];
-                  const isSelected = userChoice === optKey;
-                  const isCorrect = isAnswered && currentQ.correct_answer === optKey;
+                {(['A', 'B', 'C', 'D'] as const).map((letter) => {
+                  const isSelected = userChoice === letter;
+                  const isAnswer = currentQ.correct_answer === letter;
+                  const settled = isAnswered || isRevealed;
 
                   let btnStyle = 'border-border bg-card/80 hover:bg-muted/50 text-foreground';
                   if (timerRunning && timeRemaining <= 5) {
-                    btnStyle = 'border-rose-500 bg-rose-500/20 text-rose-300 font-semibold';
+                    btnStyle = 'border-rose-500/60 bg-rose-500/10 text-rose-300 font-semibold';
                   }
-                  if (userChoice) {
-                    if (isCorrect) btnStyle = 'border-emerald-500 bg-emerald-500/10 text-emerald-300 font-semibold';
-                    else if (isSelected && !isCorrect) btnStyle = 'border-rose-500 bg-rose-500/10 text-rose-300 font-semibold';
+                  if (settled) {
+                    if (isAnswer) btnStyle = 'border-emerald-500 bg-emerald-500/10 text-emerald-300 font-semibold';
+                    else if (isSelected) btnStyle = 'border-rose-500 bg-rose-500/10 text-rose-300 font-semibold';
                   } else if (isSelected) {
                     btnStyle = 'border-amber-500 bg-amber-500/10 text-amber-300 font-semibold';
                   }
 
+                  const optText = currentQ[`option_${letter.toLowerCase() as 'a' | 'b' | 'c' | 'd'}`];
+
                   return (
                     <button
-                      key={optKey}
-                      onClick={() => handleSelectOption(optKey)}
+                      key={letter}
+                      onClick={() => handleSelect(letter)}
+                      aria-pressed={isSelected}
                       className={`w-full text-left p-4 rounded-xl border transition-all flex items-center gap-4 ${btnStyle}`}
                     >
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-border bg-secondary text-xs font-bold text-foreground">
-                        {optKey}
-                      </span>
-                      <span className="text-sm md:text-base">{optText}</span>
+                      {optionFigures ? (
+                        <span className="flex flex-col items-center gap-1 w-full">
+                          <span className="text-[10px] font-bold text-muted-foreground uppercase">{letter}</span>
+                          <PmaFigure spec={optionFigures[letter]} label={`Option ${letter} figure`} className="h-16 w-16 text-foreground" />
+                        </span>
+                      ) : (
+                        <>
+                          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-border bg-secondary text-xs font-bold text-foreground">
+                            {letter}
+                          </span>
+                          <span className="text-sm md:text-base">{optText}</span>
+                        </>
+                      )}
                     </button>
                   );
                 })}
               </div>
 
-              {/* Timer Visual (overlay during active questions) */}
-              {examStarted && timerRunning && !isAnswered && !questionSkipped && (
-                <div className="absolute top-0 left-0 right-0 h-full bg-amber-500/10">
-                  <div className="h-full bg-amber-500" style={{width: `${(timeRemaining / 20) * 100}%`}} />
-                </div>
-              )}
-
               {/* Explanation Box */}
-              {userChoice && (
+              {showExplanation && (
                 <div className={`p-5 rounded-xl border mt-6 space-y-2 animate-fadeIn ${
-                  isCorrect
-                    ? 'bg-emerald-500/5 border-emerald-500/30 text-emerald-200'
-                    : 'bg-rose-500/5 border-rose-500/30 text-rose-200'
+                  isAnswered
+                    ? isCorrect
+                      ? 'bg-emerald-500/5 border-emerald-500/30 text-emerald-200'
+                      : 'bg-rose-500/5 border-rose-500/30 text-rose-200'
+                    : 'bg-amber-500/5 border-amber-500/30 text-amber-200'
                 }`}>
                   <div className="flex items-center gap-2 font-bold text-sm">
-                    {isCorrect ? (
-                      <span className="text-emerald-400">✓ Correct! Excellent grasp of the concept.</span>
+                    {isAnswered ? (
+                      isCorrect ? (
+                        <span className="text-emerald-400">&#10003; Correct! Excellent grasp of the concept.</span>
+                      ) : (
+                        <span className="text-rose-400">&#10007; Incorrect. The correct answer is ({currentQ.correct_answer}).</span>
+                      )
                     ) : (
-                      <span className="text-rose-400">✕ Incorrect. The correct answer is ({currentQ.correct_answer}).</span>
+                      <span className="text-amber-400">&#9201; Time expired &mdash; the correct answer is ({currentQ.correct_answer}).</span>
                     )}
                   </div>
                   <p className="text-xs md:text-sm text-muted-foreground leading-relaxed pt-1">
@@ -245,34 +292,34 @@ export default function PMAPracticePage() {
               {/* Navigation Footer */}
               <div className="flex items-center justify-between pt-6 border-t border-border">
                 <button
-                  disabled={currentIdx === 0 || !examStarted}
-                  onClick={() => prevQuestion()}
+                  disabled={currentIdx === 0}
+                  onClick={() => goTo(currentIdx - 1)}
                   className="px-4 py-2 rounded-xl bg-secondary text-secondary-foreground text-xs font-semibold disabled:opacity-40 hover:bg-muted transition-colors"
                 >
-                  ← Previous
+                  &larr; Previous
                 </button>
 
                 <div className="text-xs text-muted-foreground">
-                  {examStarted && timerRunning ? `${timeRemaining}s remaining` : `Question ${currentIdx + 1} of ${filteredQuestions.length}`}
+                  {examStarted && timerRunning ? `${timeRemaining}s remaining` : `Question ${currentIdx + 1} of ${total}`}
                 </div>
 
                 <button
-                  disabled={currentIdx >= filteredQuestions.length - 1 || !examStarted}
-                  onClick={() => nextQuestion()}
+                  disabled={currentIdx >= total - 1}
+                  onClick={() => goTo(currentIdx + 1)}
                   className="px-4 py-2 rounded-xl bg-amber-600 text-amber-100 font-semibold text-sm disabled:opacity-40 hover:opacity-90 transition-opacity"
                 >
-                  {currentIdx >= filteredQuestions.length - 1 ? 'Review →' : 'Next Question →'}
+                  {currentIdx >= total - 1 ? 'Review &rarr;' : 'Next Question &rarr;'}
                 </button>
               </div>
             </div>
           )}
         </main>
-
-        {/* Footer */}
-        <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} Apex Pakistan — PMA Intelligence Prep Engine.</p>
-        </footer>
       </div>
+
+      {/* Footer */}
+      <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
+        <p>&copy; {new Date().getFullYear()} Apex Pakistan &mdash; PMA Intelligence Prep Engine.</p>
+      </footer>
     </div>
   );
 }

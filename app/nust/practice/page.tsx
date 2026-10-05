@@ -1,18 +1,17 @@
 'use client';
 
 import { useState } from 'react';
-import { USAT_ELITE_BANK } from '@/lib/usat-comprehensive-bank';
+import { NUST_NET_BANK } from '@/lib/nust-questions';
 import Link from 'next/link';
 
 export default function NUSTPracticePage() {
   const [selectedSubject, setSelectedSubject] = useState<string>('All');
   const [currentIdx, setCurrentIdx] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, 'A' | 'B' | 'C' | 'D'>>({});
-  const [showResults, setShowResults] = useState(false);
 
   const filteredQuestions = selectedSubject === 'All'
-    ? USAT_ELITE_BANK
-    : USAT_ELITE_BANK.filter(q => q.subject === selectedSubject);
+    ? NUST_NET_BANK
+    : NUST_NET_BANK.filter(q => q.subject === selectedSubject);
 
   const currentQ = filteredQuestions[currentIdx] || filteredQuestions[0];
   const userChoice = selectedAnswers[currentQ.key];
@@ -21,7 +20,7 @@ export default function NUSTPracticePage() {
     setSelectedAnswers(prev => ({ ...prev, [currentQ.key]: option }));
   };
 
-  const subjects = ['All', 'Mathematics', 'Physics', 'Chemistry', 'English', 'Intelligence'];
+  const subjects = ['All', 'Mathematics', 'Physics', 'Chemistry', 'English'];
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col justify-between font-sans">
@@ -36,7 +35,7 @@ export default function NUSTPracticePage() {
               <span className="text-border">/</span>
               <span className="font-extrabold text-sm text-foreground">Elite Practice & Drills</span>
             </div>
-            <span className="text-xs px-3 py-1 rounded-bg-purple-500/10 text-purple-400 font-bold">
+            <span className="text-xs px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 font-bold">
               NUST NET Master Bank
             </span>
           </div>
@@ -104,7 +103,7 @@ export default function NUSTPracticePage() {
                 {(['A', 'B', 'C', 'D'] as const).map(optKey => {
                   const optText = currentQ[`option_${optKey.toLowerCase() as 'a'|'b'|'c'|'d'}`];
                   const isSelected = userChoice === optKey;
-                  const isCorrect = currentQ.correct_answer === optKey;
+                  const isCorrect = userChoice !== undefined && currentQ.correct_answer === optKey;
 
                   let btnStyle = 'border-border bg-card/80 hover:bg-muted/50 text-foreground';
                   if (userChoice) {
