@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { TrackedLink } from "@/components/TrackedLink";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { CompassLogo } from "@/components/landing/CompassLogo";
@@ -8,7 +7,7 @@ const FOOTER_LINKS = {
   Platform: [
     { label: "Features", href: "#features" },
     { label: "How It Works", href: "#how-it-works" },
-    { label: "Universities", href: "#cadet-colleges" },
+    { label: "Past Papers", href: "#past-papers" },
     { label: "FAQ", href: "#faq" },
     { label: "Contact", href: "#cta" },
   ],

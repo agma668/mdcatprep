@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { TrackedLink } from "@/components/TrackedLink";
 import { Button } from "@/components/ui/Button";
 import { CompassLogo } from "@/components/landing/CompassLogo";
@@ -11,7 +10,7 @@ import { useRouter } from "next/navigation";
 const NAV_LINKS = [
   { label: "Features", href: "#features" },
   { label: "How It Works", href: "#how-it-works" },
-  { label: "Universities", href: "#cadet-colleges" },
+  { label: "Past Papers", href: "#past-papers" },
   { label: "Free Flashcards", href: "/flashcards" },
   { label: "Daily Quiz", href: "/daily-quiz" },
   { label: "Founder", href: "/founder" },
