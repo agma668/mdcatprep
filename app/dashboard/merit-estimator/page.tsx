@@ -1,102 +1,198 @@
-import type { Metadata } from "next";
-import { TrackedLink } from "@/components/TrackedLink";
-import { Calculator, ExternalLink } from "lucide-react";
-import { PageHeader } from "@/components/dashboard/PageHeader";
-import { MeritEstimator } from "./MeritEstimator";
-import {
-  COLLEGE_MERITS,
-  COLLEGE_UNIVERSITIES,
-  ENTRY_TOTALS,
-  PMDC_WEIGHTS,
-} from "@/lib/merit";
+'use client';
 
-export const metadata: Metadata = { title: "Merit Estimator" };
+import { useState } from 'react';
+import Link from 'next/link';
 
-/**
- * Merit Estimator — aggregate + medical-college merit estimate.
- *
- * The "own name" for this feature (no competitor naming): the calculator
- * computes the PMDC aggregate and matches it honestly against sourced 2024
- * closing-merit bands. Server component loads the static data + renders the
- * interactive client calculator below.
- */
 export default function MeritEstimatorPage() {
+  const [examType, setExamType] = useState<'mdcat' | 'nust'>('mdcat');
+  
+  // MDCAT State
+  const [mdcatMarks, setMdcatMarks] = useState(170);
+  const [mdcatTotal, setMdcatTotal] = useState(200);
+  const [fscMarks, setFscMarks] = useState(980);
+  const [fscTotal, setFscTotal] = useState(1100);
+  const [matricMarks, setMatricMarks] = useState(1050);
+  const [matricTotal, setMatricTotal] = useState(1100);
+
+  // NUST State
+  const [netMarks, setNetMarks] = useState(135);
+  const [netTotal, setNetTotal] = useState(200);
+
+  // Calculations
+  const mdcatPerc = (mdcatMarks / mdcatTotal) * 50; // 50% weight
+  const fscPerc = (fscMarks / fscTotal) * 40;     // 40% weight
+  const matricPerc = (matricMarks / matricTotal) * 10; // 10% weight
+  const mdcatAggregate = (mdcatPerc + fscPerc + matricPerc).toFixed(2);
+
+  const netPerc = (netMarks / netTotal) * 75;
+  const fscNetPerc = (fscMarks / fscTotal) * 15;
+  const matricNetPerc = (matricMarks / matricTotal) * 10;
+  const netAggregate = (netPerc + fscNetPerc + matricNetPerc).toFixed(2);
+
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8 md:px-8">
-      <PageHeader
-        eyebrow="Merit Estimator"
-        title="Where does your aggregate stand?"
-        description={
-          <>
-            Input your Matric / FSc / entry-test marks and we compute the
-            PMDC aggregate, then match it honestly against last cycle&apos;s
-            closing merits. The formula below is the published admission
-            weightage — nothing invented.
-          </>
-        }
-        actions={
-          <span className="hidden items-center gap-1.5 rounded-md border border-[var(--color-primary)]/20 bg-[color:var(--color-primary)]/5 px-3 py-1.5 text-xs font-semibold text-[var(--color-primary)] md:inline-flex">
-            <Calculator className="h-3.5 w-3.5" />
-            {PMDC_WEIGHTS.matric * 100}% Matric · {PMDC_WEIGHTS.fsc * 100}% FSc ·{" "}
-            {PMDC_WEIGHTS.entry * 100}% Entry
-          </span>
-        }
-      />
+    <div className="max-w-4xl mx-auto py-8 px-4 text-foreground">
+      <div className="mb-8 flex items-center justify-between">
+        <div>
+          <Link href="/dashboard" className="text-xs text-muted-foreground hover:text-foreground">
+            ← Back to Dashboard
+          </Link>
+          <h1 className="text-3xl font-extrabold tracking-tight mt-1">Apex Merit & Aggregate Estimator</h1>
+          <p className="text-sm text-muted-foreground mt-1">
+            Calculate your precise admission aggregate for MDCAT/NUMS or NUST NET based on official PMDC & university formulas.
+          </p>
+        </div>
+        <div className="flex bg-card border border-border p-1 rounded-xl">
+          <button
+            onClick={() => setExamType('mdcat')}
+            className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+              examType === 'mdcat' ? 'bg-accent text-accent-foreground shadow' : 'text-muted-foreground hover:text-foreground'
+            }`}
+          >
+            MDCAT / NUMS
+          </button>
+          <button
+            onClick={() => setExamType('nust')}
+            className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+              examType === 'nust' ? 'bg-accent text-accent-foreground shadow' : 'text-muted-foreground hover:text-foreground'
+            }`}
+          >
+            NUST NET
+          </button>
+        </div>
+      </div>
 
-      <MeritEstimator />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Inputs */}
+        <div className="md:col-span-2 space-y-6 bg-card border border-border p-6 rounded-2xl shadow-sm">
+          <h2 className="text-lg font-bold">Enter Your Academic & Test Scores</h2>
 
-      {/* Honest, sourced reference table */}
-      <section className="mt-12">
-        <h2 className="mb-2 text-lg font-bold text-gradient-brand">
-          Last cycle closing merits (reference)
-        </h2>
-        <p className="mb-4 text-sm text-muted-foreground">
-          Historical 2024 figures used as an estimate, not a guarantee. Seat
-          counts, quotas and provincial rounds move them every year.
-        </p>
-        <div className="overflow-hidden rounded-xl border border-border bg-card">
-          <div className="grid grid-cols-1 divide-y divide-border md:grid-cols-2 md:divide-x md:divide-y-0">
-            {COLLEGE_MERITS.map((c) => (
-              <div
-                key={`${c.university}-${c.college}`}
-                className="flex items-center justify-between gap-3 px-4 py-3"
-              >
-                <div className="min-w-0">
-                  <p className="truncate text-sm font-semibold text-foreground">
-                    {c.college}
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    {COLLEGE_UNIVERSITIES[c.university]} · {c.city}
-                  </p>
-                </div>
-                <div className="text-right">
-                  <p className="text-sm font-bold text-[var(--color-primary)]">
-                    {c.closing2024.toFixed(1)}%
-                  </p>
-                  <p className="max-w-[160px] truncate text-[10px] text-muted-foreground">
-                    {c.source}
-                  </p>
+          {examType === 'mdcat' ? (
+            <div className="space-y-4">
+              <div>
+                <label className="block text-xs font-semibold text-muted-foreground mb-1">MDCAT Test Marks (Out of 200)</label>
+                <div className="flex gap-3">
+                  <input
+                    type="number"
+                    value={mdcatMarks}
+                    onChange={(e) => setMdcatMarks(Number(e.target.value))}
+                    className="w-full bg-background border border-border rounded-xl px-4 py-2.5 text-sm font-bold text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                  />
+                  <span className="flex items-center text-xs text-muted-foreground font-semibold">/ 200</span>
                 </div>
               </div>
-            ))}
+
+              <div>
+                <label className="block text-xs font-semibold text-muted-foreground mb-1">FSc / HSSC-I & II Marks</label>
+                <div className="flex gap-3">
+                  <input
+                    type="number"
+                    value={fscMarks}
+                    onChange={(e) => setFscMarks(Number(e.target.value))}
+                    className="w-full bg-background border border-border rounded-xl px-4 py-2.5 text-sm font-bold text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                  />
+                  <input
+                    type="number"
+                    value={fscTotal}
+                    onChange={(e) => setFscTotal(Number(e.target.value))}
+                    className="w-32 bg-background border border-border rounded-xl px-4 py-2.5 text-sm font-bold text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-muted-foreground mb-1">Matric / SSC Marks</label>
+                <div className="flex gap-3">
+                  <input
+                    type="number"
+                    value={matricMarks}
+                    onChange={(e) => setMatricMarks(Number(e.target.value))}
+                    className="w-full bg-background border border-border rounded-xl px-4 py-2.5 text-sm font-bold text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                  />
+                  <input
+                    type="number"
+                    value={matricTotal}
+                    onChange={(e) => setMatricTotal(Number(e.target.value))}
+                    className="w-32 bg-background border border-border rounded-xl px-4 py-2.5 text-sm font-bold text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                  />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="space-y-4">
+              <div>
+                <label className="block text-xs font-semibold text-muted-foreground mb-1">NUST NET Score (Out of 200)</label>
+                <div className="flex gap-3">
+                  <input
+                    type="number"
+                    value={netMarks}
+                    onChange={(e) => setNetMarks(Number(e.target.value))}
+                    className="w-full bg-background border border-border rounded-xl px-4 py-2.5 text-sm font-bold text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                  />
+                  <span className="flex items-center text-xs text-muted-foreground font-semibold">/ 200</span>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-muted-foreground mb-1">FSc / HSSC Marks</label>
+                <div className="flex gap-3">
+                  <input
+                    type="number"
+                    value={fscMarks}
+                    onChange={(e) => setFscMarks(Number(e.target.value))}
+                    className="w-full bg-background border border-border rounded-xl px-4 py-2.5 text-sm font-bold text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                  />
+                  <input
+                    type="number"
+                    value={fscTotal}
+                    onChange={(e) => setFscTotal(Number(e.target.value))}
+                    className="w-32 bg-background border border-border rounded-xl px-4 py-2.5 text-sm font-bold text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-muted-foreground mb-1">Matric / SSC Marks</label>
+                <div className="flex gap-3">
+                  <input
+                    type="number"
+                    value={matricMarks}
+                    onChange={(e) => setMatricMarks(Number(e.target.value))}
+                    className="w-full bg-background border border-border rounded-xl px-4 py-2.5 text-sm font-bold text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                  />
+                  <input
+                    type="number"
+                    value={matricTotal}
+                    onChange={(e) => setMatricTotal(Number(e.target.value))}
+                    className="w-32 bg-background border border-border rounded-xl px-4 py-2.5 text-sm font-bold text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Result Card */}
+        <div className="bg-card border border-border p-6 rounded-2xl shadow-sm flex flex-col justify-between text-center">
+          <div>
+            <span className="text-xs uppercase tracking-wider font-bold text-muted-foreground">Estimated Aggregate</span>
+            <div className="text-5xl font-extrabold text-accent mt-4">
+              {examType === 'mdcat' ? `${mdcatAggregate}%` : `${netAggregate}%`}
+            </div>
+            <p className="text-xs text-muted-foreground mt-4">
+              {examType === 'mdcat' 
+                ? 'Formula: 50% MDCAT + 40% FSc + 10% Matric'
+                : 'Formula: 75% NET + 15% FSc + 10% Matric'}
+            </p>
+          </div>
+
+          <div className="mt-8 pt-6 border-t border-border">
+            <div className="text-xs font-semibold text-foreground mb-1">Safe Merit Benchmark</div>
+            <div className="text-sm font-bold text-emerald-400">
+              {examType === 'mdcat' ? '90%+ for King Edward / AKU (Govt Seats)' : '75%+ for NUST SEECS (Top CS/SE)'}
+            </div>
           </div>
         </div>
-        <p className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
-          <span>Entry-test totals for conversion:</span>
-          {ENTRY_TOTALS.map((e) => (
-            <span key={`${e.body}-${e.total}`} className="inline-flex items-center gap-1">
-              {e.body} = {e.total} marks ({e.note})
-            </span>
-          ))}
-          <TrackedLink
-            to="/founder"
-            label="merit-estimator-founder"
-            className="inline-flex items-center gap-1 font-medium text-[var(--color-primary)] hover:underline"
-          >
-            Full methodology <ExternalLink className="h-3 w-3" />
-          </TrackedLink>
-        </p>
-      </section>
+      </div>
     </div>
   );
 }
