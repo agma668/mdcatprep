@@ -1,6 +1,7 @@
 'KeyFeatures: Multi-exam selector grid for Apex Pakistan education ecosystem'
 import Link from 'next/link';
 import { EXAMS_CONFIG } from '@/lib/exams-config';
+import { PORTAL_BANK_COUNTS } from '@/lib/stats';
 
 export function ExamHubSelector() {
   const exams = Object.values(EXAMS_CONFIG);
@@ -15,7 +16,7 @@ export function ExamHubSelector() {
           Choose Your Competitive Exam Track
         </h2>
         <p className="text-muted-foreground mt-2 max-w-2xl mx-auto text-sm md:text-base">
-          From medical college entrance and military commissions to engineering universities and professional MBBS exams — master your future on one unified platform.
+          From medical college entrance and military commissions to engineering universities and HEC admissions — every major Pakistani entry test on one free platform.
         </p>
       </div>
 
@@ -33,8 +34,8 @@ export function ExamHubSelector() {
                 <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">
                   {exam.badge}
                 </span>
-                <span className="text-xs text-muted-foreground font-medium">
-                  {exam.subjects.length} Categories
+                <span className="text-xs text-muted-foreground font-medium tabular-nums">
+                  {PORTAL_BANK_COUNTS[exam.bank].toLocaleString('en-US')} practice questions
                 </span>
               </div>
 
@@ -50,9 +51,8 @@ export function ExamHubSelector() {
                 <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Core Modules:</div>
                 <ul className="space-y-1">
                   {exam.subjects.slice(0, 3).map((sub) => (
-                    <li key={sub.id} className="text-xs text-foreground/80 flex items-center justify-between py-1 border-b border-border/50">
+                    <li key={sub.id} className="text-xs text-foreground/80 py-1 border-b border-border/50">
                       <span>{sub.name}</span>
-                      <span className="text-muted-foreground">practice set</span>
                     </li>
                   ))}
                   {exam.subjects.length > 3 && (

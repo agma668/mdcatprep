@@ -14,7 +14,7 @@ export const SITE_NAME = 'MED Prep'
 // drift from the real bank (the honesty rule — a number is only shown when it
 // is backed by a real query, and a static meta description can't run one).
 export const SITE_DESCRIPTION =
-  'Free MDCAT preparation for students across Pakistan. Practice exam-style MCQs in Biology, Chemistry, Physics and English, and read clear master notes built from the PMDC MDCAT syllabus.'
+  'Free preparation for Pakistan\'s major entry tests — MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT and PMA. Exam-style MCQs with an explanation behind every answer, released past papers and study notes.'
 
 /**
  * The academy's WhatsApp number in international format (no + or spaces).

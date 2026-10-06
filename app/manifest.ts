@@ -8,10 +8,10 @@ import type { MetadataRoute } from "next";
 // fetch behaviour.
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "MED Prep — Free MDCAT & NUMS Preparation",
+    name: "MED Prep — Free Entry Test Preparation",
     short_name: "MED Prep",
     description:
-      "Free MDCAT and NUMS preparation — exam-style MCQs in Biology, Chemistry, Physics and English, daily quizzes, master notes, analytics and streaks for medical entry tests across Pakistan.",
+      "Free preparation for Pakistan's major entry tests — MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT and PMA. Exam-style MCQs with explanations, daily quizzes, notes, analytics and streaks.",
     start_url: "/",
     scope: "/",
     display: "standalone",

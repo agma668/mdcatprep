@@ -2,8 +2,8 @@ import { ExamHubSelector } from '@/components/exams/ExamHubSelector';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Apex Pakistan — National Competitive Exam Preparation Hub',
-  description: 'MDCAT, PMA Long Course, NUST NET, HEC USAT & MBBS Professional Exam preparation platform.',
+  title: 'Choose Your Test — Free Preparation for Every Major Entry Test',
+  description: 'One free platform for MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT and PMA. Pick your test and start practising instantly.',
 };
 
 export default function ExamsHubPage() {

@@ -34,7 +34,7 @@ export function GET(): Response {
 
   const body = `# MED Prep
 
-> Free MDCAT and NUMS preparation for students across Pakistan. Every practice surface is free and works without an account; progress tracking and the protected master-notes reader need a free account. Built around the PMDC MDCAT syllabus.
+> Free preparation for Pakistan's major entry tests — MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT and PMA/ISSB. Every practice surface is free and works without an account; progress tracking and the protected master-notes reader need a free account. The medical bank follows the PMDC MDCAT syllabus; engineering, HEC USAT and PMA/ISSB portals serve their own question banks.
 
 ## Practice
 

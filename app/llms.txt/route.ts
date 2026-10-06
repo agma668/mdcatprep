@@ -37,9 +37,9 @@ export function GET(): Response {
 
   const body = `# MED Prep
 
-> Free MDCAT and NUMS preparation for students across Pakistan: exam-style MCQ practice, chapter-wise topical drills, master notes for every PMDC unit, publicly released past papers with keys, and daily questions — no fee, no signup wall on the practice surfaces.
+> Free preparation for Pakistan's major entry tests — MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT and PMA/ISSB — on one platform: exam-style MCQ practice with an explanation behind every answer, chapter-wise topical drills, master notes, publicly released past papers with keys, and daily questions. No fee, no signup wall on the practice surfaces.
 
-Practice is free and works without an account. Progress tracking, leaderboards and the protected master-notes reader need a free account. Built around the PMDC MDCAT syllabus (Biology, Chemistry, Physics, English, Logical Reasoning).
+Practice is free and works without an account. Progress tracking, leaderboards and the protected master-notes reader need a free account. The medical bank follows the PMDC MDCAT syllabus (Biology, Chemistry, Physics, English, Logical Reasoning); dedicated portals serve engineering (NUST NET / GIKI / LUMS), HEC USAT and PMA/ISSB with their own banks.
 
 ## Core practice surfaces
 
@@ -48,6 +48,12 @@ Practice is free and works without an account. Progress tracking, leaderboards a
 - [Topical MCQ Bank](${siteUrl}/topicals): chapter-wise MDCAT practice questions with instant verdicts
 - [Daily MCQ Challenge](${siteUrl}/daily-quiz): one fresh MDCAT-style question every day
 - [Flashcards](${siteUrl}/flashcards): spaced-repetition cards across all four subjects, no signup
+
+## Other exam portals
+
+- [Engineering portal — NUST NET / GIKI / LUMS](${siteUrl}/nust/practice): maths, physics, chemistry and English on the NET pattern
+- [HEC USAT portal](${siteUrl}/usat/practice): quantitative, verbal and science sections
+- [PMA & ISSB portal](${siteUrl}/pma/practice): verbal, non-verbal (figure) and academic initial-test practice
 
 ## Master notes
 

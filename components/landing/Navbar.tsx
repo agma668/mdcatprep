@@ -8,7 +8,7 @@ import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { useRouter } from "next/navigation";
 
 const NAV_LINKS = [
-  { label: "Features", href: "#features" },
+  { label: "All Tests", href: "/exams" },
   { label: "How It Works", href: "#how-it-works" },
   { label: "Past Papers", href: "#past-papers" },
   { label: "Free Flashcards", href: "/flashcards" },
