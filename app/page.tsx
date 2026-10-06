@@ -6,10 +6,15 @@ import { FAQ, FAQS } from "@/components/landing/FAQ";
 import { RegisterSection } from "@/components/landing/RegisterSection";
 import { Footer } from "@/components/landing/Footer";
 import { getPublicStats } from "@/lib/public-stats";
-import { getSiteUrl, SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
+import { getSiteUrl, SITE_NAME } from "@/lib/site";
 import { PAST_PAPERS, PAST_PAPER_COUNT, isOfficialKey, papersByYear } from "@/lib/past-papers";
 
 const siteUrl = getSiteUrl();
+
+// Names only the tests that have a real practice surface on this site — the
+// H1, metadata and JSON-LD must not claim an exam the bank does not serve.
+const homeDescription =
+  "Free exam-style MCQ practice for MDCAT, NUMS, NUST NET, HEC USAT and PMA — an explanation behind every answer, past papers sorted by board and year, and PMDC-syllabus study notes.";
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -24,22 +29,21 @@ const faqJsonLd = {
 const learningResourceJsonLd = {
   "@context": "https://schema.org",
   "@type": "LearningResource",
-  name: "MDCAT & NUMS Medical Entrance Test Preparation",
-  description: SITE_DESCRIPTION,
+  name: "MDCAT, NUMS, NET, USAT & PMA Entry Test Preparation",
+  description: homeDescription,
   url: siteUrl,
   provider: { "@type": "Organization", name: SITE_NAME, url: siteUrl },
   learningResourceType: ["MCQ Practice", "Mock Test", "Study Notes"],
   educationalUse: "practice",
   isAccessibleForFree: true,
   inLanguage: ["en", "ur"],
-  about: ["MDCAT", "NUMS", "UHS Medical Entrance", "SZABMU Test", "KMU CAT"],
+  about: ["MDCAT", "NUMS", "UHS Medical Entrance", "SZABMU Test", "KMU CAT", "NUST NET", "HEC USAT", "PMA Long Course"],
   audience: { "@type": "EducationalAudience", educationalRole: "student" },
 };
 
 export const metadata: Metadata = {
-  title: "MDCAT & NUMS Medical Entrance Test Preparation",
-  description:
-    "Structured preparation for MDCAT, NUMS, UHS, SZABMU, KMU and all medical university entry tests in Pakistan. Exam-style MCQ practice, past papers sorted by board and year, and study notes.",
+  title: "MDCAT, NUMS, NET, USAT & PMA Entry Test Preparation",
+  description: homeDescription,
 };
 
 // Numbers come from the live seam in lib/public-stats.ts; ISR refreshes them.
@@ -82,8 +86,8 @@ export default async function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(learningResourceJsonLd) }} />
       <Navbar />
       <main>
-        {/* Hero: one thing dominates. The sample question is answerable, so the
-            first thing a student does here is the thing the site is for. */}
+        {/* Hero: one action dominates — answer a question. The H1 names every
+            test the site actually serves, not only the medical flagships. */}
         <section className="container-page pb-16 pt-28 sm:pb-24 sm:pt-36">
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
             <div>
@@ -95,7 +99,7 @@ export default async function Home() {
                 style={display}
                 className="mt-5 max-w-[16ch] text-[2.5rem] font-bold leading-[1.06] tracking-tight text-[var(--steel-100)] sm:text-5xl lg:text-[3.6rem]"
               >
-                Practise MDCAT and NUMS the way the paper asks.
+                Practise MDCAT, NUMS, NET, USAT and PMA the way the paper asks.
               </h1>
               <p className="mt-5 max-w-[52ch] text-base leading-relaxed text-[var(--steel-300)] sm:text-lg">
                 Exam-style MCQs with an explanation behind every answer, plus the real past papers the boards have released, sorted by board and year.
