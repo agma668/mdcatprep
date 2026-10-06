@@ -23,6 +23,10 @@
 
 import { MDCAT_QUESTIONS, MDCAT_SUBJECTS } from "@/lib/mdcat";
 import { COLLEGES } from "@/lib/college-list";
+import type { ExamBank } from "@/lib/exams-config";
+import { NUST_NET_BANK } from "@/lib/nust-questions";
+import { PMA_QUESTIONS } from "@/lib/pma-questions";
+import { USAT_ELITE_BANK } from "@/lib/usat-comprehensive-bank";
 
 export type SectionStat = { name: string; count: number };
 
@@ -46,6 +50,20 @@ export const BANK_BY_SECTION: readonly SectionStat[] = (() => {
 
 /** Number of sections the bank actually covers. */
 export const BANK_SECTION_COUNT: number = BANK_BY_SECTION.length;
+
+/**
+ * One real bank size per portal (ids match ExamBank in lib/exams-config.ts).
+ * The portal pages render these instead of hand-typed subject counts, so a
+ * question added to any bank updates the portals automatically and a portal
+ * can never again advertise "220+ MCQs" the bank does not hold. The medical
+ * portal serves the whole MDCAT bank; the others serve their own arrays.
+ */
+export const PORTAL_BANK_COUNTS: Record<ExamBank, number> = {
+  mdcat: MDCAT_QUESTIONS.length,
+  nust: NUST_NET_BANK.length,
+  pma: PMA_QUESTIONS.length,
+  usat: USAT_ELITE_BANK.length,
+};
 
 /** Colleges in the directory the product covers. */
 export const COLLEGE_COUNT: number = COLLEGES.length;

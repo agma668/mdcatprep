@@ -33,7 +33,7 @@ export function ApexGlobalSearch() {
         <div className="absolute left-0 right-0 mt-2 bg-card border border-border rounded-xl shadow-xl z-50 overflow-hidden max-h-80 overflow-y-auto">
           {filteredSubjects.length === 0 ? (
             <div className="p-4 text-center text-xs text-muted-foreground">
-              No matching subjects or exams found. Try searching "Biology", "Quantitative", or "PMA".
+              No matching subjects or exams found. Try searching &quot;Biology&quot;, &quot;Quantitative&quot;, or &quot;PMA&quot;.
             </div>
           ) : (
             <div className="py-2">
@@ -49,7 +49,7 @@ export function ApexGlobalSearch() {
                 >
                   <div>
                     <div className="font-semibold text-foreground">{item.name}</div>
-                    <div className="text-[10px] text-muted-foreground">{item.examName} • {item.count}+ items</div>
+                    <div className="text-[10px] text-muted-foreground">{item.examName} • practice set</div>
                   </div>
                   <span className="text-accent font-medium">Open →</span>
                 </Link>

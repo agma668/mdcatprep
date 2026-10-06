@@ -98,6 +98,37 @@ export default async function AdminDashboardPage() {
     suspended: students.filter(p => p.status === 'suspended').length,
   }
 
+  // ── Signups per target exam — the demand map ──────────────────────────────
+  // Grouped live from profiles.exam_target (the track each student picks at
+  // signup), never hand-tallied. Values are the exact strings SignupForm
+  // offers; any legacy/free-text target rolls up into the Other row instead
+  // of being dropped, so every signup is counted somewhere.
+  const KNOWN_EXAM_TARGETS = [
+    'MDCAT',
+    'NUMS',
+    'HEC USAT-M',
+    'NUST (NET)',
+    'GIKI',
+    'LUMS',
+    'HEC USAT-E',
+    'PMA Long Course',
+    'ISSB Intelligence',
+    'MBBS Notes',
+  ] as const
+  const byExam = new Map<string, { total: number; approved: number; latest: string }>()
+  for (const target of KNOWN_EXAM_TARGETS) byExam.set(target, { total: 0, approved: 0, latest: '' })
+  const other = { total: 0, approved: 0, latest: '' }
+  for (const s of students) {
+    const bucket = byExam.has(s.exam_target ?? '') ? byExam.get(s.exam_target ?? '')! : other
+    bucket.total += 1
+    if (s.status === 'approved') bucket.approved += 1
+    if (s.created_at > bucket.latest) bucket.latest = s.created_at
+  }
+  const examRows = [
+    ...[...byExam.entries()].map(([exam, b]) => ({ exam, ...b })),
+    ...(other.total > 0 ? [{ exam: 'Other / custom', ...other }] : []),
+  ].sort((a, b) => b.total - a.total || a.exam.localeCompare(b.exam))
+
   const cards = [
     { label: 'Total Students', value: counts.total, icon: '👥', color: 'text-[var(--color-primary)]' },
     { label: 'Approved', value: counts.approved, icon: '✅', color: 'text-[var(--color-success)]' },
@@ -126,6 +157,35 @@ export default async function AdminDashboardPage() {
           </div>
         ))}
       </div>
+
+      {/* Signups per target exam — live demand per test track */}
+      <section
+        aria-label="Students per exam"
+        className="glass-tile-glow rounded-[var(--radius-lg)] border border-white/10 mb-8"
+      >
+        <div className="px-6 py-4 border-b border-[var(--color-border)]">
+          <h2 className="font-bold text-white">Students per Test</h2>
+          <p className="text-xs text-white/45 mt-0.5">
+            Signups grouped by the exam track each student chose at signup —
+            counted live from the profiles table.
+          </p>
+        </div>
+        <ul className="divide-y divide-white/10">
+          {examRows.map((row) => (
+            <li key={row.exam} className="px-6 py-3 flex items-center gap-4">
+              <span className="text-sm font-semibold text-white flex-1 min-w-0 truncate">{row.exam}</span>
+              <div className="hidden sm:block w-40 h-1.5 rounded-full bg-white/[0.06] overflow-hidden" aria-hidden="true">
+                <div
+                  className="h-full rounded-full bg-[var(--color-primary)]"
+                  style={{ width: counts.total > 0 ? `${Math.max(2, (row.total / counts.total) * 100)}%` : '0%' }}
+                />
+              </div>
+              <span className="text-sm font-bold text-white tabular-nums w-10 text-right">{row.total}</span>
+              <span className="text-xs text-white/45 w-20 text-right">{row.approved} approved</span>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       {/* Recent feedback — newest submissions, full list on /admin/feedback */}
       <section

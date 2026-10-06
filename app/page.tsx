@@ -14,7 +14,7 @@ const siteUrl = getSiteUrl();
 // Names only the tests that have a real practice surface on this site — the
 // H1, metadata and JSON-LD must not claim an exam the bank does not serve.
 const homeDescription =
-  "Free exam-style MCQ practice for MDCAT, NUMS, NUST NET, HEC USAT and PMA — an explanation behind every answer, past papers sorted by board and year, and PMDC-syllabus study notes.";
+  "Free exam-style MCQ practice for MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT and PMA — an explanation behind every answer, past papers with keys, and study notes.";
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -42,7 +42,7 @@ const learningResourceJsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "MDCAT, NUMS, NET, USAT & PMA Entry Test Preparation",
+  title: "MDCAT, NUMS, NUST, GIKI, USAT & PMA Test Preparation — Free",
   description: homeDescription,
 };
 
@@ -63,6 +63,20 @@ const STEPS = [
   { title: "Take the diagnostic", body: "Ten questions across five subjects, about two minutes. It shows where you are strong and where you are not." },
   { title: "Practise by topic", body: "Work through chapter-wise MCQs. Every answer comes with its explanation." },
   { title: "Redo what you missed", body: "Wrong answers collect in your mistake notebook so you can drill them until they stick." },
+];
+
+// The hero's choose-your-test row: one chip per test family a student names
+// when you ask them what they are preparing for. Every chip points at a real
+// practice surface — GIKI and LUMS sit inside the engineering portal's shared
+// bank, exactly like the unified-portal architecture says they should.
+const EXAM_CHIPS = [
+  { label: "MDCAT", href: "/topicals" },
+  { label: "NUMS", href: "/past-papers" },
+  { label: "NUST NET", href: "/nust/practice" },
+  { label: "GIKI", href: "/nust/practice" },
+  { label: "LUMS", href: "/nust/practice" },
+  { label: "HEC USAT", href: "/usat/practice" },
+  { label: "PMA", href: "/pma/practice" },
 ];
 
 const OTHER_EXAMS = [
@@ -92,14 +106,14 @@ export default async function Home() {
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
             <div>
               <p className="inline-flex items-center gap-2 rounded-[var(--r-pill)] border border-[var(--line-2)] bg-[var(--srf-1)] px-3 py-1.5 text-sm text-[var(--steel-200)]">
-                <span className="font-semibold text-[var(--brass)]">Free</span>
-                for every student in Pakistan
+                <span className="font-semibold text-[var(--brass)]">100% free</span>
+                · no fees, no card, nothing locked
               </p>
               <h1
                 style={display}
-                className="mt-5 max-w-[16ch] text-[2.5rem] font-bold leading-[1.06] tracking-tight text-[var(--steel-100)] sm:text-5xl lg:text-[3.6rem]"
+                className="mt-5 max-w-[22ch] text-[2.25rem] font-bold leading-[1.06] tracking-tight text-[var(--steel-100)] sm:text-5xl lg:text-[3.4rem]"
               >
-                Practise MDCAT, NUMS, NET, USAT and PMA the way the paper asks.
+                Practise MDCAT, NUMS, NUST, GIKI and every major test — free, the way the paper asks.
               </h1>
               <p className="mt-5 max-w-[52ch] text-base leading-relaxed text-[var(--steel-300)] sm:text-lg">
                 Exam-style MCQs with an explanation behind every answer, plus the real past papers the boards have released, sorted by board and year.
@@ -112,8 +126,20 @@ export default async function Home() {
                   Browse past papers
                 </Link>
               </div>
-              <p className="mt-5 max-w-[52ch] text-sm leading-relaxed text-[var(--steel-300)]">
-                Free practice for students across Pakistan preparing for MDCAT, NUMS, NUST, GIKI, LUMS and HEC tests. No fees, no card, nothing locked.
+              <div className="mt-6 flex flex-wrap items-center gap-2">
+                <span className="mr-1 text-sm font-semibold text-[var(--steel-300)]">Choose your test:</span>
+                {EXAM_CHIPS.map((chip) => (
+                  <Link
+                    key={chip.label}
+                    href={chip.href}
+                    className="rounded-[var(--r-pill)] border border-[var(--line-2)] bg-[var(--srf-1)] px-3 py-1.5 text-sm font-medium text-[var(--steel-100)] transition-colors duration-[var(--dur-1)] hover:border-[var(--line-3)] hover:bg-[var(--srf-2)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal-300)]"
+                  >
+                    {chip.label}
+                  </Link>
+                ))}
+              </div>
+              <p className="mt-4 max-w-[52ch] text-sm leading-relaxed text-[var(--steel-300)]">
+                Original questions built from the official syllabi; the past papers are real released papers. Every answer explains itself.
               </p>
               <dl className="mt-10 flex flex-wrap gap-x-10 gap-y-4 border-t border-[var(--line-1)] pt-6">
                 <div>
@@ -257,7 +283,7 @@ export default async function Home() {
           <FAQ />
         </section>
         <section id="register">
-          <RegisterSection mcqs={mcqs} />
+          <RegisterSection mcqs={mcqs} subjects={stats.hero.subjects} />
         </section>
       </main>
       <Footer />

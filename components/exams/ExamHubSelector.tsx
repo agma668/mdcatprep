@@ -1,6 +1,6 @@
 'KeyFeatures: Multi-exam selector grid for Apex Pakistan education ecosystem'
 import Link from 'next/link';
-import { EXAMS_CONFIG, ExamCategory } from '@/lib/exams-config';
+import { EXAMS_CONFIG } from '@/lib/exams-config';
 
 export function ExamHubSelector() {
   const exams = Object.values(EXAMS_CONFIG);
@@ -52,7 +52,7 @@ export function ExamHubSelector() {
                   {exam.subjects.slice(0, 3).map((sub) => (
                     <li key={sub.id} className="text-xs text-foreground/80 flex items-center justify-between py-1 border-b border-border/50">
                       <span>{sub.name}</span>
-                      <span className="text-muted-foreground">{sub.count}+ items</span>
+                      <span className="text-muted-foreground">practice set</span>
                     </li>
                   ))}
                   {exam.subjects.length > 3 && (

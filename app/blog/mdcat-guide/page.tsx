@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import { Badge } from "@/components/ui/Badge";
-import { getSiteUrl, getWhatsAppLink } from "@/lib/site";
+import { getSiteUrl } from "@/lib/site";
 import { Calendar, Clock, ArrowLeft } from "lucide-react";
 
 const siteUrl = getSiteUrl();
@@ -11,7 +11,7 @@ const siteUrl = getSiteUrl();
 export const metadata: Metadata = {
   title: "MDCAT 2026 Complete Guide — Pattern, Syllabus & Study Plan",
   description:
-    "The complete MDCAT 2026 guide: official PMDC marks distribution (Biology 68, Chemistry 56, Physics 56, English 20), the exam date, syllabus strategy and a week-by-week study plan.",
+    "The complete MDCAT 2026 guide: the PMDC pattern (180 MCQs, no negative marking), the exam date, syllabus strategy and a week-by-week study plan.",
   keywords: [
     "MDCAT 2026",
     "MDCAT guide",
@@ -108,7 +108,7 @@ export default function MDCATGuidePage() {
                   single standardized entrance exam for MBBS and BDS admission
                   in Pakistan, conducted under the Pakistan Medical &amp; Dental
                   Council (PMDC). Every public medical college uses it, and so
-                  do most private ones. It is a paper-based MCQ exam — 200
+                  do most private ones. It is a paper-based MCQ exam — 180
                   questions, no negative marking — and your score decides the
                   merit list you either make or don&apos;t.
                 </p>
@@ -144,42 +144,47 @@ export default function MDCATGuidePage() {
 
               <section>
                 <h2 className="text-2xl font-bold text-white mb-4">
-                  The Official Pattern: Where the 200 Marks Live
+                  The Pattern: Where the Marks Live
                 </h2>
                 <p>
-                  The PMDC curriculum fixes the marks distribution. Study it
-                  before anything else, because your prep hours should follow
-                  the marks, not your comfort zone:
+                  The 2026 paper is 180 MCQs in 3 hours with no negative
+                  marking. Before you plan a single study hour, check the
+                  official split of the current year on{" "}
+                  <a href="https://pmdc.pk/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent-light)] underline hover:no-underline">
+                    pmdc.pk
+                  </a>{" "}
+                  — PMDC adjusts the distribution year to year, and your prep
+                  hours should follow the marks, not your comfort zone.
                 </p>
                 <div className="bg-white/[0.06] border border-white/10 rounded-[var(--radius-lg)] overflow-hidden">
                   <div className="grid grid-cols-3 bg-white/[0.04] px-6 py-3 border-b border-white/10">
                     <span className="text-xs font-bold text-white/60 uppercase tracking-wider">Subject</span>
-                    <span className="text-xs font-bold text-white/60 uppercase tracking-wider">MCQs</span>
-                    <span className="text-xs font-bold text-white/60 uppercase tracking-wider">Share</span>
+                    <span className="text-xs font-bold text-white/60 uppercase tracking-wider">Weight</span>
+                    <span className="text-xs font-bold text-white/60 uppercase tracking-wider">What it means</span>
                   </div>
                   {[
-                    ["Biology", "68", "34%"],
-                    ["Chemistry", "56", "28%"],
-                    ["Physics", "56", "28%"],
-                    ["English", "20", "10%"],
-                    ["Total", "200", "100%"],
-                  ].map(([subject, mcqs, share], i) => (
+                    ["Biology", "Heaviest", "The single biggest section — anchor your plan here."],
+                    ["Chemistry", "Heavy", "Core science; organic and physical carry the most."],
+                    ["Physics", "Heavy", "Core science; numericals reward daily practice."],
+                    ["English + Logical Reasoning", "Smaller", "Fewer marks each — but merit margins are thin."],
+                    ["Total", "180 MCQs", "3 hours · no negative marking."],
+                  ].map(([subject, weight, note], i) => (
                     <div
                       key={subject}
                       className={`grid grid-cols-3 px-6 py-3 ${i < 4 ? "border-b border-white/5" : ""} ${i === 4 ? "bg-white/[0.04] font-bold" : ""}`}
                     >
                       <span className="text-sm text-white/80">{subject}</span>
-                      <span className="text-sm text-[var(--color-accent-light)] font-semibold">{mcqs}</span>
-                      <span className="text-sm text-white/60">{share}</span>
+                      <span className="text-sm text-[var(--color-accent-light)] font-semibold">{weight}</span>
+                      <span className="text-sm text-white/60">{note}</span>
                     </div>
                   ))}
                 </div>
                 <p className="mt-4">
-                  Read that table again: <strong className="text-white">Biology alone is a third of your score</strong> —
-                  more than Physics and English combined. Students who treat the
-                  three sciences equally are leaving marks on the table. And
-                  English, at 20 marks, is the classic &quot;small subject, big
-                  regret&quot; — merit margins are often smaller than 20 marks.
+                  <strong className="text-white">Biology is the engine of your score.</strong> Students who treat
+                  the three sciences equally are leaving marks on the table. And
+                  the small sections are the classic &quot;small subject, big
+                  regret&quot; — merit margins are often thinner than the English
+                  and Logical Reasoning sections combined.
                 </p>
               </section>
 

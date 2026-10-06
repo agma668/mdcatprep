@@ -60,9 +60,8 @@ export default async function SignupPage({
             <span className="text-[var(--color-primary-light)]"> today</span>
           </h2>
           <p className="text-white/65 text-base leading-relaxed mb-10">
-            Join students across Pakistan preparing for MDCAT and NUMS —
-            Biology, Chemistry, Physics, English and Logical Reasoning.
-            Everything is 100% free.
+            Join students across Pakistan preparing for MDCAT, NUMS, NUST,
+            GIKI, LUMS, HEC USAT and PMA. Everything is 100% free.
           </p>
 
           {/* Feature cards */}

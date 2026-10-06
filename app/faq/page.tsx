@@ -47,7 +47,7 @@ const FAQS = [
     items: [
       {
         q: "What is MED Prep?",
-        a: "MED Prep is a free online preparation platform for MDCAT and NUMS in Pakistan. It provides exam-style MCQ practice, master concept notes, repeat-fact high-yield notes, progress analytics, and WhatsApp mentorship — all at no cost.",
+        a: "MED Prep is a free online preparation platform for MDCAT and NUMS in Pakistan. It provides exam-style MCQ practice, master concept notes, repeat-fact high-yield notes, progress analytics, and a WhatsApp community — all at no cost.",
       },
       {
         q: "Is MED Prep really free?",
@@ -72,7 +72,7 @@ const FAQS = [
       },
       {
         q: "What subjects are in the MDCAT, and what is the marks distribution?",
-        a: "The PMDC MDCAT paper is 200 MCQs: Biology 68, Chemistry 56, Physics 56, English 20. The difficulty ratio is roughly 70% easy-to-moderate and 30% hard. Biology carries the most weight, so your study plan should reflect that.",
+        a: "The PMDC MDCAT paper is 180 MCQs, completed in 3 hours with no negative marking. Biology carries the most weight, so your study plan should reflect that. Check pmdc.pk for the official split of the current year.",
       },
       {
         q: "When is the MDCAT 2026 exam?",

@@ -1,4 +1,5 @@
 import { EXAMS_CONFIG, ExamCategory } from '@/lib/exams-config';
+import { PORTAL_BANK_COUNTS } from '@/lib/stats';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
@@ -17,6 +18,12 @@ export default async function ExamPortalPage({ params }: PageProps) {
   if (!config) {
     notFound();
   }
+
+  // Real bank size from lib/stats.ts — the same derived source every other
+  // surface reads, so the portal can never advertise a count the bank does
+  // not hold. (The old hand-typed "220+ MCQs" per subject was pure fiction.)
+  const bankSize = PORTAL_BANK_COUNTS[config.bank];
+  const hasPastPapers = config.bank === 'mdcat'; // only the medical track holds real released papers
 
   return (
     <main className="min-h-screen bg-background text-foreground flex flex-col justify-between">
@@ -47,13 +54,13 @@ export default async function ExamPortalPage({ params }: PageProps) {
               {config.name}
             </h1>
             <p className="text-muted-foreground mt-3 text-base md:text-lg max-w-2xl mx-auto">
-              {config.tagline}. Master every topic with chapter-wise practice, simulated mock tests, and verified master notes.
+              {config.tagline}.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
               {config.features.practice && (
                 <Link
-                  href={`${config.route}`}
+                  href={config.practiceRoute ?? config.route}
                   className="px-6 py-3 rounded-xl bg-accent text-accent-foreground font-semibold text-sm shadow hover:opacity-90 transition-opacity"
                 >
                   Start Practice Session
@@ -67,6 +74,9 @@ export default async function ExamPortalPage({ params }: PageProps) {
                   Take Mock Test
                 </Link>
               )}
+              <span className="text-xs text-muted-foreground self-center tabular-nums">
+                Free forever · {bankSize.toLocaleString('en-US')} practice questions in this portal&apos;s bank
+              </span>
             </div>
           </div>
         </section>
@@ -97,7 +107,12 @@ export default async function ExamPortalPage({ params }: PageProps) {
                     <div>
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-xs font-bold text-accent">Target Board</span>
-                        <span className="text-[10px] text-muted-foreground bg-secondary px-2 py-0.5 rounded">Active</span>
+                        {/* The bank is shared across a portal's subtests — say
+                            that plainly instead of per-card "Active" badges
+                            that implied bespoke question sets. */}
+                        <span className="text-[10px] text-muted-foreground bg-secondary px-2 py-0.5 rounded">
+                          Shared bank
+                        </span>
                       </div>
                       <h3 className="font-bold text-foreground text-sm group-hover:text-accent transition-colors">
                         {sub.name}
@@ -125,14 +140,9 @@ export default async function ExamPortalPage({ params }: PageProps) {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {config.subjects.map((sub) => (
                   <div key={sub.id} className="bg-card border border-border rounded-xl p-5 shadow-sm hover:border-accent/50 transition-colors">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs font-semibold px-2 py-0.5 rounded bg-secondary text-secondary-foreground">
-                        {sub.count}+ MCQs
-                      </span>
-                    </div>
                     <h3 className="font-bold text-foreground text-base">{sub.name}</h3>
                     <p className="text-xs text-muted-foreground mt-1">
-                      Chapter-wise practice drills, explanation notes, and exam-pattern questions.
+                      Chapter-wise practice drills, explanations behind every answer, and exam-pattern questions.
                     </p>
                   </div>
                 ))}
@@ -149,9 +159,9 @@ export default async function ExamPortalPage({ params }: PageProps) {
                     <Link href="/notes" className="text-xs text-accent font-semibold hover:underline">Access →</Link>
                   </li>
                 )}
-                {config.features.pastPapers && (
+                {hasPastPapers && (
                   <li className="flex items-center justify-between py-2 border-b border-border/50">
-                    <span className="text-foreground font-medium">Sourced Past Papers</span>
+                    <span className="text-foreground font-medium">Released Past Papers</span>
                     <Link href="/past-papers" className="text-xs text-accent font-semibold hover:underline">View →</Link>
                   </li>
                 )}
@@ -177,7 +187,7 @@ export default async function ExamPortalPage({ params }: PageProps) {
 
               <div className="pt-4 border-t border-border">
                 <div className="p-4 rounded-xl bg-accent/5 border border-accent/20 text-xs text-foreground/90">
-                  <span className="font-bold text-accent">Pro Tip:</span> Upgrade to Apex All-Access Pass to unlock unlimited mock tests and AI doubt solving across all exam portals.
+                  <span className="font-bold text-accent">100% free:</span> every practice session, mock test and explanation in this portal is free — no pass, no upgrade, no credit card. Ever.
                 </div>
               </div>
             </div>
@@ -187,7 +197,7 @@ export default async function ExamPortalPage({ params }: PageProps) {
 
       {/* Footer */}
       <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
-        <p>© {new Date().getFullYear()} Apex Pakistan Educational Network. {config.name} Portal.</p>
+        <p>© {new Date().getFullYear()} MED Prep. {config.name} Portal.</p>
       </footer>
     </main>
   );

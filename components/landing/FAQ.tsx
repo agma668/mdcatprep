@@ -21,7 +21,7 @@ export const FAQS: FAQItem[] = [
   {
     question: "What subjects and marks does the MDCAT paper cover?",
     answer:
-      "The PMDC MDCAT paper is 200 marks: Biology 68 MCQs, Chemistry 56, Physics 56, and English 20 — completed in 3 hours with no negative marking. NUMS adds a Logical Reasoning section to the same science core.",
+      "The PMDC MDCAT paper is 180 MCQs completed in 3 hours, with no negative marking. Biology carries the largest share, followed by Chemistry and Physics, with English and Logical Reasoning as the smaller sections. Confirm the exact year's split on pmdc.pk — it is the official source.",
   },
   {
     question: "Which universities accept MDCAT or NUMS scores?",
@@ -66,7 +66,7 @@ export const FAQS: FAQItem[] = [
   {
     question: "What if I have questions outside the platform — can I get help?",
     answer:
-      "Yes! Join our free WhatsApp group where teachers and fellow students help each other with subject questions, motivation, and strategy advice.",
+      "Yes! Join the free WhatsApp community group — students help each other with subject questions, motivation, and strategy advice.",
   },
 ];
 

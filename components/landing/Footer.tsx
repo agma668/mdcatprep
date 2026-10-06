@@ -56,7 +56,7 @@ export function Footer() {
               </span>
             </TrackedLink>
             <p className="max-w-xs text-sm leading-relaxed text-[var(--steel-300)]">
-              A non-profit community initiative helping students across Pakistan prepare for MDCAT and NUMS — built with the mission of making quality education accessible to everyone.
+              A non-profit community initiative helping students across Pakistan prepare for MDCAT, NUMS, NUST, GIKI, LUMS, HEC and PMA tests — built with the mission of making quality education accessible to everyone.
             </p>
             <p className="mt-4 text-sm text-[var(--steel-300)]">
               <span className="font-semibold text-[var(--steel-100)]">Questions?</span> Call/WhatsApp:{" "}
