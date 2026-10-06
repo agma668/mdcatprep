@@ -280,3 +280,92 @@ Still open: domain, cleared past-paper sources, language priority, NET sprint ve
 - quizwing, tayarishayari (FAST pattern, secondary)
 - maqsad.io (MDCAT syllabus and subject split, secondary)
 Everything marked secondary above still needs a founder or agent check against the official notice before it appears on the site.
+
+---------------------------------------------------------------------
+## 9. Verification update — 2026-10-06 evening pass (Buffy/Freebuff)
+---------------------------------------------------------------------
+
+The founder asked for the roadmap to be checked, extended with every major test he had not
+named, and to answer three questions directly. Rows here SUPERSEDE the matching rows in
+sections 0 and 3 where they conflict; everything else in this file stands.
+
+### 9.1 What moved since the morning pass
+
+| Fact | Status | Confidence |
+|---|---|---|
+| NUMS MDCAT 2026 result | ANNOUNCED — numspak.edu.pk's admissions page now links "NUMS MDCAT 2026 Result". The morning note "result NOT published as of 22 Sep" is out of date. Repeater/result season is live now, which strengthens the section-2 funnel thesis. | Official link seen on numspak.edu.pk; announcement timing secondary (official NUMS Facebook post, ~1 week ago) |
+| NUST NET 2027 dates | VERIFIED on nust.edu.pk "Dates to remember" (official): Series 1 registration 4 Oct – 14 Nov 2026, CBNET 17 Nov 2026 onwards, Islamabad only; Series 2 registration Dec 2026 – Jan 2027, CBNET Jan–Feb (Isb) + PBNET Mar (Quetta, Karachi); Series 3 reg Feb–Mar, test Apr (Isb); Series 4 reg Apr–May, CBNET Jun–Jul (Isb) + PBNET Jul (Quetta, Karachi, **Gilgit**). ACT/SAT route: scores due by 25 Jul 2027. Quetta NET centre confirmed for Series 2 and 4. | Official (nust.edu.pk) |
+| PMDC MDCAT paper pattern | 180 MCQs / 3 hours; split Biology 81, Chemistry 45, Physics 36, English 9, Logical Reasoning 9 — concordant across 4+ independent secondary sources (mdcatguru, mdskool, mdcatprep, PrepMDCAT). The official pmdc.pk notice is still not fetched, so the split must NOT be printed on a public page yet; the FAQ's old 200-mark answer stays wrong until then. | Secondary x4, concordant |
+| HEC B&F 2026-27 aptitude test | Still NO confirmed date. New precedent: the last cycle's test sat Sun 14 Dec 2025 (HEC's official Facebook post), after a 16 Nov postponement. This test historically lands late Nov – mid Dec. CONSEQUENCE FOR THE PLAN: the B&F reasoning bank moves from Phase 2 into Phase 1 (build early, be ready the day ETC announces). | History: official HEC post (platform secondary). 2026-27 date: unknown |
+| LUMS undergraduate | Was "UNKNOWN" — now answered: LUMS UG admission runs on the **LCAT (LUMS Common Admission Test) or SAT/ACT scores**; the Fall 2027 cycle is marked "Opening Soon" on admission.lums.edu.pk. Still unknown: the LCAT paper format — research task before any LCAT bank is written. | Official (LUMS admissions site) |
+| GIKI cycle | Official giki.edu.pk: 2026 application deadline 15 Jun 2026, admission test 6–10 Jul 2026; the official syllabus page separates the Engineering/Computing test from the Management Sciences test and publishes sample papers. 2027 cycle expected ~Apr–Jul 2027 (not yet announced). | Official (2026 dates); 2027 projection |
+| ECAT (UET Lahore combined) | Fall-2026 phase-2 test sat 3 Oct 2026. Pattern per concordant secondary sources: 100 MCQs / 100 minutes / 4 marks per correct / no negative marking; multiple phases per year (the spring 2026 CBT ran 30 Mar – 3 Apr). Spring ECAT 2027 ≈ Mar–Apr 2027 → Phase 3 content, ready by ~Feb. | Dates: secondary. Pattern: secondary x2 |
+| PIEAS | 2026 cycle: apply by 12 Jun, test 12 Jul (secondary). 2027 cycle expected Jun–Jul 2027. NTS-linked testing. | Secondary |
+| NTS NAT | Official NTS product (nts.org.pk) serving COMSATS, Institute of Space Technology and other DAIs; sittings through the year. | Official (nts.org.uk listing page) |
+| NUMS UG (non-MBBS) spring test | A 27 Jan 2026 NUMS UG admission test circulates on social channels — single-source, do not rely on it. | Secondary, single-source |
+
+### 9.2 The full national pool — every major test, including the ones the founder did not name
+
+"On our site today" is counted from the repo (see section 3). "Wave" = when we build it.
+
+| Exam | Body | Season | On our site today | Wave |
+|---|---|---|---|---|
+| PMDC MDCAT | PMDC via UHS / KMU / DUHS / SZABMU / BUMHS | Aug–Sep yearly | Strongest surface: 602 bank MCQs + 3,722 topicals + 25 past papers + notes + mocks | Phase 3 (2027 cohort) |
+| NUMS MDCAT | NUMS | Sep yearly | Shares the MDCAT core + 8 LR items; **Paper-II psychological bank missing** | Phase 1–2 |
+| HEC B&F scholarship aptitude | HEC ETC | ~late Nov–Dec (historically) | **Nothing** | **Pulled into Phase 1** (9.1) |
+| HEC USAT-M / E / CS / A / C | HEC ETC | Sittings through the year | 21 questions, no section structure | Phase 2 |
+| NUST NET (4 series) | NUST | Nov–Jul | **8 questions**, no simulator | Phase 1 |
+| GIKI | GIKI | Jun–Jul | Nothing | Phase 3 |
+| FAST-NU | FAST-NU CBT | Jun–Jul | Nothing | Phase 3 (before GIKI — larger pool) |
+| ECAT (UET combined) | UET Lahore | Spring + Fall phases | Nothing | Phase 3 |
+| LCAT / SAT route | LUMS | Per cycle (~Dec–Feb testing) | Nothing | Phase 3, after LCAT format research |
+| PIEAS | PIEAS (+NTS) | Jun–Jul | Nothing | Phase 4 |
+| NTS NAT | NTS | Through the year | Nothing | Phase 4 (only if the segment proves large) |
+| ETEA / KMU CAT | ETEA / KMU (KP) | Per admission cycle | ETEA 2019 papers registered; no bank | Phase 2–3 |
+| SIBA (Sukkur IBA) | SIBA | Per cycle | Paper registered; no bank | Phase 4 |
+| SZABMU / DUHS MDCAT variants | Federal / Sindh bodies | Aug–Sep | Papers registered (SZABMU 5 codes + reconduct; DUHS); banks shared with MDCAT | Covered via MDCAT waves |
+| AKU | AKU | — | **EXCLUDED by founder ruling — never build, never mention as a target** | — |
+| PMA / ISSB / cadet colleges | GHQ / colleges | Per intake | Served by the sibling Elite Cadet Prep site | Do not merge |
+
+### 9.3 The founder's three questions — direct answers
+
+**1. Is the landing page good?**
+Structurally yes — the 5 Oct rebuild (8912a0d) leads with an answerable sample MCQ, shows
+only numbers computed from the live seam, and carries the real past-paper registry. Before
+it is "good" on the founder's phone: (a) real-device QA of the new page at 390px — it
+shipped without one; (b) the FAQ and Register blocks are pre-rebuild copy that still claims
+a 200-mark paper with the wrong subject split, "7 Subjects" against the hero's 5, and
+"live WhatsApp classes" — replace with the verified 180-MCQ pattern once the official
+notice is fetched; (c) the stray "Loading..." text in the register block.
+
+**2. Do the portals meet each test's requirements?**
+No — most are labels, not portals:
+
+| Portal | The test demands | We have | Verdict |
+|---|---|---|---|
+| MDCAT | 180 MCQs / 3h, 5 subjects, negative-free | 602 bank MCQs, 3,722 topicals, 25 past papers, notes, mocks, diagnostic; LR thin (8); FAQ pattern wrong | Closest to ready |
+| NUMS MDCAT | PMDC core **plus Paper-II psychological/aptitude** | Core shared; no psych bank | Gap: Paper-II |
+| HEC B&F | Verbal / quantitative / analytical reasoning under time (pattern TBC from ETC notice) | A sub-test label | Empty — bank pulled into Phase 1 |
+| NUST NET | 200 MCQs / 180 min CBT, Math-Physics-Chem/CS-English-IQ | 8 questions, no simulator | Largest gap on the site |
+| GIKI / LUMS | Own tests (GIKI official syllabus + samples exist; LCAT format unknown) | Nothing | Absent |
+| HEC USAT | Sectioned verbal/quantitative/science paper | 21 questions | Thin |
+| PMA/ISSB | Intelligence + academic | 15 questions | Thin; belongs to Elite Cadet Prep |
+| MBBS notes | Professional-exam support | `lib/mbbs-questions.ts` deleted; notes portal only | Parked (TODO list still cites the deleted file) |
+
+**3. What workflow must a student experience?**
+The loop that makes a student stay (and eventually pay): segment-aware signup → exam
+diagnostic → named weak topics with a first action → daily practice with instant
+explanations → mistake notebook feeding a redo queue → a full-length timed mock that
+copies the real paper → post-mock analytics that update the plan. For medical students
+**this month** the loop starts one step earlier: result → aggregate calculator → "what
+next" (re-sit plan or counselling), because it is result season, not exam season.
+Spec: section 5 / WS2.
+
+### 9.4 Plan change caused by this pass
+
+- **HEC B&F reasoning bank: Phase 2 → Phase 1.** The test historically sits late Nov–mid
+  Dec; building it in Phase 2 (17 Nov onwards) risks finishing after ETC announces.
+- **LCAT format research** added to Phase 3 pre-work.
+- **ECAT added** to Phase 3 (spring 2027 ≈ Mar–Apr, content ready ~Feb).
+- Section 5 / WS3 matrix: the full pool lives in 9.2 above; WS3 rows for MDCAT / NUMS /
+  B&F / NET / GIKI / USAT stand unchanged.
