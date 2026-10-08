@@ -16,13 +16,49 @@ export type Flashcard = {
 export type FlashcardDeck = {
   id: string
   title: string
-  subject: 'Biology' | 'Chemistry' | 'Physics' | 'English'
+  subject: 'Biology' | 'Chemistry' | 'Physics' | 'English' | 'Mathematics'
   icon: string
   description: string
   cards: Flashcard[]
 }
 
 export const FLASHCARD_DECKS: FlashcardDeck[] = [
+  {
+    id: 'usat-m-core',
+    title: 'USAT-M Core: Formulas & Rapid Facts',
+    subject: 'Mathematics',
+    icon: '🧮',
+    description: 'High-yield formulas and rapid facts for the HEC USAT-M (and Balochistan/ex-FATA scholarship variant) — built from corpus pattern analysis, all original content.',
+    cards: [
+      { id: 'usat-m-01', front: 'Simple interest formula?', back: 'SI = P × r × t / 100 (principal × rate% per annum × years).', hint: 'Three factors under 100.' },
+      { id: 'usat-m-02', front: 'Selling price given cost C and profit p%?', back: 'SP = C × (1 + p/100). For a loss, SP = C × (1 − p/100).', hint: 'One multiplication shortcut.' },
+      { id: 'usat-m-03', front: 'Cost price given selling price S and profit p%?', back: 'CP = S × 100 / (100 + p).', hint: 'Reverse of the SP shortcut.' },
+      { id: 'usat-m-04', front: 'Average speed for two legs (d₁ in t₁, then d₂ in t₂)?', back: 'Total distance ÷ total time — NOT the mean of the two speeds.', hint: 'Trap: simple average of speeds.' },
+      { id: 'usat-m-05', front: 'Sum of exterior angles of ANY convex polygon?', back: '360°, regardless of the number of sides.', hint: 'Constant for every polygon.' },
+      { id: 'usat-m-06', front: 'Each interior angle of a regular n-gon?', back: '(n − 2) × 180° / n.', hint: 'Start from the angle-sum formula.' },
+      { id: 'usat-m-07', front: 'Two angles are complementary. Their sum?', back: '90°. (Supplementary angles sum to 180°.)', hint: 'C before S.' },
+      { id: 'usat-m-08', front: 'Sum of the roots of ax² + bx + c = 0?', back: '−b/a.', hint: 'Opposite sign, first coefficient.' },
+      { id: 'usat-m-09', front: 'Product of the roots of ax² + bx + c = 0?', back: 'c/a.', hint: 'Last-over-first.' },
+      { id: 'usat-m-10', front: 'What does x² + y² = r² represent?', back: 'A circle of radius r centred at the origin. (Ellipse/parabola/hyperbola have different forms.)', hint: 'Equal x and y coefficients.' },
+      { id: 'usat-m-11', front: 'Median of a data set?', back: 'Sort the values, then take the middle one (or the mean of the two middle values for an even count).', hint: 'Sort first — always.' },
+      { id: 'usat-m-12', front: 'Range of a data set?', back: 'Maximum value − minimum value.', hint: 'Two numbers only.' },
+      { id: 'usat-m-13', front: 'Pipe A fills a tank in a minutes, pipe B in b minutes. Time together?', back: 'ab / (a + b) minutes (from 1/a + 1/b = 1/t).', hint: 'Product over sum.' },
+      { id: 'usat-m-14', front: 'Angle between the hands of a clock at time h:m?', back: '|30h − 5.5m| degrees (take the smaller angle).', hint: '30 per hour-mark, 0.5 per minute.' },
+      { id: 'usat-m-15', front: 'Convert a ratio a/b to a percentage?', back: '(a/b) × 100%.', hint: 'Multiply by 100.' },
+      { id: 'usat-m-16', front: 'When does a triangle NOT exist for sides x, y, z?', back: 'When one side ≥ the sum of the other two (triangle inequality fails).', hint: 'Add the two smaller sides.' },
+      { id: 'usat-m-17', front: 'f(x) = ax² + bx + c. Fastest way to find f(k)?', back: 'Substitute k for every x, keeping signs — beware −b(k) when k is negative.', hint: 'Substitution, no expansion of the formula.' },
+      { id: 'usat-m-18', front: 'Net ATP produced per glucose in glycolysis?', back: '2 (4 made, 2 invested).', hint: 'Subtract the investment phase.' },
+      { id: 'usat-m-19', front: 'Where does photolysis of water occur in photosynthesis?', back: 'Photosystem II (not PSI) — which is why O₂ evolution is tied to PSII.', hint: 'The lower-numbered photosystem.' },
+      { id: 'usat-m-20', front: 'Final electron acceptor of the light-dependent reactions?', back: 'NADP⁺ (reduced to NADPH).', hint: 'Not oxygen — that is a by-product.' },
+      { id: 'usat-m-21', front: 'Which heart chamber has the thickest wall, and why?', back: 'The left ventricle — it pumps blood around the whole systemic circuit at the highest pressure.', hint: 'Think longest journey.' },
+      { id: 'usat-m-22', front: 'Where does ultrafiltration occur in the nephron?', back: 'In the glomerulus–Bowman\u2019s capsule (high capillary pressure forces filtrate out).', hint: 'First stop of the filtrate.' },
+      { id: 'usat-m-23', front: 'Dimensions of acceleration?', back: 'LT⁻² (length per time squared).', hint: 'Velocity per time.' },
+      { id: 'usat-m-24', front: 'Impedance in an AC circuit is the combined effect of…?', back: 'Resistance and reactance (denoted Z, measured in ohms).', hint: 'Two effects, one symbol.' },
+      { id: 'usat-m-25', front: 'Photoelectric effect: what determines the kinetic energy of emitted electrons?', back: 'The frequency of the light (E = hf), NOT its intensity — intensity sets how many electrons are emitted.', hint: 'Einstein: one photon, one electron.' },
+      { id: 'usat-m-26', front: 'Methyl orange in a BASIC solution shows which colour?', back: 'Yellow (red in acid, orange near the endpoint).', hint: 'Yellow like soap solution.' },
+      { id: 'usat-m-27', front: 'Exam order strategy for the 100-MCQ Balochistan/FATA HEC test?', back: 'Science (42) first — easiest; then English (26); leave Maths (32) for last as it is the most time-consuming.', hint: 'Easy → moderate → hard.' },
+    ],
+  },
   {
     id: 'bio-cell',
     title: 'The Cell & Organelles',
