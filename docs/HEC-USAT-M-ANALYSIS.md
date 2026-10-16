@@ -43,12 +43,24 @@ Two distinct exams exist and our platform must name them honestly:
 **Vocabulary banks (NK Academy 2025):** deliberately easy-to-moderate A–Z pairs (optimistic/pessimistic, ancient/modern) — matches the exam's English level, which tests *recognition in context*, not exotic GRE words.
 
 ## 3. Prediction for the 2026-27 cycle (reasoning)
-
 1. **Structure will not change.** The weightage PDF covers all six USAT streams with identical Verbal/Quant splits; papers 2022–2024 follow it exactly. Expect 75/100 MCQs with the same section splits, + essays for mainstream USAT.
 2. **Question *faces* rotate, *categories* don't.** Every past paper recycles the same ~30 quantitative categories and the same FSc science chapters with fresh numbers/wording. Highest-yield quant: percentage-profit, simple interest, speed, ages, work-pipes, statistics trio (mean/median/range), BODMAS. Highest-yield bio: photosynthesis, enzymes, genetics, human digestion/circulation/excretion, biotech tools.
 3. **English stays in-context.** Analogy types and phrasal-verb/preposition completion will reappear; comprehension passages will be modern/current-affairs flavoured. Prep should drill *categories of relationships*, not word memorization alone.
 4. **FATA/Balochistan sitting = 100-MCQ variant** with heavier Biology (20) — our derived per-subject bank mix should therefore over-weight Biology, then Quant, then Verbal, matching 14:25:20 → scaled.
 5. **Timing strategy is a real differentiator** (science first, English, maths last) — worth building into practice UX copy and notes.
+
+## 3b. Oct 2025 drop — the NK Academy packs (analogy, antonyms, synonyms, parts of speech, sentence completion)
+
+Processed 17 Oct 2026. Five distinct teaching packs, all fingerprinted to the same exam family.
+
+- **Analogy pack** teaches by the SAME ladder this repo derived independently (part:whole crumb:bread; container album:photographs; material:craftsman iron:blacksmith; covering fish:scales; organ:function nose:smell; assemblage collage:images; creator:creation sketch:artist; tool:action knife:cut; category:example fish:trout; whole:part rifle:gun; part:part gill:fin) and — key for item design — explains **every option, not just the answer**. Our Batch-4 analogy items are built to that standard: every distractor is named by the family it *does* belong to.
+- **Antonym pack** drills A–Z easy-to-moderate pairs; its question shape is almost always **three synonym-style options + one true opposite** — the trap we now reproduce deliberately in v-044…v-048.
+- **Synonym pack** teaches the same easy pairs plus harder variants (ephemeral/transient, abstruse/obscure, cacophony/discord, ennui/boredom) — confirming the exam's vocabulary ceiling sits *below* GRE level, in the band those words occupy.
+- **Parts-of-speech pack** is a full noun-classification syllabus (proper/common/collective/abstract/concrete/countable) — the source of our Batch-4 grammar items (quickly = adverb, liberty = abstract, herd = collective, Everest = proper, team plays = collective-as-one-unit).
+- **Sentence-completion pack** runs single-blank consequence-logic items (scandal → damaged; sales rose → effective); our v-049…v-054 mirror its cause-pole structure with original sentences.
+- **Image-only PDFs excluded from teaching** (Model QCA Key, HEC PAST PAPER 2019 with Answer Keys, HEC Past Papers, MedExel Chemistry Shortlisting, HEC Test 2024 Dawar-1, HEC test 2022 2023): pdftotext yields only headers — the layers are scans without extractable text in this drop's copies. Not analysed; can be OCR'd later if needed.
+
+**Prediction update:** the verbal section's relationship families and trap architecture are now triangulated from a SECOND independent source — confidence in the ladder, in three-synonym antonym sets, and in consequence-logic completion is higher than one corpus alone can give.
 
 ## 4. Production plan (what we build, in order)
 

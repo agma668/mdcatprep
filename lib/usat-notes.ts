@@ -36,6 +36,48 @@ export const USAT_M_NOTES_SECTIONS: NoteSection[] = [
         ],
       },
       {
+        title: 'Analogy relationship ladder — the 2025 prep-corpus families, in order',
+        blocks: [
+          { type: 'para', text: 'The HEC prep corpora (2022–2025 packs) recycle a fixed ladder of relationships. Match the stem against it from the top, and the option set resolves itself: for every family, one option copies the true relation and the rest swap in a near-miss.' },
+          { type: 'bullet', text: 'Part:whole / piece of — crumb:bread → splinter:wood (a hillock:mountain is a SMALLER VERSION, not a piece; fire:spark is reversed cause:effect).' },
+          { type: 'bullet', text: 'Container:contents — album:photographs → shelf:books (a cap covers rather than contains).' },
+          { type: 'bullet', text: 'Material:craftsman — iron:blacksmith → clay:potter (a miner extracts silver, he does not shape it; cotton:cloth skips the maker).' },
+          { type: 'bullet', text: 'Covering / body part — fish:scales → bird:feathers (fangs are weapons, wheels are appendages: neither covers).' },
+          { type: 'bullet', text: 'Organ:dedicated function — nose:smell → teeth:chew (speaking is the mouth\u2019s job, not the tongue\u2019s, on this ladder).' },
+          { type: 'bullet', text: 'Assemblage of — collage:images → medley:songs (furniture:sofa is category:example, not a collection).' },
+          { type: 'bullet', text: 'Creator:creation — sketch:artist → draft:writer (a palette is a tool, a cell houses: neither is produced).' },
+          { type: 'bullet', text: 'Tool:action — knife:cut → drill:hole (sword:sharp names a property; the action is stab).' },
+          { type: 'bullet', text: 'Category:example, same order — fish:trout → mammal:cow (bird:aviary is animal:enclosure).' },
+          { type: 'bullet', text: 'Two parts of one body — gill:fin → antenna:sensing part of the cockroach (bread:butter pairs companions, not anatomy).' },
+          { type: 'bullet', text: 'Specific:general — rifle:gun → peach:fruit (atom:nucleus runs whole:part — the direction trap).' },
+          { type: 'para', text: 'Think like this: the ladder is also the distractor guide. For each stem, exactly one family fits; every wrong option exists because it belongs to a DIFFERENT family on this list.' },
+        ],
+      },
+      {
+        title: 'Antonym technique — the three-synonyms-plus-one-opposite trap',
+        blocks: [
+          { type: 'para', text: 'The A–Z antonym corpora (2025 pack) drill pairs like calm↔violent, genuine↔fake, unique↔common, vital↔non-essential — and their question format is the one to expect: three synonym-style options plus the single true opposite.' },
+          { type: 'bullet', text: 'For every item, sort options into SYNONYMS of the stem (usually three) first, then choose among what is left — the opposite survives.' },
+          { type: 'bullet', text: 'Example shape: TRANQUIL → serene, placid, composed are all synonyms; only turbulent contrasts. VIVID → brilliant, graphic, intense reinforce; only dull flips.' },
+          { type: 'bullet', text: 'PRELIMINARY → introductory, initial, preparatory all mean “coming before”; concluding is the temporal opposite (conventional word-pairs: before ↔ after).' },
+          { type: 'bullet', text: 'SCARCITY → dearth, shortage, rarity agree; abundance is the antonym. PALPABLE → obvious, tangible, glaring agree; hidden flips (palpare = to touch).' },
+          { type: 'bullet', text: 'Hard-word subset worth knowing cold: ephemeral = transient (↔ permanent), abstruse = obscure (hard to grasp, not just complex), cacophony = discord (↔ harmony), ennui = boredom, defenestration = throwing out of a window.' },
+          { type: 'para', text: 'Think like this: an antonym item is a synonym test in disguise — first classify the four options into “same-side” and “other-side”, then pick from the short side.' },
+        ],
+      },
+      {
+        title: 'Parts of speech — the corpus\u2019s grammar syllabus, compressed',
+        blocks: [
+          { type: 'para', text: 'The 2025 grammar pack builds HEC verbal items straight from the nine parts of speech and their behaviour. These five facts cover most of what it asks.' },
+          { type: 'bullet', text: 'Noun types: proper (Everest, London — capitalised names of one specific thing), common (mountain, city), collective (team, herd, flock, swarm, committee — a group acting as ONE unit), abstract (liberty, happiness, justice — intangible), concrete (book, chair — tangible), countable/uncountable.' },
+          { type: 'bullet', text: 'Collective nouns take a SINGULAR verb when the group acts as one unit: “The team plays well.” But members acting separately take the plural: “The team disagree about the plan.”' },
+          { type: 'bullet', text: 'Adjective vs adverb: adjectives modify NOUNS; adverbs modify verbs/adjectives/other adverbs — and most adverbs end in -ly (reached quickly). Test one: it answers “how?” for a verb.' },
+          { type: 'bullet', text: 'Prepositions relate noun to noun (the book ON the table); conjunctions join CLAUSES (and, but, because); the articles are a / an / the. “On” after a verb can be adverbial (turn on) — check whether an object follows.' },
+          { type: 'bullet', text: 'Pronouns replace nouns; interjections (oh!, ouch!) stand alone. For EXCEPT-style items, three nouns in one class + one in another is the usual construction.' },
+          { type: 'para', text: 'Think like this: grammar items are class-category tests, not vocabulary — identify which CLASS the word belongs to, then check what it does in THIS sentence.' },
+        ],
+      },
+      {
         title: 'Synonyms & antonyms — in context',
         blocks: [
           { type: 'para', text: 'USAT rarely asks for a bare definition: the word sits in a sentence, and the context decides which sense is tested. SUBSIST in "the tribe subsisted on roots" means survived, not existed formally.' },
