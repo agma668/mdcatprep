@@ -129,6 +129,19 @@ export default function NotesHubPage() {
                 </p>
               </Link>
               <Link
+                href="/notes/usat-m"
+                className="group block glass-tile-glow rounded-[var(--radius-lg)] border border-[var(--line-2)] p-5 hover:border-[var(--signal-500)]/40 transition-colors"
+              >
+                <BookOpen className="w-5 h-5 text-[var(--signal-300)] mb-3" aria-hidden="true" />
+                <h3 className="text-sm font-bold mb-1 group-hover:text-[var(--color-accent-light)] transition-colors">
+                  HEC USAT-M notes
+                </h3>
+                <p className="text-xs text-[var(--steel-400)] leading-relaxed">
+                  Every section by the official weightage — verbal, quantitative, physics, chemistry,
+                  biology — free to read.
+                </p>
+              </Link>
+              <Link
                 href="/past-papers"
                 className="group block glass-tile-glow rounded-[var(--radius-lg)] border border-[var(--line-2)] p-5 hover:border-[var(--signal-500)]/40 transition-colors"
               >
