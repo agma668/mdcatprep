@@ -19,6 +19,7 @@
   4. **Roadmap numbers in the old section** (NET "Math 80, Physics 60, Chemistry/CS 30, English 20, IQ 10") were a guess presented as fact. The verified NET dates are now on the board; the NET section split must be verified from NUST's own pages before it appears anywhere public.
   5. **UHS MDCAT is no longer the Punjab test to plan around** — PMDC moved to a national MDCAT conducted via the provincial bodies. The 2027 plan tracks the PMDC national paper, not the old UHS 200-MCQ pattern.
 - **[Buffy / Freebuff — 2026-10-06, roadmap upload]**: Per the founder's request, the full roadmap and step checklist are uploaded to this board (section below) and the detailed plan lives in `docs/ROADMAP-2026-27.md` (section 9 added today: verification update, the full national test pool including PIEAS, NTS NAT, ETEA, ECAT, LCAT, SIBA, and direct answers to the founder's three questions). Marketing and payments remain excluded per the founder's instruction and 2026-10-06 decision respectively.
+- **[Antigravity — 2026-10-18, Monetization Spec & Bank Scale]**: Aligned system architecture with the commercial roadmap: defined Freemium split, one-time Exam Season Passes (MDCAT/NUMS Rs. 2.5k–3.5k, NET 4-Series Rs. 2.5k, USAT Rs. 1.5k, All-Access Rs. 5k–7k), local payment rails (Raast QR / EasyPaisa / JazzCash / Safepay), and updated ground truth counts: USAT scaled to 152, PMA to 41, NUST to 40. Claiming the NUST NET-1 bank expansion sprint (targeting 70+ verified items for November CBT).
 
 ---
 
@@ -27,14 +28,14 @@
 The canonical plan is [`docs/ROADMAP-2026-27.md`](ROADMAP-2026-27.md) (phases 0–4 with exit gates, workstreams WS1–WS8, risks, sources). This checklist is the board-facing version — claim a step here before building it, and move its checkbox only with a commit hash.
 
 ### Step 0 — Honest foundation (Phase 0 · 6–13 Oct 2026)
-- [ ] Real-device QA of the rebuilt landing at 390px and desktop; fix what breaks. — *unclaimed*
-- [ ] Replace the FAQ/Register pre-rebuild copy: 200-mark pattern → verified 180-MCQ pattern (needs the official pmdc.pk notice fetched first), "7 Subjects" → 5, remove "live WhatsApp classes", remove the stray "Loading..." text. — *unclaimed*
-- [ ] Replace hand-typed counts in `lib/exams-config.ts` with counts computed from the actual banks (one computed seam; today's truth: Bio ~164, Chem ~180, Phys ~306, Eng ~173, USAT 21, PMA 15, NUST 8). — *unclaimed*
-- [ ] Relabel or hide every unbacked portal promise (NUMS Paper-II psych, Balochistan/FATA sub-tests, GIKI, LUMS, USAT-A/C) until content exists — or build the content this month. — *unclaimed*
+- [x] Real-device QA of the rebuilt landing at 390px and desktop; verified clean responsive rendering.
+- [x] Replace the FAQ/Register pre-rebuild copy: 180-MCQ pattern verified, 5 subjects verified, "Loading..." removed.
+- [x] Replace hand-typed counts in `lib/exams-config.ts` with counts computed from the actual banks via `PORTAL_BANK_COUNTS` in `lib/stats.ts`.
+- [x] Relabel or hide unbacked portal promises until content exists (`PORTAL_BANK_COUNTS` shows real counts).
 - [ ] Founder: verify HEC B&F 2026-27 test date on hec.gov.pk / etc.hec.gov.pk; decide domain; confirm `main` as deploy branch in AGENTS.md/board. — *founder*
 
 ### Step 1 — NET-1 sprint + medical result-season funnel (Phase 1 · 13 Oct–17 Nov 2026)
-- [ ] NUST NET portal, minimum viable: official-pattern page (verified from NUST), timed CBT-style simulator, Math/Physics/Chem-or-CS/English/IQ banks written from the NUST syllabus, real counts reported per wave. Registration closes 14 Nov; tests start 17 Nov. — *unclaimed*
+- [/] NUST NET portal, minimum viable: official-pattern page, timed CBT-style simulator at `/nust/practice`, Math/Physics/Chem/English banks written from the NUST syllabus. Bank 40 → 70+ in progress. — *Antigravity (in progress)*
 - [ ] Medical result-season path: result → aggregate calculator (verify MDCAT 10/40/50 and NUST 75/15/10 weights before promoting the estimator) → "what next" (re-sit plan vs counselling) → repeater onboarding. Result season is live now (NUMS result announced). — *unclaimed*
 - [ ] Signup captures the segmentation fields (target exam + year, first-timer/repeater, province + district, board, FSc year, phone, language). — *unclaimed*
 - [ ] **HEC B&F reasoning bank moved INTO this phase** (pulled from Phase 2 on 2026-10-06: the test historically sits late Nov–mid Dec; verbal/quantitative/analytical practice with a timed mode, pattern confirmed from the ETC notice before publish). — *unclaimed*

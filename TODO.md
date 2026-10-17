@@ -74,22 +74,20 @@ The platform is divided into 5 core academic and competitive tracks, coordinated
 * `components/dashboard/ExamPortalSwitcher.tsx`: Interactive dropdown mounted in the dashboard header allowing logged-in students to toggle between exam portals.
 * `components/exams/ApexGlobalSearch.tsx`: Instant topic/exam search bar.
 
-### B. Question Banks & Data Stores
-* `lib/biology-questions.ts`: MDCAT Biology question repository.
-* `lib/chemistry-questions.ts`: MDCAT Chemistry question repository.
-* `lib/physics-questions.ts`: MDCAT Physics question repository.
-* `lib/english-questions.ts`: MDCAT English grammar, vocabulary & comprehension.
-* `lib/usat-questions.ts` & `lib/usat-comprehensive-bank.ts`: HEC USAT-M bank (Quantitative, Verbal, Sciences) with Bloom's taxonomy rationales.
-* `lib/pma-questions.ts`: PMA Verbal Intelligence & Initial Academic bank.
-* `lib/nust-questions.ts`: NUST NET Mathematics, Physics, Chemistry, and English bank.
-* `lib/mbbs-questions.ts`: MBBS Professional Anatomy, Physiology, Pathology, and Biochemistry bank.
-* `lib/past-papers.ts`: Registry of official Pakistani past papers (UHS, NUMS, SZABMU, KMU, DUHS, BUMHS).
+### B. Question Banks & Data Stores (Current Ground Truth)
+* `lib/biology-questions.ts`, `lib/chemistry-questions.ts`, `lib/physics-questions.ts`, `lib/english-questions.ts`: MDCAT science and English repositories (894 bank questions + 3,722 topicals).
+* `lib/usat-questions.ts` & `lib/usat-comprehensive-bank.ts`: HEC USAT-M elite bank (152 questions: Quantitative, Verbal, Biology, Chemistry, Physics) with Bloom's taxonomy rationales.
+* `lib/pma-questions.ts`: PMA Verbal Intelligence & Initial Academic bank (41 questions).
+* `lib/nust-questions.ts`: NUST NET Mathematics, Physics, Chemistry, and English bank (40 questions, scaling for November NET-1).
+* `lib/past-papers.ts`: Registry of official Pakistani past papers (25 papers across UHS, NUMS, SZABMU, KMU, DUHS, BUMHS).
 
 ### C. Public & Student Portal Routes
 * `app/page.tsx`: Main landing page with Hero, Social Proof Bar, Features, Exam Hub Selector, and FAQ.
 * `app/exams/page.tsx`: Unified All-Exams Portal Hub.
 * `app/portal/[exam]/page.tsx`: Dynamic exam track overview with syllabus modules, resource links, and mock test triggers.
 * `app/usat/practice/page.tsx`: Interactive USAT-M practice drill app with instant feedback and pedagogical explanations.
+* `app/nust/practice/page.tsx`: Interactive NUST NET/GIKI/LUMS practice drill app.
+* `app/pma/practice/page.tsx`: Interactive PMA Verbal Intelligence & Academic practice drill.
 * `app/signup/SignupForm.tsx`: Sign-up form with grouped target exam selection (`exam_target`).
 * `app/dashboard/page.tsx`: Student dashboard overview displaying accuracy, streaks, daily goals, and `ExamPortalSwitcher`.
 * `app/dashboard/practice/`: Chapter-wise topic drill navigation.
@@ -115,7 +113,35 @@ The platform is divided into 5 core academic and competitive tracks, coordinated
 
 ---
 
-## 6. The Developer Gate Ladder
+## 6. Commercial Architecture & Monetization Blueprint
+
+### A. Strategic Transition: From 100% Free to Paid Pro
+* **Phase 0–2 (Free Domination):** Free practice drives national adoption, college ambassador referrals, and replaces physical academies charging Rs. 30k–70k.
+* **Exit Gates Before Charging:**
+  1. Bank quality: Zero incorrect answer keys, full pedagogical rationales.
+  2. Verified patterns: CBT timed simulators strictly matching real test rules (PMDC 180 MCQs / 3 hrs; NET 200 MCQs / 180 min).
+  3. Proven engagement: 200+ active weekly users with verified Day-7 return rate.
+  4. Pakistani payment rails configured (EasyPaisa, JazzCash, Raast QR, Safepay).
+
+### B. Freemium Split
+* **Always Free:** Daily chapter drills, basic syllabus maps, past papers index, merit aggregate calculators, basic community access.
+* **Paid Pro Features:**
+  - Full-length timed mock exams with All-Pakistan percentile and provincial merit rank predictor.
+  - Adaptive Mistake Notebook (re-tests specific cognitive weaknesses).
+  - High-Yield Master Concept Notes Reader (whitepaper format).
+  - Offline PWA practice packs (for weak connectivity in Balochistan, KPK, rural Punjab/Sindh).
+
+### C. Pricing Packages (One-Time Season Passes, No Confusing Monthly Subs)
+1. **Medical Full Season Pass (Rs. 2,500 – 3,500):** PMDC MDCAT + NUMS complete mocks, past-paper rationales, and master notes.
+2. **Medical Repeater Cohort (Rs. 4,500):** Diagnostic gap analysis + tailored 20-week schedule + psychological bank.
+3. **Engineering NET 4-Series Master Pass (Rs. 2,500):** NUST NET CBT simulator, FAST-NU, GIKI, and UET ECAT drills.
+4. **HEC USAT & Balochistan/FATA Scholarship Pack (Rs. 1,500):** ETC aptitude test verbal/quantitative drills and quota calculators.
+5. **PMA & Defense Initial Pass (Rs. 1,500):** Verbal & Non-verbal intelligence matrix tests.
+6. **Apex All-Access Lifetime Pass (Rs. 5,000 – 7,000):** Universal access to all 5 tracks for multi-exam candidates.
+
+---
+
+## 7. The Developer Gate Ladder
 
 Before marking any task complete or committing:
 1. **Type Check:** `npx tsc --noEmit` must pass with 0 errors.
@@ -125,10 +151,12 @@ Before marking any task complete or committing:
 
 ---
 
-## 7. Ongoing Roadmap & Next Tasks (TODO for Incoming AI)
+## 8. Phased Roadmap & Step Checklist
 
-- [ ] **USAT Question Bank Volume:** Continue scaling `lib/usat-comprehensive-bank.ts` to 200+ questions.
-- [ ] **PMA Non-Verbal Engine:** Add SVG or canvas-based visual matrix questions to `lib/pma-questions.ts`.
-- [ ] **NET / GIKI Topical Drills:** Build a dedicated `/nust/practice` interactive test player mirroring `/usat/practice`.
-- [ ] **MBBS Anatomy High-Yield Notes:** Expand clinical case vignettes and anatomical nerve-lesion summary tables.
-- [ ] **Automated Local Payments (Future Phase):** Integrate EasyPaisa / JazzCash / Raast QR instant verification for Pro membership upgrades.
+- [x] **USAT Question Bank Volume:** Scaled `lib/usat-comprehensive-bank.ts` to 152 questions with Bloom's rationales.
+- [x] **NUST Practice Engine:** Shipped interactive test player at `/nust/practice` with subject filtering.
+- [ ] **NUST NET-1 Bank Expansion (Active Sprint):** Grow `lib/nust-questions.ts` from 40 to 80+ high-yield questions for November NET-1.
+- [ ] **PMA Non-Verbal Matrix:** Add visual pattern recognition items to `lib/pma-questions.ts`.
+- [ ] **HEC Balochistan/FATA Aptitude Bank:** Build dedicated verbal, quantitative, and analytical reasoning sets for the upcoming ETC scholarship cycle.
+- [ ] **Medical Repeater Funnel:** Aggregate calculator (10/40/50 formula) + post-result diagnostic path.
+- [ ] **Local Payment Gateway Integration:** Implement Raast QR / EasyPaisa / JazzCash manual verification flow behind admin flag.
