@@ -35,7 +35,7 @@ The canonical plan is [`docs/ROADMAP-2026-27.md`](ROADMAP-2026-27.md) (phases 0�
 - [ ] Founder: verify HEC B&F 2026-27 test date on hec.gov.pk / etc.hec.gov.pk; decide domain; confirm `main` as deploy branch in AGENTS.md/board. — *founder*
 
 ### Step 1 — NET-1 sprint + medical result-season funnel (Phase 1 · 13 Oct–17 Nov 2026)
-- [/] NUST NET portal, minimum viable: official-pattern page, timed CBT-style simulator at `/nust/practice`, Math/Physics/Chem/English banks written from the NUST syllabus. Bank 40 → 70+ in progress. — *Antigravity (in progress)*
+- [/] NUST NET portal, minimum viable: official-pattern page, timed CBT-style simulator at `/nust/practice`, Math/Physics/Chem/English banks written from the NUST syllabus. Bank 40 → 72 shipped in `bca8689`. — *Antigravity*
 - [ ] Medical result-season path: result → aggregate calculator (verify MDCAT 10/40/50 and NUST 75/15/10 weights before promoting the estimator) → "what next" (re-sit plan vs counselling) → repeater onboarding. Result season is live now (NUMS result announced). — *unclaimed*
 - [ ] Signup captures the segmentation fields (target exam + year, first-timer/repeater, province + district, board, FSc year, phone, language). — *unclaimed*
 - [ ] **HEC B&F reasoning bank moved INTO this phase** (pulled from Phase 2 on 2026-10-06: the test historically sits late Nov–mid Dec; verbal/quantitative/analytical practice with a timed mode, pattern confirmed from the ETC notice before publish). — *unclaimed*
