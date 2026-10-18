@@ -2,11 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Check, ShieldCheck, Sparkles, Zap, ArrowRight, HelpCircle } from 'lucide-react';
+import { Check, ShieldCheck, Sparkles, ArrowRight, Gift } from 'lucide-react';
 
 export default function PricingPage() {
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
-  const [paymentMethod, setPaymentMethod] = useState<'easypaisa' | 'jazzcash' | 'raast' | 'bank'>('easypaisa');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [studentPhone, setStudentPhone] = useState('');
   const [studentName, setStudentName] = useState('');
@@ -17,10 +16,10 @@ export default function PricingPage() {
       id: 'medical-pass',
       name: 'Medical Full Season Pass',
       badge: 'Most Popular for MDCAT / NUMS',
-      price: 'Rs. 2,999',
-      originalPrice: 'Rs. 6,000',
-      duration: 'Valid till Nov 2026 Exam',
-      description: 'Complete PMDC MDCAT (UHS, SZABMU, KMU, DUHS) + NUMS Paper-II Psychology & Master Notes.',
+      price: 'Rs. 0',
+      originalPrice: 'Rs. 2,999',
+      duration: '100% Free During Beta Sprint',
+      description: 'Complete PMDC MDCAT (UHS, SZABMU, KMU, DUHS) + NUMS Paper-II Psychology & Master Notes. Absolutely free for early students.',
       features: [
         'All Biology, Chemistry, Physics & English Question Banks',
         'NUMS 50-MCQ Psychological Test & Aptitude Bank',
@@ -34,9 +33,9 @@ export default function PricingPage() {
       id: 'engineering-pass',
       name: 'Engineering NET Master Pass',
       badge: 'NUST, GIKI & LUMS',
-      price: 'Rs. 2,500',
-      originalPrice: 'Rs. 5,000',
-      duration: 'Valid for NET Series 1-4',
+      price: 'Rs. 0',
+      originalPrice: 'Rs. 2,500',
+      duration: '100% Free During Beta Sprint',
       description: 'Advanced mathematics, engineering physics, chemistry and computer science for top engineering universities.',
       features: [
         'Advanced Calculus, Algebra & Trigonometry Bank',
@@ -51,9 +50,9 @@ export default function PricingPage() {
       id: 'usat-pass',
       name: 'HEC USAT & Regional Quota Pack',
       badge: 'USAT-M, USAT-E & Quotas',
-      price: 'Rs. 1,500',
-      originalPrice: 'Rs. 3,000',
-      duration: 'Valid for 1 Year',
+      price: 'Rs. 0',
+      originalPrice: 'Rs. 1,500',
+      duration: '100% Free During Beta Sprint',
       description: 'Essential quantitative, verbal, and essay preparation for HEC Undergraduate Admissions and regional medical seats.',
       features: [
         'HEC USAT Quantitative & Verbal Reasoning Banks',
@@ -67,9 +66,9 @@ export default function PricingPage() {
       id: 'pma-pass',
       name: 'PMA & Defence Initial Pass',
       badge: 'PMA Long Course & ISSB',
-      price: 'Rs. 1,500',
-      originalPrice: 'Rs. 3,000',
-      duration: 'Valid for 1 Year',
+      price: 'Rs. 0',
+      originalPrice: 'Rs. 1,500',
+      duration: '100% Free During Beta Sprint',
       description: 'Computerized initial intelligence tests and ISSB psychological preparation matrices.',
       features: [
         'Verbal & Non-Verbal Intelligence Matrix Banks',
@@ -82,9 +81,9 @@ export default function PricingPage() {
       id: 'all-access',
       name: 'Apex All-Access Lifetime Pass',
       badge: 'Ultimate Value',
-      price: 'Rs. 5,999',
-      originalPrice: 'Rs. 15,000',
-      duration: 'Lifetime Access (All Tracks)',
+      price: 'Rs. 0',
+      originalPrice: 'Rs. 5,999',
+      duration: '100% Free During Beta Sprint',
       description: 'Zero restrictions. Full access to every single question bank, mock test, master note, and future update across all 5 tracks.',
       features: [
         'All Medical, Engineering, Defence & USAT Portals',
@@ -121,8 +120,8 @@ export default function PricingPage() {
             <Link href="/exams" className="text-xs font-semibold text-muted-foreground hover:text-foreground">
               Explore Portals
             </Link>
-            <Link href="/login" className="px-4 py-2 rounded-xl bg-accent text-accent-foreground text-xs font-bold shadow">
-              Student Login
+            <Link href="/signup" className="px-4 py-2 rounded-xl bg-accent text-accent-foreground text-xs font-bold shadow">
+              Get Started Free
             </Link>
           </div>
         </div>
@@ -130,14 +129,14 @@ export default function PricingPage() {
 
       {/* Hero Section */}
       <section className="py-16 px-4 text-center max-w-4xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/10 text-accent text-xs font-bold uppercase tracking-wider mb-4">
-          <Sparkles className="w-3.5 h-3.5" /> Official Season Passes & Enrollment
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <Gift className="w-3.5 h-3.5" /> 100% Free Access — National Student Launch Sprint
         </div>
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
-          Invest in Your Admission, Not Expensive Academies
+          Every Course, Mock Test & Notes Bank is 100% Free for Students
         </h1>
         <p className="text-muted-foreground mt-4 text-base md:text-lg max-w-2xl mx-auto">
-          Physical academies charge Rs. 30,000 to Rs. 70,000 for crowded classes and printed notes. Get the nation&apos;s apex question banks, timed CBT mock tests, and master notes at a fraction of the cost.
+          To build national popularity and help every ambitious student across Pakistan prepare without financial barriers, all Apex Season Passes are <span className="text-foreground font-bold">completely free during our launch sprint</span>. Claim your free pass instantly!
         </p>
       </section>
 
@@ -153,7 +152,7 @@ export default function PricingPage() {
             >
               {plan.highlight && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shadow">
-                  Recommended Best Seller
+                  100% Free Beta Access
                 </div>
               )}
 
@@ -162,7 +161,7 @@ export default function PricingPage() {
                   <span className="text-xs font-bold px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">
                     {plan.badge}
                   </span>
-                  <span className="text-xs text-muted-foreground font-medium">{plan.duration}</span>
+                  <span className="text-xs text-emerald-400 font-bold">{plan.duration}</span>
                 </div>
 
                 <h3 className="text-2xl font-extrabold text-foreground">{plan.name}</h3>
@@ -171,7 +170,7 @@ export default function PricingPage() {
                 </p>
 
                 <div className="flex items-baseline gap-2 mb-6 pb-6 border-b border-border">
-                  <span className="text-4xl font-black text-foreground">{plan.price}</span>
+                  <span className="text-4xl font-black text-emerald-400">{plan.price}</span>
                   <span className="text-sm text-muted-foreground line-through font-semibold">{plan.originalPrice}</span>
                 </div>
 
@@ -194,7 +193,7 @@ export default function PricingPage() {
                     : 'bg-secondary text-secondary-foreground hover:bg-muted border border-border'
                 }`}
               >
-                <span>Enroll in Season Pass</span>
+                <span>Claim Free Pass Now</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -206,9 +205,9 @@ export default function PricingPage() {
       <section className="bg-card/40 border-t border-border py-16 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-4">
           <ShieldCheck className="w-12 h-12 text-emerald-400 mx-auto" />
-          <h2 className="text-2xl font-bold">Secure Local Payments in Pakistan</h2>
+          <h2 className="text-2xl font-bold">Why Is It 100% Free?</h2>
           <p className="text-sm text-muted-foreground max-w-xl mx-auto">
-            We support EasyPaisa, JazzCash, Raast Instant QR, and direct Bank Wire transfers across all major Pakistani banks. Instant digital activation upon receipt verification.
+            We believe entrance exam preparation should be based on merit, not how much an academy charges. Study freely, master your concepts, and help us spread the word across Pakistan!
           </p>
         </div>
       </section>
@@ -230,10 +229,10 @@ export default function PricingPage() {
             {!submitted ? (
               <div>
                 <div className="mb-6">
-                  <span className="text-xs font-bold text-accent uppercase tracking-wider">Secure Enrollment</span>
+                  <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">Free Beta Pass Activation</span>
                   <h3 className="text-2xl font-extrabold text-foreground mt-1">{selectedPlan}</h3>
                   <p className="text-xs text-muted-foreground mt-1">
-                    Complete your details below to receive payment instructions and instant portal activation.
+                    Enter your details below to activate your free pass instantly with zero payment required.
                   </p>
                 </div>
 
@@ -251,7 +250,7 @@ export default function PricingPage() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-muted-foreground mb-1">WhatsApp / Mobile Number (For Pass Activation)</label>
+                    <label className="block text-xs font-semibold text-muted-foreground mb-1">WhatsApp / Mobile Number</label>
                     <input
                       type="tel"
                       required
@@ -262,36 +261,15 @@ export default function PricingPage() {
                     />
                   </div>
 
-                  <div>
-                    <label className="block text-xs font-semibold text-muted-foreground mb-2">Select Payment Method</label>
-                    <div className="grid grid-cols-2 gap-3">
-                      {[
-                        { id: 'easypaisa', name: 'EasyPaisa Mobile' },
-                        { id: 'jazzcash', name: 'JazzCash Wallet' },
-                        { id: 'raast', name: 'Raast Instant QR' },
-                        { id: 'bank', name: 'Bank Transfer' },
-                      ].map((m) => (
-                        <button
-                          type="button"
-                          key={m.id}
-                          onClick={() => setPaymentMethod(m.id as any)}
-                          className={`p-3 rounded-xl border text-xs font-bold text-left transition-all ${
-                            paymentMethod === m.id
-                              ? 'border-accent bg-accent/10 text-accent'
-                              : 'border-border bg-background text-muted-foreground hover:text-foreground'
-                          }`}
-                        >
-                          {m.name}
-                        </button>
-                      ))}
-                    </div>
+                  <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-300 font-medium">
+                    ✓ <span className="font-bold">Zero Payment Required:</span> This pass is 100% free during the national student popularity sprint.
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full mt-4 py-3.5 rounded-xl bg-accent text-accent-foreground font-bold text-xs uppercase tracking-wider shadow hover:opacity-90 transition-opacity"
+                    className="w-full mt-2 py-3.5 rounded-xl bg-accent text-accent-foreground font-bold text-xs uppercase tracking-wider shadow hover:opacity-90 transition-opacity"
                   >
-                    Confirm & View Payment Instructions →
+                    Activate Free Pass Instantly →
                   </button>
                 </form>
               </div>
@@ -300,24 +278,22 @@ export default function PricingPage() {
                 <div className="w-14 h-14 bg-emerald-500/10 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">
                   ✓
                 </div>
-                <h3 className="text-2xl font-bold">Enrollment Request Received!</h3>
+                <h3 className="text-2xl font-bold">Free Pass Activated Successfully!</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  Thank you, <span className="font-bold text-foreground">{studentName}</span>. Please send payment to our official merchant account and WhatsApp the screenshot confirmation to activate your pass instantly.
+                  Congratulations, <span className="font-bold text-foreground">{studentName}</span>! Your free beta pass for <span className="text-foreground font-bold">{selectedPlan}</span> is now active.
                 </p>
                 <div className="bg-background border border-border rounded-xl p-4 text-left space-y-2 text-xs">
-                  <div className="flex justify-between"><span className="text-muted-foreground">Account Title:</span> <span className="font-bold">Apex Pakistan Educational</span></div>
-                  <div className="flex justify-between"><span className="text-muted-foreground">EasyPaisa / JazzCash:</span> <span className="font-bold font-mono">0300-9876543</span></div>
-                  <div className="flex justify-between"><span className="text-muted-foreground">Raast ID:</span> <span className="font-bold font-mono">APEX-PAKISTAN-EDU</span></div>
+                  <div className="flex justify-between"><span className="text-muted-foreground">Status:</span> <span className="font-bold text-emerald-400">Active (Free Beta)</span></div>
+                  <div className="flex justify-between"><span className="text-muted-foreground">Mobile:</span> <span className="font-bold font-mono">{studentPhone}</span></div>
                 </div>
-                <button
-                  onClick={() => {
-                    setIsModalOpen(false);
-                    setSubmitted(false);
-                  }}
-                  className="w-full py-3 rounded-xl bg-secondary text-secondary-foreground font-bold text-xs uppercase tracking-wider hover:bg-muted"
-                >
-                  Close & Return
-                </button>
+                <div className="flex gap-3 pt-2">
+                  <Link
+                    href="/dashboard"
+                    className="w-full py-3 rounded-xl bg-accent text-accent-foreground font-bold text-xs uppercase tracking-wider text-center shadow"
+                  >
+                    Go to Student Dashboard →
+                  </Link>
+                </div>
               </div>
             )}
           </div>
@@ -326,7 +302,7 @@ export default function PricingPage() {
 
       {/* Footer */}
       <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
-        <p>© {new Date().getFullYear()} Apex Pakistan Educational Network. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Apex Pakistan Educational Network. 100% Free Student Access.</p>
       </footer>
     </div>
   );
