@@ -379,7 +379,7 @@ export default async function DashboardOverviewPage() {
       {/* ── Contact tile ────────────────────────────────────── */}
       <section aria-label="Contact" className="mt-8">
         <a
-          href={getWhatsAppLink("Hi Sir Haziq, I need help with MED Prep")}
+          href={getWhatsAppLink("Hello, I need help with MED Prep")}
           target="_blank"
           rel="noopener noreferrer"
           className="group block glass-tile-glow rounded-[var(--radius-xl)] p-6 sm:p-8 text-center hover:translate-y-[-2px] transition-all duration-300"
@@ -390,7 +390,7 @@ export default async function DashboardOverviewPage() {
             </svg>
           </div>
           <p className="text-base sm:text-lg font-bold text-white group-hover:text-[var(--whatsapp)] transition-colors duration-300">
-            Need help? Contact Sir Haziq
+            Need help? Message us on WhatsApp
           </p>
           <p className="text-sm text-white/45 mt-1.5 group-hover:text-white/60 transition-colors">
             Questions, feedback, or problems — I&apos;m here for you on WhatsApp

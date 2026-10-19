@@ -61,7 +61,7 @@ export default function Footer() {
           <ul className="flex flex-col gap-4 text-sm text-slate-300">
             <li className="flex items-center gap-3">
               <Phone className="w-4 h-4 text-gold flex-shrink-0" />
-              <span>0319-3051175 (WhatsApp)</span>
+              <span>WhatsApp chat — button on any page</span>
             </li>
             <li className="flex items-center gap-3">
               <Mail className="w-4 h-4 text-gold flex-shrink-0" />

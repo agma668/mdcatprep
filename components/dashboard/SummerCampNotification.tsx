@@ -61,7 +61,7 @@ export function SummerCampNotification() {
             Did you attend the <strong>CCH Summer Camp 2026</strong>?
           </p>
           <p className="text-sm text-gray-600 leading-relaxed mb-6">
-            If yes, please send a message to <strong>Muhammad Haziq</strong> on WhatsApp so we can guide you further and connect you with the right resources.
+            If yes, please send a message to <strong>MED Prep</strong> on WhatsApp so we can guide you further and connect you with the right resources.
           </p>
 
           <a

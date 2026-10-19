@@ -72,7 +72,7 @@ export default async function TopicalChapterPage({ params }: Props) {
             <TopicalDrill questions={questions} subjectName={s.name} chapterTitle={c.title} />
             <p className="mt-10 text-xs text-[var(--steel-500)] max-w-2xl mx-auto text-center">
               Sourcing: chapter-wise questions from a third-party question-bank extraction (MCQ
-              Universe) compiled by the founder. These are practice questions, not past-paper
+              Universe) compiled by MED Prep. These are practice questions, not past-paper
               items — nothing here claims a real exam year.
             </p>
           </div>

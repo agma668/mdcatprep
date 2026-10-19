@@ -209,7 +209,7 @@ export function Hero({
                   aria-hidden="true"
                   className="h-4 w-4 text-[var(--signal-300)]"
                 />
-                An initiative for accessible education — by <TrackedLink to="/founder" label="hero-founder" className="font-semibold text-[var(--signal-200)] hover:underline">Muhammad Haziq Khan</TrackedLink>
+                An initiative for accessible education — free for every student, forever
               </p>
             </div>
           </div>

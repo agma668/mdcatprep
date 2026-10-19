@@ -13,7 +13,6 @@ const NAV_LINKS = [
   { label: "Past Papers", href: "#past-papers" },
   { label: "Free Flashcards", href: "/flashcards" },
   { label: "Daily Quiz", href: "/daily-quiz" },
-  { label: "Founder", href: "/founder" },
   { label: "FAQ", href: "/faq" },
   { label: "Blog", href: "/blog" },
 ] as const;

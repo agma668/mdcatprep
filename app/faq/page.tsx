@@ -58,8 +58,8 @@ const FAQS = [
         a: "Any student preparing for medical entry tests in Pakistan — FSc pre-medical, A-Level, and repeater students alike. The material is written from the PMDC MDCAT syllabus, which every public and private medical college admission test in Pakistan draws from.",
       },
       {
-        q: "Who founded MED Prep?",
-        a: "MED Prep was founded by Muhammad Haziq Khan Miankhail, a student from Quetta, Balochistan. He built MED Prep to make quality MDCAT and NUMS preparation accessible to students across Pakistan, free of charge.",
+        q: "Who runs MED Prep?",
+        a: "MED Prep is an independent, free platform built so every student in Pakistan can access quality exam preparation, no matter which city they study in. The people behind it prefer to stay behind the scenes — the platform's work is the public story.",
       },
     ],
   },
@@ -143,7 +143,7 @@ const FAQS = [
       },
       {
         q: "How do I contact MED Prep?",
-        a: "You can reach Muhammad Haziq directly on WhatsApp at 0319-3051175. You can also join the WhatsApp group from the link on the homepage for guidance and updates.",
+        a: "Use the WhatsApp button on the homepage or your dashboard to message us directly, and join the WhatsApp community group from the homepage link for guidance and updates.",
       },
     ],
   },
@@ -215,7 +215,7 @@ export default function FAQPage() {
         <section className="py-16 bg-white/[0.02]">
           <div className="container-page text-center max-w-xl mx-auto">
             <h2 className="text-2xl font-extrabold text-white mb-4">Still have questions?</h2>
-            <p className="text-white/70 mb-6">Message Muhammad Haziq directly on WhatsApp for personal guidance.</p>
+            <p className="text-white/70 mb-6">Message us directly on WhatsApp for personal guidance.</p>
             <a
               href={getWhatsAppLink()}
               target="_blank"

@@ -13,7 +13,7 @@ const SECTIONS: { heading: string; body: string[] }[] = [
     heading: "Who we are",
     body: [
       "MED Prep (“we”, “us”) is a non-profit community initiative helping students prepare for MDCAT, NUMS and other medical entry tests across Pakistan. This policy explains what we collect, why, and the choices you have — including deletion of your entire account.",
-      "Questions about this policy can go to the founder directly on WhatsApp at 0319-3051175 (this is the same number printed across the site), or through the feedback button on any page.",
+      "Questions about this policy can be asked through the WhatsApp contact button at the bottom of this page (it opens a direct chat with us), or through the feedback button on any page.",
     ],
   },
   {
@@ -57,14 +57,14 @@ const SECTIONS: { heading: string; body: string[] }[] = [
   {
     heading: "Children",
     body: [
-      "This service is built for students preparing for entry tests, many of whom are under 18. Because accounts are created through an enrollment process run directly with the founder, we ask that a parent or guardian be involved in signing up, paying any applicable enrollment dues, and in deciding to delete the account.",
+      "This service is built for students preparing for entry tests, many of whom are under 18. Because accounts are created through an enrollment process run directly with the MED Prep administrators, we ask that a parent or guardian be involved in signing up, paying any applicable enrollment dues, and in deciding to delete the account.",
     ],
   },
   {
     heading: "Retention and deletion",
     body: [
       "We keep your data for as long as your account is active. To delete your account permanently: Profile → Delete account (you will be asked to type DELETE to confirm). This removes your auth account, profile and, through database cascades, your answers, analytics, streaks, mistakes, quiz sessions and push subscriptions. Some published content (approved notes) stays up but no longer shows your name. Deletion is immediate and cannot be undone.",
-      "If you ever have trouble deleting through the app, message the founder on WhatsApp at 0319-3051175 and we will delete the account manually. Backups may retain encrypted copies for a short period before they are purged.",
+      "If you ever have trouble deleting through the app, message us on WhatsApp using the contact button at the bottom of this page and we will delete the account manually. Backups may retain encrypted copies for a short period before they are purged.",
     ],
   },
   {
@@ -145,13 +145,13 @@ export default function PrivacyPage() {
               rel="noopener noreferrer"
               className="px-6 py-2.5 rounded-[var(--radius-md)] border border-white/15 text-white text-sm font-semibold hover:bg-white/10 transition-colors"
             >
-              WhatsApp the founder
+              WhatsApp us
             </a>
           </div>
         </div>
 
         <p className="mt-8 text-center text-xs text-[var(--steel-400)]">
-          MED Prep · non-profit community initiative · Quetta, Pakistan
+          MED Prep · non-profit community initiative · Pakistan
         </p>
       </div>
     </div>

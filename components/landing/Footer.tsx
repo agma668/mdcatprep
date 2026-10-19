@@ -1,7 +1,7 @@
 import { TrackedLink } from "@/components/TrackedLink";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { CompassLogo } from "@/components/landing/CompassLogo";
-import { getTelLink, getWhatsAppLink } from "@/lib/site";
+import { getWhatsAppLink } from "@/lib/site";
 
 const FOOTER_LINKS = {
   Platform: [
@@ -21,7 +21,6 @@ const FOOTER_LINKS = {
     { label: "MDCAT Guide", href: "/blog/mdcat-guide" },
   ],
   Company: [
-    { label: "Founder", href: "/founder" },
     { label: "Blog", href: "/blog" },
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Copyright & Terms", href: "/copyright" },
@@ -59,9 +58,9 @@ export function Footer() {
               A non-profit community initiative helping students across Pakistan prepare for MDCAT, NUMS, NUST, GIKI, LUMS, HEC and PMA tests — built with the mission of making quality education accessible to everyone.
             </p>
             <p className="mt-4 text-sm text-[var(--steel-300)]">
-              <span className="font-semibold text-[var(--steel-100)]">Questions?</span> Call/WhatsApp:{" "}
-              <a href={getTelLink()} className="text-[var(--signal-200)] hover:underline">
-                0319-3051175
+              <span className="font-semibold text-[var(--steel-100)]">Questions?</span> Message us on{" "}
+              <a href={getWhatsAppLink()} className="text-[var(--signal-200)] hover:underline">
+                WhatsApp
               </a>
             </p>
             <div className="mt-4 flex items-center gap-4">

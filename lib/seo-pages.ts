@@ -36,7 +36,6 @@ export const SEO_PAGES: SeoPage[] = [
   { path: "/resources", priority: 0.9, changeFrequency: "daily" },
   { path: "/daily-quiz", priority: 0.7, changeFrequency: "daily" },
   { path: "/faq", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/founder", priority: 0.8, changeFrequency: "monthly" },
 
   // Practice surfaces — the honest numbers live on the pages themselves
   { path: "/flashcards", priority: 0.8, changeFrequency: "weekly" },

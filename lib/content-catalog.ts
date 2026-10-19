@@ -118,11 +118,6 @@ export const GUIDE_ENTRIES: CatalogEntry[] = [
     blurb: "Direct answers to the questions students ask about MDCAT preparation and this platform",
   },
   {
-    path: "/founder",
-    title: "About the Founder",
-    blurb: "Who runs MED Prep and why the platform exists",
-  },
-  {
     path: "/resources",
     title: "Study Resources",
     blurb: "Curated free resources including official PMDC links, plus everything hosted here",

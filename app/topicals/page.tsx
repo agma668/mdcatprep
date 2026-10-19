@@ -95,7 +95,7 @@ export default function TopicalsHubPage() {
             {/* Honest source note — required by the honesty rule. */}
             <p className="text-xs text-[var(--steel-500)] max-w-3xl">
               Sourcing: topical questions come from a third-party question-bank extraction (MCQ
-              Universe) compiled by the founder, not from real MDCAT sittings — no question on this
+              Universe) compiled by MED Prep, not from real MDCAT sittings — no question on this
               page claims a past-paper year. Original MED Prep exam-style questions live in the
               signed-in practice area.
             </p>
