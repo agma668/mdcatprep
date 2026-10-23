@@ -3,6 +3,11 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { PageHeader } from '@/components/dashboard/PageHeader'
 import { USAT_MOCK_SPLIT, USAT_MOCK_TOTAL } from '@/lib/usat-mock'
+import {
+  buildNetMockSections,
+  netMockMinutes,
+} from '@/lib/nust-mock'
+import { NUST_NET_BANK } from '@/lib/nust-questions'
 import { MockTestSetup } from './MockTestSetup'
 
 export const metadata: Metadata = { title: 'Mock Test' }
@@ -21,6 +26,26 @@ const USAT_M_FORMAT = {
   description:
     'The Balochistan / ex-FATA scholarship pattern — Verbal 26 · Quantitative 32 · Physics 11 · Chemistry 11 · Biology 20, 50% pass — sectioned like the real paper, served from the dedicated USAT bank.',
   sections: USAT_MOCK_SPLIT.map((s) => ({ name: s.subject, questions: s.count, marks: s.count })),
+}
+
+/**
+ * The NET-Engineering paper's sections derive from the bundled bank at render
+ * time (each official-paper share clamped to what the bank holds), so the
+ * format card and the assembled paper can never drift apart — one clamp, two
+ * readers, the same rule the USAT format card follows.
+ */
+const NET_FORMAT = {
+  id: 'net-eng',
+  name: 'NUST NET-Engineering Mock',
+  duration: netMockMinutes(NUST_NET_BANK),
+  totalMarks: buildNetMockSections(NUST_NET_BANK).reduce((sum, s) => sum + s.count, 0),
+  description:
+    'The official NET-Engineering weighting — Mathematics 50% · Physics 30% · English 20% (200 MCQs · 180 min · no negative, verbatim from nust.edu.pk), served from the NET bank and paced at the real 0.9 min per MCQ. Chemistry is not on the official engineering paper. The bank currently holds 81 questions, so this runs scaled-down, not 200.',
+  sections: buildNetMockSections(NUST_NET_BANK).map((s) => ({
+    name: s.subject,
+    questions: s.count,
+    marks: s.count,
+  })),
 }
 
 const TEST_FORMATS = [
@@ -55,6 +80,7 @@ const TEST_FORMATS = [
     ],
   },
   USAT_M_FORMAT,
+  NET_FORMAT,
 ]
 
 export default async function MockTestPage() {
@@ -67,7 +93,7 @@ export default async function MockTestPage() {
       <PageHeader
         eyebrow="Full-length simulation"
         title="Mock Test"
-        description="Timed, sectioned mock tests. The board mocks weight the PMDC MDCAT paper — Biology heaviest, then Physics and Chemistry, then English — and pull from the academy question bank; the HEC USAT-M paper runs its own scholarship pattern (100 MCQs · 100 minutes) from the dedicated USAT bank. 1 mark per MCQ."
+        description="Timed, sectioned mock tests. The board mocks weight the PMDC MDCAT paper — Biology heaviest, then Physics and Chemistry, then English — and pull from the academy question bank; the HEC USAT-M paper runs its official scholarship split (100 MCQs · 100 minutes); the NUST NET-Engineering mock runs NUST's official Math 50% · Physics 30% · English 20% weighting, scaled to the NET bank at real paper pacing. 1 mark per MCQ."
       />
       <MockTestSetup formats={TEST_FORMATS} />
     </div>

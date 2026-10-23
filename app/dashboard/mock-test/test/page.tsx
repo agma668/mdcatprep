@@ -6,6 +6,8 @@ import { fetchPublishedQuestions, fillQuestions, shuffleQuestions } from '@/lib/
 import type { BankQuestion, QuizQuestion } from '@/lib/questions'
 import { USAT_ELITE_BANK } from '@/lib/usat-comprehensive-bank'
 import { buildUsatMockPaper, USAT_MOCK_MINUTES } from '@/lib/usat-mock'
+import { NUST_NET_BANK } from '@/lib/nust-questions'
+import { buildNetMockPaper, netMockMinutes } from '@/lib/nust-mock'
 import { MockTestPlayer } from './MockTestPlayer'
 
 export const metadata: Metadata = { title: 'Mock Test' }
@@ -47,6 +49,21 @@ export default async function MockTestPage({ searchParams }: { searchParams: Pro
           questions={buildUsatMockPaper(USAT_ELITE_BANK)}
           durationMinutes={USAT_MOCK_MINUTES}
           format="usat-m"
+        />
+      </div>
+    )
+  }
+
+  // The NET-Engineering paper never touches the Supabase pool: it is assembled
+  // from the bundled NET bank at NUST's official weighting (scaled to what the
+  // bank holds), reshuffled every run.
+  if (format === 'net-eng') {
+    return (
+      <div className="p-4 md:p-8 max-w-3xl mx-auto w-full">
+        <MockTestPlayer
+          questions={buildNetMockPaper(NUST_NET_BANK)}
+          durationMinutes={netMockMinutes(NUST_NET_BANK)}
+          format="net-eng"
         />
       </div>
     )
