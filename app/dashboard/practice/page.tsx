@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { getStudentProfile } from "@/lib/student";
 import { MDCAT_QUESTIONS } from "@/lib/mdcat";
 import { USAT_ELITE_BANK } from "@/lib/usat-comprehensive-bank";
+import { deriveUsatDrill } from "@/lib/usat-drill";
 import { PageHeader } from "@/components/dashboard/PageHeader";
 import { PracticeClient } from './PracticeClient'
 
@@ -59,12 +60,13 @@ export default async function PracticePage({
   }
 
   // Get student's initial college from profile or URL query param
-  // Bundled bank sizes per subject — one set per bank, both derived from the
+  // Bundled bank sizes per subject — one set per bank, all derived from the
   // real arrays. The client switches between them when the student picks which
   // test inside the medical portal they are preparing for (MDCAT boards vs the
   // HEC USAT-M scholarship test, which run different papers entirely).
   const mdcat = bankCounts(MDCAT_QUESTIONS)
   const usat = bankCounts(USAT_ELITE_BANK)
+  const usatDrill = deriveUsatDrill(USAT_ELITE_BANK)
 
   const { profile } = await getStudentProfile()
   const params = await searchParams
@@ -86,6 +88,7 @@ export default async function PracticePage({
         bankCountsBySubject={mdcat.countsBySubject}
         bankTopicsBySubject={mdcat.topicsBySubject}
         usatCountsBySubject={usat.countsBySubject}
+        usatDrill={usatDrill}
       />
     </div>
   )

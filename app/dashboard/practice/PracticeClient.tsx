@@ -7,6 +7,7 @@ import { PracticeSetup } from "./PracticeSetup";
 import { TopicDrill } from "./TopicDrill";
 import { CollegeSelector } from "./CollegeSelector";
 import { UsatPaperPanel } from "./UsatPaperPanel";
+import { UsatTopicDrill } from "./UsatTopicDrill";
 import { getSubjectsForCollege, isUsatTarget } from "@/lib/subjects";
 
 export function PracticeClient({
@@ -17,6 +18,7 @@ export function PracticeClient({
   bankCountsBySubject,
   bankTopicsBySubject,
   usatCountsBySubject,
+  usatDrill,
 }: {
   allSubjects: string[]
   countsBySubject: Record<string, number>
@@ -25,6 +27,7 @@ export function PracticeClient({
   bankCountsBySubject: Record<string, number>
   bankTopicsBySubject: Record<string, Record<string, number>>
   usatCountsBySubject: Record<string, number>
+  usatDrill: Record<string, { name: string; count: number; topics: string[] }[]>
 }) {
   const [selectedCollege, setSelectedCollege] = useState(initialCollege)
 
@@ -114,10 +117,12 @@ export function PracticeClient({
         )}
       </section>
 
-      {/* Chapter-wise drill navigation using the PMDC topic taxonomy — MDCAT
-          boards only: the USAT paper has no chapter taxonomy of its own yet,
-          so its subjects drill straight from the tiles above. */}
-      {!isUsat && (
+      {/* Chapter-wise drill. The boards use the PMDC topic taxonomy; the USAT
+          paper rotates fine categories instead, so it drills by chapter-style
+          category families derived from the bank's own topic strings. */}
+      {isUsat ? (
+        <UsatTopicDrill drill={usatDrill} collegeQuery={collegeQuery} />
+      ) : (
         <TopicDrill
           subjects={filteredSubjects}
           bankTopicsBySubject={bankTopicsBySubject}
