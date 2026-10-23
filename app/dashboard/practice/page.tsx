@@ -3,12 +3,34 @@ import { redirect } from 'next/navigation'
 import { createClient } from "@/lib/supabase/server";
 import { getStudentProfile } from "@/lib/student";
 import { MDCAT_QUESTIONS } from "@/lib/mdcat";
+import { USAT_ELITE_BANK } from "@/lib/usat-comprehensive-bank";
 import { PageHeader } from "@/components/dashboard/PageHeader";
 import { PracticeClient } from './PracticeClient'
 
 export const metadata: Metadata = { title: 'Practice' }
 
 export const dynamic = 'force-dynamic'
+
+/**
+ * Count a bank's questions by subject (and subject → topic for the drill
+ * navigator). Extracted so the two bundled banks — MDCAT and HEC USAT-M —
+ * are counted by the one helper and can never render from two different
+ * derivation styles drifting apart.
+ */
+function bankCounts(bank: readonly { subject?: string; topic?: string }[]) {
+  const countsBySubject: Record<string, number> = {}
+  const topicsBySubject: Record<string, Record<string, number>> = {}
+  for (const row of bank) {
+    if (!row.subject) continue
+    countsBySubject[row.subject] = (countsBySubject[row.subject] ?? 0) + 1
+    if (row.topic) {
+      if (!topicsBySubject[row.subject]) topicsBySubject[row.subject] = {}
+      topicsBySubject[row.subject][row.topic] =
+        (topicsBySubject[row.subject][row.topic] ?? 0) + 1
+    }
+  }
+  return { countsBySubject, topicsBySubject }
+}
 
 export default async function PracticePage({
   searchParams,
@@ -37,22 +59,12 @@ export default async function PracticePage({
   }
 
   // Get student's initial college from profile or URL query param
-  // Exam-style bank sizes per subject (for the chooser cards — the questions
-  // themselves render on the dedicated /practice/session route).
-  const bankCountsBySubject: Record<string, number> = {}
-  for (const row of MDCAT_QUESTIONS) {
-    if (row.subject) bankCountsBySubject[row.subject] = (bankCountsBySubject[row.subject] ?? 0) + 1
-  }
-
-  // Group bundled bank questions by subject → topic for the TopicDrill
-  // navigator.  Each leaf value is the count of questions for that topic.
-  const bankTopicsBySubject: Record<string, Record<string, number>> = {}
-  for (const row of MDCAT_QUESTIONS) {
-    if (!row.subject || !row.topic) continue
-    if (!bankTopicsBySubject[row.subject]) bankTopicsBySubject[row.subject] = {}
-    bankTopicsBySubject[row.subject][row.topic] =
-      (bankTopicsBySubject[row.subject][row.topic] ?? 0) + 1
-  }
+  // Bundled bank sizes per subject — one set per bank, both derived from the
+  // real arrays. The client switches between them when the student picks which
+  // test inside the medical portal they are preparing for (MDCAT boards vs the
+  // HEC USAT-M scholarship test, which run different papers entirely).
+  const mdcat = bankCounts(MDCAT_QUESTIONS)
+  const usat = bankCounts(USAT_ELITE_BANK)
 
   const { profile } = await getStudentProfile()
   const params = await searchParams
@@ -71,8 +83,9 @@ export default async function PracticePage({
         countsBySubject={countsBySubject}
         totalCount={rows.length}
         initialCollege={queryCollege || profile?.exam_target || null}
-        bankCountsBySubject={bankCountsBySubject}
-        bankTopicsBySubject={bankTopicsBySubject}
+        bankCountsBySubject={mdcat.countsBySubject}
+        bankTopicsBySubject={mdcat.topicsBySubject}
+        usatCountsBySubject={usat.countsBySubject}
       />
     </div>
   )

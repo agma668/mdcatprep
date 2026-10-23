@@ -8,6 +8,8 @@ const EXAMS = [
   { name: 'NUMS', mark: '🎖️', note: 'National University of Medical Sciences' },
   { name: 'UHS', mark: '🧬', note: 'University of Health Sciences, Lahore' },
   { name: 'SZABMU', mark: '⚕️', note: 'Shaheed Zulfiqar Ali Bhutto Medical University' },
+  { name: 'ETEA', mark: '🏔️', note: 'KMU ETEA — Khyber Pakhtunkhwa' },
+  { name: 'HEC USAT-M', mark: '🎓', note: 'HEC scholarship test — Balo/FATA' },
 ]
 
 interface ExamSelectorProps {

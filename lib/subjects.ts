@@ -28,12 +28,28 @@ export function subjectIcon(name: string | null | undefined): string {
  * Reasoning section — that bank now exists (lib/past-paper-bank.ts), which is
  * why NUMS lists it and the national MDCAT does not.
  */
+/**
+ * Subject names of the HEC USAT bank (lib/usat-comprehensive-bank.ts) — these
+ * literal strings must match the bank's `subject` values exactly, because
+ * they drive the practice-session filter for USAT runs.
+ */
+export const USAT_SUBJECTS: readonly string[] = [
+  'Quantitative',
+  'Verbal',
+  'Biology',
+  'Chemistry',
+  'Physics',
+]
+
 export const COLLEGE_SUBJECTS: Record<string, readonly string[]> = {
   'MDCAT': ['Biology', 'Chemistry', 'Physics', 'English'],
   'NUMS': ['Biology', 'Chemistry', 'Physics', 'English', 'Logical Reasoning'],
   'UHS': ['Biology', 'Chemistry', 'Physics', 'English'],
   'SZABMU': ['Biology', 'Chemistry', 'Physics', 'English'],
   'ETEA': ['Biology', 'Chemistry', 'Physics', 'English'],
+  // Matches the signup value "HEC USAT-M" (and any USAT.* target text).
+  'USAT-M': USAT_SUBJECTS,
+  'USAT': USAT_SUBJECTS,
   'BIOLOGY': ['Biology'],
   'CHEMISTRY': ['Chemistry'],
   'PHYSICS': ['Physics'],
@@ -42,8 +58,9 @@ export const COLLEGE_SUBJECTS: Record<string, readonly string[]> = {
 
 /**
  * The full subject taxonomy the product covers — the union of every exam's
- * subject mapping (the honest source for subject counts; today it is 4:
- * Biology, Chemistry, Physics, English).
+ * subject mapping. The MDCAT boards share 4 (Biology, Chemistry, Physics,
+ * English, +5th NUMS Logical Reasoning); the USAT bank adds its quantitative
+ * and verbal sections.
  */
 export function coveredSubjectCount(): number {
   const all = new Set<string>()
@@ -51,6 +68,16 @@ export function coveredSubjectCount(): number {
     for (const s of subjects) all.add(s)
   }
   return all.size
+}
+
+/**
+ * True when a student's target exam (free text) is an HEC USAT test. Such
+ * students practise from the USAT bank (lib/usat-comprehensive-bank.ts) via
+ * /practice/session?bank=usat — NOT the MDCAT bank the rest of the medical
+ * chooser serves. Signup offers the literal value "HEC USAT-M".
+ */
+export function isUsatTarget(examTarget: string | null | undefined): boolean {
+  return /usat/i.test(examTarget ?? '')
 }
 
 /**
