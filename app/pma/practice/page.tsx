@@ -4,6 +4,9 @@ import { useCallback, useRef, useState } from 'react';
 import Link from 'next/link';
 import { PMA_QUESTIONS, pmaOptionFigure } from '@/lib/pma-questions';
 import { PmaFigure } from '@/components/pma/PmaFigure';
+import { TestPrepChooser } from '@/components/dashboard/TestPrepChooser';
+import { usePrepChoice } from '@/lib/prep-choice';
+import { getPrepTest } from '@/lib/prep-tests';
 
 const CATEGORIES = ['All', 'Verbal', 'Non-Verbal', 'Academic'] as const;
 type Category = (typeof CATEGORIES)[number];
@@ -11,6 +14,20 @@ type OptionKey = 'A' | 'B' | 'C' | 'D';
 
 export default function PMAPracticePage() {
   const [selectedCat, setSelectedCat] = useState<Category>('All');
+
+  // The portal's "Preparing for" choice also shapes this page: ISSB screens
+  // on the intelligence sections only, so its Academic tab disappears and the
+  // pool narrows to exactly what that screening actually tests. Observed
+  // through the store hook — no state mirroring.
+  const storedChoice = usePrepChoice('military');
+  const prepTest = getPrepTest('military', storedChoice);
+  const activeCats = prepTest
+    ? CATEGORIES.filter((c) => c === 'All' || prepTest.subjects.includes(c))
+    : [...CATEGORIES];
+  // When the choice retires the tab a student was on (e.g. ISSB drops
+  // Academic), fall back to the All paper purely by derivation — no reset
+  // effect, the pool below simply recomputes.
+  const activeCat: Category = activeCats.includes(selectedCat) ? selectedCat : 'All';
   const [currentIdx, setCurrentIdx] = useState(0);
   const [answers, setAnswers] = useState<Record<string, OptionKey>>({});
   const [revealed, setRevealed] = useState<Record<string, true>>({});
@@ -19,7 +36,15 @@ export default function PMAPracticePage() {
   const [timeRemaining, setTimeRemaining] = useState(20);
   const timerRef = useRef<number | null>(null);
 
-  const pool = selectedCat === 'All' ? PMA_QUESTIONS : PMA_QUESTIONS.filter((q) => q.category === selectedCat);
+  // When a test is chosen, "All" means all of THAT test's sections — not the
+  // full bank: an ISSB student's All-pool must not hand out Academic questions
+  // their screening never asks.
+  const pool =
+    activeCat === 'All'
+      ? prepTest
+        ? PMA_QUESTIONS.filter((q) => activeCats.includes(q.category))
+        : PMA_QUESTIONS
+      : PMA_QUESTIONS.filter((q) => q.category === activeCat);
   const total = pool.length;
   const currentQ = pool[currentIdx] ?? pool[0];
   const userChoice = answers[currentQ.key];
@@ -115,9 +140,14 @@ export default function PMAPracticePage() {
               <span className="text-border">/</span>
               <span className="font-extrabold text-sm text-foreground">Intelligence Practice</span>
             </div>
-            <span className="text-xs px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 font-bold">
-              PMA Long Course
-            </span>
+            <div className="flex items-center gap-3 min-w-0">
+              <div className="min-w-0 w-[calc(100%-4.5rem)] sm:w-auto">
+                <TestPrepChooser family="military" />
+              </div>
+              <span className="hidden sm:inline-block text-xs px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 font-bold shrink-0">
+                {prepTest?.label ?? 'PMA Long Course'}
+              </span>
+            </div>
           </div>
         </header>
 
@@ -162,14 +192,14 @@ export default function PMAPracticePage() {
               </p>
             </div>
 
-            {/* Category Tabs */}
+            {/* Category Tabs — narrowed by the "Preparing for" choice (ISSB drops Academic) */}
             <div className="flex flex-wrap gap-1.5 bg-secondary/50 p-1.5 rounded-xl border border-border">
-              {CATEGORIES.map((cat) => (
+              {activeCats.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => resetForCategory(cat)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                    selectedCat === cat
+                    activeCat === cat
                       ? 'bg-amber-600 text-amber-100 shadow'
                       : 'text-muted-foreground hover:text-foreground'
                   }`}

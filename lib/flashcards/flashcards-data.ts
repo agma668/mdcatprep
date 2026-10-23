@@ -20,6 +20,12 @@ export type FlashcardDeck = {
   icon: string
   description: string
   cards: Flashcard[]
+  /**
+   * Tests (lib/prep-tests ids) the deck belongs to. Omitted = a PMDC-family
+   * deck: the boards on the PMDC syllabus all draw the same content, and only
+   * the HEC USAT-M paper runs its own separate decks.
+   */
+  tests?: readonly string[]
 }
 
 export const FLASHCARD_DECKS: FlashcardDeck[] = [
@@ -29,6 +35,7 @@ export const FLASHCARD_DECKS: FlashcardDeck[] = [
     subject: 'Mathematics',
     icon: '🧮',
     description: 'High-yield formulas and rapid facts for the HEC USAT-M (and Balochistan/ex-FATA scholarship variant) — built from corpus pattern analysis, all original content.',
+    tests: ['HEC USAT-M'],
     cards: [
       { id: 'usat-m-01', front: 'Simple interest formula?', back: 'SI = P × r × t / 100 (principal × rate% per annum × years).', hint: 'Three factors under 100.' },
       { id: 'usat-m-02', front: 'Selling price given cost C and profit p%?', back: 'SP = C × (1 + p/100). For a loss, SP = C × (1 − p/100).', hint: 'One multiplication shortcut.' },
@@ -65,6 +72,7 @@ export const FLASHCARD_DECKS: FlashcardDeck[] = [
     subject: 'English',
     icon: '📚',
     description: 'Synonym/antonym pairs that recur across HEC USAT papers and prep corpora — drilled with the contrast word so the antonym is pre-armed. All original content.',
+    tests: ['HEC USAT-M'],
     cards: [
       { id: 'usat-v-01', front: 'Prudent — synonym and antonym?', back: 'Synonym: cautious / careful. Antonym: reckless.', hint: 'Careful judgement.' },
       { id: 'usat-v-02', front: 'Stringent — synonym and antonym?', back: 'Synonym: strict / rigid. Antonym: lenient.', hint: 'Rules that bind hard.' },

@@ -72,6 +72,9 @@ export default async function PracticePage({
   const params = await searchParams
   const queryCollege = params.college || null
 
+  // The URL param and the profile target are passed separately: the client
+  // ranks URL > stored sidebar choice > profile (see PracticeClient).
+
   return (
     <div className="p-6 md:p-8 max-w-5xl mx-auto w-full">
       <PageHeader
@@ -84,7 +87,8 @@ export default async function PracticePage({
         allSubjects={allSubjects}
         countsBySubject={countsBySubject}
         totalCount={rows.length}
-        initialCollege={queryCollege || profile?.exam_target || null}
+        queryCollege={queryCollege}
+        profileCollege={profile?.exam_target || null}
         bankCountsBySubject={mdcat.countsBySubject}
         bankTopicsBySubject={mdcat.topicsBySubject}
         usatCountsBySubject={usat.countsBySubject}

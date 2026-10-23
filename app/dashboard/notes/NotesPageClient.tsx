@@ -2,9 +2,10 @@
 
 import { TrackedLink } from '@/components/TrackedLink';
 import { useRef, useState } from 'react'
-import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
+import { usePrepChoice } from '@/lib/prep-choice'
+import { getPrepTest } from '@/lib/prep-tests'
+import { fmtUTCDate } from "@/lib/fmt";
 import { useRouter } from 'next/navigation'
-import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
 import { createStudentNote, deleteStudentNote } from '@/app/actions/notes'
@@ -89,6 +90,13 @@ export function NotesPageClient({
   const [selectedSubject, setSelectedSubject] = useState<string>('All')
   const formRef = useRef<HTMLFormElement>(null)
 
+  // The sidebar's "Preparing for" choice re-shapes this page: the prep grid
+  // and the subject chips follow the chosen test (a HEC USAT-M student sees
+  // that paper's run and mock, a PMDC-board student the MDCAT syllabus grid),
+  // so the notes page always speaks the chosen paper's language.
+  const storedChoice = usePrepChoice('medical')
+  const prepTest = getPrepTest('medical', storedChoice)
+
   const availableSubjects = [
     ...new Set([
       ...ownNotes.map(n => n.subject),
@@ -96,6 +104,19 @@ export function NotesPageClient({
       ...CCH_SUBJECT_NAMES,
     ].filter(Boolean) as string[]),
   ].sort()
+  // When a test is chosen, the chips narrow to that test's own subjects —
+  // falling back to the full list when the choice has no subjects to show
+  // (nothing uploaded for any of them yet).
+  const chipSubjects = prepTest
+    ? availableSubjects.filter(s => prepTest.subjects.includes(s))
+    : availableSubjects
+  const activeChips = chipSubjects.length > 0 ? chipSubjects : availableSubjects
+  // A choice change can retire the currently selected chip — reset during
+  // render (same pattern as the prevOwnNotes sync above) rather than leave
+  // the lists empty behind a chip that no longer exists.
+  if (selectedSubject !== 'All' && !activeChips.includes(selectedSubject)) {
+    setSelectedSubject('All')
+  }
 
   const visibleOwnNotes =
     selectedSubject === 'All'
@@ -243,44 +264,127 @@ export function NotesPageClient({
         />
       )}
 
-      {/* MDCAT study materials — the PMDC MDCAT prep surface for pre-medical
-          students (Biology, Chemistry, Physics, English) */}
+      {/* Test-specific prep surface — the grid follows the sidebar choice
+          (HEC USAT-M gets its own paper run + mock; PMDC boards share the
+          MDCAT syllabus surface, framed for the chosen board) */}
       <section>
-        <h2 className="text-sm font-semibold text-[var(--color-text-primary)] mb-3">
-          MDCAT Preparation
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <TrackedLink
-            to="/dashboard/notes/mdcat-master-notes"
-            className="group glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5 flex flex-col"
-           label="notes-client">
-            <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">
-              🧬 MDCAT Master Concept Notes
-            </h3>
-            <p className="text-sm text-[var(--color-text-secondary)] flex-1">
-              Easy-language Biology, Chemistry, Physics and English notes written from the PMDC MDCAT syllabus.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-[var(--color-primary)]">
-              Open notes
-              <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
-            </span>
-          </TrackedLink>
-          <TrackedLink
-            to="/dashboard/practice?college=MDCAT"
-            className="group glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5 flex flex-col"
-           label="notes-client">
-            <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">
-              📝 MDCAT Exam-Style Practice
-            </h3>
-            <p className="text-sm text-[var(--color-text-secondary)] flex-1">
-              Exam-style MCQs across Biology, Chemistry, Physics and English — closest to the real paper.
-            </p>
-            <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-[var(--color-primary)]">
-              Start practising
-              <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
-            </span>
-          </TrackedLink>
-        </div>
+        {prepTest ? (
+          prepTest.pmdcFamily ? (
+            <>
+              <h2 className="text-sm font-semibold text-[var(--color-text-primary)] mb-3">
+                {prepTest.label} Preparation
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <TrackedLink
+                  to="/dashboard/notes/mdcat-master-notes"
+                  className="group glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5 flex flex-col"
+                  label="notes-client">
+                  <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">
+                    🧬 Master Concept Notes
+                  </h3>
+                  <p className="text-sm text-[var(--color-text-secondary)] flex-1">
+                    Easy-language Biology, Chemistry, Physics and English notes written from the PMDC syllabus the {prepTest.label} paper tests.
+                  </p>
+                  <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-[var(--color-primary)]">
+                    Open notes
+                    <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                  </span>
+                </TrackedLink>
+                <TrackedLink
+                  to={`/dashboard/practice?college=${encodeURIComponent(prepTest.id)}`}
+                  className="group glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5 flex flex-col"
+                  label="notes-client">
+                  <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">
+                    📝 {prepTest.label} Exam-Style Practice
+                  </h3>
+                  <p className="text-sm text-[var(--color-text-secondary)] flex-1">
+                    Exam-style MCQs across {prepTest.subjects.join(', ')} — filtered to the {prepTest.label} paper.
+                  </p>
+                  <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-[var(--color-primary)]">
+                    Start practising
+                    <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                  </span>
+                </TrackedLink>
+              </div>
+            </>
+          ) : (
+            <>
+              <h2 className="text-sm font-semibold text-[var(--color-text-primary)] mb-3">
+                {prepTest.label} Preparation
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <TrackedLink
+                  to="/practice/session?bank=usat"
+                  className="group glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5 flex flex-col"
+                  label="notes-client">
+                  <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">
+                    📝 USAT-M Paper Run
+                  </h3>
+                  <p className="text-sm text-[var(--color-text-secondary)] flex-1">
+                    The dedicated USAT bank — Verbal, Quantitative and the science sections, one timed run with the paper&apos;s own structure.
+                  </p>
+                  <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-[var(--color-primary)]">
+                    Start the paper
+                    <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                  </span>
+                </TrackedLink>
+                <TrackedLink
+                  to="/dashboard/mock-test/test?format=usat-m"
+                  className="group glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5 flex flex-col"
+                  label="notes-client">
+                  <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">
+                    🧮 Full USAT-M Mock
+                  </h3>
+                  <p className="text-sm text-[var(--color-text-secondary)] flex-1">
+                    A timed full-length mock of the 100-MCQ HEC scholarship paper, including the Maths section the PMDC boards don&apos;t have.
+                  </p>
+                  <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-[var(--color-primary)]">
+                    Sit the mock
+                    <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                  </span>
+                </TrackedLink>
+              </div>
+            </>
+          )
+        ) : (
+          <>
+            <h2 className="text-sm font-semibold text-[var(--color-text-primary)] mb-3">
+              MDCAT Preparation
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <TrackedLink
+                to="/dashboard/notes/mdcat-master-notes"
+                className="group glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5 flex flex-col"
+                label="notes-client">
+                <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">
+                  🧬 MDCAT Master Concept Notes
+                </h3>
+                <p className="text-sm text-[var(--color-text-secondary)] flex-1">
+                  Easy-language Biology, Chemistry, Physics and English notes written from the PMDC MDCAT syllabus.
+                </p>
+                <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-[var(--color-primary)]">
+                  Open notes
+                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                </span>
+              </TrackedLink>
+              <TrackedLink
+                to="/dashboard/practice?college=MDCAT"
+                className="group glass-tile-glow border border-white/10 rounded-[var(--radius-lg)] p-5 flex flex-col"
+                label="notes-client">
+                <h3 className="font-semibold text-[var(--color-text-primary)] mb-3">
+                  📝 MDCAT Exam-Style Practice
+                </h3>
+                <p className="text-sm text-[var(--color-text-secondary)] flex-1">
+                  Exam-style MCQs across Biology, Chemistry, Physics and English — closest to the real paper.
+                </p>
+                <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-[var(--color-primary)]">
+                  Start practising
+                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
+                </span>
+              </TrackedLink>
+            </div>
+          </>
+        )}
       </section>
 
       {/* College Cards */}
@@ -388,7 +492,7 @@ export function NotesPageClient({
           >
             All
           </button>
-          {availableSubjects.map(s => (
+          {activeChips.map(s => (
             <button
               key={s}
               type="button"

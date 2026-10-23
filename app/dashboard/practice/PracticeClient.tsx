@@ -1,8 +1,10 @@
 "use client";
 
 import { TrackedLink } from "@/components/TrackedLink";
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 import { ArrowRight, Timer } from "lucide-react";
+import { usePrepChoice } from "@/lib/prep-choice";
+import { writePrepChoice } from "@/lib/prep-tests";
 import { PracticeSetup } from "./PracticeSetup";
 import { TopicDrill } from "./TopicDrill";
 import { CollegeSelector } from "./CollegeSelector";
@@ -14,7 +16,8 @@ export function PracticeClient({
   allSubjects,
   countsBySubject,
   totalCount,
-  initialCollege,
+  queryCollege,
+  profileCollege,
   bankCountsBySubject,
   bankTopicsBySubject,
   usatCountsBySubject,
@@ -23,13 +26,34 @@ export function PracticeClient({
   allSubjects: string[]
   countsBySubject: Record<string, number>
   totalCount: number
-  initialCollege: string | null
+  queryCollege: string | null
+  profileCollege: string | null
   bankCountsBySubject: Record<string, number>
   bankTopicsBySubject: Record<string, Record<string, number>>
   usatCountsBySubject: Record<string, number>
   usatDrill: Record<string, { name: string; count: number; topics: string[] }[]>
 }) {
-  const [selectedCollege, setSelectedCollege] = useState(initialCollege)
+  // Selection precedence, from strongest to weakest:
+  //   1. an explicit pick made ON this page (picked !== undefined) — so the
+  //      chooser cards always respond even if the URL carried ?college=…
+  //   2. the ?college= query param (explicit navigation, e.g. from notes)
+  //   3. the sidebar's stored "Preparing for" choice (live via the store)
+  //   4. the profile's exam_target, as the bare fallback
+  // The stored choice is read through useSyncExternalStore, so a sidebar pick
+  // re-threads this page with no state-mirroring effects.
+  const storedChoice = usePrepChoice("medical");
+  const [picked, setPicked] = useState<string | null | undefined>(undefined);
+  const selectedCollege =
+    picked !== undefined
+      ? picked
+      : queryCollege ?? storedChoice ?? profileCollege ?? null;
+
+  const chooseCollege = (college: string | null) => {
+    setPicked(college);
+    // One store, one broadcast: the sidebar's label and the other surfaces
+    // (notes, flashcards) follow this page's chooser too.
+    writePrepChoice("medical", college);
+  };
 
   // The medical portal serves MDCAT-family boards (MDCAT/NUMS/UHS/SZABMU/ETEA)
   // AND the HEC USAT-M paper — different papers, different banks. Every line
@@ -67,7 +91,7 @@ export function PracticeClient({
 
   return (
     <div className="space-y-10">
-      <CollegeSelector selectedCollege={selectedCollege} onSelect={setSelectedCollege} />
+      <CollegeSelector selectedCollege={selectedCollege} onSelect={chooseCollege} />
 
       {/* One list of subjects — each subject appears exactly once on this page.
           The full run is the curated exam-style paper for the selected test;

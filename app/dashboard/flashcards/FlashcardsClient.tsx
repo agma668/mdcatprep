@@ -5,6 +5,8 @@ import { gradeFlashcard, resetFlashcard } from '@/app/actions/flashcards'
 import type { Flashcard, FlashcardDeck } from '@/lib/flashcards/flashcards-data'
 import { isDue } from '@/lib/flashcards/srs'
 import type { FlashcardBackend, ReviewRow, ReviewStatePayload } from '@/lib/flashcards/types'
+import { usePrepChoice } from '@/lib/prep-choice'
+import { getPrepTest } from '@/lib/prep-tests'
 
 // Flashcards UI: deck grid -> focused study session (flip + rate) -> back to
 // the grid with updated due counts. All grading goes through the injected
@@ -102,24 +104,44 @@ export function FlashcardsClient({ decks, initialReviewState, backend, notice, r
   const [saveError, setSaveError] = useState<string | null>(null)
   const [subjectFilter, setSubjectFilter] = useState<string>('All')
 
+  // The sidebar's "Preparing for" choice narrows the deck grid to the chosen
+  // test's own decks. PMDC-family decks are omitted=? the shared syllabus; the
+  // HEC USAT-M decks carry an explicit tests list. When the choice leaves a
+  // test with no decks (nothing authored yet) the full grid returns and the
+  // banner says so plainly instead of showing an empty page.
+  const storedChoice = usePrepChoice('medical')
+  const prepTest = getPrepTest('medical', storedChoice)
+
+  const relevantDecks = useMemo(() => {
+    if (!prepTest) return decks
+    const matched = decks.filter(
+      (d) => d.tests?.includes(prepTest.id) ?? prepTest.pmdcFamily === true
+    )
+    return matched.length > 0 ? matched : decks
+  }, [decks, prepTest])
+  const narrowed = prepTest !== null && relevantDecks.length < decks.length
+
   const subjects = useMemo(
-    () => ['All', ...Array.from(new Set(decks.map((d) => d.subject)))],
-    [decks]
+    () => ['All', ...Array.from(new Set(relevantDecks.map((d) => d.subject)))],
+    [relevantDecks]
   )
   const visibleDecks = useMemo(
-    () => (subjectFilter === 'All' ? decks : decks.filter((d) => d.subject === subjectFilter)),
-    [decks, subjectFilter]
+    () =>
+      subjectFilter === 'All'
+        ? relevantDecks
+        : relevantDecks.filter((d) => d.subject === subjectFilter),
+    [relevantDecks, subjectFilter]
   )
 
   const totals = useMemo(() => {
     let due = 0
     let cards = 0
-    for (const deck of decks) {
+    for (const deck of relevantDecks) {
       due += dueCount(deck, reviewState.byCard)
       cards += deck.cards.length
     }
     return { due, cards }
-  }, [decks, reviewState.byCard])
+  }, [relevantDecks, reviewState.byCard])
 
   const openDeck = (deck: FlashcardDeck) => {
     const now = new Date()
@@ -333,6 +355,12 @@ export function FlashcardsClient({ decks, initialReviewState, backend, notice, r
 
       {saveError && (
         <p role="alert" className="mb-4 text-xs font-semibold text-red-400">{saveError}</p>
+      )}
+
+      {narrowed && prepTest && (
+        <p className="mb-4 text-xs text-[var(--steel-300)]">
+          {prepTest.mark} Showing the decks for <strong className="text-white">{prepTest.label}</strong> — switch tests in the sidebar to see others.
+        </p>
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

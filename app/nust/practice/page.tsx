@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { NUST_NET_BANK } from '@/lib/nust-questions';
 import Link from 'next/link';
+import { TestPrepChooser } from '@/components/dashboard/TestPrepChooser';
 
 export default function NUSTPracticePage() {
   const [selectedSubject, setSelectedSubject] = useState<string>('All');
@@ -35,9 +36,14 @@ export default function NUSTPracticePage() {
               <span className="text-border">/</span>
               <span className="font-extrabold text-sm text-foreground">Elite Practice & Drills</span>
             </div>
-            <span className="text-xs px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 font-bold">
-              NUST NET Master Bank
-            </span>
+            <div className="flex items-center gap-3 min-w-0">
+              <div className="min-w-0 w-[calc(100%-4.5rem)] sm:w-auto">
+                <TestPrepChooser family="engineering" />
+              </div>
+              <span className="hidden sm:inline-block text-xs px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 font-bold shrink-0">
+                NUST NET Master Bank
+              </span>
+            </div>
           </div>
         </header>
 

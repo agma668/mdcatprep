@@ -2,11 +2,11 @@
 
 import { TrackedLink } from "@/components/TrackedLink";
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { SidebarLeaderboard } from "./SidebarLeaderboard";
 import { usePathname } from "next/navigation";
 import { logout } from "@/app/actions/auth";
 import { CompassLogo } from "@/components/landing/CompassLogo";
+import { TestPrepChooser } from "./TestPrepChooser";
 import {
   Home,
   BarChart3,
@@ -136,6 +136,19 @@ export function Sidebar({ profile, leaderboard }: { profile: Profile; leaderboar
             <ChevronLeft className={`w-4 h-4 transition-transform duration-300 ${collapsed ? "rotate-180" : ""}`} />
           </button>
         </div>
+
+        {/* The per-test preparation chooser — the one choice that re-threads
+            practice, notes and flashcards to the student's actual paper. Top
+            left, above the menu, own block; collapsed keeps an icon. */}
+        {!collapsed ? (
+          <div className="px-4 pt-4">
+            <TestPrepChooser family="medical" />
+          </div>
+        ) : (
+          <div className="flex justify-center pt-3">
+            <TestPrepChooser family="medical" collapsed />
+          </div>
+        )}
 
         {/* Nav */}
         <nav role="navigation" aria-label="Dashboard menu" className="flex-1 py-5 px-3 space-y-6">
