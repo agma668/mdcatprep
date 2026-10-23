@@ -10,19 +10,20 @@ import { createServiceClient } from "@/lib/supabase/service";
 import { getSupabaseAnonKey, getSupabaseUrl } from "@/lib/env";
 
 // ─── Email allowlist ──────────────────────────────────────────
-//
-// Accounts signed up with one of these emails are always recognized as admins:
+//// Accounts signed up with one of these emails are always recognized as admins:
 // they bypass the student approval flow, are auto-approved at signup, and are
 // routed to /admin instead of /dashboard. This is the exception to the default
 // `student` / `pending` role assigned by the `handle_new_user` trigger.
 //
 // Keep this list in sync with the `role` column in the `profiles` table.
 
-// TODO: put YOUR real admin email(s) here — whoever signs up with an email
-// on this list becomes the site admin (auto-approved, routed to /admin).
+// Single anonymous owner (2026-10-23 account migration): only the new
+// agma668 Gmail resolves as admin. The previous allowlist entries
+// (admin@medprep.pk, 67129@cch.edu.pk) were dropped — the school email
+// carried the founder's identity and admin@medprep.pk was never a real
+// mailbox. The profiles.role=='admin' DB path remains the secondary rule.
 const ADMIN_EMAILS: readonly string[] = [
-  "admin@medprep.pk",
-  "67129@cch.edu.pk", // site owner
+  "agma668@gmail.com", // site owner (post-migration)
 ];
 
 export function isAdminEmail(email?: string | null): boolean {
