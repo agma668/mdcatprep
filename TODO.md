@@ -155,8 +155,8 @@ Before marking any task complete or committing:
 
 - [x] **USAT Question Bank Volume:** Scaled `lib/usat-comprehensive-bank.ts` to 152 questions with Bloom's rationales.
 - [x] **NUST Practice Engine:** Shipped interactive test player at `/nust/practice` with subject filtering.
-- [ ] **NUST NET-1 Bank Expansion (Active Sprint):** Grow `lib/nust-questions.ts` from 40 to 80+ high-yield questions for November NET-1.
+- [x] **NUST NET-1 Bank Expansion:** Bank at 81 high-yield questions (Math 28 · Physics 24 · Chemistry 17 · English 12), plus the NET-Engineering timed mock at NUST's official Math 50% · Physics 30% · English 20% weighting (200 MCQs / 180 min paper, scaled to the bank at 0.9 min per MCQ; no negative marking) — next wave grows the bank toward the real paper's 200 MCQs.
 - [ ] **PMA Non-Verbal Matrix:** Add visual pattern recognition items to `lib/pma-questions.ts`.
-- [ ] **HEC Balochistan/FATA Aptitude Bank:** Build dedicated verbal, quantitative, and analytical reasoning sets for the upcoming ETC scholarship cycle.
+- [x] **HEC Balochistan/FATA Aptitude Bank:** Dedicated scholarship bank shipped at 212 questions (V78/Q62/B30/C21/P21) from the phase-2/3 papers, with the 100-MCQ / 100-min USAT-M mock and chapter-style drill navigation.
 - [ ] **Medical Repeater Funnel:** Aggregate calculator (10/40/50 formula) + post-result diagnostic path.
 - [ ] **Local Payment Gateway Integration:** Implement Raast QR / EasyPaisa / JazzCash manual verification flow behind admin flag.
