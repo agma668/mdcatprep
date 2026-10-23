@@ -9,9 +9,10 @@ import { Button } from '@/components/ui/Button'
 import { QuizKeyLegend } from '@/components/ui/QuizKeyLegend'
 import { QuizOptions } from '@/components/ui/QuizOptions'
 import { recordAnswer } from '@/lib/offline-sync'
+import { recordAttemptByQuestionKey } from '@/app/actions/practice'
 import { useQuizSession } from '@/lib/quiz-session'
 import { ScoreRing, AnimatedNumber } from '@/components/ui/ScoreRing'
-import type { BankQuestion } from '@/lib/questions'
+import type { QuizQuestion } from '@/lib/questions'
 
 function formatTime(totalSeconds: number): string {
   const h = Math.floor(totalSeconds / 3600)
@@ -26,7 +27,9 @@ export function MockTestPlayer({
   durationMinutes,
   format,
 }: {
-  questions: BankQuestion[]
+  // QuizQuestion (not BankQuestion): the HEC USAT-M paper is assembled from
+  // the bundled USAT bank, whose questions carry a `key` instead of a DB id.
+  questions: QuizQuestion[]
   durationMinutes: number
   format: string
 }) {
@@ -50,7 +53,14 @@ export function MockTestPlayer({
       // dropped, never double-recorded on a retry.
       for (let i = 0; i < questions.length; i++) {
         const letter = answers[i]
-        if (letter) void recordAnswer(questions[i].id, letter).catch(() => {})
+        if (!letter) continue
+        const q = questions[i]
+        // One recording rule per origin: DB rows record by id exactly as
+        // before; the bundled USAT bank has no ids, so its attempts record
+        // by stable key — the same path practice sessions use — never
+        // dropped, never double-recorded.
+        if (q.id) void recordAnswer(q.id, letter).catch(() => {})
+        else if (q.key) void recordAttemptByQuestionKey(q.key, letter, q.question_text).catch(() => {})
       }
     },
   })
@@ -296,7 +306,7 @@ export function MockTestPlayer({
               const isCorrect = userAnswer === q.correct_answer
               const skipped = !userAnswer
               return (
-                <div key={q.id} className="glass-tile-glow rounded-[var(--radius-lg)] border border-white/10 p-5">
+                <div key={q.id ?? q.key ?? i} className="glass-tile-glow rounded-[var(--radius-lg)] border border-white/10 p-5">
                   <div className="mb-2 flex items-center gap-2.5">
                     {isCorrect ? (
                       <CheckCircle className="h-4 w-4 shrink-0 text-[var(--color-primary-light)]" />

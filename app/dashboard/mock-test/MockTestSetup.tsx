@@ -16,7 +16,18 @@ interface TestFormat {
   name: string
   duration: number
   totalMarks: number
+  /** What makes this paper its own — pattern, bank, pass mark. */
+  description?: string
   sections: Section[]
+}
+
+/** Honest wall-clock label: 180 → "3h", 100 → "1h 40m", 30 → "30m". A
+ *  100-minute paper shown as "1h" would misprice the real effort. */
+function formatDuration(duration: number): string {
+  if (duration < 60) return `${duration}m`
+  const h = Math.floor(duration / 60)
+  const m = duration % 60
+  return m ? `${h}h ${m}m` : `${h}h`
 }
 
 export function MockTestSetup({ formats }: { formats: TestFormat[] }) {
@@ -43,9 +54,12 @@ export function MockTestSetup({ formats }: { formats: TestFormat[] }) {
                 {format.name}
               </h3>
               <span className="text-xs text-white/40 bg-white/[0.06] px-2 py-1 rounded-full">
-                {format.duration >= 60 ? `${format.duration / 60}h` : `${format.duration}m`}
+                {formatDuration(format.duration)}
               </span>
             </div>
+            {format.description && (
+              <p className="mt-2 text-xs leading-relaxed text-white/50">{format.description}</p>
+            )}
             <div className="flex items-center gap-4 text-xs text-white/50">
               <span className="flex items-center gap-1">
                 <FileText className="w-3.5 h-3.5" />
@@ -81,7 +95,7 @@ export function MockTestSetup({ formats }: { formats: TestFormat[] }) {
             <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0" />
             <div className="text-sm text-amber-300">
               <p className="font-semibold">Important:</p>
-              <p className="text-amber-400/80">Once started, the timer cannot be paused. Make sure you have {selectedFormat.duration >= 60 ? `${selectedFormat.duration / 60} hours` : `${selectedFormat.duration} minutes`} of uninterrupted time.</p>
+              <p className="text-amber-400/80">Once started, the timer cannot be paused. Make sure you have {formatDuration(selectedFormat.duration)} of uninterrupted time.</p>
             </div>
           </div>
 

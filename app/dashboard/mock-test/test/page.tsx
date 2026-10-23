@@ -4,6 +4,8 @@ import { createClient } from '@/lib/supabase/server'
 import { createServiceClient } from '@/lib/supabase/service'
 import { fetchPublishedQuestions, fillQuestions, shuffleQuestions } from '@/lib/questions-repo'
 import type { BankQuestion, QuizQuestion } from '@/lib/questions'
+import { USAT_ELITE_BANK } from '@/lib/usat-comprehensive-bank'
+import { buildUsatMockPaper, USAT_MOCK_MINUTES } from '@/lib/usat-mock'
 import { MockTestPlayer } from './MockTestPlayer'
 
 export const metadata: Metadata = { title: 'Mock Test' }
@@ -35,6 +37,21 @@ export default async function MockTestPage({ searchParams }: { searchParams: Pro
   if (!user) redirect('/login')
 
   const { format } = await searchParams
+
+  // The USAT paper never touches the Supabase pool: it is assembled from the
+  // bundled USAT bank at the official scholarship split, reshuffled every run.
+  if (format === 'usat-m') {
+    return (
+      <div className="p-4 md:p-8 max-w-3xl mx-auto w-full">
+        <MockTestPlayer
+          questions={buildUsatMockPaper(USAT_ELITE_BANK)}
+          durationMinutes={USAT_MOCK_MINUTES}
+          format="usat-m"
+        />
+      </div>
+    )
+  }
+
   const config = TEST_CONFIGS[format || 'quick']
   if (!config) redirect('/dashboard/mock-test')
 
