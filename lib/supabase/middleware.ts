@@ -2,20 +2,8 @@ import { createServerClient, type CookieOptions } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 import { isAdminEmail } from '@/lib/auth'
 import { createServiceClient } from '@/lib/supabase/service'
-import {
-  getBuiltinAuthConfig,
-  getSupabaseAnonKey,
-  getSupabaseUrl,
-  isUsingBuiltinAuthFallback,
-} from '@/lib/env'
+import { getSupabaseAnonKey, getSupabaseUrl } from '@/lib/env'
 
-function isInvalidKeyError(err: unknown): boolean {
-  const message =
-    (err as { message?: string } | null)?.message ?? (typeof err === 'string' ? err : '')
-  return /invalid api key/i.test(message)
-}
-
-/** One owner for "cannot verify this visitor → send them to sign in." */
 function redirectToLogin(request: NextRequest) {
   const url = request.nextUrl.clone()
   url.pathname = '/login'
@@ -25,17 +13,10 @@ function redirectToLogin(request: NextRequest) {
 export async function updateSession(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  // The publishable URL/anon key resolve from env vars or the built-in
-  // fallbacks in lib/env.ts, so this client can always be built — a missing
-  // env can never crash the proxy and 500 the whole site (the 2026-09-10
-  // outage signature).
-  //
-  // A PRESENT but DEAD host key (Supabase answers 401 "Invalid API key" — a
-  // stale/revoked key pasted into the host dashboard, observed live
-  // 2026-09-11) cannot be detected statically, so a rejection with that
-  // message swaps the client to the embedded publishable pair and the session
-  // read is retried once. Without this, a signed-in user is bounced to /login
-  // on every protected route by a key that cannot validate anyone.
+  // The publishable URL/anon key resolve from env vars ONLY — no embedded
+  // fallback project (removed 2026-10-23). A missing/broken host config
+  // cannot crash the proxy: the read below is wrapped, a failure is treated
+  // as "no session", and protected routes fail closed to /login.
 
   let supabaseResponse = NextResponse.next({
     request,
@@ -77,39 +58,29 @@ export async function updateSession(request: NextRequest) {
     },
   }
 
-  let user: Awaited<ReturnType<typeof readUser>> | null = null
-
   async function readUser(url: string, anonKey: string) {
     const supabase = createServerClient(url, anonKey, { cookies })
     // getUser() performs a network call — if Supabase is unreachable it can
-    // reject, and an escaping rejection 500s every page. Treat it as "no
-    // session" (public routes fail open; protected routes fail closed).
-    // A key-level rejection ("Invalid API key") is rethrown so the caller's
-    // self-heal can retry against the embedded publishable pair — whether
-    // auth-js surfaces it as a thrown error or a resolved `error`.
+    // reject, and an escaping rejection 500s every page. Treat ANY failure —
+    // including a key-level "Invalid API key" rejection — as "no session"
+    // (public routes fail open; protected routes fail closed). There is no
+    // embedded pair to heal to anymore, so a dead host key degrades to the
+    // same signed-out treatment instead of crashing the proxy.
     try {
       const { data, error } = await supabase.auth.getUser()
-      if (error) {
-        if (isInvalidKeyError(error)) throw error
-        return null
-      }
+      if (error) return null
       return data.user
-    } catch (err) {
-      if (isInvalidKeyError(err)) throw err
+    } catch {
       return null
     }
   }
 
+  let user: Awaited<ReturnType<typeof readUser>> | null = null
   try {
     user = await readUser(getSupabaseUrl(), getSupabaseAnonKey())
-  } catch (err) {
-    // 401 "Invalid API key": the host-configured publishable pair is dead —
-    // heal to the embedded pair (which is what every other layer in this
-    // request path resolves to after the heal) and re-read the session once.
-    if (isInvalidKeyError(err) && !isUsingBuiltinAuthFallback()) {
-      const builtin = getBuiltinAuthConfig()
-      user = await readUser(builtin.url, builtin.anonKey).catch(() => null)
-    }
+  } catch {
+    // Missing/broken publishable env (lib/env.ts throws) → no session.
+    user = null
   }
 
   // IMPORTANT: DO NOT USE getSession HERE! It only reads from cookies,

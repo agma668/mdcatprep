@@ -2,9 +2,8 @@
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
-import { canSelfHealAuth, createBuiltinClient, createClient } from '@/lib/supabase/server'
+import { createClient } from '@/lib/supabase/server'
 import { createServiceClient } from '@/lib/supabase/service'
-import { isInvalidApiKeyError } from '@/lib/env'
 import { isAdminEmail } from '@/lib/auth'
 import { sendEnrollmentEmail } from '@/lib/email'
 import { getSiteUrl } from '@/lib/site'
@@ -35,24 +34,12 @@ async function performLogin(formData: FormData) {
       return await supabase.auth.signInWithPassword(data)
     } catch (err) {
       // auth-js surfaces API errors as a resolved `error` in most paths but
-      // throws in others — normalize so the self-heal below sees both.
+      // throws in others — normalize so the caller sees both.
       return { data: null, error: err as { message: string } }
     }
   }
 
-  let { data: authData, error } = await signIn()
-
-  // Runtime self-heal: a host-configured anon key can be present and
-  // structurally valid yet DEAD (401 "Invalid API key" — stale key pasted
-  // into the host dashboard, observed live 2026-09-11). When the gateway
-  // rejects the key itself, retry once against the embedded publishable
-  // pair so sign-in works on any deployment. "Invalid login credentials"
-  // (bad password) never triggers this — only key-level rejections do.
-  if (isInvalidApiKeyError(error) && canSelfHealAuth()) {
-    const healed = await (await createBuiltinClient()).auth.signInWithPassword(data)
-    authData = healed.data
-    error = healed.error
-  }
+  const { data: authData, error } = await signIn()
 
   if (error) {
     return { error: error.message }

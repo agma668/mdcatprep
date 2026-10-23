@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
 import {
-  getBuiltinProjectRef,
   getSupabaseProjectRef,
   isPublicAuthConfigured,
-  isUsingBuiltinAuthFallback,
 } from "@/lib/env";
 import { createServiceClient } from "@/lib/supabase/service";
 
@@ -12,11 +10,8 @@ import { createServiceClient } from "@/lib/supabase/service";
 // whether the host is serving, and logs the time.
 //
 // Also reports (booleans only — never values):
-//   auth:        publishable auth config present (env vars or built-in
-//                fallbacks — effectively always true now)
-//   fallback:    true when the BUILT-IN publishable fallbacks are in use,
-//                i.e. the host's NEXT_PUBLIC_SUPABASE_* vars are missing,
-//                mismatched, or a secret pasted into the public slot.
+//   auth:        a complete, well-formed publishable env pair is configured
+//                (no embedded fallback exists since 2026-10-23)
 //   serviceKey:  true when SUPABASE_SERVICE_ROLE_KEY (or SUPABASE_SECRET_KEY)
 //                is present in the environment.
 //
@@ -25,7 +20,7 @@ import { createServiceClient } from "@/lib/supabase/service";
 // reports serviceKeyOk. When the gateway answers "schema cache / table not
 // found" the keys WORK but point at a project without the app's tables — a
 // wrong-project misconfiguration — reported as schema:false alongside the
-// resolved and built-in project refs so the mismatch is visible from outside.
+// resolved project ref so the mismatch is visible from outside.
 // Latency: one COUNT-limited query — not for hot uptime monitors, for diagnosis.
 
 export const dynamic = "force-dynamic";
@@ -65,9 +60,7 @@ export async function GET(request: Request) {
       status: "ok",
       service: "med-prep",
       auth: isPublicAuthConfigured(),
-      fallback: isUsingBuiltinAuthFallback(),
       project: getSupabaseProjectRef(),
-      builtinProject: getBuiltinProjectRef(),
       serviceKey: Boolean(
         process.env.SUPABASE_SERVICE_ROLE_KEY?.trim() ||
           process.env.SUPABASE_SECRET_KEY?.trim()

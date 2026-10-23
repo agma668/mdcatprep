@@ -1,12 +1,7 @@
 import { NextResponse, type NextRequest } from 'next/server'
-import {
-  canSelfHealAuth,
-  createBuiltinClient,
-  createClient,
-} from '@/lib/supabase/server'
+import { createClient } from '@/lib/supabase/server'
 import { createServiceClient } from '@/lib/supabase/service'
 import { isAdminEmail } from '@/lib/auth'
-import { isInvalidApiKeyError } from '@/lib/env'
 
 /**
  * OAuth return route (Supabase PKCE). After Google consent the browser lands
@@ -33,17 +28,8 @@ export async function GET(request: NextRequest) {
   const refCode = searchParams.get('ref')?.trim() || null
 
   if (code) {
-    let supabase = await createClient()
-    let { error } = await supabase.auth.exchangeCodeForSession(code)
-
-    // Same runtime self-heal as login(): a present-but-dead host anon key
-    // (401 "Invalid API key") gets one retry against the embedded publishable
-    // pair, so Google sign-in works on any deployment.
-    if (isInvalidApiKeyError(error) && canSelfHealAuth()) {
-      supabase = await createBuiltinClient()
-      const healed = await supabase.auth.exchangeCodeForSession(code)
-      error = healed.error
-    }
+    const supabase = await createClient()
+    const { error } = await supabase.auth.exchangeCodeForSession(code)
 
     if (!error) {
       const {

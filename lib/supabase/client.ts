@@ -1,24 +1,15 @@
 import { createBrowserClient } from '@supabase/ssr'
 import type { SupabaseClient } from '@supabase/supabase-js'
-import {
-  getBuiltinAuthConfig,
-  getSupabaseAnonKey,
-  getSupabaseUrl,
-  isUsingBuiltinAuthFallback,
-} from '@/lib/env'
+import { getSupabaseAnonKey, getSupabaseUrl } from '@/lib/env'
 
 /**
- * Browser Supabase client with runtime self-heal.
+ * Browser Supabase client.
  *
- * The publishable URL/anon key resolve from env vars or the built-in
- * fallbacks in lib/env.ts, so the client is always constructible. But a host
- * env var can be PRESENT and still DEAD (stale/revoked key pasted into the
- * host dashboard — observed live 2026-09-11: sign-in answered "Invalid API
- * key" on every attempt while the static checks all passed). Only the
- * Supabase gateway can arbitrate, so the first createClient() call per page
- * load probes /auth/v1/health once: a definitive 401 swaps the session to the
- * embedded publishable pair. An unreachable gateway (our own network down)
- * never triggers a swap.
+ * The publishable URL/anon key resolve from env vars ONLY — no embedded
+ * fallback project (removed 2026-10-23). When the host config is missing or
+ * mismatched, lib/env.ts throws its descriptive error here, surfacing as a
+ * visible failure instead of silently pointing the browser at the previous
+ * owner's Supabase project.
  *
  * The client resolves asynchronously (one cached promise per page load); all
  * call sites await it.
@@ -26,33 +17,8 @@ import {
 
 let resolved: Promise<SupabaseClient> | null = null
 
-/** true = key accepted; false = key rejected (401); null = can't tell. */
-async function probeAuthGateway(url: string, anonKey: string): Promise<boolean | null> {
-  try {
-    const res = await fetch(`${url}/auth/v1/health`, {
-      headers: { apikey: anonKey },
-      signal: AbortSignal.timeout(5000),
-    })
-    return res.ok
-  } catch {
-    return null
-  }
-}
-
 async function resolveClient(): Promise<SupabaseClient> {
-  const url = getSupabaseUrl()
-  const anonKey = getSupabaseAnonKey()
-  const client = createBrowserClient(url, anonKey)
-
-  if (!isUsingBuiltinAuthFallback()) {
-    const healthy = await probeAuthGateway(url, anonKey)
-    if (healthy === false) {
-      const builtin = getBuiltinAuthConfig()
-      return createBrowserClient(builtin.url, builtin.anonKey)
-    }
-  }
-
-  return client
+  return createBrowserClient(getSupabaseUrl(), getSupabaseAnonKey())
 }
 
 export function createClient(): Promise<SupabaseClient> {

@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { createServiceClient } from '@/lib/supabase/service'
 import { isAdminEmail } from '@/lib/auth'
-import { getBuiltinProjectRef, getSupabaseProjectRef, isInvalidApiKeyError } from '@/lib/env'
+import { getSupabaseProjectRef, isInvalidApiKeyError } from '@/lib/env'
 
 /**
  * One owner of the admin-panel entry check, shared by every /admin page.
@@ -113,47 +113,29 @@ export function ServiceKeyNotice({
   const bad = kind === 'bad-service-key'
   const wrongProject = kind === 'wrong-project'
   const envProject = getSupabaseProjectRef()
-  // Two different 'empty project' situations:
-  //  - env resolves to the BUILT-IN project (the app's own): the keys are
-  //    right and the project is the intended one — its schema was simply
-  //    never applied. Fix = run supabase/migrations-combined.sql there.
-  //  - env resolves to some OTHER project: keys belong to a different
-  //    Supabase project than the app's. Fix = switch the env vars.
-  const schemaMissingOnIntended =
-    wrongProject && (envProject === null || envProject === getBuiltinProjectRef())
+  // The env vars are the ONLY source of truth for which project is intended
+  // (no embedded fallback since 2026-10-23), so a 'no tables' error on a
+  // valid key covers two cases with one honest notice: a fresh project
+  // needing the one-time schema, or genuinely wrong env vars.
   return (
     <div className="p-6 md:p-8 max-w-2xl mx-auto w-full">
       <div className="glass-tile-glow rounded-[var(--radius-lg)] border border-amber-500/25 bg-amber-500/[0.06] p-6">
         <h1 className="text-lg font-bold text-white">
-          {schemaMissingOnIntended
-            ? 'One-time setup: this Supabase project has no tables yet'
-            : wrongProject
-              ? 'The env vars point at the wrong Supabase project'
-              : bad
-                ? 'The service key value is being rejected'
-                : 'Panel data needs one server setting'}
+          {wrongProject
+            ? 'The configured Supabase project has none of the app’s tables'
+            : bad
+              ? 'The service key value is being rejected'
+              : 'Panel data needs one server setting'}
         </h1>
         <p className="mt-2 text-sm text-white/70 leading-relaxed">
-          {schemaMissingOnIntended ? (
+          {wrongProject ? (
             <>
-              Your keys are VALID and point at the right project ({' '}
-              <code className="px-1.5 py-0.5 bg-white/[0.08] border border-white/10 rounded text-xs font-mono">
-                {envProject ?? getBuiltinProjectRef()}
-              </code>
-              ) — but that project&rsquo;s database is still empty: the app&rsquo;s schema (tables, policies,
-              triggers) was never applied there. Nothing is broken; it just needs the one-time setup script.
-            </>
-          ) : wrongProject ? (
-            <>
-              The Supabase keys configured on this deployment are VALID — but they belong to project{' '}
+              The publishable keys are VALID and point at project{' '}
               <code className="px-1.5 py-0.5 bg-white/[0.08] border border-white/10 rounded text-xs font-mono">
                 {envProject ?? 'unknown'}
               </code>
-              , which has none of the app&rsquo;s tables. The app&rsquo;s own project is{' '}
-              <code className="px-1.5 py-0.5 bg-white/[0.08] border border-white/10 rounded text-xs font-mono">
-                {getBuiltinProjectRef()}
-              </code>
-              .
+              , but its database has none of the app’s tables. Either it is a fresh project that needs the
+              one-time schema, or the env vars point at the wrong project.
             </>
           ) : bad ? (
             <>
@@ -175,34 +157,22 @@ export function ServiceKeyNotice({
           )}
         </p>
         <ol className="mt-3 list-decimal list-inside space-y-1.5 text-sm text-white/70 leading-relaxed">
-          {schemaMissingOnIntended ? (
+          {wrongProject ? (
             <>
               <li>
-                Open the project folder on your computer → file{' '}
+                If <span className="text-white/90">{envProject ?? 'this project'}</span> is the one you
+                meant: open the project folder on your computer → file{' '}
                 <code className="px-1.5 py-0.5 bg-white/[0.08] border border-white/10 rounded text-xs font-mono">
                   supabase/migrations-combined.sql
                 </code>{' '}
-                and copy its ENTIRE contents.
-              </li>
-              <li>
-                Supabase dashboard → the <span className="text-white/90">{envProject ?? getBuiltinProjectRef()}</span>{' '}
-                project → <span className="text-white/90">SQL Editor</span> → New query → paste →{' '}
+                and copy its ENTIRE contents → Supabase dashboard → that project →{' '}
+                <span className="text-white/90">SQL Editor</span> → New query → paste →{' '}
                 <span className="text-white/90">Run</span>.
               </li>
               <li>
-                Refresh this page — no redeploy needed. Then re-register your account (the empty project has
-                no users yet); you land straight back in this panel.
-              </li>
-            </>
-          ) : wrongProject ? (
-            <>
-              <li>
-                Open the <span className="text-white/90">{getBuiltinProjectRef()}</span> project in Supabase →
-                Project Settings → API Keys.
-              </li>
-              <li>
-                In Vercel → Settings → Environment Variables, update ALL THREE vars to that project&rsquo;s
-                values: <code className="text-xs font-mono">NEXT_PUBLIC_SUPABASE_URL</code>, the publishable
+                If it is the WRONG project: open the intended project in Supabase → Project Settings →
+                API Keys, then update ALL THREE Vercel env vars to that project’s values —{' '}
+                <code className="text-xs font-mono">NEXT_PUBLIC_SUPABASE_URL</code>, the publishable
                 anon key var, and{' '}
                 <code className="text-xs font-mono">SUPABASE_SERVICE_ROLE_KEY</code>.
               </li>
