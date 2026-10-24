@@ -76,7 +76,7 @@ The platform is divided into 5 core academic and competitive tracks, coordinated
 
 ### B. Question Banks & Data Stores (Current Ground Truth)
 * `lib/biology-questions.ts`, `lib/chemistry-questions.ts`, `lib/physics-questions.ts`, `lib/english-questions.ts`: MDCAT science and English repositories (894 bank questions + 3,722 topicals).
-* `lib/usat-questions.ts` & `lib/usat-comprehensive-bank.ts`: HEC USAT-M elite bank (152 questions: Quantitative, Verbal, Biology, Chemistry, Physics) with Bloom's taxonomy rationales.
+* `lib/usat-questions.ts` & `lib/usat-comprehensive-bank.ts`: HEC USAT-M elite bank (417 questions: Quantitative, Verbal, Biology, Chemistry, Physics) with Bloom's taxonomy rationales.
 * `lib/pma-questions.ts`: PMA Verbal Intelligence & Initial Academic bank (41 questions).
 * `lib/nust-questions.ts`: NUST NET Mathematics, Physics, Chemistry, and English bank (40 questions, scaling for November NET-1).
 * `lib/past-papers.ts`: Registry of official Pakistani past papers (25 papers across UHS, NUMS, SZABMU, KMU, DUHS, BUMHS).
