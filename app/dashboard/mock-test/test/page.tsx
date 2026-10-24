@@ -8,6 +8,12 @@ import { USAT_ELITE_BANK } from '@/lib/usat-comprehensive-bank'
 import { buildUsatMockPaper, USAT_MOCK_MINUTES } from '@/lib/usat-mock'
 import { NUST_NET_BANK } from '@/lib/nust-questions'
 import { buildNetMockPaper, netMockMinutes } from '@/lib/nust-mock'
+import { PMA_QUESTIONS } from '@/lib/pma-questions'
+import {
+  buildPmaMockPaper,
+  pmaMockMinutes,
+  pmaFigureOf,
+} from '@/lib/pma-mock'
 import { MockTestPlayer } from './MockTestPlayer'
 
 export const metadata: Metadata = { title: 'Mock Test' }
@@ -64,6 +70,26 @@ export default async function MockTestPage({ searchParams }: { searchParams: Pro
           questions={buildNetMockPaper(NUST_NET_BANK)}
           durationMinutes={netMockMinutes(NUST_NET_BANK)}
           format="net-eng"
+        />
+      </div>
+    )
+  }
+
+  // The military papers never touch the Supabase pool either: they are
+  // assembled from the bundled PMA bank — the full three-section paper for
+  // PMA Long Course initials, the intelligence-only variant for ISSB —
+  // reshuffled every run. figureSpec hands the player the SVG figures the
+  // non-verbal questions are drawn with (their option text is empty by
+  // design); text-only questions resolve it to null and render as usual.
+  if (format === 'pma-initials' || format === 'issb-intelligence') {
+    const variant = format === 'pma-initials' ? 'pma' : 'issb'
+    return (
+      <div className="p-4 md:p-8 max-w-3xl mx-auto w-full">
+        <MockTestPlayer
+          questions={buildPmaMockPaper(PMA_QUESTIONS, variant)}
+          durationMinutes={pmaMockMinutes(PMA_QUESTIONS, variant)}
+          format={variant}
+          figureSpec={pmaFigureOf}
         />
       </div>
     )

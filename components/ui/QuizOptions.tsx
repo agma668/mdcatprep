@@ -15,6 +15,8 @@ import {
   type OptionLetter,
   type QuizQuestion,
 } from "@/lib/questions";
+import { PmaFigure } from "@/components/pma/PmaFigure";
+import type { PmaFigure as PmaFigureSpec } from "@/lib/pma-questions";
 
 export type OptionStatus = "idle" | "selected" | "correct" | "wrong";
 
@@ -65,6 +67,7 @@ export function QuizOptions({
   status,
   onChoose,
   disabled,
+  figures,
 }: {
   question: QuizQuestion;
   /** Whether a verdict is showing (rows colour + verdict marks appear). */
@@ -73,12 +76,25 @@ export function QuizOptions({
   status: (letter: OptionLetter) => OptionStatus;
   onChoose: (letter: OptionLetter) => void;
   disabled?: boolean;
+  /**
+   * Figure options (the PMA non-verbal bank): when given, the option text —
+   * empty on figure questions — is replaced by the deterministic SVG figure
+   * per letter. Same rows, same statuses, same verdict marks; only the
+   * answer body swaps from a string to a drawing.
+   */
+  figures?: Record<OptionLetter, PmaFigureSpec> | null;
 }) {
   return (
     <div className="space-y-2.5">
       {OPTION_LETTERS.map((letter) => {
+        // null = the option doesn't exist; "" = no renderable text (the PMA
+        // non-verbal questions hold their answers in figure SVGs supplied
+        // via the `figures` prop, never as rows of text). Without figures,
+        // an empty option row renders nothing — it is never meaningful
+        // content; with figures, the letters that carry a figure render the
+        // drawing instead.
         const text = optionText(question, letter);
-        if (text === null) return null;
+        if (figures ? !figures[letter] : text === null || text === "") return null;
         const s = status(letter);
         return (
           <button
@@ -94,9 +110,19 @@ export function QuizOptions({
             >
               {letter}
             </span>
-            <span className="text-sm leading-relaxed text-[var(--color-text-primary)]">
-              {text}
-            </span>
+            {figures ? (
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center">
+                <PmaFigure
+                  spec={figures[letter]}
+                  label={`Option ${letter} figure`}
+                  className="h-14 w-14 text-[var(--color-text-primary)]"
+                />
+              </span>
+            ) : (
+              <span className="text-sm leading-relaxed text-[var(--color-text-primary)]">
+                {text}
+              </span>
+            )}
             {reveal ? (
               s === "correct" ? (
                 <Check className="ml-auto h-5 w-5 shrink-0 text-[var(--ok)]" />

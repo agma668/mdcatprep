@@ -8,6 +8,11 @@ import {
   netMockMinutes,
 } from '@/lib/nust-mock'
 import { NUST_NET_BANK } from '@/lib/nust-questions'
+import {
+  buildPmaMockSections,
+  pmaMockMinutes,
+} from '@/lib/pma-mock'
+import { PMA_QUESTIONS } from '@/lib/pma-questions'
 import { MockTestSetup } from './MockTestSetup'
 
 export const metadata: Metadata = { title: 'Mock Test' }
@@ -48,6 +53,42 @@ const NET_FORMAT = {
   })),
 }
 
+const PMA_BANK = PMA_QUESTIONS
+
+/**
+ * The military papers derive from the bundled PMA bank at render time, the
+ * same one-clamp-two-readers rule the USAT and NET format cards follow. The
+ * descriptions name the honesty out loud: no official counts exist anywhere,
+ * so the clock is this site's own pacing, and the questions are original.
+ */
+const PMA_FORMAT = {
+  id: 'pma-initials',
+  name: 'PMA Long Course Initials Mock',
+  duration: pmaMockMinutes(PMA_BANK, 'pma'),
+  totalMarks: buildPmaMockSections(PMA_BANK, 'pma').reduce((sum, s) => sum + s.count, 0),
+  description:
+    'An original paper-style simulation of the PMA Long Course initial test — Verbal · Non-Verbal · Academic, in the reported paper order. joinpakarmy.gov.pk publishes no question counts or timings, so this runs scaled to the bundled PMA bank (41 questions) at our own pacing (0.75 min per verbal item, 1 min per non-verbal/academic). Original sample questions — not official PMA papers.',
+  sections: buildPmaMockSections(PMA_BANK, 'pma').map((s) => ({
+    name: s.category,
+    questions: s.count,
+    marks: s.count,
+  })),
+}
+
+const ISSB_FORMAT = {
+  id: 'issb-intelligence',
+  name: 'ISSB Intelligence Mock',
+  duration: pmaMockMinutes(PMA_BANK, 'issb'),
+  totalMarks: buildPmaMockSections(PMA_BANK, 'issb').reduce((sum, s) => sum + s.count, 0),
+  description:
+    'The intelligence-only variant of the same bank — Verbal + Non-Verbal, the sections ISSB preparation drills. Same original paper-style rules as the PMA initials mock: scaled to the bank, clocked at our own pacing, no negative marking. Original sample questions — not official ISSB papers.',
+  sections: buildPmaMockSections(PMA_BANK, 'issb').map((s) => ({
+    name: s.category,
+    questions: s.count,
+    marks: s.count,
+  })),
+}
+
 const TEST_FORMATS = [
   {
     id: 'full',
@@ -81,6 +122,8 @@ const TEST_FORMATS = [
   },
   USAT_M_FORMAT,
   NET_FORMAT,
+  PMA_FORMAT,
+  ISSB_FORMAT,
 ]
 
 export default async function MockTestPage() {
@@ -93,7 +136,7 @@ export default async function MockTestPage() {
       <PageHeader
         eyebrow="Full-length simulation"
         title="Mock Test"
-        description="Timed, sectioned mock tests. The board mocks weight the PMDC MDCAT paper — Biology heaviest, then Physics and Chemistry, then English — and pull from the academy question bank; the HEC USAT-M paper runs its official scholarship split (100 MCQs · 100 minutes); the NUST NET-Engineering mock runs NUST's official Math 50% · Physics 30% · English 20% weighting, scaled to the NET bank at real paper pacing. 1 mark per MCQ."
+        description="Timed, sectioned mock tests. The board mocks weight the PMDC MDCAT paper — Biology heaviest, then Physics and Chemistry, then English — and pull from the academy question bank; the HEC USAT-M paper runs its official scholarship split (100 MCQs · 100 minutes); the NUST NET-Engineering mock runs NUST's official Math 50% · Physics 30% · English 20% weighting, scaled to the NET bank at real paper pacing; the military mocks run the PMA-style paper and its ISSB intelligence-only variant, assembled from the bundled PMA bank. 1 mark per MCQ."
       />
       <MockTestSetup formats={TEST_FORMATS} />
     </div>

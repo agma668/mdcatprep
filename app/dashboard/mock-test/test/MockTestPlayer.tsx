@@ -12,7 +12,9 @@ import { recordAnswer } from '@/lib/offline-sync'
 import { recordAttemptByQuestionKey } from '@/app/actions/practice'
 import { useQuizSession } from '@/lib/quiz-session'
 import { ScoreRing, AnimatedNumber } from '@/components/ui/ScoreRing'
-import type { QuizQuestion } from '@/lib/questions'
+import type { QuizQuestion, OptionLetter } from '@/lib/questions'
+import type { PmaFigure as PmaFigureSpec } from '@/lib/pma-questions'
+import { PmaFigure } from '@/components/pma/PmaFigure'
 
 function formatTime(totalSeconds: number): string {
   const h = Math.floor(totalSeconds / 3600)
@@ -26,12 +28,17 @@ export function MockTestPlayer({
   questions,
   durationMinutes,
   format,
+  figureSpec,
 }: {
   // QuizQuestion (not BankQuestion): the HEC USAT-M paper is assembled from
   // the bundled USAT bank, whose questions carry a `key` instead of a DB id.
   questions: QuizQuestion[]
   durationMinutes: number
   format: string
+  figureSpec?: (q: QuizQuestion) => {
+    stem: PmaFigureSpec
+    options: Record<OptionLetter, PmaFigureSpec>
+  } | null
 }) {
   // All run state (index, picks, navigation guard, keyboard) lives in the
   // shared useQuizSession hook in "exam" mode — picking never reveals, the
@@ -65,6 +72,9 @@ export function MockTestPlayer({
     },
   })
   const { index, current: q, answers, finished, pick, next, prev, statusFor, finish } = session
+  // Per-question figure pair (PMA non-verbal): null for every text-only
+  // question, so neither the stem figure nor the figure option rows appear.
+  const figures = figureSpec ? figureSpec(q) : null
 
   const router = useRouter()
   const [remainingSeconds, setRemainingSeconds] = useState(durationMinutes * 60)
@@ -415,9 +425,20 @@ export function MockTestPlayer({
           {q.subject}
         </span>
         <p className="mb-6 text-lg font-medium leading-relaxed text-white">{q.question_text}</p>
+        {/* PMA non-verbal paper: the stem is the figure itself. */}
+        {figures && (
+          <div className="mb-6 flex justify-center">
+            <PmaFigure
+              spec={figures.stem}
+              label="Question figure"
+              className="h-28 w-28 text-white"
+            />
+          </div>
+        )}
 
         <QuizOptions
           question={q}
+          figures={figures?.options ?? null}
           onChoose={pick}
           status={statusFor}
         />
