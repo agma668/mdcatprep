@@ -28,7 +28,7 @@ lib/exams-config.ts exposes four top-level IDs: mdcat, nust, pma and usat. Each 
 
 | Registry ID | Current grouping | Config bank | Important mismatch/risk |
 |---|---|---|---|
-| mdcat | MDCAT, NUMS, USAT-M, Balochistan and FATA/KPK variants | mdcat | USAT-M is also implemented as a distinct bundled bank and practice mode, so it is not simply another MDCAT subtest. |
+| mdcat | MDCAT, NUMS, USAT-M, Balochistan and FATA/KPK variants | mdcat | The dedicated 100-MCQ bank is actually the Balochistan / ex-FATA scholarship-test Pre-Medical variant, not standard HEC USAT-M; it is incorrectly labelled as USAT-M in several student-facing surfaces. |
 | nust | NUST NET, GIKI, LUMS SBASSE, USAT-E | nust | GIKI/LUMS share the NET bank by explicit disclosure; USAT-E is listed here but has no matching engineering chooser/bank established in lib/prep-tests.ts. |
 | pma | PMA initial, ISSB, Navy/AFNS | pma | The actual military chooser supports PMA and ISSB only; Navy/AFNS are not evidenced as separate workflows. |
 | usat | USAT Arts and Commerce | usat | The bundled bank and dedicated mock are specifically USAT-M scholarship content; the config's Arts/Commerce variants do not match that bank's described scope. |
@@ -107,9 +107,9 @@ No payment provider, price, checkout or billing workflow is approved or implemen
 | MDCAT / PMDC boards | Large bundled medical bank, topic drills, shared practice session; multiple board labels share a core bank | MDCAT-weighted mock exists; verify current official pattern and actual pool filtering | No exam ID on attempts; shared DB pool | Existing foundation; not an isolated Prep Space |
 | NUMS | Shares PMDC core; separate Paper-II/psychological bank/experience is referenced in code and portal flags | Verify Paper-I/Paper-II assembly and exact current pattern independently | Same global attempt model | Partial; needs distinct blueprint and rules |
 | HEC BFAP Scholarship Test — Pre-Medical variant | Dedicated bundled bank, topic/category drill and chooser; repository docs distinguish it from mainstream USAT-M | Dedicated 100-MCQ / 100-minute scholarship-variant mock | Stable question-key recording through shared session/mock path; no goal partition | Existing foundation, but currently mislabeled as HEC USAT-M in UI/config; batch/version needs verification |
-| HEC USAT Pre-Engineering / Arts & Humanities / Commerce / Computer Science / General Science | HEC lists six standard categories; no category-specific complete bank/workflow established by this pass | Standard USAT needs its own 75-MCQ + essay workflow; no verified complete mock established | No goal partition | Not ready; do not advertise as complete |
+| HEC USAT standard — all six variants, including Pre-Medical | HEC lists six standard categories; no complete standard-USAT bank/essay workflow established by this pass | Standard USAT needs its own 75-MCQ + essay workflow; no verified complete mock established | No goal partition | Not ready; do not advertise as complete |
 | NUST NET | Dedicated 81-question bank and dedicated practice page | Current NET-Engineering mock correctly uses NUST's official 50% Mathematics / 30% Physics / 20% English weighting, 200 MCQs / 180 minutes, no negative marking; scaled to available bank | Mock player records answers; standalone practice persistence needs verification; no goal partition | Working Engineering variant foundation; other NET variants missing; portal subject labels inaccurate; no isolation |
-| GIKI / LUMS | Explicitly share the NET bank; current chooser labels this honestly | No distinct GIKI/LUMS pattern-specific mock established | No goal partition | Shared-content beta only; not independent full Prep Spaces |
+| GIKI / LUMS | Explicitly share the NET bank; current chooser labels this honestly, but the bank is not a verified substitute for either exam's own pattern | No distinct GIKI/LUMS pattern-specific mock established | No goal partition | Shared-content beta only; not independent full Prep Spaces |
 | PMA Long Course | Dedicated 41-question bank; Verbal/Non-Verbal/Academic workflow | Original scaled mock with explicit non-official caveat | Standalone practice appears local-state; mock records attempts; no goal partition | Distinct workflow foundation; progress gap |
 | ISSB | Shares PMA intelligence content; selection-specific workflow is partial | Intelligence-only original simulation | Same PMA question/attempt model | Partial; requires broader stage-specific blueprint |
 | Navy / AFNS | Mentioned as config subtests/signup options, no dedicated workflow evidenced | Not established | Not established | Not ready |
@@ -120,11 +120,11 @@ Readiness labels describe evidence in the current repository, not a claim that e
 
 ## 6. Recommended implementation sequence
 
-1. Freeze the taxonomy proposal before coding: define stable exam IDs and decide which tests genuinely share a syllabus/bank versus only a reusable engine. Explicitly separate USAT-M from MDCAT; decide how USAT-E/CS and Arts/Commerce are represented; do not silently map them to NUST or USAT-M.
+1. Freeze the taxonomy proposal before coding: define stable exam IDs and variants. Separate the standard six-variant HEC USAT from the Balochistan/FATA scholarship test; keep NUST's five NET paper types under explicit variants; keep GIKI and LUMS separate.
 2. Build an Exam Registry + Preparation Blueprint proposal in code-independent documentation first. Include official authority/source/version, eligibility, syllabus, bank/source IDs, practice mode, mock rules, features, readiness and content owner.
 3. Define the data boundary: questions/content ownership, preparation goals, entitlements, and exam-scoped attempts/bookmarks/notes/flashcard state. Draft migrations and RLS tests only; do not apply to production yet.
 4. Design compatibility/backfill: existing single exam_target values and historical attempts must be mapped cautiously. Do not guess ambiguous history; preserve legacy data and mark unknown scope honestly.
-5. Prove the boundary with two contrasting spaces: MDCAT first (MCQ-heavy) and PMA second (selection-oriented). Then add USAT-M as a separately configured aptitude paper.
+5. Prove the boundary with two contrasting spaces: PMDC MDCAT first (MCQ-heavy) and PMA second (selection-oriented). Then build the Balochistan/FATA scholarship-test space as a separate aptitude variant; build standard HEC USAT only after its six categories and essay workflow are ready.
 6. Only after access boundaries are tested: replace “Free forever” public claims with explicit launch policy and add server-enforced entitlements. Payment rails and prices require separate research/approval.
 7. Then expand additional exam families based on content quality and actual workflows, not the breadth of the signup dropdown.
 
