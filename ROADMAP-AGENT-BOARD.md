@@ -69,7 +69,7 @@ Ship a trustworthy, polished, fast, accessible, genuinely useful product. A stud
 - [x] Align `lib/site.ts` canonical fallback with the verified production alias `https://edweb-nine.vercel.app`; `NEXT_PUBLIC_SITE_URL` is not configured in production.
 - [x] Verify GitHub branch divergence: `main` is ahead of `master`, with no reverse-only commits at the last GitHub comparison on 2026-11-08; re-check exact divergence before any deployment or sync. `AGENTS.md` now identifies `main` as the active branch. Still verify Vercel's live production-branch setting before any deployment/promotion.
 - [x] Confirm Supabase project mapping: active `edweb` is the founder-confirmed Apex Pakistan backend; no other site's Supabase or Vercel setup is in scope.
-- [ ] Establish reproducible local checks and baseline logs. Run `npx tsc --noEmit`, `npm test`, `npm run lint`, `npm run build` and record exact outcomes.
+- [x] Add a reproducible GitHub Actions quality workflow for `npm test`, `npm run lint`, and `npx tsc --noEmit` on PRs and `main`; first run is in progress. Vercel remains the build gate.
 - [ ] Inventory environment variable NAMES and whether each is configured in Preview/Production, without reading or copying secret values.
 - [ ] Confirm auth, email, push, cron and telemetry routes behave correctly without leaking private data.
 - [ ] Create a route inventory with public/private/noindex classification and a list of known bugs.
@@ -365,3 +365,13 @@ The only discovered seed script is `scripts/seed-mdcat-questions.mjs`; it seeds 
 ## PMDC-2026 mock correction — 2026-11-08
 
 Official PMDC's 2026 public notice now provides the exact paper profile: 180 MCQs, 3 hours, no negative marking; Biology 81, Chemistry 45, Physics 36, English 9 and Logical Reasoning 9. The repository's current “MDCAT-Weighted Full Mock” is 100 questions (34/24/30/12), omits Logical Reasoning and is not the official full-paper structure. Its generic server-side draw also uses the currently empty questions table and returns no questions. Do not market it as a full PMDC mock. A real full mock is blocked on canonical server-side content ingestion, official subject mapping and persistence verification. See `EXAM-READINESS-AUDIT.md` and `EXAM-REGISTRY-PROPOSAL.md`.
+
+
+## 2026-11-09 — Wave 2 implementation queue
+
+- [x] Remove the synthetic demo-activity cron from the production schedule; fail closed unless `CRON_SECRET` is configured.
+- [x] Require Meta webhook configuration and HMAC verification before WhatsApp POST processing; add signature unit tests.
+- [x] Remove stale inherited-site branding from Apex source and remove the unused foreign-site footer; retain local IndexedDB name to preserve offline data.
+- [x] Clarify PMA/ISSB belongs to Apex; cadet-college admissions and content are out of scope.
+- [ ] Wait for GitHub Actions tests/lint/typecheck and the Vercel preview build; resolve any failures before merge.
+- [ ] Public unauthenticated browser smoke for production alias remains outstanding.
