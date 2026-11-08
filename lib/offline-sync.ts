@@ -107,7 +107,11 @@ export async function recordAnswer(
     // Session died between the storage read and the server action (expired
     // token). Queue it — the drain re-checks server-side auth, so the answer
     // still counts once the student is signed in again.
-    if (res && "error" in res && res.error === "Not authenticated") {
+    if (
+      res &&
+      "error" in res &&
+      (res.error === "Not authenticated" || res.error === "Question not found.")
+    ) {
       await enqueuePendingAttempt(questionId, selectedAnswer, timeSpentSeconds, attemptId);
       return { queued: true };
     }
