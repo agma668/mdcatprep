@@ -141,3 +141,12 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - PracticeSession and MockTestPlayer no longer suppress save errors; they report them to the console for diagnosis.
 - GitHub Actions run `42526582743` passed unit tests, ESLint and TypeScript. A preview for commit `3d300368` is READY; the newest commit `8257c42` preview is still building at log time.
 - No production Supabase schema/data, secrets, or production deployment changed. Because the live questions table remains empty, this makes answer retention safe but does not yet make analytics complete; canonical question ingestion and mapping remain the next blocker.
+
+
+## 2026-11-09 — Wave 4 foundation: exam registry migration draft
+
+- Added `supabase/migrations/20261109000000_exam_registry_and_student_goals.sql` on the feature branch. It defines exam registry, official variants, versioned assessment profiles, student preparation goals and an internal question-to-variant review map.
+- New exposed tables have RLS enabled and least-privilege grants. Students can read only active catalogue records and their own goals; question mappings have no student Data API grant or policy.
+- Existing attempts, bookmarks, flashcard reviews and notes are deliberately untouched in this migration. Legacy activity will not be guessed into an exam goal; a separate migration will scope new progress after goal-aware actions are implemented.
+- Tested the exact migration SQL inside a transaction against the dedicated Apex `edweb` database, then rolled it back. A follow-up information_schema check confirmed none of the new tables persisted. This was syntax/constraint validation only, not a deployment.
+- No exam catalogue rows or questions were seeded; no production schema or data changed.
