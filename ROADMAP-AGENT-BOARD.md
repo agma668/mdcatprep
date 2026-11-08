@@ -45,7 +45,7 @@ Ship a trustworthy, polished, fast, accessible, genuinely useful product. A stud
 - `lib/site.ts` fallback currently points to `https://mdcatprep-eight.vercel.app`, which does not match the Vercel aliases above. This is a P0 canonical/production-host mismatch.
 - Supabase project `edweb` (`niiskuwlpccmdtwjoxvm`) is ACTIVE_HEALTHY in `ap-northeast-1`. A separate project named `CAT` is INACTIVE; do not use it for live changes.
 - Live public schema includes profiles, questions, notes, attempts, feedback, WhatsApp subscribers, push subscriptions, telemetry, duels, duel answers, races, flashcard reviews and bookmarks. RLS is enabled on the listed public tables.
-- At inspection, `profiles` showed 2 rows, `client_telemetry` 53 rows, and most content/activity tables reported 0 rows. Verify which content is intentionally bundled locally versus expected in Supabase; do not seed, migrate or delete data without an explicit task and backup/review.
+- Read-only live inspection on 2026-11-08: `profiles` 2 rows, `client_telemetry` 62 rows; `questions`, `question_attempts`, `question_bookmarks`, `flashcard_reviews`, `notes`, feedback and activity tables all 0 rows. The bundled question banks are in source code; the live question table is empty.
 - Supabase advisors surfaced: client_telemetry RLS enabled with no policies (likely intentional server/service-role-only insert, but verify API-only access); mutable search_path on three functions; SECURITY DEFINER RPCs executable by anon/authenticated; leaked-password protection disabled; RLS auth-function per-row performance warnings; multiple permissive SELECT policies on notes; 20 unused-index notices. Triage these individually—do not blindly drop indexes or revoke function access without understanding product flows.
 - Current Vercel production status READY is not equivalent to a public smoke test, full functional QA or 10/10 sign-off.
 
@@ -67,7 +67,7 @@ Ship a trustworthy, polished, fast, accessible, genuinely useful product. A stud
 - [ ] Confirm the public temporary Vercel hostname and whether it is accessible without SSO in a clean browser.
 - [ ] Resolve the Vercel SSO/deployment-protection mismatch for the intended public preview. Keep preview/admin protections safe; do not weaken access controls blindly.
 - [ ] Resolve canonical host mismatch: `lib/site.ts` points at `mdcatprep-eight.vercel.app`, while Vercel currently reports `edweb-*.vercel.app` aliases.
-- [x] Verify GitHub branch divergence: `main` is 14 commits ahead of `master` (no reverse-only commits) as of the 2026-11-08 source audit. `AGENTS.md` now identifies `main` as the active branch. Still verify Vercel's live production-branch setting before any deployment/promotion.
+- [x] Verify GitHub branch divergence: `main` is 46 commits ahead of `master` (no reverse-only commits) as of the 2026-11-08 source audit. `AGENTS.md` now identifies `main` as the active branch. Still verify Vercel's live production-branch setting before any deployment/promotion.
 - [ ] Confirm Supabase project mapping: use active `edweb`; leave inactive `CAT` untouched.
 - [ ] Establish reproducible local checks and baseline logs. Run `npx tsc --noEmit`, `npm test`, `npm run lint`, `npm run build` and record exact outcomes.
 - [ ] Inventory environment variable NAMES and whether each is configured in Preview/Production, without reading or copying secret values.
@@ -350,3 +350,13 @@ The audit found permanent-free claims on the homepage, signup, portal, FAQ, reso
 ## Data-boundary design handoff — 2026-11-08
 
 `EXAM-DATA-BOUNDARY-DESIGN.md` now defines the conceptual goal/entitlement/content-map model, RLS requirements, legacy data handling and adversarial test cases. This is design-only: no migration SQL was created or applied, no Supabase project was queried or changed in this step, and no production data/access policy was touched. Next technical prerequisite is a read-only live-schema/RLS drift comparison, then disposable staging tests. Read the Supabase skill and current Supabase docs before implementing any schema/auth/RLS work.
+
+
+## P0 content delivery and progress findings — 2026-11-08
+
+The extended audit found two launch-blocking defects for a paid Prep Space model:
+
+1. `questions` is empty in the active Supabase project. `recordAttemptByQuestionKey` resolves bundled question keys against `questions` (then falls back to question_text); neither lookup can succeed with zero rows. `PracticeSession`/`MockTestPlayer` suppress the resulting errors, so bundled-bank answers appear to work but are not durably recorded. Standalone PMA/NUST/USAT practice also keeps answers in local React state. Persistent analytics must not be advertised until this path is fixed and verified.
+2. `/usat/practice`, `/nust/practice`, and `/pma/practice` are public client components importing full question banks directly. The entire bank, answer keys and explanations are shipped to the browser. This is compatible with today's free/public practice but cannot support future exam-specific paid access. Full banks must move to a server-controlled content source; only intentionally selected samples may remain public/client-shipped.
+
+The only discovered seed script is `scripts/seed-mdcat-questions.mjs`; it seeds MDCAT only, uses a service-role key, and its comments state the same Supabase database also serves a Cadet College site. It does not attach product/exam/variant mappings. **Do not run it against production.** First decide separate Supabase project vs product/site namespace, then design canonical question ingestion and mapping on staging. The exact evidence and design are in `EXAM-READINESS-AUDIT.md` and `EXAM-DATA-BOUNDARY-DESIGN.md`.
