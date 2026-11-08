@@ -209,3 +209,8 @@ Do not implement payment processing or change billing in this architecture-docum
 - The exam readiness matrix and public claims accurately distinguish implemented, beta and planned experiences.
 
 **Implementation status:** this is an approved product/architecture direction recorded in planning only. It does not mean the application, database, payment system, entitlements, routes or Prep Spaces have been implemented. No code, database, deployment, billing or domain settings are changed by this decision.
+
+
+## 2026-11-08 codebase audit findings
+
+See `EXAM-READINESS-AUDIT.md` for the first-pass route and content audit. The current public `/portal/[exam]` route is a four-entry dynamic portal overview, not yet a distinct verified public exam-information page for every exam. It contains explicit “Free forever” and “100% free … Ever” promises that conflict with the approved pricing-ready product direction; these must not remain in indexable public copy if the business model may later charge by exam. USAT-M/USAT-E and other grouped variants need truthful exam-specific search intent and readiness labels before generating additional SEO pages. Do not create doorway pages for tests without unique verified content and a real Prep Space.
