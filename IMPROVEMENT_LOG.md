@@ -124,3 +124,8 @@ Founder approved making the production deployment URLs publicly accessible while
 - Renamed the service-worker cache generation to `apex-prep`; renamed the offline queue event and last-sync key while reading/migrating the old localStorage timestamp. Kept the existing IndexedDB database name so downloaded questions and queued answers are not lost.
 - Removed the unused foreign-site footer, corrected stale brand references in active source comments and dormant testimonials copy, and clarified that PMA/ISSB prep is an Apex Prep Space while cadet-college admissions content is out of scope.
 - No production Supabase data/schema, auth, or Vercel secrets were changed. Preview build and new CI gates must pass before considering merge.
+
+
+## 2026-11-09 — Wave 2 verification complete
+
+The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reached Vercel `READY`. GitHub Actions quality gates passed: `npm test` (including WhatsApp signature tests), `npm run lint` over active Apex source, and `npx tsc --noEmit`. The earlier failures were resolved: explicit `.ts` test import, six active-source lint errors, and the archived handoff folder excluded from Apex lint. Production deployment was not triggered; the PR remains draft pending unauthenticated public-host smoke and responsive browser checks.
