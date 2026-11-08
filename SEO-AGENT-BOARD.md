@@ -220,3 +220,6 @@ Additional copy audit: permanent-free and no-expiry claims remain in the homepag
 
 
 The public/private boundary is being formalized in `EXAM-DATA-BOUNDARY-DESIGN.md`: only intentionally mapped public samples should be open for discovery; full exam preparation can be protected by a goal-specific entitlement. Public exam pages must accurately distinguish sample content, full preparation availability, beta status and locked spaces without promising lifetime free access.
+
+
+Official-source verification (2026-11-08) confirms standard HEC USAT has six categories and a different 75-MCQ + essay structure from the Balochistan/FATA scholarship test's 100-MCQ format. The existing bank must not be marketed as standard USAT-M. HEC also says universities decide whether to accept USAT; avoid universal-mandatory claims. NUST NET has five official paper types, and the current product only supports NET-Engineering. Public pages must use those distinctions and only index variants with unique, verified information.
