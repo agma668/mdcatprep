@@ -345,3 +345,8 @@ Do not implement payment processing or change billing in this architecture-docum
 ## Pricing/access audit priority — 2026-11-08
 
 The audit found permanent-free claims on the homepage, signup, portal, FAQ, resource/notes pages and `/llms.txt`. More importantly, `app/pricing/page.tsx` presents five Rs. 0 passes including a lifetime all-access plan; its “checkout” only changes React state and its success message claims activation without creating a grant. Treat this as a P0 trust issue. Before any paid launch, replace the fake local-only activation with a truthful access/pricing page, remove permanent-free promises, and define free public samples versus entitlement-protected full preparation. Do not add payment processing until the entitlement design and provider are approved.
+
+
+## Data-boundary design handoff — 2026-11-08
+
+`EXAM-DATA-BOUNDARY-DESIGN.md` now defines the conceptual goal/entitlement/content-map model, RLS requirements, legacy data handling and adversarial test cases. This is design-only: no migration SQL was created or applied, no Supabase project was queried or changed in this step, and no production data/access policy was touched. Next technical prerequisite is a read-only live-schema/RLS drift comparison, then disposable staging tests. Read the Supabase skill and current Supabase docs before implementing any schema/auth/RLS work.
