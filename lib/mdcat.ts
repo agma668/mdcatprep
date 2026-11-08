@@ -4,8 +4,7 @@
 // canonical subject list for the practice chooser.
 //
 // Same ResourceQuestion shape as the shared practice UI renders — no schema
-// change needed at the data seam. (Inlined here so the bank has no dependency
-// on the removed cadet-college resources lib.)
+// change needed at the data seam. (Inlined here so the bank stays self-contained and independent of unrelated site resources.)
 
 export type ResourceQuestion = {
   key: string
