@@ -106,11 +106,11 @@ No payment provider, price, checkout or billing workflow is approved or implemen
 |---|---|---|---|---|
 | MDCAT / PMDC boards | Large bundled medical bank, topic drills, shared practice session; multiple board labels share a core bank | MDCAT-weighted mock exists; verify current official pattern and actual pool filtering | No exam ID on attempts; shared DB pool | Existing foundation; not an isolated Prep Space |
 | NUMS | Shares PMDC core; separate Paper-II/psychological bank/experience is referenced in code and portal flags | Verify Paper-I/Paper-II assembly and exact current pattern independently | Same global attempt model | Partial; needs distinct blueprint and rules |
-| HEC BFAP Scholarship Test — Pre-Medical variant | Dedicated bundled bank, topic/category drill and chooser; repository docs distinguish it from mainstream USAT-M | Dedicated 100-MCQ / 100-minute scholarship-variant mock | Stable question-key recording through shared session/mock path; no goal partition | Existing foundation, but currently mislabeled as HEC USAT-M in UI/config; batch/version needs verification |
+| HEC BFAP Scholarship Test — Pre-Medical variant | Dedicated bundled bank, topic/category drill and chooser; repository docs distinguish it from mainstream USAT-M | Dedicated 100-MCQ / 100-minute scholarship-variant mock | The shared action resolves question_key or question_text against public.questions; live table has zero rows, so bundled attempts return Question not found and the caller suppresses the error | Content foundation only; current durable progress path is broken for this bank |
 | HEC USAT standard — all six variants, including Pre-Medical | HEC lists six standard categories; no complete standard-USAT bank/essay workflow established by this pass | Standard USAT needs its own 75-MCQ + essay workflow; no verified complete mock established | No goal partition | Not ready; do not advertise as complete |
-| NUST NET | Dedicated 81-question bank and dedicated practice page | Current NET-Engineering mock correctly uses NUST's official 50% Mathematics / 30% Physics / 20% English weighting, 200 MCQs / 180 minutes, no negative marking; scaled to available bank | Mock player records answers; standalone practice persistence needs verification; no goal partition | Working Engineering variant foundation; other NET variants missing; portal subject labels inaccurate; no isolation |
+| NUST NET | Dedicated 81-question bank and dedicated practice page | Current NET-Engineering mock correctly uses NUST's official 50% Mathematics / 30% Physics / 20% English weighting, 200 MCQs / 180 minutes, no negative marking; scaled to available bank | Bundled question attempts cannot resolve to DB rows; standalone practice persistence also needs verification; no goal partition | Working Engineering variant foundation; other NET variants missing; portal subject labels inaccurate; no isolation |
 | GIKI / LUMS | Explicitly share the NET bank; current chooser labels this honestly, but the bank is not a verified substitute for either exam's own pattern | No distinct GIKI/LUMS pattern-specific mock established | No goal partition | Shared-content beta only; not independent full Prep Spaces |
-| PMA Long Course | Dedicated 41-question bank; Verbal/Non-Verbal/Academic workflow | Original scaled mock with explicit non-official caveat | Standalone practice appears local-state; mock records attempts; no goal partition | Distinct workflow foundation; progress gap |
+| PMA Long Course | Dedicated 41-question bank; Verbal/Non-Verbal/Academic workflow | Original scaled mock with explicit non-official caveat | Standalone practice appears local-state; bundled mock attempt lookup cannot resolve a DB row; no goal partition | Distinct workflow foundation; progress gap |
 | ISSB | Shares PMA intelligence content; selection-specific workflow is partial | Intelligence-only original simulation | Same PMA question/attempt model | Partial; requires broader stage-specific blueprint |
 | Navy / AFNS | Mentioned as config subtests/signup options, no dedicated workflow evidenced | Not established | Not established | Not ready |
 | MBBS clinical notes | Separate notes surface exists, not a top-level exam registry entry | Not applicable | Notes are not clearly tied to a clinical learning goal | Separate product area; audit independently |
@@ -151,7 +151,62 @@ A second targeted copy/flow search found more public promises and a misleading p
 
 **Recommendation:** before charging students, replace the fake local-only pricing activation with a truthful pricing/access-information page, remove all permanent-free claims, and clearly distinguish free public samples from protected full preparation. Do not implement checkout until the entitlement model and actual provider are approved.
 
-## 8. Not yet tested
+## 8. Live Supabase schema, data and RLS snapshot
+
+**Read-only inspection of active Supabase project edweb (project ref niiskuwlpccmdtwjoxvm) on 2026-11-08. No SQL writes or settings changes were made.**
+
+### Live row counts
+
+| Table | Live rows | Observation |
+|---|---:|---|
+| profiles | 2 | Profile table exists with one free-text exam_target and one global status. No user details were queried. |
+| questions | 0 | No database question records exist in the live table at inspection time. |
+| question_attempts | 0 | No persisted question attempts exist. |
+| question_bookmarks | 0 | No persisted bookmarks exist. |
+| flashcard_reviews | 0 | No persisted flashcard review rows exist. |
+| notes | 0 | No live note rows exist. |
+| client_telemetry | 62 | Telemetry is being written. |
+| feedback, duels, duel_answers, races, push_subscriptions, whatsapp_subscribers | 0 | No rows at inspection time. |
+
+The live migration history contains 22 applied versions, matching the 22 checked-in migration files inspected. The live schema includes the question_key column, so the key migration is applied; this is not a missing-column problem.
+
+### Confirmed bundled-attempt persistence defect
+
+- lib/questions.ts explicitly distinguishes DB row IDs from bundled stable keys.
+- PracticeSession and MockTestPlayer send bundled keys to recordAttemptByQuestionKey.
+- app/actions/practice.ts tries to resolve question_key, then falls back to exact question_text in public.questions. With zero question rows, neither lookup can succeed; the action returns “Question not found.”
+- The callers use .catch(() => {}) and do not surface the error. The bundled answer can therefore appear accepted in the UI while no durable attempt is stored.
+- lib/offline-sync.ts only accepts a DB questionId and routes through recordAttempt; the bundled key path does not use that offline queue.
+- Because question_attempts is empty, the analytics dashboard has no real attempt history to display. This must be fixed and verified before claiming persistent analytics, streaks or cross-device progress work.
+
+This is a higher-priority defect than simply adding exam_id to attempts: first establish a reliable canonical content identity and successful persistence for bundled questions, then scope each write to a student goal and exam variant.
+
+### Live RLS policy observations
+
+- RLS is enabled on the inspected public tables.
+- public.questions has an authenticated SELECT policy based only on status = published. It has no exam or entitlement predicate.
+- public.notes has a published-notes SELECT policy for all authenticated users plus an own-student-note policy; no exam/goal scope is present.
+- question_attempts SELECT/INSERT and question_bookmarks ALL policies check student_id = auth.uid(), which protects between students but not between exam goals.
+- flashcard_reviews policies likewise check only student_id = auth.uid().
+- client_telemetry has RLS enabled with no table policies. The repository's /api/telemetry route writes through a server-side service-role client, so this appears intentional; keep it server-only and do not add broad client policies.
+
+### Supabase advisor snapshot
+
+Security advisor (2026-11-08):
+- One INFO: client_telemetry has RLS enabled with no policies (consistent with the server-only writer above).
+- Three WARNs: public.duels_guard_update, public.races_guard_insert and public.leaderboard have mutable search_path configuration.
+- Three WARNs: count_referral_on_signup, generate_referral_code and handle_new_user are SECURITY DEFINER trigger functions with EXECUTE grants visible to anon/authenticated roles. They return trigger and are used as triggers; inspect trigger-only semantics and grants before changing anything. Do not blindly revoke or rewrite them.
+- One WARN: leaked-password protection is disabled in Supabase Auth.
+
+Performance advisor:
+- Six unindexed foreign keys.
+- Twenty-four auth-function RLS init-plan notices.
+- One multiple-permissive-SELECT-policy notice on notes.
+- Twenty unused-index notices (likely influenced by the very small live dataset; do not drop indexes on this basis alone).
+
+These are triage items, not authorization to change the live database. Resolve security findings individually with a reviewed migration/settings plan and regression tests.
+
+## 9. Not yet tested
 
 This pass did not run local commands or live authenticated browser tests. The following remain open:
 - TypeScript, lint, unit tests and production build baseline on current main.
