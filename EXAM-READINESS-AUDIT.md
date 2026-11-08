@@ -236,3 +236,18 @@ This pass did not run local commands or live authenticated browser tests. The fo
 - Mobile/desktop visual audit and Vercel public access.
 
 Do not mark any of these as passed without observed evidence.
+
+
+## 2026-11-09 project ownership and deployment correction
+
+The founder confirmed that Supabase project `edweb` is dedicated to Apex Pakistan. The separate preparation website mentioned in prior planning has its own independent Supabase and Vercel setup and is outside this repository and all Apex work. Older comments implying that Apex `edweb` is shared are stale; do not use them to make architecture or data decisions.
+
+Read-only verification on 2026-11-09:
+- Supabase `edweb` (`niiskuwlpccmdtwjoxvm`) is `ACTIVE_HEALTHY`, region `ap-northeast-1` (Tokyo).
+- The live project reports 22 applied migrations and 13 public tables; RLS is enabled on all 13 tables returned by the table inventory.
+- Live row counts: `profiles` 2, `client_telemetry` 65, and 0 rows in `questions`, `notes`, `question_attempts`, `question_bookmarks`, `flashcard_reviews`, `feedback`, `whatsapp_subscribers`, `push_subscriptions`, `duels`, `duel_answers`, and `races`. No personal profile data was read or copied into this audit.
+- Vercel project `edweb` is linked to `agma668/mdcatprep`; its latest production deployment is `READY` on branch `main`, commit `ea2623f2c7b2fbbd45f5893962ae19ce901a9b6b`.
+- Vercel SSO protection is enabled for all deployment URLs except custom domains. No custom domain is attached. The listed `edweb-*.vercel.app` aliases therefore are not confirmed public student entry points; public access is a release blocker that requires an explicit protection/domain decision.
+- `lib/site.ts` currently falls back to `https://mdcatprep-eight.vercel.app`, which does not match the current Vercel aliases. Do not change canonical host or weaken deployment protection until the intended public hostname and access policy are approved together.
+
+This was an inspection and documentation correction only. No Supabase schema/data, auth settings, Vercel settings, environment values, deployment aliases or billing were changed.
