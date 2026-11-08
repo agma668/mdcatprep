@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { createHmac } from 'node:crypto';
 import test from 'node:test';
-import { isValidWhatsAppSignature } from './whatsapp-signature';
+import { isValidWhatsAppSignature } from './whatsapp-signature.ts';
 
 const secret = 'test-app-secret';
 const body = JSON.stringify({ object: 'whatsapp_business_account', entry: [] });
