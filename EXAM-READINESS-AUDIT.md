@@ -272,3 +272,11 @@ The Apex repository contained stale references and dormant demo tooling from an 
 The WhatsApp webhook previously accepted a predictable hard-coded verification token and did not authenticate POST callbacks. It now requires explicit WhatsApp configuration and a valid Meta HMAC signature before processing POST bodies; when secrets are absent, it returns 503 without touching subscriber data. Unit tests cover valid/tampered/malformed signatures. The service-worker cache prefix and offline localStorage event/key were aligned to Apex; the old localStorage timestamp is migrated and the IndexedDB database name is deliberately retained to preserve offline student data.
 
 PMA/ISSB remains in Apex's military-exam Prep Space; cadet-college admissions content, questions, assets and workflows are explicitly out of scope. No separate site's source, data or credentials were imported.
+
+
+## 2026-11-09 Wave 2 verification
+
+- Final preview commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` is `READY` on Vercel.
+- GitHub Actions `Quality gates` passed: unit tests, ESLint on active Apex source, and TypeScript.
+- The WhatsApp signature test suite is included in `npm test`.
+- The production branch has not been updated. Public HTTP reachability and desktop/mobile browser smoke remain unverified, so the PR remains draft.
