@@ -26,6 +26,12 @@ export type FeedbackTriage = {
   confidence: number;
 };
 
+
+/** Local formatting helper retained for older admin tooling; no AI inference occurs. */
+export function formatTriagePrefix(t: FeedbackTriage): string {
+  return `[jev m=${t.category} sev=${t.severity} q=${t.aboutQuestion ? "y" : "n"} c=${t.confidence.toFixed(2)}]`;
+}
+
 /** No external calls; returns null so feedback is saved without a fake label. */
 export async function triageFeedback(
   _message: string
