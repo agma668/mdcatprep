@@ -154,7 +154,7 @@ export async function GET(request: Request) {
   return NextResponse.json(
     {
       ok: allUp,
-      service: "cadet-college-prep maintenance cron",
+      service: "Apex Pakistan maintenance cron",
       utc: `${day} ${hour}`,
       baseUrl,
       routes: routeResults,
