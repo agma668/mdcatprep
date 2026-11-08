@@ -5,7 +5,7 @@
  */
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { triageFeedback } from "../lib/jev.ts";
+import { formatTriagePrefix, triageFeedback } from "../lib/jev.ts";
 
 test("feedback triage stays disabled even when a legacy API key exists", async () => {
   const previousKey = process.env.TYPESAFE_API_KEY;
@@ -20,4 +20,14 @@ test("feedback triage stays disabled even when a legacy API key exists", async (
     if (previousKey === undefined) delete process.env.TYPESAFE_API_KEY;
     else process.env.TYPESAFE_API_KEY = previousKey;
   }
+});
+
+test("formatTriagePrefix renders the greppable admin label", () => {
+  const prefix = formatTriagePrefix({
+    category: "wrong_answer",
+    severity: 2,
+    aboutQuestion: true,
+    confidence: 0.87,
+  });
+  assert.equal(prefix, "[jev m=wrong_answer sev=2 q=y c=0.87]");
 });

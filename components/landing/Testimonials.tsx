@@ -38,7 +38,7 @@ export function Testimonials() {
               Be the first to share your experience
             </h3>
             <p className="text-white/60 text-sm leading-relaxed max-w-md mx-auto mb-6">
-              Cadet College Prep is new and growing. As students use the platform and see results,
+              MED Prep is new and growing. As students use the platform and see results,
               we&apos;ll share their honest feedback here. No invented stories —
               just real words from real students.
             </p>
