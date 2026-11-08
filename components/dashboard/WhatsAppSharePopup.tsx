@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { fmtInt, fmtUTCDate, fmtUTCTime } from "@/lib/fmt";
+import { fmtInt } from "@/lib/fmt";
 import { getSiteUrl } from "@/lib/site";
 import { useReferral } from "@/lib/use-referral";
 
@@ -28,10 +28,13 @@ export function WhatsAppSharePopup({ questionsAnswered, streak, accuracy }: Prop
   const { link: referralUrl, joinedCount } = useReferral();
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const lastShown = localStorage.getItem(KEY);
-    if (lastShown && Date.now() - Number(lastShown) < REPEAT_INTERVAL) return;
-    setShow(true);
+    const id = window.setTimeout(() => {
+      const lastShown = localStorage.getItem(KEY);
+      if (!lastShown || Date.now() - Number(lastShown) >= REPEAT_INTERVAL) {
+        setShow(true);
+      }
+    }, 0);
+    return () => window.clearTimeout(id);
   }, []);
 
   // Auto-dismiss thank-you after 2.5 seconds
