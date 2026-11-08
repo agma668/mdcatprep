@@ -226,3 +226,6 @@ Official-source verification (2026-11-08) confirms standard HEC USAT has six cat
 
 
 The code audit confirms full USAT/NUST/PMA banks are currently imported by public client routes. Before the paid model is enabled, move full question content behind server-side exam/variant entitlement checks and leave only deliberate sample subsets public. Public search pages may describe the exam and link to sample practice, but must not expose full paid banks or claim durable progress when the attempt store is not recording bundled questions.
+
+
+PMDC-2026's official notice confirms 180 MCQs with 81 Biology / 45 Chemistry / 36 Physics / 9 English / 9 Logical Reasoning, 3 hours and no negative marking. Public exam pages should use this current-year pattern and link to PMDC's official notice. The repository's current 100-question “full mock” does not match this structure; do not claim a full official-pattern mock is available until corrected and backed by a populated, verified question source.
