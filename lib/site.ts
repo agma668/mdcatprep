@@ -5,7 +5,7 @@
 export function getSiteUrl(): string {
   const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.trim()
   if (fromEnv) return fromEnv.replace(/\/+$/, '')
-  return 'https://mdcatprep-eight.vercel.app'
+  return 'https://edweb-nine.vercel.app'
 }
 
 export const SITE_NAME = 'MED Prep'
