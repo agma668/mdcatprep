@@ -22,10 +22,10 @@ export function Testimonials() {
             className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4"
           >
             What Students Say About{" "}
-            <span className="text-[var(--color-accent-light)]">Cadet College Prep</span>
+            <span className="text-[var(--color-accent-light)]">MED Prep</span>
           </h2>
           <p className="text-lg text-white/70 max-w-xl mx-auto">
-            Real feedback from students preparing for their dream colleges.
+            Real feedback from students preparing for their entry tests.
           </p>
         </div>
 
