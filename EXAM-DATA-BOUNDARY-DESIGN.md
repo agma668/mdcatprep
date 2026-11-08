@@ -169,3 +169,18 @@ Recommended migration sequence:
 ## 2026-11-09 implementation note — attempt outbox
 
 The implementation now supports key-based bundled questions in the same offline outbox as UUID-backed database questions. Each queued attempt preserves its stable question key, fallback text, selected answer, optional time and unique attempt ID. The drain retries through the corresponding server action and uses the same idempotency ID. A missing canonical row is retained for later retry, not discarded. This protects answers while the canonical bank is being ingested, but it does not replace the requirement to seed reviewed canonical rows and explicit exam/variant mappings before claiming persistent analytics are live.
+
+
+## 2026-11-09 registry migration draft
+
+The first registry migration is kept separate from progress scoping and content delivery:
+
+- `exam_registry` stores stable exam identity and readiness.
+- `exam_variants` stores official paper/stream variants, with a composite key that binds each variant to its parent exam.
+- `assessment_profiles` stores versioned paper rules and official-source provenance.
+- `student_goals` allows multiple goals per account, with one optional active primary goal.
+- `question_exam_map` stores reviewed mappings, but has no student Data API grant or RLS policy. Only trusted server/service-role workflows may read or write it.
+
+All new public-schema tables enable RLS. Public reads are limited to active exam/variant/profile rows; goal operations are owner-scoped. The migration intentionally leaves existing progress rows untouched and does not infer historical exam ownership. Goal-scoped attempt/bookmark/flashcard changes, server-side goal authorization, entitlement grants and protected question delivery are separate follow-on work.
+
+The SQL was syntax/constraint-tested inside a transaction on the Apex `edweb` project and rolled back; an information_schema query verified the new tables were not persisted. The migration is a feature-branch draft, not applied to production.
