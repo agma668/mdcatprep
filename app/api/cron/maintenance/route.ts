@@ -40,10 +40,6 @@ const ENV_GROUPS: { name: string; keys: string[] }[] = [
   { name: "Supabase", keys: ["NEXT_PUBLIC_SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"] },
   { name: "Push (VAPID)", keys: ["NEXT_PUBLIC_VAPID_PUBLIC_KEY", "VAPID_PRIVATE_KEY", "VAPID_SUBJECT"] },
   {
-    name: "WhatsApp",
-    keys: ["WHATSAPP_VERIFY_TOKEN", "WHATSAPP_APP_SECRET", "WHATSAPP_ACCESS_TOKEN", "WHATSAPP_PHONE_NUMBER_ID"],
-  },
-  {
     name: "Email (EmailJS)",
     keys: [
       "EMAILJS_SERVICE_ID",
