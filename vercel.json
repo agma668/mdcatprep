@@ -7,10 +7,6 @@
     {
       "path": "/api/seo/indexnow",
       "schedule": "30 4 * * *"
-    },
-    {
-      "path": "/api/cron/demo-activity",
-      "schedule": "0 5 * * *"
     }
   ]
 }
