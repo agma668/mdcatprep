@@ -4,7 +4,6 @@
 **Repository:** agma668/mdcatprep  
 **Audited branch:** main  
 **Audited source head:** ba008e54e799db0c6784c8fb07cfa7dc4e91d2fc  
-**Latest documentation head at last verification:** 3c6a4822bc53c104a3fbbf1b04f6108ba55f737a  
 **Scope:** route/registry inventory, question-bank routing, mock assembly, progress persistence, student access model and pricing/entitlement readiness.  
 **Status:** source audit plus read-only live Supabase schema/RLS/advisor inspection. No application code, database, deployment, payment or account settings changed.
 
