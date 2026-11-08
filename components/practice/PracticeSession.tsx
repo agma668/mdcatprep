@@ -17,8 +17,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, ArrowRight, LogOut } from "lucide-react";
-import { recordAttemptByQuestionKey } from "@/app/actions/practice";
-import { recordAnswer } from "@/lib/offline-sync";
+import { recordAnswer, recordBundledAnswer } from "@/lib/offline-sync";
 import { ScoreRing, AnimatedNumber } from "@/components/ui/ScoreRing";
 import { QuizKeyLegend } from "@/components/ui/QuizKeyLegend";
 import { QuizOptions } from "@/components/ui/QuizOptions";
@@ -55,8 +54,16 @@ export function PracticeSession({
       // path is the queue-aware seam: online it records through the shared
       // server action exactly as before, and offline a signed-in answer
       // queues for sync instead of being dropped (guests stay purely local).
-      if (q.id) void recordAnswer(q.id, letter).catch(() => {});
-      else if (q.key) void recordAttemptByQuestionKey(q.key, letter, q.question_text).catch(() => {});
+      const pending = q.id
+        ? recordAnswer(q.id, letter)
+        : q.key
+          ? recordBundledAnswer(q.key, q.question_text, letter)
+          : Promise.resolve({ error: "Question has no persistent identity." });
+      void pending.then((result) => {
+        if (result && "error" in result) {
+          console.error("Could not save practice attempt:", result.error);
+        }
+      }).catch((error) => console.error("Could not save practice attempt:", error));
     },
   });
   const { index, current: q, answers, finished, revealed, pick, next, prev, restart, statusFor } = session;
