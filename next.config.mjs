@@ -4,7 +4,7 @@
  *  - the client registers the SW at `/sw.js?v=<epoch>` — a changed script URL
  *    makes the browser re-fetch the SW itself instead of waiting on its own
  *    update schedule, and
- *  - the SW's cache generation is `cadet-prep-<epoch>`, so each deploy's
+ *  - the SW's cache generation is `apex-prep-<epoch>`, so each deploy's
  *    activate deletes the previous generation's caches atomically — old pages
  *    and chunks can never mix with new ones, and a deploy can never leave a
  *    student running a stale cache.
