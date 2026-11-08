@@ -19,11 +19,11 @@ This design intentionally separates:
 
 | Entity | Key fields (conceptual) | Responsibility |
 |---|---|---|
-| exam_registry | exam_id, category_id, slug, title, status | Stable exam identity and discoverability. |
+| products / site_scopes | product_id, title, status | Namespaces this academy separately from any other site/product sharing the same Supabase project. |\n| exam_registry | exam_id, product_id, category_id, slug, title, status | Stable exam identity and discoverability inside one product. |
 | exam_variants | exam_id, variant_id, title, status | Official stream/paper variants under one exam (e.g. HEC USAT Pre-Medical or NUST NET Engineering). |
 | exam_blueprints | exam_id, version, readiness, syllabus_version, config | Versioned exam-specific experience. |
 | student_goals | id, user_id, exam_id, variant_id, status, target_date, preferences | One student's chosen exam/variant goal. One user can have many goals. |
-| question_exam_map | question_id, exam_id, variant_id, syllabus_topic_id, access_level, review_state | Explicitly maps shared question content to one or more exams/variants. |
+| question_exam_map | question_id, product_id, exam_id, variant_id, syllabus_topic_id, access_level, review_state | Explicitly maps shared question content to one or more exams/variants and product namespace. |
 | assessment_profiles | id, exam_id, variant_id, version, rules, source_url, verified_at | Exact mock/practice rules and provenance for each paper variant. |
 | entitlement_products | product_id, name, product_type, status | A named exam pass or bundle. Not a payment provider. |
 | product_exam_access | product_id, exam_id, variant_id nullable | Exact exams and optional variants a product unlocks. Null variant means all variants only when explicitly intended. |
@@ -34,7 +34,27 @@ This design intentionally separates:
 | note_exam_map | note_id, exam_id, access_level | Explicitly maps reusable notes/resources to exam spaces. |
 | student_notes | existing note fields + goal_id or exam_id | Student-created notes retain their originating context. |
 
-A question can be shared across multiple exams only by multiple explicit question_exam_map rows. Sharing a subject (e.g. Biology) is never sufficient evidence to share a question.
+A question can be shared across multiple exams only by multiple explicit question_exam_map rows. Sharing a subject (e.g. Biology) is never sufficient evidence to share a question. Content must also be scoped to the correct product/site namespace; a shared Supabase project is not permission to mix unrelated academy sites.
+
+## 2A. Canonical question identity and content delivery (P0 prerequisite)
+
+The live Supabase questions table is currently empty, while the question banks live in source files. The existing attempt action expects a database question row:
+
+- Bundled questions have a stable key (question_key) but no database row ID in the client model.
+- recordAttemptByQuestionKey resolves that key (or exact question_text) against public.questions before inserting question_attempts.
+- With zero question rows, the action returns “Question not found”; the current UI call sites suppress the failure. This is why current bundled-bank practice does not create reliable durable analytics.
+
+**Recommended direction:** make the server-side content store the canonical source for protected questions. Ingest approved banks into the database with stable question_key values, explicit product_id + exam_id + variant_id mappings, provenance and publication/review status. Keep any static client-side content limited to deliberately selected public samples. Server components/actions fetch the selected exam's questions only after validating the student's goal and entitlement; do not import full paid banks into client components.
+
+The current scripts/seed-mdcat-questions.mjs is not a safe general ingestion path:
+- It only seeds the MDCAT bank.
+- It marks inserted rows published and sets college = 'MDCAT', but does not create exam/variant mappings or a product/site namespace.
+- Its own comments say the same database also serves a Cadet College site.
+- It uses the service-role key and can write directly to the live questions table.
+
+Do not run this script against production as part of this project. First decide whether Apex Pakistan should have a separate Supabase project or an explicit product/site namespace in the shared project. Then design a reviewed idempotent ingestion process and test it on staging. Only after the canonical rows exist and query filters are verified should the existing question-key attempt action be re-enabled for production students.
+
+This also prevents a later monetization failure: a full question bank imported directly into a 'use client' component is delivered to the browser and cannot be made private by hiding its page or checking an entitlement after delivery.
 
 ## 3. Goal and entitlement semantics
 
