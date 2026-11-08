@@ -12,8 +12,6 @@ Cross-project router: `../BOARD.md`.
 
 Two things specific to this repo:
 
-- **The default branch is `master`**, unlike the other two projects (`main`).
-- **It has no board of its own yet.** MED Prep is Cadet Prep's sibling and was
-  brought up to Cadet's UI/UX deliberately (see the `OUTPUT → sibling MED Prep
-  site` row on the Cadet Prep board); it inherits the shared rules and nothing
-  project-specific. Add a board here when it earns one.
+- **Active working/production branch is `main`** as verified against the repository's current main/master comparison and existing deployment guidance. `master` is 14 commits behind as of 2026-11-08; do not push/sync it without an explicit branch-policy check.
+- **Project-specific boards now exist:** `ROADMAP-AGENT-BOARD.md`, `DESIGN-AGENT-BOARD.md`, and `SEO-AGENT-BOARD.md`. Read the roadmap board first, then the specialist board relevant to the task.
+- **Architecture audit:** read `PRODUCT-ARCHITECTURE-DECISION.md` and `EXAM-READINESS-AUDIT.md` before changing exam routing, question ownership, progress or access.
