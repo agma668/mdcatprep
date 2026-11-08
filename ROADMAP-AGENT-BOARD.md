@@ -375,3 +375,16 @@ Official PMDC's 2026 public notice now provides the exact paper profile: 180 MCQ
 - [x] Clarify PMA/ISSB belongs to Apex; cadet-college admissions and content are out of scope.
 - [x] GitHub Actions tests/lint/typecheck passed and final Vercel preview is READY at `6dfc8a32`.
 - [ ] Public unauthenticated browser smoke for `https://edweb-nine.vercel.app` remains outstanding; desktop/mobile browser smoke is also pending.
+
+
+## 2026-11-09 — Wave 3 status
+
+- [x] Extend server-side attempt idempotency to bundled question keys; reject idempotency-key reuse across different question/answer pairs.
+- [x] Support bundled question keys in the offline outbox and sync drain.
+- [x] Retain attempts when canonical question content has not yet been ingested.
+- [x] Fix offline queue lease expiry to use last claim time.
+- [x] Remove silent attempt-save error suppression from PracticeSession and MockTestPlayer.
+- [x] GitHub Actions run `42526582743` passed tests, lint and typecheck.
+- [ ] Verify latest Vercel preview at commit `8257c42` reaches READY.
+- [ ] Add an integration test against a non-production Supabase project for idempotency, RLS and offline replay.
+- [ ] Design and validate the exam registry + canonical content migration before any production DDL or question import.
