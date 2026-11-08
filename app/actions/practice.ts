@@ -52,23 +52,6 @@ export async function recordAttempt(
     return { error: 'Invalid answer.' }
   }
 
-  // Already recorded under this key (retry / re-sent queue entry) — the
-  // answer already counts; report success without touching the table again.
-  if (clientAttemptId) {
-    const existing = await supabase
-      .from('question_attempts')
-      .select('id, is_correct')
-      .eq('client_attempt_id', clientAttemptId)
-      .maybeSingle()
-    if (existing.data) {
-      return {
-        success: true,
-        isCorrect: existing.data.is_correct,
-        correctAnswer: null,
-      }
-    }
-  }
-
   const { data: question, error: qError } = await supabase
     .from('questions')
     .select('id, status, correct_answer')
@@ -93,8 +76,10 @@ export async function recordAttempt(
 export async function recordAttemptByQuestionKey(
   questionKey: string,
   selectedAnswer: string,
-  questionText?: string
-) {
+  questionText?: string,
+  timeSpentSeconds?: number,
+  clientAttemptId?: string
+): Promise<RecordAttemptResult> {
   const supabase = await createClient()
   const {
     data: { user },
@@ -128,7 +113,7 @@ export async function recordAttemptByQuestionKey(
   }
 
   if (!question) return { error: 'Question not found.' }
-  return insertAttempt(supabase, user, question, selectedAnswer)
+  return insertAttempt(supabase, user, question, selectedAnswer, timeSpentSeconds, clientAttemptId)
 }
 
 // Shared insert: correctness from the stored key, time clamped, attempt
@@ -145,6 +130,29 @@ async function insertAttempt(
   clientAttemptId?: string
 ): Promise<RecordAttemptResult> {
   if (question.status !== 'published') return { error: 'This question is not available.' }
+
+  // One idempotency check for both UUID-backed and bundled-key questions.
+  // Reusing a key for a different question/answer is rejected rather than
+  // incorrectly reporting an unrelated attempt as successful.
+  if (clientAttemptId) {
+    const existing = await supabase
+      .from('question_attempts')
+      .select('id, is_correct, question_id, selected_answer')
+      .eq('client_attempt_id', clientAttemptId)
+      .maybeSingle()
+
+    if (existing.error) return { error: existing.error.message }
+    if (existing.data) {
+      if (existing.data.question_id !== question.id || existing.data.selected_answer !== selectedAnswer) {
+        return { error: 'This attempt ID has already been used for another answer.' }
+      }
+      return {
+        success: true,
+        isCorrect: existing.data.is_correct,
+        correctAnswer: question.correct_answer,
+      }
+    }
+  }
 
   const isCorrect = question.correct_answer === selectedAnswer
 
@@ -176,10 +184,13 @@ async function insertAttempt(
   if (error && isUniqueViolation(error) && clientAttemptId) {
     const existing = await supabase
       .from('question_attempts')
-      .select('is_correct')
+      .select('is_correct, question_id, selected_answer')
       .eq('client_attempt_id', clientAttemptId)
       .maybeSingle()
     if (existing.data) {
+      if (existing.data.question_id !== question.id || existing.data.selected_answer !== selectedAnswer) {
+        return { error: 'This attempt ID has already been used for another answer.' }
+      }
       return {
         success: true,
         isCorrect: existing.data.is_correct,
