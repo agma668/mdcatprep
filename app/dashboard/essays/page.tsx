@@ -138,7 +138,7 @@ export default function EssaysPage() {
         title="Essays & Stories"
         description={
           <>
-            MDCAT doesn't have a composition question — but fast, clear English
+            MDCAT doesn&apos;t have a composition question — but fast, clear English
             wins you marks in the <strong>reading and comprehension</strong>
             sections. These timed writing drills build the speed and vocabulary
             that make the difference. Treat this as a bonus trainer.
