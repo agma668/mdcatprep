@@ -1,17 +1,12 @@
-# MED Prep — agent entry point
+# Apex Pakistan — agent entry point
 
-Shared rules for all three projects in `C:\Users\admin\Downloads\projects\`
-live one level up. Read `../AGENTS.md` first: honesty is the product (no
-fabricated stats, dates, marks, seats or testimonials), the gate ladder
-(`tsc` · eslint on touched files · `next build` · live smoke at desktop +
-360/390px + 768px · a log entry · ONE why-focused commit), stage explicit
-paths, one agent per tree.
+This repository is the Apex Pakistan application (`agma668/mdcatprep`). Treat it as a standalone product and work only in this repository and its connected infrastructure. Do not follow sibling-project paths, reuse another website's database, or import unrelated handoff code/content. The active backend is the founder-confirmed Supabase project `edweb`; the connected Vercel application is also `edweb`.
 
-Skills are shared — the canonical copy is `../skills/`, not a copy in here.
-Cross-project router: `../BOARD.md`.
+Honesty is the product (no fabricated stats, dates, marks, seats or testimonials). Before changing code, read `TODO.md`, the roadmap board, and the relevant specialist board. The gate ladder is `tsc` · eslint on touched files · `next build` · live smoke at desktop + 360/390px + 768px · an improvement-log entry · one why-focused commit. Stage explicit paths only.
 
-Two things specific to this repo:
+## Project-specific guidance
 
-- **Active working/production branch is `main`** as verified against the repository's current main/master comparison and existing deployment guidance. `master` is behind `main` and had no reverse-only commits at the last GitHub comparison on 2026-11-08; re-check exact divergence before any push/sync and do not merge `master` blindly.
-- **Project-specific boards now exist:** `ROADMAP-AGENT-BOARD.md`, `DESIGN-AGENT-BOARD.md`, and `SEO-AGENT-BOARD.md`. Read the roadmap board first, then the specialist board relevant to the task.
-- **Architecture audit:** read `PRODUCT-ARCHITECTURE-DECISION.md`, `EXAM-READINESS-AUDIT.md`, `EXAM-REGISTRY-PROPOSAL.md` and `EXAM-DATA-BOUNDARY-DESIGN.md` before changing exam routing, question ownership, progress or access.
+- The active working branch is `main`; verify the current branch head and Vercel production source before deployment work.
+- Read `ROADMAP-AGENT-BOARD.md` first, then the relevant specialist board: `DESIGN-AGENT-BOARD.md` or `SEO-AGENT-BOARD.md`.
+- Read `PRODUCT-ARCHITECTURE-DECISION.md`, `EXAM-READINESS-AUDIT.md`, `EXAM-REGISTRY-PROPOSAL.md` and `EXAM-DATA-BOUNDARY-DESIGN.md` before changing exam routing, question ownership, progress or access.
+- Do not modify production database schema/data, production secrets, deployment protection, custom domains or billing without task-specific approval. Preserve the existing Apex `edweb` project; do not create, reset or switch to another Supabase project as part of routine work.
