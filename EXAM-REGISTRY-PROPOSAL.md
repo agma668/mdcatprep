@@ -137,15 +137,25 @@ Use one application and stable exam slugs:
 
 These are proposed routes only. Existing routes should be mapped as aliases/redirects after the registry and access model are accepted. Do not rename all routes in one pass. Every authenticated Prep Space must show its active exam, readiness state and included/locked capabilities.
 
-## 7. Decisions still required before implementation
+## 7. Recommended product defaults (unless official-source research disproves them)
 
-1. Confirm whether NUMS is a separate Prep Space from PMDC MDCAT (recommended: yes).
-2. Confirm whether PMDC provincial conducting bodies are metadata variants under one PMDC MDCAT blueprint unless an official pattern differs (recommended: yes).
-3. Confirm whether ISSB is a standalone goal or a stage within a PMA/armed-forces goal (recommended: support both relationship and standalone access only if the workflow merits it).
-4. Verify the current official USAT variant catalogue and determine which of USAT-M/E/CS/Arts/Commerce are real distinct variants, and what content is actually available.
-5. Decide which engineering exams are truly supported now versus shared-bank beta.
-6. Confirm the exact first launch cohort and which exams, if any, receive complimentary access at launch.
-7. Review and approve a conceptual entitlement product/bundle catalogue later; do not set prices in this proposal.
+These are the proposed decisions to carry forward so implementation does not stall on avoidable taxonomy questions:
+
+1. **NUMS is separate from PMDC MDCAT.** It can reuse verified common science content through explicit question-to-exam mappings, but it keeps its own Paper-I/Paper-II rules, readiness and progress.
+2. **Provincial PMDC MDCAT conducting bodies are metadata variants** under one PMDC MDCAT blueprint where the official syllabus/pattern is the same. If a particular year or sitting has a materially different pattern, version that assessment profile rather than inventing a new permanent exam identity.
+3. **ISSB is both a linked selection stage and an optional standalone goal.** A PMA candidate can see it as the next stage in their journey; someone preparing specifically for ISSB can hold an ISSB goal. Access is still granted explicitly to the relevant goal(s).
+4. **USAT-M is separate.** USAT-E and USAT-CS should receive separate IDs only after the current HEC catalogue and official test structure are verified. Arts/Commerce remain unlisted until the official variant names and a real content workflow are confirmed. Never map them to the USAT-M bank just to fill a card.
+5. **NUST, GIKI and LUMS have separate exam IDs and blueprints.** They may temporarily share selected question content only through explicit mappings and honest beta labels. A shared MCQ engine does not make their exams the same.
+6. **Early access is complimentary per selected exam goal, not blanket all-access.** During a free launch period, a student chooses a Prep Space and receives a clearly defined launch grant for that exam. Other Prep Spaces remain separately selected and granted. Later, a paid purchase unlocks only the named exam unless a bundle explicitly lists more exams. No dates or prices are set here.
+7. **No universal lifetime bundle by default.** Bundles can be considered later when there is a clear product and support reason; every included exam must be listed explicitly. No prices or payment providers are approved in this proposal.
+
+### Official-source verification still required
+
+- Verify current HEC USAT variants and current-year patterns before publishing USAT-E/CS/A/C pages.
+- Verify current NUST NET Engineering vs Computing formats, GIKI, LUMS LCAT/SBASSE and UET ECAT independently.
+- Verify PMDC/NUMS current-year syllabus and paper rules before setting assessment-profile versions.
+- Verify the PMA/ISSB stages from official recruiting/selection guidance before advertising a full selection journey.
+- Verify board/curriculum-specific requirements before opening Matric/FSc/O/A-Level spaces.
 
 ## Acceptance test
 
