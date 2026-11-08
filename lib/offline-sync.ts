@@ -153,7 +153,12 @@ export async function recordBundledAnswer(
       timeSpentSeconds,
       attemptId
     );
-    if ("error" in result && result.error === "Not authenticated") {
+    if (
+      "error" in result &&
+      (result.error === "Not authenticated" || result.error === "Question not found.")
+    ) {
+      // The canonical row may not have been ingested yet. Preserve the answer
+      // under this same id so a later content sync can record it exactly once.
       await enqueuePendingQuestionAttempt(questionKey, questionText, selectedAnswer, timeSpentSeconds, attemptId);
       return { queued: true };
     }
@@ -213,8 +218,13 @@ async function runDrain(): Promise<DrainResult> {
       if (res && "success" in res && res.success) {
         await removePendingAttempts([entry.id]);
         result.synced++;
-      } else if (res && "error" in res && res.error === "Not authenticated") {
-        // Session revoked mid-drain — keep the answer for a later signed-in run.
+      } else if (
+        res &&
+        "error" in res &&
+        (res.error === "Not authenticated" || res.error === "Question not found.")
+      ) {
+        // Auth may need refreshing, or bundled content may not be ingested yet.
+        // Keep the answer; never discard a valid student response for missing content.
         await releasePendingAttempts([entry.id]);
         result.held++;
       } else {
