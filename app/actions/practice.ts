@@ -141,7 +141,9 @@ async function insertAttempt(
       .eq('client_attempt_id', clientAttemptId)
       .maybeSingle()
 
-    if (existing.error) return { error: existing.error.message }
+    if (existing.error && !isMissingColumnError(existing.error)) {
+      return { error: existing.error.message }
+    }
     if (existing.data) {
       if (existing.data.question_id !== question.id || existing.data.selected_answer !== selectedAnswer) {
         return { error: 'This attempt ID has already been used for another answer.' }
