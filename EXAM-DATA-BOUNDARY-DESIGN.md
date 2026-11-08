@@ -53,7 +53,7 @@ The current scripts/seed-mdcat-questions.mjs is not a safe general ingestion pat
 - Its own comments say the same database also serves a Cadet College site.
 - It uses the service-role key and can write directly to the live questions table.
 
-Do not run this script against production as part of this project. First decide whether Apex Pakistan should have a separate Supabase project or an explicit product/site namespace in the shared project. Then design a reviewed idempotent ingestion process and test it on staging. Only after the canonical rows exist and query filters are verified should the existing question-key attempt action be re-enabled for production students.
+Do not run this script against production as part of this project. First decide whether Apex Pakistan should have a separate Supabase project or an explicit product/site namespace in the shared project. Then design a reviewed idempotent ingestion process and test it on staging. Only after the canonical rows exist, the official PMDC-2026 paper profile is represented (180 questions with 81/45/36/9/9 distribution), and query filters are verified should the existing question-key attempt action be re-enabled for production students.
 
 This also prevents a later monetization failure: a full question bank imported directly into a 'use client' component is delivered to the browser and cannot be made private by hiding its page or checking an entitlement after delivery.
 
