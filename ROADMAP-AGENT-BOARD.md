@@ -24,7 +24,7 @@ Ship a trustworthy, polished, fast, accessible, genuinely useful product. A stud
 ## Current system baseline (verified 2026-11-08)
 
 ### Repository and stack
-- GitHub: `agma668/mdcatprep`; current `main` head: `b32927301ac427288043da7b98de22df28b15bec`.
+- GitHub: `agma668/mdcatprep`; current `main` head at initial inspection: `b32927301ac427288043da7b98de22df28b15bec`; see the 2026-11-08 audit addendum for the current head and branch divergence.
 - 656 tracked files; 61 App Router `page.tsx` routes; 123 component files; 97 `lib` files; 22 checked-in Supabase migration files; two test files.
 - Next.js 16.2.10, React 19.2.4, TypeScript, Tailwind CSS 4, Supabase SSR/client, Framer Motion, Lenis, Resend and web-push.
 - Scripts: `npm run build`, `npm run lint`, `npm test`; typecheck via `npx tsc --noEmit`.
@@ -80,7 +80,7 @@ Ship a trustworthy, polished, fast, accessible, genuinely useful product. A stud
 
 Owner: Design board with roadmap/product coordination. Dependencies: Phase 0.
 - [ ] Confirm Apex Pakistan as parent academy brand and decide whether MED Prep remains a medical portal label; map all current names/routes before renaming.
-- [ ] Audit existing `lib/exams-config.ts` and route structure; produce an exam registry/readiness matrix before changing architecture.
+- [x] First-pass static audit of `lib/exams-config.ts`, routes, banks, mock builders, persistence and access model; evidence and readiness matrix: `EXAM-READINESS-AUDIT.md`. Full content-quality, runtime and official-pattern validation remains open.
 - [ ] Define academy → category hub → public exam information page → authenticated Prep Space navigation and route map. Reuse current routes where sound; do not perform a broad rewrite just to match a diagram.
 - [ ] Ensure every exam has distinct configuration for syllabus, subjects/topics, question source, practice behaviour, mock length/timing/scoring, notes and progress context where applicable.
 - [ ] Create a Prep Space shell and data-driven Preparation Blueprint system that shares components while requiring exam-specific data/configuration, relevant capabilities, entitlement checks and progress boundaries; no generic cloned pages or mixed question pools.
@@ -203,6 +203,19 @@ Owner: SEO board. Dependencies: stable brand and canonical host from Phase 0/1.
 10. [ ] P1: triage Supabase security advisors and verify RLS assumptions.
 11. [ ] P1: complete privacy, legal, support and brand consistency review.
 12. [ ] Hold domain purchase until Phase 5 is signed off.
+
+## 2026-11-08 codebase audit addendum
+
+First-pass source audit completed and recorded in `EXAM-READINESS-AUDIT.md` (audited main head `ba008e54e799db0c6784c8fb07cfa7dc4e91d2fc`). Key blockers before implementation:
+
+1. The four-key registry does not map cleanly to the real test workflows: USAT-M is nested under MDCAT while its own 417-question bank/mock exists; the standalone USAT config says Arts/Commerce but points at the USAT-M bank; USAT-E is grouped under NUST without a dedicated matching workflow; Navy/AFNS appear as subtests without evidence of dedicated experiences.
+2. `lib/questions-repo.ts` reads all published Supabase questions by status/subject and its fill path tops up from the global pool. It ignores the existing `college` text field and there is no stable exam ownership field. Generic practice/mixed mocks can therefore mix unrelated pools.
+3. Attempts, bookmarks, analytics, notes and flashcard reviews are not partitioned by exam/goal. `profiles.exam_target` is one free-text signup value; the current family choices are browser localStorage, not account-synced multi-goal records.
+4. The login gate is global manual approval, not a purchased exam entitlement. No entitlement/order/pass schema was found in checked-in migrations. Public `/portal/[exam]` still says “Free forever” and “100% free … Ever”, which contradicts the approved pricing-ready direction.
+5. GitHub `main` is 14 commits ahead of `master`; `AGENTS.md` still says master is default, while the current production guidance points to main. Resolve branch policy before deployment operations.
+6. PMA's dedicated practice page keeps answer/score state in React state; shared practice sessions and the mock player have the attempt-recording call sites. NUST/USAT standalone persistence requires a separate complete trace.
+
+**Next execution order:** (a) draft the stable exam taxonomy/Preparation Blueprint, (b) draft the exam-scoped data and entitlement model with migration/RLS tests only, (c) define a safe historical-data compatibility plan, (d) prove MDCAT and PMA as contrasting Prep Spaces, then (e) add USAT-M. Do not alter production data or payment settings during this design stage. Local typecheck/lint/tests/build and authenticated browser QA were not run in this static audit.
 
 ## Change log
 
