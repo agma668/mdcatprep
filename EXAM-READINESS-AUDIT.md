@@ -3,9 +3,10 @@
 **Date:** 2026-11-08  
 **Repository:** agma668/mdcatprep  
 **Audited branch:** main  
-**Audited head:** ba008e54e799db0c6784c8fb07cfa7dc4e91d2fc  
+**Audited source head:** ba008e54e799db0c6784c8fb07cfa7dc4e91d2fc  
+**Latest documentation head:** 0d323a97501990392f744b95ef90f05979b19c00  
 **Scope:** route/registry inventory, question-bank routing, mock assembly, progress persistence, student access model and pricing/entitlement readiness.  
-**Status:** static source audit only. No application code, database, deployment, payment or account settings changed.
+**Status:** source audit plus read-only live Supabase schema/RLS/advisor inspection. No application code, database, deployment, payment or account settings changed.
 
 ## Executive conclusion
 
@@ -128,7 +129,7 @@ Readiness labels describe evidence in the current repository, not a claim that e
 6. Only after access boundaries are tested: replace “Free forever” public claims with explicit launch policy and add server-enforced entitlements. Payment rails and prices require separate research/approval.
 7. Then expand additional exam families based on content quality and actual workflows, not the breadth of the signup dropdown.
 
-## 6. Official exam-pattern verification (2026-11-08)
+## 7. Official exam-pattern verification (2026-11-08)
 
 The following official-source checks refine the first-pass matrix:
 
@@ -138,7 +139,7 @@ The following official-source checks refine the first-pass matrix:
 - GIKI has its own undergraduate admission test with Physics, Mathematics and English, so it must not be treated as the NUST NET. LUMS SBASSE applicants may use SAT, ACT or LCAT; an LCAT prep experience is only one route. Sources: [GIKI admission selection](https://giki.edu.pk/admissions/admissions-undergraduates/admission-selection/), [LUMS admission FAQs](https://admission.lums.edu.pk/admission-faqs).
 - NUMS 2026 official syllabus confirms Paper-I (Biology, Chemistry, Physics, English) and Paper-II (Psychological Test), supporting its separate exam identity. Source: [NUMS MDCAT 2026](https://numspak.edu.pk/news-detail/nums-mdcat-2026-for-admissions-in-mbbs-bds-session-2026-27).
 
-## 7. Public access and pricing copy audit
+## 8. Public access and pricing copy audit
 
 A second targeted copy/flow search found more public promises and a misleading pricing interaction that must be treated as P0 before the public launch:
 
@@ -151,7 +152,7 @@ A second targeted copy/flow search found more public promises and a misleading p
 
 **Recommendation:** before charging students, replace the fake local-only pricing activation with a truthful pricing/access-information page, remove all permanent-free claims, and clearly distinguish free public samples from protected full preparation. Do not implement checkout until the entitlement model and actual provider are approved.
 
-## 8. Live Supabase schema, data and RLS snapshot
+## 9. Live Supabase schema, data and RLS snapshot
 
 **Read-only inspection of active Supabase project edweb (project ref niiskuwlpccmdtwjoxvm) on 2026-11-08. No SQL writes or settings changes were made.**
 
@@ -218,7 +219,7 @@ Performance advisor:
 
 These are triage items, not authorization to change the live database. Resolve security findings individually with a reviewed migration/settings plan and regression tests.
 
-## 9. Not yet tested
+## 10. Not yet tested
 
 This pass did not run local commands or live authenticated browser tests. The following remain open:
 - TypeScript, lint, unit tests and production build baseline on current main.
