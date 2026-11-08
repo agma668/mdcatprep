@@ -34,7 +34,7 @@ const SW_EPOCH = (
   .toString()
   .slice(-12)
 
-const CACHE_NAME = `cadet-prep-${SW_EPOCH}`
+const CACHE_NAME = `apex-prep-${SW_EPOCH}`
 
 const swSource = `'use strict';
 
