@@ -64,11 +64,11 @@ Ship a trustworthy, polished, fast, accessible, genuinely useful product. A stud
 
 ## Phase 0 — Establish truth and unblock public preview (P0)
 
-- [ ] Confirm the public temporary Vercel hostname and whether it is accessible without SSO in a clean browser.
+- [ ] Confirm the public temporary Vercel hostname and whether it is accessible without SSO in a clean browser. Latest inspection: SSO protection is enabled for all deployment URLs except custom domains, and no custom domain is attached.
 - [ ] Resolve the Vercel SSO/deployment-protection mismatch for the intended public preview. Keep preview/admin protections safe; do not weaken access controls blindly.
-- [ ] Resolve canonical host mismatch: `lib/site.ts` points at `mdcatprep-eight.vercel.app`, while Vercel currently reports `edweb-*.vercel.app` aliases.
+- [ ] Resolve canonical host mismatch: `lib/site.ts` points at `mdcatprep-eight.vercel.app`, while Vercel currently reports `edweb-*.vercel.app` aliases. Select the intended public host and access policy together before changing either.
 - [x] Verify GitHub branch divergence: `main` is ahead of `master`, with no reverse-only commits at the last GitHub comparison on 2026-11-08; re-check exact divergence before any deployment or sync. `AGENTS.md` now identifies `main` as the active branch. Still verify Vercel's live production-branch setting before any deployment/promotion.
-- [ ] Confirm Supabase project mapping: use active `edweb`; leave inactive `CAT` untouched.
+- [x] Confirm Supabase project mapping: active `edweb` is the founder-confirmed Apex Pakistan backend; no other site's Supabase or Vercel setup is in scope.
 - [ ] Establish reproducible local checks and baseline logs. Run `npx tsc --noEmit`, `npm test`, `npm run lint`, `npm run build` and record exact outcomes.
 - [ ] Inventory environment variable NAMES and whether each is configured in Preview/Production, without reading or copying secret values.
 - [ ] Confirm auth, email, push, cron and telemetry routes behave correctly without leaking private data.
