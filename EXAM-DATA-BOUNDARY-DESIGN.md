@@ -19,16 +19,17 @@ This design intentionally separates:
 
 | Entity | Key fields (conceptual) | Responsibility |
 |---|---|---|
-| products / site_scopes | product_id, title, status | Namespaces this academy separately from any other site/product sharing the same Supabase project. |\n| exam_registry | exam_id, product_id, category_id, slug, title, status | Stable exam identity and discoverability inside one product. |
+| site_products | site_product_id, title, status | Namespaces this academy separately from any other site/product sharing the same Supabase project. |
+| exam_registry | exam_id, site_product_id, category_id, slug, title, status | Stable exam identity and discoverability inside one product. |
 | exam_variants | exam_id, variant_id, title, status | Official stream/paper variants under one exam (e.g. HEC USAT Pre-Medical or NUST NET Engineering). |
 | exam_blueprints | exam_id, version, readiness, syllabus_version, config | Versioned exam-specific experience. |
 | student_goals | id, user_id, exam_id, variant_id, status, target_date, preferences | One student's chosen exam/variant goal. One user can have many goals. |
-| question_exam_map | question_id, product_id, exam_id, variant_id, syllabus_topic_id, access_level, review_state | Explicitly maps shared question content to one or more exams/variants and product namespace. |
+| question_exam_map | question_id, site_product_id, exam_id, variant_id, syllabus_topic_id, access_level, review_state | Explicitly maps shared question content to one or more exams/variants and product namespace. |
 | assessment_profiles | id, exam_id, variant_id, version, rules, source_url, verified_at | Exact mock/practice rules and provenance for each paper variant. |
-| entitlement_products | product_id, name, product_type, status | A named exam pass or bundle. Not a payment provider. |
-| product_exam_access | product_id, exam_id, variant_id nullable | Exact exams and optional variants a product unlocks. Null variant means all variants only when explicitly intended. |
-| entitlement_grants | id, user_id, product_id, status, valid_from, valid_until, source_type, source_ref | Auditable user grant (launch, purchase, scholarship, sponsored, staff, trial). |
-| question_attempts | existing fields + goal_id, exam_id | Student answer history in one preparation goal. |
+| entitlement_products | entitlement_product_id, name, product_type, status | A named exam pass or bundle. Not a payment provider. |
+| product_exam_access | entitlement_product_id, exam_id, variant_id nullable | Exact exams and optional variants a pass/bundle unlocks. Null variant means all variants only when explicitly intended. |
+| entitlement_grants | id, user_id, entitlement_product_id, status, valid_from, valid_until, source_type, source_ref | Auditable user grant (launch, purchase, scholarship, sponsored, staff, trial). |
+| question_attempts | existing fields + goal_id, exam_id, variant_id | Student answer history in one preparation goal/variant. |
 | question_bookmarks | existing fields + goal_id, exam_id | Review flags in one preparation goal. |
 | flashcard_reviews | existing fields + goal_id, exam_id | Spaced-repetition state per goal. |
 | note_exam_map | note_id, exam_id, access_level | Explicitly maps reusable notes/resources to exam spaces. |
@@ -70,7 +71,7 @@ This also prevents a later monetization failure: a full question bank imported d
 
 - An exam pass maps to exactly one exam in product_exam_access.
 - A bundle maps only to the exams explicitly listed in product_exam_access.
-- A launch grant is scoped to the exam goal the student selected; do not issue blanket all-access simply because the platform starts free.
+- A launch grant is scoped to the exam/variant goal the student selected; do not issue blanket all-access simply because the platform starts free.
 - Scholarship/sponsored/staff/trial grants are explicit and auditable, with clear valid_from/valid_until or an explicit non-expiring policy.
 - A purchase order is not itself the authorization record. The entitlement grant is the access decision; payment provider callbacks may create/revoke grants only after verified server-side confirmation.
 - Refunds, chargebacks, expiry and manual revocation update the grant state and are checked on every protected operation.
