@@ -37,7 +37,6 @@ const PROBE_PATHS = ["/", "/api/health", "/daily-quiz"];
 
 const ENV_GROUPS: { name: string; keys: string[] }[] = [
   { name: "Cron auth", keys: ["CRON_SECRET"] },
-  { name: "Jev triage (TypeSafe)", keys: ["TYPESAFE_API_KEY"] },
   { name: "Supabase", keys: ["NEXT_PUBLIC_SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"] },
   { name: "Push (VAPID)", keys: ["NEXT_PUBLIC_VAPID_PUBLIC_KEY", "VAPID_PRIVATE_KEY", "VAPID_SUBJECT"] },
   {
@@ -55,7 +54,6 @@ const ENV_GROUPS: { name: string; keys: string[] }[] = [
       "EMAILJS_TEMPLATE_ID_REJECTION",
     ],
   },
-  { name: "Email (legacy RESEND)", keys: ["RESEND_API_KEY"] },
 ];
 
 function resolveBaseUrl(): string {
