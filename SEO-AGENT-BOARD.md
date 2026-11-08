@@ -2,6 +2,17 @@
 
 > Owner: SEO agent. Source of truth for search visibility work. Last baseline: 2026-11-08. Statuses: `[ ]` todo · `[~]` in progress · `[x]` verified shipped · `[?]` needs evidence/decision. Never mark shipped from code presence alone: verify the live response and record the check.
 
+## Academy and portal architecture
+
+Apex Pakistan is one academy with distinct exam-focused destinations—not one blended exam dashboard and not a collection of disconnected websites.
+
+- The academy-level homepage helps a student identify their goal and enter the correct track quickly.
+- Each category/exam portal owns its own search intent, syllabus, eligibility/process guidance, subject taxonomy, question bank, practice modes, mock rules, notes and progress context.
+- Shared platform services (identity, account, accessibility system, question delivery engine, mock engine, progress storage and admin tooling) may be reused underneath; exam content and rules must remain explicitly scoped.
+- Initial taxonomy from the product spec: Medical (MDCAT, NUMS and relevant provincial pathways); Engineering & Computing (NUST NET, GIKI, ECAT and other verified tracks); University Admissions & Aptitude (HEC USAT and institution-specific tests such as LUMS); Defence (PMA initial tests and ISSB preparation); MBBS clinical learning as a separate post-admission learning product, not an entrance-test portal.
+- Do not imply every listed exam is fully supported until its content, rules and student workflow are audited. Maintain a per-exam readiness status.
+- Avoid doorway SEO pages: each exam landing page must provide genuinely distinct, verified value and link into a working portal.
+
 ## Mission
 
 Earn qualified, sustainable organic discovery for Pakistani students preparing for MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT and PMA. Search pages must be useful, accurate, fast, accessible and genuinely distinct. No keyword stuffing, doorway pages, invented dates, fake authority, fake reviews, or unsupported exam claims.
@@ -65,6 +76,9 @@ Earn qualified, sustainable organic discovery for Pakistani students preparing f
 
 ### P2 — Information architecture and content
 
+- [ ] Publish the academy-level exam/goal selector as the clear entry point, with category pages and dedicated exam destinations beneath it.
+- [ ] Define a portal registry (stable exam ID, category, display name, route, syllabus version, official source, readiness state, metadata and content owner) as the source of truth; inspect the existing `lib/exams-config.ts` before designing a duplicate.
+- [ ] Give each exam portal a distinct route/search intent and accurate, exam-specific syllabus, pattern, practice and mock guidance; share templates/components without copying generic content.
 - [ ] Define one canonical topic map across MDCAT, NUMS, NUST, GIKI, LUMS, USAT and PMA.
 - [ ] Build a pillar guide for MDCAT preparation, then supporting topic guides with non-overlapping search intent.
 - [ ] Prioritize high-intent pages: exam pattern, syllabus, subject/topic practice, official application guidance, released past-paper index and merit/aggregate explainers.
@@ -111,3 +125,14 @@ Earn qualified, sustainable organic discovery for Pakistani students preparing f
 ## Agent handoff
 
 Before editing: read `AGENTS.md`, `TODO.md`, this board and the relevant route/component. Coordinate through `ROADMAP-AGENT-BOARD.md`; one agent per tree. Stage explicit paths only. After changes run `npx tsc --noEmit`, `npm run lint -- <touched files>` (or the repo's supported targeted lint invocation), `npm run build`, route smoke checks, and append a concise entry to `IMPROVEMENT_LOG.md`. Never claim a check ran unless its output was observed.
+
+
+## Multi-portal SEO acceptance checks
+
+- [ ] Academy homepage targets broad discovery and routes students to a relevant category/exam without trying to rank for every exam keyword.
+- [ ] Category hubs explain which exams belong there and help students choose; exam pages target that exam's own intent and contain unique verified information.
+- [ ] Distinguish exam names and variants accurately (for example MDCAT vs NUMS; USAT-M vs USAT-E vs USAT-CS; NUST NET vs GIKI vs ECAT). Never collapse distinct patterns into a generic “entry test” page.
+- [ ] Portal pages link to their own syllabus, topic practice, mock guidance and relevant resources; cross-link only where the student decision genuinely benefits.
+- [ ] Use stable, human-readable URLs and canonical IDs; avoid multiple URLs for the same exam or thin programmatic variants.
+- [ ] MBBS clinical learning is clearly labelled as a separate post-admission learning area, not confused with medical entrance preparation.
+- [ ] Maintain a portal readiness matrix. Do not index a portal as a fully supported preparation destination until its content and core workflow pass review.
