@@ -254,3 +254,6 @@ The next data model is documented in `EXAM-DATA-BOUNDARY-DESIGN.md`: one student
 
 
 Official pattern verification also changes the UX taxonomy: standard HEC USAT has six stream variants and an essay-writing component; the existing 100-MCQ bank is the Balochistan/FATA scholarship-test variant and must be labelled separately. NUST NET has five paper types, while the current mock is specifically NET-Engineering. The design must show the selected variant and its exact readiness state, not just the parent exam name.
+
+
+P0 UX/architecture constraint from the live audit: the standalone USAT/NUST/PMA practice routes import full question banks into public client components, and the shared attempt action cannot resolve bundled question keys because the live questions table is empty. Do not design a fake locked-card solution over this. Full paid banks must be delivered from server-controlled content after the active goal/variant entitlement check; only explicit sample items may be public. Show a truthful progress-empty/error state until attempts are genuinely persisted, rather than implying that local-only answers are saved.
