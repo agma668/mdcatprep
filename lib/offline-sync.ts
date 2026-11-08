@@ -25,10 +25,11 @@
 // returning student can tell their offline run reached the server.
 
 import { createClient } from "@/lib/supabase/client";
-import { recordAttempt } from "@/app/actions/practice";
+import { recordAttempt, recordAttemptByQuestionKey } from "@/app/actions/practice";
 import {
   claimPendingAttempts,
   enqueuePendingAttempt,
+  enqueuePendingQuestionAttempt,
   newId,
   releasePendingAttempts,
   removePendingAttempts,
@@ -121,6 +122,48 @@ export async function recordAnswer(
   }
 }
 
+/**
+ * Queue-aware recorder for bundled questions identified by stable question_key.
+ * The same id is reused for direct sends and offline retries, so a response
+ * lost in transit cannot create a duplicate attempt when the queue drains.
+ */
+export async function recordBundledAnswer(
+  questionKey: string,
+  questionText: string,
+  selectedAnswer: string,
+  timeSpentSeconds?: number
+): Promise<{ success?: boolean; queued?: boolean; local?: boolean; error?: string }> {
+  const session = await createClient()
+    .then((supabase) => supabase.auth.getSession())
+    .then(({ data }) => data.session)
+    .catch(() => null);
+  if (!session) return { local: true };
+
+  const attemptId = newId();
+  if (!navigator.onLine) {
+    await enqueuePendingQuestionAttempt(questionKey, questionText, selectedAnswer, timeSpentSeconds, attemptId);
+    return { queued: true };
+  }
+
+  try {
+    const result = await recordAttemptByQuestionKey(
+      questionKey,
+      selectedAnswer,
+      questionText,
+      timeSpentSeconds,
+      attemptId
+    );
+    if ("error" in result && result.error === "Not authenticated") {
+      await enqueuePendingQuestionAttempt(questionKey, questionText, selectedAnswer, timeSpentSeconds, attemptId);
+      return { queued: true };
+    }
+    return result;
+  } catch {
+    await enqueuePendingQuestionAttempt(questionKey, questionText, selectedAnswer, timeSpentSeconds, attemptId);
+    return { queued: true };
+  }
+}
+
 let activeDrain: Promise<DrainResult> | null = null;
 
 /**
@@ -156,7 +199,17 @@ async function runDrain(): Promise<DrainResult> {
       // entry.id is the client-unique key the entry was queued with — the
       // server is idempotent by it, so a re-sent entry (crashed drain between
       // server confirm and local remove) can never double-record.
-      const res = await recordAttempt(entry.questionId, entry.selectedAnswer, entry.timeSpentSeconds, entry.id);
+      const res = entry.questionKey
+        ? await recordAttemptByQuestionKey(
+            entry.questionKey,
+            entry.selectedAnswer,
+            entry.questionText,
+            entry.timeSpentSeconds,
+            entry.id
+          )
+        : entry.questionId
+          ? await recordAttempt(entry.questionId, entry.selectedAnswer, entry.timeSpentSeconds, entry.id)
+          : { error: "Queued attempt has no question identity." };
       if (res && "success" in res && res.success) {
         await removePendingAttempts([entry.id]);
         result.synced++;
