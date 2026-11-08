@@ -105,7 +105,7 @@ No payment provider, price, checkout or billing workflow is approved or implemen
 
 | Exam / family | Content and practice evidence | Mock evidence | Progress isolation | Readiness |
 |---|---|---|---|---|
-| MDCAT / PMDC boards | Large bundled medical bank, topic drills, shared practice session; multiple board labels share a core bank | MDCAT-weighted mock exists; verify current official pattern and actual pool filtering | No exam ID on attempts; shared DB pool | Existing foundation; not an isolated Prep Space |
+| MDCAT / PMDC boards | Large bundled medical bank, topic drills, shared practice session; multiple board labels share a core bank | Current “full” mock is only 100 questions (34 Bio / 24 Chem / 30 Physics / 12 English), omits Logical Reasoning and does not match PMDC-2026's 180-question 81/45/36/9/9 split; it also draws from the empty DB pool and currently renders an empty-paper state | No exam ID on attempts; bundled attempt writes fail against empty DB | Large content foundation; current full mock and durable progress are not release-ready |
 | NUMS | Shares PMDC core; separate Paper-II/psychological bank/experience is referenced in code and portal flags | Verify Paper-I/Paper-II assembly and exact current pattern independently | Same global attempt model | Partial; needs distinct blueprint and rules |
 | HEC BFAP Scholarship Test — Pre-Medical variant | Dedicated bundled bank, topic/category drill and chooser; repository docs distinguish it from mainstream USAT-M | Dedicated 100-MCQ / 100-minute scholarship-variant mock | The shared action resolves question_key or question_text against public.questions; live table has zero rows, so bundled attempts return Question not found and the caller suppresses the error | Content foundation only; current durable progress path is broken for this bank |
 | HEC USAT standard — all six variants, including Pre-Medical | HEC lists six standard categories; no complete standard-USAT bank/essay workflow established by this pass | Standard USAT needs its own 75-MCQ + essay workflow; no verified complete mock established | No goal partition | Not ready; do not advertise as complete |
@@ -155,6 +155,12 @@ A second targeted copy/flow search found more public promises and a misleading p
 ## 9. Live Supabase schema, data and RLS snapshot
 
 **Read-only inspection of active Supabase project edweb (project ref niiskuwlpccmdtwjoxvm) on 2026-11-08. No SQL writes or settings changes were made.**
+
+### MDCAT mock-pattern mismatch
+
+PMDC's official MDCAT-2026 public notice confirms a paper-based English MCQ test with 180 questions, no negative marking and subject counts Biology 81, Chemistry 45, Physics 36, English 9 and Logical Reasoning 9. Source: [PMDC MDCAT-2026 public notice PDF](https://pmdc.pk/Documents/Others/Public%20Notice%20Regarding%20Opening%20of%20Online%20Registration%20Portal%20for%20MDCAT-2026.pdf).
+
+The current app/dashboard/mock-test/page.tsx and app/dashboard/mock-test/test/page.tsx define the “full” MDCAT mock as 100 questions: Biology 34, Chemistry 24, Physics 30 and English 12, with no Logical Reasoning. It is 180 minutes but is not a PMDC-2026 full-paper simulation. With the live questions table empty, the generic draw returns zero rows and the player displays “This mock test has no questions.” Rename this as a custom 100-question mixed practice if retained, and create a genuine PMDC-2026 profile only when the canonical server-side bank can supply the full required counts. Do not call the current format a full official-pattern mock.
 
 ### Live row counts
 
