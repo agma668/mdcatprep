@@ -388,3 +388,15 @@ Official PMDC's 2026 public notice now provides the exact paper profile: 180 MCQ
 - [ ] Verify latest Vercel preview at commit `8257c42` reaches READY.
 - [ ] Add an integration test against a non-production Supabase project for idempotency, RLS and offline replay.
 - [ ] Design and validate the exam registry + canonical content migration before any production DDL or question import.
+
+
+## 2026-11-09 — Wave 4 registry foundation
+
+- [x] Draft migration for exam registry, official variants, assessment profiles, student goals and internal question mapping.
+- [x] Enable RLS on all new public-schema tables; public catalogue reads are active-only; goal access is owner-scoped; question mappings remain internal-only.
+- [x] Enforce exam/variant consistency with composite foreign keys.
+- [x] Validate exact migration SQL in a rollback-only transaction against Apex `edweb`; verify all new tables remain absent afterward.
+- [ ] Review migration and test on a non-production Supabase project before applying to production.
+- [ ] Add catalogue seed data only after exam blueprint readiness and official source review.
+- [ ] Implement goal-aware server actions, then add scoped progress columns without guessing legacy ownership.
+- [ ] Build reviewed question ingestion and entitlement-aware delivery; do not seed the current incomplete MDCAT bank as published.
