@@ -22,6 +22,22 @@ The primary product remains free. Do not imply locked paid features, guaranteed 
 - The current Vercel project is named `edweb`; reported aliases are `edweb-nine.vercel.app`, `edweb-acma-32c6.vercel.app`, `edweb-git-main-acma-32c6.vercel.app`. SSO protection is enabled except for custom domains. Verify anonymous usability before visual sign-off.
 - No custom domain is currently listed on the Vercel project. Domain purchase is deliberately deferred until the release gate in the master roadmap passes.
 
+## Academy and portal experience model
+
+Use a simple three-level information architecture:
+
+1. **Apex Pakistan Academy** — the public front door. Ask what the student is preparing for and make the next step obvious. Group options by broad goal, use plain-language labels and show the exact exam names under each group.
+2. **Category hub** — a short chooser and orientation page (Medical, Engineering & Computing, University Admissions & Aptitude, Defence, and a clearly separate MBBS clinical-learning area). It helps a student compare related exams without mixing their content.
+3. **Dedicated exam portal** — the student's focused workspace. Its navigation, syllabus, practice, mock settings, notes, guidance and progress are scoped to the selected exam. Keep the exam name/context visible and make switching tracks intentional and easy.
+
+**Critical UX rule:** share infrastructure and design components, not the student's cognitive context. Never mix MDCAT questions into NUMS practice, NUST mock rules into GIKI, or defence preparation into university-admission navigation. Where exams overlap, explain the overlap and keep separate exam-specific modes.
+
+- Preserve one account and shared accessibility/design language across the academy.
+- Remember the student's selected exam when useful, but always show the active context and provide a clear switch path.
+- Ask for an exam goal during onboarding only when needed; allow multiple goals for students preparing for more than one test.
+- A portal must show a clear “what's included” and readiness state. Do not present incomplete tracks as fully operational.
+- Keep MBBS clinical notes visibly separate from pre-admission medical entrance preparation.
+
 ## Design principles
 
 1. **Clarity before decoration.** Every screen has one dominant task and an obvious hierarchy.
@@ -39,8 +55,10 @@ The primary product remains free. Do not imply locked paid features, guaranteed 
 
 ### P0 — Brand and experience audit
 
-- [ ] Decide the public brand system: “Apex Pakistan”, “MED Prep”, or a clear parent-brand/product relationship. Record the decision before changing names.
-- [ ] Audit homepage from a first-time student's perspective: value proposition, exam selector, free promise, first action, proof and FAQ.
+- [ ] Confirm the brand system: Apex Pakistan as the parent academy, with MED Prep considered a medical-portal/product label only if the founder approves. Do not rename production surfaces until the decision and migration map are recorded.
+- [ ] Audit homepage as the academy front door: value proposition, plain-language goal selector, exam names, free promise, first action, proof and FAQ.
+- [ ] Design category hubs and a repeatable dedicated-exam-portal template; test that students can tell which exam they are in at every step.
+- [ ] Create an exam/portal content matrix showing separate syllabus, question bank, practice, mock rules, notes, guidance and completion/readiness state for each exam.
 - [ ] Audit navbar on desktop, tablet and mobile: hierarchy, tap targets, active state, focus, Escape, resize and scroll behaviour.
 - [ ] Audit all public routes: `/`, `/exams`, `/portal/[exam]`, `/topicals`, `/past-papers`, `/daily-quiz`, `/flashcards`, `/notes`, `/blog`, `/faq`, `/pricing`, `/resources`, `/login`, `/signup`.
 - [ ] Audit the complete student journey: signup → pending/approval state → dashboard → choose exam → practice → explanation → mistake notebook → flashcards/notes → mock test → progress.
@@ -76,7 +94,8 @@ The primary product remains free. Do not imply locked paid features, guaranteed 
 
 ### P3 — Student application UX
 
-- [ ] Make exam-track selection persist and remain visible; students should always know which exam context they are in.
+- [ ] Make the active exam context persistent and unmistakable across dashboard, practice, mock tests, notes and progress; provide a deliberate switcher and support multiple goals.
+- [ ] Keep each portal's content and navigation scoped to its own exam; shared UI components must not silently blend exam rules or question banks.
 - [ ] Simplify dashboard hierarchy: next best action, today's work, progress and navigation.
 - [ ] Make practice sessions excellent: readable question, distinct options, clear selected/correct states, explanation, progress, timing and next question.
 - [ ] Make mock-test flow exam-accurate and calm: instructions, timer, navigation, review, submit confirmation and results.
@@ -136,3 +155,8 @@ Release gate: weighted score at least 4.5/5 in each category, zero unresolved cr
 ## Agent handoff
 
 Read `AGENTS.md`, `TODO.md`, this board and the relevant component before editing. Coordinate ownership in `ROADMAP-AGENT-BOARD.md`; one agent per tree. Stage explicit file paths. Run typecheck, targeted lint, build and visual smoke tests at the required breakpoints. Append a concise why-focused entry to `IMPROVEMENT_LOG.md`. Do not deploy to production merely because a local screenshot looks good.
+
+
+## Portal clarity acceptance test
+
+Ask a first-time student to find their exam, start relevant practice, locate its syllabus and identify the mock-test rules. They should not need staff guidance, should never encounter another exam's questions/rules by accident, and should be able to identify the active exam on every learning screen. Test both a single-exam student and a multi-exam student. Record observed confusion and fix the navigation/content model rather than adding more labels.
