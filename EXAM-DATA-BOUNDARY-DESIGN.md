@@ -20,12 +20,13 @@ This design intentionally separates:
 | Entity | Key fields (conceptual) | Responsibility |
 |---|---|---|
 | exam_registry | exam_id, category_id, slug, title, status | Stable exam identity and discoverability. |
+| exam_variants | exam_id, variant_id, title, status | Official stream/paper variants under one exam (e.g. HEC USAT Pre-Medical or NUST NET Engineering). |
 | exam_blueprints | exam_id, version, readiness, syllabus_version, config | Versioned exam-specific experience. |
-| student_goals | id, user_id, exam_id, status, target_date, preferences | One student's chosen preparation goal. One user can have many goals. |
-| question_exam_map | question_id, exam_id, syllabus_topic_id, access_level, review_state | Explicitly maps shared question content to one or more exams. |
-| assessment_profiles | id, exam_id, version, rules, source_url, verified_at | Exact mock/practice rules and provenance. |
+| student_goals | id, user_id, exam_id, variant_id, status, target_date, preferences | One student's chosen exam/variant goal. One user can have many goals. |
+| question_exam_map | question_id, exam_id, variant_id, syllabus_topic_id, access_level, review_state | Explicitly maps shared question content to one or more exams/variants. |
+| assessment_profiles | id, exam_id, variant_id, version, rules, source_url, verified_at | Exact mock/practice rules and provenance for each paper variant. |
 | entitlement_products | product_id, name, product_type, status | A named exam pass or bundle. Not a payment provider. |
-| product_exam_access | product_id, exam_id | Exact list of exams a product unlocks. |
+| product_exam_access | product_id, exam_id, variant_id nullable | Exact exams and optional variants a product unlocks. Null variant means all variants only when explicitly intended. |
 | entitlement_grants | id, user_id, product_id, status, valid_from, valid_until, source_type, source_ref | Auditable user grant (launch, purchase, scholarship, sponsored, staff, trial). |
 | question_attempts | existing fields + goal_id, exam_id | Student answer history in one preparation goal. |
 | question_bookmarks | existing fields + goal_id, exam_id | Review flags in one preparation goal. |
@@ -41,7 +42,7 @@ A question can be shared across multiple exams only by multiple explicit questio
 
 - A student may create multiple goals under one account, e.g. pmdc-mdcat and pma-long-course.
 - A goal has an independent status: active, paused, completed or archived.
-- The active goal is a navigation preference, not a security boundary. Every request must still validate the goal belongs to the authenticated user.
+- The active goal is a navigation preference, not a security boundary. For multi-variant exams, the goal also records the selected official variant. Every request must still validate the goal belongs to the authenticated user.
 - A user may hold more than one goal for the same exam across different cycles if there is a real product reason; otherwise enforce one active goal per user/exam and preserve historical completed goals.
 - The legacy profiles.exam_target field remains a display/onboarding hint only after migration. It must not decide authorization.
 
@@ -73,7 +74,7 @@ For every authenticated student request:
 1. Resolve the Supabase user from the verified server session.
 2. Resolve the requested goal and confirm goal.user_id equals the authenticated user.
 3. Resolve goal.exam_id from the registry; never trust a client-supplied exam_id without checking the goal.
-4. Confirm a currently valid entitlement grant includes that exact exam, unless the requested content is explicitly public_sample.
+4. Confirm a currently valid entitlement grant includes that exact exam and selected variant (or an explicit all-variants grant), unless the requested content is explicitly public_sample.
 5. Confirm the requested question/resource has an explicit mapping to that exam and is published/released for the student's access level.
 6. For writes, persist goal_id and exam_id with the attempt/bookmark/review so later analytics cannot mix goals.
 7. Reject mismatched goal/question mappings server-side, even if the browser sent a valid question UUID/key.
@@ -91,7 +92,7 @@ The final migration must be designed against the actual live schema and tested o
 - entitlement_grants: students can read only their own grants; only trusted server/admin flows can create, revoke or modify grants.
 - question_exam_map: prevent students from reading mappings that reveal protected content availability if that is commercially sensitive; at minimum, the related question row must enforce access.
 - questions: published status alone is not sufficient. Student SELECT must require an explicit mapping to a goal-access exam for which the caller has a valid grant, or a public_sample mapping.
-- question_attempts and question_bookmarks: each row must belong to the authenticated student and a goal owned by that same student; the goal's exam must match the question mapping. Do not permit a client to change goal_id or exam_id to another exam on UPDATE.
+- question_attempts and question_bookmarks: each row must belong to the authenticated student and a goal owned by that same student; the goal's exam and variant must match the question mapping. Do not permit a client to change goal_id or exam_id to another exam on UPDATE.
 - flashcard_reviews: student_id and goal_id must match; the card must be mapped to the goal's exam.
 - notes/resources: official content must be mapped to allowed exam(s); student notes must be owned by the uploader and tied to their goal or explicitly shared exam context.
 - Never authorize using user-editable user_metadata claims.
