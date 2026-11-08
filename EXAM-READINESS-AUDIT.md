@@ -289,3 +289,10 @@ The bundled-key attempt action now accepts the same optional client idempotency 
 The offline outbox now supports both database UUID questions and bundled stable-key questions. Bundled answers are queued when offline, when the request is interrupted, or while the canonical question row is not yet present. Draining retries either identity through the same server action. "Question not found" is held for later retry rather than discarded. Queue claims now use a separate `syncStartedAt` lease timestamp, avoiding immediate cross-tab reclamation of entries that were originally enqueued long ago.
 
 PracticeSession and MockTestPlayer now log persistence failures rather than swallowing them. GitHub Actions run `42526582743` passed tests, ESLint and TypeScript. This is a reliability improvement, not proof of production persistence: the inspected live `questions` table remains empty, and no canonical bank ingestion has been performed. No live schema or student rows were changed.
+
+
+## 2026-11-09 Wave 4 — registry schema draft
+
+A feature-branch migration draft now defines `exam_registry`, `exam_variants`, `assessment_profiles`, `student_goals` and `question_exam_map`. It uses composite foreign keys so a goal or question mapping cannot pair a variant with the wrong exam. RLS is enabled on all new public-schema tables. Public clients can read only active catalogue/assessment rows and students can read or create/update only their own goals. The question map is internal-only (no anon/authenticated grant or policy) until a server-controlled delivery action enforces exam access.
+
+The migration deliberately does not alter legacy progress tables, backfill historical attempts, seed exams, publish questions, or modify the existing question read policy. The exact migration SQL was executed in a transaction and rolled back against the dedicated Apex Supabase project; a subsequent information_schema check confirmed all five new tables remain absent. This validates SQL syntax and constraints without persisting schema changes. Production migration application remains pending review and staging/integration tests.
