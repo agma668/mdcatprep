@@ -65,7 +65,11 @@ export type OfflineQuestion = {
 export type PendingAttempt = {
   /** Client-unique id — the queue's idempotency guard. */
   id: string;
-  questionId: string;
+  /** Existing DB-backed questions use questionId; bundled questions use questionKey. */
+  questionId?: string;
+  questionKey?: string;
+  /** Text is only a compatibility fallback if the DB key column is unavailable. */
+  questionText?: string;
   selectedAnswer: string;
   /** Epoch ms, used to reclaim entries stranded in "syncing" by a crash. */
   createdAt: number;
@@ -142,6 +146,34 @@ export async function enqueuePendingAttempt(
   const entry: PendingAttempt = {
     id,
     questionId,
+    selectedAnswer,
+    createdAt: Date.now(),
+    status: "queued",
+    ...(typeof timeSpentSeconds === "number" ? { timeSpentSeconds } : {}),
+  };
+  const db = await openDB();
+  await new Promise<void>((resolve, reject) => {
+    const tx = db.transaction(PENDING_STORE, "readwrite");
+    tx.objectStore(PENDING_STORE).put(entry);
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => reject(tx.error);
+  });
+  notifyQueueChanged();
+  return entry;
+}
+
+/** Queue an answer for a bundled question that has a stable key but no DB UUID in the client. */
+export async function enqueuePendingQuestionAttempt(
+  questionKey: string,
+  questionText: string,
+  selectedAnswer: string,
+  timeSpentSeconds?: number,
+  id: string = newId()
+): Promise<PendingAttempt> {
+  const entry: PendingAttempt = {
+    id,
+    questionKey,
+    questionText,
     selectedAnswer,
     createdAt: Date.now(),
     status: "queued",
