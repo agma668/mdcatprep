@@ -21,19 +21,19 @@ export const maxDuration = 60;
  *    so Vercel's best-effort cron (or a manual re-run) never double-fires.
  *  - Demo students only — their ids are resolved by the .example emails; a
  *    missing student (seed not run) is skipped, never created here.
- *  - Auth: if CRON_SECRET is configured on Vercel it must match. Without it
- *    the endpoint accepts the request (this only appends a handful of rows to
- *    demo accounts — it cannot touch real students).
+ *  - Auth: CRON_SECRET is mandatory. Missing configuration disables this
+ *    synthetic-data writer rather than leaving a public service-role endpoint.
  *
- * Schedule in vercel.json — keep the same cadence as the seed roster.
+ * This route is intentionally not scheduled in Apex. Synthetic attempts are
+ * not a substitute for real student activity and must never be used as public
+ * social proof. It remains gated for controlled internal test environments.
  */
 export async function GET(request: Request) {
   const secret = process.env.CRON_SECRET;
-  if (secret) {
-    const auth = request.headers.get("authorization");
-    if (auth !== `Bearer ${secret}`) {
-      return NextResponse.json({ error: "unauthorized" }, { status: 401 });
-    }
+  if (!secret) return NextResponse.json({ error: "cron is not configured" }, { status: 503 });
+  const auth = request.headers.get("authorization");
+  if (auth !== `Bearer ${secret}`) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 
   const service = createServiceClient();
