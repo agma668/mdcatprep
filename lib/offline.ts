@@ -74,6 +74,8 @@ export type PendingAttempt = {
   /** Epoch ms, used to reclaim entries stranded in "syncing" by a crash. */
   createdAt: number;
   status: "queued" | "syncing";
+  /** Last lease start, separate from original createdAt so old entries cannot be reclaimed immediately. */
+  syncStartedAt?: number;
   /** Seconds spent on the question (timed surfaces, e.g. McqPlayer). */
   timeSpentSeconds?: number;
 };
@@ -214,10 +216,13 @@ export async function claimPendingAttempts(): Promise<PendingAttempt[]> {
     const req = store.getAll();
     const claimed: PendingAttempt[] = [];
     req.onsuccess = () => {
-      const cutoff = Date.now() - STALE_SYNCING_MS;
+      const now = Date.now();
+      const cutoff = now - STALE_SYNCING_MS;
       for (const a of req.result as PendingAttempt[]) {
-        if (a.status === "queued" || (a.status === "syncing" && a.createdAt < cutoff)) {
+        const lastClaim = a.syncStartedAt ?? a.createdAt;
+        if (a.status === "queued" || (a.status === "syncing" && lastClaim < cutoff)) {
           a.status = "syncing";
+          a.syncStartedAt = now;
           store.put(a);
           claimed.push(a);
         }
@@ -243,6 +248,7 @@ export async function releasePendingAttempts(ids: string[]): Promise<void> {
         const a = get.result as PendingAttempt | undefined;
         if (a) {
           a.status = "queued";
+          delete a.syncStartedAt;
           store.put(a);
         }
       };
