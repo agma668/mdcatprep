@@ -69,9 +69,9 @@ This is the most important content-isolation risk to resolve before expanding th
 
 ### Practice persistence is inconsistent
 
-- Shared /practice/session and MockTestPlayer call server actions to record attempts (DB questions by row ID; bundled questions by stable question key).
+- Shared /practice/session and MockTestPlayer call server actions to record attempts (DB questions by row ID; bundled questions by stable question key). However, the live questions table has zero rows, so the bundled-key action cannot resolve any current static-bank item.
 - The standalone PMA practice page visibly maintains answers, revealed questions and score in React state. Search of current attempt-action call sites found the shared session and mock player, not the standalone PMA/NUST/USAT practice components.
-- The dedicated practice pages therefore must not be assumed to produce durable student analytics until individually verified.
+- The standalone PMA, NUST and USAT pages keep answers/scores in React state and do not persist their local practice answers. The shared session/mock action attempts to persist bundled keys but fails against the empty live questions table; the caller suppresses the failure. Therefore current bundled-bank practice does not produce reliable durable analytics.
 
 ## 3. Progress, bookmarks, notes and flashcards
 
@@ -180,6 +180,18 @@ The live migration history contains 22 applied versions, matching the 22 checked
 - Because question_attempts is empty, the analytics dashboard has no real attempt history to display. This must be fixed and verified before claiming persistent analytics, streaks or cross-device progress work.
 
 This is a higher-priority defect than simply adding exam_id to attempts: first establish a reliable canonical content identity and successful persistence for bundled questions, then scope each write to a student goal and exam variant.
+
+### Public routes and client-shipped question banks
+
+The proxy.ts route policy protects only /dashboard and /admin. The dedicated /usat/practice, /nust/practice and /pma/practice routes are public routes and the pages are client components:
+
+- app/usat/practice/page.tsx imports USAT_ELITE_BANK directly in a client component.
+- app/nust/practice/page.tsx imports NUST_NET_BANK directly in a client component.
+- app/pma/practice/page.tsx imports PMA_QUESTIONS directly in a client component.
+
+The full question arrays, answer keys and explanations are therefore shipped to the browser in the client-side application code on those routes. This is consistent with today's free/public practice design, but it is **not compatible with a future exam-specific paid-content boundary**. A client-side lock, hidden navigation item or middleware redirect cannot make content private after the full bank has been shipped. Before paid access is enabled, full banks must be served from a server-controlled content source after checking the user's goal, exam/variant entitlement and question mapping. Only intentionally selected public samples should remain client-shipped/public.
+
+The shared /practice/session page checks for an authenticated user, but it has no exam entitlement check. The public dedicated pages do not pass through the /dashboard approval gate.
 
 ### Live RLS policy observations
 
