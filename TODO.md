@@ -10,7 +10,7 @@
 * **Platform Name:** Apex Pakistan (formerly MED Prep / mdcatprep)
 * **Live Deployment:** Deployed to Vercel via GitHub `main` branch (`https://mdcatprep-eight.vercel.app` / custom domain pending).
 * **Primary Mission:** Build the undisputed national monopoly education and entrance-exam prep platform in Pakistan across medical, military, engineering, and undergraduate admissions.
-* **Current Access Model:** **100% Free** for all students across Pakistan to drive viral student adoption, word-of-mouth growth, and national dominance before monetizing premium passes.
+* **Launch Access Model (current decision):** The launch may initially be free to build student adoption, but access must be pricing-ready and must not be promised free forever. Future access is granted per exam Prep Space or an explicitly named bundle. See `PRODUCT-ARCHITECTURE-DECISION.md`; it supersedes older commercial assumptions in this file.
 * **Core Value Proposition:**
   1. Replaces expensive physical academies (KIPS, STEP, Stars charging Rs. 30k–70k).
   2. Complete, honest, exam-accurate question banks with pedagogical rationales.
@@ -113,33 +113,40 @@ The platform is divided into 5 core academic and competitive tracks, coordinated
 
 ---
 
-## 6. Commercial Architecture & Monetization Blueprint
+## 6. Commercial Architecture & Monetization Blueprint (UPDATED 2026-11-08)
 
-### A. Strategic Transition: From 100% Free to Paid Pro
-* **Phase 0–2 (Free Domination):** Free practice drives national adoption, college ambassador referrals, and replaces physical academies charging Rs. 30k–70k.
-* **Exit Gates Before Charging:**
-  1. Bank quality: Zero incorrect answer keys, full pedagogical rationales.
-  2. Verified patterns: CBT timed simulators strictly matching real test rules (PMDC 180 MCQs / 3 hrs; NET 200 MCQs / 180 min).
-  3. Proven engagement: 200+ active weekly users with verified Day-7 return rate.
-  4. Pakistani payment rails configured (EasyPaisa, JazzCash, Raast QR, Safepay).
+**This section supersedes the older free-forever, freemium-feature and fixed-price package proposals previously recorded here.** The authoritative decision is in `PRODUCT-ARCHITECTURE-DECISION.md`.
 
-### B. Freemium Split
-* **Always Free:** Daily chapter drills, basic syllabus maps, past papers index, merit aggregate calculators, basic community access.
-* **Paid Pro Features:**
-  - Full-length timed mock exams with All-Pakistan percentile and provincial merit rank predictor.
-  - Adaptive Mistake Notebook (re-tests specific cognitive weaknesses).
-  - High-Yield Master Concept Notes Reader (whitepaper format).
-  - Offline PWA practice packs (for weak connectivity in Balochistan, KPK, rural Punjab/Sindh).
+### A. Launch and future access
 
-### C. Pricing Packages (One-Time Season Passes, No Confusing Monthly Subs)
-1. **Medical Full Season Pass (Rs. 2,500 – 3,500):** PMDC MDCAT + NUMS complete mocks, past-paper rationales, and master notes.
-2. **Medical Repeater Cohort (Rs. 4,500):** Diagnostic gap analysis + tailored 20-week schedule + psychological bank.
-3. **Engineering NET 4-Series Master Pass (Rs. 2,500):** NUST NET CBT simulator, FAST-NU, GIKI, and UET ECAT drills.
-4. **HEC USAT & Balochistan/FATA Scholarship Pack (Rs. 1,500):** ETC aptitude test verbal/quantitative drills and quota calculators.
-5. **PMA & Defense Initial Pass (Rs. 1,500):** Verbal & Non-verbal intelligence matrix tests.
-6. **Apex All-Access Lifetime Pass (Rs. 5,000 – 7,000):** Universal access to all 5 tracks for multi-exam candidates.
+- The initial launch may be free, including a time-limited or policy-defined acquisition period.
+- Do not promise that every exam, feature or Prep Space will remain free forever.
+- Do not hardcode access as permanently free. Model explicit access grants so the launch policy can change without redesigning accounts.
+- Public academy discovery, exam information and account creation should remain available. Clearly disclose what preparation content is included, locked, in beta or coming soon.
 
----
+### B. Exam-scoped entitlements
+
+- Access is enforced server-side and scoped to a stable exam/Prep Space ID and product tier.
+- Purchasing MDCAT unlocks MDCAT only. It does not automatically unlock PMA, CSS, IELTS, NUST or every other exam.
+- A named bundle may grant several exams only when those exams are explicitly listed in the bundle.
+- Trials, free samples, scholarships, sponsored access, staff/test access and launch grants must be explicit policies or grant types.
+- Store entitlement status, start/end dates, source/order reference, and revocation/refund state in an auditable model.
+- Enforce access on server-rendered content, server actions, APIs, downloads, attempts and progress writes. Hiding a card in the UI is not authorization.
+- The current profile approval status is a global account-access gate; it is not a purchase entitlement and must not be repurposed as one.
+
+### C. Payment decisions are not approved yet
+
+- No payment provider, final price, payment schedule, tax treatment, refund terms or checkout flow is approved by this specification.
+- Research Pakistani payment options and compliance requirements separately when the entitlement boundary is designed and the founder explicitly authorizes payment planning.
+- Do not implement payment processing or change billing settings as part of the architecture audit.
+
+### D. Required engineering order
+
+1. Stable Exam Registry and Preparation Blueprints.
+2. Server-enforced exam ownership for content and exam-scoped student progress.
+3. Compatibility plan for existing single exam_target profiles and historical attempts.
+4. Tests proving one exam grant cannot access another exam's protected content or write cross-exam progress.
+5. Only then implement the approved launch policy and any future paid entitlements.
 
 ## 7. The Developer Gate Ladder
 
@@ -160,3 +167,8 @@ Before marking any task complete or committing:
 - [x] **HEC Balochistan/FATA Aptitude Bank:** Dedicated scholarship bank shipped at 212 questions (V78/Q62/B30/C21/P21) from the phase-2/3 papers, with the 100-MCQ / 100-min USAT-M mock and chapter-style drill navigation.
 - [ ] **Medical Repeater Funnel:** Aggregate calculator (10/40/50 formula) + post-result diagnostic path.
 - [ ] **Local Payment Gateway Integration:** Implement Raast QR / EasyPaisa / JazzCash manual verification flow behind admin flag.
+
+
+## Commercial architecture supersession note — 2026-11-08
+
+Older statements in this document describing “100% Free”, “Free forever”, a permanent free-feature split, or fixed pass prices are historical proposals only. They are not current policy and must not be copied into public product copy. The approved model is one account with multiple exam-specific Prep Spaces and explicit server-enforced entitlements scoped to each exam or named bundle. The current public portal page still contains free-forever wording in code; it is an identified audit issue, not an approved promise.
