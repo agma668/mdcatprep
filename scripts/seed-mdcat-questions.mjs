@@ -18,10 +18,12 @@
 //   - rows that already match the file are skipped.
 // Re-running always converges the table to the file and never double-inserts.
 //
-// NOTE (shared database): this DB also serves the cadet-college site. The
-// MDCAT rows are additive (new subjects) and touched only by this script.
-// Rollback if ever needed:
-//   DELETE FROM questions WHERE question_key IN (the uuid keys in lib/*-questions.ts);
+// Apex production caution: this is a legacy single-bank importer, not the
+// approved multi-exam ingestion pipeline. It writes published rows with the
+// service-role key but does not attach exam/variant mappings. Do not run it
+// against production until the reviewed Apex ingestion design replaces it.
+// Never use a broad question_key deletion as an improvised rollback; preserve
+// production content and use a reviewed, exact-row recovery plan instead.
 //
 // Inserts keep source='imported' and status='published' because the mock test
 // and academy quiz only serve published rows. The service role bypasses RLS;
