@@ -164,3 +164,8 @@ Recommended migration sequence:
 9. Add payment processing only after a separate approved provider/terms decision.
 
 **No database change is authorized by this document.** Do not apply migrations, seed production data, alter RLS or change billing until the schema, tests, backup and rollout plan are reviewed and explicitly approved.
+
+
+## 2026-11-09 implementation note — attempt outbox
+
+The implementation now supports key-based bundled questions in the same offline outbox as UUID-backed database questions. Each queued attempt preserves its stable question key, fallback text, selected answer, optional time and unique attempt ID. The drain retries through the corresponding server action and uses the same idempotency ID. A missing canonical row is retained for later retry, not discarded. This protects answers while the canonical bank is being ingested, but it does not replace the requirement to seed reviewed canonical rows and explicit exam/variant mappings before claiming persistent analytics are live.
