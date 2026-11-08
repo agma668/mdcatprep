@@ -22,6 +22,12 @@ The primary product remains free. Do not imply locked paid features, guaranteed 
 - The current Vercel project is named `edweb`; reported aliases are `edweb-nine.vercel.app`, `edweb-acma-32c6.vercel.app`, `edweb-git-main-acma-32c6.vercel.app`. SSO protection is enabled except for custom domains. Verify anonymous usability before visual sign-off.
 - No custom domain is currently listed on the Vercel project. Domain purchase is deliberately deferred until the release gate in the master roadmap passes.
 
+## Current architecture gap discovered
+
+The existing `lib/exams-config.ts` has four top-level categories (`mdcat`, `pma`, `nust`, `usat`) and groups several distinct exams as subtests. For example, MDCAT's super-portal currently includes NUMS and USAT-M; the engineering portal groups NUST, GIKI, LUMS and USAT-E. This is a useful inventory starting point, but it does not yet prove that each exam has a distinct enough student experience, independent question/configuration rules or a clearly scoped progress context. The USAT portal currently represents Arts/Commerce variants while other USAT variants are nested elsewhere.
+
+**First implementation task:** map each existing route, exam ID, bank, syllabus, mock configuration and feature to the actual exam it serves. Then decide which exams need their own portal route versus an exam-specific sub-workspace inside a category portal. Do not split routes or duplicate banks until this map is complete.
+
 ## Academy and portal experience model
 
 Use a simple three-level information architecture:
