@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { USAT_ELITE_BANK } from '@/lib/usat-comprehensive-bank';
 import Link from 'next/link';
 
@@ -57,7 +57,7 @@ export default function USATPracticePage() {
     setQuestionSkipped(false);
   };
 
-  const nextQuestion = () => {
+  const nextQuestion = useCallback(() => {
     if (currentIdx < totalQuestions - 1) {
       setCurrentIdx(prev => prev + 1);
       setSelectedAnswers({});
@@ -65,7 +65,7 @@ export default function USATPracticePage() {
       setTimerRunning(false);
       setTimeRemaining(20);
     }
-  };
+  }, [currentIdx, totalQuestions]);
 
   const prevQuestion = () => {
     if (currentIdx > 0) {
@@ -79,10 +79,10 @@ export default function USATPracticePage() {
 
   // Auto-advance when timer runs out (no answer selected)
   useEffect(() => {
-    if (timeRemaining === 0 && !isAnswered && !questionSkipped) {
-      nextQuestion();
-    }
-  }, [timeRemaining, isAnswered, questionSkipped, currentIdx]);
+    if (timeRemaining !== 0 || isAnswered || questionSkipped) return;
+    const id = window.setTimeout(nextQuestion, 0);
+    return () => window.clearTimeout(id);
+  }, [timeRemaining, isAnswered, questionSkipped, nextQuestion]);
 
   const subjects = ['All', 'Quantitative', 'Verbal', 'Biology', 'Chemistry', 'Physics'];
 
