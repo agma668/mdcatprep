@@ -1,9 +1,9 @@
 /**
- * One owner of demo-account identification. The founder-sanctioned demo
- * roster uses the reserved .example email domain everywhere in the app; the
- * suffix and the helper are read from HERE — the SQL like filter in
- * lib/public-stats.ts, the opponent gate in app/actions/duels.ts, and the
- * leaderboard challenge lookup — never from a literal scattered across files.
+ * Legacy synthetic-account marker. Keep this exclusion so any previously
+ * created test profiles never inflate real-student statistics. Apex no longer
+ * schedules synthetic activity or uses these accounts as social proof.
+ * The suffix is centralised here for public-stats and opponent filters; do not
+ * create new production accounts with this marker.
  */
 export const DEMO_EMAIL_SUFFIX = "@cadetprep.example";
 
