@@ -19,12 +19,11 @@ This design intentionally separates:
 
 | Entity | Key fields (conceptual) | Responsibility |
 |---|---|---|
-| site_products | site_product_id, title, status | Namespaces this academy separately from any other site/product sharing the same Supabase project. |
-| exam_registry | exam_id, site_product_id, category_id, slug, title, status | Stable exam identity and discoverability inside one product. |
+| exam_registry | exam_id, category_id, slug, title, status | Stable exam identity and discoverability inside Apex Pakistan. |
 | exam_variants | exam_id, variant_id, title, status | Official stream/paper variants under one exam (e.g. HEC USAT Pre-Medical or NUST NET Engineering). |
 | exam_blueprints | exam_id, version, readiness, syllabus_version, config | Versioned exam-specific experience. |
 | student_goals | id, user_id, exam_id, variant_id, status, target_date, preferences | One student's chosen exam/variant goal. One user can have many goals. |
-| question_exam_map | question_id, site_product_id, exam_id, variant_id, syllabus_topic_id, access_level, review_state | Explicitly maps shared question content to one or more exams/variants and product namespace. |
+| question_exam_map | question_id, exam_id, variant_id, syllabus_topic_id, access_level, review_state | Explicitly maps Apex question content to one or more exams/variants. |
 | assessment_profiles | id, exam_id, variant_id, version, rules, source_url, verified_at | Exact mock/practice rules and provenance for each paper variant. |
 | entitlement_products | entitlement_product_id, name, product_type, status | A named exam pass or bundle. Not a payment provider. |
 | product_exam_access | entitlement_product_id, exam_id, variant_id nullable | Exact exams and optional variants a pass/bundle unlocks. Null variant means all variants only when explicitly intended. |
@@ -35,7 +34,7 @@ This design intentionally separates:
 | note_exam_map | note_id, exam_id, access_level | Explicitly maps reusable notes/resources to exam spaces. |
 | student_notes | existing note fields + goal_id or exam_id | Student-created notes retain their originating context. |
 
-A question can be shared across multiple exams only by multiple explicit question_exam_map rows. Sharing a subject (e.g. Biology) is never sufficient evidence to share a question. Content must also be scoped to the correct product/site namespace; a shared Supabase project is not permission to mix unrelated academy sites.
+A question can be shared across multiple exams only by multiple explicit question_exam_map rows. Sharing a subject (e.g. Biology) is never sufficient evidence to share a question. All mapped content belongs to Apex Pakistan's dedicated Supabase project; subject overlap alone never permits cross-exam question reuse.
 
 ## 2A. Canonical question identity and content delivery (P0 prerequisite)
 
@@ -45,7 +44,7 @@ The live Supabase questions table is currently empty, while the question banks l
 - recordAttemptByQuestionKey resolves that key (or exact question_text) against public.questions before inserting question_attempts.
 - With zero question rows, the action returns “Question not found”; the current UI call sites suppress the failure. This is why current bundled-bank practice does not create reliable durable analytics.
 
-**Recommended direction:** make the server-side content store the canonical source for protected questions. Ingest approved banks into the database with stable question_key values, explicit product_id + exam_id + variant_id mappings, provenance and publication/review status. Keep any static client-side content limited to deliberately selected public samples. Server components/actions fetch the selected exam's questions only after validating the student's goal and entitlement; do not import full paid banks into client components.
+**Recommended direction:** make the server-side content store the canonical source for protected questions. Ingest approved banks into the database with stable question_key values, explicit exam_id + variant_id mappings, provenance and publication/review status. Keep any static client-side content limited to deliberately selected public samples. Server components/actions fetch the selected exam's questions only after validating the student's goal and entitlement; do not import full paid banks into client components.
 
 The current scripts/seed-mdcat-questions.mjs is not a safe general ingestion path:
 - It only seeds the MDCAT bank.
@@ -53,7 +52,7 @@ The current scripts/seed-mdcat-questions.mjs is not a safe general ingestion pat
 - Its historical comments described a shared database; the founder has confirmed that Apex's `edweb` project is dedicated to Apex Pakistan, so that statement is stale and must not guide future work.
 - It uses the service-role key and can write directly to the live questions table.
 
-Do not run this legacy script against production yet. Apex Pakistan has its own confirmed Supabase project (`edweb`); no separate project or cross-site namespace is needed for this Apex-only deployment. The script still lacks exam/variant mappings and must be replaced or upgraded into a reviewed, idempotent Apex ingestion path, tested away from production first. Only after canonical rows exist, the official PMDC-2026 paper profile is represented (180 questions with 81/45/36/9/9 distribution), and query filters are verified should the existing question-key attempt action be re-enabled for production students.
+Do not run this legacy script against production yet. Apex Pakistan has its own confirmed Supabase project (`edweb`); no extra site-product namespace is needed in this dedicated database. The script still lacks exam/variant mappings and must be replaced or upgraded into a reviewed, idempotent Apex ingestion path, tested away from production first. Only after canonical rows exist, the official PMDC-2026 paper profile is represented (180 questions with 81/45/36/9/9 distribution), and query filters are verified should the existing question-key attempt action be re-enabled for production students.
 
 This also prevents a later monetization failure: a full question bank imported directly into a 'use client' component is delivered to the browser and cannot be made private by hiding its page or checking an entitlement after delivery.
 
