@@ -1,4 +1,9 @@
-# Improvement Log — MED Prep
+# Improvement Log — Apex Pakistan / MED Prep
+
+## 2026-11-09 — Backend ownership and release-boundary correction
+
+Confirmed the founder's project mapping: Vercel `edweb` (`agma668/mdcatprep`) and Supabase `edweb` (`niiskuwlpccmdtwjoxvm`) are the Apex Pakistan stack; the other preparation website has independent infrastructure and is outside this repo. Corrected `AGENTS.md`, `ROADMAP-AGENT-BOARD.md`, and `EXAM-DATA-BOUNDARY-DESIGN.md` so no future work assumes a shared backend or creates another Supabase project. Live read-only check: Supabase active/healthy, 22 migrations, 13 public tables with RLS enabled; question/progress tables are empty. Vercel's latest production deployment is READY on `main`, but SSO protects all deployment URLs except custom domains and none is attached; canonical fallback in `lib/site.ts` is stale. These remain release blockers; no production settings or data were changed.
+
 
 Standing mission: grow MED Prep into the monopoly medical entry-test prep platform in
 Pakistan. This log captures what is built and deployed, what is blocked and why, and
