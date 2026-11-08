@@ -129,3 +129,15 @@ Founder approved making the production deployment URLs publicly accessible while
 ## 2026-11-09 — Wave 2 verification complete
 
 The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reached Vercel `READY`. GitHub Actions quality gates passed: `npm test` (including WhatsApp signature tests), `npm run lint` over active Apex source, and `npx tsc --noEmit`. The earlier failures were resolved: explicit `.ts` test import, six active-source lint errors, and the archived handoff folder excluded from Apex lint. Production deployment was not triggered; the PR remains draft pending unauthenticated public-host smoke and responsive browser checks.
+
+
+## 2026-11-09 — Wave 3: bundled-answer persistence and offline safety
+
+- Unified the database-ID and bundled-question-key recording paths behind the same server-side attempt insert, correctness calculation and idempotency rules.
+- Bundled attempts now receive client-generated idempotency IDs; a replay with the same question/answer is a success, while reusing an ID for a different question/answer is rejected.
+- Added a key-based offline outbox entry type and made the drain route those entries back through `recordAttemptByQuestionKey`.
+- If the canonical question row has not been ingested yet, the answer is queued and retained instead of being silently discarded. The drain also holds "Question not found" responses for later retry.
+- Fixed offline queue lease tracking: the 60-second stale-claim window now uses `syncStartedAt`, not the original enqueue timestamp, preventing old entries from being immediately reclaimed by another tab.
+- PracticeSession and MockTestPlayer no longer suppress save errors; they report them to the console for diagnosis.
+- GitHub Actions run `42526582743` passed unit tests, ESLint and TypeScript. A preview for commit `3d300368` is READY; the newest commit `8257c42` preview is still building at log time.
+- No production Supabase schema/data, secrets, or production deployment changed. Because the live questions table remains empty, this makes answer retention safe but does not yet make analytics complete; canonical question ingestion and mapping remain the next blocker.
