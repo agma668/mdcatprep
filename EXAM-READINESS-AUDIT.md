@@ -41,7 +41,7 @@ lib/exams-config.ts exposes four top-level IDs: mdcat, nust, pma and usat. Each 
 - Shared exam session: /practice/session.
 - Dynamic /portal/[exam] renders one of the four config entries. Its subtest cards append ?subtest=<id> to the configured route; the current practice-choice system instead reads/writes a localStorage value. End-to-end handling of every subtest query needs route-level verification.
 
-Current /portal/[exam] is a public portal overview, not a dedicated authenticated Prep Space. The config route often points directly to a dashboard/practice route. There is not yet a consistent public-exam-page → authenticated-Prep-Space pair per stable exam ID.
+Current /portal/[exam] is a public portal overview, not a dedicated authenticated Prep Space. The config route often points directly to a dashboard/practice route. The dashboard switcher receives the raw free-text profile exam_target (for example, “MDCAT” or “PMA Long Course”) but its option values are lowercase registry keys (mdcat, pma, nust, usat); there is no visible normalization seam in the switcher. This can leave the displayed active portal out of sync with the profile target. There is not yet a consistent public-exam-page → authenticated-Prep-Space pair per stable exam ID.
 
 ## 2. Question banks and mock assembly
 
@@ -65,7 +65,7 @@ Consequences:
 - A thin subject quota can be topped up by unrelated published questions.
 - The current schema has no exam_id/Prep Space ownership field on questions.
 
-This is the most important content-isolation risk to resolve before expanding the shared question table. The college text column is not a substitute for a stable exam taxonomy and is currently not used by the canonical question repository.
+This is the most important content-isolation risk to resolve before expanding the shared question table. The college text column is not a substitute for a stable exam taxonomy and is currently not used by the canonical question repository. In addition, lib/subjects.ts deliberately falls back to all database subjects when the free-text exam_target has no mapping; that is a second fail-open path for exam discovery and should become an explicit unknown/unsupported state.
 
 ### Practice persistence is inconsistent
 
@@ -129,7 +129,20 @@ Readiness labels describe evidence in the current repository, not a claim that e
 6. Only after access boundaries are tested: replace “Free forever” public claims with explicit launch policy and add server-enforced entitlements. Payment rails and prices require separate research/approval.
 7. Then expand additional exam families based on content quality and actual workflows, not the breadth of the signup dropdown.
 
-## 7. Not yet tested
+## 7. Public access and pricing copy audit
+
+A second targeted copy/flow search found more public promises and a misleading pricing interaction that must be treated as P0 before the public launch:
+
+- “Free forever” appears in app/signup/page.tsx, components/landing/RegisterSection.tsx and app/portal/[exam]/page.tsx.
+- “100% free”, “nothing locked” or no-expiry language appears in app/page.tsx, components/landing/Hero.tsx, app/signup/page.tsx, app/faq/page.tsx, app/resources/page.tsx, app/notes/[subject]/page.tsx and the generated /llms.txt response. Some of these are legacy claims and need a careful page-by-page copy decision; do not silently promise a permanent free tier.
+- app/pricing/page.tsx presents five Rs. 0 plans, including an “Apex All-Access Lifetime Pass” with future exam additions included. Its “checkout” handler only calls setSubmitted(true) in client state. It does not call a server action, payment provider, entitlement service or database write. The success state says the pass was activated, but no grant is created. This is not a functioning checkout or entitlement system and must not be represented as one.
+- The same pricing page claims future updates, full access across all tracks, AI support and other capabilities that have not been verified in the current product. Its plan names and inclusions also contradict the new rule that an exam-specific purchase grants only that exam unless a named bundle explicitly includes more.
+- /practice/session currently checks authentication but has no exam entitlement check. This is expected in the current manual-approval/free-launch model, but it is a required server-side gate before paid access is enabled.
+- Public notes and some practice/discovery surfaces are explicitly described as free/no-signup. The future product must decide which are genuinely open samples/discovery and which belong behind an exam entitlement; do not accidentally leave a full paid exam bank public merely because its route predates the new model.
+
+**Recommendation:** before charging students, replace the fake local-only pricing activation with a truthful pricing/access-information page, remove all permanent-free claims, and clearly distinguish free public samples from protected full preparation. Do not implement checkout until the entitlement model and actual provider are approved.
+
+## 8. Not yet tested
 
 This pass did not run local commands or live authenticated browser tests. The following remain open:
 - TypeScript, lint, unit tests and production build baseline on current main.
