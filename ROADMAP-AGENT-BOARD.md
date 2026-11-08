@@ -360,3 +360,8 @@ The extended audit found two launch-blocking defects for a paid Prep Space model
 2. `/usat/practice`, `/nust/practice`, and `/pma/practice` are public client components importing full question banks directly. The entire bank, answer keys and explanations are shipped to the browser. This is compatible with today's free/public practice but cannot support future exam-specific paid access. Full banks must move to a server-controlled content source; only intentionally selected samples may remain public/client-shipped.
 
 The only discovered seed script is `scripts/seed-mdcat-questions.mjs`; it seeds MDCAT only, uses a service-role key, and its comments state the same Supabase database also serves a Cadet College site. It does not attach product/exam/variant mappings. **Do not run it against production.** First decide separate Supabase project vs product/site namespace, then design canonical question ingestion and mapping on staging. The exact evidence and design are in `EXAM-READINESS-AUDIT.md` and `EXAM-DATA-BOUNDARY-DESIGN.md`.
+
+
+## PMDC-2026 mock correction — 2026-11-08
+
+Official PMDC's 2026 public notice now provides the exact paper profile: 180 MCQs, 3 hours, no negative marking; Biology 81, Chemistry 45, Physics 36, English 9 and Logical Reasoning 9. The repository's current “MDCAT-Weighted Full Mock” is 100 questions (34/24/30/12), omits Logical Reasoning and is not the official full-paper structure. Its generic server-side draw also uses the currently empty questions table and returns no questions. Do not market it as a full PMDC mock. A real full mock is blocked on canonical server-side content ingestion, official subject mapping and persistence verification. See `EXAM-READINESS-AUDIT.md` and `EXAM-REGISTRY-PROPOSAL.md`.
