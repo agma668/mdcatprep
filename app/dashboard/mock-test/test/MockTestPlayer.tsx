@@ -8,8 +8,7 @@ import { Clock, CheckCircle, XCircle } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { QuizKeyLegend } from '@/components/ui/QuizKeyLegend'
 import { QuizOptions } from '@/components/ui/QuizOptions'
-import { recordAnswer } from '@/lib/offline-sync'
-import { recordAttemptByQuestionKey } from '@/app/actions/practice'
+import { recordAnswer, recordBundledAnswer } from '@/lib/offline-sync'
 import { useQuizSession } from '@/lib/quiz-session'
 import { ScoreRing, AnimatedNumber } from '@/components/ui/ScoreRing'
 import type { QuizQuestion, OptionLetter } from '@/lib/questions'
@@ -66,8 +65,16 @@ export function MockTestPlayer({
         // before; the bundled USAT bank has no ids, so its attempts record
         // by stable key — the same path practice sessions use — never
         // dropped, never double-recorded.
-        if (q.id) void recordAnswer(q.id, letter).catch(() => {})
-        else if (q.key) void recordAttemptByQuestionKey(q.key, letter, q.question_text).catch(() => {})
+        const pending = q.id
+          ? recordAnswer(q.id, letter)
+          : q.key
+            ? recordBundledAnswer(q.key, q.question_text, letter)
+            : Promise.resolve({ error: 'Question has no persistent identity.' })
+        void pending.then((result) => {
+          if (result && 'error' in result) {
+            console.error('Could not save mock-test attempt:', result.error)
+          }
+        }).catch((error) => console.error('Could not save mock-test attempt:', error))
       }
     },
   })
