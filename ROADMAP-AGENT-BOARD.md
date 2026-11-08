@@ -4,7 +4,20 @@
 
 ## North-star outcome
 
-Ship a trustworthy, polished, fast, accessible, genuinely useful exam-preparation website for Pakistani students. The site should make it easy to find the correct exam track, practise original high-quality questions, understand explanations, revisit mistakes and measure progress.
+Ship **one unified Pakistani exam-preparation academy with dedicated, clearly separated portals for each exam**. A student should immediately understand where to go, enter the right portal, and see only the syllabus, practice, mock rules, resources and progress relevant to that exam.
+
+The academy is one coherent product and account system—not a giant blended dashboard and not disconnected websites. Share infrastructure, identity, design system and reusable learning engines underneath; keep exam content, configuration, navigation and rules scoped to each portal.
+
+Initial product taxonomy:
+- **Medical entrance:** PMDC MDCAT and NUMS (including relevant provincial/admission pathways where verified).
+- **Engineering & computing:** NUST NET, GIKI, ECAT and other supported tests as verified.
+- **University admissions & aptitude:** HEC USAT variants and institution-specific tests such as LUMS where verified.
+- **Defence:** PMA initial tests and ISSB preparation.
+- **MBBS clinical learning:** a separate post-admission learning area, not mixed into entrance-test preparation.
+
+The homepage is the academy front door; category hubs help students choose; dedicated exam portals provide the focused learning experience. Multiple-exam students may have one account and multiple goals, but the active exam context must always be visible. Never claim a portal is complete until its content and core workflows pass the readiness checks.
+
+Ship a trustworthy, polished, fast, accessible, genuinely useful product. A student should be able to find the correct exam track, practise original high-quality questions, understand explanations, revisit mistakes and measure progress.
 
 “10/10” means all critical user journeys work, the product is visually coherent, the content is honest, the site is safe and accessible, production is stable, and measured performance is strong. It does not mean adding every possible feature.
 
@@ -63,12 +76,17 @@ Ship a trustworthy, polished, fast, accessible, genuinely useful exam-preparatio
 
 **Exit gate:** one known public preview URL, correct host/canonical, understood branch/deployment relationship, correct active Supabase project, baseline checks recorded.
 
-## Phase 1 — 10/10 visual and UX foundation (P0/P1)
+## Phase 1 — Academy architecture and 10/10 UX foundation (P0/P1)
 
-Owner: Design board. Dependencies: Phase 0.
-- [ ] Resolve brand architecture: Apex Pakistan parent brand vs MED Prep product brand; settle logo, naming, tone and exam taxonomy.
+Owner: Design board with roadmap/product coordination. Dependencies: Phase 0.
+- [ ] Confirm Apex Pakistan as parent academy brand and decide whether MED Prep remains a medical portal label; map all current names/routes before renaming.
+- [ ] Audit existing `lib/exams-config.ts` and route structure; produce an exam registry/readiness matrix before changing architecture.
+- [ ] Define academy → category hub → dedicated exam portal navigation and route map. Reuse current routes where they are sound; do not perform a broad rewrite just to match a diagram.
+- [ ] Ensure every exam has distinct configuration for syllabus, subjects/topics, question source, practice behaviour, mock length/timing/scoring, notes and progress context where applicable.
+- [ ] Create a portal template that shares components while requiring exam-specific data/configuration; no generic cloned pages or mixed question pools.
 - [ ] Complete desktop/mobile audit of all high-traffic surfaces.
-- [ ] Fix homepage first impression, hero hierarchy, exam selector and primary CTA.
+- [ ] Fix homepage first impression, hero hierarchy, academy goal/exam selector and primary CTA.
+- [ ] Build clear category hubs and dedicated exam portal entry pages; ensure the active exam context is visible throughout student journeys.
 - [ ] Fix navigation, auth entry, signup flow and first-time onboarding.
 - [ ] Standardize UI primitives, tokens, forms, cards, buttons, dialogs, loading/error/empty states.
 - [ ] Improve dashboard “next best action” and exam-context clarity.
@@ -82,13 +100,14 @@ Owner: Design board. Dependencies: Phase 0.
 
 **Exit gate:** design scorecard in `DESIGN-AGENT-BOARD.md` at ≥4.5/5 in every dimension, no unresolved critical/high-severity UX defects, founder visual sign-off.
 
-## Phase 2 — Product correctness and content quality (P0)
+## Phase 2 — Portal-by-portal product correctness and content quality (P0)
 
-- [ ] Audit question bank keys, answer keys, explanations, duplicate text, topic mapping and subject coverage.
+- [ ] Create a portal-by-portal readiness matrix: exam, route, syllabus source/version, bank size/source, answer-key review, explanations, practice engine, mock rules, notes/resources, owner and launch state.
+- [ ] Audit question bank keys, answer keys, explanations, duplicate text, topic mapping and subject coverage separately for every exam; no cross-exam pool leakage.
 - [ ] Ensure every MCQ has one defensible answer, plausible options, explanation and honest provenance.
 - [ ] Confirm all question counts displayed on the site reconcile to actual bundled/DB content.
 - [ ] Test all practice engines for randomization, scoring, answer review, progress persistence and retry behaviour.
-- [ ] Verify exam mock lengths, weightings, timers and negative-marking rules against current official sources; clearly label scaled practice mocks.
+- [ ] Verify each exam's mock lengths, weightings, timers and negative-marking rules against current official sources; clearly label scaled practice mocks and keep configurations isolated.
 - [ ] Audit released past-paper links, year, board, source and copyright status.
 - [ ] Verify notes accuracy, source, access gate and reader UX.
 - [ ] Ensure AI-generated questions are drafts and never auto-published.
@@ -119,7 +138,7 @@ Owner: Design board. Dependencies: Phase 0.
 
 Owner: SEO board. Dependencies: stable brand and canonical host from Phase 0/1.
 - [ ] Fix canonical host and audit all metadata, sitemap, robots, IndexNow and JSON-LD.
-- [ ] Build a route-to-search-intent matrix and consolidate thin/duplicate routes.
+- [ ] Build an academy/category/exam route-to-search-intent matrix; consolidate thin/duplicate routes and avoid doorway pages.
 - [ ] Improve homepage, exam hub and high-intent guides with accurate, useful content.
 - [ ] Create a pillar/cluster content plan with original material and official citations.
 - [ ] Add registry/exam pages only where unique verified information supports them.
@@ -175,13 +194,15 @@ Owner: SEO board. Dependencies: stable brand and canonical host from Phase 0/1.
 1. [ ] P0: verify public Vercel URL/SSO behaviour and branch mapping.
 2. [ ] P0: correct stale canonical host; add smoke test to prevent future drift.
 3. [ ] P0: run and record TypeScript, tests, lint and build baseline.
-4. [ ] P0: perform homepage + signup + dashboard + practice + mock + notes mobile/desktop audit.
-5. [ ] P0: audit exam question quality/provenance and all displayed counts.
-6. [ ] P1: complete design scorecard and close the highest-impact UX defects.
-7. [ ] P1: complete route metadata/sitemap/canonical/robots audit.
-8. [ ] P1: triage Supabase security advisors and verify RLS assumptions.
-9. [ ] P1: complete privacy, legal, support and brand consistency review.
-10. [ ] Hold domain purchase until Phase 5 is signed off.
+4. [ ] P0: inspect `lib/exams-config.ts`, all portal routes and current exam-specific data; create the portal readiness matrix.
+5. [ ] P0: define and document the academy → category → exam portal route/navigation model, reusing sound existing routes.
+6. [ ] P0: audit homepage/category/portal UX at mobile and desktop; remove student confusion before adding features.
+7. [ ] P0: audit exam question quality/provenance and all displayed counts independently per portal.
+8. [ ] P1: complete design scorecard and close the highest-impact UX defects.
+9. [ ] P1: complete route metadata/sitemap/canonical/robots audit by search intent.
+10. [ ] P1: triage Supabase security advisors and verify RLS assumptions.
+11. [ ] P1: complete privacy, legal, support and brand consistency review.
+12. [ ] Hold domain purchase until Phase 5 is signed off.
 
 ## Change log
 
@@ -206,3 +227,20 @@ Before marking done:
 8. Update this board and the specialist board together when task state changes.
 
 Never deploy to production, change live database state, alter access controls, buy a domain or add paid services without the required explicit approval.
+
+
+## Portal architecture decision record
+
+**Decision:** one academy, multiple dedicated exam portals, shared platform underneath.
+
+**Student-facing hierarchy:** Academy homepage → category hub → dedicated exam portal → exam-scoped learning workflow.
+
+**Shared services:** account/authentication, design system, accessibility primitives, question-delivery infrastructure, mock-test engine, progress persistence, analytics/privacy controls and admin tooling.
+
+**Must remain exam-scoped:** syllabus and topic map, question pools, official-pattern rules, mock configuration, guidance, notes/resources, portal navigation and progress interpretation. Reuse a common engine only when its configuration is explicit and testable.
+
+**Multi-exam students:** one account can hold more than one goal; onboarding and dashboard must show the active exam and make switching clear. Avoid forcing a student to choose only one forever.
+
+**Release policy:** a category or exam may be visible as “coming soon” or “content in progress” only with honest wording. Do not advertise a full preparation portal until its core workflow and content have passed review.
+
+**Brand direction to validate:** Apex Pakistan as parent academy; MED Prep may remain the medical vertical name if it improves recognition. This is a recommended direction, not permission to rename live surfaces or buy a domain. Final brand lock requires explicit founder approval.
