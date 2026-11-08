@@ -110,3 +110,8 @@ Same log entry doubles as the *physics + english* bank growth (this sweep did al
 - **Root cause:** Vercel builds had been FAILING since Sept 12 — the day's commits shipped importing halves without their data files (public-notes, public-stats exports, pastPaperTag, SocialProofBar). Local builds passed because the working tree masked the holes. Vercel kept serving the last green build (ba9636c).
 - **Fix:** `85a8b4f` (lib/public-notes.ts) + `1202f98` (the streak-wall/bank data halves) — proven first by an isolated git-worktree build of the exact commit. Deploy verified live ~02:18.
 - **New standing gate:** run `node scripts/verify-committed-imports.mjs` (or a worktree build) before every push.
+
+
+## 2026-11-09 — Wave 1: public production access and canonical host
+
+Founder approved making the production deployment URLs publicly accessible while keeping preview deployments private. Updated Vercel `edweb` SSO scope from `all_except_custom_domains` to `preview`; read-back confirms SSO enabled for previews only, password protection disabled, trusted IPs disabled. Verified the latest `main` production deployment is READY and aliases include `edweb-nine.vercel.app`. Production HTTP reachability could not be tested from this environment and remains an external smoke-test item. Aligned the canonical fallback to the verified production alias; no custom domain attached or purchased. This is an approved Vercel project setting change, not a production database or secret change.
