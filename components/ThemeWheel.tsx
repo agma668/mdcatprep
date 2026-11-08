@@ -11,11 +11,9 @@
 // (hole-punch) to make the ring, so there is zero raster work and the wheel
 // stays crisp at any size. Pure CSS, no canvas.
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { THEMES, applyTheme, getTheme, type ThemeId } from "./ThemeProvider";
 import { Palette } from "lucide-react";
-
-const STORAGE_KEY = "med-prep-theme";
 
 export function ThemeWheel() {
   const [active, setActive] = useState<ThemeId>("midnight");
@@ -24,15 +22,11 @@ export function ThemeWheel() {
   // Read stored theme on mount (the inline head script already set data-theme,
   // so this just syncs state; FOUC was already prevented).
   useEffect(() => {
-    let t = "midnight";
-    try {
-      const saved = window.localStorage.getItem(STORAGE_KEY);
-      if (saved) t = saved;
-    } catch {
-      /* ignore */
-    }
-    const id = (t as ThemeId) in THEMES.map((x) => x.id) ? (t as ThemeId) : "midnight";
-    setActive(id);
+    const id = window.setTimeout(() => {
+      const saved = getTheme();
+      setActive(THEMES.some((theme) => theme.id === saved) ? saved : "midnight");
+    }, 0);
+    return () => window.clearTimeout(id);
   }, []);
 
   // Build the conic gradient from the four themes' signal colours.
