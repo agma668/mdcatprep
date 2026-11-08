@@ -20,40 +20,19 @@ export default function MistakeNotebookPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Load mistakes from localStorage or default mock data for demonstration
-    const saved = localStorage.getItem('apex_mistakes');
-    if (saved) {
-      try {
-        setMistakes(JSON.parse(saved));
-      } catch (e) {
-        console.error(e);
+    const timer = window.setTimeout(() => {
+      const saved = window.localStorage.getItem('apex_mistakes');
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) setMistakes(parsed);
+        } catch (error) {
+          console.error('Could not read saved mistakes:', error);
+        }
       }
-    } else {
-      // Default sample mistakes if none recorded yet
-      const sample: MistakeItem[] = [
-        {
-          id: '1',
-          question: 'Which of the following organelles is known as the powerhouse of the cell?',
-          selectedOption: 'Golgi apparatus',
-          correctOption: 'Mitochondria',
-          explanation: 'Mitochondria generate most of the chemical energy needed to power the biochemical reactions of the cell.',
-          subject: 'biology',
-          timestamp: new Date().toISOString(),
-        },
-        {
-          id: '2',
-          question: 'What is the hybridization of carbon in ethyne (acetylene)?',
-          selectedOption: 'sp3',
-          correctOption: 'sp',
-          explanation: 'Ethyne contains a triple bond between two carbon atoms, making each carbon sp hybridized with linear geometry.',
-          subject: 'chemistry',
-          timestamp: new Date().toISOString(),
-        },
-      ];
-      setMistakes(sample);
-      localStorage.setItem('apex_mistakes', JSON.stringify(sample));
-    }
-    setLoading(false);
+      setLoading(false);
+    }, 0);
+    return () => window.clearTimeout(timer);
   }, []);
 
   const clearMistakes = () => {
