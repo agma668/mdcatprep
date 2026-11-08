@@ -34,15 +34,20 @@ import {
   removePendingAttempts,
 } from "@/lib/offline";
 
-const LAST_SYNCED_KEY = "ccp:offline:lastSynced";
+const LAST_SYNCED_KEY = "apex:offline:lastSynced";
+const LEGACY_LAST_SYNCED_KEY = "ccp:offline:lastSynced";
 
 /** Epoch ms of the last drain that actually synced answers, or null. */
 export function getLastSyncedAt(): number | null {
   if (typeof window === "undefined") return null;
   try {
-    const raw = window.localStorage.getItem(LAST_SYNCED_KEY);
+    const current = window.localStorage.getItem(LAST_SYNCED_KEY);
+    const legacy = current ? null : window.localStorage.getItem(LEGACY_LAST_SYNCED_KEY);
+    const raw = current ?? legacy;
     const n = raw ? Number(raw) : NaN;
-    return Number.isFinite(n) && n > 0 ? n : null;
+    if (!Number.isFinite(n) || n <= 0) return null;
+    if (!current && legacy) window.localStorage.setItem(LAST_SYNCED_KEY, legacy);
+    return n;
   } catch {
     return null;
   }
