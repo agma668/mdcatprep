@@ -89,7 +89,7 @@ export async function sendPushNotification(payload: PushPayload = {}): Promise<P
       await webpush.sendNotification(
         { endpoint: row.endpoint, keys: { p256dh: row.p256dh, auth: row.auth } },
         JSON.stringify({
-          title: payload.title ?? "Cadet College Prep",
+          title: payload.title ?? "MED Prep",
           body: payload.body ?? "Time to practice!",
           url: payload.url ?? "/dashboard/practice",
           icon: "/icon-192.png",
