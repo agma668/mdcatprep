@@ -263,3 +263,12 @@ Other current advisor findings: three functions with mutable search paths (`duel
 ## 2026-11-09 public deployment access update
 
 At the founder's explicit request, Vercel project `edweb` was updated so `ssoProtection.deploymentType` is `preview` (SSO remains enabled for preview deployments; production deployment URLs are not included in that protection scope). `passwordProtection` and `trustedIps` remain disabled. The project settings read-back confirmed this configuration. The current production deployment `edweb-ovxu35vdz-acma-32c6.vercel.app` is `READY` and has aliases `edweb-nine.vercel.app`, `edweb-acma-32c6.vercel.app`, and `edweb-git-main-acma-32c6.vercel.app`. A public HTTP/browser smoke could not be completed from this environment, so unauthenticated reachability remains unverified rather than marked passed. The production alias `https://edweb-nine.vercel.app` is the selected canonical fallback; `NEXT_PUBLIC_SITE_URL` was not present in the production environment variable inventory. No custom domain was purchased or attached.
+
+
+## 2026-11-09 inherited-site and endpoint hardening
+
+The Apex repository contained stale references and dormant demo tooling from an earlier site handoff. The active public landing page uses `components/landing/Footer.tsx`; the unused `components/shared/footer.tsx` has been removed from the Apex source tree. The old demo-activity cron was scheduled to insert synthetic attempts for reserved demo accounts; it has been removed from the schedule and now fails closed without `CRON_SECRET`. No existing profiles or attempts were read, altered or deleted. The legacy demo email suffix remains only as a filter so any prior synthetic test profiles stay excluded from public real-student totals.
+
+The WhatsApp webhook previously accepted a predictable hard-coded verification token and did not authenticate POST callbacks. It now requires explicit WhatsApp configuration and a valid Meta HMAC signature before processing POST bodies; when secrets are absent, it returns 503 without touching subscriber data. Unit tests cover valid/tampered/malformed signatures. The service-worker cache prefix and offline localStorage event/key were aligned to Apex; the old localStorage timestamp is migrated and the IndexedDB database name is deliberately retained to preserve offline student data.
+
+PMA/ISSB remains in Apex's military-exam Prep Space; cadet-college admissions content, questions, assets and workflows are explicitly out of scope. No separate site's source, data or credentials were imported.
