@@ -51,7 +51,7 @@ Sizes are rough and secondary unless stated. Order is by how much I think they m
 | H | HEC B&F "OUT" categories (people with that domicile living elsewhere) | HEC FAQ mentions IN/OUT categories with a 90/10 split. | Secondary, verify |
 | I | Parents | They are the ones who pay. They want proof, not features. | Needs a parent-readable progress view |
 | J | Teachers and small academies | A channel, not a customer, for now. | Park |
-| K | Cadet college / PMA / ISSB | Already served by the separate Elite Cadet Prep site. Keep it separate. | Do not merge |
+| K | Cadet-college admissions | Outside Apex Pakistan; do not import that site's questions, notes, assets or workflows. | Out of scope |
 
 Data we do not collect today but must: target exam, target year, first-time or repeater, province and DISTRICT (Balochistan quota
 is district-based), board, FSc year, phone (for payment later), preferred language. Without this we cannot segment, personalise or price.
@@ -97,7 +97,7 @@ Counted from the repo (lib/*.ts) and the live page. "Config" means lib/exams-con
 | HEC Balochistan/FATA aptitude test | Mentioned in the site name | Nothing | Missing |
 | NUST / GIKI / LUMS portal | Advanced Math 250, Physics 200, Chem/CS 180, English 120 (750 items) | 8 questions total in lib/nust-questions.ts. Nothing GIKI or LUMS specific. No NET-style timed simulator. No past papers. | Largest gap on the site |
 | HEC USAT | USAT-M and USAT-E listed | 46 questions across two files, no section structure | Thin |
-| PMA / ISSB | Long course portal | 16 questions | Thin (and belongs to Elite Cadet Prep) |
+| PMA / ISSB | Long course portal | 16 questions | Thin; Apex-owned Prep Space, not cadet-college admissions |
 | Past papers | "Proper section" wanted | 25 registered papers (lib/past-papers.ts), no question text in the app, no practice mode. Original PDFs are in Studies/01-Past-Papers. Scanned ones OCR badly; page-to-image vision reading works. | In progress, see WS4 |
 | Landing page | Looked bad | New version is LIVE (commit 8912a0d on main, 5 Oct). It was committed by a different agent session sharing this checkout, not by the session that wrote it, so it shipped without a 390px screen check. Fetched the live page today: renders, canonical correct, sample question present. Still needs real-device QA. | QA now |
 | Live FAQ and register block | Old copy kept around the new landing | FAQ says the PMDC paper is 200 marks (Bio 68, Chem 56, Phys 56, English 20). Secondary sources say MDCAT 2026 was 180 MCQs. Register block says "7 Subjects" while the hero says 5, and promises "live WhatsApp classes". Page text still shows a "Loading..." line. | Verify and fix |
@@ -325,7 +325,7 @@ sections 0 and 3 where they conflict; everything else in this file stands.
 | SIBA (Sukkur IBA) | SIBA | Per cycle | Paper registered; no bank | Phase 4 |
 | SZABMU / DUHS MDCAT variants | Federal / Sindh bodies | Aug–Sep | Papers registered (SZABMU 5 codes + reconduct; DUHS); banks shared with MDCAT | Covered via MDCAT waves |
 | AKU | AKU | — | **EXCLUDED by founder ruling — never build, never mention as a target** | — |
-| PMA / ISSB / cadet colleges | GHQ / colleges | Per intake | Served by the sibling Elite Cadet Prep site | Do not merge |
+| PMA / ISSB | GHQ | Per intake | Apex-owned military exam-preparation track; cadet-college admissions remain out of scope | Keep as its own Apex Prep Space |
 
 ### 9.3 The founder's three questions — direct answers
 
@@ -349,7 +349,7 @@ No — most are labels, not portals:
 | NUST NET | 200 MCQs / 180 min CBT, Math-Physics-Chem/CS-English-IQ | 8 questions, no simulator | Largest gap on the site |
 | GIKI / LUMS | Own tests (GIKI official syllabus + samples exist; LCAT format unknown) | Nothing | Absent |
 | HEC USAT | Sectioned verbal/quantitative/science paper | 21 questions | Thin |
-| PMA/ISSB | Intelligence + academic | 15 questions | Thin; belongs to Elite Cadet Prep |
+| PMA/ISSB | Intelligence + academic | 15 questions | Thin; belongs to Apex Pakistan |
 | MBBS notes | Professional-exam support | `lib/mbbs-questions.ts` deleted; notes portal only | Parked (TODO list still cites the deleted file) |
 
 **3. What workflow must a student experience?**
