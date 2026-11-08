@@ -217,3 +217,6 @@ See `EXAM-READINESS-AUDIT.md` for the first-pass route and content audit. The cu
 
 
 Additional copy audit: permanent-free and no-expiry claims remain in the homepage, signup, FAQ, notes/resources, portal and `/llms.txt`; the pricing page advertises Rs. 0 passes and an all-access lifetime bundle whose activation is not backed by a server grant. These are not approved long-term claims. Align indexable copy with the explicit launch policy, avoid “free forever”, and describe only public samples/discovery as open where the product policy confirms that access.
+
+
+The public/private boundary is being formalized in `EXAM-DATA-BOUNDARY-DESIGN.md`: only intentionally mapped public samples should be open for discovery; full exam preparation can be protected by a goal-specific entitlement. Public exam pages must accurately distinguish sample content, full preparation availability, beta status and locked spaces without promising lifetime free access.
