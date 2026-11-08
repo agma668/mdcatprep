@@ -240,3 +240,8 @@ Do not implement payment processing or change billing in this architecture-docum
 - The exam readiness matrix and public claims accurately distinguish implemented, beta and planned experiences.
 
 **Implementation status:** this is an approved product/architecture direction recorded in planning only. It does not mean the application, database, payment system, entitlements, routes or Prep Spaces have been implemented. No code, database, deployment, billing or domain settings are changed by this decision.
+
+
+## 2026-11-08 codebase audit findings
+
+The first-pass implementation audit is recorded in `EXAM-READINESS-AUDIT.md`. Design must treat the current `/portal/[exam]` pages as public category/portal overviews, not as completed authenticated Prep Spaces. The current portal page also promises “Free forever” / “100% free … Ever”; replace those claims with the approved honest launch/access policy before public release. Subtest cards currently append a `subtest` query parameter while the active family choice is stored separately in browser localStorage; verify that the chosen exam is actually preserved through the full student journey. The shared dashboard currently exposes broad exam switching, while progress is not partitioned by exam. The next visual model must make the active Prep Space explicit and must not imply that GIKI/LUMS/USAT-E/AFNS have distinct content workflows where the code does not yet support them.
