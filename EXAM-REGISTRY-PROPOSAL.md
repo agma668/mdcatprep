@@ -39,7 +39,6 @@ This is a proposal, not a final claim that every listed exam is supported. IDs a
 | Proposed ID | Student-facing name | Relationship / notes | Current repository evidence |
 |---|---|---|---|
 | nust-net | NUST Entry Test (NET) | One NUST exam with distinct official paper variants: Engineering, Applied Sciences, Business & Social Sciences, Architecture and Natural Sciences. NET-Engineering is also used for Computing programmes; do not invent a separate Computing paper. | Dedicated 81-question bank and scaled NET-Engineering mock exist. Other NET variants are not established. |
-
 | uet-ecat | UET ECAT | Separate exam ID with province/institution variants represented as metadata where justified. | No complete dedicated Prep Space established in this pass. |
 | giki-ug | GIKI Undergraduate Admission Test | Distinct from NUST NET and LUMS. Own verified subject blueprint and mock rules required. | Existing engineering chooser shares NET bank; no independent GIKI bank/mock established. |
 | lums-sbasse | LUMS SBASSE Admission Route | LUMS applicants may use SAT, ACT or LCAT; the Prep Space should focus on LCAT only if that is the student's selected route. Do not call it a universal LUMS test. | Current chooser shares NET bank; no distinct LCAT workflow established. |
