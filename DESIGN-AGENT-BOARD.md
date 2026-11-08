@@ -248,3 +248,6 @@ The first-pass implementation audit is recorded in `EXAM-READINESS-AUDIT.md`. De
 
 
 The extended audit also found permanent-free claims across the signup and portal surfaces, plus a pricing page whose “pass activated” success state is client-only and does not create an access grant. Treat the pricing/access screen as a trust-critical design defect: do not show false success, lifetime access or future inclusions. Redesign it as an honest access-information page until real entitlement and payment systems exist. Public samples versus protected full preparation need an explicit product rule.
+
+
+The next data model is documented in `EXAM-DATA-BOUNDARY-DESIGN.md`: one student can have multiple goals, but attempts/bookmarks/notes/flashcard reviews are scoped to a goal; the active exam selector is not an authorization boundary. UX should display locked/available states from server-authorized goal access and keep progress separate when the same student switches exams. The design is not implemented yet.
