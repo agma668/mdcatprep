@@ -67,7 +67,7 @@ Ship a trustworthy, polished, fast, accessible, genuinely useful product. A stud
 - [ ] Confirm the public temporary Vercel hostname and whether it is accessible without SSO in a clean browser.
 - [ ] Resolve the Vercel SSO/deployment-protection mismatch for the intended public preview. Keep preview/admin protections safe; do not weaken access controls blindly.
 - [ ] Resolve canonical host mismatch: `lib/site.ts` points at `mdcatprep-eight.vercel.app`, while Vercel currently reports `edweb-*.vercel.app` aliases.
-- [ ] Confirm actual production branch and Git integration. Current deployment metadata points to `main`; older `AGENTS.md` says default branch is `master`, so update stale instructions only after verifying GitHub default branch and Vercel production branch.
+- [x] Verify GitHub branch divergence: `main` is 14 commits ahead of `master` (no reverse-only commits) as of the 2026-11-08 source audit. `AGENTS.md` now identifies `main` as the active branch. Still verify Vercel's live production-branch setting before any deployment/promotion.
 - [ ] Confirm Supabase project mapping: use active `edweb`; leave inactive `CAT` untouched.
 - [ ] Establish reproducible local checks and baseline logs. Run `npx tsc --noEmit`, `npm test`, `npm run lint`, `npm run build` and record exact outcomes.
 - [ ] Inventory environment variable NAMES and whether each is configured in Preview/Production, without reading or copying secret values.
