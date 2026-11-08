@@ -223,3 +223,6 @@ The public/private boundary is being formalized in `EXAM-DATA-BOUNDARY-DESIGN.md
 
 
 Official-source verification (2026-11-08) confirms standard HEC USAT has six categories and a different 75-MCQ + essay structure from the Balochistan/FATA scholarship test's 100-MCQ format. The existing bank must not be marketed as standard USAT-M. HEC also says universities decide whether to accept USAT; avoid universal-mandatory claims. NUST NET has five official paper types, and the current product only supports NET-Engineering. Public pages must use those distinctions and only index variants with unique, verified information.
+
+
+The code audit confirms full USAT/NUST/PMA banks are currently imported by public client routes. Before the paid model is enabled, move full question content behind server-side exam/variant entitlement checks and leave only deliberate sample subsets public. Public search pages may describe the exam and link to sample practice, but must not expose full paid banks or claim durable progress when the attempt store is not recording bundled questions.
