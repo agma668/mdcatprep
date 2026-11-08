@@ -373,5 +373,5 @@ Official PMDC's 2026 public notice now provides the exact paper profile: 180 MCQ
 - [x] Require Meta webhook configuration and HMAC verification before WhatsApp POST processing; add signature unit tests.
 - [x] Remove stale inherited-site branding from Apex source and remove the unused foreign-site footer; retain local IndexedDB name to preserve offline data.
 - [x] Clarify PMA/ISSB belongs to Apex; cadet-college admissions and content are out of scope.
-- [ ] Wait for GitHub Actions tests/lint/typecheck and the Vercel preview build; resolve any failures before merge.
-- [ ] Public unauthenticated browser smoke for production alias remains outstanding.
+- [x] GitHub Actions tests/lint/typecheck passed and final Vercel preview is READY at `6dfc8a32`.
+- [ ] Public unauthenticated browser smoke for `https://edweb-nine.vercel.app` remains outstanding; desktop/mobile browser smoke is also pending.
