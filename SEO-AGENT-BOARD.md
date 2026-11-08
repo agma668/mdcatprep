@@ -214,3 +214,6 @@ Do not implement payment processing or change billing in this architecture-docum
 ## 2026-11-08 codebase audit findings
 
 See `EXAM-READINESS-AUDIT.md` for the first-pass route and content audit. The current public `/portal/[exam]` route is a four-entry dynamic portal overview, not yet a distinct verified public exam-information page for every exam. It contains explicit “Free forever” and “100% free … Ever” promises that conflict with the approved pricing-ready product direction; these must not remain in indexable public copy if the business model may later charge by exam. USAT-M/USAT-E and other grouped variants need truthful exam-specific search intent and readiness labels before generating additional SEO pages. Do not create doorway pages for tests without unique verified content and a real Prep Space.
+
+
+Additional copy audit: permanent-free and no-expiry claims remain in the homepage, signup, FAQ, notes/resources, portal and `/llms.txt`; the pricing page advertises Rs. 0 passes and an all-access lifetime bundle whose activation is not backed by a server grant. These are not approved long-term claims. Align indexable copy with the explicit launch policy, avoid “free forever”, and describe only public samples/discovery as open where the product policy confirms that access.
