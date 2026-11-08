@@ -257,3 +257,6 @@ Official pattern verification also changes the UX taxonomy: standard HEC USAT ha
 
 
 P0 UX/architecture constraint from the live audit: the standalone USAT/NUST/PMA practice routes import full question banks into public client components, and the shared attempt action cannot resolve bundled question keys because the live questions table is empty. Do not design a fake locked-card solution over this. Full paid banks must be delivered from server-controlled content after the active goal/variant entitlement check; only explicit sample items may be public. Show a truthful progress-empty/error state until attempts are genuinely persisted, rather than implying that local-only answers are saved.
+
+
+PMDC-2026 official paper UX must show the correct 180-question structure (Biology 81, Chemistry 45, Physics 36, English 9, Logical Reasoning 9; 3 hours; no negative marking). The current 100-question mock card is not a full official-pattern paper. Until the canonical bank and server-side attempt path are repaired, label it as a custom short practice format or keep it out of the “full mock” slot. Never display a full-paper success/ready state for an empty draw.
