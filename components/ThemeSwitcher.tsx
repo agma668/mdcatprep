@@ -17,7 +17,8 @@ export function ThemeSwitcher() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setCurrent(getTheme());
+    const id = window.setTimeout(() => setCurrent(getTheme()), 0);
+    return () => window.clearTimeout(id);
   }, []);
 
   // Close the popover on outside click + Escape.
