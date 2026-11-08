@@ -280,3 +280,12 @@ PMA/ISSB remains in Apex's military-exam Prep Space; cadet-college admissions co
 - GitHub Actions `Quality gates` passed: unit tests, ESLint on active Apex source, and TypeScript.
 - The WhatsApp signature test suite is included in `npm test`.
 - The production branch has not been updated. Public HTTP reachability and desktop/mobile browser smoke remain unverified, so the PR remains draft.
+
+
+## 2026-11-09 Wave 3 — attempt persistence hardening
+
+The bundled-key attempt action now accepts the same optional client idempotency key and timing fields as the UUID-based action. Both paths share one insert routine that checks whether a retry key already belongs to the same question and selected answer; a key reused for another answer is rejected. A concurrent duplicate insert is resolved against the same identity before being reported as success.
+
+The offline outbox now supports both database UUID questions and bundled stable-key questions. Bundled answers are queued when offline, when the request is interrupted, or while the canonical question row is not yet present. Draining retries either identity through the same server action. "Question not found" is held for later retry rather than discarded. Queue claims now use a separate `syncStartedAt` lease timestamp, avoiding immediate cross-tab reclamation of entries that were originally enqueued long ago.
+
+PracticeSession and MockTestPlayer now log persistence failures rather than swallowing them. GitHub Actions run `42526582743` passed tests, ESLint and TypeScript. This is a reliability improvement, not proof of production persistence: the inspected live `questions` table remains empty, and no canonical bank ingestion has been performed. No live schema or student rows were changed.
