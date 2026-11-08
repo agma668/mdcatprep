@@ -4,9 +4,9 @@
 
 ## North-star outcome
 
-Ship **one unified Pakistani exam-preparation academy with dedicated, clearly separated portals for each exam**. A student should immediately understand where to go, enter the right portal, and see only the syllabus, practice, mock rules, resources and progress relevant to that exam.
+Ship **one unified Pakistani exam-preparation academy with purpose-built, exam-specific Prep Spaces inside one platform**. A student should immediately understand where to go, enter the right portal, and see only the syllabus, practice, mock rules, resources and progress relevant to that exam.
 
-The academy is one coherent product and account system—not a giant blended dashboard and not disconnected websites. Share infrastructure, identity, design system and reusable learning engines underneath; keep exam content, configuration, navigation and rules scoped to each portal.
+The academy is one coherent product and account system—not a giant blended dashboard and not disconnected websites. Share infrastructure, identity, design system and reusable learning engines underneath; give each Prep Space its own relevant workflow, capabilities, content, configuration, navigation, entitlements and progress.
 
 Initial product taxonomy:
 - **Medical entrance:** PMDC MDCAT and NUMS (including relevant provincial/admission pathways where verified).
@@ -15,7 +15,7 @@ Initial product taxonomy:
 - **Defence:** PMA initial tests and ISSB preparation.
 - **MBBS clinical learning:** a separate post-admission learning area, not mixed into entrance-test preparation.
 
-The homepage is the academy front door; category hubs help students choose; dedicated exam portals provide the focused learning experience. Multiple-exam students may have one account and multiple goals, but the active exam context must always be visible. Never claim a portal is complete until its content and core workflows pass the readiness checks.
+The academy homepage is the front door; category hubs aid discovery; public exam pages explain each test; authenticated Prep Spaces provide focused learning experiences within the same application. Students may have one account and multiple goals, but the active Prep Space must always be visible and each goal's content/progress must remain isolated. The commercial model is pricing-ready: launch access may initially be free, but future paid access is scoped to the exam(s) explicitly purchased or granted; one exam purchase does not unlock the entire academy. Never claim a portal is complete until its content and core workflows pass the readiness checks.
 
 Ship a trustworthy, polished, fast, accessible, genuinely useful product. A student should be able to find the correct exam track, practise original high-quality questions, understand explanations, revisit mistakes and measure progress.
 
@@ -81,9 +81,9 @@ Ship a trustworthy, polished, fast, accessible, genuinely useful product. A stud
 Owner: Design board with roadmap/product coordination. Dependencies: Phase 0.
 - [ ] Confirm Apex Pakistan as parent academy brand and decide whether MED Prep remains a medical portal label; map all current names/routes before renaming.
 - [ ] Audit existing `lib/exams-config.ts` and route structure; produce an exam registry/readiness matrix before changing architecture.
-- [ ] Define academy → category hub → dedicated exam portal navigation and route map. Reuse current routes where they are sound; do not perform a broad rewrite just to match a diagram.
+- [ ] Define academy → category hub → public exam information page → authenticated Prep Space navigation and route map. Reuse current routes where sound; do not perform a broad rewrite just to match a diagram.
 - [ ] Ensure every exam has distinct configuration for syllabus, subjects/topics, question source, practice behaviour, mock length/timing/scoring, notes and progress context where applicable.
-- [ ] Create a portal template that shares components while requiring exam-specific data/configuration; no generic cloned pages or mixed question pools.
+- [ ] Create a Prep Space shell and data-driven Preparation Blueprint system that shares components while requiring exam-specific data/configuration, relevant capabilities, entitlement checks and progress boundaries; no generic cloned pages or mixed question pools.
 - [ ] Complete desktop/mobile audit of all high-traffic surfaces.
 - [ ] Fix homepage first impression, hero hierarchy, academy goal/exam selector and primary CTA.
 - [ ] Build clear category hubs and dedicated exam portal entry pages; ensure the active exam context is visible throughout student journeys.
@@ -184,7 +184,7 @@ Owner: SEO board. Dependencies: stable brand and canonical host from Phase 0/1.
 
 - [ ] Publish a steady editorial calendar based on student questions and real search demand.
 - [ ] Improve content from Search Console query/page data.
-- [ ] Add new exam tracks only with a quality-controlled bank and real practice experience.
+- [ ] Add new exam Prep Spaces only with a quality-controlled, exam-specific Blueprint and real practice experience.
 - [ ] Build student ambassador/community loops with consent and abuse safeguards.
 - [ ] Improve analytics and experiments only when sample sizes and privacy approach justify them.
 - [ ] Reassess monetization only after product quality, trust and engagement gates in `TODO.md` are met; preserve the free core.
@@ -253,3 +253,76 @@ Never deploy to production, change live database state, alter access controls, b
 **Release policy:** a category or exam may be visible as “coming soon” or “content in progress” only with honest wording. Do not advertise a full preparation portal until its core workflow and content have passed review.
 
 **Brand direction to validate:** Apex Pakistan as parent academy; MED Prep may remain the medical vertical name if it improves recognition. This is a recommended direction, not permission to rename live surfaces or buy a domain. Final brand lock requires explicit founder approval.
+
+
+## Product architecture decision — Prep Spaces (supersedes earlier portal wording)
+
+**Decision, 2026-11-08:** Apex Pakistan is one academy and one application, with dedicated, exam-specific **Prep Spaces** inside it. Do not build a separate website/domain for every exam, and do not force every student into one generic dashboard. A Prep Space is a distinct student experience, not necessarily a separate deployment or codebase.
+
+### Student-facing structure
+
+1. **Academy home:** discover preparation goals and continue active goals.
+2. **Category hub:** orient students across a broad family (Medical & Health, Engineering & Computing, School & College, University Admissions, Careers & Recruitment, Defence, Law, International & Graduate, etc.).
+3. **Public exam information page:** explain the exact exam, authority, eligibility, verified pattern/syllabus, available preparation and readiness status; provide search-friendly discovery.
+4. **Authenticated Prep Space:** focused dashboard and navigation for that exam, with its own syllabus, content, tools, mock rules and progress. The active exam context stays visible. Switching goals is deliberate and simple.
+
+Use stable exam IDs and exam-specific routes within the same product (for example, public `/exams/mdcat` and student `/learn/mdcat`; route names are illustrative and must be mapped against existing routes before implementation). Closely related exams may share a category page or reusable engine, but must not silently share content, scoring rules or progress.
+
+### Preparation Blueprints and reusable capabilities
+
+Each exam receives a data-driven **Preparation Blueprint** defining its audience, official authority/source, syllabus version, navigation, enabled capabilities, assessment types, mock configuration, progress metrics, readiness state and content owner. Build reusable engines/capabilities (MCQ, timed assessment, flashcards, short/long written answers, essays, speaking/listening, interview practice, study planner, past-paper library, mistake review and analytics). A blueprint activates only what genuinely serves that exam. Do not expose irrelevant tools merely because the platform supports them.
+
+Examples (illustrative, subject to official exam research):
+- **MDCAT:** subject/topic learning, MCQ bank, explanations, flashcards/spaced revision, timed practice, exam-specific mocks, mistakes and mastery analytics.
+- **PMA/Defence:** verified selection-stage guide, reasoning practice, academic screening where applicable, interview/communication preparation and stage readiness. No forced medical-style flashcard or generic MCQ-first UI.
+- **CSS/PMS:** compulsory/optional syllabus, current-affairs workflow, essay, precis, comprehension, descriptive answer writing, timed submissions and feedback.
+- **IELTS/PTE:** distinct reading, listening, writing and speaking workflows, task feedback and full simulations; do not reduce language tests to MCQs.
+- **Matric/FSc/O/A Levels:** class/board/curriculum-specific subjects, chapters, lessons, MCQs, short/long answers, numericals and board-style papers as applicable.
+- **Engineering/university aptitude:** shared question-delivery components where useful, but exam-specific topic maps, question pools, timing, scoring, mock patterns and progress.
+
+### One account, multiple goals, strict entitlements
+
+One student account may hold multiple preparation goals. Each goal has isolated attempts, bookmarks, notes, feedback, plans, scores and progress. A student must not see another exam's private content or progress through a shared engine.
+
+**Commercial model must be pricing-ready from the beginning.** The initial launch may offer free access or a free acquisition period to build trust and student adoption, but the product must not promise that every exam remains free forever. When monetization is enabled:
+- access is controlled by explicit, server-enforced entitlements scoped to a specific exam/Prep Space and product tier;
+- purchasing MDCAT unlocks MDCAT only, not every Apex exam; a student preparing for PMA or CSS needs the corresponding entitlement unless an explicitly described bundle grants it;
+- bundles, trials, scholarships, sponsored access and free samples are explicit products/policies, never accidental cross-access;
+- public exam pages and account creation remain discoverable; the student sees clear included/locked states and pricing before purchase;
+- authorization is checked server-side for content, APIs, downloads, attempts and progress writes—not merely hidden in the UI;
+- retain an auditable entitlement model with start/end dates, status, source/order reference and revocation/refund handling. Never expose payment secrets or sensitive billing data.
+
+Do not implement payment processing or change billing in this architecture-documentation task. Monetization details, local payment providers, tax/refund terms and pricing require separate research and explicit approval.
+
+### Architecture principles and non-goals
+
+- Share accounts, design system, infrastructure, content tooling and reusable engines; separate student experience and data by exam.
+- Do not create dozens of independent sites/domains or duplicate application infrastructure by default.
+- Do not create one universal feature menu for all students.
+- Do not merge exams merely because they share subjects or an MCQ engine.
+- Do not promise support for an exam until its Blueprint, content, rules and core journey pass readiness review.
+- Use honest states: Available, Beta, Content in progress, Coming soon, or unavailable; never market an unbuilt Prep Space as complete.
+- Keep the master national exam-demand inventory broad. Portal/Prep Space grouping is a later product decision based on syllabus, exam format, candidate journey, audience overlap and content readiness—not popularity alone.
+- Keep Balochistan and smaller-city coverage first-class: local-board accuracy, regional admissions guidance, low-bandwidth/mobile performance and accessible pricing/access options.
+
+### Delivery sequence
+
+1. Inventory current routes, exam IDs, question banks, topic maps, mock settings, progress storage, feature availability and existing user access rules.
+2. Define the Exam Registry and Blueprint schema, plus server-side exam-scoped data/access boundaries. Do not migrate production data until reviewed and approved.
+3. Design academy home, category discovery, public exam pages, multi-goal student home and the active Prep Space shell.
+4. Build and validate MDCAT as the first complete MCQ-heavy Prep Space against the existing product.
+5. Build PMA as the contrasting selection-oriented Prep Space to prove the blueprint can support a different workflow.
+6. Add CSS/PMS writing workflows, then engineering/university tests, school/college and remaining categories in evidence-based waves.
+7. Add pricing/entitlements only after access boundaries and product value are proven; support the launch-free phase without hardcoding a forever-free promise.
+
+### Acceptance criteria
+
+- A student can enter their active Prep Space without repeatedly selecting an exam.
+- Each Prep Space shows only relevant navigation and capabilities.
+- Exam-specific content, mock rules, attempts and progress cannot bleed across exams.
+- Multiple goals work under one account with clear switching and independent progress.
+- Paid entitlements can grant exactly one exam or a named bundle; unauthorized API/content access is denied server-side.
+- A free launch can transition to paid access without redesigning the account or data model.
+- The exam readiness matrix and public claims accurately distinguish implemented, beta and planned experiences.
+
+**Implementation status:** this is an approved product/architecture direction recorded in planning only. It does not mean the application, database, payment system, entitlements, routes or Prep Spaces have been implemented. No code, database, deployment, billing or domain settings are changed by this decision.
