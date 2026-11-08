@@ -84,6 +84,7 @@ Owner: Design board with roadmap/product coordination. Dependencies: Phase 0.
 - [ ] Define academy → category hub → public exam information page → authenticated Prep Space navigation and route map. Reuse current routes where sound; do not perform a broad rewrite just to match a diagram.
 - [ ] Ensure every exam has distinct configuration for syllabus, subjects/topics, question source, practice behaviour, mock length/timing/scoring, notes and progress context where applicable.
 - [ ] Create a Prep Space shell and data-driven Preparation Blueprint system that shares components while requiring exam-specific data/configuration, relevant capabilities, entitlement checks and progress boundaries; no generic cloned pages or mixed question pools.
+- [x] Draft stable exam IDs, first-wave taxonomy and conceptual Blueprint/data-boundary proposal in `EXAM-REGISTRY-PROPOSAL.md`; founder review and official-source verification remain open.
 - [ ] Complete desktop/mobile audit of all high-traffic surfaces.
 - [ ] Fix homepage first impression, hero hierarchy, academy goal/exam selector and primary CTA.
 - [ ] Build clear category hubs and dedicated exam portal entry pages; ensure the active exam context is visible throughout student journeys.
@@ -187,7 +188,7 @@ Owner: SEO board. Dependencies: stable brand and canonical host from Phase 0/1.
 - [ ] Add new exam Prep Spaces only with a quality-controlled, exam-specific Blueprint and real practice experience.
 - [ ] Build student ambassador/community loops with consent and abuse safeguards.
 - [ ] Improve analytics and experiments only when sample sizes and privacy approach justify them.
-- [ ] Reassess monetization only after product quality, trust and engagement gates in `TODO.md` are met; preserve the free core.
+- [ ] Reassess monetization only after product quality, trust and engagement gates in `TODO.md` are met; keep public discovery and deliberately selected samples accessible under an explicit policy, but do not promise all preparation is permanently free.
 
 ## Current first sprint — ordered execution queue
 
@@ -339,3 +340,8 @@ Do not implement payment processing or change billing in this architecture-docum
 - The exam readiness matrix and public claims accurately distinguish implemented, beta and planned experiences.
 
 **Implementation status:** this is an approved product/architecture direction recorded in planning only. It does not mean the application, database, payment system, entitlements, routes or Prep Spaces have been implemented. No code, database, deployment, billing or domain settings are changed by this decision.
+
+
+## Pricing/access audit priority — 2026-11-08
+
+The audit found permanent-free claims on the homepage, signup, portal, FAQ, resource/notes pages and `/llms.txt`. More importantly, `app/pricing/page.tsx` presents five Rs. 0 passes including a lifetime all-access plan; its “checkout” only changes React state and its success message claims activation without creating a grant. Treat this as a P0 trust issue. Before any paid launch, replace the fake local-only activation with a truthful access/pricing page, remove permanent-free promises, and define free public samples versus entitlement-protected full preparation. Do not add payment processing until the entitlement design and provider are approved.
