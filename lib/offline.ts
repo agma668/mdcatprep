@@ -11,15 +11,16 @@
 // and only removed after the server confirmed the insert. A failed send
 // releases the entry back to "queued"; an entry left "syncing" by a crashed
 // tab is reclaimed after STALE_SYNCING_MS. Mutations dispatch a window
-// "ccp:offline-queue" event so the offline player can reflect the count.
+// "apex:offline-queue" event so the offline player can reflect the count.
 
+// Retain the legacy DB name so downloaded questions and queued answers survive.
 const DB_NAME = "cadet-prep-offline";
 const DB_VERSION = 2;
 const QUESTIONS_STORE = "questions";
 const PENDING_STORE = "pending_attempts";
 const STALE_SYNCING_MS = 60_000;
 
-const QUEUE_EVENT = "ccp:offline-queue";
+const QUEUE_EVENT = "apex:offline-queue";
 
 function openDB(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
