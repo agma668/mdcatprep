@@ -39,7 +39,7 @@ This is a proposal, not a final claim that every listed exam is supported. IDs a
 | Proposed ID | Student-facing name | Relationship / notes | Current repository evidence |
 |---|---|---|---|
 | nust-net | NUST Entry Test (NET) | One NUST exam with distinct official paper variants: Engineering, Applied Sciences, Business & Social Sciences, Architecture and Natural Sciences. NET-Engineering is also used for Computing programmes; do not invent a separate Computing paper. | Dedicated 81-question bank and scaled NET-Engineering mock exist. Other NET variants are not established. |
-| uet-ecat | UET ECAT | Separate exam ID with province/institution variants represented as metadata where justified. | No complete dedicated Prep Space established in this pass. |
+
 | uet-ecat | UET ECAT | Separate exam ID with province/institution variants represented as metadata where justified. | No complete dedicated Prep Space established in this pass. |
 | giki-ug | GIKI Undergraduate Admission Test | Distinct from NUST NET and LUMS. Own verified subject blueprint and mock rules required. | Existing engineering chooser shares NET bank; no independent GIKI bank/mock established. |
 | lums-sbasse | LUMS SBASSE Admission Route | LUMS applicants may use SAT, ACT or LCAT; the Prep Space should focus on LCAT only if that is the student's selected route. Do not call it a universal LUMS test. | Current chooser shares NET bank; no distinct LCAT workflow established. |
@@ -71,11 +71,12 @@ The future category inventory is deliberately broad, but these entries must rema
 
 ## 3. Preparation Blueprint shape
 
-Each registry entry should resolve to a versioned blueprint with these conceptual fields:
+Each registry entry should resolve to a versioned blueprint with these conceptual fields. Where an exam has official stream/paper variants, model them as child assessment variants rather than pretending they are separate exams unless access/content truly needs separate products:
 
 | Field | Purpose |
 |---|---|
 | exam_id | Stable immutable ID. |
+| variant_id | Optional official paper/stream variant ID (e.g. HEC USAT Pre-Medical or NUST NET Engineering). Required where the official exam has materially different papers. |
 | blueprint_version | Version of this product's exam configuration. |
 | display_name / short_name | Student-facing names. |
 | category_id | Academy category. |
@@ -103,19 +104,20 @@ Conceptual model (table names are illustrative; no migrations have been written)
 
 - **exam_registry** — canonical stable exam IDs and category metadata.
 - **exam_blueprints** — versioned exam configuration and readiness state.
-- **student_goals** — user_id, exam_id, goal status (active/paused/completed), optional target date and preferences. One account can hold multiple goals.
+- **exam_variants / assessment_profiles** — versioned official paper variants under an exam, with their own syllabus, sections, timing and scoring.
+- **student_goals** — user_id, exam_id, optional variant_id, goal status (active/paused/completed), optional target date and preferences. One account can hold multiple goals.
 - **questions** — stable content records with provenance and publication state.
-- **question_exam_map** — explicit many-to-many mapping from question to exam, with mapping rationale/reviewer and syllabus alignment. Shared questions must be mapped deliberately, never by subject-name coincidence.
+- **question_exam_map** — explicit mapping from question to exam and optional variant, with mapping rationale/reviewer and syllabus alignment. Shared questions must be mapped deliberately, never by subject-name coincidence.
 - **assessment_profiles** — exam_id + versioned paper rules and scaling disclosure.
 - **question_attempts** — goal_id (or another verified exam-scoped context) plus question_id, answer, correctness and timing.
 - **question_bookmarks** — goal_id + question_id.
 - **notes/content_exam_map** — content can be mapped to one or more exam IDs explicitly.
 - **flashcard_reviews** — goal_id + card_id, so the same student can retain independent review histories for different goals.
 - **entitlement_products** — named exam pass or bundle definition.
-- **product_exam_access** — explicit list of exam IDs granted by each product.
+- **product_exam_access** — explicit list of exam IDs and optional variant IDs granted by each product. A null variant means all variants only when the product explicitly intends that.
 - **entitlement_grants** — user_id, product_id, status, valid_from, valid_until, source/order reference and revocation/refund state.
 
-A single exam purchase must not grant another exam unless product_exam_access explicitly includes it. A launch-free policy can create an explicit grant or a clearly defined launch entitlement; do not hardcode permanent free access.
+A single exam purchase must not grant another exam unless product_exam_access explicitly includes it. If the product is limited to one variant within an exam, the grant must include that variant; do not silently unlock every stream. A launch-free policy can create an explicit grant or a clearly defined launch entitlement; do not hardcode permanent free access.
 
 ## 5. Security and historical-data rules
 
@@ -160,6 +162,24 @@ These are the proposed decisions to carry forward so implementation does not sta
 - Verify PMDC/NUMS current-year syllabus and paper rules before setting assessment-profile versions.
 - Verify the PMA/ISSB stages from official recruiting/selection guidance before advertising a full selection journey.
 - Verify board/curriculum-specific requirements before opening Matric/FSc/O/A-Level spaces.
+
+
+## 8. Official-source verification snapshot (2026-11-08)
+
+These sources correct the taxonomy and must be stored with retrieval/verification dates in the eventual registry:
+
+| Authority | Verified finding | Product consequence | Official source |
+|---|---|---|---|
+| HEC / ETC | USAT has six categories: Pre-Medical, Pre-Engineering, Arts & Humanities, Commerce, Computer Science and General Science. | Model one HEC USAT exam with six variant profiles. | [HEC USAT sample papers](https://www.hec.gov.pk/english/services/students/etc/Pages/HAT-Sample-Papers.aspx) and [HEC FAQ](https://www.hec.gov.pk/english/services/students/etc/Pages/FAQ%27s.aspx) |
+| HEC / ETC | Standard USAT has 75 MCQs in 100 minutes, followed by Part II essay-writing (40 minutes; argument and narrative tasks, 25 marks total). | Current 100-MCQ / 100-minute repo bank is not the standard USAT-M paper. | [HEC USAT content weightages PDF](https://www.hec.gov.pk/english/services/students/etc/Documents/Content%20Weightages%20for%20%28USAT%29.pdf) |
+| HEC / ETC | USAT is recommended, but universities decide whether to accept USAT or run their own admission tests. | Do not claim USAT is mandatory for all universities. | [HEC clarification](https://www.hec.gov.pk/english/news/news/Pages/USAT-HEC.aspx) |
+| HEC scholarship programme | The Balochistan / ex-FATA undergraduate scholarship test has a separate 100-MCQ / 100-minute structure. Its Pre-Medical split is Verbal 26, Quantitative 32, Physics 11, Chemistry 11, Biology 20. | Current bundled bank/mock aligns to this scholarship-test variant; keep it separate from standard HEC USAT and verify the applicable batch before publication. | [HEC Balochistan / Ex-FATA test weightages PDF](https://www.hec.gov.pk/english/scholarshipsgrants/BF-III/Documents/CW-BAL-FATA.pdf) |
+| NUST | NET has five paper types: Engineering, Applied Sciences, Business & Social Sciences, Architecture and Natural Sciences. NET-Engineering is 50% Mathematics, 30% Physics, 20% English and serves Engineering and Computing programmes. | One NUST NET exam with variant profiles. Current mock builder follows the Engineering split; portal subject labels need correction. | [NUST subjects and NET weightings](https://nust.edu.pk/admissions/undergraduates/subjects-included-in-net-with-weightings) |
+| GIKI | GIKI's undergraduate admission test is distinct and its official page describes Physics, Mathematics and English. | Keep GIKI separate from NUST; build its own blueprint and bank before advertising a full Prep Space. | [GIKI admission selection](https://giki.edu.pk/admissions/admissions-undergraduates/admission-selection/) |
+| LUMS | SBASSE applicants can use SAT, ACT or LCAT as alternative admission-test routes. | An LCAT Prep Space is one selected route, not a universal LUMS test. | [LUMS admission FAQs](https://admission.lums.edu.pk/admission-faqs) |
+| NUMS | The 2026 NUMS MDCAT syllabus separates Paper-I (Biology, Chemistry, Physics, English) and Paper-II (Psychological Test). | NUMS remains distinct from PMDC MDCAT and needs explicit paper profiles. | [NUMS MDCAT 2026](https://numspak.edu.pk/news-detail/nums-mdcat-2026-for-admissions-in-mbbs-bds-session-2026-27) |
+
+**Important naming correction:** the repository's own docs/HEC-USAT-M-ANALYSIS.md already distinguishes mainstream HEC USAT-M from the Balochistan / ex-FATA scholarship test. The current lib/usat-mock.ts and student-facing labels still call the 100-MCQ scholarship mock “HEC USAT-M”. This is misleading and should be renamed to the scholarship-test identity after content/route migration is planned. Do not relabel the current bank as mainstream HEC USAT-M.
 
 ## Acceptance test
 
