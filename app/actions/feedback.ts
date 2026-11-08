@@ -4,7 +4,7 @@ import { revalidatePath } from 'next/cache'
 import { createClient } from '@/lib/supabase/server'
 import { requireAdmin } from '@/lib/auth'
 import { createServiceClient } from '@/lib/supabase/service'
-import { triageFeedback, formatTriagePrefix } from '@/lib/jev'
+import { triageFeedback } from '@/lib/jev'
 
 const MAX_LENGTH = 2000
 const MIN_LENGTH = 3
@@ -12,15 +12,11 @@ const MIN_LENGTH = 3
 export type SubmitFeedbackResult = { success: true } | { error: string }
 
 /**
- * Saves one piece of feedback. The form only asks for the message itself —
- * the signed-in student's id is captured server-side (not from the form) so
- * admins can see who gave the feedback without the student typing anything.
- * Anonymous visitors submit with a NULL user_id.
+ * Saves one piece of feedback. The signed-in student's id is captured
+ * server-side (not from the form); anonymous visitors submit with NULL.
  *
- * Jev triage (lib/jev.ts) classifies the message before insert. The contract
- * is fail-open: when triage fails or the key is missing, the row is stored
- * exactly as before — the prefix is appended ONLY on a genuine result, so a
- * missing label never masquerades as a real one.
+ * Feedback is stored verbatim. Automated AI triage is disabled so a feedback
+ * submission can never trigger a metered external API charge.
  */
 export async function submitFeedback(
   message: string,
@@ -40,11 +36,11 @@ export async function submitFeedback(
     data: { user },
   } = await supabase.auth.getUser()
 
-  const triage = await triageFeedback(clean)
-  const stored = triage ? `${formatTriagePrefix(triage)} ${clean}` : clean
+  // Kept as a local no-op seam; never contacts a model provider.
+  await triageFeedback(clean)
 
   const { error } = await supabase.from('feedback').insert({
-    message: stored,
+    message: clean,
     user_id: user?.id ?? null,
     page: page?.slice(0, 200) || null,
   })
