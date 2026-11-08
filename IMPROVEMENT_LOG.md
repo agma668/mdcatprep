@@ -115,3 +115,12 @@ Same log entry doubles as the *physics + english* bank growth (this sweep did al
 ## 2026-11-09 — Wave 1: public production access and canonical host
 
 Founder approved making the production deployment URLs publicly accessible while keeping preview deployments private. Updated Vercel `edweb` SSO scope from `all_except_custom_domains` to `preview`; read-back confirms SSO enabled for previews only, password protection disabled, trusted IPs disabled. Verified the latest `main` production deployment is READY and aliases include `edweb-nine.vercel.app`. Production HTTP reachability could not be tested from this environment and remains an external smoke-test item. Aligned the canonical fallback to the verified production alias; no custom domain attached or purchased. This is an approved Vercel project setting change, not a production database or secret change.
+
+
+## 2026-11-09 — Wave 2: remove inherited-site branding and close unsafe demo/webhook paths
+
+- Disabled the synthetic demo-activity cron in `vercel.json`; the route now requires `CRON_SECRET` and is documented as internal-test-only. Existing demo profiles/data were not inspected, modified or deleted. The legacy suffix remains only as an exclusion marker so any old synthetic accounts cannot inflate public real-student metrics.
+- Hardened the WhatsApp webhook: removed the predictable fallback verification token, require configured verification/app/access credentials, and verify Meta's HMAC signature over the exact raw POST body before any database write or message action. Added unit tests for valid, tampered and malformed signatures; maintenance env inventory now lists all four required WhatsApp settings.
+- Renamed the service-worker cache generation to `apex-prep`; renamed the offline queue event and last-sync key while reading/migrating the old localStorage timestamp. Kept the existing IndexedDB database name so downloaded questions and queued answers are not lost.
+- Removed the unused foreign-site footer, corrected stale brand references in active source comments and dormant testimonials copy, and clarified that PMA/ISSB prep is an Apex Prep Space while cadet-college admissions content is out of scope.
+- No production Supabase data/schema, auth, or Vercel secrets were changed. Preview build and new CI gates must pass before considering merge.
