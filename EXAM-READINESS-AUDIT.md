@@ -251,3 +251,10 @@ Read-only verification on 2026-11-09:
 - `lib/site.ts` currently falls back to `https://mdcatprep-eight.vercel.app`, which does not match the current Vercel aliases. Do not change canonical host or weaken deployment protection until the intended public hostname and access policy are approved together.
 
 This was an inspection and documentation correction only. No Supabase schema/data, auth settings, Vercel settings, environment values, deployment aliases or billing were changed.
+
+
+## 2026-11-09 Supabase advisor re-check
+
+A fresh read-only advisor run returned the same core findings. Follow-up inspection of the three SECURITY DEFINER functions showed that `count_referral_on_signup`, `generate_referral_code`, and `handle_new_user` are all attached to database triggers (`has_user_trigger = true`) and have `search_path=public` pinned. Their default EXECUTE grants still trigger the advisor warnings, but these are trigger functions, not ordinary application RPCs; do not revoke grants or change function security until trigger behavior and PostgreSQL privilege semantics are tested on a disposable database. `client_telemetry` has RLS enabled with no policies; its intended writer is the server-side telemetry route using the service client, so verify that no browser path uses direct table access before adding a policy.
+
+Other current advisor findings: three functions with mutable search paths (`duels_guard_update`, `races_guard_insert`, `leaderboard`); leaked-password protection disabled; six unindexed foreign keys; 24 RLS auth-function init-plan notices; one multiple-permissive SELECT-policy warning on `notes`; and 20 unused-index notices. Treat these as a prioritized review list, not a batch of automatic fixes. In particular, do not drop unused indexes on the basis of a low-volume database, and do not change auth/RLS behavior without role-based tests.
