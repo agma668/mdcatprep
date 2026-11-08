@@ -231,6 +231,15 @@ Never deploy to production, change live database state, alter access controls, b
 
 ## Portal architecture decision record
 
+### Initial codebase finding (verified by reading `lib/exams-config.ts` on 2026-11-08)
+
+- The current top-level registry is `mdcat`, `pma`, `nust`, `usat`.
+- Medical config groups UHS MDCAT, NUMS MDCAT/AMC, USAT-M, Balochistan and FATA/KPK pathways under one medical bank.
+- Engineering config groups NUST NET, GIKI, LUMS SBASSE and USAT-E under the NUST bank.
+- The standalone USAT config lists Arts and Commerce variants; USAT-M and USAT-E are nested under other portals.
+- This is an architecture/clarity risk to investigate, not proof that the learning engines are incorrect. Before changing routes or data models, inspect all route handlers, bank selectors, mock settings, progress persistence and current student records.
+
+
 **Decision:** one academy, multiple dedicated exam portals, shared platform underneath.
 
 **Student-facing hierarchy:** Academy homepage → category hub → dedicated exam portal → exam-scoped learning workflow.
