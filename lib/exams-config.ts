@@ -45,7 +45,7 @@ export const EXAMS_CONFIG: Record<ExamCategory, ExamConfig> = {
     bank: 'mdcat',
     subtests: [
       { id: 'uhs-mdcat', name: 'UHS MDCAT (Punjab)', description: 'The standard PMDC MDCAT pattern used by Punjab and federal boards.' },
-      { id: 'nums-mdcat', name: 'NUMS MDCAT & AMC', description: 'NUMS runs the PMDC core; its Paper-II aptitude test is separate.' },
+      { id: 'nums-mdcat', name: 'NUMS MDCAT (separate syllabus)', description: 'NUMS publishes a dedicated annual syllabus. The current question-bank mapping needs review before a full official-format mock is claimed.' },
       { id: 'usat-med', name: 'HEC USAT-M (Pre-Medical)', description: 'The HEC undergraduate test for pre-medical applicants.' },
       { id: 'balochistan-mdcat', name: 'Balochistan Medical Entry Test', description: 'BUMHS / Quetta sitting of the same PMDC science core.' },
       { id: 'fata-medical', name: 'FATA / KPK Medical Entry Test', description: 'KMU CAT and the erstwhile FATA regional quotas.' },
@@ -63,7 +63,7 @@ export const EXAMS_CONFIG: Record<ExamCategory, ExamConfig> = {
       notes: true,
       flashcards: true,
       pastPapers: true,
-      psychTest: true,
+      psychTest: false, // Hide until a current official NUMS psychological-test component is verified.
     },
   },
   nust: {
