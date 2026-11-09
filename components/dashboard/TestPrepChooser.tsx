@@ -71,12 +71,12 @@ export function TestPrepChooser({
           {selected?.mark ?? "🎯"}
         </span>
         <select
-          aria-label={`Choose the test you are preparing for in the ${family} portal`}
+          aria-label={`Choose the test you are preparing for in the ${family} preparation area`}
           value={choice ?? ALL_ID}
           onChange={(e) => select(e.target.value)}
           className="w-full appearance-none truncate text-ellipsis rounded-[var(--radius-sm)] bg-[var(--srf-2)] py-2 pl-8 pr-7 text-xs font-bold text-white ring-1 ring-white/10 transition-colors hover:ring-white/25 focus:outline-none focus:ring-2 focus:ring-[var(--signal-500)]/60 cursor-pointer"
         >
-          <option value={ALL_ID}>All tests in this portal</option>
+          <option value={ALL_ID}>All medical tests</option>
           {tests.map((t) => (
             <option key={t.id} value={t.id}>
               {t.label}
