@@ -103,6 +103,8 @@ Official sources reviewed:
 - NUST, 2025 prospectus (older conflicting weighting reference): https://nust.edu.pk/wp-content/uploads/2020/03/MARCOMS-PROSPECTUS-2025-V.5.0-04032025_compressed.pdf
 - NUMS, MDCAT 2026 official admissions/syllabus page: https://numspak.edu.pk/news-detail/nums-mdcat-2026-for-admissions-in-mbbs-bds-session-2026-27\n- ISSB, Selection System: https://www.issb.gov.pk/selection-system
 
+See also: [EXAM-READINESS-MATRIX.md](EXAM-READINESS-MATRIX.md) for the current internal status of each exam/variant and its evidence-based readiness level.
+
 ## 3. Recommended architecture
 
 Use the approved Prep Space model:
@@ -133,7 +135,7 @@ The current migration proposal is a foundation, not a complete entitlement or go
 - [x] Produce a read-only structural bank audit/validation tool; no network access and no database writes.
 - [x] Pricing-only commit reached Vercel READY; latest combined head still needs a READY build and preview smoke.
 - [x] Prepare an exact file-level implementation and QA plan for the question-ingestion pipeline.
-- [x] Record current exam-pattern/readiness risks and next steps in this queue; a student-facing readiness matrix remains open.
+- [x] Create `EXAM-READINESS-MATRIX.md` with evidence-based statuses and source references; keep it internal until the public UI can reflect it.
 
 ### Freebuff's later one-hour session
 
