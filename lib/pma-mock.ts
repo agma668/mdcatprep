@@ -1,6 +1,7 @@
-// The military mock papers — a timed pattern simulation of the PMA Long Course
-// initial-test paper and its ISSB intelligence-only variant, assembled from the
-// bundled PMA bank (lib/pma-questions.ts). Lives beside the USAT-M and NET
+// The military practice papers — a timed pattern simulation of the PMA Long Course
+// initial-test paper and a focused Verbal/Non-Verbal reasoning drill. The latter
+// is not a simulation of the ISSB selection process. Both use the bundled PMA bank
+// (lib/pma-questions.ts). Lives beside the scholarship and NET
 // formats in /dashboard/mock-test so the mock-test surface mirrors the same
 // per-test switching the practice chooser already does for the military
 // portal: a PMA Long Course student gets the three-section paper, an ISSB
@@ -46,7 +47,7 @@ export const PMA_MOCK_SPLIT = [
   { category: "Academic", count: 11 },
 ] as const;
 
-/** Sections an ISSB student runs: the intelligence sections only. */
+/** Sections included in the limited Verbal/Non-Verbal reasoning drill. */
 const ISSB_CATEGORIES = ["Verbal", "Non-Verbal"] as const;
 
 /** Our own pacing, in minutes per question — never claimed as official. */
@@ -86,10 +87,10 @@ export function pmaMockMinutes(
 }
 
 /**
- * Build one paper: per section, the split's worth of that category's
- * questions from the bank, shuffled within the section, sections keeping the
- * real reported order. Every run reshuffles, so no two attempts share a
- * sequence.
+ * Build one practice set: per section, the split's worth of that category's
+ * questions from the bank, shuffled within the section. The 'issb' variant is
+ * only a legacy internal name for the limited Verbal/Non-Verbal drill; it does
+ * not represent the official ISSB selection process. Every run reshuffles.
  */
 export function buildPmaMockPaper(
   bank: readonly PMAQuestion[],
