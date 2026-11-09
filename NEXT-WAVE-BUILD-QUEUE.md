@@ -82,6 +82,26 @@ On this branch, `app/pricing/page.tsx` has been changed to remove the fake enrol
 
 Do not add a payment provider, paid API, paid integration, paid Supabase branch, paid Vercel feature, trial or billing setting. No monetization implementation is part of this work queue.
 
+### Fresh official-source verification — 2026-11-09
+
+These are source-backed checks for the next blueprint review. They do not authorize a content import or a public claim that an entire Prep Space is complete.
+
+| Exam / process | Official-source finding | Product implication |
+|---|---|---|
+| PMDC MDCAT 2026 | PM&DC's 19 May 2026 notice says the MDCAT-2025 curriculum applies to MDCAT-2026. The official pattern is 180 paper-based MCQs, 3 hours, no negative marking, with 81 Biology / 45 Chemistry / 36 Physics / 9 English / 9 Logical Reasoning. | The generic mock in `app/dashboard/mock-test/page.tsx` currently has a 100-mark custom split (34/24/30/12) and no Logical Reasoning section. It must be labelled as a scaled practice mock, not an official-format full mock, until its content pool and assessment profile match the current official blueprint. |
+| HEC Balochistan & Ex-FATA scholarship test | The latest official content-weightage PDF located is Batch-IV (HEC page references 2025): 100 MCQs / 100 minutes. Pre-Medical split is Verbal 26, Quantitative 32, Physics 11, Chemistry 11, Biology 20. This exactly matches the current scholarship mock split. No newer 2026 batch-specific pattern was located in this search. | Preserve the bank as scholarship-specific preparation, not standard HEC USAT-M. Store the batch/version and source date in the assessment profile; re-check the next HEC batch before presenting it as current. |
+| NUST NET | NUST's current admissions weightings page lists NET-Engineering as Mathematics 50%, Physics 30%, English 20%; Applied Sciences as Biology 50%, Chemistry 30%, English 20%; Business/Social Sciences as Quantitative Mathematics 50%, English 50%; Architecture as Design Aptitude 50%, Mathematics 30%, English 20%; Natural Sciences as Mathematics 50%, English 50%. An older 2025 prospectus shows a different Engineering weighting. | Keep NET paper variants separate. The current NET-Engineering mock uses the current 50/30/20 weighting and scales down to the 81-question bank; do not reuse it for Applied Sciences, Business/Social Sciences, Architecture or Natural Sciences. Record source retrieval/version dates. |
+| ISSB selection | ISSB's official page describes a four-day, three-dimensional selection process: psychologist, GTO and Deputy President/interview dimensions. | The current Verbal/Non-Verbal question set is only a focused reasoning drill. It must not be named or presented as a complete ISSB mock or full ISSB preparation workflow. This branch updates the labels accordingly. |
+
+Official sources reviewed:
+- PM&DC, Public Notice Regarding MDCAT-2026: https://pmdc.pk/Documents/Others/Public%20Notice%20Regarding%20MDCAT-2026%20Date%20Announcement.pdf
+- PM&DC, MDCAT syllabus publication page: https://pmdc.pk/Publication/Syllabus
+- HEC, Balochistan/Ex-FATA Batch-IV content weightages: https://www.hec.gov.pk/english/scholarshipsgrants/BF-III/Documents/Content-Weightages-BAL-FATA.pdf
+- HEC, Batch-IV programme page: https://www.hec.gov.pk/english/scholarshipsgrants/BF-III/Pages/default.aspx
+- NUST, Subjects Included in NET with Weightings: https://nust.edu.pk/admissions/undergraduates/subjects-included-in-net-with-weightings
+- NUST, 2025 prospectus (older conflicting weighting reference): https://nust.edu.pk/wp-content/uploads/2020/03/MARCOMS-PROSPECTUS-2025-V.5.0-04032025_compressed.pdf
+- ISSB, Selection System: https://www.issb.gov.pk/selection-system
+
 ## 3. Recommended architecture
 
 Use the approved Prep Space model:
