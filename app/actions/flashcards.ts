@@ -2,7 +2,8 @@
 
 import { revalidatePath } from 'next/cache'
 import { createClient } from '@/lib/supabase/server'
-import { CARDS_BY_ID } from '@/lib/flashcards/flashcards-data'
+import { CARDS_BY_ID, FLASHCARD_DECKS } from '@/lib/flashcards/flashcards-data'
+import { queueSize, summariseReviewState, type FlashcardSummary } from '@/lib/flashcards/dashboard'
 import type { CardRating } from '@/lib/flashcards/srs'
 import {
   emptyFsrsState,
@@ -352,4 +353,107 @@ function isMissingColumn(error: { code?: string; message?: string }): boolean {
   if (error.code === 'PGRST204' || error.code === '42703') return true
   const msg = (error.message ?? '').toLowerCase()
   return msg.includes('column') && (msg.includes('does not exist') || msg.includes('schema cache'))
+}
+
+// ---------------------------------------------------------------------------
+// Review dashboard (issue #5, section C)
+// ---------------------------------------------------------------------------
+
+const DEFAULT_DAILY_NEW_LIMIT = 20
+
+export interface FlashcardDashboardPayload {
+  summary: FlashcardSummary
+  dailyNewLimit: number
+  queueSize: number
+  /** True when review state could not be read (table not applied yet). */
+  unavailable: boolean
+}
+
+/** Summary of new/due/learning/relearning cards and the 7-day workload. */
+export async function getFlashcardDashboard(): Promise<FlashcardDashboardPayload> {
+  const state = await getFlashcardReviewState()
+  const cardIds = allCardIds()
+  const summary = summariseReviewState(cardIds, state.byCard)
+  const dailyNewLimit = await readDailyNewLimit()
+  return {
+    summary,
+    dailyNewLimit,
+    queueSize: queueSize(summary, dailyNewLimit),
+    unavailable: state.unavailable,
+  }
+}
+
+/** Read the student's daily new-card limit, defaulting when unset/missing. */
+export async function readDailyNewLimit(): Promise<number> {
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+  if (!user) return DEFAULT_DAILY_NEW_LIMIT
+
+  const { data, error } = await supabase
+    .from('profiles')
+    .select('flashcard_new_limit')
+    .eq('id', user.id)
+    .maybeSingle()
+  if (error || !data) return DEFAULT_DAILY_NEW_LIMIT
+  const value = Number((data as { flashcard_new_limit?: number }).flashcard_new_limit)
+  return Number.isFinite(value) ? value : DEFAULT_DAILY_NEW_LIMIT
+}
+
+/** Persist a new daily new-card limit (0–500, clamped). */
+export async function setDailyNewLimit(
+  limit: number
+): Promise<{ success: boolean; error?: string; dailyNewLimit?: number }> {
+  if (!Number.isFinite(limit)) return { success: false, error: 'Invalid limit.' }
+  const clamped = Math.min(500, Math.max(0, Math.floor(limit)))
+
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+  if (!user) return { success: false, error: 'Not authenticated' }
+
+  const { error } = await supabase
+    .from('profiles')
+    .update({ flashcard_new_limit: clamped })
+    .eq('id', user.id)
+  if (error) return { success: false, error: error.message }
+
+  revalidatePath('/dashboard/flashcards')
+  return { success: true, dailyNewLimit: clamped }
+}
+
+export interface FlashcardHistoryEntry {
+  card_id: string
+  rating: string
+  state: string
+  reviewed_at: string
+}
+
+/** Recent review history, newest first (empty when the table is not applied). */
+export async function getFlashcardHistory(limit = 20): Promise<FlashcardHistoryEntry[]> {
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+  if (!user) return []
+
+  const { data, error } = await supabase
+    .from('flashcard_review_history')
+    .select('card_id, rating, state, reviewed_at')
+    .eq('student_id', user.id)
+    .order('reviewed_at', { ascending: false })
+    .limit(Math.min(Math.max(limit, 1), 100))
+  if (error) return []
+  return (data ?? []) as FlashcardHistoryEntry[]
+}
+
+/** Stable, ordered list of every shipped card id across all decks. */
+function allCardIds(): string[] {
+  const ids: string[] = []
+  for (const deck of FLASHCARD_DECKS) {
+    for (const card of deck.cards) ids.push(card.id)
+  }
+  return ids
 }

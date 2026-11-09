@@ -193,3 +193,11 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - Added `lib/quiz/load.ts` and `app/dashboard/practice/blueprint/page.tsx` to build and play a blueprint quiz from the published bank via the existing `McqPlayer`, showing the per-section allocation and any bank shortfall.
 - Tests: `lib/quiz/blueprint.test.ts` covers exact-sum allocation, uneven totals, stability, availability clamping, validation failures, duplicate-free selection, shortfall reporting and topic scoping. `npm test` 43/43.
 - Gates: tsc exit 0, eslint on touched files exit 0, build exit 0. No database or production change.
+
+## 2026-11-09 — Issue #5 (continued): flashcard review dashboard and daily limit
+
+- Added `lib/flashcards/dashboard.ts`: a pure, timezone-safe summariser for new / due / learning / relearning counts and the next-seven-day workload, plus a queue-size rule that caps only new cards (due reviews are never capped).
+- Added dashboard server actions: `getFlashcardDashboard`, `readDailyNewLimit`, `setDailyNewLimit` (clamped 0-500), and `getFlashcardHistory` (best-effort; empty until the history table is applied).
+- Added `ReviewDashboard` above the deck grid: counts, a 7-day workload strip and an editable daily new-card limit. The limit reads from `profiles.flashcard_new_limit` with a 20-card default when the draft column is absent.
+- Tests: `lib/flashcards/dashboard.test.ts` covers new/due/learning/relearning bucketing, UTC upcoming-day grouping and sorting, and the new-card-only cap. `npm test` 48/48.
+- Gates: tsc exit 0, eslint on touched files exit 0, build exit 0. No database or production change.
