@@ -8,6 +8,16 @@ Added `lib/question-bank-audit.ts` and `lib/question-bank-audit.test.ts`, includ
 
 A fresh official-source review also led to truthful labels in the PMA/ISSB and mock-test surfaces: the 100-question MDCAT sample is now explicitly marked as scaled practice, the HEC pattern is labelled as the last located Balochistan/Ex-FATA Batch-IV scholarship pattern rather than standard USAT-M, and the ISSB option is described as a limited Verbal/Non-Verbal reasoning drill rather than a full ISSB simulation. The PMA practice page now changes its heading and scope note for the ISSB choice. These latest UI edits are on the feature branch and still need a final combined build, tests, lint and responsive preview review.
 
+Further truthfulness fixes on the same branch:
+- Removed "Free forever" and "100% free ... Ever" promises from `app/portal/[exam]/page.tsx`; the portal now describes beta access and acknowledges feature availability varies.
+- Re-labelled the MDCAT 100-question option as a scaled sample with a 100-minute practice clock, not a full PMDC 180-question simulation.
+- Renamed the ISSB option as a focused Verbal/Non-Verbal reasoning drill; updated the PMA practice page, exam config and chooser copy to say that full ISSB selection preparation is not available.
+- NUMS is now described as having a separate official syllabus; the unverified NUMS psychological-test feature is hidden until its current syllabus is reviewed.
+- Added `EXAM-READINESS-MATRIX.md` with evidence-based readiness states and source links. NUMS's official 2026 page links a dedicated syllabus PDF, but the PDF could not be fetched, so its detailed paper structure remains unverified.
+- Added the latest official-source findings to `NEXT-WAVE-BUILD-QUEUE.md`. The 2026 PMDC, NUST, HEC scholarship and ISSB references now guide the pending exam-blueprint review.
+
+No production database reads/writes were needed for these UI/documentation changes; no schema, seed, billing, payment, domain or production deployment changes were made. The combined final-head build and all test/lint gates remain pending; do not call the bank audit tests passed until they are executed.
+
 Added `NEXT-WAVE-BUILD-QUEUE.md` to organize the verified blockers and Freebuff's later implementation/QA session. No merge, production deployment, billing change or paid service was used.
 
 ## 2026-11-09 — Backend ownership and release-boundary correction
