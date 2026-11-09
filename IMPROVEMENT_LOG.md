@@ -185,3 +185,11 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - Tests: `lib/mistakes/classification.test.ts` covers classification priority, miss-reason validation and the mastery threshold. `npm test` 33/33.
 - Gates: tsc exit 0, eslint on touched files exit 0, build exit 0.
 - Not applied: no production migration was run; the draft is additive and owner-only under RLS.
+
+## 2026-11-09 — Issue #3: blueprint-driven quiz planning engine
+
+- Added `lib/quiz/blueprint.ts`: a pure planner that allocates a requested number of questions across weighted blueprint sections (largest-remainder, deterministic), clamps to bank availability, selects concrete questions without duplicates, and validates blueprints and custom mixes.
+- Added `lib/quiz/registry.ts` with only the one split the repo's audit confirms (NUST NET-Engineering 50% Mathematics / 30% Physics / 20% English) and a `verified` flag; unverified patterns never resolve. No absolute exam counts are invented — students choose the total.
+- Added `lib/quiz/load.ts` and `app/dashboard/practice/blueprint/page.tsx` to build and play a blueprint quiz from the published bank via the existing `McqPlayer`, showing the per-section allocation and any bank shortfall.
+- Tests: `lib/quiz/blueprint.test.ts` covers exact-sum allocation, uneven totals, stability, availability clamping, validation failures, duplicate-free selection, shortfall reporting and topic scoping. `npm test` 43/43.
+- Gates: tsc exit 0, eslint on touched files exit 0, build exit 0. No database or production change.
