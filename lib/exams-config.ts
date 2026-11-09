@@ -98,15 +98,15 @@ export const EXAMS_CONFIG: Record<ExamCategory, ExamConfig> = {
   },
   pma: {
     id: 'pma',
-    name: 'PMA Long Course & ISSB Defence Portal',
-    tagline: 'Pakistan Military Academy initial test and ISSB screening — verbal, non-verbal and academic practice with real figure questions',
+    name: 'PMA Long Course & ISSB Reasoning Practice',
+    tagline: 'PMA Long Course initial-test practice plus focused Verbal and Non-Verbal reasoning drills. Full ISSB selection preparation is not yet available.',
     badge: 'Military Defence',
     route: '/pma/practice',
     accentColor: 'from-amber-600 to-yellow-700',
     bank: 'pma',
     subtests: [
       { id: 'pma-initial', name: 'PMA Long Course Initial Test', description: 'Verbal, non-verbal and academic computer-based test.' },
-      { id: 'issb-psych', name: 'ISSB Psychological & Officer Matrix', description: 'Word association, sentence completion & picture stories.' },
+      { id: 'issb-reasoning', name: 'ISSB Verbal & Non-Verbal Reasoning Drill', description: 'Limited MCQ-style reasoning practice only; this does not simulate the official multi-day ISSB selection process.' },
       { id: 'navy-afns', name: 'Navy & AFNS Nursing Entrance', description: 'Initial intelligence and medical nursing tests.' },
     ],
     subjects: [
