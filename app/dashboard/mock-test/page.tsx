@@ -77,11 +77,11 @@ const PMA_FORMAT = {
 
 const ISSB_FORMAT = {
   id: 'issb-intelligence',
-  name: 'ISSB Intelligence Mock',
+  name: 'Verbal & Non-Verbal Reasoning Drill',
   duration: pmaMockMinutes(PMA_BANK, 'issb'),
   totalMarks: buildPmaMockSections(PMA_BANK, 'issb').reduce((sum, s) => sum + s.count, 0),
   description:
-    'The intelligence-only variant of the same bank — Verbal + Non-Verbal, the sections ISSB preparation drills. Same original paper-style rules as the PMA initials mock: scaled to the bank, clocked at our own pacing, no negative marking. Original sample questions — not official ISSB papers.',
+    'A focused Verbal + Non-Verbal reasoning drill using original sample questions from the PMA-style bank. This is not a simulation of the ISSB selection process, which includes multiple assessment dimensions over four days.',
   sections: buildPmaMockSections(PMA_BANK, 'issb').map((s) => ({
     name: s.category,
     questions: s.count,
@@ -136,7 +136,7 @@ export default async function MockTestPage() {
       <PageHeader
         eyebrow="Full-length simulation"
         title="Mock Test"
-        description="Timed, sectioned mock tests. The board mocks weight the PMDC MDCAT paper — Biology heaviest, then Physics and Chemistry, then English — and pull from the academy question bank; the HEC USAT-M paper runs its official scholarship split (100 MCQs · 100 minutes); the NUST NET-Engineering mock runs NUST's official Math 50% · Physics 30% · English 20% weighting, scaled to the NET bank at real paper pacing; the military mocks run the PMA-style paper and its ISSB intelligence-only variant, assembled from the bundled PMA bank. 1 mark per MCQ."
+        description="Timed, sectioned mock tests. The board mocks weight the PMDC MDCAT paper — Biology heaviest, then Physics and Chemistry, then English — and pull from the academy question bank; the HEC USAT-M paper runs its official scholarship split (100 MCQs · 100 minutes); the NUST NET-Engineering mock runs NUST's official Math 50% · Physics 30% · English 20% weighting, scaled to the NET bank at real paper pacing; the military section offers a PMA-style practice paper and a focused Verbal/Non-Verbal reasoning drill. Neither is an official paper or a full ISSB selection simulation. 1 mark per MCQ."
       />
       <MockTestSetup formats={TEST_FORMATS} />
     </div>
