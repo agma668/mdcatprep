@@ -37,7 +37,7 @@ const WELL_ACTIVE = "bg-[var(--signal-500)]/15 text-[var(--signal-200)]";
 
 const NAV_ITEMS = [
   { href: "/dashboard", icon: Home, label: "Overview", shortLabel: "Home" },
-  { href: "/exams", icon: Layers, label: "All Exam Portals", shortLabel: "Exams" },
+  { href: "/exams", icon: Layers, label: "Prep Spaces", shortLabel: "Prep" },
   { href: "/dashboard/analytics", icon: BarChart3, label: "Analytics", shortLabel: "Analytics" },
   { href: "/dashboard/practice", icon: Target, label: "Practice", shortLabel: "Practice" },
   { href: "/dashboard/mock-test", icon: ClipboardList, label: "Mock Test", shortLabel: "Mock Test" },
@@ -124,7 +124,7 @@ export function Sidebar({ profile, leaderboard }: { profile: Profile; leaderboar
             {!collapsed && (
               <span className="min-w-0">
                 <span className="block font-extrabold text-white text-lg tracking-tight leading-none">MED Prep</span>
-                <span className="block text-[11px] text-white/45 font-medium mt-1 tracking-wide uppercase">MDCAT & NUMS Portal</span>
+                <span className="block text-[11px] text-white/45 font-medium mt-1 tracking-wide uppercase">Medical preparation</span>
               </span>
             )}
           </TrackedLink>
