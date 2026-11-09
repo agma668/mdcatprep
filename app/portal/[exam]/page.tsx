@@ -33,7 +33,7 @@ export default async function ExamPortalPage({ params }: PageProps) {
           <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Link href="/exams" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-                ← All Portals
+                ← All Prep Spaces
               </Link>
               <span className="text-border">/</span>
               <span className="font-extrabold text-sm text-foreground">{config.name}</span>
@@ -151,7 +151,7 @@ export default async function ExamPortalPage({ params }: PageProps) {
 
             {/* Quick Access Card */}
             <div className="bg-card border border-border rounded-2xl p-6 shadow-sm space-y-6 h-fit">
-              <h3 className="font-bold text-foreground text-lg">Portal Resources</h3>
+              <h3 className="font-bold text-foreground text-lg">Prep Space resources</h3>
               <ul className="space-y-3 text-sm">
                 {config.features.notes && (
                   <li className="flex items-center justify-between py-2 border-b border-border/50">
