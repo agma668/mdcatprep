@@ -175,3 +175,13 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - Tests: `lib/flashcards/fsrs.test.ts` covers the four ratings, learning→review graduation, lapses/relearning, stability growth, difficulty bounds, determinism, UTC due-date handling, preview immutability and rating guards. `npm test` 24/24.
 - Gates: `npx tsc --noEmit` exit 0 · `eslint` on touched files exit 0 · `npm test` 24/24 · `npm run build` exit 0.
 - Outstanding (documented, not built): deck/sub-deck management UI, tag/search/edit/delete UI, the new/due/learning/relearning study dashboard, alternative study modes (MCQ / true-false / typed recall), and the goal-scoped review filter. The data model and scheduler for these exist; the UI and action wiring are not complete. No production schema, data or secrets were changed.
+
+## 2026-11-09 — Issue #4: mistake recovery and mastery engine
+
+- Added `lib/mistakes/classification.ts`: pure rules for the six classifications, the seven miss reasons, and evidence-based mastery (two correct re-attempts required; viewing an explanation never counts).
+- Extended `app/actions/mistakes.ts` without disturbing the existing wrong-answer drill: submit (refresh-safe), update, list, stats, bulk-master and convert-to-flashcard. All reads/writes use the caller's session so RLS isolates each student; duplicate reviews are prevented both in the action and by partial unique indexes.
+- Replaced the localStorage notebook with a server-backed dashboard (`app/dashboard/mistake-notebook/page.tsx`) showing totals, unmastered/mastered counts, classification badges, miss-reason selection, mark-mastered and make-flashcard.
+- Rewrote the draft migration to fix an invalid index-as-constraint that would fail on apply, add exam-goal scoping, partial unique indexes for duplicate prevention, and a `review_flashcards` table that preserves the source question, topic, goal and creation date.
+- Tests: `lib/mistakes/classification.test.ts` covers classification priority, miss-reason validation and the mastery threshold. `npm test` 33/33.
+- Gates: tsc exit 0, eslint on touched files exit 0, build exit 0.
+- Not applied: no production migration was run; the draft is additive and owner-only under RLS.
