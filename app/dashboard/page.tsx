@@ -132,10 +132,10 @@ export default async function DashboardOverviewPage() {
         className="group glass-tile-glow rounded-[var(--radius-xl)] p-6 sm:p-8 text-center hover:translate-y-[-2px] transition-all duration-300"
       >
         <div className="flex flex-wrap items-center justify-center gap-2 mb-3">
-          <ExamPortalSwitcher currentExam={profile?.exam_target || 'mdcat'} />
+          <ExamPortalSwitcher />
           <span className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.06] px-3 py-1 text-xs font-semibold text-white/60 ring-1 ring-white/10">
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
-            {profile?.exam_target || "MDCAT Entry Test Prep"}
+            Profile target: {profile?.exam_target?.trim() || "Not set"}
           </span>
           {profile?.status && (
             <span className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.06] px-3 py-1 text-xs font-semibold text-white/60 ring-1 ring-white/10">
