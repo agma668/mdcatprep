@@ -123,7 +123,7 @@ Public competitor pages are marketing and product descriptions, not independent 
 - BeambePrep main platform: https://www.beambeprep.com/
 - BeambePrep FAQ: https://www.beambeprep.com/faq/
 - Khan Academy MCAT course: https://www.khanacademy.org/test-prep/mcat
-- Khan Academy guidance on combining content review and passages: https://www.khanacademy.org/test-prep/mcat/x04f6bc56%3Awelcome-to-the-mcat-course/x04f6bc56%3Aabout-the-mcat-and-how-to-use-this-course/a/how-to-use-our-mcat-course-as-our-main-study-resource
+- Khan Academy guidance on combining content review and passages: https://www.khanacademy.org/test-prep/mcat/x04f6bc56%3Awelcome-to-the-mcat-course/x04f6bc56%3Aabout-the-mcat-and-how-to-use-this-course/a/how-to-use-our-mcat-course-as-main-study-resource
 - AAMC free planning and study resources: https://students-residents.aamc.org/prepare-mcat-exam/free-planning-and-study-resources
 - AAMC study-plan guidance: https://students-residents.aamc.org/prepare-mcat-exam/creating-your-mcat-exam-study-plan
 - Maqsad MDCAT: https://maqsad.io/mdcat
