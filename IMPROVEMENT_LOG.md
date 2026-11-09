@@ -201,3 +201,11 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - Added `ReviewDashboard` above the deck grid: counts, a 7-day workload strip and an editable daily new-card limit. The limit reads from `profiles.flashcard_new_limit` with a 20-card default when the draft column is absent.
 - Tests: `lib/flashcards/dashboard.test.ts` covers new/due/learning/relearning bucketing, UTC upcoming-day grouping and sorting, and the new-card-only cap. `npm test` 48/48.
 - Gates: tsc exit 0, eslint on touched files exit 0, build exit 0. No database or production change.
+
+## 2026-11-09 — Issue #5 (continued): organization and study-mode engines
+
+- Added `lib/flashcards/organization.ts`: tag normalisation (lowercase, hyphenated, 12-tag / 32-char bounds), bury-window expiry and a studyability rule that excludes suspended cards and currently buried cards.
+- Added `app/actions/flashcard-organization.ts`: RLS-scoped actions to read metadata, star, suspend, bury/unbury, set tags, and create/rename/delete decks and sub-decks and attach/remove cards. Parent-deck ownership is re-checked before nesting, and deck ownership before attaching, so a forged id cannot touch another student's rows.
+- Added `lib/flashcards/study-modes.ts`: deterministic multiple-choice generation using real answers from the same deck, true/false items built from real card pairs, and forgiving-but-content-strict typed-answer grading. No generated prompt invents content.
+- Tests: `lib/flashcards/organization.test.ts` (6) and `lib/flashcards/study-modes.test.ts` (8). `npm test` 62/62.
+- Gates: tsc exit 0, eslint on touched files exit 0, build exit 0. No database or production change. Organization and alternative study modes currently have no dashboard UI wired; that remains outstanding.
