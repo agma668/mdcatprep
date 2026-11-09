@@ -136,7 +136,7 @@ export default async function MockTestPage() {
   return (
     <div className="p-6 md:p-8 max-w-4xl mx-auto w-full">
       <PageHeader
-        eyebrow="Full-length simulation"
+        eyebrow="Practice formats"
         title="Mock Test"
         description="Timed practice formats with clearly stated scope. The MDCAT option is a custom 100-question sample, not the official 180-question PMDC paper. The HEC option uses the last located Batch-IV Balochistan/Ex-FATA scholarship split, not standard HEC USAT-M. The NUST option follows the current NET-Engineering 50/30/20 weighting and is scaled to the available bank. Military options are an original PMA-style practice paper and a focused Verbal/Non-Verbal reasoning drill, not a full ISSB selection simulation."
       />
