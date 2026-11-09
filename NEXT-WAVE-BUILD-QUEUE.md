@@ -127,11 +127,12 @@ The current migration proposal is a foundation, not a complete entitlement or go
 - [x] Create a separate working branch so new work does not overwrite his local workspace.
 - [x] Remove the fake pricing activation flow and unnecessary phone-number collection.
 - [x] Record the content-ingestion and exam-isolation blockers in this build queue.
-- [ ] Inspect every bank's data shape, duplicate-key/text risks and answer distributions.
-- [ ] Produce a read-only local bank audit/validation tool; no network access and no database writes.
-- [ ] Verify the pricing page build and Vercel preview.
-- [ ] Prepare an exact file-level implementation and QA plan for the question-ingestion pipeline.
-- [ ] Prepare a readiness matrix that does not overstate current capabilities.
+- [x] Add structural bank audit coverage for MDCAT, scholarship, NUST-pattern and PMA banks; the new test still needs to be executed.
+- [ ] Review academic correctness, official syllabus alignment, source provenance and answer distributions with human QA.
+- [x] Produce a read-only structural bank audit/validation tool; no network access and no database writes.
+- [x] Pricing-only commit reached Vercel READY; latest combined head still needs a READY build and preview smoke.
+- [x] Prepare an exact file-level implementation and QA plan for the question-ingestion pipeline.
+- [x] Record current exam-pattern/readiness risks and next steps in this queue; a student-facing readiness matrix remains open.
 
 ### Freebuff's later one-hour session
 
