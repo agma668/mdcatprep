@@ -75,7 +75,7 @@ export default async function ExamPortalPage({ params }: PageProps) {
                 </Link>
               )}
               <span className="text-xs text-muted-foreground self-center tabular-nums">
-                Free forever · {bankSize.toLocaleString('en-US')} practice questions in this portal&apos;s bank
+                Free beta access · {bankSize.toLocaleString('en-US')} questions in this portal&apos;s bundled bank
               </span>
             </div>
           </div>
@@ -187,7 +187,7 @@ export default async function ExamPortalPage({ params }: PageProps) {
 
               <div className="pt-4 border-t border-border">
                 <div className="p-4 rounded-xl bg-accent/5 border border-accent/20 text-xs text-foreground/90">
-                  <span className="font-bold text-accent">100% free:</span> every practice session, mock test and explanation in this portal is free — no pass, no upgrade, no credit card. Ever.
+                  <span className="font-bold text-accent">Free beta:</span> account creation currently costs nothing. Available tools and content vary by Prep Space, and some features are still in progress.
                 </div>
               </div>
             </div>
