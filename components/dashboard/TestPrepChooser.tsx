@@ -1,7 +1,7 @@
 "use client";
 
-// The "Preparing for …" chooser that sits top-left in a portal's sidebar.
-// One select per portal; the choice is written to the shared prep store
+// The "Preparing for …" chooser that sits at the top of a Prep Space sidebar.
+// One select per preparation family; the choice is written to the shared prep store
 // (lib/prep-tests.ts) and broadcast, so practice, notes and flashcards
 // re-thread to the chosen test without navigation. Rendered compact when the
 // sidebar is collapsed (icon tile only, still a working select).
@@ -26,6 +26,11 @@ export function TestPrepChooser({
   collapsed?: boolean;
 }) {
   const tests = PREP_TESTS[family];
+  const allLabel: Record<PrepFamily, string> = {
+    medical: "All medical tests",
+    engineering: "All engineering tests",
+    military: "All defence preparation",
+  };
   const [choice, setChoice] = useState<string | null>(null);
 
   // Read the saved choice after mount and follow every later change — the
@@ -76,7 +81,7 @@ export function TestPrepChooser({
           onChange={(e) => select(e.target.value)}
           className="w-full appearance-none truncate text-ellipsis rounded-[var(--radius-sm)] bg-[var(--srf-2)] py-2 pl-8 pr-7 text-xs font-bold text-white ring-1 ring-white/10 transition-colors hover:ring-white/25 focus:outline-none focus:ring-2 focus:ring-[var(--signal-500)]/60 cursor-pointer"
         >
-          <option value={ALL_ID}>All medical tests</option>
+          <option value={ALL_ID}>{allLabel[family]}</option>
           {tests.map((t) => (
             <option key={t.id} value={t.id}>
               {t.label}
