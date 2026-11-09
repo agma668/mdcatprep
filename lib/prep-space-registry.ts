@@ -141,8 +141,8 @@ export const PREP_SPACES = [
 
 export type PrepSpaceId = (typeof PREP_SPACES)[number]["id"];
 
-const PREP_SPACE_BY_SLUG = new Map(
-  PREP_SPACES.map((space) => [space.slug, space] as const),
+const PREP_SPACE_BY_SLUG = new Map<string, (typeof PREP_SPACES)[number]>(
+  PREP_SPACES.map((space) => [space.slug, space]),
 );
 
 export function getPrepSpaceBySlug(
