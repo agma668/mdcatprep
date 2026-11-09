@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint app components lib scripts",
-    "test": "node --import ./scripts/_jev-serveronly-hook.mjs --test lib/jev.test.ts lib/flashcards/srs.test.ts lib/whatsapp-signature.test.ts lib/question-bank-audit.test.ts"
+    "test": "node --import ./scripts/_jev-serveronly-hook.mjs --test lib/jev.test.ts lib/flashcards/srs.test.ts lib/whatsapp-signature.test.ts lib/question-bank-audit.test.ts lib/prep-space-registry.test.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.4",
