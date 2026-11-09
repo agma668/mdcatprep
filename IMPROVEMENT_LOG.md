@@ -1,5 +1,13 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-09 — Pricing honesty and read-only bank quality gate (feature branch)
+
+On `apex/free-beta-truth-and-content-readiness`, replaced the fake pricing-page enrollment modal that collected a student's name/phone and then claimed a pass was activated without writing an entitlement. The page now explains the free-beta account-creation offer, links to signup and exam discovery, and explicitly states that it does not activate passes or grant entitlements. The isolated pricing-only preview for commit `7a3e4f4` reached Vercel `READY`; this is not a production deployment and the preview remains subject to preview access protection.
+
+Added `lib/question-bank-audit.ts` and `lib/question-bank-audit.test.ts`, included in `npm test`. The auditor checks stable keys, duplicate keys/prompts, answer labels, subject/category presence, text options (while allowing figure-based PMA questions), and explanations. It is intentionally structural only: it cannot verify academic correctness, official exam alignment, provenance or exam ownership. No bank import, Supabase query/write, schema change, or production data change was made. The combined branch build/test result is pending; do not describe the bank checks as passed until the test suite runs successfully.
+
+Added `NEXT-WAVE-BUILD-QUEUE.md` to organize the verified blockers and Freebuff's later implementation/QA session. No merge, production deployment, billing change or paid service was used.
+
 ## 2026-11-09 — Backend ownership and release-boundary correction
 
 Confirmed the founder's project mapping: Vercel `edweb` (`agma668/mdcatprep`) and Supabase `edweb` (`niiskuwlpccmdtwjoxvm`) are the Apex Pakistan stack; the other preparation website has independent infrastructure and is outside this repo. Corrected `AGENTS.md`, `ROADMAP-AGENT-BOARD.md`, and `EXAM-DATA-BOUNDARY-DESIGN.md` so no future work assumes a shared backend or creates another Supabase project. Live read-only check: Supabase active/healthy, 22 migrations, 13 public tables with RLS enabled; question/progress tables are empty. Vercel's latest production deployment is READY on `main`, but SSO protects all deployment URLs except custom domains and none is attached; canonical fallback in `lib/site.ts` is stale. These remain release blockers; no production settings or data were changed.
