@@ -92,9 +92,11 @@ const ISSB_FORMAT = {
 const TEST_FORMATS = [
   {
     id: 'full',
-    name: 'MDCAT-Weighted Full Mock',
-    duration: 180, // 3 hours
+    name: 'MDCAT Practice Mock (Scaled Sample)',
+    duration: 100,
     totalMarks: 100,
+    description:
+      'Apex custom 100-question mixed practice set. This is not the official PMDC MDCAT paper: the official 2026 pattern is 180 MCQs across Biology, Chemistry, Physics, English and Logical Reasoning.',
     sections: [
       { name: 'Biology', questions: 34, marks: 34 },
       { name: 'Chemistry', questions: 24, marks: 24 },
@@ -136,7 +138,7 @@ export default async function MockTestPage() {
       <PageHeader
         eyebrow="Full-length simulation"
         title="Mock Test"
-        description="Timed, sectioned mock tests. The board mocks weight the PMDC MDCAT paper — Biology heaviest, then Physics and Chemistry, then English — and pull from the academy question bank; the HEC USAT-M paper runs its official scholarship split (100 MCQs · 100 minutes); the NUST NET-Engineering mock runs NUST's official Math 50% · Physics 30% · English 20% weighting, scaled to the NET bank at real paper pacing; the military section offers a PMA-style practice paper and a focused Verbal/Non-Verbal reasoning drill. Neither is an official paper or a full ISSB selection simulation. 1 mark per MCQ."
+        description="Timed practice formats with clearly stated scope. The MDCAT option is a custom 100-question sample, not the official 180-question PMDC paper. The HEC option uses the last located Batch-IV Balochistan/Ex-FATA scholarship split, not standard HEC USAT-M. The NUST option follows the current NET-Engineering 50/30/20 weighting and is scaled to the available bank. Military options are an original PMA-style practice paper and a focused Verbal/Non-Verbal reasoning drill, not a full ISSB selection simulation."
       />
       <MockTestSetup formats={TEST_FORMATS} />
     </div>
