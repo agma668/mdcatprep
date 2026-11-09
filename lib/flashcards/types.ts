@@ -43,6 +43,11 @@ export interface GradeResult {
     repetitions: number
     easeFactor: number
     isLearning: boolean
+    /** FSRS memory-model extras (present from the FSRS engine). */
+    difficulty?: number
+    stability?: number
+    state?: string
+    scheduledDays?: number
   }
 }
 
