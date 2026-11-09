@@ -1,89 +1,147 @@
-'KeyFeatures: Multi-exam selector grid for Apex Pakistan education ecosystem'
-import Link from 'next/link';
-import { EXAMS_CONFIG } from '@/lib/exams-config';
-import { PORTAL_BANK_COUNTS } from '@/lib/stats';
+import Link from "next/link";
+import { ArrowRight, BookOpen, Clock3, LockKeyhole } from "lucide-react";
+import {
+  PREP_SPACES,
+  type PrepSpaceDefinition,
+  type PrepSpaceReadiness,
+} from "@/lib/prep-space-registry";
 
-export function ExamHubSelector() {
-  const exams = Object.values(EXAMS_CONFIG);
+const GROUPS: {
+  category: PrepSpaceDefinition["category"];
+  title: string;
+  description: string;
+}[] = [
+  { category: "medical", title: "Medical admissions", description: "Medical college entry-test preparation." },
+  { category: "engineering", title: "Engineering admissions", description: "University-specific engineering admission tests." },
+  { category: "scholarship", title: "Scholarship & aptitude tests", description: "Distinct scholarship and HEC aptitude pathways." },
+  { category: "defence", title: "Defence selection", description: "Initial-test practice and selection preparation." },
+];
+
+const READINESS: Record<PrepSpaceReadiness, { label: string; className: string; description: string }> = {
+  beta: {
+    label: "Beta access",
+    className: "border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
+    description: "Limited tools are available. Check the listed capabilities before starting.",
+  },
+  content_in_progress: {
+    label: "In development",
+    className: "border-amber-500/30 bg-amber-500/10 text-amber-800 dark:text-amber-300",
+    description: "This preparation space is being built and reviewed.",
+  },
+  coming_soon: {
+    label: "Coming soon",
+    className: "border-border bg-muted text-muted-foreground",
+    description: "Not yet open for practice.",
+  },
+};
+
+function CapabilityList({ space }: { space: PrepSpaceDefinition }) {
+  if (space.capabilities.length === 0) {
+    return <p className="text-xs text-muted-foreground">No learning tools are open yet.</p>;
+  }
+
+  const labels: Record<PrepSpaceDefinition["capabilities"][number], string> = {
+    mcq_practice: "MCQ practice",
+    scaled_timed_mock: "Scaled timed mocks",
+    flashcards: "Flashcards",
+    concept_notes: "Concept notes",
+    released_past_papers: "Released past papers",
+    verbal_nonverbal_drills: "Verbal & non-verbal drills",
+  };
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 py-8">
-      <div className="text-center mb-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wider mb-3">
-          Apex Pakistan Educational Network
-        </div>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight">
-          Choose Your Competitive Exam Track
-        </h2>
-        <p className="text-muted-foreground mt-2 max-w-2xl mx-auto text-sm md:text-base">
-          From medical college entrance and military commissions to engineering universities and HEC admissions — every major Pakistani entry test on one free platform.
-        </p>
+    <ul className="flex flex-wrap gap-2" aria-label="Available learning tools">
+      {space.capabilities.map((capability) => (
+        <li key={capability} className="rounded-lg border border-border/70 bg-background/60 px-2.5 py-1 text-xs text-muted-foreground">
+          {labels[capability]}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function PrepSpaceCard({ space }: { space: PrepSpaceDefinition }) {
+  const status = READINESS[space.readiness];
+  const canEnter = space.readiness === "beta" && Boolean(space.legacyRoute);
+
+  return (
+    <article className="flex h-full flex-col rounded-2xl border border-border bg-card p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
+      <div className="flex items-start justify-between gap-3">
+        <span className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[11px] font-semibold ${status.className}`}>
+          {status.label}
+        </span>
+        {canEnter ? (
+          <BookOpen className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+        ) : (
+          <Clock3 className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+        )}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {exams.map((exam) => (
-          <div
-            key={exam.id}
-            className="group relative bg-card border border-border rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden"
+      <h3 className="mt-4 text-lg font-bold leading-snug text-foreground">{space.name}</h3>
+      <p className="mt-2 min-h-12 text-sm leading-relaxed text-muted-foreground">{space.summary}</p>
+
+      <div className="mt-4">
+        <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Available tools</p>
+        <CapabilityList space={space} />
+      </div>
+
+      <div className="mt-auto pt-5">
+        {canEnter ? (
+          <Link
+            href={space.legacyRoute!}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            aria-label={`Enter ${space.name} preparation`}
           >
-            {/* Gradient Header Accent */}
-            <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${exam.accentColor}`} />
-
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">
-                  {exam.badge}
-                </span>
-                <span className="text-xs text-muted-foreground font-medium tabular-nums">
-                  {PORTAL_BANK_COUNTS[exam.bank].toLocaleString('en-US')} practice questions
-                </span>
-              </div>
-
-              <h3 className="text-xl font-bold text-foreground group-hover:text-accent transition-colors">
-                {exam.name}
-              </h3>
-              <p className="text-sm text-muted-foreground mt-1 mb-6">
-                {exam.tagline}
-              </p>
-
-              {/* Subject preview list */}
-              <div className="space-y-2 mb-6">
-                <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Core Modules:</div>
-                <ul className="space-y-1">
-                  {exam.subjects.slice(0, 3).map((sub) => (
-                    <li key={sub.id} className="text-xs text-foreground/80 py-1 border-b border-border/50">
-                      <span>{sub.name}</span>
-                    </li>
-                  ))}
-                  {exam.subjects.length > 3 && (
-                    <li className="text-xs text-accent font-medium pt-1">
-                      + {exam.subjects.length - 3} more modules & topics
-                    </li>
-                  )}
-                </ul>
-              </div>
-            </div>
-
-            <div className="pt-4 border-t border-border/60 flex items-center justify-between">
-              <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                {exam.features.mockTests && <span>• Mock Tests</span>}
-                {exam.features.flashcards && <span>• Flashcards</span>}
-                {exam.features.notes && <span>• Master Notes</span>}
-              </div>
-
-              <Link
-                href={exam.route}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-accent text-accent-foreground text-xs font-semibold shadow hover:opacity-90 transition-opacity"
-              >
-                <span>Enter Portal</span>
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
-            </div>
+            Open Prep Space <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        ) : (
+          <div className="flex items-center justify-center gap-2 rounded-xl border border-border bg-muted/50 px-4 py-2.5 text-sm font-medium text-muted-foreground" aria-label={status.description}>
+            <LockKeyhole className="h-4 w-4" aria-hidden="true" />
+            Not open for practice
           </div>
-        ))}
+        )}
       </div>
+    </article>
+  );
+}
+
+export function ExamHubSelector() {
+  return (
+    <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:py-10">
+      <header className="mx-auto mb-10 max-w-3xl text-center">
+        <div className="mb-3 inline-flex items-center rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
+          One account · Multiple preparation spaces
+        </div>
+        <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+          Choose your preparation space
+        </h1>
+        <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+          Choose the exam you are preparing for. Each space has its own tools and readiness status, while your Apex account stays the same.
+        </p>
+      </header>
+
+      <div className="space-y-10">
+        {GROUPS.map((group) => {
+          const spaces = PREP_SPACES.filter((space) => space.category === group.category);
+          if (spaces.length === 0) return null;
+
+          return (
+            <section key={group.category} aria-labelledby={`group-${group.category}`}>
+              <div className="mb-4">
+                <h2 id={`group-${group.category}`} className="text-xl font-bold text-foreground">{group.title}</h2>
+                <p className="mt-1 text-sm text-muted-foreground">{group.description}</p>
+              </div>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                {spaces.map((space) => <PrepSpaceCard key={space.id} space={space} />)}
+              </div>
+            </section>
+          );
+        })}
+      </div>
+
+      <p className="mx-auto mt-10 max-w-3xl text-center text-xs leading-relaxed text-muted-foreground">
+        Availability describes the tools currently released on Apex; it is not a claim of official exam endorsement or a guarantee that every exam topic is covered.
+      </p>
     </div>
   );
 }
