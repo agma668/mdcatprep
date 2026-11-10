@@ -209,3 +209,19 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - Added `lib/flashcards/study-modes.ts`: deterministic multiple-choice generation using real answers from the same deck, true/false items built from real card pairs, and forgiving-but-content-strict typed-answer grading. No generated prompt invents content.
 - Tests: `lib/flashcards/organization.test.ts` (6) and `lib/flashcards/study-modes.test.ts` (8). `npm test` 62/62.
 - Gates: tsc exit 0, eslint on touched files exit 0, build exit 0. No database or production change. Organization and alternative study modes currently have no dashboard UI wired; that remains outstanding.
+
+## 2026-11-09 — Issue #2: student Prep Space goals foundation
+
+- Reviewed the existing `20261109000000` cut: it created the catalogue and a `student_goals` table, but had no duplicate-active rule, let students update every column (including exam/variant/owner), had no atomic primary switch, and gave progress rows no way to name a goal.
+- Added `supabase/migrations/20261112000000_student_goals_foundation.sql` (draft, unapplied):
+  - stable kebab-case id checks for exams/variants (NOT VALID);
+  - one active goal per (student, exam, variant) via partial unique index;
+  - `(id, student_id)` unique key for ownership-checked references;
+  - trigger forcing non-active goals to be non-primary and maintaining `updated_at`;
+  - `set_primary_goal(uuid)` SECURITY INVOKER RPC for an atomic primary switch, rejecting retired variants;
+  - column-level grants so students may insert/update only lifecycle fields, never `exam_id`, `variant_id`, `student_id`, ids or timestamps;
+  - explicit revokes on the exam catalogue and `question_exam_map` for anon/authenticated;
+  - nullable `goal_id` on attempts, bookmarks and flashcard reviews with a composite `(goal_id, student_id)` FK and no historical backfill.
+- Added `app/actions/goals.ts`: list goals with catalogue titles, list active exams/variants, create (first active goal becomes primary), update only target date/status, atomic primary switch, archive. Ownership always comes from the session.
+- Added `scripts/rls-goals.test.mjs` running real PostgreSQL via PGlite (new dev-only dependency, MIT) with a stubbed `auth.uid()`: 15 tests cover cross-user read/update, forged ownership, duplicate active goals, primary uniqueness, atomic primary scoping, archive-and-restart, inactive/retired variants, identity-field lockout, catalogue/mapping write denial, goal-reference ownership, no legacy backfill and untouched `profiles.exam_target`.
+- Gates: tsc exit 0, eslint exit 0, `npm test` 77/77, `next build` exit 0. No live migration, student data, deployment or paid service.
