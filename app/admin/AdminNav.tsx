@@ -8,6 +8,7 @@ const ITEMS = [
   { href: '/admin/analytics', label: 'Analytics', exact: true },
   { href: '/admin#students', label: 'Students', exact: false },
   { href: '/admin/questions', label: 'Questions / MCQs', exact: true },
+  { href: '/admin/prep-spaces', label: 'Prep Spaces', exact: true },
   { href: '/admin/notes', label: 'Notes', exact: true },
   { href: '/admin/feedback', label: 'Feedback', exact: true },
   { href: '/admin/push', label: 'Push', exact: true },

@@ -108,7 +108,7 @@ export function ProfileEditor({
           </div>
           <div>
             <label className="block text-sm font-medium text-[var(--color-text-primary)] mb-1">
-              Exam Target
+              Profile Target (optional)
             </label>
             <input
               type="text"
@@ -119,7 +119,7 @@ export function ProfileEditor({
               maxLength={200}
             />
             <p className="text-xs text-[var(--color-text-muted)] mt-1">
-              Your goal appears in Analytics and on the dashboard.
+              This is a profile note shown on your dashboard and Analytics. It does not yet create or save a separate Prep Space goal.
             </p>
           </div>
           <Button variant="primary" onClick={saveProfile} disabled={saving}>

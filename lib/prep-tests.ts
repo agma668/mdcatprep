@@ -150,7 +150,7 @@ export const MILITARY_PREP_TESTS: PrepTest[] = [
   {
     id: 'ISSB',
     label: 'ISSB',
-    note: 'Psychological & intelligence screening',
+    note: 'Focused Verbal & Non-Verbal reasoning practice; not the full ISSB selection process',
     mark: '🪖',
     subjects: ['Verbal', 'Non-Verbal'],
   },

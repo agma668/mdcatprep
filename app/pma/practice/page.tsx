@@ -182,10 +182,13 @@ export default function PMAPracticePage() {
         <main className="max-w-4xl mx-auto px-4 py-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
             <div>
-              <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight">PMA Long Course &mdash; Intelligence Practice</h1>
+              <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight">
+                {prepTest?.id === 'ISSB' ? 'Verbal & Non-Verbal Reasoning Practice' : 'PMA Long Course — Intelligence Practice'}
+              </h1>
               <p className="text-sm text-muted-foreground mt-1">
-                Verbal &amp; non-verbal intelligence with 20-second timed questions. Original sample questions written in the
-                PMA initial-test style &mdash; not official PMA papers.
+                {prepTest?.id === 'ISSB'
+                  ? 'Focused reasoning drills from the PMA-style question bank. This is not a simulation of the official ISSB selection process, which includes multiple assessment dimensions over four days.'
+                  : 'Verbal & non-verbal intelligence with 20-second timed questions. Original sample questions written in the PMA initial-test style — not official PMA papers.'}
               </p>
               <p className="text-xs text-muted-foreground mt-1">
                 Score: {correctCount} correct &middot; {answeredCount}/{total} answered

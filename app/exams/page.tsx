@@ -14,8 +14,8 @@ export default function ExamsHubPage() {
         <header className="border-b border-border bg-card/50 backdrop-blur sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
             <Link href="/" className="font-extrabold text-lg text-foreground flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-accent animate-pulse" />
-              Apex Pakistan <span className="text-xs text-muted-foreground font-normal">Unified Portal</span>
+              <span className="w-3 h-3 rounded-full bg-accent" />
+              MED Prep <span className="text-xs text-muted-foreground font-normal">Prep Spaces</span>
             </Link>
             <div className="flex items-center gap-4">
               <Link href="/login" className="text-xs font-semibold hover:text-accent transition-colors">
@@ -39,7 +39,7 @@ export default function ExamsHubPage() {
 
       {/* Footer */}
       <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
-        <p>© {new Date().getFullYear()} Apex Pakistan Educational Network. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} MED Prep. All rights reserved.</p>
         <p className="mt-1">Honesty is our product. Original PMDC, HEC, and military-syllabus prep material.</p>
       </footer>
     </main>

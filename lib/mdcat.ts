@@ -29,11 +29,11 @@ export type ResourceQuestion = {
    */
   pastPaper?: { exam: string; year: number; code?: string }
 }
-import { BIOLOGY_QUESTIONS } from './biology-questions'
-import { CHEMISTRY_QUESTIONS } from './chemistry-questions'
-import { PHYSICS_QUESTIONS } from './physics-questions'
-import { ENGLISH_QUESTIONS } from './english-questions'
-import { PAST_PAPER_BANK } from './past-paper-bank'
+import { BIOLOGY_QUESTIONS } from './biology-questions.ts'
+import { CHEMISTRY_QUESTIONS } from './chemistry-questions.ts'
+import { PHYSICS_QUESTIONS } from './physics-questions.ts'
+import { ENGLISH_QUESTIONS } from './english-questions.ts'
+import { PAST_PAPER_BANK } from './past-paper-bank.ts'
 
 export const MDCAT_QUESTIONS: ResourceQuestion[] = [
   ...BIOLOGY_QUESTIONS,
