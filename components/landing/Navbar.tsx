@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { label: "All Tests", href: "/exams" },
   { label: "How It Works", href: "#how-it-works" },
   { label: "Past Papers", href: "#past-papers" },
-  { label: "Free Flashcards", href: "/flashcards" },
+  { label: "Flashcards", href: "/flashcards" },
   { label: "Daily Quiz", href: "/daily-quiz" },
   { label: "FAQ", href: "/faq" },
   { label: "Blog", href: "/blog" },
@@ -78,7 +78,7 @@ export function Navbar() {
           <TrackedLink
             to="/"
             label="navbar-logo"
-            aria-label="MED Prep — Home"
+            aria-label="MED Prep home"
             className="group flex items-center gap-2.5 rounded-[var(--radius-md)]"
           >
             <span
