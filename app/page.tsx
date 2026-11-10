@@ -14,7 +14,7 @@ const siteUrl = getSiteUrl();
 // Names only the tests that have a real practice surface on this site — the
 // H1, metadata and JSON-LD must not claim an exam the bank does not serve.
 const homeDescription =
-  "Free exam-style MCQ practice for MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT and PMA — an explanation behind every answer, past papers with keys, and study notes.";
+  "Exam-style MCQ practice for MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT and PMA — explanations, released past papers with keys, and study notes.";
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -35,14 +35,13 @@ const learningResourceJsonLd = {
   provider: { "@type": "Organization", name: SITE_NAME, url: siteUrl },
   learningResourceType: ["MCQ Practice", "Mock Test", "Study Notes"],
   educationalUse: "practice",
-  isAccessibleForFree: true,
   inLanguage: ["en", "ur"],
   about: ["MDCAT", "NUMS", "UHS Medical Entrance", "SZABMU Test", "KMU CAT", "NUST NET", "HEC USAT", "PMA Long Course"],
   audience: { "@type": "EducationalAudience", educationalRole: "student" },
 };
 
 export const metadata: Metadata = {
-  title: "MDCAT, NUMS, NUST, GIKI, USAT & PMA Test Preparation — Free",
+  title: "MDCAT, NUMS, NUST, GIKI, USAT & PMA Test Preparation",
   description: homeDescription,
 };
 
@@ -106,14 +105,14 @@ export default async function Home() {
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
             <div>
               <p className="inline-flex items-center gap-2 rounded-[var(--r-pill)] border border-[var(--line-2)] bg-[var(--srf-1)] px-3 py-1.5 text-sm text-[var(--steel-200)]">
-                <span className="font-semibold text-[var(--brass)]">100% free</span>
-                · no fees, no card, nothing locked
+                <span className="h-1.5 w-1.5 rounded-full bg-[var(--brass)]" aria-hidden="true" />
+                Preparation built around Pakistan&apos;s entry tests
               </p>
               <h1
                 style={display}
                 className="mt-5 max-w-[22ch] text-[2.25rem] font-bold leading-[1.06] tracking-tight text-[var(--steel-100)] sm:text-5xl lg:text-[3.4rem]"
               >
-                Practise MDCAT, NUMS, NUST, GIKI and every major test — free, the way the paper asks.
+                Prepare for MDCAT, NUMS, NUST and more — one question at a time.
               </h1>
               <p className="mt-5 max-w-[52ch] text-base leading-relaxed text-[var(--steel-300)] sm:text-lg">
                 Exam-style MCQs with an explanation behind every answer, plus the real past papers the boards have released, sorted by board and year.
@@ -167,7 +166,7 @@ export default async function Home() {
                 Everything you practise with, in one place
               </h2>
               <p className="mt-4 max-w-[44ch] text-[var(--steel-300)]">
-                No coaching centre, no fee. Open any of these without an account; sign in when you want your progress saved.
+                Choose a practice tool and build a steady routine. Sign in where an account is needed or when you want supported progress saved.
               </p>
             </div>
             <ul className="divide-y divide-[var(--line-1)] border-y border-[var(--line-1)]">
@@ -279,7 +278,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <section id="faq">
+        <section>
           <FAQ />
         </section>
         <section id="register">

@@ -9,13 +9,13 @@ const FOOTER_LINKS = {
     { label: "How It Works", href: "#how-it-works" },
     { label: "Past Papers", href: "#past-papers" },
     { label: "FAQ", href: "#faq" },
-    { label: "Contact", href: "#cta" },
+    { label: "Contact", href: "#register" },
   ],
   Prepare: [
-    { label: "Free Flashcards", href: "/flashcards" },
+    { label: "Flashcards", href: "/flashcards" },
     { label: "Daily Quiz", href: "/daily-quiz" },
     { label: "Diagnostic Test", href: "/diagnostic" },
-    { label: "Free MDCAT Notes", href: "/notes" },
+    { label: "MDCAT Notes", href: "/notes" },
     { label: "Topical MCQs", href: "/topicals" },
     { label: "Resources & Notes", href: "/resources" },
     { label: "MDCAT Guide", href: "/blog/mdcat-guide" },
@@ -55,7 +55,7 @@ export function Footer() {
               </span>
             </TrackedLink>
             <p className="max-w-xs text-sm leading-relaxed text-[var(--steel-300)]">
-              A non-profit community initiative helping students across Pakistan prepare for MDCAT, NUMS, NUST, GIKI, LUMS, HEC and PMA tests — built with the mission of making quality education accessible to everyone.
+              An exam-preparation platform for students across Pakistan, bringing practice, explanations, past papers and study resources for MDCAT, NUMS, NUST, GIKI, LUMS, HEC USAT and PMA into one place.
             </p>
             <p className="mt-4 text-sm text-[var(--steel-300)]">
               <span className="font-semibold text-[var(--steel-100)]">Questions?</span> Message us on{" "}
@@ -101,7 +101,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 flex flex-col gap-3 border-t border-[var(--line-2)] pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-[var(--steel-400)]">
-            &copy; {year} MED Prep. All rights reserved.{" "}
+            &copy; {year} MED Prep.{" "}
             <TrackedLink to="/copyright" label="footer-copyright" className="underline hover:text-[var(--steel-200)]">
               Copyright &amp; Terms
             </TrackedLink>

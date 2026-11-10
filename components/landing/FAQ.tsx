@@ -16,7 +16,7 @@ export const FAQS: FAQItem[] = [
   {
     question: "How long does it take to prepare for MDCAT?",
     answer:
-      "We recommend 3–6 months of consistent preparation. Students who practise daily for 1–2 hours typically see significant improvement within 6–8 weeks. Our structured plan guides you through the full PMDC syllabus in an organised, exam-focused sequence.",
+      "Preparation time depends on your starting point, available study time and familiarity with the syllabus. A consistent routine of topic review, timed practice and revisiting mistakes is more useful than relying on a fixed number of weeks.",
   },
   {
     question: "What subjects and marks does the MDCAT paper cover?",
@@ -36,17 +36,17 @@ export const FAQS: FAQItem[] = [
   {
     question: "How is MED Prep different from a regular coaching academy?",
     answer:
-      "Unlike coaching academies that give the same notes to everyone, MED Prep personalises your practice to your weak areas. You get instant explanations after every question, can study at any time, track your exact progress, and access exam-style practice questions — completely free.",
+      "MED Prep brings independent practice, answer explanations, topic-based resources and progress tools together. Where supported, your activity can help you identify topics that need more revision. It is designed to complement—not replace—your teachers, textbooks and official exam guidance.",
   },
   {
     question: "Is everything really free?",
     answer:
-      "Yes. Everything on MED Prep is completely free — all practice MCQs, master notes, mock tests, progress tracking, and the WhatsApp community. No credit card, no trial period, no hidden charges. It is a community initiative to help students across Pakistan.",
+      "You can explore the public practice resources without an upfront payment. Some features may require an account, and access can change as the platform develops. Check the relevant feature page for its current access requirements.",
   },
   {
     question: "Can I use MED Prep on my phone?",
     answer:
-      "Yes — the whole site is built mobile-first and works on any smartphone browser. You can also install it as an app from your browser's 'Add to Home Screen' (works on Android and iPhone), and download questions to keep practising when you don't have internet.",
+      "The site is designed to work in modern smartphone browsers as well as on desktop. You can use your browser's 'Add to Home Screen' option where supported. Offline access depends on the feature and is not guaranteed for every resource.",
   },
   {
     question: "Is my data safe?",
