@@ -1499,7 +1499,7 @@ html.lenis body { height: auto; }
    overrides ONLY the colour tokens, so every component that reads a token
    recolours automatically (the ~30 layered rgba washes and the canvas effect
    layers consume --rgb-signal/--rgb-steel and the --raw tokens, which are also
-   overridden here). Drives the 4-quadrant wheel in the hero + nav picker.
+   overridden here). Drives the five-swatch theme wheel in the hero + nav picker.
    Contrast for each palette is held to the same bars as midnight (AA ≥4.5:1
    for body, ≥3:1 for large text) — checked per-token in the comments.
    ═══════════════════════════════════════════════════════════════════════════ */
