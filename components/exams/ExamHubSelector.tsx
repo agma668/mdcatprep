@@ -20,24 +20,24 @@ const GROUPS: {
 const READINESS: Record<PrepSpaceReadiness, { label: string; className: string; description: string }> = {
   beta: {
     label: "Beta access",
-    className: "border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
+    className: "border-[var(--line-ok)] bg-[var(--tint-ok)] text-[var(--ok)]",
     description: "Limited tools are available. Check the listed capabilities before starting.",
   },
   content_in_progress: {
     label: "In development",
-    className: "border-amber-500/30 bg-amber-500/10 text-amber-800 dark:text-amber-300",
+    className: "border-[var(--line-warn)] bg-[var(--tint-warn)] text-[var(--warn)]",
     description: "This preparation space is being built and reviewed.",
   },
   coming_soon: {
     label: "Coming soon",
-    className: "border-border bg-muted text-muted-foreground",
+    className: "border-[var(--line-2)] bg-[var(--srf-2)] text-[var(--steel-300)]",
     description: "Not yet open for practice.",
   },
 };
 
 function CapabilityList({ space }: { space: PrepSpaceDefinition }) {
   if (space.capabilities.length === 0) {
-    return <p className="text-xs text-muted-foreground">No learning tools are open yet.</p>;
+    return <p className="text-xs leading-relaxed text-[var(--steel-400)]">No learning tools are open yet.</p>;
   }
 
   const labels: Record<PrepSpaceDefinition["capabilities"][number], string> = {
@@ -52,7 +52,7 @@ function CapabilityList({ space }: { space: PrepSpaceDefinition }) {
   return (
     <ul className="flex flex-wrap gap-2" aria-label="Available learning tools">
       {space.capabilities.map((capability) => (
-        <li key={capability} className="rounded-lg border border-border/70 bg-background/60 px-2.5 py-1 text-xs text-muted-foreground">
+        <li key={capability} className="rounded-[var(--r-1)] border border-[var(--line-2)] bg-[var(--srf-2)] px-2.5 py-1.5 text-xs text-[var(--steel-300)]">
           {labels[capability]}
         </li>
       ))}
@@ -65,37 +65,37 @@ function PrepSpaceCard({ space }: { space: PrepSpaceDefinition }) {
   const canEnter = space.readiness === "beta" && Boolean(space.legacyRoute);
 
   return (
-    <article className="flex h-full flex-col rounded-2xl border border-border bg-card p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
-      <div className="flex items-start justify-between gap-3">
-        <span className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[11px] font-semibold ${status.className}`}>
+    <article className="group flex h-full flex-col border-t-2 border-[var(--line-3)] bg-[var(--srf-1)] px-5 pb-5 pt-4 transition-colors duration-[var(--dur-2)] hover:border-[var(--signal-400)] sm:px-6">
+      <div className="flex items-center justify-between gap-3">
+        <span className={`inline-flex items-center rounded-[var(--r-pill)] border px-2.5 py-1 text-[11px] font-semibold ${status.className}`}>
           {status.label}
         </span>
         {canEnter ? (
-          <BookOpen className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+          <BookOpen className="h-4 w-4 shrink-0 text-[var(--signal-300)]" aria-hidden="true" />
         ) : (
-          <Clock3 className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+          <Clock3 className="h-4 w-4 shrink-0 text-[var(--steel-500)]" aria-hidden="true" />
         )}
       </div>
 
-      <h3 className="mt-4 text-lg font-bold leading-snug text-foreground">{space.name}</h3>
-      <p className="mt-2 min-h-12 text-sm leading-relaxed text-muted-foreground">{space.summary}</p>
+      <h3 className="mt-5 text-lg font-semibold leading-snug text-[var(--steel-100)]">{space.name}</h3>
+      <p className="mt-2 min-h-12 text-sm leading-relaxed text-[var(--steel-300)]">{space.summary}</p>
 
-      <div className="mt-4">
-        <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Available tools</p>
+      <div className="mt-5 border-t border-[var(--line-1)] pt-4">
+        <p className="mb-3 text-xs font-semibold text-[var(--steel-400)]">Available tools</p>
         <CapabilityList space={space} />
       </div>
 
-      <div className="mt-auto pt-5">
+      <div className="mt-auto pt-6">
         {canEnter ? (
           <Link
             href={space.legacyRoute!}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-[var(--r-2)] bg-[linear-gradient(180deg,var(--cta-from)_0%,var(--cta-to)_100%)] px-4 py-2.5 text-sm font-semibold text-[var(--on-cta)] shadow-[var(--shadow-cta)] transition-[filter,transform] duration-[var(--dur-1)] hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal-300)]"
             aria-label={`Enter ${space.name} preparation`}
           >
             Open Prep Space <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         ) : (
-          <div className="flex items-center justify-center gap-2 rounded-xl border border-border bg-muted/50 px-4 py-2.5 text-sm font-medium text-muted-foreground" aria-label={status.description}>
+          <div className="flex min-h-11 items-center justify-center gap-2 rounded-[var(--r-2)] border border-[var(--line-2)] bg-[var(--srf-2)] px-4 py-2.5 text-sm font-medium text-[var(--steel-400)]" aria-label={status.description}>
             <LockKeyhole className="h-4 w-4" aria-hidden="true" />
             Not open for practice
           </div>
@@ -107,31 +107,37 @@ function PrepSpaceCard({ space }: { space: PrepSpaceDefinition }) {
 
 export function ExamHubSelector() {
   return (
-    <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:py-10">
-      <header className="mx-auto mb-10 max-w-3xl text-center">
-        <div className="mb-3 inline-flex items-center rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">
-          One account · Multiple preparation spaces
+    <div className="mx-auto w-full max-w-7xl px-4 pb-16 pt-8 sm:pt-12">
+      <header className="mb-14 grid gap-6 border-b border-[var(--line-2)] pb-10 lg:grid-cols-[1fr_0.72fr] lg:items-end">
+        <div>
+          <p className="mb-4 inline-flex items-center gap-2 text-xs font-semibold text-[var(--signal-300)]">
+            <span className="h-px w-7 bg-[var(--signal-400)]" aria-hidden="true" />
+            One account · Distinct preparation spaces
+          </p>
+          <h1 className="max-w-[15ch] text-3xl font-bold leading-tight tracking-tight text-[var(--steel-100)] sm:text-5xl">
+            Start with the exam. Build from there.
+          </h1>
         </div>
-        <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-          Choose your preparation space
-        </h1>
-        <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Choose the exam you are preparing for. Each space has its own tools and readiness status, while your Apex account stays the same.
+        <p className="max-w-xl text-sm leading-relaxed text-[var(--steel-300)] sm:text-base lg:justify-self-end">
+          Choose the test you are preparing for. Each space lists the tools that are actually available, what is still being built, and where practice can begin.
         </p>
       </header>
 
-      <div className="space-y-10">
+      <div className="space-y-14">
         {GROUPS.map((group) => {
           const spaces = PREP_SPACES.filter((space) => space.category === group.category);
           if (spaces.length === 0) return null;
 
           return (
             <section key={group.category} aria-labelledby={`group-${group.category}`}>
-              <div className="mb-4">
-                <h2 id={`group-${group.category}`} className="text-xl font-bold text-foreground">{group.title}</h2>
-                <p className="mt-1 text-sm text-muted-foreground">{group.description}</p>
+              <div className="mb-5 flex flex-col gap-2 border-b border-[var(--line-1)] pb-4 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <h2 id={`group-${group.category}`} className="text-xl font-semibold text-[var(--steel-100)]">{group.title}</h2>
+                  <p className="mt-1 text-sm text-[var(--steel-400)]">{group.description}</p>
+                </div>
+                <span className="text-xs text-[var(--steel-500)] tabular-nums">{spaces.length} {spaces.length === 1 ? "space" : "spaces"}</span>
               </div>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+              <div className="grid grid-cols-1 gap-x-5 gap-y-7 sm:grid-cols-2 xl:grid-cols-3">
                 {spaces.map((space) => <PrepSpaceCard key={space.id} space={space} />)}
               </div>
             </section>
@@ -139,8 +145,8 @@ export function ExamHubSelector() {
         })}
       </div>
 
-      <p className="mx-auto mt-10 max-w-3xl text-center text-xs leading-relaxed text-muted-foreground">
-        Availability describes the tools currently released on Apex; it is not a claim of official exam endorsement or a guarantee that every exam topic is covered.
+      <p className="mx-auto mt-12 max-w-3xl border-t border-[var(--line-1)] pt-6 text-xs leading-relaxed text-[var(--steel-400)]">
+        Availability describes the tools currently released on MED Prep. It is not a claim of official exam endorsement or a guarantee that every exam topic is covered. Always check the current exam authority&apos;s syllabus and admission notice.
       </p>
     </div>
   );
