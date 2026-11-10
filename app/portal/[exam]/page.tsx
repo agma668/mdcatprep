@@ -19,18 +19,16 @@ export default async function ExamPortalPage({ params }: PageProps) {
     notFound();
   }
 
-  // Real bank size from lib/stats.ts — the same derived source every other
-  // surface reads, so the portal can never advertise a count the bank does
-  // not hold. (The old hand-typed "220+ MCQs" per subject was pure fiction.)
+  // This is the actual shared bank count, not a per-variant promise.
   const bankSize = PORTAL_BANK_COUNTS[config.bank];
-  const hasPastPapers = config.bank === 'mdcat'; // only the medical track holds real released papers
+  const hasPastPapers = config.bank === "mdcat";
 
   return (
     <main className="min-h-screen bg-[var(--field-1)] text-[var(--steel-100)]">
       <header className="sticky top-0 z-50 border-b border-[var(--line-2)] bg-[var(--field-0)]/90 backdrop-blur-xl">
         <div className="mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
           <div className="flex min-w-0 items-center gap-3">
-            <Link href="/exams" className="shrink-0 text-sm text-[var(--steel-400)] transition-colors hover:text-[var(--steel-100)]">
+            <Link href="/exams" className="shrink-0 text-sm text-[var(--steel-400)] transition-colors hover:text-[var(--steel-100)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--signal-300)]">
               ← All spaces
             </Link>
             <span aria-hidden="true" className="text-[var(--steel-600)]">/</span>
@@ -74,127 +72,119 @@ export default async function ExamPortalPage({ params }: PageProps) {
             </span>
           </div>
           <p className="mt-4 max-w-2xl text-xs leading-relaxed text-[var(--steel-400)]">
-            Bank size is shared across this portal&apos;s listed exam variants; it is not a separate count for each target test.
+            The bank count is shared across this portal&apos;s listed exam variants; it is not a separate count for each target test.
           </p>
         </div>
       </section>
 
-        {/* Sub-Tests Selector Section (Boss requirement: select exact test inside portal) */}
-        {config.subtests && config.subtests.length > 0 && (
-          <section className="mx-auto max-w-7xl px-4 pt-12 sm:px-6">
-            <div className="border-t-2 border-[var(--signal-500)] bg-[var(--srf-1)] px-5 py-7 sm:px-8">
-              <div className="mb-7 flex flex-col gap-3 border-b border-[var(--line-1)] pb-5 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                  <h2 className="text-xl font-semibold text-[var(--steel-100)]">Choose your target test</h2>
-                  <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[var(--steel-400)]">
-                    These variants share this portal&apos;s question bank. Their syllabi and paper rules may differ, so check the description before starting.
-                  </p>
-                </div>
-                <span className="text-xs text-[var(--steel-400)]">{config.subtests.length} listed variants</span>
-              </div>
-
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-                {config.subtests.map((sub) => (
-                  <Link
-                    key={sub.id}
-                    href={`${config.route}?subtest=${sub.id}`}
-                    className="group flex flex-col justify-between border border-[var(--line-2)] bg-[var(--field-1)] p-4 transition-colors duration-[var(--dur-1)] hover:border-[var(--signal-400)]"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs font-semibold text-[var(--signal-300)]">Target test</span>
-                        {/* The bank is shared across a portal's subtests — say
-                            that plainly instead of per-card "Active" badges
-                            that implied bespoke question sets. */}
-                        <span className="rounded-[var(--r-1)] bg-[var(--srf-2)] px-2 py-1 text-[10px] text-[var(--steel-400)]">
-                          Shared bank
-                        </span>
-                      </div>
-                      <h3 className="text-sm font-semibold text-[var(--steel-100)] transition-colors group-hover:text-[var(--signal-300)]">
-                        {sub.name}
-                      </h3>
-                      <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-[var(--steel-400)]">
-                        {sub.description}
-                      </p>
-                    </div>
-                    <div className="mt-5 flex items-center justify-between border-t border-[var(--line-1)] pt-3 text-xs font-semibold text-[var(--signal-300)]">
-                      <span>Open practice →</span>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Subject Breakdown & Features */}
-        <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_0.62fr]">
-            {/* Subjects List */}
-            <div className="lg:col-span-2 space-y-6">
-              <div className="mb-5 border-b border-[var(--line-1)] pb-4">
-                <h2 className="text-xl font-semibold text-[var(--steel-100)]">Syllabus &amp; core subjects</h2>
-                <p className="mt-2 text-sm text-[var(--steel-400)]">The subject areas listed for this preparation space.</p>
-              </div>
-              <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-                {config.subjects.map((sub) => (
-                  <div key={sub.id} className="border-l-2 border-[var(--line-3)] bg-[var(--srf-1)] px-4 py-4 transition-colors hover:border-[var(--signal-400)]">
-                    <h3 className="text-sm font-semibold text-[var(--steel-100)]">{sub.name}</h3>
-                    <p className="mt-2 text-xs leading-relaxed text-[var(--steel-400)]">
-                      Chapter-wise practice drills, explanations behind every answer, and exam-pattern questions.
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Quick Access Card */}
-            <aside className="h-fit border-t-2 border-[var(--line-3)] bg-[var(--srf-1)] p-6">
-              <h3 className="text-lg font-semibold text-[var(--steel-100)]">Prep space resources</h3>
-              <ul className="mt-4 space-y-1 text-sm">
-                {config.features.notes && (
-                  <li className="flex items-center justify-between gap-3 border-b border-[var(--line-1)] py-3">
-                    <span className="text-foreground font-medium">Master Concept Notes</span>
-                    <Link href="/notes" className="shrink-0 text-xs font-semibold text-[var(--signal-300)] hover:underline">Access →</Link>
-                  </li>
-                )}
-                {hasPastPapers && (
-                  <li className="flex items-center justify-between py-2 border-b border-border/50">
-                    <span className="text-foreground font-medium">Released Past Papers</span>
-                    <Link href="/past-papers" className="text-xs text-accent font-semibold hover:underline">View →</Link>
-                  </li>
-                )}
-                {config.features.flashcards && (
-                  <li className="flex items-center justify-between py-2 border-b border-border/50">
-                    <span className="text-foreground font-medium">Active Recall Flashcards</span>
-                    <Link href="/flashcards" className="text-xs text-accent font-semibold hover:underline">Revise →</Link>
-                  </li>
-                )}
-                {config.features.psychTest && (
-                  <li className="flex items-center justify-between py-2 border-b border-border/50">
-                    <span className="text-foreground font-medium">NUMS Psychological Test</span>
-                    <span className="rounded-[var(--r-1)] bg-[var(--tint-signal)] px-2 py-1 text-xs font-semibold text-[var(--signal-300)]">Exclusive</span>
-                  </li>
-                )}
-                {config.features.intelligenceTest && (
-                  <li className="flex items-center justify-between py-2 border-b border-border/50">
-                    <span className="text-foreground font-medium">Verbal & Non-Verbal IQ</span>
-                    <span className="rounded-[var(--r-1)] bg-[var(--tint-warn)] px-2 py-1 text-xs font-semibold text-[var(--warn)]">PMA Focus</span>
-                  </li>
-                )}
-              </ul>
-
-              <div className="mt-6 border-t border-[var(--line-1)] pt-4">
-                <p className="text-xs leading-relaxed text-[var(--steel-400)]">
-                  Tools and content vary by preparation space. Check the current status on the test directory before relying on a particular feature.
+      {config.subtests.length > 0 && (
+        <section className="mx-auto max-w-7xl px-4 pt-12 sm:px-6">
+          <div className="border-t-2 border-[var(--signal-500)] bg-[var(--srf-1)] px-5 py-7 sm:px-8">
+            <div className="mb-7 flex flex-col gap-3 border-b border-[var(--line-1)] pb-5 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <h2 className="text-xl font-semibold text-[var(--steel-100)]">Choose your target test</h2>
+                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[var(--steel-400)]">
+                  These variants share this portal&apos;s question bank. Their syllabi and paper rules may differ, so read the description before starting.
                 </p>
               </div>
+              <span className="text-xs text-[var(--steel-400)]">{config.subtests.length} listed variants</span>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {config.subtests.map((sub) => (
+                <Link
+                  key={sub.id}
+                  href={`${config.route}?subtest=${sub.id}`}
+                  className="group flex flex-col justify-between border border-[var(--line-2)] bg-[var(--field-1)] p-4 transition-colors duration-[var(--dur-1)] hover:border-[var(--signal-400)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal-300)]"
+                >
+                  <div>
+                    <div className="mb-2 flex items-center justify-between gap-3">
+                      <span className="text-xs font-semibold text-[var(--signal-300)]">Target test</span>
+                      <span className="rounded-[var(--r-1)] bg-[var(--srf-2)] px-2 py-1 text-[10px] text-[var(--steel-400)]">Shared bank</span>
+                    </div>
+                    <h3 className="text-sm font-semibold text-[var(--steel-100)] transition-colors group-hover:text-[var(--signal-300)]">
+                      {sub.name}
+                    </h3>
+                    <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-[var(--steel-400)]">
+                      {sub.description}
+                    </p>
+                  </div>
+                  <div className="mt-5 border-t border-[var(--line-1)] pt-3 text-xs font-semibold text-[var(--signal-300)]">
+                    Open practice →
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
-      </div>
+      )}
 
-      {/* Footer */}
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_0.62fr]">
+          <div>
+            <div className="mb-5 border-b border-[var(--line-1)] pb-4">
+              <h2 className="text-xl font-semibold text-[var(--steel-100)]">Syllabus &amp; core subjects</h2>
+              <p className="mt-2 text-sm text-[var(--steel-400)]">The subject areas listed for this preparation space.</p>
+            </div>
+            <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+              {config.subjects.map((subject) => (
+                <div key={subject.id} className="border-l-2 border-[var(--line-3)] bg-[var(--srf-1)] px-4 py-4 transition-colors hover:border-[var(--signal-400)]">
+                  <h3 className="text-sm font-semibold text-[var(--steel-100)]">{subject.name}</h3>
+                  <p className="mt-2 text-xs leading-relaxed text-[var(--steel-400)]">
+                    Listed as a core subject area for this exam family. Check the current official syllabus for the exact scope and weighting.
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <aside className="h-fit border-t-2 border-[var(--line-3)] bg-[var(--srf-1)] p-6">
+            <h3 className="text-lg font-semibold text-[var(--steel-100)]">Prep space resources</h3>
+            <ul className="mt-4 space-y-1 text-sm">
+              {config.features.notes && (
+                <li className="flex items-center justify-between gap-3 border-b border-[var(--line-1)] py-3">
+                  <span className="font-medium text-[var(--steel-200)]">Master concept notes</span>
+                  <Link href="/notes" className="shrink-0 text-xs font-semibold text-[var(--signal-300)] hover:underline">Access →</Link>
+                </li>
+              )}
+              {hasPastPapers && (
+                <li className="flex items-center justify-between gap-3 border-b border-[var(--line-1)] py-3">
+                  <span className="font-medium text-[var(--steel-200)]">Released past papers</span>
+                  <Link href="/past-papers" className="shrink-0 text-xs font-semibold text-[var(--signal-300)] hover:underline">View →</Link>
+                </li>
+              )}
+              {config.features.flashcards && (
+                <li className="flex items-center justify-between gap-3 border-b border-[var(--line-1)] py-3">
+                  <span className="font-medium text-[var(--steel-200)]">Active recall flashcards</span>
+                  <Link href="/flashcards" className="shrink-0 text-xs font-semibold text-[var(--signal-300)] hover:underline">Revise →</Link>
+                </li>
+              )}
+              {config.features.psychTest && (
+                <li className="flex items-center justify-between gap-3 border-b border-[var(--line-1)] py-3">
+                  <span className="font-medium text-[var(--steel-200)]">NUMS psychological test</span>
+                  <span className="rounded-[var(--r-1)] bg-[var(--tint-signal)] px-2 py-1 text-xs font-semibold text-[var(--signal-300)]">Exclusive</span>
+                </li>
+              )}
+              {config.features.intelligenceTest && (
+                <li className="flex items-center justify-between gap-3 border-b border-[var(--line-1)] py-3">
+                  <span className="font-medium text-[var(--steel-200)]">Verbal &amp; non-verbal drills</span>
+                  <span className="rounded-[var(--r-1)] bg-[var(--tint-warn)] px-2 py-1 text-xs font-semibold text-[var(--warn)]">PMA focus</span>
+                </li>
+              )}
+              {!config.features.notes && !hasPastPapers && !config.features.flashcards && !config.features.psychTest && !config.features.intelligenceTest && (
+                <li className="py-3 text-xs leading-relaxed text-[var(--steel-400)]">No additional resources are listed for this space yet.</li>
+              )}
+            </ul>
+
+            <div className="mt-6 border-t border-[var(--line-1)] pt-4">
+              <p className="text-xs leading-relaxed text-[var(--steel-400)]">
+                Tools and content vary by preparation space. Check the test directory for current availability before relying on a particular feature.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
       <footer className="mt-8 border-t border-[var(--line-2)] bg-[var(--field-0)] px-4 py-8 text-center">
         <Link href="/exams" className="text-sm font-medium text-[var(--signal-300)] hover:underline">Explore all preparation spaces</Link>
         <p className="mt-2 text-xs text-[var(--steel-500)]">© {new Date().getFullYear()} MED Prep · {config.name}</p>
