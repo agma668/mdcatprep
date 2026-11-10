@@ -3,7 +3,7 @@
 // Theme engine for MED Prep.
 //
 // Applies a `data-theme` attribute on <html> (midnight | emerald | crimson |
-// violet). All recolouring happens in CSS via [data-theme="..."] blocks in
+// violet | paper). All recolouring happens in CSS via [data-theme="..."] blocks in
 // globals.css — this component only sets the attribute, persists the choice in
 // localStorage, and avoids a flash of the wrong theme on reload (FOUC) by
 // honouring an inline <script> written into <head> by layout.tsx.
