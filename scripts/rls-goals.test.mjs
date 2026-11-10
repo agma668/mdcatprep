@@ -130,6 +130,9 @@ await db.exec(`
 `)
 
 await db.exec(migration('20261112000000_student_goals_foundation.sql'))
+// Applied twice on purpose: the seed must be safe to re-run.
+await db.exec(migration('20261113000000_prep_space_catalogue_seed.sql'))
+await db.exec(migration('20261113000000_prep_space_catalogue_seed.sql'))
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -302,9 +305,35 @@ test('student-facing roles cannot write the exam catalogue or question map', asy
 
   // Read-only catalogue access still works, and draft records stay hidden.
   const visible = await asUser(A, () => q('select id from public.exam_registry'))
-  assert.deepEqual(visible.rows.map((r) => r.id), ['nust-net'])
+  const ids = visible.rows.map((r) => r.id)
+  assert.ok(ids.includes('nust-net'))
+  assert.ok(!ids.includes('draft-exam'))
   const anonVisible = await asAnon(() => q('select id from public.exam_registry'))
-  assert.deepEqual(anonVisible.rows.map((r) => r.id), ['nust-net'])
+  assert.ok(anonVisible.rows.some((r) => r.id === 'nust-net'))
+  assert.ok(!anonVisible.rows.some((r) => r.id === 'draft-exam'))
+})
+
+test('catalogue seed exposes only beta Prep Spaces and supports a real goal', async () => {
+  const visible = await asAnon(() => q('select id from public.exam_registry order by id'))
+  assert.deepEqual(
+    visible.rows.map((r) => r.id),
+    ['hec-bfap-scholarship', 'nust-net', 'pma-long-course', 'pmdc-mdcat']
+  )
+
+  const created = await asUser(A, () =>
+    q(`insert into public.student_goals (student_id, exam_id, variant_id, target_date)
+       values ('${A}', 'pmdc-mdcat', 'pmdc-mdcat-national', '2027-09-30')
+       returning id, status`)
+  )
+  assert.equal(created.rows[0].status, 'active')
+
+  // An in-progress Prep Space is seeded as draft and cannot carry a goal yet.
+  await expectSqlError(
+    () => asUser(A, () =>
+      q(`insert into public.student_goals (student_id, exam_id, variant_id)
+         values ('${A}', 'nums-mdcat', 'nums-mdcat-mdcat')`)),
+    '42501'
+  )
 })
 
 test('progress rows may reference only the student\'s own goal', async () => {

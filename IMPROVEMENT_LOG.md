@@ -244,3 +244,11 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - Added `app/actions/goals.ts`: list goals with catalogue titles, list active exams/variants, create (first active goal becomes primary), update only target date/status, atomic primary switch, archive. Ownership always comes from the session.
 - Added `scripts/rls-goals.test.mjs` running real PostgreSQL via PGlite (new dev-only dependency, MIT) with a stubbed `auth.uid()`: 15 tests cover cross-user read/update, forged ownership, duplicate active goals, primary uniqueness, atomic primary scoping, archive-and-restart, inactive/retired variants, identity-field lockout, catalogue/mapping write denial, goal-reference ownership, no legacy backfill and untouched `profiles.exam_target`.
 - Gates: tsc exit 0, eslint exit 0, `npm test` 77/77, `next build` exit 0. No live migration, student data, deployment or paid service.
+
+## 2026-11-10 — Issue #2 A1: catalogue, goals surface and branch reconciliation
+
+- Reconciled the two sibling lines of `apex/prepspace-foundation`: the 40-commit Prep Space catalogue/UX work and the 7-commit quiz/flashcard/mistake/goals work now live on one branch (merge `06246d8`). No new branch, no history rewrite.
+- Added `supabase/migrations/20261113000000_prep_space_catalogue_seed.sql` (draft, idempotent, unapplied): canonical exam IDs from `EXAM-REGISTRY-PROPOSAL.md` plus one paper variant each. Only beta Prep Spaces are `active`; in-progress/coming-soon spaces stay `draft`, so RLS keeps them out of goals. No question, assessment-profile or student data is seeded.
+- Added `/dashboard/goals` and its client: add multiple goals (exam + paper + optional target date), make primary, pause/resume, archive. Ownership and safe fields remain enforced by the database, not the UI. Sidebar and dashboard switcher now point to saved goals instead of implying a route change creates one.
+- Extended the PGlite RLS suite to 16 tests: the seed is applied twice, beta spaces are visible to anon, a goal can attach to a seeded active paper, and a draft space is rejected. `npm test` 89/89, tsc 0, eslint 0 on touched files, `next build` 0, `/dashboard/goals` returns 307 → `/login` logged out.
+- The catalogue migration is still **unapplied** and no production data or deployment was touched, so issue #2 is code-complete but not live-complete.
