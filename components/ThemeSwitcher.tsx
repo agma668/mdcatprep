@@ -67,7 +67,7 @@ export function ThemeSwitcher() {
           className="menu-in absolute right-0 top-11 w-56 rounded-[var(--radius-lg)] border border-[var(--line-2)] bg-[var(--field-0)] p-1.5 shadow-[var(--shadow-xl)]"
         >
           <p className="px-2 pb-1 pt-1.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--steel-400)]">
-            Colour — whole site
+            Appearance — whole site
           </p>
           {THEMES.map((t) => {
             const selected = t.id === current;

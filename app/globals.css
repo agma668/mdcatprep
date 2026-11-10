@@ -1499,7 +1499,7 @@ html.lenis body { height: auto; }
    overrides ONLY the colour tokens, so every component that reads a token
    recolours automatically (the ~30 layered rgba washes and the canvas effect
    layers consume --rgb-signal/--rgb-steel and the --raw tokens, which are also
-   overridden here). Drives the 4-quadrant wheel in the hero + nav picker.
+   overridden here). Drives the five-swatch theme wheel in the hero + nav picker.
    Contrast for each palette is held to the same bars as midnight (AA ≥4.5:1
    for body, ≥3:1 for large text) — checked per-token in the comments.
    ═══════════════════════════════════════════════════════════════════════════ */
@@ -1717,4 +1717,170 @@ html.lenis body { height: auto; }
     padding: 2rem;
     font-size: 14px;
   }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PAPER — quiet editorial light theme.
+   The dark palettes remain unchanged. Paper reuses the same semantic tokens,
+   so shared components recolour without a parallel component system.
+   ═══════════════════════════════════════════════════════════════════════════ */
+[data-theme="paper"] {
+  color-scheme: light;
+
+  --field-0: #F0EFEA;
+  --field-1: #F8F7F3;
+  --field-2: #F0F1F2;
+
+  --srf-1: #FFFFFF;
+  --srf-2: #F1F3F5;
+  --srf-3: #E8EDF1;
+  --srf-4: #DDE4EA;
+
+  --steel-100: #172536;
+  --steel-200: #26394D;
+  --steel-300: #46596C;
+  --steel-400: #5B6D7E;
+  --steel-500: #526678;
+  --steel-600: #AAB5BF;
+  --steel-700: #D4DCE2;
+  --steel-800: #E8ECEF;
+
+  --signal-100: #E6EFF7;
+  --signal-200: #C9DCEB;
+  --signal-300: #285A87;
+  --signal-400: #356D9D;
+  --signal-500: #356D9D;
+  --signal-600: #285A87;
+  --signal-700: #1E466D;
+
+  --beacon-300: #D6EEF0;
+  --beacon-400: #277985;
+  --beacon-600: #1D6671;
+
+  --brass: #A47B36;
+  --brass-dim: #80602B;
+  --brass-bright: #76551F;
+  --champagne: #76551F;
+
+  --ok: #18734D;
+  --warn: #855B12;
+  --danger: #B33B3B;
+
+  --cta-from: #285A87;
+  --cta-to: #1E466D;
+  --on-cta: #FFFFFF;
+
+  --line-1: rgba(23, 37, 54, 0.045);
+  --line-2: rgba(23, 37, 54, 0.10);
+  --line-3: rgba(23, 37, 54, 0.17);
+  --line-lit: rgba(255, 255, 255, 0.9);
+  --line-signal: rgba(40, 90, 135, 0.25);
+  --line-beacon: rgba(39, 121, 133, 0.24);
+  --line-brass: rgba(164, 123, 54, 0.28);
+  --line-ok: rgba(24, 115, 77, 0.24);
+  --line-warn: rgba(133, 91, 18, 0.24);
+  --line-danger: rgba(179, 59, 59, 0.22);
+
+  --tint-signal: rgba(40, 90, 135, 0.08);
+  --tint-signal-strong: rgba(40, 90, 135, 0.14);
+  --tint-beacon: rgba(39, 121, 133, 0.08);
+  --tint-brass: rgba(164, 123, 54, 0.08);
+  --tint-champagne: rgba(164, 123, 54, 0.07);
+  --tint-ok: rgba(24, 115, 77, 0.08);
+  --tint-warn: rgba(133, 91, 18, 0.08);
+  --tint-danger: rgba(179, 59, 59, 0.07);
+
+  --rgb-signal: 40, 90, 135;
+  --rgb-steel: 38, 57, 77;
+
+  --shadow-sm: 0 1px 2px rgba(23, 37, 54, 0.05);
+  --shadow-md: 0 4px 14px rgba(23, 37, 54, 0.07);
+  --shadow-lg: 0 14px 38px rgba(23, 37, 54, 0.09);
+  --shadow-xl: 0 24px 60px rgba(23, 37, 54, 0.13);
+  --shadow-card: 0 1px 2px rgba(23, 37, 54, 0.05), inset 0 1px 0 var(--line-lit);
+  --shadow-glow: 0 0 30px rgba(40, 90, 135, 0.08);
+  --shadow-cta: 0 5px 16px rgba(30, 70, 109, 0.18);
+  --glow-signal: 0 0 18px rgba(40, 90, 135, 0.12);
+  --glow-brass: 0 0 14px rgba(164, 123, 54, 0.10);
+  --glow-signal-dot: 0 0 7px rgba(40, 90, 135, 0.35);
+  --glow-signal-sm: 0 0 10px rgba(40, 90, 135, 0.16);
+  --glow-signal-md: 0 3px 12px rgba(40, 90, 135, 0.16);
+  --glow-signal-lg: 0 6px 20px rgba(40, 90, 135, 0.18);
+  --glow-beacon: 0 0 12px rgba(39, 121, 133, 0.16);
+  --glow-beacon-dot: 0 0 7px rgba(39, 121, 133, 0.38);
+  --glow-ok: 0 0 12px rgba(24, 115, 77, 0.14);
+  --glow-danger: 0 0 12px rgba(179, 59, 59, 0.14);
+
+  --nav-blur: blur(16px) saturate(140%);
+
+  /* Compatibility tokens are repeated here where they are literal values in
+     :root; aliases derived from the semantic tokens continue to resolve. */
+  --color-text-inverse: #FFFFFF;
+  --color-gold: var(--signal-300);
+  --color-gold-light: var(--signal-200);
+  --color-primary: var(--signal-300);
+  --color-primary-light: var(--signal-200);
+  --color-primary-dark: var(--signal-500);
+  --color-accent: var(--signal-300);
+  --color-accent-light: var(--signal-200);
+
+  --dark-bg: var(--field-1);
+  --dark-surface: var(--srf-1);
+  --color-navy: var(--field-1);
+  --color-navy-mid: var(--srf-2);
+  --color-navy-deep: var(--field-0);
+  --color-surface: var(--srf-1);
+  --color-surface-2: var(--srf-2);
+  --color-surface-3: var(--srf-3);
+  --color-surface-4: var(--srf-4);
+  --color-text-primary: var(--steel-100);
+  --color-text-secondary: var(--steel-300);
+  --color-text-muted: var(--steel-400);
+  --color-border: var(--line-2);
+  --color-border-dark: var(--line-3);
+  --color-success: var(--ok);
+  --color-warning: var(--warn);
+  --color-error: var(--danger);
+}
+
+html[data-theme="paper"],
+html[data-theme="paper"] body {
+  color-scheme: light;
+  background-color: var(--field-1);
+}
+
+[data-theme="paper"] ::selection {
+  background: rgba(40, 90, 135, 0.18);
+  color: #172536;
+}
+
+[data-theme="paper"] .nav-material,
+[data-theme="paper"] .liquid-nav-surface {
+  background-color: rgba(248, 247, 243, 0.88);
+  border-bottom: 1px solid rgba(23, 37, 54, 0.08);
+}
+
+[data-theme="paper"] .bg-dashboard {
+  background-color: var(--field-1);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 18% 0%, rgba(40, 90, 135, 0.055), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 82% 14%, rgba(39, 121, 133, 0.025), transparent 50%);
+}
+
+[data-theme="paper"] .landing-canvas {
+  background-color: var(--field-1);
+}
+
+[data-theme="paper"] .landing-canvas::before {
+  opacity: 0.12;
+}
+
+[data-theme="paper"] .hero-wireframe__icon {
+  filter: none;
+  opacity: 0.16;
+}
+
+[data-theme="paper"] .fluid-cursor__body svg {
+  filter: brightness(0) saturate(100%) invert(14%) sepia(17%) saturate(1150%) hue-rotate(168deg) brightness(92%) contrast(91%);
 }
