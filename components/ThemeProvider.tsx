@@ -13,13 +13,14 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 
-export type ThemeId = "midnight" | "emerald" | "crimson" | "violet";
+export type ThemeId = "midnight" | "emerald" | "crimson" | "violet" | "paper";
 
 export const THEMES: { id: ThemeId; label: string; dots: [string, string, string] }[] = [
   { id: "midnight", label: "Midnight", dots: ["#05080F", "#3D7EDB", "#C9A24B"] },
   { id: "emerald", label: "Forest", dots: ["#04100C", "#3FAE8B", "#C9A24B"] },
   { id: "crimson", label: "Wine", dots: ["#0F0508", "#BC5267", "#C9A24B"] },
   { id: "violet", label: "Iris", dots: ["#0E0814", "#7260C0", "#C9A24B"] },
+  { id: "paper", label: "Paper", dots: ["#F8F7F3", "#285A87", "#A47B36"] },
 ];
 
 const STORAGE_KEY = "med-prep-theme";
