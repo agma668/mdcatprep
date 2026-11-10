@@ -1,15 +1,10 @@
 "use client";
 
-// FOUR-THEME COLOUR WHEEL — hero centerpiece control.
+// FIVE-THEME COLOUR WHEEL — hero appearance control.
 //
-// A ring split into four coloured quadrants, one per theme. Click a quadrant
-// to switch the whole site to that palette (persisted in localStorage, applied
-// live via data-theme — no reload). Hover gently lifts the quadrant and shows
-// its name; the active quadrant carries a lit outer ring.
-//
-// The quadrants use conic-gradient over a single rounded-full disc and a mask
-// (hole-punch) to make the ring, so there is zero raster work and the wheel
-// stays crisp at any size. Pure CSS, no canvas.
+// Five evenly spaced swatches sit around a quiet ring. The control follows the
+// same shared theme catalogue as the nav picker, so adding a palette does not
+// create overlapping quadrants or an invalid gradient.
 
 import { useEffect, useState } from "react";
 import { THEMES, applyTheme, getTheme, type ThemeId } from "./ThemeProvider";
@@ -19,8 +14,6 @@ export function ThemeWheel() {
   const [active, setActive] = useState<ThemeId>("midnight");
   const [hover, setHover] = useState<ThemeId | null>(null);
 
-  // Read stored theme on mount (the inline head script already set data-theme,
-  // so this just syncs state; FOUC was already prevented).
   useEffect(() => {
     const id = window.setTimeout(() => {
       const saved = getTheme();
@@ -29,102 +22,92 @@ export function ThemeWheel() {
     return () => window.clearTimeout(id);
   }, []);
 
-  // Build the conic gradient from the four themes' signal colours.
-  const seg = 90; // deg per quadrant
-  const stops = THEMES.map((t, i) => {
-    const from = i * seg;
-    const to = from + seg;
-    // quadrant fill: a rich radial from the theme's field toward its signal,
-    // so each quarter reads as that theme's atmosphere.
-    const c1 = t.dots[1]; // signal
-    const c2 = t.dots[0]; // field
-    return `${c1} ${from}deg, ${c2} ${from + 8}deg ${to}deg, ${c1} ${to}deg`;
+  const segment = 360 / THEMES.length;
+  const stops = THEMES.map((theme, index) => {
+    const from = index * segment;
+    const to = from + segment;
+    return `${theme.dots[1]} ${from}deg ${to}deg`;
   }).join(", ");
 
-  const hovered = THEMES.find((t) => t.id === hover) ?? null;
+  const hovered = THEMES.find((theme) => theme.id === hover) ?? null;
+  const selected = THEMES.find((theme) => theme.id === active) ?? THEMES[0];
 
   return (
     <div className="flex flex-col items-center gap-2">
-      {/* label */}
       <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-[var(--steel-400)]">
         <Palette aria-hidden="true" className="h-3.5 w-3.5 text-[var(--signal-300)]" />
-        {hovered ? hovered.label : "Theme"}
-        {active && (
-          <span className="ml-1 rounded-full border border-[var(--line-2)] bg-[var(--srf-2)] px-2 py-0.5 text-[10px] font-medium normal-case tracking-normal text-[var(--steel-300)]">
-            {THEMES.find((t) => t.id === active)?.label}
-          </span>
-        )}
+        {hovered ? hovered.label : "Appearance"}
+        <span className="ml-1 rounded-full border border-[var(--line-2)] bg-[var(--srf-2)] px-2 py-0.5 text-[10px] font-medium normal-case tracking-normal text-[var(--steel-300)]">
+          {selected.label}
+        </span>
       </div>
 
-      {/* the wheel */}
-      <div className="relative h-28 w-28">
-        {/* outer glow ring when a theme is active */}
+      <div className="relative h-[120px] w-[120px]">
         <div
-          className="absolute -inset-1 rounded-full opacity-70 blur-sm transition-all duration-700"
-          style={{
-            background: `conic-gradient(${
-              THEMES.map((t, i) => `${active === t.id ? `${t.dots[1]} ${i * 90}deg ${i * 90 + 90}deg` : "transparent"}`).join(", ")
-            })`,
-          }}
-        />
-        {/* four-quadrant ring */}
-        <div
-          role="group"
-          aria-label="Choose site colour theme"
-          className="relative h-28 w-28 cursor-pointer rounded-full transition-transform duration-300 hover:scale-[1.04]"
+          aria-hidden="true"
+          className="absolute inset-0 rounded-full opacity-80"
           style={{
             background: `conic-gradient(${stops})`,
-            mask: "radial-gradient(farthest-side, transparent 86%, #000 87%)",
-            WebkitMask: "radial-gradient(farthest-side, transparent 86%, #000 87%)",
+            mask: "radial-gradient(farthest-side, transparent 79%, #000 81%)",
+            WebkitMask: "radial-gradient(farthest-side, transparent 79%, #000 81%)",
           }}
+        />
+
+        <div
+          role="group"
+          aria-label="Choose site appearance"
+          className="absolute inset-0"
         >
-          {/* quadrant hit areas */}
-          {THEMES.map((t, i) => {
-            // position each quadrant's invisible button over its quarter
-            const half = i < 2 ? 0 : 1; // top half = 0,1 / bottom half = 2,3
-            const horiz = i % 2; // left=0, right=1
+          {THEMES.map((theme, index) => {
+            const angle = -90 + index * segment;
+            const radians = (angle * Math.PI) / 180;
+            const center = 60;
+            const radius = 42;
+            const left = center + Math.cos(radians) * radius;
+            const top = center + Math.sin(radians) * radius;
+            const isActive = active === theme.id;
+
             return (
               <button
-                key={t.id}
+                key={theme.id}
                 type="button"
-                aria-label={`${t.label} theme`}
-                aria-pressed={active === t.id}
-                onMouseEnter={() => setHover(t.id)}
+                aria-label={`${theme.label} theme`}
+                aria-pressed={isActive}
+                title={theme.label}
+                onMouseEnter={() => setHover(theme.id)}
                 onMouseLeave={() => setHover(null)}
+                onFocus={() => setHover(theme.id)}
+                onBlur={() => setHover(null)}
                 onClick={() => {
-                  applyTheme(t.id);
-                  setActive(t.id);
+                  applyTheme(theme.id);
+                  setActive(theme.id);
                 }}
-                className="absolute h-1/2 w-1/2 transition-transform duration-200 hover:scale-110 focus-visible:outline-none"
+                className="tap-44 absolute flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 transition-transform duration-200 hover:scale-110 focus-visible:outline-none"
                 style={{
-                  top: half === 0 ? 0 : "50%",
-                  left: horiz === 0 ? 0 : "50%",
-                  borderRadius:
-                    half === 0 ? (horiz === 0 ? "100% 0 0 0" : "0 100% 0 0") : horiz === 0 ? "0 0 0 100%" : "0 0 100% 0",
+                  left,
+                  top,
+                  borderColor: isActive ? "var(--steel-100)" : "var(--field-1)",
+                  background: `linear-gradient(135deg, ${theme.dots[0]}, ${theme.dots[1]})`,
+                  boxShadow: isActive ? "0 0 0 3px var(--line-signal), var(--shadow-md)" : "var(--shadow-sm)",
                 }}
-              />
+              >
+                <span className="sr-only">{theme.label}</span>
+              </button>
             );
           })}
-          {/* centre hub — dot showing active theme */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[var(--line-3)] bg-[var(--field-0)] shadow-[var(--shadow-lg)]"
-            style={{
-              borderColor: "var(--line-signal)",
-            }}
-          >
-            <div
-              className="absolute inset-2.5 rounded-full"
-              style={{
-                background: `conic-gradient(${THEMES.map((t2) => `${t2.dots[1]} 0deg 90deg`).join(", ")})`,
-              }}
-            />
-          </div>
         </div>
+
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/2 top-1/2 h-9 w-9 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[var(--line-3)] shadow-[var(--shadow-lg)]"
+          style={{
+            background: `linear-gradient(135deg, ${selected.dots[0]}, ${selected.dots[1]})`,
+          }}
+        />
       </div>
 
       <p className="max-w-[10rem] text-center text-[10px] leading-snug text-[var(--steel-500)]">
-        Pick your growth atmosphere — same content, your colours.
+        Choose the appearance that feels comfortable for study.
       </p>
     </div>
   );
