@@ -68,7 +68,7 @@ export function ExamPaper() {
     <div className="rounded-[var(--r-4)] border border-[var(--line-3)] bg-[var(--srf-2)] p-5 sm:p-7">
       <div className="flex items-baseline justify-between border-b border-dashed border-[var(--steel-600)] pb-3 text-sm text-[var(--steel-300)]">
         <span>
-          Sample question{" "}
+          Medical MCQ sample{" "}
           <span className="tabular-nums text-[var(--steel-100)]">
             {idx + 1}/{SAMPLES.length}
           </span>
