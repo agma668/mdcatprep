@@ -52,6 +52,7 @@ export function ExamPathwaySelector() {
       if (nextDistance < distance) { distance = nextDistance; nearest = index; }
     });
     setActiveIndex(nearest);
+    setActiveCategory(PREP_SPACES[nearest]?.category ?? "all");
   }, []);
 
   function showCategory(category: PrepSpaceDefinition["category"]) {
