@@ -13,7 +13,7 @@ import { SignupForm } from "./SignupForm";
 export default async function SignupPage({
   searchParams,
 }: {
-  searchParams: Promise<{ ref?: string }>;
+  searchParams: Promise<{ ref?: string; exam?: string }>;
 }) {
   const params = await searchParams;
   return (
@@ -61,7 +61,7 @@ export default async function SignupPage({
           </h2>
           <p className="text-white/65 text-base leading-relaxed mb-10">
             Join students across Pakistan preparing for MDCAT, NUMS, NUST,
-            GIKI, LUMS, HEC USAT and PMA. Everything is 100% free.
+            GIKI, LUMS, HEC USAT and PMA. Choose a preparation path that matches your next step.
           </p>
 
           {/* Feature cards */}
@@ -135,11 +135,11 @@ export default async function SignupPage({
               Create your account
             </h1>
             <p className="text-[var(--color-text-secondary)] mt-2 text-sm">
-              Free forever. No credit card required.
+              Choose your exam and account details to get started.
             </p>
           </div>
 
-          <SignupForm refCode={params.ref ?? ""} />
+          <SignupForm refCode={params.ref ?? ""} selectedExam={params.exam ?? ""} />
 
           <p className="text-center text-sm text-[var(--color-text-secondary)] mt-8">
             Already have an account?{" "}
