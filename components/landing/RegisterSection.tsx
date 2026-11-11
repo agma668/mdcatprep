@@ -19,6 +19,12 @@ export function RegisterSection({ mcqs, subjects }: { mcqs: number; subjects: nu
     const params = new URLSearchParams();
     if (name) params.set('name', name);
     if (email) params.set('email', email);
+    try {
+      const selectedExam = window.sessionStorage.getItem('edweb:selected-prep-space:v1');
+      if (selectedExam) params.set('exam', selectedExam);
+    } catch {
+      // Continue to signup even when browser storage is unavailable.
+    }
     window.location.href = `/signup?${params.toString()}`;
   };
 
