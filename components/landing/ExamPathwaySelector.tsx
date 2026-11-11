@@ -83,20 +83,25 @@ export function ExamPathwaySelector() {
         </div>
       </div>
 
-      <div ref={railRef} onScroll={updateActiveFromScroll} onKeyUp={updateActiveFromScroll} role="group" aria-label="Scroll to choose an exam preparation path" className="exam-selector-rail mt-7 flex snap-x snap-mandatory gap-3 overflow-x-auto px-[12%] pb-5 pt-2">
+      <div ref={railRef} onScroll={updateActiveFromScroll} onKeyUp={updateActiveFromScroll} role="group" aria-label="Scroll to choose an exam preparation path" className="exam-selector-rail mt-7 flex snap-x snap-mandatory gap-2 overflow-x-auto px-[25%] pb-12 pt-2">
         {PREP_SPACES.map((space, index) => {
           const Icon = CATEGORY_ICONS[space.category];
           const active = activeIndex === index;
           const selectedCard = selectedSlug === space.slug;
+          const offset = index - activeIndex;
+          const distance = Math.abs(offset);
+          const arcY = Math.min(distance * 13, 42);
+          const arcRotation = Math.max(-12, Math.min(12, offset * -5));
+          const arcScale = Math.max(0.78, 1 - distance * 0.075);
           return (
-            <button key={space.id} ref={(node) => { cardRefs.current[index] = node; }} type="button" aria-pressed={selectedCard} onClick={() => selectPath(space, index)} data-path-tile="" className={["exam-selector-card group w-[76%] max-w-[260px] min-w-[220px] shrink-0 snap-center rounded-[1rem] border p-5 text-left", active ? "is-active" : "", selectedCard ? "is-selected" : ""].join(" ")}>
+            <button key={space.id} ref={(node) => { cardRefs.current[index] = node; }} type="button" aria-pressed={selectedCard} onClick={() => selectPath(space, index)} data-path-tile="" className={["exam-selector-card group w-[56%] max-w-[190px] min-w-[158px] shrink-0 snap-center rounded-[1rem] border p-4 text-left", active ? "is-active" : "", selectedCard ? "is-selected" : ""].join(" ")} style={{ transform: "translateY(" + arcY + "px) rotate(" + arcRotation + "deg) scale(" + arcScale + ")" }}>
               <span className="flex items-center justify-between">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--line-2)] bg-[var(--field-1)] text-[var(--signal-300)]"><Icon className="h-5 w-5" aria-hidden="true" /></span>
-                <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--steel-400)]">{CATEGORY_LABELS[space.category]}</span>
+                <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--line-2)] bg-[var(--field-1)] text-[var(--signal-300)]"><Icon className="h-4 w-4" aria-hidden="true" /></span>
+                <span className="text-[9px] font-semibold uppercase tracking-[0.12em] text-[var(--steel-400)]">{CATEGORY_LABELS[space.category]}</span>
               </span>
-              <span className="mt-9 block text-xl font-semibold leading-snug text-[var(--steel-100)]">{space.name}</span>
-              <span className="mt-3 block text-xs text-[var(--steel-400)]">{READINESS_LABELS[space.readiness]}</span>
-              <span className="mt-7 flex items-center justify-between border-t border-[var(--line-2)] pt-3 text-xs font-semibold text-[var(--signal-300)]">{selectedCard ? "Selected path" : "Select this test"}<span aria-hidden="true" className="text-base">↗</span></span>
+              <span className="mt-5 block text-base font-semibold leading-snug text-[var(--steel-100)]">{space.name}</span>
+              <span className="mt-2 block text-[11px] text-[var(--steel-400)]">{READINESS_LABELS[space.readiness]}</span>
+              <span className="mt-5 flex items-center justify-between border-t border-[var(--line-2)] pt-2.5 text-[11px] font-semibold text-[var(--signal-300)]">{selectedCard ? "Selected path" : "Select this test"}<span aria-hidden="true" className="text-sm">↗</span></span>
             </button>
           );
         })}
