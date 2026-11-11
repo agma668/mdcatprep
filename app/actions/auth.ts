@@ -121,7 +121,23 @@ export async function signup(formData: FormData) {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { error: 'Please enter a valid email address.' }
   if (password.length < 8) return { error: 'Password must be at least 8 characters long.' }
   if (password !== confirm_password) return { error: 'Passwords do not match.' }
-  if (!exam_target) return { error: 'Please choose the exam you are preparing for.' }
+  const allowedExamTargets = new Set([
+    'MDCAT',
+    'NUMS',
+    'MBBS Notes',
+    'HEC Balochistan Scholarship — Pre-Medical',
+    'HEC USAT',
+    'HEC USAT-M',
+    'HEC USAT-E',
+    'NUST (NET)',
+    'GIKI',
+    'LUMS',
+    'PMA Long Course',
+    'ISSB Intelligence',
+  ])
+  if (!exam_target || !allowedExamTargets.has(exam_target)) {
+    return { error: 'Please choose a valid preparation path.' }
+  }
 
   // Service role when available (creates the user pre-confirmed and fills the
   // enrollment fields). Without the service key — a real secret with no
