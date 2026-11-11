@@ -10,6 +10,7 @@ import {
 } from "@/lib/prep-space-registry";
 
 const STORAGE_KEY = "edweb:selected-prep-space:v1";
+const SELECTION_EVENT = "edweb:prep-space-selected";
 
 const CATEGORY_LABELS: Record<PrepSpaceDefinition["category"], string> = {
   medical: "Medical",
@@ -68,6 +69,7 @@ export function ExamPathwaySelector() {
   function selectPath(space: (typeof PREP_SPACES)[number]) {
     setSelectedSlug(space.slug);
     rememberPath(space.slug);
+    window.dispatchEvent(new CustomEvent(SELECTION_EVENT, { detail: space.slug }));
   }
 
   return (
@@ -103,6 +105,7 @@ export function ExamPathwaySelector() {
               type="button"
               aria-pressed={active}
               onClick={() => selectPath(space)}
+              data-path-tile=""
               className={[
                 "group min-w-[205px] max-w-[225px] flex-1 snap-start rounded-[var(--r-3)] border p-4 text-left transition-[border-color,background-color,transform] duration-[var(--dur-1)] hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal-300)]",
                 active
@@ -134,7 +137,8 @@ export function ExamPathwaySelector() {
 
       <div aria-live="polite" aria-atomic="true" className="mt-3">
         {selected ? (
-          <div className="grid gap-5 rounded-[var(--r-3)] border border-[var(--line-2)] bg-[var(--srf-2)] p-5 sm:p-6 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div data-path-detail=""
+            className="grid gap-5 rounded-[var(--r-3)] border border-[var(--line-2)] bg-[var(--srf-2)] p-5 sm:p-6 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--signal-300)]">
