@@ -217,9 +217,7 @@ export default async function Home() {
         <section>
           <FAQ />
         </section>
-        <section id="register">
-          <RegisterSection mcqs={mcqs} subjects={stats.hero.subjects} />
-        </section>
+        <RegisterSection mcqs={mcqs} subjects={stats.hero.subjects} />
       </main>
       <Footer />
     </div>
