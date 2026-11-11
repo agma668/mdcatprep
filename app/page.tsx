@@ -154,7 +154,7 @@ export default async function Home() {
 
         <section id="how-it-works" className="landing-band py-16 sm:py-24">
           <div className="container-page">
-            <h2 style={display} className="landing-section-heading max-w-[18ch] text-3xl leading-tight tracking-tight sm:text-4xl">
+            <h2 className="landing-section-heading max-w-[18ch] text-3xl leading-tight tracking-tight sm:text-4xl">
               Three steps, repeated daily
             </h2>
             <ol className="mt-10 grid gap-8 md:grid-cols-3 md:gap-10">
