@@ -46,12 +46,15 @@ function isProviderDisabled(message: string) {
 export function GoogleButton({
   label = "Continue with Google",
   refCode,
+  examTarget,
 }: {
   label?: string;
   refCode?: string;
+  examTarget?: string;
 }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const missingExam = examTarget !== undefined && !examTarget;
 
   const signInWithGoogle = async () => {
     setLoading(true);
@@ -63,9 +66,12 @@ export function GoogleButton({
         // A referral code rides through the OAuth round-trip as ?ref= so the
         // callback can attribute the signup (Supabase preserves extra query
         // params when it appends its auth code on the way back).
-        redirectTo: `${window.location.origin}/auth/callback${
-          refCode ? `?ref=${encodeURIComponent(refCode)}` : ""
-        }`,
+        redirectTo: (() => {
+          const callback = new URL("/auth/callback", window.location.origin);
+          if (refCode) callback.searchParams.set("ref", refCode);
+          if (examTarget) callback.searchParams.set("exam_target", examTarget);
+          return callback.toString();
+        })(),
       },
     });
     // On success the browser is navigated away by the OAuth flow; only
@@ -85,12 +91,17 @@ export function GoogleButton({
       <button
         type="button"
         onClick={signInWithGoogle}
-        disabled={loading}
+        disabled={loading || missingExam}
         className="w-full flex items-center justify-center gap-3 px-4 py-2.5 border border-white/10 rounded-[var(--radius-md)] bg-white/[0.06] text-white text-sm font-semibold hover:bg-white/[0.12] transition-colors disabled:opacity-60 disabled:cursor-wait"
       >
         <GoogleIcon />
         {loading ? "Redirecting to Google…" : label}
       </button>
+      {missingExam && (
+        <p className="mt-2 text-xs text-[var(--steel-400)]">
+          Choose your preparation path above to continue with Google.
+        </p>
+      )}
       {error && (
         <p role="alert" className="mt-2 text-xs text-rose-400">
           {error}
