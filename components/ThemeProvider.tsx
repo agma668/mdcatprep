@@ -13,7 +13,7 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 
-export type ThemeId = "midnight" | "emerald" | "crimson" | "violet" | "paper";
+export type ThemeId = "midnight" | "paper";
 
 export const THEMES: { id: ThemeId; label: string; dots: [string, string, string] }[] = [
   { id: "midnight", label: "Midnight", dots: ["#05080F", "#3D7EDB", "#C9A24B"] },
@@ -26,8 +26,9 @@ export const THEMES: { id: ThemeId; label: string; dots: [string, string, string
 const STORAGE_KEY = "med-prep-theme";
 
 function getInitialTheme(): ThemeId {
-  if (typeof window === "undefined") return "midnight";
-  return (window.__MED_PREP_THEME__ as ThemeId) || "midnight";
+  if (typeof window === "undefined") return "paper";
+  const current = window.__MED_PREP_THEME__;
+  return current === "midnight" || current === "paper" ? current : "paper";
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
@@ -62,7 +63,7 @@ export function applyTheme(theme: ThemeId) {
 }
 
 export function getTheme(): ThemeId {
-  return (window.__MED_PREP_THEME__ as ThemeId) || "midnight";
+  return window.__MED_PREP_THEME__ === "midnight" ? "midnight" : "paper";
 }
 
 // Type augmentation
