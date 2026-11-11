@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/landing/Navbar";
-import { ExamPaper } from "@/components/landing/ExamPaper";
 import { ExamPathwaySelector } from "@/components/landing/ExamPathwaySelector";
+import { PathAwareOverview } from "@/components/landing/PathAwareOverview";
+import { PathAwareHeroCopy } from "@/components/landing/PathAwareHeroCopy";
 import { FAQ, FAQS } from "@/components/landing/FAQ";
 import { RegisterSection } from "@/components/landing/RegisterSection";
 import { Footer } from "@/components/landing/Footer";
@@ -49,16 +50,6 @@ export const metadata: Metadata = {
 // Numbers come from the live seam in lib/public-stats.ts; ISR refreshes them.
 export const revalidate = 60;
 
-const display = { fontFamily: "var(--font-display)" } as const;
-
-const PRACTICE = [
-  { href: "/topicals", title: "Question practice", body: "Topic-based MCQ practice in preparation spaces where this tool is available." },
-  { href: "/past-papers", title: "Released papers", body: "Browse verified past-paper collections where released papers are available." },
-  { href: "/daily-quiz", title: "Daily quiz", body: "Short practice sets for supported subjects and exam tracks." },
-  { href: "/flashcards", title: "Flashcards", body: "Spaced-repetition revision for facts and concepts that need recall." },
-  { href: "/notes", title: "Study notes", body: "Focused notes for subjects with published study coverage." },
-];
-
 const STEPS = [
   { title: "Choose your preparation path", body: "Start with the exact exam or admission route you are working toward." },
   { title: "Use the tools available", body: "Each preparation space lists its current practice formats, resources and readiness." },
@@ -76,28 +67,20 @@ export default async function Home() {
   const lastYear = dated.length ? dated[0].key : null;
 
   return (
-    <div className="landing-canvas min-h-screen font-sans text-[var(--steel-100)] antialiased">
+    <div className="landing-canvas landing-editorial min-h-screen font-sans text-[var(--steel-100)] antialiased">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(learningResourceJsonLd) }} />
       <Navbar />
       <main>
         {/* General entry point first; the pathway selector below personalizes the next step. */}
-        <section className="container-page pb-16 pt-28 sm:pb-24 sm:pt-36">
+        <section className="landing-hero container-page pb-16">
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
             <div>
               <p className="inline-flex items-center gap-2 rounded-[var(--r-pill)] border border-[var(--line-2)] bg-[var(--srf-1)] px-3 py-1.5 text-sm text-[var(--steel-200)]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[var(--brass)]" aria-hidden="true" />
                 One account · Exam-specific preparation spaces
               </p>
-              <h1
-                style={display}
-                className="mt-5 max-w-[22ch] text-[2.25rem] font-bold leading-[1.06] tracking-tight text-[var(--steel-100)] sm:text-5xl lg:text-[3.4rem]"
-              >
-                Choose your path. Prepare for what’s next.
-              </h1>
-              <p className="mt-5 max-w-[52ch] text-base leading-relaxed text-[var(--steel-300)] sm:text-lg">
-                Explore preparation spaces built around different entry tests. Choose your path to see the tools, practice and resources currently available for that exam.
-              </p>
+              <PathAwareHeroCopy />
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link href="/exams" className="btn-primary inline-flex min-h-[48px] items-center justify-center px-6 text-base">
                   Explore all preparation paths
@@ -106,7 +89,6 @@ export default async function Home() {
                   Browse past papers
                 </Link>
               </div>
-              <ExamPathwaySelector />
               <p className="mt-4 max-w-[52ch] text-sm leading-relaxed text-[var(--steel-300)]">
                 Tools and content differ by exam. Each preparation path shows what is currently available; always check the exam authority’s latest syllabus and admission notice.
               </p>
@@ -125,44 +107,15 @@ export default async function Home() {
                 </div>
               </dl>
             </div>
-            <ExamPaper />
+            <div className="min-w-0"><ExamPathwaySelector /></div>
           </div>
         </section>
 
-        <section id="features" className="border-t border-[var(--line-1)] bg-[var(--field-2)] py-16 sm:py-24">
-          <div className="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-            <div>
-              <h2 style={display} className="max-w-[14ch] text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
-                Everything you practise with, in one place
-              </h2>
-              <p className="mt-4 max-w-[44ch] text-[var(--steel-300)]">
-                Choose a practice tool and build a steady routine. Sign in where an account is needed or when you want supported progress saved.
-              </p>
-            </div>
-            <ul className="divide-y divide-[var(--line-1)] border-y border-[var(--line-1)]">
-              {PRACTICE.map((p) => (
-                <li key={p.href}>
-                  <Link
-                    href={p.href}
-                    className="group flex min-h-[64px] items-center justify-between gap-6 py-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal-300)]"
-                  >
-                    <span>
-                      <span className="block text-lg font-semibold text-[var(--steel-100)] group-hover:text-[var(--signal-200)]">{p.title}</span>
-                      <span className="mt-0.5 block max-w-[52ch] text-sm text-[var(--steel-300)]">{p.body}</span>
-                    </span>
-                    <span aria-hidden="true" className="text-[var(--steel-500)] transition-transform duration-[var(--dur-2)] group-hover:translate-x-1">
-                      &rarr;
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
+        <PathAwareOverview />
 
         <section id="past-papers" className="py-16 sm:py-24">
           <div className="container-page">
-            <h2 style={display} className="max-w-[20ch] text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+            <h2 className="landing-section-heading max-w-[20ch] text-3xl leading-tight tracking-tight sm:text-4xl">
               Real papers, sorted by board and year
             </h2>
             <p className="mt-4 max-w-[60ch] text-[var(--steel-300)]">
@@ -197,9 +150,9 @@ export default async function Home() {
           </div>
         </section>
 
-        <section id="how-it-works" className="border-t border-[var(--line-1)] bg-[var(--field-2)] py-16 sm:py-24">
+        <section id="how-it-works" className="landing-band py-16 sm:py-24">
           <div className="container-page">
-            <h2 style={display} className="max-w-[18ch] text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+            <h2 className="landing-section-heading max-w-[18ch] text-3xl leading-tight tracking-tight sm:text-4xl">
               Three steps, repeated daily
             </h2>
             <ol className="mt-10 grid gap-8 md:grid-cols-3 md:gap-10">

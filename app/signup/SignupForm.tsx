@@ -16,7 +16,7 @@ import { GoogleButton, OrDivider } from "@/components/auth/GoogleButton";
 const EXAM_TARGET_BY_SLUG: Record<string, string> = {
   "pmdc-mdcat": "MDCAT",
   "nums-mdcat": "NUMS",
-  "hec-bfap-scholarship-pre-medical": "HEC Balochistan Scholarship — Pre-Medical",
+  "hec-bfap-scholarship": "HEC Balochistan Scholarship — Pre-Medical",
   "hec-usat": "HEC USAT",
   "nust-net-engineering": "NUST (NET)",
   "giki-undergraduate-test": "GIKI",
