@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, Calculator, GraduationCap, ShieldCheck, Stethoscope } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Calculator, GraduationCap, ShieldCheck, Stethoscope } from "lucide-react";
 import { PREP_SPACES, type PrepSpaceCapability, type PrepSpaceDefinition } from "@/lib/prep-space-registry";
 
 const STORAGE_KEY = "edweb:selected-prep-space:v1";
@@ -10,7 +10,7 @@ const SELECTION_EVENT = "edweb:prep-space-selected";
 const CATEGORY_LABELS: Record<PrepSpaceDefinition["category"], string> = { medical: "Medical", engineering: "Engineering", scholarship: "Scholarship", defence: "Defence" };
 const CATEGORY_ICONS = { medical: Stethoscope, engineering: Calculator, scholarship: GraduationCap, defence: ShieldCheck };
 const CATEGORY_ORDER: PrepSpaceDefinition["category"][] = ["medical", "engineering", "defence", "scholarship"];
-const READINESS_LABELS = { beta: "Available in beta", content_in_progress: "In development", coming_soon: "Coming soon" } as const;
+const READINESS_LABELS = { beta: "Available", content_in_progress: "In progress", coming_soon: "Coming soon" } as const;
 const CAPABILITY_LABELS: Record<PrepSpaceCapability, string> = { mcq_practice: "MCQ practice", scaled_timed_mock: "Timed practice", flashcards: "Flashcards", concept_notes: "Concept notes", released_past_papers: "Past papers", verbal_nonverbal_drills: "Verbal & non-verbal drills" };
 
 function rememberPath(slug: string) {
@@ -18,155 +18,84 @@ function rememberPath(slug: string) {
 }
 
 export function ExamPathwaySelector() {
-  const railRef = useRef<HTMLDivElement>(null);
-  const cardRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [activeCategory, setActiveCategory] = useState<PrepSpaceDefinition["category"] | "all">("all");
 
   useEffect(() => {
     try {
       const saved = window.sessionStorage.getItem(STORAGE_KEY);
-      const index = PREP_SPACES.findIndex((space) => space.slug === saved);
-      if (index >= 0) {
-        setSelectedSlug(PREP_SPACES[index].slug);
-        setActiveIndex(index);
-        requestAnimationFrame(() => cardRefs.current[index]?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" }));
-      }
+      if (saved && PREP_SPACES.some((space) => space.slug === saved)) setSelectedSlug(saved);
     } catch { /* Selector remains usable without storage. */ }
   }, []);
 
   const selected = PREP_SPACES.find((space) => space.slug === selectedSlug) ?? null;
   const canEnter = Boolean(selected && selected.readiness === "beta" && selected.legacyRoute);
 
-  const updateActiveFromScroll = useCallback(() => {
-    const rail = railRef.current;
-    if (!rail) return;
-    const center = rail.getBoundingClientRect().left + rail.clientWidth / 2;
-    let nearest = 0;
-    let distance = Number.POSITIVE_INFINITY;
-    cardRefs.current.forEach((card, index) => {
-      if (!card) return;
-      const rect = card.getBoundingClientRect();
-      const nextDistance = Math.abs(rect.left + rect.width / 2 - center);
-      if (nextDistance < distance) { distance = nextDistance; nearest = index; }
-    });
-    setActiveIndex(nearest);
-    setActiveCategory(PREP_SPACES[nearest]?.category ?? "all");
-  }, []);
-
-  function showCategory(category: PrepSpaceDefinition["category"]) {
-    setActiveCategory(category);
-    const index = PREP_SPACES.findIndex((space) => space.category === category);
-    if (index >= 0) {
-      setActiveIndex(index);
-      cardRefs.current[index]?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-    }
-  }
-
-  function selectPath(space: (typeof PREP_SPACES)[number], index: number) {
-    setActiveCategory(space.category);
+  function selectPath(space: (typeof PREP_SPACES)[number]) {
     setSelectedSlug(space.slug);
-    setActiveIndex(index);
     rememberPath(space.slug);
     window.dispatchEvent(new CustomEvent(SELECTION_EVENT, { detail: space.slug }));
-    cardRefs.current[index]?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
   }
-
-  function move(direction: -1 | 1) {
-    const next = Math.min(PREP_SPACES.length - 1, Math.max(0, activeIndex + direction));
-    cardRefs.current[next]?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-    setActiveIndex(next);
-  }
-
-  const activeSpace = PREP_SPACES[activeIndex];
-  const ActiveIcon = CATEGORY_ICONS[activeSpace.category];
 
   return (
     <section id="choose-path" aria-labelledby="choose-path-heading" className="exam-selector-showcase w-full">
-      <div className="flex items-end justify-between gap-4">
-        <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--signal-300)]">Your next chapter</p>
-          <h2 id="choose-path-heading" className="landing-display mt-2 text-3xl leading-tight text-[var(--steel-100)] sm:text-4xl">Choose your test.</h2>
-          <p className="mt-2 max-w-[38ch] text-sm leading-relaxed text-[var(--steel-400)]">Medical, engineering, defence and scholarship routes—all in one place. Choose your direction first.</p>
-        </div>
-        <div className="mb-1 hidden shrink-0 gap-2 sm:flex">
-          <button type="button" onClick={() => move(-1)} aria-label="Previous test" className="exam-selector-arrow"><ArrowLeft className="h-4 w-4" /></button>
-          <button type="button" onClick={() => move(1)} aria-label="Next test" className="exam-selector-arrow"><ArrowRight className="h-4 w-4" /></button>
-        </div>
+      <div>
+        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--signal-300)]">Find your route</p>
+        <h2 id="choose-path-heading" className="landing-display mt-2 text-3xl leading-tight text-[var(--steel-100)] sm:text-4xl">Every test. One place.</h2>
+        <p className="mt-2 max-w-[38ch] text-sm leading-relaxed text-[var(--steel-400)]">Medical, engineering, defence and scholarship pathways are all visible from the start. Choose the one you are preparing for.</p>
       </div>
 
-      <div className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4" aria-label="Preparation categories">
+      <div className="mt-5 grid grid-cols-2 gap-2.5" aria-label="All preparation categories">
         {CATEGORY_ORDER.map((category) => {
           const Icon = CATEGORY_ICONS[category];
-          const count = PREP_SPACES.filter((space) => space.category === category).length;
-          const isActive = activeCategory === category;
+          const spaces = PREP_SPACES.filter((space) => space.category === category);
           return (
-            <button key={category} type="button" onClick={() => showCategory(category)} aria-pressed={isActive} className={"flex min-h-11 items-center justify-between gap-2 rounded-xl border px-3 py-2 text-left text-xs font-semibold transition-colors " + (isActive ? "border-[var(--signal-400)] bg-[var(--tint-signal)] text-[var(--steel-100)]" : "border-[var(--line-2)] bg-[var(--srf-1)] text-[var(--steel-300)] hover:border-[var(--signal-400)]")}>
-              <span className="flex items-center gap-2"><Icon className="h-4 w-4 shrink-0 text-[var(--signal-300)]" aria-hidden="true" />{CATEGORY_LABELS[category]}</span>
-              <span className="text-[10px] tabular-nums text-[var(--steel-400)]">{count} tests</span>
-            </button>
+            <section key={category} aria-labelledby={"category-" + category} className="rounded-2xl border border-[var(--line-2)] bg-[var(--srf-1)] p-3 sm:p-3.5">
+              <div className="mb-2.5 flex items-center gap-2 border-b border-[var(--line-1)] pb-2">
+                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--tint-signal)] text-[var(--signal-300)]"><Icon className="h-4 w-4" aria-hidden="true" /></span>
+                <h3 id={"category-" + category} className="text-xs font-semibold tracking-wide text-[var(--steel-100)]">{CATEGORY_LABELS[category]}</h3>
+                <span className="ml-auto text-[10px] tabular-nums text-[var(--steel-400)]">{spaces.length}</span>
+              </div>
+              <div className="grid gap-1.5">
+                {spaces.map((space) => {
+                  const isSelected = selectedSlug === space.slug;
+                  return (
+                    <button key={space.id} type="button" onClick={() => selectPath(space)} aria-pressed={isSelected} className={"flex min-h-[48px] w-full items-center justify-between gap-2 rounded-xl border px-2.5 py-2 text-left transition-colors " + (isSelected ? "border-[var(--signal-400)] bg-[var(--tint-signal)]" : "border-transparent bg-[var(--field-1)] hover:border-[var(--line-3)]")}>
+                      <span className="min-w-0">
+                        <span className="block truncate text-[11px] font-semibold leading-snug text-[var(--steel-100)] sm:text-xs">{space.name}</span>
+                        <span className="mt-0.5 block text-[9px] leading-tight text-[var(--steel-400)]">{READINESS_LABELS[space.readiness]}</span>
+                      </span>
+                      <span aria-hidden="true" className={"shrink-0 text-sm " + (isSelected ? "text-[var(--signal-300)]" : "text-[var(--steel-400)]")}>{isSelected ? "✓" : "↗"}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </section>
           );
         })}
       </div>
 
-      <div ref={railRef} onScroll={updateActiveFromScroll} onKeyUp={updateActiveFromScroll} role="group" aria-label="Scroll to choose an exam preparation path" className="exam-selector-rail mt-7 flex snap-x snap-mandatory gap-2 overflow-x-auto px-[25%] pb-12 pt-2">
-        {PREP_SPACES.map((space, index) => {
-          const Icon = CATEGORY_ICONS[space.category];
-          const active = activeIndex === index;
-          const selectedCard = selectedSlug === space.slug;
-          const offset = index - activeIndex;
-          const distance = Math.abs(offset);
-          const arcY = Math.min(distance * 13, 42);
-          const arcRotation = Math.max(-12, Math.min(12, offset * -5));
-          const arcScale = Math.max(0.78, 1 - distance * 0.075);
-          return (
-            <button key={space.id} ref={(node) => { cardRefs.current[index] = node; }} type="button" aria-pressed={selectedCard} onClick={() => selectPath(space, index)} data-path-tile="" className={["exam-selector-card group w-[56%] max-w-[190px] min-w-[158px] shrink-0 snap-center rounded-[1rem] border p-4 text-left", active ? "is-active" : "", selectedCard ? "is-selected" : ""].join(" ")} style={{ transform: "translateY(" + arcY + "px) rotate(" + arcRotation + "deg) scale(" + arcScale + ")" }}>
-              <span className="flex items-center justify-between">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--line-2)] bg-[var(--field-1)] text-[var(--signal-300)]"><Icon className="h-4 w-4" aria-hidden="true" /></span>
-                <span className="text-[9px] font-semibold uppercase tracking-[0.12em] text-[var(--steel-400)]">{CATEGORY_LABELS[space.category]}</span>
-              </span>
-              <span className="mt-5 block text-base font-semibold leading-snug text-[var(--steel-100)]">{space.name}</span>
-              <span className="mt-2 block text-[11px] text-[var(--steel-400)]">{READINESS_LABELS[space.readiness]}</span>
-              <span className="mt-5 flex items-center justify-between border-t border-[var(--line-2)] pt-2.5 text-[11px] font-semibold text-[var(--signal-300)]">{selectedCard ? "Selected path" : "Select this test"}<span aria-hidden="true" className="text-sm">↗</span></span>
-            </button>
-          );
-        })}
-      </div>
-
-      <div className="mb-5 flex items-center justify-between px-1">
-        <div className="flex gap-1.5" aria-label={"Test " + (activeIndex + 1) + " of " + PREP_SPACES.length}>
-          {PREP_SPACES.map((space, index) => <span key={space.id} className={"h-1 rounded-full transition-all duration-300 " + (index === activeIndex ? "w-7 bg-[var(--signal-400)]" : "w-2 bg-[var(--line-3)]")} />)}
-        </div>
-        <span className="text-xs tabular-nums text-[var(--steel-400)]">{String(activeIndex + 1).padStart(2, "0")} / {String(PREP_SPACES.length).padStart(2, "0")}</span>
-      </div>
-
-      <div aria-live="polite" aria-atomic="true" className="exam-selector-detail rounded-[1rem] border border-[var(--line-2)] bg-[var(--srf-1)] p-5 sm:p-6">
+      <div aria-live="polite" aria-atomic="true" className="exam-selector-detail mt-3 rounded-[1rem] border border-[var(--line-2)] bg-[var(--srf-1)] p-4 sm:p-5">
         {selected ? (
           <>
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--signal-300)]">Selected preparation path</span>
-              <span className="rounded-full border border-[var(--line-2)] px-2.5 py-1 text-[10px] font-semibold text-[var(--steel-300)]">{READINESS_LABELS[selected.readiness]}</span>
+              <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--signal-300)]">Selected preparation path</span>
+              <span className="rounded-full border border-[var(--line-2)] px-2 py-1 text-[9px] font-semibold text-[var(--steel-300)]">{READINESS_LABELS[selected.readiness]}</span>
             </div>
-            <h3 className="mt-2 text-xl font-semibold text-[var(--steel-100)]">{selected.name}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-[var(--steel-300)]">{selected.summary}</p>
-            {selected.capabilities.length > 0 && <ul aria-label="Available tools" className="mt-4 flex flex-wrap gap-2">{selected.capabilities.map((capability) => <li key={capability} className="rounded-full border border-[var(--line-2)] bg-[var(--field-1)] px-2.5 py-1.5 text-[11px] text-[var(--steel-300)]">{CAPABILITY_LABELS[capability]}</li>)}</ul>}
-            <div className="mt-5 flex flex-col gap-2 sm:flex-row">
-              <Link href={"/signup?exam=" + encodeURIComponent(selected.slug)} className="btn-primary inline-flex min-h-11 items-center justify-center px-5 text-sm">Continue with this test</Link>
-              <Link href={canEnter ? selected.legacyRoute! : "/exams"} className="btn-secondary inline-flex min-h-11 items-center justify-center px-5 text-sm">{canEnter ? "Open practice" : "View preparation details"}</Link>
+            <h3 className="mt-2 text-base font-semibold text-[var(--steel-100)]">{selected.name}</h3>
+            <p className="mt-1.5 text-xs leading-relaxed text-[var(--steel-300)]">{selected.summary}</p>
+            {selected.capabilities.length > 0 && <ul aria-label="Available tools" className="mt-3 flex flex-wrap gap-1.5">{selected.capabilities.map((capability) => <li key={capability} className="rounded-full border border-[var(--line-2)] bg-[var(--field-1)] px-2 py-1 text-[10px] text-[var(--steel-300)]">{CAPABILITY_LABELS[capability]}</li>)}</ul>}
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+              <Link href={"/signup?exam=" + encodeURIComponent(selected.slug)} className="btn-primary inline-flex min-h-10 items-center justify-center px-4 text-xs">Continue with this test</Link>
+              <Link href={canEnter ? selected.legacyRoute! : "/exams"} className="btn-secondary inline-flex min-h-10 items-center justify-center px-4 text-xs">{canEnter ? "Open practice" : "View preparation details"}</Link>
             </div>
           </>
         ) : (
-          <>
-            <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--tint-signal)] text-[var(--signal-300)]"><ActiveIcon className="h-5 w-5" /></span>
-              <div><p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-[var(--signal-300)]">Explore the pathways</p><p className="mt-0.5 text-sm text-[var(--steel-300)]">{activeSpace.name} · {READINESS_LABELS[activeSpace.readiness]}</p></div>
-            </div>
-            <p className="mt-4 text-sm leading-relaxed text-[var(--steel-400)]">Choose the card to see the exact tools, resources and preparation status available for this test.</p>
-          </>
+          <div className="flex items-center justify-between gap-3">
+            <p className="text-xs leading-relaxed text-[var(--steel-400)]">Select any test above to see its preparation tools, resources and current availability.</p>
+            <Link href="/exams" className="shrink-0 text-xs font-semibold text-[var(--signal-300)] underline-offset-4 hover:underline">All paths →</Link>
+          </div>
         )}
       </div>
-      <Link href="/exams" className="mt-4 inline-flex min-h-10 items-center text-sm font-semibold text-[var(--signal-300)] underline-offset-4 hover:underline">View all preparation spaces <span aria-hidden="true" className="ml-2">→</span></Link>
     </section>
   );
 }
