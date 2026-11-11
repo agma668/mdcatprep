@@ -1728,31 +1728,31 @@ html.lenis body { height: auto; }
 [data-theme="paper"] {
   color-scheme: light;
 
-  --field-0: #F0EFEA;
-  --field-1: #F8F7F3;
-  --field-2: #F0F1F2;
+  --field-0: #E4DFD5;
+  --field-1: #EEEAE1;
+  --field-2: #E7E3DA;
 
-  --srf-1: #FFFFFF;
-  --srf-2: #F1F3F5;
-  --srf-3: #E8EDF1;
-  --srf-4: #DDE4EA;
+  --srf-1: #F5F2EA;
+  --srf-2: #EAE6DC;
+  --srf-3: #E2DDD2;
+  --srf-4: #D8D2C6;
 
-  --steel-100: #172536;
-  --steel-200: #26394D;
-  --steel-300: #46596C;
-  --steel-400: #5B6D7E;
-  --steel-500: #526678;
+  --steel-100: #292B25;
+  --steel-200: #353A32;
+  --steel-300: #4B5047;
+  --steel-400: #5B6056;
+  --steel-500: #6B6D62;
   --steel-600: #AAB5BF;
   --steel-700: #D4DCE2;
   --steel-800: #E8ECEF;
 
-  --signal-100: #E6EFF7;
-  --signal-200: #C9DCEB;
-  --signal-300: #285A87;
-  --signal-400: #356D9D;
-  --signal-500: #356D9D;
-  --signal-600: #285A87;
-  --signal-700: #1E466D;
+  --signal-100: #E4E8DF;
+  --signal-200: #C9D3C0;
+  --signal-300: #526548;
+  --signal-400: #607454;
+  --signal-500: #526548;
+  --signal-600: #46583D;
+  --signal-700: #37472F;
 
   --beacon-300: #D6EEF0;
   --beacon-400: #277985;
@@ -1767,23 +1767,23 @@ html.lenis body { height: auto; }
   --warn: #855B12;
   --danger: #B33B3B;
 
-  --cta-from: #285A87;
-  --cta-to: #1E466D;
+  --cta-from: #46583D;
+  --cta-to: #37472F;
   --on-cta: #FFFFFF;
 
-  --line-1: rgba(23, 37, 54, 0.045);
-  --line-2: rgba(23, 37, 54, 0.10);
-  --line-3: rgba(23, 37, 54, 0.17);
-  --line-lit: rgba(255, 255, 255, 0.9);
-  --line-signal: rgba(40, 90, 135, 0.25);
+  --line-1: rgba(49, 48, 39, 0.055);
+  --line-2: rgba(49, 48, 39, 0.12);
+  --line-3: rgba(49, 48, 39, 0.19);
+  --line-lit: rgba(255, 255, 255, 0.58);
+  --line-signal: rgba(82, 101, 72, 0.28);
   --line-beacon: rgba(39, 121, 133, 0.24);
   --line-brass: rgba(164, 123, 54, 0.28);
   --line-ok: rgba(24, 115, 77, 0.24);
   --line-warn: rgba(133, 91, 18, 0.24);
   --line-danger: rgba(179, 59, 59, 0.22);
 
-  --tint-signal: rgba(40, 90, 135, 0.08);
-  --tint-signal-strong: rgba(40, 90, 135, 0.14);
+  --tint-signal: rgba(82, 101, 72, 0.09);
+  --tint-signal-strong: rgba(82, 101, 72, 0.15);
   --tint-beacon: rgba(39, 121, 133, 0.08);
   --tint-brass: rgba(164, 123, 54, 0.08);
   --tint-champagne: rgba(164, 123, 54, 0.07);
@@ -1791,8 +1791,8 @@ html.lenis body { height: auto; }
   --tint-warn: rgba(133, 91, 18, 0.08);
   --tint-danger: rgba(179, 59, 59, 0.07);
 
-  --rgb-signal: 40, 90, 135;
-  --rgb-steel: 38, 57, 77;
+  --rgb-signal: 82, 101, 72;
+  --rgb-steel: 53, 58, 50;
 
   --shadow-sm: 0 1px 2px rgba(23, 37, 54, 0.05);
   --shadow-md: 0 4px 14px rgba(23, 37, 54, 0.07);
@@ -2012,5 +2012,67 @@ html[data-theme="paper"] body {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+
+/* Landing refresh: warm paper, editorial spacing, and no synthetic atmosphere. */
+.landing-canvas,
+.landing-editorial {
+  background: var(--field-1) !important;
+  background-image: none !important;
+}
+.landing-canvas::before,
+.landing-canvas::after,
+.landing-canvas .hero-aurora,
+.landing-canvas .hero-wireframe,
+.landing-canvas .hero-blob,
+.landing-canvas .brain-book-wrap {
+  display: none !important;
+  background-image: none !important;
+}
+.landing-editorial .landing-hero {
+  background: transparent;
+}
+.landing-editorial .landing-band {
+  background: var(--field-2);
+  border-color: var(--line-2);
+}
+.landing-editorial .landing-paper-panel,
+.landing-editorial .landing-pathways [data-path-tile],
+.landing-editorial .landing-pathways [data-path-detail] {
+  background: var(--srf-1);
+  border-color: var(--line-2);
+  box-shadow: none;
+}
+.landing-editorial .landing-pathways [data-path-tile][aria-pressed="true"] {
+  background: var(--tint-signal);
+  border-color: var(--signal-400);
+  box-shadow: inset 0 0 0 1px var(--signal-400);
+}
+.landing-editorial .btn-primary {
+  background: var(--signal-600);
+  color: #fff;
+}
+.landing-editorial .btn-primary:hover {
+  background: var(--signal-700);
+}
+.landing-editorial .landing-hero h1,
+.landing-editorial .landing-section-heading {
+  color: var(--steel-100);
+}
+.landing-editorial .landing-hero .hero-intro {
+  color: var(--steel-300);
+}
+.landing-editorial .nav-material {
+  background: color-mix(in srgb, var(--field-1) 94%, transparent);
+  border-bottom: 1px solid var(--line-2);
+}
+.landing-editorial .landing-pathways [data-path-tile] {
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .landing-editorial .landing-pathways [data-path-tile] {
+    transition: none;
   }
 }
