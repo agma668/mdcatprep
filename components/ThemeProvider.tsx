@@ -21,7 +21,7 @@ export const THEMES: { id: ThemeId; label: string; dots: [string, string, string
 const STORAGE_KEY = "med-prep-theme";
 
 function getInitialTheme(): ThemeId {
-  if (typeof window === "undefined") return "paper";
+  if (typeof window === "undefined") return "midnight";
   const current = window.__MED_PREP_THEME__;
   return current === "midnight" || current === "paper" ? current : "paper";
 }
