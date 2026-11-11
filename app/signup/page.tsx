@@ -60,8 +60,7 @@ export default async function SignupPage({
             <span className="text-[var(--color-primary-light)]"> today</span>
           </h2>
           <p className="text-white/65 text-base leading-relaxed mb-10">
-            Join students across Pakistan preparing for MDCAT, NUMS, NUST,
-            GIKI, LUMS, HEC USAT and PMA. Choose a preparation path that matches your next step.
+            Choose the exam you are preparing for and create one account for your selected preparation space.
           </p>
 
           {/* Feature cards */}
@@ -69,14 +68,14 @@ export default async function SignupPage({
             {[
               {
                 icon: Trophy,
-                label: "Practice MCQs",
-                sub: "Exam-style practice",
+                label: "Focused Practice",
+                sub: "Organised by exam",
                 tone: "text-[var(--color-primary-light)]",
               },
               {
                 icon: BookOpenCheck,
-                label: "Instant Answers",
-                sub: "With explanations",
+                label: "Clear Explanations",
+                sub: "Understand each answer",
                 tone: "text-yellow-400",
               },
               {
@@ -87,8 +86,8 @@ export default async function SignupPage({
               },
               {
                 icon: GraduationCap,
-                label: "4 Subjects",
-                sub: "Bio, Chem, Phys, English",
+                label: "Distinct Paths",
+                sub: "Different test needs",
                 tone: "text-rose-300",
               },
             ].map(({ icon: Icon, label, sub, tone }) => (
@@ -106,7 +105,7 @@ export default async function SignupPage({
 
         <div className="relative z-10">
           <p className="text-xs text-[var(--steel-400)]">
-            &copy; {new Date().getFullYear()} MED Prep. A community initiative.
+            &copy; {new Date().getFullYear()} MED Prep.
           </p>
         </div>
       </div>
