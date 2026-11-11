@@ -44,7 +44,7 @@ export function ExamPathwaySelector() {
         <p className="mt-2 max-w-[38ch] text-sm leading-relaxed text-[var(--steel-400)]">Medical, engineering, defence and scholarship pathways are all visible from the start. Choose the one you are preparing for.</p>
       </div>
 
-      <div className="mt-5 grid grid-cols-2 gap-2.5" aria-label="All preparation categories">
+      <div className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2" aria-label="All preparation categories">
         {CATEGORY_ORDER.map((category) => {
           const Icon = CATEGORY_ICONS[category];
           const spaces = PREP_SPACES.filter((space) => space.category === category);
