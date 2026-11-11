@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/landing/Navbar";
-import { ExamPaper } from "@/components/landing/ExamPaper";
 import { ExamPathwaySelector } from "@/components/landing/ExamPathwaySelector";
 import { PathAwareOverview } from "@/components/landing/PathAwareOverview";
 import { PathAwareHeroCopy } from "@/components/landing/PathAwareHeroCopy";
@@ -90,7 +89,6 @@ export default async function Home() {
                   Browse past papers
                 </Link>
               </div>
-              <div className="landing-pathways"><ExamPathwaySelector /></div>
               <p className="mt-4 max-w-[52ch] text-sm leading-relaxed text-[var(--steel-300)]">
                 Tools and content differ by exam. Each preparation path shows what is currently available; always check the exam authority’s latest syllabus and admission notice.
               </p>
@@ -109,7 +107,7 @@ export default async function Home() {
                 </div>
               </dl>
             </div>
-            <ExamPaper />
+            <div className="min-w-0"><ExamPathwaySelector /></div>
           </div>
         </section>
 
