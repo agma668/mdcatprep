@@ -52,23 +52,18 @@ export const revalidate = 60;
 const display = { fontFamily: "var(--font-display)" } as const;
 
 const PRACTICE = [
-  { href: "/topicals", title: "Topical MCQs", body: "Chapter-wise questions for Biology, Chemistry and Physics. Answer, see why, move on." },
-  { href: "/past-papers", title: "Past papers", body: "Released MDCAT and NUMS papers, sorted by board and year." },
-  { href: "/daily-quiz", title: "Daily quiz", body: "A short set every day, so practice becomes a habit instead of a plan." },
-  { href: "/flashcards", title: "Flashcards", body: "Spaced-repetition cards for the facts that keep repeating in the paper." },
-  { href: "/notes", title: "Concept notes", body: "Short notes written from the PMDC syllabus for every topic you miss." },
+  { href: "/topicals", title: "Question practice", body: "Topic-based MCQ practice in preparation spaces where this tool is available." },
+  { href: "/past-papers", title: "Released papers", body: "Browse verified past-paper collections where released papers are available." },
+  { href: "/daily-quiz", title: "Daily quiz", body: "Short practice sets for supported subjects and exam tracks." },
+  { href: "/flashcards", title: "Flashcards", body: "Spaced-repetition revision for facts and concepts that need recall." },
+  { href: "/notes", title: "Study notes", body: "Focused notes for subjects with published study coverage." },
 ];
 
 const STEPS = [
-  { title: "Take the diagnostic", body: "Ten questions across five subjects, about two minutes. It shows where you are strong and where you are not." },
-  { title: "Practise by topic", body: "Work through chapter-wise MCQs. Every answer comes with its explanation." },
-  { title: "Redo what you missed", body: "Wrong answers collect in your mistake notebook so you can drill them until they stick." },
+  { title: "Choose your preparation path", body: "Start with the exact exam or admission route you are working toward." },
+  { title: "Use the tools available", body: "Each preparation space lists its current practice formats, resources and readiness." },
+  { title: "Build from what you learn", body: "Review explanations, revisit difficult areas and use supported progress tools to keep improving." },
 ];
-
-// The hero's choose-your-test row: one chip per test family a student names
-// when you ask them what they are preparing for. Every chip points at a real
-// practice surface — GIKI and LUMS sit inside the engineering portal's shared
-// bank, exactly like the unified-portal architecture says they should.
 
 
 export default async function Home() {
@@ -86,8 +81,7 @@ export default async function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(learningResourceJsonLd) }} />
       <Navbar />
       <main>
-        {/* Hero: one action dominates — answer a question. The H1 names every
-            test the site actually serves, not only the medical flagships. */}
+        {/* General entry point first; the pathway selector below personalizes the next step. */}
         <section className="container-page pb-16 pt-28 sm:pb-24 sm:pt-36">
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
             <div>
@@ -114,7 +108,7 @@ export default async function Home() {
               </div>
               <ExamPathwaySelector />
               <p className="mt-4 max-w-[52ch] text-sm leading-relaxed text-[var(--steel-300)]">
-                Original questions built from the official syllabi; the past papers are real released papers. Every answer explains itself.
+                Tools and content differ by exam. Each preparation path shows what is currently available; always check the exam authority’s latest syllabus and admission notice.
               </p>
               <dl className="mt-10 flex flex-wrap gap-x-10 gap-y-4 border-t border-[var(--line-1)] pt-6">
                 <div>
