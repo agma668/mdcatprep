@@ -2100,4 +2100,4 @@ html[data-theme="paper"] body {
   .exam-selector-rail { margin-left: -1rem; margin-right: -1rem; padding-left: 24%; padding-right: 24%; scroll-padding-inline: 24%; }
   .exam-selector-card { min-height: 11.5rem; }
 }
-@media (prefers-reduced-motion: reduce) { .exam-selector-card, .exam-selector-arrow { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .exam-selector-card, .exam-selector-arrow { transition: none; } .exam-selector-card { transform: none !important; } }
