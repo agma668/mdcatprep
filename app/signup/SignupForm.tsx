@@ -13,10 +13,29 @@ import { GoogleButton, OrDivider } from "@/components/auth/GoogleButton";
  * hook opts the route out of SSR and leaves the served HTML with no form. The
  * query string is read in `page.tsx`, which carries the measurements.
  */
-export function SignupForm({ refCode }: { refCode: string }) {
+const EXAM_TARGET_BY_SLUG: Record<string, string> = {
+  "pmdc-mdcat": "MDCAT",
+  "nums-mdcat": "NUMS",
+  "hec-bfap-scholarship-pre-medical": "HEC Balochistan Scholarship — Pre-Medical",
+  "hec-usat": "HEC USAT",
+  "nust-net-engineering": "NUST (NET)",
+  "giki-undergraduate-test": "GIKI",
+  "lums-sbasse-lcat": "LUMS",
+  "pma-long-course": "PMA Long Course",
+  "issb-selection": "ISSB Intelligence",
+};
+
+export function SignupForm({
+  refCode,
+  selectedExam,
+}: {
+  refCode: string;
+  selectedExam: string;
+}) {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [examTarget, setExamTarget] = useState(EXAM_TARGET_BY_SLUG[selectedExam] ?? "");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -62,9 +81,6 @@ export function SignupForm({ refCode }: { refCode: string }) {
           </Link>
         </div>
       )}
-
-      <GoogleButton refCode={refCode || undefined} />
-      <OrDivider />
 
       <div>
         <label
@@ -120,6 +136,25 @@ export function SignupForm({ refCode }: { refCode: string }) {
 
       <div>
         <label
+          htmlFor="signup-confirm-password"
+          className="block text-sm font-semibold text-white mb-1.5"
+        >
+          Confirm password
+        </label>
+        <input
+          id="signup-confirm-password"
+          type="password"
+          name="confirm_password"
+          required
+          minLength={8}
+          autoComplete="new-password"
+          className="w-full px-4 py-2.5 border border-white/10 rounded-[var(--radius-md)] text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-shadow bg-white/[0.06]"
+          placeholder="Enter your password again"
+        />
+      </div>
+
+      <div>
+        <label
           htmlFor="signup-phone"
           className="block text-sm font-semibold text-white mb-1.5"
         >
@@ -142,33 +177,42 @@ export function SignupForm({ refCode }: { refCode: string }) {
           htmlFor="signup-exam"
           className="block text-sm font-semibold text-white mb-1.5"
         >
-          Select Your Target Exam Track
+          Select Your Preparation Path
         </label>
         <select
           id="signup-exam"
           name="exam_target"
           required
-          defaultValue="MDCAT"
+          value={examTarget}
+          onChange={(event) => setExamTarget(event.target.value)}
           className="w-full px-4 py-2.5 border border-white/10 rounded-[var(--radius-md)] text-sm text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-shadow bg-[#0a1a2e]"
         >
-          <optgroup label="Medical Entrance (PMDC & NUMS)">
-            <option value="MDCAT">MDCAT (UHS / SZABMU / KMU / DUHS)</option>
-            <option value="NUMS">NUMS MDCAT & AMC</option>
-            <option value="HEC USAT-M">HEC USAT-M (Pre-Medical)</option>
+          <option value="" disabled>Choose the exam you are preparing for</option>
+          <optgroup label="Medical admissions">
+            <option value="MDCAT">PMDC MDCAT</option>
+            <option value="NUMS">NUMS MDCAT</option>
             <option value="MBBS Notes">MBBS MedSchool Clinical Notes</option>
           </optgroup>
-          <optgroup label="Engineering & Computing (NUST / GIKI / LUMS)">
-            <option value="NUST (NET)">NUST (NET - Engineering & CS)</option>
-            <option value="GIKI">GIKI Engineering Entrance Test</option>
-            <option value="LUMS">LUMS (SBASSE / SDSB Admissions)</option>
-            <option value="HEC USAT-E">HEC USAT-E / CS (Pre-Engineering)</option>
+          <optgroup label="Engineering & computing">
+            <option value="NUST (NET)">NUST NET — Engineering & Computing</option>
+            <option value="GIKI">GIKI Undergraduate Admission Test</option>
+            <option value="LUMS">LUMS SBASSE / LCAT</option>
           </optgroup>
-          <optgroup label="Military & Armed Forces (PMA / ISSB)">
-            <option value="PMA Long Course">PMA Long Course (Verbal, Non-Verbal & Academic)</option>
-            <option value="ISSB Intelligence">ISSB Psychological & Intelligence Tests</option>
+          <optgroup label="Scholarship & aptitude">
+            <option value="HEC Balochistan Scholarship — Pre-Medical">HEC Balochistan & Ex-FATA Scholarship — Pre-Medical</option>
+            <option value="HEC USAT">HEC USAT</option>
+            <option value="HEC USAT-M">HEC USAT — Pre-Medical</option>
+            <option value="HEC USAT-E">HEC USAT — Pre-Engineering</option>
+          </optgroup>
+          <optgroup label="Defence selection">
+            <option value="PMA Long Course">PMA Long Course</option>
+            <option value="ISSB Intelligence">ISSB Selection Preparation</option>
           </optgroup>
         </select>
       </div>
+
+      <GoogleButton refCode={refCode || undefined} examTarget={examTarget} />
+      <OrDivider />
 
       {refCode && <input type="hidden" name="ref" value={refCode} />}
 
