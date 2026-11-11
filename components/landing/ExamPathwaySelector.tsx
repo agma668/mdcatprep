@@ -63,7 +63,7 @@ export function ExamPathwaySelector() {
   }, []);
 
   const selected = PREP_SPACES.find((space) => space.slug === selectedSlug) ?? null;
-  const canEnter = selected?.readiness === "beta" && Boolean(selected.legacyRoute);
+  const canEnter = Boolean(selected && selected.readiness === "beta" && selected.legacyRoute);
 
   function selectPath(space: (typeof PREP_SPACES)[number]) {
     setSelectedSlug(space.slug);
