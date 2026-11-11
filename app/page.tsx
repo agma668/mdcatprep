@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Navbar } from "@/components/landing/Navbar";
 import { ExamPaper } from "@/components/landing/ExamPaper";
 import { ExamPathwaySelector } from "@/components/landing/ExamPathwaySelector";
+import { PathAwareOverview } from "@/components/landing/PathAwareOverview";
+import { PathAwareOverview } from "@/components/landing/PathAwareOverview";
 import { FAQ, FAQS } from "@/components/landing/FAQ";
 import { RegisterSection } from "@/components/landing/RegisterSection";
 import { Footer } from "@/components/landing/Footer";
@@ -129,36 +131,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <section id="features" className="landing-band py-16 sm:py-24">
-          <div className="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-            <div>
-              <h2 style={display} className="landing-section-heading max-w-[14ch] text-3xl leading-tight tracking-tight sm:text-4xl">
-                Everything you practise with, in one place
-              </h2>
-              <p className="mt-4 max-w-[44ch] text-[var(--steel-300)]">
-                Choose a practice tool and build a steady routine. Sign in where an account is needed or when you want supported progress saved.
-              </p>
-            </div>
-            <ul className="divide-y divide-[var(--line-1)] border-y border-[var(--line-1)]">
-              {PRACTICE.map((p) => (
-                <li key={p.href}>
-                  <Link
-                    href={p.href}
-                    className="group flex min-h-[64px] items-center justify-between gap-6 py-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal-300)]"
-                  >
-                    <span>
-                      <span className="block text-lg font-semibold text-[var(--steel-100)] group-hover:text-[var(--signal-200)]">{p.title}</span>
-                      <span className="mt-0.5 block max-w-[52ch] text-sm text-[var(--steel-300)]">{p.body}</span>
-                    </span>
-                    <span aria-hidden="true" className="text-[var(--steel-500)] transition-transform duration-[var(--dur-2)] group-hover:translate-x-1">
-                      &rarr;
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
+        <PathAwareOverview />
 
         <section id="past-papers" className="py-16 sm:py-24">
           <div className="container-page">
