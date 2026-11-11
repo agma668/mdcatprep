@@ -4,7 +4,7 @@ import { Navbar } from "@/components/landing/Navbar";
 import { ExamPaper } from "@/components/landing/ExamPaper";
 import { ExamPathwaySelector } from "@/components/landing/ExamPathwaySelector";
 import { PathAwareOverview } from "@/components/landing/PathAwareOverview";
-import { PathAwareOverview } from "@/components/landing/PathAwareOverview";
+import { PathAwareHeroCopy } from "@/components/landing/PathAwareHeroCopy";
 import { FAQ, FAQS } from "@/components/landing/FAQ";
 import { RegisterSection } from "@/components/landing/RegisterSection";
 import { Footer } from "@/components/landing/Footer";
@@ -81,14 +81,7 @@ export default async function Home() {
                 <span className="h-1.5 w-1.5 rounded-full bg-[var(--brass)]" aria-hidden="true" />
                 One account · Exam-specific preparation spaces
               </p>
-              <h1
-                className="mt-5 max-w-[22ch] text-[2.25rem] font-bold leading-[1.06] tracking-tight text-[var(--steel-100)] sm:text-5xl lg:text-[3.4rem]"
-              >
-                Choose your path. Prepare for what’s next.
-              </h1>
-              <p className="hero-intro mt-5 max-w-[52ch] text-base leading-relaxed text-[var(--steel-300)] sm:text-lg">
-                Explore preparation spaces built around different entry tests. Choose your path to see the tools, practice and resources currently available for that exam.
-              </p>
+              <PathAwareHeroCopy />
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link href="/exams" className="btn-primary inline-flex min-h-[48px] items-center justify-center px-6 text-base">
                   Explore all preparation paths
