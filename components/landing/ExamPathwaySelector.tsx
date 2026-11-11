@@ -9,6 +9,7 @@ const STORAGE_KEY = "edweb:selected-prep-space:v1";
 const SELECTION_EVENT = "edweb:prep-space-selected";
 const CATEGORY_LABELS: Record<PrepSpaceDefinition["category"], string> = { medical: "Medical", engineering: "Engineering", scholarship: "Scholarship", defence: "Defence" };
 const CATEGORY_ICONS = { medical: Stethoscope, engineering: Calculator, scholarship: GraduationCap, defence: ShieldCheck };
+const CATEGORY_ORDER: PrepSpaceDefinition["category"][] = ["medical", "engineering", "defence", "scholarship"];
 const READINESS_LABELS = { beta: "Available in beta", content_in_progress: "In development", coming_soon: "Coming soon" } as const;
 const CAPABILITY_LABELS: Record<PrepSpaceCapability, string> = { mcq_practice: "MCQ practice", scaled_timed_mock: "Timed practice", flashcards: "Flashcards", concept_notes: "Concept notes", released_past_papers: "Past papers", verbal_nonverbal_drills: "Verbal & non-verbal drills" };
 
@@ -21,6 +22,7 @@ export function ExamPathwaySelector() {
   const cardRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [activeCategory, setActiveCategory] = useState<PrepSpaceDefinition["category"] | "all">("all");
 
   useEffect(() => {
     try {
@@ -52,7 +54,17 @@ export function ExamPathwaySelector() {
     setActiveIndex(nearest);
   }, []);
 
+  function showCategory(category: PrepSpaceDefinition["category"]) {
+    setActiveCategory(category);
+    const index = PREP_SPACES.findIndex((space) => space.category === category);
+    if (index >= 0) {
+      setActiveIndex(index);
+      cardRefs.current[index]?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    }
+  }
+
   function selectPath(space: (typeof PREP_SPACES)[number], index: number) {
+    setActiveCategory(space.category);
     setSelectedSlug(space.slug);
     setActiveIndex(index);
     rememberPath(space.slug);
@@ -75,12 +87,26 @@ export function ExamPathwaySelector() {
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--signal-300)]">Your next chapter</p>
           <h2 id="choose-path-heading" className="landing-display mt-2 text-3xl leading-tight text-[var(--steel-100)] sm:text-4xl">Choose your test.</h2>
-          <p className="mt-2 max-w-[34ch] text-sm leading-relaxed text-[var(--steel-400)]">Scroll through the preparation paths. Select one to see its tools and current readiness.</p>
+          <p className="mt-2 max-w-[38ch] text-sm leading-relaxed text-[var(--steel-400)]">Medical, engineering, defence and scholarship routes—all in one place. Choose your direction first.</p>
         </div>
         <div className="mb-1 hidden shrink-0 gap-2 sm:flex">
           <button type="button" onClick={() => move(-1)} aria-label="Previous test" className="exam-selector-arrow"><ArrowLeft className="h-4 w-4" /></button>
           <button type="button" onClick={() => move(1)} aria-label="Next test" className="exam-selector-arrow"><ArrowRight className="h-4 w-4" /></button>
         </div>
+      </div>
+
+      <div className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4" aria-label="Preparation categories">
+        {CATEGORY_ORDER.map((category) => {
+          const Icon = CATEGORY_ICONS[category];
+          const count = PREP_SPACES.filter((space) => space.category === category).length;
+          const isActive = activeCategory === category;
+          return (
+            <button key={category} type="button" onClick={() => showCategory(category)} aria-pressed={isActive} className={"flex min-h-11 items-center justify-between gap-2 rounded-xl border px-3 py-2 text-left text-xs font-semibold transition-colors " + (isActive ? "border-[var(--signal-400)] bg-[var(--tint-signal)] text-[var(--steel-100)]" : "border-[var(--line-2)] bg-[var(--srf-1)] text-[var(--steel-300)] hover:border-[var(--signal-400)]")}>
+              <span className="flex items-center gap-2"><Icon className="h-4 w-4 shrink-0 text-[var(--signal-300)]" aria-hidden="true" />{CATEGORY_LABELS[category]}</span>
+              <span className="text-[10px] tabular-nums text-[var(--steel-400)]">{count} tests</span>
+            </button>
+          );
+        })}
       </div>
 
       <div ref={railRef} onScroll={updateActiveFromScroll} onKeyUp={updateActiveFromScroll} role="group" aria-label="Scroll to choose an exam preparation path" className="exam-selector-rail mt-7 flex snap-x snap-mandatory gap-2 overflow-x-auto px-[25%] pb-12 pt-2">
