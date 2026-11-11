@@ -87,13 +87,13 @@ export default async function Home() {
             <div>
               <p className="inline-flex items-center gap-2 rounded-[var(--r-pill)] border border-[var(--line-2)] bg-[var(--srf-1)] px-3 py-1.5 text-sm text-[var(--steel-200)]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[var(--brass)]" aria-hidden="true" />
-                Preparation built around Pakistan&apos;s entry tests
+                One account · Exam-specific preparation spaces
               </p>
               <h1
                 style={display}
                 className="mt-5 max-w-[22ch] text-[2.25rem] font-bold leading-[1.06] tracking-tight text-[var(--steel-100)] sm:text-5xl lg:text-[3.4rem]"
               >
-                A clearer path to the next step you’re working toward.
+                Choose your path. Prepare for what’s next.
               </h1>
               <p className="mt-5 max-w-[52ch] text-base leading-relaxed text-[var(--steel-300)] sm:text-lg">
                 Explore preparation spaces built around different entry tests. Choose your path to see the tools, practice and resources currently available for that exam.
