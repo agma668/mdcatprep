@@ -14,7 +14,7 @@ import { useEffect, useState, type ReactNode } from "react";
 export type ThemeId = "midnight" | "paper";
 
 export const THEMES: { id: ThemeId; label: string; dots: [string, string, string] }[] = [
-  { id: "paper", label: "Paper · Light", dots: ["#F8F7F3", "#285A87", "#A47B36"] },
+  { id: "paper", label: "Paper · Light", dots: ["#EEEAE1", "#526548", "#A47B36"] },
   { id: "midnight", label: "Midnight · Dark", dots: ["#090F1B", "#93BCF6", "#C9A24B"] },
 ];
 
