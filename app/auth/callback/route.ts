@@ -30,6 +30,7 @@ export async function GET(request: NextRequest) {
   const allowedExamTargets = new Set([
     'MDCAT',
     'NUMS',
+    'MBBS Notes',
     'HEC Balochistan Scholarship — Pre-Medical',
     'HEC USAT',
     'HEC USAT-M',
