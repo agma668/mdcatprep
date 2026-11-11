@@ -13,7 +13,7 @@ import { THEMES, applyTheme, getTheme, type ThemeId } from "./ThemeProvider";
 
 export function ThemeSwitcher() {
   const [open, setOpen] = useState(false);
-  const [current, setCurrent] = useState<ThemeId>("midnight");
+  const [current, setCurrent] = useState<ThemeId>("paper");
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
