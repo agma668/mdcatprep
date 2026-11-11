@@ -51,16 +51,6 @@ export const metadata: Metadata = {
 // Numbers come from the live seam in lib/public-stats.ts; ISR refreshes them.
 export const revalidate = 60;
 
-const display = { fontFamily: "var(--font-display)" } as const;
-
-const PRACTICE = [
-  { href: "/topicals", title: "Question practice", body: "Topic-based MCQ practice in preparation spaces where this tool is available." },
-  { href: "/past-papers", title: "Released papers", body: "Browse verified past-paper collections where released papers are available." },
-  { href: "/daily-quiz", title: "Daily quiz", body: "Short practice sets for supported subjects and exam tracks." },
-  { href: "/flashcards", title: "Flashcards", body: "Spaced-repetition revision for facts and concepts that need recall." },
-  { href: "/notes", title: "Study notes", body: "Focused notes for subjects with published study coverage." },
-];
-
 const STEPS = [
   { title: "Choose your preparation path", body: "Start with the exact exam or admission route you are working toward." },
   { title: "Use the tools available", body: "Each preparation space lists its current practice formats, resources and readiness." },
@@ -92,7 +82,6 @@ export default async function Home() {
                 One account · Exam-specific preparation spaces
               </p>
               <h1
-                style={display}
                 className="mt-5 max-w-[22ch] text-[2.25rem] font-bold leading-[1.06] tracking-tight text-[var(--steel-100)] sm:text-5xl lg:text-[3.4rem]"
               >
                 Choose your path. Prepare for what’s next.
@@ -135,7 +124,7 @@ export default async function Home() {
 
         <section id="past-papers" className="py-16 sm:py-24">
           <div className="container-page">
-            <h2 style={display} className="landing-section-heading max-w-[20ch] text-3xl leading-tight tracking-tight sm:text-4xl">
+            <h2 className="landing-section-heading max-w-[20ch] text-3xl leading-tight tracking-tight sm:text-4xl">
               Real papers, sorted by board and year
             </h2>
             <p className="mt-4 max-w-[60ch] text-[var(--steel-300)]">
