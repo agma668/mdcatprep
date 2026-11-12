@@ -1,0 +1,26 @@
+{
+  "sources": [
+    {
+      "name": "UHS & NUMS MDCAT Official Past Papers",
+      "url": "https://www.scribd.com/document/428882169/NUMS-Past-Papers-12-16",
+      "type": "PDF / Solved Past Papers"
+    },
+    {
+      "name": "HEC USAT-M Sample & Quantitative/Verbal Question Bank",
+      "url": "https://www.hec.gov.pk/",
+      "type": "Official HEC Test Pattern"
+    },
+    {
+      "name": "Studora MCQ Bank (Pakistan Entry Tests)",
+      "url": "https://github.com/syedawais355/Studora_mcq",
+      "type": "GitHub Open Source Q-Bank"
+    },
+    {
+      "name": "Exam-Prep-Point MDCAT Repository",
+      "url": "https://github.com/Future-Doctor1/Exam-Prep-Point",
+      "type": "GitHub MDCAT Resources"
+    }
+  ],
+  "extracted_questions_count": 44607,
+  "storage_path": "knowledge-base/questions/mdcat_question_bank.json"
+}
