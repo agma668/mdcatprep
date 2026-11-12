@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  BookOpenCheck,
+  FileText,
+  Layers,
+  NotebookPen,
+  Sparkles,
+} from "lucide-react";
 import { Navbar } from "@/components/landing/Navbar";
 import { ExamPaper } from "@/components/landing/ExamPaper";
 import { FAQ, FAQS } from "@/components/landing/FAQ";
@@ -11,10 +18,10 @@ import { PAST_PAPERS, PAST_PAPER_COUNT, isOfficialKey, papersByYear } from "@/li
 
 const siteUrl = getSiteUrl();
 
-// Names only the tests that have a real practice surface on this site — the
+// Names only the tests that have a real practice surface on this site \u2014 the
 // H1, metadata and JSON-LD must not claim an exam the bank does not serve.
 const homeDescription =
-  "Free exam-style MCQ practice for MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT and PMA — an explanation behind every answer, past papers with keys, and study notes.";
+  "Free exam-style MCQ practice for MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT and PMA \u2014 an explanation behind every answer, past papers with keys, and study notes.";
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -42,7 +49,7 @@ const learningResourceJsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "MDCAT, NUMS, NUST, GIKI, USAT & PMA Test Preparation — Free",
+  title: "MDCAT, NUMS, NUST, GIKI, USAT & PMA Test Preparation \u2014 Free",
   description: homeDescription,
 };
 
@@ -51,12 +58,25 @@ export const revalidate = 60;
 
 const display = { fontFamily: "var(--font-display)" } as const;
 
+// Every tile points at a real practice surface. GIKI and LUMS sit inside the
+// engineering portal's shared bank, exactly like the unified-portal
+// architecture says they should.
+const TESTS = [
+  { href: "/topicals", name: "MDCAT", track: "Medical", body: "Chapter-wise topicals, released papers and a diagnostic for the PMDC syllabus.", span: "lg:col-span-6" },
+  { href: "/past-papers", name: "NUMS", track: "Medical", body: "Released NUMS papers sorted by year, each labelled with how it relates to the real sitting.", span: "lg:col-span-6" },
+  { href: "/nust/practice", name: "NUST NET", track: "Engineering", body: "Maths, physics, chemistry and English.", span: "lg:col-span-4" },
+  { href: "/nust/practice", name: "GIKI", track: "Engineering", body: "Shares the engineering bank with NET.", span: "lg:col-span-4" },
+  { href: "/nust/practice", name: "LUMS", track: "Engineering", body: "Shares the engineering bank with NET.", span: "lg:col-span-4" },
+  { href: "/usat/practice", name: "HEC USAT", track: "University admission", body: "Quantitative, verbal and science sections.", span: "lg:col-span-6" },
+  { href: "/pma/practice", name: "PMA & ISSB", track: "Defence", body: "Verbal and non-verbal intelligence, initial academic test.", span: "lg:col-span-6" },
+];
+
 const PRACTICE = [
-  { href: "/topicals", title: "Topical MCQs", body: "Chapter-wise questions for Biology, Chemistry and Physics. Answer, see why, move on." },
-  { href: "/past-papers", title: "Past papers", body: "Released MDCAT and NUMS papers, sorted by board and year." },
-  { href: "/daily-quiz", title: "Daily quiz", body: "A short set every day, so practice becomes a habit instead of a plan." },
-  { href: "/flashcards", title: "Flashcards", body: "Spaced-repetition cards for the facts that keep repeating in the paper." },
-  { href: "/notes", title: "Concept notes", body: "Short notes written from the PMDC syllabus for every topic you miss." },
+  { href: "/topicals", title: "Topical MCQs", body: "Chapter-wise questions for Biology, Chemistry and Physics. Answer, see why, move on.", Icon: BookOpenCheck, span: "lg:col-span-7" },
+  { href: "/past-papers", title: "Past papers", body: "Released MDCAT and NUMS papers, sorted by board and year.", Icon: FileText, span: "lg:col-span-5" },
+  { href: "/daily-quiz", title: "Daily quiz", body: "A short set every day, so practice becomes a habit instead of a plan.", Icon: Sparkles, span: "lg:col-span-4" },
+  { href: "/flashcards", title: "Flashcards", body: "Spaced-repetition cards for the facts that keep repeating in the paper.", Icon: Layers, span: "lg:col-span-4" },
+  { href: "/notes", title: "Concept notes", body: "Short notes written from the PMDC syllabus for every topic you miss.", Icon: NotebookPen, span: "lg:col-span-4" },
 ];
 
 const STEPS = [
@@ -65,25 +85,8 @@ const STEPS = [
   { title: "Redo what you missed", body: "Wrong answers collect in your mistake notebook so you can drill them until they stick." },
 ];
 
-// The hero's choose-your-test row: one chip per test family a student names
-// when you ask them what they are preparing for. Every chip points at a real
-// practice surface — GIKI and LUMS sit inside the engineering portal's shared
-// bank, exactly like the unified-portal architecture says they should.
-const EXAM_CHIPS = [
-  { label: "MDCAT", href: "/topicals" },
-  { label: "NUMS", href: "/past-papers" },
-  { label: "NUST NET", href: "/nust/practice" },
-  { label: "GIKI", href: "/nust/practice" },
-  { label: "LUMS", href: "/nust/practice" },
-  { label: "HEC USAT", href: "/usat/practice" },
-  { label: "PMA", href: "/pma/practice" },
-];
-
-const OTHER_EXAMS = [
-  { href: "/usat/practice", name: "HEC USAT", body: "Quantitative, verbal and science sections." },
-  { href: "/pma/practice", name: "PMA & ISSB", body: "Verbal and non-verbal intelligence, initial academic test." },
-  { href: "/nust/practice", name: "NUST, GIKI, LUMS", body: "Maths, physics, chemistry and English." },
-];
+const focusRing =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal-300)]";
 
 export default async function Home() {
   const stats = await getPublicStats();
@@ -100,171 +103,89 @@ export default async function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(learningResourceJsonLd) }} />
       <Navbar />
       <main>
-        {/* Hero: one action dominates — answer a question. The H1 names every
-            test the site actually serves, not only the medical flagships. */}
-        <section className="container-page pb-16 pt-28 sm:pb-24 sm:pt-36">
-          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-            <div>
-              <p className="inline-flex items-center gap-2 rounded-[var(--r-pill)] border border-[var(--line-2)] bg-[var(--srf-1)] px-3 py-1.5 text-sm text-[var(--steel-200)]">
-                <span className="font-semibold text-[var(--brass)]">100% free</span>
-                · no fees, no card, nothing locked
-              </p>
-              <h1
-                style={display}
-                className="mt-5 max-w-[22ch] text-[2.25rem] font-bold leading-[1.06] tracking-tight text-[var(--steel-100)] sm:text-5xl lg:text-[3.4rem]"
-              >
-                Practise MDCAT, NUMS, NUST, GIKI and every major test — free, the way the paper asks.
-              </h1>
-              <p className="mt-5 max-w-[52ch] text-base leading-relaxed text-[var(--steel-300)] sm:text-lg">
-                Exam-style MCQs with an explanation behind every answer, plus the real past papers the boards have released, sorted by board and year.
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link href="/diagnostic" className="btn-primary inline-flex min-h-[48px] items-center justify-center px-6 text-base">
-                  Take the 2-minute diagnostic
-                </Link>
-                <Link href="/past-papers" className="btn-secondary inline-flex min-h-[48px] items-center justify-center px-6 text-base">
-                  Browse past papers
-                </Link>
-              </div>
-              <div className="mt-6 flex flex-wrap items-center gap-2">
-                <span className="mr-1 text-sm font-semibold text-[var(--steel-300)]">Choose your test:</span>
-                {EXAM_CHIPS.map((chip) => (
-                  <Link
-                    key={chip.label}
-                    href={chip.href}
-                    className="rounded-[var(--r-pill)] border border-[var(--line-2)] bg-[var(--srf-1)] px-3 py-1.5 text-sm font-medium text-[var(--steel-100)] transition-colors duration-[var(--dur-1)] hover:border-[var(--line-3)] hover:bg-[var(--srf-2)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal-300)]"
-                  >
-                    {chip.label}
+        {/* Hero: answer a question. The backdrop is an OMR answer sheet, the
+            bubble grid every entry-test student has filled in with a pencil. */}
+        <section className="relative isolate overflow-hidden">
+          <div aria-hidden="true" className="omr-field absolute inset-0 -z-10" />
+          <div className="container-page pb-16 pt-28 sm:pb-24 sm:pt-36">
+            <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+              <div>
+                <p className="inline-flex items-center gap-2 rounded-[var(--r-pill)] border border-[var(--line-brass)] bg-[var(--tint-brass)] px-3.5 py-1.5 text-sm text-[var(--steel-100)]">
+                  <span className="font-semibold text-[var(--champagne)]">100% free</span>
+                  <span className="text-[var(--steel-300)]">no fees, no card, nothing locked</span>
+                </p>
+                <h1
+                  style={display}
+                  className="mt-6 max-w-[19ch] text-[2.4rem] font-bold leading-[1.04] tracking-tight text-[var(--steel-100)] sm:text-[3.2rem] lg:text-[3.7rem]"
+                >
+                  Practise for your entry test the way the paper asks.
+                </h1>
+                <p className="mt-6 max-w-[50ch] text-base leading-relaxed text-[var(--steel-300)] sm:text-lg">
+                  Exam-style MCQs for MDCAT, NUMS, NUST, GIKI, LUMS, USAT and PMA, with an explanation behind every answer and the real past papers the boards have released.
+                </p>
+                <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                  <Link href="/diagnostic" className="btn-primary inline-flex min-h-[52px] items-center justify-center px-7 text-base">
+                    Take the 2-minute diagnostic
                   </Link>
-                ))}
+                  <Link href="/past-papers" className="btn-secondary inline-flex min-h-[52px] items-center justify-center px-7 text-base">
+                    Browse past papers
+                  </Link>
+                </div>
+                <p className="mt-5 max-w-[52ch] text-sm leading-relaxed text-[var(--steel-400)]">
+                  Questions are original and built from the official syllabi. The past papers are the real released papers.
+                </p>
               </div>
-              <p className="mt-4 max-w-[52ch] text-sm leading-relaxed text-[var(--steel-300)]">
-                Original questions built from the official syllabi; the past papers are real released papers. Every answer explains itself.
-              </p>
-              <dl className="mt-10 flex flex-wrap gap-x-10 gap-y-4 border-t border-[var(--line-1)] pt-6">
-                <div>
-                  <dt className="text-sm text-[var(--steel-400)]">Practice MCQs</dt>
-                  <dd className="text-2xl font-semibold tabular-nums text-[var(--steel-100)]">{mcqs.toLocaleString("en-US")}</dd>
-                </div>
-                <div>
-                  <dt className="text-sm text-[var(--steel-400)]">Past papers</dt>
-                  <dd className="text-2xl font-semibold tabular-nums text-[var(--steel-100)]">{PAST_PAPER_COUNT}</dd>
-                </div>
-                <div>
-                  <dt className="text-sm text-[var(--steel-400)]">Subjects</dt>
-                  <dd className="text-2xl font-semibold tabular-nums text-[var(--steel-100)]">{stats.hero.subjects}</dd>
-                </div>
-              </dl>
+              <ExamPaper />
             </div>
-            <ExamPaper />
+
+            <dl className="mt-14 grid grid-cols-3 overflow-hidden rounded-[var(--r-4)] border border-[var(--line-2)] bg-[var(--srf-1)]/70 backdrop-blur-sm sm:mt-20">
+              <div className="px-4 py-5 sm:px-8 sm:py-6">
+                <dd style={display} className="text-3xl font-bold tabular-nums text-[var(--steel-100)] sm:text-4xl">{mcqs.toLocaleString("en-US")}</dd>
+                <dt className="mt-1 text-sm text-[var(--steel-300)]">Practice MCQs</dt>
+              </div>
+              <div className="border-l border-[var(--line-2)] px-4 py-5 sm:px-8 sm:py-6">
+                <dd style={display} className="text-3xl font-bold tabular-nums text-[var(--steel-100)] sm:text-4xl">{PAST_PAPER_COUNT}</dd>
+                <dt className="mt-1 text-sm text-[var(--steel-300)]">Past papers</dt>
+              </div>
+              <div className="border-l border-[var(--line-2)] px-4 py-5 sm:px-8 sm:py-6">
+                <dd style={display} className="text-3xl font-bold tabular-nums text-[var(--steel-100)] sm:text-4xl">{stats.hero.subjects}</dd>
+                <dt className="mt-1 text-sm text-[var(--steel-300)]">Subjects</dt>
+              </div>
+            </dl>
           </div>
         </section>
 
-        <section id="features" className="border-t border-[var(--line-1)] bg-[var(--field-2)] py-16 sm:py-24">
-          <div className="container-page grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-            <div>
-              <h2 style={display} className="max-w-[14ch] text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
-                Everything you practise with, in one place
-              </h2>
-              <p className="mt-4 max-w-[44ch] text-[var(--steel-300)]">
-                No coaching centre, no fee. Open any of these without an account; sign in when you want your progress saved.
-              </p>
-            </div>
-            <ul className="divide-y divide-[var(--line-1)] border-y border-[var(--line-1)]">
-              {PRACTICE.map((p) => (
-                <li key={p.href}>
-                  <Link
-                    href={p.href}
-                    className="group flex min-h-[64px] items-center justify-between gap-6 py-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal-300)]"
-                  >
-                    <span>
-                      <span className="block text-lg font-semibold text-[var(--steel-100)] group-hover:text-[var(--signal-200)]">{p.title}</span>
-                      <span className="mt-0.5 block max-w-[52ch] text-sm text-[var(--steel-300)]">{p.body}</span>
-                    </span>
-                    <span aria-hidden="true" className="text-[var(--steel-500)] transition-transform duration-[var(--dur-2)] group-hover:translate-x-1">
-                      &rarr;
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section id="past-papers" className="py-16 sm:py-24">
+        {/* Pick your test: one tile per test. The empty bubble in the corner
+            fills when you reach for it, like marking an answer. */}
+        <section id="other-exams" className="py-16 sm:py-24">
           <div className="container-page">
-            <h2 style={display} className="max-w-[20ch] text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
-              Real papers, sorted by board and year
+            <h2 style={display} className="max-w-[22ch] text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+              Which test are you sitting?
             </h2>
-            <p className="mt-4 max-w-[60ch] text-[var(--steel-300)]">
-              <span className="tabular-nums">{PAST_PAPER_COUNT}</span> papers
-              {firstYear && lastYear ? (
-                <>
-                  {" "}from <span className="tabular-nums">{firstYear}</span> to <span className="tabular-nums">{lastYear}</span>
-                </>
-              ) : null}
-              . <span className="tabular-nums">{keyed}</span> come with an official answer key. The rest say so on the card, so a missing key is never mistaken for a wrong answer.
+            <p className="mt-4 max-w-[56ch] text-[var(--steel-300)]">
+              One account covers all of them. The medical track is the deepest today; the others are smaller and growing.
             </p>
-            <div className="mt-8 divide-y divide-[var(--line-1)] border-y border-[var(--line-1)]">
-              {dated.map((g) => {
-                const boards = Array.from(new Set(g.papers.map((p) => p.exam.replace(/ MDCAT.*$/, ""))));
-                return (
-                  <div key={g.key} className="grid gap-2 py-4 sm:grid-cols-[6rem_1fr] sm:items-baseline">
-                    <span className="text-xl font-semibold tabular-nums text-[var(--steel-100)]">{g.key}</span>
-                    <span className="flex flex-wrap gap-2">
-                      {boards.map((b) => (
-                        <span key={b} className="rounded-[var(--r-2)] border border-[var(--line-2)] bg-[var(--srf-1)] px-2.5 py-1 text-sm text-[var(--steel-200)]">
-                          {b}
-                        </span>
-                      ))}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-            <Link href="/past-papers" className="btn-secondary mt-8 inline-flex min-h-[48px] items-center justify-center px-6">
-              Open the past papers
-            </Link>
-          </div>
-        </section>
-
-        <section id="how-it-works" className="border-t border-[var(--line-1)] bg-[var(--field-2)] py-16 sm:py-24">
-          <div className="container-page">
-            <h2 style={display} className="max-w-[18ch] text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
-              Three steps, repeated daily
-            </h2>
-            <ol className="mt-10 grid gap-8 md:grid-cols-3 md:gap-10">
-              {STEPS.map((s, i) => (
-                <li key={s.title} className="border-t border-[var(--line-3)] pt-5">
-                  <span className="text-sm font-semibold tabular-nums text-[var(--signal-300)]">Step {i + 1}</span>
-                  <h3 className="mt-2 text-xl font-semibold text-[var(--steel-100)]">{s.title}</h3>
-                  <p className="mt-2 max-w-[40ch] text-[var(--steel-300)]">{s.body}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        <section id="other-exams" className="py-16 sm:py-20">
-          <div className="container-page">
-            <h2 style={display} className="text-2xl font-bold tracking-tight sm:text-3xl">
-              Preparing for something else too?
-            </h2>
-            <p className="mt-3 max-w-[56ch] text-[var(--steel-300)]">The same account covers these tests. They are smaller than the medical track, and growing.</p>
-            <ul className="mt-6 grid gap-3 sm:grid-cols-3">
-              {OTHER_EXAMS.map((e) => (
-                <li key={e.href}>
+            <ul className="mt-10 grid gap-4 lg:grid-cols-12">
+              {TESTS.map((t) => (
+                <li key={t.name} className={t.span}>
                   <Link
-                    href={e.href}
-                    className="block h-full rounded-[var(--r-3)] border border-[var(--line-2)] bg-[var(--srf-1)] p-4 transition-colors duration-[var(--dur-1)] hover:border-[var(--line-3)] hover:bg-[var(--srf-2)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal-300)]"
+                    href={t.href}
+                    className={`group relative flex h-full min-h-[150px] flex-col justify-between gap-6 overflow-hidden rounded-[var(--r-4)] border border-[var(--line-2)] bg-[var(--srf-1)] p-6 shadow-[var(--shadow-card)] transition-colors duration-[var(--dur-1)] hover:border-[var(--line-signal)] hover:bg-[var(--srf-2)] ${focusRing}`}
                   >
-                    <span className="block font-semibold text-[var(--steel-100)]">{e.name}</span>
-                    <span className="mt-1 block text-sm text-[var(--steel-300)]">{e.body}</span>
+                    <span
+                      aria-hidden="true"
+                      className="absolute right-5 top-5 h-5 w-5 rounded-full border-2 border-[var(--steel-600)] transition-[background-color,border-color,box-shadow] duration-[var(--dur-2)] group-hover:border-[var(--signal-400)] group-hover:bg-[var(--signal-400)] group-hover:shadow-[var(--glow-signal-sm)]"
+                    />
+                    <span className="text-sm text-[var(--steel-400)]">{t.track}</span>
+                    <span>
+                      <span style={display} className="block text-2xl font-bold tracking-tight text-[var(--steel-100)]">{t.name}</span>
+                      <span className="mt-1.5 block max-w-[48ch] text-sm leading-relaxed text-[var(--steel-300)]">{t.body}</span>
+                    </span>
                   </Link>
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm text-[var(--steel-300)]">
+            <p className="mt-8 text-sm text-[var(--steel-300)]">
               Questions or study material?{" "}
               <a
                 href="https://chat.whatsapp.com/GbhjI1A6FvBBtAd4PZR2NU"
@@ -276,6 +197,107 @@ export default async function Home() {
               </a>
               .
             </p>
+          </div>
+        </section>
+
+        <section id="features" className="border-y border-[var(--line-1)] bg-[var(--field-2)] py-16 sm:py-24">
+          <div className="container-page">
+            <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
+              <h2 style={display} className="max-w-[18ch] text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+                Everything you practise with, in one place
+              </h2>
+              <p className="max-w-[40ch] text-[var(--steel-300)]">
+                No coaching centre, no fee. Open any of these without an account; sign in when you want your progress saved.
+              </p>
+            </div>
+            <ul className="mt-10 grid gap-4 lg:grid-cols-12">
+              {PRACTICE.map(({ href, title, body, Icon, span }) => (
+                <li key={href} className={span}>
+                  <Link
+                    href={href}
+                    className={`group flex h-full flex-col gap-5 rounded-[var(--r-4)] border border-[var(--line-2)] bg-[var(--srf-1)] p-6 shadow-[var(--shadow-card)] transition-colors duration-[var(--dur-1)] hover:border-[var(--line-signal)] hover:bg-[var(--srf-2)] sm:p-7 ${focusRing}`}
+                  >
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-[var(--r-2)] border border-[var(--line-signal)] bg-[var(--tint-signal)] text-[var(--signal-300)]">
+                      <Icon aria-hidden="true" className="h-5 w-5" strokeWidth={1.75} />
+                    </span>
+                    <span>
+                      <span style={display} className="block text-xl font-semibold text-[var(--steel-100)]">{title}</span>
+                      <span className="mt-1.5 block max-w-[46ch] text-sm leading-relaxed text-[var(--steel-300)]">{body}</span>
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section id="past-papers" className="py-16 sm:py-24">
+          <div className="container-page grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+            <div className="lg:sticky lg:top-28 lg:self-start">
+              <h2 style={display} className="max-w-[16ch] text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+                Real papers, sorted by board and year
+              </h2>
+              <p className="mt-4 max-w-[46ch] text-[var(--steel-300)]">
+                <span className="tabular-nums">{PAST_PAPER_COUNT}</span> papers
+                {firstYear && lastYear ? (
+                  <>
+                    {" "}from <span className="tabular-nums">{firstYear}</span> to <span className="tabular-nums">{lastYear}</span>
+                  </>
+                ) : null}
+                . <span className="tabular-nums">{keyed}</span> come with an official answer key. The rest say so on the card, so a missing key is never mistaken for a wrong answer.
+              </p>
+              <Link href="/past-papers" className="btn-secondary mt-7 inline-flex min-h-[48px] items-center justify-center px-6">
+                Open the past papers
+              </Link>
+            </div>
+            <ol className="relative ml-3 border-l border-[var(--line-3)]">
+              {dated.map((g) => {
+                const boards = Array.from(new Set(g.papers.map((p) => p.exam.replace(/ MDCAT.*$/, ""))));
+                return (
+                  <li key={g.key} className="relative pb-8 pl-8 last:pb-0">
+                    <span aria-hidden="true" className="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-[var(--signal-400)] bg-[var(--field-1)]" />
+                    <div className="flex items-baseline gap-3">
+                      <span style={display} className="text-2xl font-bold tabular-nums text-[var(--steel-100)]">{g.key}</span>
+                      <span className="text-sm text-[var(--steel-400)]">
+                        {g.papers.length} {g.papers.length === 1 ? "paper" : "papers"}
+                      </span>
+                    </div>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {boards.map((b) => (
+                        <span key={b} className="rounded-[var(--r-2)] border border-[var(--line-2)] bg-[var(--srf-1)] px-2.5 py-1 text-sm text-[var(--steel-200)]">
+                          {b}
+                        </span>
+                      ))}
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
+        </section>
+
+        <section id="how-it-works" className="border-t border-[var(--line-1)] bg-[var(--field-2)] py-16 sm:py-24">
+          <div className="container-page">
+            <h2 style={display} className="max-w-[18ch] text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+              Three steps, repeated daily
+            </h2>
+            <ol className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+              {STEPS.map((s, i) => (
+                <li key={s.title} className="relative">
+                  {i < STEPS.length - 1 ? (
+                    <span aria-hidden="true" className="absolute left-12 top-[18px] hidden h-px w-[calc(100%-2rem)] bg-[var(--line-3)] md:block" />
+                  ) : null}
+                  <span
+                    style={display}
+                    className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--signal-400)] bg-[var(--tint-signal)] text-base font-bold tabular-nums text-[var(--signal-200)]"
+                  >
+                    {i + 1}
+                  </span>
+                  <h3 style={display} className="mt-5 text-xl font-semibold text-[var(--steel-100)]">{s.title}</h3>
+                  <p className="mt-2 max-w-[38ch] leading-relaxed text-[var(--steel-300)]">{s.body}</p>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
 
