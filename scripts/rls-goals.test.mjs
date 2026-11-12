@@ -105,6 +105,11 @@ await db.exec(`
 // The catalogue and goals table come from the first goals migration.
 await db.exec(migration('20261109000000_exam_registry_and_student_goals.sql'))
 
+// Real dependent migrations. These already contain the older exam_goal_id
+// columns that the ownership follow-up hardens.
+await db.exec(migration('20261110000000_mistake_recovery_mastery.sql'))
+await db.exec(migration('20261111000000_flashcard_fsrs_engine.sql'))
+
 await db.exec(`
   insert into public.exam_registry (id, slug, title, category, status) values
     ('nust-net', 'nust-net', 'NUST NET', 'engineering', 'active'),
@@ -114,6 +119,12 @@ await db.exec(`
     ('nust-net-engineering', 'nust-net', 'engineering', 'Engineering', 'active'),
     ('nust-net-computing', 'nust-net', 'computing', 'Computing', 'active'),
     ('nust-net-retiring', 'nust-net', 'retiring', 'Retiring', 'active'),
+    ('nust-net-ownership', 'nust-net', 'ownership', 'Ownership paper', 'active'),
+    ('nust-net-stale', 'nust-net', 'stale', 'Stale primary paper', 'active'),
+    ('nust-net-switch', 'nust-net', 'switch', 'Primary switch paper', 'active'),
+    ('nust-net-life-a', 'nust-net', 'life-a', 'Lifecycle A', 'active'),
+    ('nust-net-life-b', 'nust-net', 'life-b', 'Lifecycle B', 'active'),
+    ('nust-net-delete', 'nust-net', 'delete', 'Delete detach paper', 'active'),
     ('nust-net-draft', 'nust-net', 'draft', 'Draft paper', 'draft'),
     ('draft-exam-paper', 'draft-exam', 'paper', 'Draft paper', 'active');
 
@@ -133,10 +144,30 @@ await db.exec(migration('20261112000000_student_goals_foundation.sql'))
 // Applied twice on purpose: the seed must be safe to re-run.
 await db.exec(migration('20261113000000_prep_space_catalogue_seed.sql'))
 await db.exec(migration('20261113000000_prep_space_catalogue_seed.sql'))
+await db.exec(migration('20261114000000_student_goals_ownership_and_primary_fix.sql'))
+
+// flashcard_decks intentionally has no explicit grants in its engine migration;
+// production Supabase supplies defaults. The test grants them so the ownership
+// FK can be exercised through the same authenticated role.
+await db.exec(`
+  grant select, insert, update, delete on public.flashcard_decks to authenticated;
+  grant all on public.flashcard_decks to service_role;
+`)
 
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
+async function ensureGoal(studentId, variantId) {
+  const existing = await asUser(studentId, () =>
+    q('select id from public.student_goals where student_id = $1 and variant_id = $2 limit 1', [
+      studentId,
+      variantId,
+    ])
+  )
+  if (existing.rows[0]) return existing.rows[0]
+  return (await asUser(studentId, () => createGoal(studentId, variantId))).rows[0]
+}
+
 async function createGoal(studentId, variantId, extra = {}) {
   const examId = variantId.startsWith('draft-exam') ? 'draft-exam' : 'nust-net'
   const cols = ['student_id', 'exam_id', 'variant_id']
@@ -368,4 +399,227 @@ test('profiles.exam_target stays free text and does not create a goal', async ()
   assert.equal(profile.rows[0].exam_target, 'MDCAT (free text)')
   const count = await q(`select count(*)::int as n from public.student_goals where student_id = '${A}'`)
   assert.ok(count.rows[0].n >= 1)
+})
+
+test('multiple goals support pause, resume, archive, and primary switching', async () => {
+  const first = (await asUser(A, () => createGoal(A, 'nust-net-life-a'))).rows[0]
+  const second = (await asUser(A, () => createGoal(A, 'nust-net-life-b'))).rows[0]
+
+  const active = await asUser(A, () =>
+    q(`select count(*)::int as n from public.student_goals
+       where variant_id in ('nust-net-life-a', 'nust-net-life-b')
+         and status = 'active'`)
+  )
+  assert.equal(active.rows[0].n, 2)
+
+  await asUser(A, () => q('select public.set_primary_goal($1)', [first.id]))
+  let primaries = await asUser(A, () => q('select id from public.student_goals where is_primary'))
+  assert.deepEqual(primaries.rows.map((row) => row.id), [first.id])
+
+  await asUser(A, () => q('select public.set_primary_goal($1)', [second.id]))
+  primaries = await asUser(A, () => q('select id from public.student_goals where is_primary'))
+  assert.deepEqual(primaries.rows.map((row) => row.id), [second.id])
+
+  const paused = await asUser(A, () =>
+    q(`update public.student_goals set status = 'paused' where id = $1
+       returning status, is_primary`, [second.id])
+  )
+  assert.equal(paused.rows[0].status, 'paused')
+  assert.equal(paused.rows[0].is_primary, false)
+
+  const resumed = await asUser(A, () =>
+    q(`update public.student_goals set status = 'active' where id = $1
+       returning status, is_primary`, [second.id])
+  )
+  assert.equal(resumed.rows[0].status, 'active')
+  assert.equal(resumed.rows[0].is_primary, false)
+
+  await asUser(A, () => q('select public.set_primary_goal($1)', [first.id]))
+  const archived = await asUser(A, () =>
+    q(`update public.student_goals set status = 'archived' where id = $1
+       returning status, is_primary`, [first.id])
+  )
+  assert.equal(archived.rows[0].status, 'archived')
+  assert.equal(archived.rows[0].is_primary, false)
+
+  // Archiving frees the variant for a new active goal while preserving history.
+  const recreated = await asUser(A, () => createGoal(A, 'nust-net-life-a'))
+  assert.equal(recreated.rows[0].status, 'active')
+  const preserved = await asUser(A, () =>
+    q('select status from public.student_goals where id = $1', [first.id])
+  )
+  assert.equal(preserved.rows[0].status, 'archived')
+})
+
+test('a stale primary on a retired variant can be demoted by switching goals', async () => {
+  const stale = (await asUser(A, () => createGoal(A, 'nust-net-stale'))).rows[0]
+  await asUser(A, () => q('select public.set_primary_goal($1)', [stale.id]))
+
+  await db.exec(`update public.exam_variants set status = 'retired' where id = 'nust-net-stale'`)
+
+  const next = (await asUser(A, () => createGoal(A, 'nust-net-switch'))).rows[0]
+  await asUser(A, () => q('select public.set_primary_goal($1)', [next.id]))
+
+  const staleRow = await asUser(A, () =>
+    q('select is_primary, status from public.student_goals where id = $1', [stale.id])
+  )
+  assert.equal(staleRow.rows[0].is_primary, false)
+  assert.equal(staleRow.rows[0].status, 'active')
+
+  const nextRow = await asUser(A, () =>
+    q('select is_primary from public.student_goals where id = $1', [next.id])
+  )
+  assert.equal(nextRow.rows[0].is_primary, true)
+
+  // A retired goal can be paused, but it can never be reactivated.
+  await asUser(A, () =>
+    q(`update public.student_goals set status = 'paused' where id = $1`, [stale.id])
+  )
+  await expectSqlError(
+    () => asUser(A, () =>
+      q(`update public.student_goals set status = 'active' where id = $1`, [stale.id])
+    ),
+    '42501'
+  )
+})
+
+test('older goal references reject another student goal', async () => {
+  const own = await ensureGoal(A, 'nust-net-ownership')
+  const other = await ensureGoal(B, 'nust-net-computing')
+
+  await expectSqlError(
+    () => asUser(A, () =>
+      q(`insert into public.mistake_reviews
+           (student_id, question_id, classification, exam_goal_id)
+         values ($1, $2, 'incorrect', $3)`, [A, Q1, other.id])
+    ),
+    '23503'
+  )
+  const mistake = await asUser(A, () =>
+    q(`insert into public.mistake_reviews
+         (student_id, question_id, classification, exam_goal_id)
+       values ($1, $2, 'incorrect', $3) returning id`, [A, Q1, own.id])
+  )
+  await expectSqlError(
+    () => asUser(A, () =>
+      q('update public.mistake_reviews set exam_goal_id = $1 where id = $2', [other.id, mistake.rows[0].id])
+    ),
+    '23503'
+  )
+
+  await expectSqlError(
+    () => asUser(A, () =>
+      q(`insert into public.review_flashcards
+           (student_id, front, back, exam_goal_id)
+         values ($1, 'front', 'back', $2)`, [A, other.id])
+    ),
+    '23503'
+  )
+  const review = await asUser(A, () =>
+    q(`insert into public.review_flashcards
+         (student_id, front, back, exam_goal_id)
+       values ($1, 'front', 'back', $2) returning id`, [A, own.id])
+  )
+  await expectSqlError(
+    () => asUser(A, () =>
+      q('update public.review_flashcards set exam_goal_id = $1 where id = $2', [other.id, review.rows[0].id])
+    ),
+    '23503'
+  )
+
+  await expectSqlError(
+    () => asUser(A, () =>
+      q(`insert into public.flashcard_decks (student_id, name, exam_goal_id)
+         values ($1, 'deck', $2)`, [A, other.id])
+    ),
+    '23503'
+  )
+  const deck = await asUser(A, () =>
+    q(`insert into public.flashcard_decks (student_id, name, exam_goal_id)
+       values ($1, 'deck', $2) returning id`, [A, own.id])
+  )
+  await expectSqlError(
+    () => asUser(A, () =>
+      q('update public.flashcard_decks set exam_goal_id = $1 where id = $2', [other.id, deck.rows[0].id])
+    ),
+    '23503'
+  )
+})
+
+test('deleting a goal detaches references without deleting progress', async () => {
+  const goal = (await asUser(A, () => createGoal(A, 'nust-net-delete'))).rows[0]
+
+  const attempt = await asUser(A, () =>
+    q(`insert into public.question_attempts
+         (question_id, student_id, selected_answer, is_correct, goal_id)
+       values ($1, $2, 'A', true, $3) returning id`, [Q1, A, goal.id])
+  )
+  const mistake = await asUser(A, () =>
+    q(`insert into public.mistake_reviews
+         (student_id, question_id, attempt_id, classification, exam_goal_id)
+       values ($1, $2, $3, 'incorrect', $4) returning id`, [A, Q1, attempt.rows[0].id, goal.id])
+  )
+  const review = await asUser(A, () =>
+    q(`insert into public.review_flashcards
+         (student_id, front, back, exam_goal_id)
+       values ($1, 'front', 'back', $2) returning id`, [A, goal.id])
+  )
+  const deck = await asUser(A, () =>
+    q(`insert into public.flashcard_decks (student_id, name, exam_goal_id)
+       values ($1, 'deck', $2) returning id`, [A, goal.id])
+  )
+
+  await q('delete from public.student_goals where id = $1', [goal.id])
+
+  const attemptRow = await q('select goal_id from public.question_attempts where id = $1', [attempt.rows[0].id])
+  const mistakeRow = await q('select exam_goal_id from public.mistake_reviews where id = $1', [mistake.rows[0].id])
+  const reviewRow = await q('select exam_goal_id from public.review_flashcards where id = $1', [review.rows[0].id])
+  const deckRow = await q('select exam_goal_id from public.flashcard_decks where id = $1', [deck.rows[0].id])
+
+  assert.equal(attemptRow.rows[0].goal_id, null)
+  assert.equal(mistakeRow.rows[0].exam_goal_id, null)
+  assert.equal(reviewRow.rows[0].exam_goal_id, null)
+  assert.equal(deckRow.rows[0].exam_goal_id, null)
+})
+
+test('goal creation rejects missing and mismatched exam or variant references', async () => {
+  // The insert policy checks catalogue visibility before the FK is reached, so
+  // student-facing attempts are denied by RLS.
+  await expectSqlError(
+    () => asUser(A, () => createGoal(A, 'nust-net-missing')),
+    '42501'
+  )
+  await expectSqlError(
+    () => asUser(A, () =>
+      q(`insert into public.student_goals (student_id, exam_id, variant_id)
+         values ($1, 'nust-net', 'nust-net-missing')`, [A])
+    ),
+    '42501'
+  )
+  await expectSqlError(
+    () => asUser(A, () =>
+      q(`insert into public.student_goals (student_id, exam_id, variant_id)
+         values ($1, 'missing-exam', 'nust-net-engineering')`, [A])
+    ),
+    '42501'
+  )
+  await expectSqlError(
+    () => asUser(A, () =>
+      q(`insert into public.student_goals (student_id, exam_id, variant_id)
+         values ($1, 'draft-exam', 'nust-net-engineering')`, [A])
+    ),
+    '42501'
+  )
+  await expectSqlError(
+    () => asUser(A, () => createGoal(A, 'nust-net-draft')),
+    '42501'
+  )
+
+  // The composite (variant_id, exam_id) FK also rejects a mismatch when RLS is
+  // bypassed by an owner/service task.
+  await expectSqlError(
+    () => q(`insert into public.student_goals (student_id, exam_id, variant_id)
+            values ('${A}', 'draft-exam', 'nust-net-engineering')`),
+    '23503'
+  )
 })

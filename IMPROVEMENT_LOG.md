@@ -1,5 +1,11 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-12 — Student goal ownership and stale-primary corrections (A1)
+
+Closed the two approved A1 database/security defects without touching the rest of the Prep Space foundation. SEC-1: `mistake_reviews`, `review_flashcards` and `flashcard_decks` now use composite `(exam_goal_id, student_id)` foreign keys against `student_goals (id, student_id)`, with a preflight abort if cross-student references already exist and indexes for the new parent lookups. DB-2: `set_primary_goal()` can still demote a stale primary after its exam variant is retired, but only through its narrowed `SECURITY DEFINER` path; both updates remain scoped to `auth.uid()` and the target must be active on an active exam and variant. Direct student updates keep the existing RLS policy and still cannot reactivate a retired goal.
+
+Regression coverage now exercises multiple goals, primary switching, pause/resume/archive, stale-primary switching, retired-variant reactivation denial, cross-student goal references, delete detachment and invalid exam/variant references. Gates on this head: `npm test` 94/94 · `npx tsc --noEmit` 0 · ESLint on the touched test 0 · `npm run build` 0. The migration was only applied inside the local PGlite test harness; it was not applied to hosted Supabase and nothing was deployed.
+
 ## 2026-11-09 — Zero-cost and reliability audit on `apex/confirm-edweb-boundary`
 
 Verified the branch's four zero-spend changes instead of trusting the commits, fixed what was actually wrong, and left the database untouched.
