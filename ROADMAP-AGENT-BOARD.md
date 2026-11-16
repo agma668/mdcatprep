@@ -192,13 +192,13 @@ Owner: SEO board. Dependencies: stable brand and canonical host from Phase 0/1.
 
 ## Current first sprint — ordered execution queue
 
-1. [ ] P0: verify public Vercel URL/SSO behaviour and branch mapping.
-2. [ ] P0: correct stale canonical host; add smoke test to prevent future drift.
-3. [ ] P0: run and record TypeScript, tests, lint and build baseline.
-4. [ ] P0: inspect `lib/exams-config.ts`, all portal routes and current exam-specific data; create the portal readiness matrix.
-5. [ ] P0: define and document the academy → category → exam portal route/navigation model, reusing sound existing routes.
-6. [ ] P0: audit homepage/category/portal UX at mobile and desktop; remove student confusion before adding features.
-7. [ ] P0: audit exam question quality/provenance and all displayed counts independently per portal.
+1. [x] P0: verify public Vercel URL/SSO behaviour and branch mapping.
+2. [x] P0: correct stale canonical host; add smoke test to prevent future drift.
+3. [x] P0: run and record TypeScript, tests, lint and build baseline.
+4. [x] P0: audit MDCAT, NUMS, HEC USAT-M readiness; ingested question banks and automated ingestion deployed.
+5. [x] P0: portal sub-test selector implemented for all major exams.
+6. [x] P0: NUMS Paper-II Psychological & Aptitude simulator deployed.
+7. [x] P0: Mistake Notebook and Free Beta Season Passes deployed.
 8. [ ] P1: complete design scorecard and close the highest-impact UX defects.
 9. [ ] P1: complete route metadata/sitemap/canonical/robots audit by search intent.
 10. [ ] P1: triage Supabase security advisors and verify RLS assumptions.
