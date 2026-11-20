@@ -1,8 +1,9 @@
 name: Quality gates
 
 on:
+  # Stacked PRs may target feature/integration branches, not only main.
+  # Keep the workflow in each target branch so GitHub can evaluate its PR event.
   pull_request:
-    branches: [main]
   push:
     branches: [main]
 
