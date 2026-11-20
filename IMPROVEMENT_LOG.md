@@ -298,3 +298,10 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - Added `_pipeline/ocr_scans.mjs` for the 40 PDFs that are page scans and have no text layer. It rasterises with poppler at 180 dpi and OCRs with tesseract, splitting each page into its two columns first: whole-page OCR interleaves the columns and shreds every stem, while the split produces clean, ordered questions.
 - Fixed `splitOptions()` in `extract_ocr_text.mjs` to accept lowercase `a) b) c) d)` option markers. OCR prints those constantly, so the options were silently dropped and whole questions with them. The OCR tier went from 4,672 to 7,231 questions and the bank from 13,545 to 16,104; import-ready rows went 3,301 to 3,393, because the newly added documents are answer-key-light.
 - Brand scanning is clean on both new trees: 0 files in `PDF_TEXT/` or `OCR_SCANS/` contain an academy token, and 0 contain a local Windows path. No database contact, no deployment, no push.
+
+## 2026-11-20 — Entry-test material: include the questions, drop the name
+
+- Corrected my own earlier mistake: I had excluded that private university's files from extraction and had kept its papers under an exam tag. The rule the founder set is the opposite — the questions belong in the bank, the name does not.
+- All 11 entry-test papers are now ingested as neutral `Entry Test` sources (ids `entry-*`, 258 questions, `OTHER` bucket). The name is removed from question text, file names, source ids, test buckets, per-question tallies and export labels; `LIBRARY/`, `PDF_TEXT/` and `OCR_SCANS/` all scan to zero hits.
+- The scrub rule needed its boundary spelled out again: `\baku\b` fails on `AKU_INSTANT_FACTS` because `_` is a word character. Now `\baku(?![a-z])`.
+- Canonical tier 8,873 → 8,971, bank 16,104 → 16,210, import-ready 3,399. No database contact, no deployment, no push.
