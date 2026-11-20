@@ -284,3 +284,10 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - Transition is suppressed under `motion-reduce`, matching the board's reduced-motion rule. The mobile 44px circular form is unchanged.
 - Verified in a real browser against a production build (`next start`): at the top the container is `translate-y-0 opacity-100`; after scrolling down it becomes `pointer-events-none translate-y-3 opacity-0`; after scrolling back up it returns to visible; with the panel open, scrolling down leaves it visible and `aria-expanded="true"`.
 - Gates: tsc 0, eslint 0, `next build` 0.
+
+## 2026-11-20 — Board D8: import-ready bank with per-question readiness
+
+- Added `data/MCQS/_pipeline/build_final.mjs`, which classifies the whole bank (canonical 8,873 + OCR tier 4,672 = 13,545) into `ready`, `needs_key`, `needs_option`, `figure` and `duplicate`, and writes only the `ready` rows to `data/MCQS_FINAL/_import/` in 7 resumable batches of 500.
+- Readiness is computed from the row's own contents (one A–D key, four distinct options, a stem, no figure, no duplicate), never from a curated list, so a content fix moves a row automatically. Answer provenance is labelled `official_paper` / `key_present` / `unresolved`; only paper-provenance rows are marked `public`, the academy compilations stay `private` pending the founder's decision.
+- Verified after the build: 3,301 import rows, 0 invalid keys, 0 missing options, 0 duplicate keys; the rejected rows sit in `by_status/` with the blockers that rejected them.
+- No database contact, no deployment, no push. `data/MCQS_FINAL/` (like the rest of `data/MCQS`) is untracked, so bank data in git remains a founder decision.
