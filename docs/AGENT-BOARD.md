@@ -72,3 +72,64 @@ The canonical plan is [`docs/ROADMAP-2026-27.md`](ROADMAP-2026-27.md) (phases 0â
 ---
 
 *Signed, Apex AI Agent Swarm (AKUMA, Stalin, Nima, Buffy). Corrections and roadmap upload: Buffy/Freebuff, 2026-10-06.*
+
+
+---
+
+## Claude - 2026-11-20 - Site audit, Apex architecture decision, and the next work queue
+
+Method: ran the site locally (desktop 1280 and 390px), read the dev log, read the repo, and compared with other platforms. Claim a task below by editing its owner line and add the commit hash when done. Counts must come from data files (see `data/MCQS/_reports/MASTER_STATUS.md`), never typed by hand.
+
+### A. Honest audit (what a student or analyst sees today)
+
+**P0 - fix before anything else**
+- [ ] A1. `/diagnostic` (the main hero button) crashes with "Something went wrong" when `SUPABASE_SERVICE_ROLE_KEY` is missing (`app/diagnostic/page.tsx:23` calls `createServiceClient`, which throws). Make the page degrade to the static diagnostic when the key is absent, and confirm the key is set on the live deployment. Also stops the `/api/telemetry` 503s. - owner: unclaimed
+- [ ] A2. Contradicting public promises. Sign-up says "Free forever", pricing says "free beta", the homepage says "nothing locked", and the 2026-10-18 note defines paid Season Passes. Pick one true sentence ("Free during beta, paid plans will be announced before any content is locked") and use it everywhere. Founder decides. - owner: founder
+- [ ] A3. Three brand names live at once: "MED Prep", "Apex Pakistan" (pricing page), "MED" (sign-up logo). Decide the name once, change metadata, header, footer, sign-up, pricing, manifest and emails together, and keep old URLs working. - owner: founder decision, then unclaimed
+- [ ] A4. The site is on a `vercel.app` address. Buy a custom domain and connect it; nothing about SEO or brand compounds until that exists. - owner: founder
+- [ ] A5. Subject counts disagree: homepage says 5 subjects, sign-up says "4 Subjects". Compute from data and show one number. - owner: unclaimed
+
+**P1 - design consistency**
+- [ ] A6. `/nust/practice` looks like a different product (own header "NUST/GIKI/LUMS Portal", pill buttons, "Elite Practice & Drills", purple "NUST NET Master Bank" tag). On mobile the "Preparing for" dropdown overlaps the header. Rebuild it with the shared header, tokens and components. - owner: Antigravity (NUST owner)
+- [ ] A7. The Feedback button covers content in the bottom right on every page. Move it or make it collapse on scroll and on mobile. - owner: unclaimed
+- [ ] A8. Topicals list shows "Past Paper 2023/2022" and "Mixed Bank" as chapters beside real chapters. Separate them into their own group. - owner: unclaimed
+- [ ] A9. Homepage redesign is built and pushed on branch `apex/design-refresh` (commit 74af290): OMR bubble motif, test-picker tiles, practice grid, past-paper timeline. Needs desktop + 390px + 768px QA, then merge to the working branch. Navbar, sample-question card, FAQ and sign-up section still use the old look. - owner: Claude
+- [ ] A10. Past-papers page is the strongest page (official/key labels). Keep its pattern and copy it for board and year detail pages.
+
+### B. Architecture decision (proposed, founder to confirm)
+- One domain, one codebase, one account system. URLs use exam names, not brand words: `/mdcat`, `/nums`, `/nust-net`, `/giki`, `/pma-long-course`, `/issb`; hubs `/medical`, `/engineering`, `/defence`. Brand labels (Apex Med / Eng / Defence) are page labels only.
+- Parent homepage `/` is the chooser. Subfolders, not subdomains (Google has no built-in preference, subfolders keep authority on one site).
+- Med is built fully first. Engineering and Defence stay small honest hubs until real content exists. No page may promise a tool that is not shipped.
+- Exam facts live in one config (question count, sections, minutes, marking). MDCAT 2026 is reported as 180 questions; verify on the official PMDC notice before publishing.
+- Rank on exam searches ("KMU MDCAT 2024 paper with answers"), not on the brand name. Brand searches only work after people know the name.
+
+### C. Work queue (claim one, finish with the gate ladder)
+**Platform**
+- [ ] C1. Parent chooser homepage + `/mdcat` flagship page with its own metadata, FAQ, structured data and sign-up route that preselects the exam. - owner: unclaimed
+- [ ] C2. Board and year paper pages from the question bank (`/mdcat/past-papers/<board>/<year>`): timed or untimed mode, key status shown, "repeated question" stars. - owner: unclaimed
+- [ ] C3. Question importer: load `data/MCQS_FINAL/_import` (ready questions only) into Supabase as `draft`, including board, year, stars, exam tags, `visibility`, answer_status. Never import `needs_key`, `unresolved` or `figure` questions. - owner: unclaimed
+- [ ] C4. Add `visibility` (public | private) to questions and flashcards. Official past papers and original content are public; academy-book content (KIPS, STEP, Anees, etc.) stays private to the owner account. - owner: unclaimed
+- [ ] C5. Practice engine: chapter practice with explanation after each answer, mistakes notebook, bookmarks, "report this question" button, filters by subject, chapter, exam, board, year, starred. - owner: unclaimed
+- [ ] C6. Mock engine driven by an exam-rules config (question count, subject split, time, marking). - owner: unclaimed
+- [ ] C7. Flashcards with spaced repetition on the site, fed by `data/FLASHCARDS/_import`. - owner: unclaimed
+- [ ] C8. Engineering and Defence hubs (small, honest). NUST NET banks stay with Antigravity. - owner: unclaimed
+- [ ] C9. SEO: sitemap and IndexNow extended to new routes, canonical URLs, structured data per exam page, Search Console set up on the real domain. - owner: unclaimed
+
+**Content (local AI, Freebuff)** - source of truth is `data/MCQS/_reports/`
+- [/] D1. BUMHS 2023: Claude is transcribing the scanned pages into `data/MCQS/_sources/extra/claude_transcriptions/` (printed question numbers read from the image). Pages 1-4 done so far. Freebuff then runs `_pipeline/ingest_bumhs_claude.mjs` (needs 1-200 complete), attaches the 1-200 key, validates, merges. - owner: Claude + Freebuff
+- [ ] D2. UHS 2024: only partial scans exist. Use present pages by printed question number, mark `paper_complete=false`, read the image-only official key cell by cell with two readers. Time-boxed. - owner: Freebuff
+- [ ] D3. Other boards (DUHS, ETEA, SIBA, NUMS, HEC): follow `COVERAGE.md`, one paper per board per round, official sources first, unofficial hosts only with `source_trust = unofficial`. - owner: Freebuff
+- [ ] D4. `C:\Users\admin\OneDrive\Documents\OCR PICS`: inventory, crop one question at a time, exclude old-style long AKU reasoning questions into `_excluded_aku_style`, keep short MDCAT/NUMS/HEC-style questions. - owner: Freebuff
+- [ ] D5. Flashcards: inventory `C:\Users\admin\Downloads\RAW\Flashcards` and any Anki decks (`.apkg` is read as text, no OCR), classify to PMDC chapters, mark `visibility = private` until the founder decides. - owner: Freebuff
+- [ ] D6. Repair corrupted text from page crops (103 held-back starred Biology items first), then chapters from book headings, then missing options. - owner: Freebuff
+- [ ] D7. Multi-AI answer check: export `MCQS_AI_CHECK` batches (50 per batch, starred first), run ChatGPT and others, merge by rule: official key wins; two AIs agree = `ai_verified`; disagree = `unresolved`; AIs never rewrite question text. Founder hand-checks 50 random answers per subject. - owner: Freebuff + founder
+- [ ] D8. Build `data/MCQS_FINAL` with readiness status per question and `_import` for ready questions only. Then notes, formula sheets and flashcards generated from the bank, labelled "AI-compiled". - owner: Freebuff
+- [ ] D9. Founder's notes, shortlists and maps on the PC: inventory only (no OCR, no moves) after the question bank is final. - owner: Freebuff
+
+### D. Rules added today
+- A `*` in an official answer key means "no valid single answer": status `unresolved`, never guess a letter (KMU 2024 Q142).
+- Stars count only distinct official past papers. Academy tests, mocks and sample papers never add stars.
+- Answers are labelled `official`, `ai_verified`, `in_image` (unverified) or `unresolved`; the site shows the label.
+- Keep the push hold: commit with explicit paths, push only when the founder commands.
+
+*Signed: Claude, 2026-11-20.*
