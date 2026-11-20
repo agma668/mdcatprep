@@ -45,3 +45,15 @@ This is an execution appendix to `ROADMAP-AGENT-BOARD.md`. It records observed e
 ## Wave 1 status
 
 **In progress — CI dependency correction and goal-scoped delivery slice under review.** No production change or merge is authorized by this log.
+
+
+## Follow-up — CI run #46 and stacked delivery PR (2026-11-21)
+
+- PR #22 run #46 completed successfully: `npm ci`, `npm test`, `npm run lint`, and `npx tsc --noEmit` all passed. Run: https://github.com/agma668/mdcatprep/actions/runs/44800155074
+- Updated PR #22 description to make its combined scope explicit: ownership migration + all-PR quality workflow. PR #22 remains draft/unmerged pending founder review and explicit approval.
+- PR #23 is now based on `fix/rls-goals-migration-ci-dependency`, not `main`. It does not duplicate the migration. Its head is `9e2d3031b1db6ec6af7dd3760ea2d2b51fddf17c`.
+- Code review found that the separate answer lookup revalidated goal ownership and mapping but did not recheck that the exam and variant were still active. Added that check before reading the answer. This is a fail-closed guard; it does not expose the answer key to a client.
+- PR #23 body now accurately records the stacked dependency and current validation state. The earlier run #45 remains failed against the old `main` base. No fresh Actions run has yet appeared for the retargeted PR #23 head; do not claim lint/typecheck passed for #23.
+- PR #19 was closed as superseded after its workflow change was incorporated into PR #22. It was not merged.
+- The new all-PR workflow did not produce a visible run for PR #23 after retarget/head update during this inspection. The next task is to diagnose the missing event/check and establish a verified CI run for PR #23, then continue reviewing the goal-scoped submission/attempt path.
+- No production migration, Auth setting, database data, secrets, deployment promotion or merge was performed.
