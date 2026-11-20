@@ -651,3 +651,24 @@ A fresh source review on `main` confirms the previously identified issue is pres
 ### Current disposition
 
 This pass was read-only source inspection plus documentation. No application code, branch refs, PR state, migrations, production data, Auth settings or deployments were changed. Implementation remains gated on controlled integration of the CI/RLS migration PRs and an executable baseline. PR #22 remains unmerged pending the founder's previously requested approval; the user has not yet explicitly authorized that merge.
+
+
+## Wave 1 implementation slice — PR #23 (2026-11-21)
+
+Created draft PR #23: https://github.com/agma668/mdcatprep/pull/23
+Branch: `feat/goal-scoped-public-sample-delivery`, based on `main`.
+
+Files added/updated:
+- `lib/goal-question-delivery.ts`: server-only boundary. Resolves the caller with the cookie-bound session, verifies an owned active goal, verifies the exam and variant are still active using the service client, then reads exact exam+variant mappings. Only `review_state=approved` + `access_level=public_sample` + published question rows are returned. Missing service credentials, query errors, or invalid goal all fail closed. The initial DTO is an explicit allow-list without answer key/explanation.
+- `lib/goal-question-policy.ts`: pure exact-scope/access policy and safe DTO conversion.
+- `lib/goal-question-policy.test.ts`: tests exact goal/variant, inactive goal, pending mapping, goal_access/admin_draft denial and answer/explanation non-disclosure.
+- `package.json`: includes the new policy test in `npm test`.
+
+Important limits:
+- This is an isolated delivery seam, not yet wired into existing practice routes/actions.
+- No entitlement service exists, so all `goal_access` mappings are denied; only intentionally reviewed public samples are eligible.
+- The separate answer lookup is server-only and revalidates goal/mapping; a follow-up authenticated submission action must validate the selected answer and write goal_id once the required migration is integrated.
+- Legacy `fetchPublishedQuestions` and bundled question flows were intentionally not changed, to avoid silently altering seven existing callers.
+- No production database, content, Auth settings or deployments changed.
+
+Validation status: PR opened as draft; no workflow run was returned for its head SHA at the time of this board update. CI, lint and typecheck remain pending. The main-branch RLS-goals test currently depends on the ownership migration proposed in PR #22, which remains unmerged pending explicit founder approval.
