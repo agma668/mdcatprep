@@ -604,3 +604,23 @@ They are attached to the expected triggers and their bodies use schema-qualified
 
 - PR #22 now has a GitHub Actions run: https://github.com/agma668/mdcatprep/actions/runs/44784298082
 - At last poll, dependency installation was still running; the RLS test, ESLint and TypeScript checks had not started. No pass/fail result is claimed yet.
+
+
+## Wave 1 — CI gate result and Issue #20 implementation discovery (2026-11-20)
+
+### CI verification
+- [x] PR #22 quality run #44 completed successfully: `npm ci`, `npm test`, `npm run lint`, and `npx tsc --noEmit` all completed successfully. Run: https://github.com/agma668/mdcatprep/actions/runs/44784298082
+- [ ] PR #22 remains draft and unmerged; no production migration has been applied. No human review is recorded yet.
+- [ ] PR #19's earlier run #43 remains failed on its own commit because the referenced migration was absent from that checkout. The successful #22 run validates the migration-inclusive commit, but does not retroactively make #19 green. Re-run #19 after its branch includes the migration.
+- [ ] PR #16/#17 still need their own visible Actions runs and must retain stacked merge order.
+
+### Issue #20 — implementation discovery
+- [x] Confirmed the catalogue migration creates `question_exam_map`, with `review_state`, `access_level`, and exact `variant_id` / `exam_id` mapping; the student-facing roles are deliberately denied direct mapping-table access.
+- [x] Confirmed a server-only service-role client helper already exists at `lib/supabase/service.ts`; any mapping lookup must remain server-side after validating the caller's owned active goal through the cookie-bound RLS client.
+- [x] Confirmed `fetchPublishedQuestions` has seven callers and the answer recorder/offline queue is shared by multiple surfaces. Avoid a global rewrite that silently breaks unrelated legacy/bundled practice flows.
+- [x] No entitlement/subscription authorization service was found in the code search. Until one is implemented and verified, `goal_access` mappings must fail closed; only explicitly approved `public_sample` mappings can be delivered.
+- [ ] Implementation sequence: (1) goal resolver + exact-variant approved-map query using service client; (2) scoped question delivery and remove answer keys from initial payload; (3) validate goal/question mapping on answer submission and persist goal_id; (4) carry goal identity through IndexedDB queue and retry; (5) adapt adaptive scheduler and dashboard/mock/diagnostic entry points; (6) add cross-user/cross-variant/pending/rejected/unpublished/idempotency tests.
+- [ ] Do not import/publish questions or apply migrations until the complete delivery boundary and tests are reviewed.
+
+### Gate
+Wave 1 remains active. The successful PR #22 run is a green test result on that branch only; integration is not complete until the owner approves the required PR merges and the dependent branches are rechecked. No merges, production database changes, Auth changes, or content imports were made.
