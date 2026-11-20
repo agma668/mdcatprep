@@ -83,9 +83,9 @@ $function$;
 revoke all privileges on function public.handle_new_user()
   from public, anon, authenticated, service_role, supabase_auth_admin;
 revoke all privileges on function public.generate_referral_code()
-  from public, anon, authenticated, service_role;
+  from public, anon, authenticated, service_role, supabase_auth_admin;
 revoke all privileges on function public.count_referral_on_signup()
-  from public, anon, authenticated, service_role;
+  from public, anon, authenticated, service_role, supabase_auth_admin;
 
 comment on function public.handle_new_user() is
   'Trigger-only profile creation for auth.users inserts; not callable through the Data API.';
