@@ -50,6 +50,17 @@ async function resolveOwnedActiveGoal(goalId: string): Promise<GoalScope | null>
   return data as GoalScope
 }
 
+async function isActiveExamVariant(
+  service: ReturnType<typeof createServiceClient>,
+  goal: GoalScope
+): Promise<boolean> {
+  const [{ data: exam, error: examError }, { data: variant, error: variantError }] = await Promise.all([
+    service.from('exam_registry').select('id').eq('id', goal.exam_id).eq('status', 'active').maybeSingle(),
+    service.from('exam_variants').select('id').eq('id', goal.variant_id).eq('exam_id', goal.exam_id).eq('status', 'active').maybeSingle(),
+  ])
+  return !examError && !!exam && !variantError && !!variant
+}
+
 /**
  * Fetch only published questions explicitly mapped to this active goal's
  * exact exam + variant and approved as public samples. Paid/goal_access content
@@ -68,6 +79,7 @@ export async function fetchGoalPublicSampleQuestions(
 
   try {
     const service = createServiceClient()
+    if (!(await isActiveExamVariant(service, goal))) return null
     const { data: mappings, error: mappingError } = await service
       .from('question_exam_map')
       .select('question_id, exam_id, variant_id, access_level, review_state')
