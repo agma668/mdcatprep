@@ -71,7 +71,7 @@ test('trigger-only functions have pinned empty search_path and no API-role EXECU
       p.proconfig,
       has_function_privilege('anon', p.oid, 'EXECUTE') as anon_can_execute,
       has_function_privilege('authenticated', p.oid, 'EXECUTE') as authenticated_can_execute,
-      has_function_privilege('service_role', p.oid, 'EXECUTE') as service_role_can_execute
+      has_function_privilege('service_role', p.oid, 'EXECUTE') as service_role_can_execute,\n      has_function_privilege('supabase_auth_admin', p.oid, 'EXECUTE') as auth_admin_can_execute
     from pg_proc p
     join pg_namespace n on n.oid = p.pronamespace
     where n.nspname = 'public'
@@ -85,7 +85,7 @@ test('trigger-only functions have pinned empty search_path and no API-role EXECU
     assert.ok(row.proconfig?.some((setting) => setting === 'search_path=""'), `${row.proname} must use an empty search_path`)
     assert.equal(row.anon_can_execute, false)
     assert.equal(row.authenticated_can_execute, false)
-    assert.equal(row.service_role_can_execute, false)
+    assert.equal(row.service_role_can_execute, false)\n    assert.equal(row.auth_admin_can_execute, false)
   }
 })
 
