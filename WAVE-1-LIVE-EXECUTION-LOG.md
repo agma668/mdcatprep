@@ -68,3 +68,16 @@ This is an execution appendix to `ROADMAP-AGENT-BOARD.md`. It records observed e
 - I did not merge PR #22 because the founder previously required explicit approval for that merge, and the general instruction to continue with the next task is not treated as permission to merge.
 - PR #23 remains draft; its last CI result is run #45 against its old `main` base, where the existing RLS test failed because the migration file was absent. The new active-exam revalidation fix has not yet had GitHub Actions validation.
 - No production schema or data was changed.
+
+
+## Issue #21 — trigger-function hardening draft (2026-11-21)
+
+- Re-ran the live Supabase Security Advisor and read-only catalog inspection. The same three trigger-only functions remain SECURITY DEFINER, postgres-owned, `search_path=public`, and directly executable by PUBLIC/anon/authenticated/service_role.
+- Advisor also reports leaked-password protection disabled, plus RLS-enabled/no-policy findings for `client_telemetry` and `question_exam_map`. These are not included in the trigger hardening migration; `question_exam_map` is intentionally deny-by-default pending a trusted server delivery path, while `client_telemetry` needs separate policy/usage review.
+- Created draft PR #24: https://github.com/agma668/mdcatprep/pull/24
+- Proposed migration pins `handle_new_user`, `generate_referral_code`, and `count_referral_on_signup` to `search_path = ''`, schema-qualifies relation references, and revokes direct EXECUTE from PUBLIC and API/service/auth-admin roles while retaining SECURITY DEFINER for their existing trigger operations.
+- Added PGlite regression tests applying the historical auth/referral migrations plus the proposed hardening migration. Tests cover privileges, empty search_path, trigger attachments, signup profile creation, referral-code generation, ten-signup auto-approval, and no duplicate count on repeated attribution.
+- Added the new test file to `npm test`.
+- PR #24 is draft and unmerged. At last inspection no GitHub Actions run was visible for its head; Vercel was pending only. No local PGlite run was possible in this execution environment because the repo dependencies are not installed. Treat all tests as unverified until Actions passes.
+- No live SQL, production migration, Auth settings, data, secrets, or deployments were changed. Leaked-password protection remains a separate decision requiring compatibility review and explicit approval.
+- Next: inspect PR #24 Actions as it appears, fix any CI/test failures, then review the Auth setting and RLS findings as separate scoped tasks. Keep all production changes behind explicit approval.
