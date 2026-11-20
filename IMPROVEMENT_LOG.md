@@ -275,3 +275,12 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - Honesty fix found while doing this: the page note said "no question on this page claims a past-paper year" while four chapters were literally named "Past Paper <year>", and set pages titled themselves "Chapter-wise Practice". Set pages now use "Past Paper 2023 — Biology MCQs" with a note that the year comes from the third-party extraction, not a verified official sitting. Chapter pages keep their original copy.
 - Verified on a production build (`next start`): `/topicals` 200, `/topicals/biology/past-paper-2023` 200, `/topicals/biology/respiration` 200, set page title is `Past Paper 2023 — Biology MCQs | MED Prep` and the chapter page title is unchanged.
 - Gates: tsc 0, eslint 0, `next build` 0, `npm test` 94/94.
+
+## 2026-11-20 — Board A7: the feedback button gets out of the way
+
+- The floating "Feedback" control was pinned bottom-right on every route and never moved, so it sat on top of whatever was under it while a student read (the board's A7).
+- It now tucks itself away (translated down, faded out, `pointer-events-none`) while the page scrolls *down*, and returns on scroll-up or when the page is back near the top. The listener is rAF-throttled and passive, so it costs nothing per scroll event.
+- It never hides while its own panel is open — an open form must stay put — and keyboard focus restores it, because `pointer-events-none` does not remove an element from the tab order.
+- Transition is suppressed under `motion-reduce`, matching the board's reduced-motion rule. The mobile 44px circular form is unchanged.
+- Verified in a real browser against a production build (`next start`): at the top the container is `translate-y-0 opacity-100`; after scrolling down it becomes `pointer-events-none translate-y-3 opacity-0`; after scrolling back up it returns to visible; with the panel open, scrolling down leaves it visible and `aria-expanded="true"`.
+- Gates: tsc 0, eslint 0, `next build` 0.

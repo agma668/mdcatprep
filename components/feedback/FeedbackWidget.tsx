@@ -17,6 +17,11 @@ export function FeedbackWidget() {
   const [message, setMessage] = useState('')
   const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle')
   const [error, setError] = useState('')
+  // The FAB floats over the page, so while a student is reading (scrolling
+  // down) it gets out of the way and returns as soon as they scroll back up.
+  // It never hides while the panel is open, and keyboard focus always brings
+  // it back — a pointer-events-none element is still reachable with Tab.
+  const [suppressed, setSuppressed] = useState(false)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const panelRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
@@ -48,6 +53,30 @@ export function FeedbackWidget() {
       return () => clearTimeout(t)
     }
   }, [open])
+
+  // Collapse while reading (scrolling down), reappear on scroll up or near the
+  // top of the page. rAF-throttled so the listener never runs per scroll event.
+  useEffect(() => {
+    let lastY = window.scrollY
+    let frame = 0
+    const onScroll = () => {
+      if (frame) return
+      frame = requestAnimationFrame(() => {
+        frame = 0
+        const y = window.scrollY
+        const delta = y - lastY
+        if (y < 160) setSuppressed(false)
+        else if (delta > 8) setSuppressed(true)
+        else if (delta < -8) setSuppressed(false)
+        lastY = y
+      })
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (frame) cancelAnimationFrame(frame)
+    }
+  }, [])
 
   // Hidden on the admin portal (where the owner reads feedback, not where
   // students write it) and on the timed mock-test route, where the floating
@@ -81,8 +110,16 @@ export function FeedbackWidget() {
 
   const canSend = message.trim().length > 0 && status !== 'sending'
 
+  const tucked = suppressed && !open
+
   return (
-    <div className="fixed z-40 right-4 md:right-6 bottom-20 md:bottom-6">
+    <div
+      className={[
+        'fixed z-40 right-4 md:right-6 bottom-20 md:bottom-6',
+        'transition-all duration-[var(--transition-base)] motion-reduce:transition-none',
+        tucked ? 'pointer-events-none translate-y-3 opacity-0' : 'translate-y-0 opacity-100',
+      ].join(' ')}
+    >
       {/* ── Panel ── */}
       <AnimatePresence>
         {open && (
@@ -188,7 +225,9 @@ export function FeedbackWidget() {
            was under it — on the landing page, the hero headline. Below sm it
            collapses to a 44px circle (the icon plus p-3), which is also the
            minimum comfortable tap target. The word returns from sm up, where
-           there is room for it. */}
+           there is room for it. The whole control also slides away while the
+           reader scrolls down and comes back on scroll-up or focus, so it
+           cannot sit on top of the paragraph being read. */}
       <button
         ref={buttonRef}
         type="button"
@@ -198,6 +237,7 @@ export function FeedbackWidget() {
         }}
         aria-expanded={open}
         aria-label="Give feedback"
+        onFocus={() => setSuppressed(false)}
         className="group flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,var(--color-primary),var(--color-primary-dark))] p-3 text-[var(--color-text-inverse)] shadow-[var(--glow-signal-lg)] ring-1 ring-[var(--line-signal)] transition-all duration-[var(--transition-base)] hover:shadow-[var(--glow-signal-lg)] hover:-translate-y-0.5 cursor-pointer sm:px-4 sm:py-3"
       >
         {open ? (
