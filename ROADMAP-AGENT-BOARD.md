@@ -624,3 +624,30 @@ They are attached to the expected triggers and their bodies use schema-qualified
 
 ### Gate
 Wave 1 remains active. The successful PR #22 run is a green test result on that branch only; integration is not complete until the owner approves the required PR merges and the dependent branches are rechecked. No merges, production database changes, Auth changes, or content imports were made.
+
+
+## Wave 1 — question-runtime source review (2026-11-20, follow-up)
+
+A fresh source review on `main` confirms the previously identified issue is present in the actual call paths, not just a design concern:
+
+- `lib/questions-repo.ts`: `fetchPublishedQuestions` selects `correct_answer` and `explanation` from `questions`, filters only `status = 'published'`, and is also used by `fillQuestions` / `fetchSubjectQuota`. A goal-scoped API must be a distinct server-only seam; changing this shared helper in place would silently alter several legacy and bundled callers.
+- `lib/analytics/question-scheduler.ts`: `fetchAdaptiveQuestions(userId, ...)` trusts the supplied userId for history filtering and draws from the general published pool. It needs a goal-aware server entry point whose user identity is derived from the session, not the argument.
+- `app/actions/practice.ts`: both `recordAttempt` and `recordAttemptByQuestionKey` resolve any published question and call a shared insert that writes `student_id` but no `goal_id`. Correctness is server-computed, which should be preserved. The new goal-scoped action must independently validate the question mapping before computing/recording the answer.
+- `lib/offline-sync.ts`: online send, offline enqueue and drain currently preserve question identity + attempt id only. A new goal-aware queue entry needs an immutable goal ID captured from the verified practice session and the server must re-resolve ownership on every retry; a client-supplied goal ID is a selector, never authority.
+- `lib/supabase/service.ts`: a server-only service client exists, but it bypasses RLS and throws if the service secret is absent. Use it only after cookie-session authentication and owner-scoped goal validation; missing service credentials must fail closed.
+- `supabase/migrations/20261109000000_exam_registry_and_student_goals.sql`: the checked-in mapping schema has exact `exam_id` + `variant_id`, `review_state`, and `access_level`; mapping table is intentionally unavailable to student Data API roles. Goal rows use `student_id`, `exam_id`, `variant_id`, and `status`.
+- `supabase/migrations/20261112000000_student_goals_foundation.sql`: goal references are nullable by design for legacy progress. Do not backfill old activity or make goal_id required globally.
+
+### Implementation guardrails confirmed
+
+1. Build a new server-only goal-scoped delivery seam; do not widen direct student access to `question_exam_map` and do not globally change `fetchPublishedQuestions` until all seven callers are migrated deliberately.
+2. First query the caller's active goal through the cookie-bound Supabase client and verify `student_id = auth.uid()`. Then use the service client to fetch only approved mappings for that exact variant and published question rows.
+3. Since no entitlement authorization service is implemented, fail closed for `goal_access`; only an explicitly approved `public_sample` mapping can pass in the first implementation. Never treat goal ownership as a paid-content entitlement.
+4. Return a student-safe question DTO without `correct_answer`; reveal the stored answer and explanation only after a valid submission action has rechecked goal ownership, active exam/variant, mapping review state, access level and question publication state.
+5. Attempt writes must include the verified `goal_id` and session-derived `student_id`; preserve server-computed correctness, clamped timing and the existing idempotency key semantics.
+6. Offline retries must revalidate the same goal and mapping server-side. If the goal is paused/archived or access is revoked before drain, do not record the attempt under a different/current goal.
+7. Keep bundled legacy practice paths isolated until they have explicit exam identity and a migration plan; do not infer their goal from URL parameters or profile.exam_target.
+
+### Current disposition
+
+This pass was read-only source inspection plus documentation. No application code, branch refs, PR state, migrations, production data, Auth settings or deployments were changed. Implementation remains gated on controlled integration of the CI/RLS migration PRs and an executable baseline. PR #22 remains unmerged pending the founder's previously requested approval; the user has not yet explicitly authorized that merge.
