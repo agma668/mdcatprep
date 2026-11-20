@@ -137,6 +137,10 @@ export async function getGoalPublicSampleAnswer(
 
   try {
     const service = createServiceClient()
+    // Revalidate the exam and variant here as well: an answer must not remain
+    // accessible after its goal's exam track has been retired.
+    if (!(await isActiveExamVariant(service, goal))) return null
+
     const { data: mappings, error: mappingError } = await service
       .from('question_exam_map')
       .select('question_id, exam_id, variant_id, access_level, review_state')
