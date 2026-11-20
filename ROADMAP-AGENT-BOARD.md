@@ -400,3 +400,120 @@ Official PMDC's 2026 public notice now provides the exact paper profile: 180 MCQ
 - [ ] Add catalogue seed data only after exam blueprint readiness and official source review.
 - [ ] Implement goal-aware server actions, then add scoped progress columns without guessing legacy ownership.
 - [ ] Build reviewed question ingestion and entitlement-aware delivery; do not seed the current incomplete MDCAT bank as published.
+
+
+---
+
+## 2026-11-20 — Wave 0 live-state audit and sequential execution reset
+
+**Audit scope:** GitHub repository/PR stack, active Vercel project and deployments, active Apex Supabase project, public schema/migration history, RLS policies/advisors, current roadmap/agent-board claims and Med readiness. Read-only infrastructure inspection only. No production app changes, DB writes, migrations, settings changes, merges, domain actions or deployment promotion were made.
+
+### Verified live infrastructure
+
+- GitHub repository: `agma668/mdcatprep`; default branch `main`. Production Vercel project: `edweb`, linked to this repository.
+- Vercel production deployment is READY on `main` at `1f54c344418e5fd6e45c1d4ca8c2102772c9eaba`; production aliases include `edweb-nine.vercel.app`.
+- Latest inspected preview is READY on `apex/prepspace-foundation` at `fc8f7c714007669cd5687f892f6a9e86dd7ae776`. It is a preview, not production.
+- The editorial landing PR #17 remains open and draft, based on draft PR #16; PR #16 is based on `apex/design-prep-space-discovery`. The PR stack must be reviewed and tested in dependency order; do not merge an upper PR independently. PR #17 has successful Vercel status checks, but this is not proof that typecheck, lint, unit tests or browser QA passed.
+- The connected Apex Supabase project is `edweb` (`niiskuwlpccmdtwjoxvm`), ACTIVE_HEALTHY. The separate inactive `CAT` project is not the Apex backend and remains out of scope.
+
+### Supabase schema and actual content state (read-only)
+
+- Live migration history contains **28 migrations** through `20261113000000_prep_space_catalogue_seed`.
+- The public schema contains **24 tables**; RLS is enabled on all 24.
+- The live schema now includes `exam_registry` (9 rows), `exam_variants` (9 rows), `assessment_profiles`, `student_goals`, and `question_exam_map`. This supersedes older board notes that said these tables/migrations were not yet present.
+- Live row counts at audit time: `questions` 0; published questions 0; `student_goals` 0; `question_attempts` 0; `flashcard_reviews` 0; `notes` 0. `profiles` has 2 rows and `client_telemetry` has 75 rows.
+- Therefore the registry/schema foundation exists, but **canonical question ingestion and durable student learning activity are not verified as live**. A roadmap entry saying “automated ingestion deployed” must not be interpreted as proof that production `public.questions` is populated. Static/bundled question banks and a deployed ingest script are not the same as canonical, exam-mapped, reviewed database content.
+- Existing `question_attempts`, `question_bookmarks`, `flashcard_reviews`, `mistake_reviews` and related tables have goal-related columns/links in the current schema, but the actual end-to-end goal-scoped student journey still needs integration tests with real, reviewed question rows.
+- The public `questions` SELECT policy currently checks `status = 'published'` but has no exam/variant predicate. Do not expose more than one exam's bank through this shared pool until server-side exam mapping and authorization are enforced. `question_exam_map` has RLS enabled and no client policy, consistent with an internal-only map until a trusted delivery action is implemented. `client_telemetry` also has RLS enabled with no policy; verify the intended server/service-role write path and ensure no client insert is required.
+
+### Supabase advisor triage — findings, not authorization to change production
+
+- Security: 2 RLS-enabled tables with no policies (`client_telemetry`, `question_exam_map`); 3 `SECURITY DEFINER` functions callable by anon/authenticated (`count_referral_on_signup`, `generate_referral_code`, `handle_new_user`); leaked-password protection disabled.
+- Performance: 19 unindexed foreign keys; 37 auth/RLS init-plan warnings; 36 unused-index notices; 1 table with multiple permissive SELECT policies (`notes`).
+- Health advisor returned no lints.
+- Triage each item against actual call sites and expected workload. Do not blindly revoke RPC grants, add broad policies, or drop “unused” indexes. In particular, inspect function callers/triggers and the server-side telemetry flow before proposing a migration or Auth setting change.
+
+### Codebase and product truth
+
+- `lib/prep-space-registry.ts` is the canonical nine-path catalogue. Medical has PMDC MDCAT (beta) and NUMS (content in progress); the registry correctly warns against treating a scaled PMDC mock as an official full paper.
+- `lib/seo-pages.ts`, `app/sitemap.ts` and `app/robots.ts` provide an existing SEO foundation. Extend the single SEO page registry; do not create a second sitemap/IndexNow list.
+- Main branch still identifies the site as **MED Prep** in `lib/site.ts` and `app/layout.tsx`. The current main homepage is a broad multi-exam landing page, not yet the approved Apex Academy parent chooser. The current draft landing PR changes design/path discovery but does not complete the parent + specialist brand architecture.
+- `package.json` includes tests for FSRS, flashcards, mistake classification, quiz blueprints, question-bank structural audit, Prep Space registry and RLS goals. Existing tests are useful, but passing unit tests alone do not prove the hosted Supabase integration works.
+- The current roadmap/queue correctly warns not to run `scripts/seed-mdcat-questions.mjs`: it uses a service-role key, publishes immediately, handles only the MDCAT bank and does not create exam/variant mappings. Build a new idempotent, dry-run-first importer with target allowlisting, draft/review state, provenance and explicit mapping. No import is authorized by this audit.
+
+### Board hygiene corrections
+
+- Reconcile older statements of 22 migrations / 13 public tables / absent goal tables with the current live count of 28 migrations / 24 tables / present registry and goal tables.
+- Keep “feature code exists”, “preview deployed”, “database seeded”, “end-to-end tested” and “production released” as separate statuses.
+- The GitHub integration available to this audit exposes repository files, issues and PRs, but no GitHub Projects v2 board mutation tools. This Markdown master board and issue #18 are the supported coordination records; do not claim a Projects board was changed.
+
+## Sequential implementation plan — one wave at a time
+
+### Wave 0 — Repository and infrastructure audit
+**Status: audit pass completed; a few evidence checks remain.**
+- [x] Confirm repository, production/preview deployment relationship and active Apex Supabase project.
+- [x] Inspect current PR stack and verify #16/#17 are still drafts.
+- [x] Inspect live schema, migrations, row counts, key RLS policies and Supabase advisors.
+- [x] Reconcile current exam registry and SEO foundation with the roadmap.
+- [ ] Finish local/CI baseline on the exact intended release branch: typecheck, lint, all tests and production build.
+- [ ] Verify public production and protected preview access in a clean browser; inspect core routes at mobile and desktop.
+- [ ] Choose one canonical integration branch and document the merge order for stacked PRs.
+**Exit gate:** known branch strategy, reproducible quality baseline, verified public/preview access and no ambiguous production-vs-preview claims.
+
+### Wave 1 — Stabilize shared foundation
+- Complete Prep Space goal ownership and RLS regression coverage against the current live schema using local/disposable test data.
+- Review the current migrations against the live 28-migration history; identify drift and missing integration, without applying any production migration.
+- Define the trusted server-side question-delivery boundary: user → owned goal → active exam/variant → approved question mapping → permitted content.
+- Resolve the shared `questions` table's exam-scope gap before importing or exposing multiple exam pools.
+- Review SECURITY DEFINER grants, telemetry policy design, leaked-password protection, notes policy overlap and RLS performance. Produce a risk-ranked change plan first.
+- Establish CI checks and a repeatable local verification script.
+**Exit gate:** goal ownership and exam isolation proven by tests; no unresolved critical security finding; no production schema mutation without separate approval.
+
+### Wave 2 — Apex public architecture, with Med as the first specialist destination
+- Preserve one platform, one account system and one canonical domain.
+- Build `/` as the Apex Academy goal chooser and `/med/` as the first complete specialist mini-funnel.
+- Keep engineering and defence discovery visible as honest “in progress/coming soon” destinations; do not build their full learning engines in this wave.
+- Route MDCAT/medical-intent searches to Apex Med; generic Apex Academy searches to the parent chooser.
+- Use unique route metadata, canonical URLs, structured data where valid, internal links and the existing single SEO registry.
+- Preserve existing routes as aliases until redirects and student journeys are tested.
+**Exit gate:** clear parent-vs-Med positioning, crawlable unique pages, accurate readiness claims, responsive/light-dark QA.
+
+### Wave 3 — Med content and canonical question pipeline
+- Audit bundled MDCAT content for stable keys, duplicates, answer labels, explanations, subject/topic mapping, provenance and academic correctness.
+- Verify PMDC MDCAT blueprint/version from current official sources; keep NUMS a separate exam and blueprint.
+- Produce a reviewed content manifest before import. Distinguish authentic past-paper items from original practice questions.
+- Build a new idempotent dry-run-first importer; target only the confirmed Apex Supabase project, require explicit target allowlisting, import as draft/review state and log rejects.
+- Create explicit exam/variant/syllabus mappings and editorial approval before publishing.
+- Test imported counts against the manifest and prove no cross-exam leakage.
+**Exit gate:** reviewed PMDC bank is mapped, auditable, correctly counted and safely queryable; NUMS is not represented as ready until its own content/blueprint gate passes.
+
+### Wave 4 — Med learning loop and durable progress
+Deliver in dependency order:
+1. Server-delivered goal-scoped QBank and custom practice (filters, self-test/review, explanations, confidence and timing).
+2. Durable attempts, bookmarks and retry/idempotency; refresh and offline reconnect must not lose or duplicate work.
+3. Mistake notebook (wrong/guessed/slow/flagged), targeted retries and demonstrated mastery rechecks.
+4. Flashcards/FSRS with source provenance, goal-scoped decks/reviews and daily workload controls.
+5. Diagnostic and editable study planner based on verified syllabus topics and real student activity.
+6. PMDC-accurate scaled/full mock only when the verified content pool and blueprint support it; NUMS mock separately after its own readiness review.
+7. Analytics derived only from persisted attempts; show insufficient data honestly.
+**Exit gate:** end-to-end student journey works across sign-in, goal selection, practice, explanation, saved mistake/card, refresh, analytics and mobile.
+
+### Wave 5 — Med release hardening
+- Accessibility, low-bandwidth performance, offline sync, privacy, error states and admin/editorial workflows.
+- Validate every displayed count, exam claim, answer key and paper provenance.
+- Run full typecheck, lint, tests, build, RLS tests and desktop/mobile smoke checks on the release candidate.
+- Promote only after founder review and explicit approval.
+**Exit gate:** Med is genuinely useful and trustworthy, not merely visually complete.
+
+### Wave 6 — Apex Engineering
+Only after Med release gate: establish independent NUST/GIKI/LUMS/ECAT exam identities and verified blueprints, content mappings and exam-specific practice. Do not relabel NUST questions as GIKI or LUMS content.
+
+### Wave 7 — Apex Defence
+Only after Engineering gate: build the safe, age-appropriate PMA/ISSB preparation journeys with accurate selection-process guidance and separate aptitude/content readiness. Do not imply official affiliation or guarantee selection.
+
+### Wave 8 — Growth and continuous improvement
+Only after the specialist products are genuinely ready: publish source-backed guides, exam updates, analytics, search monitoring, content review cadence and performance improvements. Expand only where demand and verified content justify it.
+
+## Operating rule for every wave
+
+One active wave, one accountable implementation owner and one defined file/database scope at a time. No overlapping agent edits to the same code tree. Each task moves **Ready → In Progress → Review → Testing → Done** only when evidence exists. A preview marked READY is not a production release; a merged PR is not proof of a working feature; a deployed ingestion script is not proof of populated, reviewed database content. No production database, auth, billing, domain or deployment-promotion action without task-specific approval.
