@@ -578,3 +578,12 @@ They are attached to the expected triggers and their bodies use schema-qualified
 7. **Content gate:** only after all above pass may Wave 3 begin reviewed MDCAT content ingestion.
 
 **Wave 1 exit criteria:** clean reproducible quality baseline; no unresolved critical ownership/exam-isolation defect; goal-scoped attempts work online/offline; security changes tested; founder approval for any production DB/Auth change. A green Vercel preview alone does not satisfy this gate.
+
+
+### Wave 1 live execution — CI workflow fix opened
+
+- Converted tracking issue #19 into draft PR **#19**: [Run quality gates for all pull requests](https://github.com/agma668/mdcatprep/pull/19).
+- The proposed workflow removes the `pull_request: branches: [main]` restriction while keeping push checks on `main`. It retains read-only permissions, pinned GitHub Actions versions, Node 24, `npm ci`, unit tests, ESLint and TypeScript checks.
+- GitHub Actions run **#43** has started on commit `0fd91f554ed99183927aee55df08126a8ef29f49`; checkout and Node setup completed, dependency installation was in progress at last inspection. No test/lint/typecheck result is claimed yet.
+- The Vercel preview for this workflow-only branch was also still building at last inspection.
+- Important: PR #19 must be merged before main contains this change. PR #16/#17 have feature branches as their base targets, so the same workflow update must then be present in those target branches (or brought in by a controlled sync) before their own GitHub Actions runs can be expected. Do not mark #16/#17 ready based on PR #19's checks.
