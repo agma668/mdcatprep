@@ -517,3 +517,64 @@ Only after the specialist products are genuinely ready: publish source-backed gu
 ## Operating rule for every wave
 
 One active wave, one accountable implementation owner and one defined file/database scope at a time. No overlapping agent edits to the same code tree. Each task moves **Ready → In Progress → Review → Testing → Done** only when evidence exists. A preview marked READY is not a production release; a merged PR is not proof of a working feature; a deployed ingestion script is not proof of populated, reviewed database content. No production database, auth, billing, domain or deployment-promotion action without task-specific approval.
+
+
+---
+
+## 2026-11-20 — Wave 1 investigation update
+
+**Status: investigation and task decomposition completed; implementation and executable test gates still pending.** No application code, production data, production database schema, Auth settings, branch merges or deployment promotions were changed during this pass.
+
+### 1. Branch and PR integration findings
+
+- `main` is at `1f54c344418e5fd6e45c1d4ca8c2102772c9eaba`; `apex/prepspace-foundation` now contains the Wave 0 board update at `734734934e9114f403d39fb7c6e04a52bcc85892`.
+- GitHub compare reports the foundation branch and `main` have diverged: **3 commits ahead and 3 behind**, with merge base `15fa25b4326f31c66b6872882fcfc478d950dee6`. Do not force-push or merge this blindly. First inspect the three main-side commits and resolve the shared RLS test file deliberately.
+- The landing PR stack is separate from the foundation branch:
+  - PR #16: `apex/design-pathway-landing-onboarding` → `apex/design-prep-space-discovery`.
+  - PR #17: `apex/design-editorial-landing` → `apex/design-pathway-landing-onboarding`.
+- PR #16 and #17 remain open drafts. No submitted PR reviews were found. Their descriptions explicitly say local typecheck/lint/tests/build/browser checks have not run.
+- `.github/workflows/quality.yml` exists on main, foundation and the PR #16 base branch, but filters both `pull_request` and `push` to `main`. The stacked PRs target feature branches, so the normal GitHub Actions quality job is not triggered for them. The latest inspected commits had no GitHub Actions workflow runs; Vercel deployment status is green but does not prove unit tests, lint or TypeScript passed.
+- Created issue **#19** to correct the stacked-PR quality-gate workflow and prove it runs.
+
+### 2. Student-goal foundation — useful code exists, runtime integration is incomplete
+
+- The live DB has the goal-related tables and columns from the migrations through Nov 13. `question_attempts.goal_id`, `question_bookmarks.goal_id` and `flashcard_reviews.goal_id` exist and remain nullable for legacy rows.
+- The Nov 14 follow-up migration `20261114000000_student_goals_ownership_and_primary_fix.sql` is present on the foundation branch but **is not applied to live Supabase**. It adds composite ownership FKs for `mistake_reviews`, `review_flashcards` and `flashcard_decks`, and adjusts the narrowly scoped `set_primary_goal` RPC. Keep it a draft until the local PGlite suite is executed and reviewed.
+- `scripts/rls-goals.test.mjs` is extensive: it exercises goal ownership, duplicate active goals, primary switching, inactive variants, student access to catalogue/mappings, goal-scoped progress references, cross-student references on older progress tables, deletion detachment and legacy no-backfill behavior. This is promising test coverage, **not a passing test result**; the suite was inspected but not executed in this environment.
+- Existing goal server actions derive the student from the authenticated session and update only permitted lifecycle/date fields. The DB column grants and RLS provide another ownership boundary.
+- Existing code and live schema must be kept in sync: inspect migrations 9–14 in order and test them against a clean database before any production application.
+
+### 3. Critical exam-isolation gap in the question runtime
+
+Code inspection shows that the catalogue is not yet the authority for question delivery:
+
+- `lib/questions-repo.ts` reads `questions` with only `status = 'published'`; it does not join/filter `question_exam_map`.
+- `lib/analytics/question-scheduler.ts` draws from that same general published pool and scores by attempt history, subject/topic and difficulty. It does not resolve an owned student goal.
+- Live RLS on `questions` has a SELECT policy named `Students can read published questions.` There is no exam/variant condition in that policy. `question_exam_map` has RLS enabled and no student policy/grant, which is a useful deny-by-default boundary, but no trusted server-side delivery path was found using it.
+- `app/actions/practice.ts` derives the student from the session and computes correctness server-side, but it accepts only question ID/answer/timing/idempotency key. It does not validate or persist a goal ID into `question_attempts.goal_id`.
+- `lib/offline-sync.ts` calls the same goal-unaware recording actions, so goal identity is not carried through offline retries.
+- The bundled `/practice/session` route chooses MDCAT vs USAT from a URL parameter and loads bundled banks; it does not resolve an owned goal. The dashboard adaptive quiz reads the general published DB pool.
+- The live `questions` table has 0 rows and 0 published rows. This is not yet an active cross-exam data leak, but the current path must be fixed before any canonical bank is imported or published.
+- Initial question payloads currently include `correct_answer` in the shared question model and some client player props. Review answer-key exposure as part of the delivery redesign; ideally reveal correctness/explanation only after server-validated submission for protected content.
+- Created issue **#20** with the required server-side goal-scoped delivery, exam/variant mapping, attempt persistence, offline idempotency and negative-test acceptance criteria.
+
+### 4. Supabase SECURITY DEFINER follow-up
+
+A live read-only catalog query confirmed three trigger functions are SECURITY DEFINER, owned by postgres, configured with mutable `search_path=public`, and EXECUTE is granted to PUBLIC/anon/authenticated:
+- `handle_new_user` → `on_auth_user_created`
+- `generate_referral_code` → `on_profile_create_referral`
+- `count_referral_on_signup` → `on_referral_attributed`
+
+They are attached to the expected triggers and their bodies use schema-qualified `public.profiles`. Do not blindly revoke grants or change behavior: test trigger invocation and direct execution separately. The Auth advisor also reports leaked-password protection disabled. Created issue **#21** to test least-privilege grants, pin safe search paths, add signup/referral regression tests and evaluate the Auth setting. No Auth setting was changed.
+
+### 5. Wave 1 task queue and exit gate
+
+1. **Branch integration:** inspect main-side commits since the merge base and reconcile foundation changes without force-push; choose the canonical integration branch.
+2. **CI:** fix issue #19 on the actual PR base branches; prove #16/#17 receive GitHub Actions runs.
+3. **Executable baseline:** run `npm ci`, `npm test`, `npm run lint`, `npx tsc --noEmit`, and a production build on the canonical branch; record exact outputs. Do not claim these passed until run.
+4. **Goal/RLS:** execute the PGlite suite from a clean checkout; review migration 14 and cross-student composite FKs. No live migration without explicit approval.
+5. **Security:** complete issue #21's disposable-environment regression tests and document a production change plan.
+6. **Question delivery:** implement issue #20 only after the integration baseline is stable. The delivery action must validate the authenticated owner, active goal, active exam/variant, approved mapping, published question and entitlement; attempt writes and offline retries must preserve the server-verified goal ID.
+7. **Content gate:** only after all above pass may Wave 3 begin reviewed MDCAT content ingestion.
+
+**Wave 1 exit criteria:** clean reproducible quality baseline; no unresolved critical ownership/exam-isolation defect; goal-scoped attempts work online/offline; security changes tested; founder approval for any production DB/Auth change. A green Vercel preview alone does not satisfy this gate.
