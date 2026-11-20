@@ -587,3 +587,14 @@ They are attached to the expected triggers and their bodies use schema-qualified
 - GitHub Actions run **#43** has started on commit `0fd91f554ed99183927aee55df08126a8ef29f49`; checkout and Node setup completed, dependency installation was in progress at last inspection. No test/lint/typecheck result is claimed yet.
 - The Vercel preview for this workflow-only branch was also still building at last inspection.
 - Important: PR #19 must be merged before main contains this change. PR #16/#17 have feature branches as their base targets, so the same workflow update must then be present in those target branches (or brought in by a controlled sync) before their own GitHub Actions runs can be expected. Do not mark #16/#17 ready based on PR #19's checks.
+
+
+## Wave 1 CI follow-up — 2026-11-20
+
+- [ ] PR #19 quality workflow is **not passing**. GitHub Actions run #43 completed with failure: 73 tests passed, and `scripts/rls-goals.test.mjs` failed at startup because `20261114000000_student_goals_ownership_and_primary_fix.sql` was absent from the PR's `main` checkout. ESLint and TypeScript steps were skipped after the test failure. Run: https://github.com/agma668/mdcatprep/actions/runs/44783767745
+- [x] Confirmed the migration exists on `apex/prepspace-foundation` but not on `main`; the existing RLS test already references it. This is a repository/branch dependency gap, not evidence of a production database failure.
+- [x] Opened draft PR #22 to add the already-authored migration to `main` so the RLS test can execute against the migration it expects: https://github.com/agma668/mdcatprep/pull/22
+- [ ] PR #22 must pass the RLS suite and receive review before merge. Merging the SQL file into GitHub does **not** apply it to Supabase. Do not apply it to production without separate explicit approval.
+- [ ] After #22 is validated, rerun/recheck #19; only then assess lint and TypeScript gates. Do not mark #19 ready or merge based on Vercel preview status.
+- [ ] PR #16/#17 still need their own visible GitHub Actions runs after the workflow is available in their target branches. Preserve their stacked dependency order.
+- No production DB schema/data, Auth settings, merges, or production promotions were changed in this follow-up.
