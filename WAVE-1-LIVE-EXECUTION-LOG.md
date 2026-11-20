@@ -57,3 +57,14 @@ This is an execution appendix to `ROADMAP-AGENT-BOARD.md`. It records observed e
 - PR #19 was closed as superseded after its workflow change was incorporated into PR #22. It was not merged.
 - The new all-PR workflow did not produce a visible run for PR #23 after retarget/head update during this inspection. The next task is to diagnose the missing event/check and establish a verified CI run for PR #23, then continue reviewing the goal-scoped submission/attempt path.
 - No production migration, Auth setting, database data, secrets, deployment promotion or merge was performed.
+
+
+## Final dependency finding — PR #23 cannot receive the intended run yet
+
+- The PR #22 branch now contains the unfiltered `pull_request` workflow, but that workflow has not reached the repository's default branch (`main`).
+- The active workflow on `main` still has `pull_request: branches: [main]`. GitHub evaluates pull-request branch filters against the target/base branch; PR #23 targets `fix/rls-goals-migration-ci-dependency`, so the main-branch workflow filter excludes it. The updated workflow in PR #22 cannot validate PR #23 until it is integrated into the default branch.
+- This is consistent with GitHub's documented `pull_request` branch-filter behavior: https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#running-your-pull_request-workflow-based-on-the-head-or-base-branch-of-a-pull-request
+- Therefore the next integration dependency is PR #22. It has a green full quality run (#46), but remains draft and unmerged. PR #19 was closed as superseded by the combined PR #22.
+- I did not merge PR #22 because the founder previously required explicit approval for that merge, and the general instruction to continue with the next task is not treated as permission to merge.
+- PR #23 remains draft; its last CI result is run #45 against its old `main` base, where the existing RLS test failed because the migration file was absent. The new active-exam revalidation fix has not yet had GitHub Actions validation.
+- No production schema or data was changed.
