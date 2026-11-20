@@ -61,7 +61,7 @@ begin
   if new.referred_by is not null
      and new.referred_by is distinct from old.referred_by then
     update public.profiles
-       set referred_signups = pg_catalog.coalesce(referred_signups, 0) + 1
+       set referred_signups = coalesce(referred_signups, 0) + 1
      where id = new.referred_by
     returning referred_signups into v_total;
 
@@ -81,7 +81,7 @@ $function$;
 -- Trigger execution does not require the invoking API role to hold EXECUTE.
 -- Revoke both PUBLIC's default grant and explicit grants on each API role.
 revoke all privileges on function public.handle_new_user()
-  from public, anon, authenticated, service_role;
+  from public, anon, authenticated, service_role, supabase_auth_admin;
 revoke all privileges on function public.generate_referral_code()
   from public, anon, authenticated, service_role;
 revoke all privileges on function public.count_referral_on_signup()
