@@ -27,8 +27,24 @@ export type TopicSubject = {
   name: string;
   icon: string;
   count: number;
+  /** Real syllabus chapters ("Respiration", "Waves"). */
   chapters: TopicChapter[];
+  /**
+   * Past-paper sets and mixed banks. They live in the same bank column as a
+   * chapter but are not chapters — listing "Past Paper 2023" beside
+   * "Respiration" told students the year was a syllabus topic.
+   */
+  sets: TopicChapter[];
 };
+
+/**
+ * True for a bank entry that is a whole-paper set rather than a syllabus
+ * chapter. The year in the name comes from the source extraction, not from a
+ * verified sitting, so callers must not present these as official papers.
+ */
+export function isSetChapter(title: string): boolean {
+  return /^past\s*paper\b/i.test(title) || /^(?:mixed|full)\s*bank$/i.test(title) || /^mock\b/i.test(title);
+}
 
 function buildSubjects(): TopicSubject[] {
   const order = [
@@ -43,7 +59,7 @@ function buildSubjects(): TopicSubject[] {
     for (const q of rows) {
       chapterMap.set(q.chapter, (chapterMap.get(q.chapter) ?? 0) + 1);
     }
-    const chapters: TopicChapter[] = [...chapterMap.entries()]
+    const all: TopicChapter[] = [...chapterMap.entries()]
       .map(([title, count]) => ({ slug: topicSlug(title), title, count }))
       .sort((a, b) => b.count - a.count || a.title.localeCompare(b.title));
     subjects.push({
@@ -51,7 +67,8 @@ function buildSubjects(): TopicSubject[] {
       name: s.name,
       icon: s.icon,
       count: rows.length,
-      chapters,
+      chapters: all.filter((c) => !isSetChapter(c.title)),
+      sets: all.filter((c) => isSetChapter(c.title)),
     });
   }
   return subjects;
@@ -61,8 +78,15 @@ export const TOPICALS_SUBJECTS: TopicSubject[] = buildSubjects();
 
 export const TOPICALS_TOTAL: number = TOPICALS_BANK.length;
 
+/** Real syllabus chapters only — past-paper sets are not chapters. */
 export const TOPICALS_CHAPTER_COUNT: number = TOPICALS_SUBJECTS.reduce(
   (n, s) => n + s.chapters.length,
+  0
+);
+
+/** Whole-paper sets (Past Paper <year>, Mixed Bank) across all subjects. */
+export const TOPICALS_SET_COUNT: number = TOPICALS_SUBJECTS.reduce(
+  (n, s) => n + s.sets.length,
   0
 );
 
@@ -77,7 +101,11 @@ export function topicalChapter(
 ): { subject: TopicSubject; chapter: TopicChapter; questions: TopicalsQuestion[] } | null {
   const subject = topicalSubject(subjectSlug);
   if (!subject) return null;
-  const chapter = subject.chapters.find((c) => c.slug === chapterSlug);
+  // Sets keep their existing URLs: /topicals/biology/past-paper-2023 resolves
+  // whether it is listed as a chapter or as a set.
+  const chapter =
+    subject.chapters.find((c) => c.slug === chapterSlug) ??
+    subject.sets.find((c) => c.slug === chapterSlug);
   if (!chapter) return null;
   const questions = TOPICALS_BANK.filter(
     (q) => q.subject === subject.name && q.chapter === chapter.title

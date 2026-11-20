@@ -5,6 +5,7 @@ import { Footer } from "@/components/landing/Footer";
 import { getSiteUrl } from "@/lib/site";
 import {
   TOPICALS_CHAPTER_COUNT,
+  TOPICALS_SET_COUNT,
   TOPICALS_SUBJECTS,
   TOPICALS_TOTAL,
 } from "@/lib/topicals";
@@ -51,7 +52,8 @@ export default function TopicalsHubPage() {
             </p>
             <p className="mt-3 text-sm text-[var(--steel-400)]">
               {TOPICALS_TOTAL.toLocaleString("en-US")} questions across {TOPICALS_CHAPTER_COUNT}{" "}
-              chapters, all three science subjects · free, no signup needed.
+              chapters plus {TOPICALS_SET_COUNT} whole-paper sets, all three science subjects · free, no
+              signup needed.
             </p>
           </div>
         </section>
@@ -68,6 +70,7 @@ export default function TopicalsHubPage() {
                     <h2 className="text-xl font-extrabold">{s.name}</h2>
                     <p className="text-xs text-[var(--steel-400)]">
                       {s.count.toLocaleString("en-US")} questions · {s.chapters.length} chapters
+                      {s.sets.length > 0 && ` · ${s.sets.length} sets`}
                     </p>
                   </div>
                 </div>
@@ -89,15 +92,41 @@ export default function TopicalsHubPage() {
                     </Link>
                   ))}
                 </div>
+
+                {/* Whole-paper sets sit apart from chapters: "Past Paper 2023" is not a
+                    syllabus topic, and mixing the two made the chapter list misleading. */}
+                {s.sets.length > 0 && (
+                  <div className="mt-6">
+                    <p className="mb-3 text-[10px] font-bold uppercase tracking-wider text-[var(--steel-400)]">
+                      Whole-paper sets
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {s.sets.map((c) => (
+                        <Link
+                          key={c.slug}
+                          href={`/topicals/${s.slug}/${c.slug}`}
+                          className="group flex items-center justify-between gap-3 rounded-[var(--radius-lg)] border border-dashed border-[var(--line-2)] px-5 py-3 hover:border-[var(--signal-500)]/40 transition-colors"
+                        >
+                          <h3 className="text-sm font-semibold group-hover:text-[var(--color-accent-light)] transition-colors leading-snug">
+                            {c.title}
+                          </h3>
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--steel-400)] shrink-0">
+                            {c.count} Qs
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
 
             {/* Honest source note — required by the honesty rule. */}
             <p className="text-xs text-[var(--steel-500)] max-w-3xl">
               Sourcing: topical questions come from a third-party question-bank extraction (MCQ
-              Universe) compiled by MED Prep, not from real MDCAT sittings — no question on this
-              page claims a past-paper year. Original MED Prep exam-style questions live in the
-              signed-in practice area.
+              Universe) compiled by MED Prep. The whole-paper sets are named after the year of that
+              extraction, not a verified official sitting — nothing here is presented as an official
+              paper. Original MED Prep exam-style questions live in the signed-in practice area.
             </p>
           </div>
         </section>
