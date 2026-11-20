@@ -94,7 +94,7 @@ Method: ran the site locally (desktop 1280 and 390px), read the dev log, read th
 - [x] A7. The Feedback button covers content in the bottom right on every page. Fixed in `cea2311`: the widget tucks away on scroll-down and returns on scroll-up or keyboard focus, stays visible while its own panel is open, and suppresses the transition under reduced motion. The mobile 44px circular form is unchanged. Verified in a browser against a production build (class states read before, during and after a scroll, plus with the panel open). - owner: Buffy
 - [x] A8. Topicals list shows "Past Paper 2023/2022" and "Mixed Bank" as chapters beside real chapters. Fixed in `f6b5297`: `isSetChapter()` in `lib/topicals.ts` splits them into a per-subject `sets` list, the hub renders a "Whole-paper sets" group, chapter count is now 22 (was 27), and every existing URL still prerenders. Also corrected the contradictory sourcing note and the "Chapter-wise Practice" title that set pages carried. Verified on a production build (hub 200, set 200, chapter 200). - owner: Buffy
 - [ ] A9. Homepage redesign is built and pushed on branch `apex/design-refresh` (commit 74af290): OMR bubble motif, test-picker tiles, practice grid, past-paper timeline. Needs desktop + 390px + 768px QA, then merge to the working branch. Navbar, sample-question card, FAQ and sign-up section still use the old look. - owner: Claude
-- [ ] A10. Past-papers page is the strongest page (official/key labels). Keep its pattern and copy it for board and year detail pages.
+- [ ] A10. Past-papers page is the strongest page (official/key labels). Keep its pattern and copy it for board and year detail pages. Detail pages share C2's blocker: no served question carries a paper tag yet.
 
 ### B. Architecture decision (proposed, founder to confirm)
 - One domain, one codebase, one account system. URLs use exam names, not brand words: `/mdcat`, `/nums`, `/nust-net`, `/giki`, `/pma-long-course`, `/issb`; hubs `/medical`, `/engineering`, `/defence`. Brand labels (Apex Med / Eng / Defence) are page labels only.
@@ -106,7 +106,7 @@ Method: ran the site locally (desktop 1280 and 390px), read the dev log, read th
 ### C. Work queue (claim one, finish with the gate ladder)
 **Platform**
 - [ ] C1. Parent chooser homepage + `/mdcat` flagship page with its own metadata, FAQ, structured data and sign-up route that preselects the exam. - owner: unclaimed
-- [ ] C2. Board and year paper pages from the question bank (`/mdcat/past-papers/<board>/<year>`): timed or untimed mode, key status shown, "repeated question" stars. - owner: unclaimed
+- [ ] C2. **BLOCKED (evidence, 2026-11-20):** the page cannot be built honestly yet. `MDCAT_QUESTIONS` contains **0** questions with a `pastPaper` tag, so a board/year route would render an empty drawing. The only paper-tagged file in the repo, `lib/real-paper-chem-2023.ts` (357 questions), is imported by nothing, and its provenance does not survive checking: 328 of the 357 are already in `lib/topicals-bank.ts` (the MCQ-Universe compilation) and they span 22 topics, so the "UHS MDCAT 2023" tag describes a year-labelled compilation, not one sitting. Do not import it as an official paper. C2 needs C3 (real ingestion with board/year/star fields) first. Board and year paper pages from the question bank (`/mdcat/past-papers/<board>/<year>`): timed or untimed mode, key status shown, "repeated question" stars. - owner: unclaimed (waiting on C3)
 - [ ] C3. Question importer: load `data/MCQS_FINAL/_import` (ready questions only) into Supabase as `draft`, including board, year, stars, exam tags, `visibility`, answer_status. Never import `needs_key`, `unresolved` or `figure` questions. - owner: unclaimed
 - [ ] C4. Add `visibility` (public | private) to questions and flashcards. Official past papers and original content are public; academy-book content (KIPS, STEP, Anees, etc.) stays private to the owner account. - owner: unclaimed
 - [ ] C5. Practice engine: chapter practice with explanation after each answer, mistakes notebook, bookmarks, "report this question" button, filters by subject, chapter, exam, board, year, starred. - owner: unclaimed
@@ -133,3 +133,16 @@ Method: ran the site locally (desktop 1280 and 390px), read the dev log, read th
 - Keep the push hold: commit with explicit paths, push only when the founder commands.
 
 *Signed: Claude, 2026-11-20.*
+
+### E. Execution notes and findings (Buffy / Freebuff — 2026-11-20)
+
+Closed on this branch: **A1** (`26fe9ff`), **A5** (`26fe9ff`), **A8** (`f6b5297`), **A7** (`cea2311`). Evidence for each is in the checkbox line and in `IMPROVEMENT_LOG.md`; commits are local under the standing push hold.
+
+**Finding F1 — a past-paper file that cannot be trusted as labelled.** `lib/real-paper-chem-2023.ts` holds 357 Chemistry questions tagged `pastPaper: { exam: 'UHS MDCAT', year: 2023 }`. Three things disqualify it as an official-paper source: nothing imports it, so no student has ever seen it; 328 of the 357 texts are already served through `lib/topicals-bank.ts`, which is the third-party MCQ-Universe extraction; and the questions spread over 22 topics, where one sitting's Chemistry section is a fraction of that. The honest reading is "a 2023-labelled compilation", not "the UHS 2023 paper". It must not be imported with its current tag. Recommendation: either relabel it as a practice compilation (dropping `pastPaper`) and delete the 328 duplicates, leaving ~28 unique items, or retire the file.
+
+**Finding F2 — the past-paper route is content-blocked, not code-blocked.** `MDCAT_QUESTIONS` carries zero `pastPaper` tags today, so C2 and A10 cannot produce a non-empty page. They should stay unclaimed until C3 lands real, provenance-checked ingestion.
+
+**What still needs a decision, not an agent:**
+- A2, A3 (one brand name, one access sentence) and A4/C9 (custom domain) are founder decisions; the SEO work that depends on a canonical host cannot start before them.
+- C3 and C4 write to Supabase `edweb` and need explicit approval plus a non-production test target.
+- A6 and A9 belong to their current owners (Antigravity, Claude); D1 is shared with Claude.
