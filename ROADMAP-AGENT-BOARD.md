@@ -598,3 +598,9 @@ They are attached to the expected triggers and their bodies use schema-qualified
 - [ ] After #22 is validated, rerun/recheck #19; only then assess lint and TypeScript gates. Do not mark #19 ready or merge based on Vercel preview status.
 - [ ] PR #16/#17 still need their own visible GitHub Actions runs after the workflow is available in their target branches. Preserve their stacked dependency order.
 - No production DB schema/data, Auth settings, merges, or production promotions were changed in this follow-up.
+
+
+### Latest check — 2026-11-20 17:33 UTC
+
+- PR #22 now has a GitHub Actions run: https://github.com/agma668/mdcatprep/actions/runs/44784298082
+- At last poll, dependency installation was still running; the RLS test, ESLint and TypeScript checks had not started. No pass/fail result is claimed yet.
