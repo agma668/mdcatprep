@@ -177,7 +177,7 @@ export default async function DashboardOverviewPage() {
               {
                 step: "01",
                 title: "Take the diagnostic",
-                desc: "10 questions across 5 subjects — find your level in under 2 minutes.",
+                desc: "10 questions across 4 core subjects — find your level in under 2 minutes.",
                 href: "/diagnostic",
               },
               {

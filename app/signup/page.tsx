@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { GraduationCap, Trophy, BookOpenCheck, BarChart3 } from "lucide-react";
 import { SignupForm } from "./SignupForm";
+import { BANK_SECTION_COUNT } from "@/lib/stats";
 
 /**
  * The referral code is read HERE, on the server, and handed to the form as a
@@ -87,8 +88,8 @@ export default async function SignupPage({
               },
               {
                 icon: GraduationCap,
-                label: "4 Subjects",
-                sub: "Bio, Chem, Phys, English",
+                label: `${BANK_SECTION_COUNT} Subjects`,
+                sub: "Bio, Chem, Phys, English, Reasoning",
                 tone: "text-rose-300",
               },
             ].map(({ icon: Icon, label, sub, tone }) => (

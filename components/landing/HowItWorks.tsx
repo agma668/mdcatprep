@@ -8,7 +8,7 @@ const STEPS = [
     icon: UserPlus,
     title: "Take the Diagnostic",
     description:
-      "Answer 10 quick questions across 5 subjects. Find your strongest and weakest areas in under 2 minutes.",
+      "Answer 10 quick questions across 4 core subjects. Find your strongest and weakest areas in under 2 minutes.",
   },
   {
     number: "02",

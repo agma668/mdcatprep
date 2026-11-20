@@ -4,7 +4,8 @@ import { cookies } from 'next/headers'
 import { createClient } from '@/lib/supabase/server'
 import { createServiceClient } from '@/lib/supabase/service'
 import { fetchSubjectQuota, fetchPublishedQuestions, shuffleQuestions } from '@/lib/questions-repo'
-import type { BankQuestion } from '@/lib/questions'
+import { toQuizQuestion, type BankQuestion } from '@/lib/questions'
+import { MDCAT_QUESTIONS } from '@/lib/mdcat'
 import { utcMidnight } from '@/lib/utils'
 import { DiagnosticPlayer } from './DiagnosticPlayer'
 
@@ -19,8 +20,36 @@ export const dynamic = 'force-dynamic'
 const TARGET_SUBJECTS = ['Biology', 'Chemistry', 'Physics', 'English']
 const PER_SUBJECT = 3
 
+/**
+ * Questions straight from the bundled bank, for deployments whose service-role
+ * key is absent or malformed. The diagnostic is the homepage's primary CTA, so
+ * it must open for a visitor even when server-side storage is not configured;
+ * the draw is a fixed stride per subject rather than a blank page or a 500.
+ */
+function bundledDiagnostic(): BankQuestion[] {
+  const picked: BankQuestion[] = []
+  for (const subject of TARGET_SUBJECTS) {
+    const rows = MDCAT_QUESTIONS.filter((q) => q.subject === subject)
+    const stride = Math.max(1, Math.floor(rows.length / PER_SUBJECT))
+    for (let i = 0; i < PER_SUBJECT && i * stride < rows.length; i++) {
+      const q = rows[i * stride]
+      picked.push({ ...toQuizQuestion(q), id: q.key })
+    }
+  }
+  return picked
+}
+
 export default async function DiagnosticPage() {
-  const service = createServiceClient()
+  // The service-role key is optional for the public funnel: when it is missing
+  // (or holds the wrong key), fall through to the bundled bank instead of
+  // throwing during render. Guarded rather than removed so a configured
+  // deployment still draws its same-day-exclusion quota from the database.
+  let service: ReturnType<typeof createServiceClient> | null = null
+  try {
+    service = createServiceClient()
+  } catch {
+    service = null
+  }
 
   // Same-day freshness: a signed-in student must not meet a question they
   // already answered today (the same UTC dayKey the streak/goal logic uses)
@@ -56,37 +85,42 @@ export default async function DiagnosticPage() {
 
   // Fetch 2 published questions per target subject (quota + general-pool fill
   // live in the question repo), dropping anything answered today.
-  const quotaRows = await fetchSubjectQuota(service, TARGET_SUBJECTS, PER_SUBJECT, 20)
-  const questions: BankQuestion[] = quotaRows.filter((q): q is BankQuestion => {
-    const qid = q.id
-    return !!qid && !excludedToday.has(qid)
-  })
-
-  if (questions.length < 10) {
-    // Same-day exclusions thinned the quota draw — top up from the general
-    // pool, still skipping today's answers.
-    const have = new Set(questions.map((q) => q.id).filter((id): id is string => Boolean(id)))
-    const pool = await fetchPublishedQuestions(service, { limit: 150 })
-    for (const q of pool) {
+  let questions: BankQuestion[] = []
+  if (service) {
+    const quotaRows = await fetchSubjectQuota(service, TARGET_SUBJECTS, PER_SUBJECT, 20)
+    questions = quotaRows.filter((q): q is BankQuestion => {
       const qid = q.id
-      if (questions.length >= 10) break
-      if (!qid || have.has(qid) || excludedToday.has(qid)) continue
-      questions.push(q as BankQuestion)
-      have.add(qid)
-    }
+      return !!qid && !excludedToday.has(qid)
+    })
+
     if (questions.length < 10) {
-      // Nearly the whole bank was answered today — fall back to the excluded
-      // quota picks rather than refusing to start.
-      for (const q of quotaRows) {
+      // Same-day exclusions thinned the quota draw — top up from the general
+      // pool, still skipping today's answers.
+      const have = new Set(questions.map((q) => q.id).filter((id): id is string => Boolean(id)))
+      const pool = await fetchPublishedQuestions(service, { limit: 150 })
+      for (const q of pool) {
         const qid = q.id
         if (questions.length >= 10) break
-        if (qid && !have.has(qid)) {
-          questions.push(q as BankQuestion)
-          have.add(qid)
+        if (!qid || have.has(qid) || excludedToday.has(qid)) continue
+        questions.push(q as BankQuestion)
+        have.add(qid)
+      }
+      if (questions.length < 10) {
+        // Nearly the whole bank was answered today — fall back to the excluded
+        // quota picks rather than refusing to start.
+        for (const q of quotaRows) {
+          const qid = q.id
+          if (questions.length >= 10) break
+          if (qid && !have.has(qid)) {
+            questions.push(q as BankQuestion)
+            have.add(qid)
+          }
         }
       }
     }
   }
+
+  if (questions.length === 0) questions = bundledDiagnostic()
 
   // Shuffle 10 for a fair mix. Rows without an id can't be recorded, so
   // they are dropped.
