@@ -195,3 +195,8 @@ Official references and the verified 2026 profiles are recorded in `MEDICAL-CONT
 The five current MCQ arrays contain 889 parsed records: Biology 171, Chemistry 187, Physics 313, English 180 and Logical Reasoning 38. Structural scan found no missing fields, duplicate keys or exact full-item duplicates; it did find four concept-level repeated stems and two repeated spelling templates. Difficulty mix is 40.7% easy / 46.2% moderate / 13.1% hard, versus the PM&DC 2026 aggregate 15/70/15. Correct answer position B is 45.3% and D 11.1%. Biology is underweighted relative to the paper and is the first expansion priority; Physics and English already dominate the pool. Taxonomy mapping is incomplete and the past-paper-bank filename is misleading: its 70 items are original exam-style content, not tagged PYQs. Full details: `MEDICAL-BANK-AUDIT-2026-11-21.md`.
 
 **Next:** create stable PM&DC learning-outcome IDs and map every existing item before authoring bulk additions. Independently verify answer keys and provenance; do not treat this static structural scan as academic QA.
+
+
+## Biology syllabus map — first M1 deliverable
+
+Created `docs/PMDC-MDCAT-2025-BIOLOGY-MAP.md` with 16 PM&DC Biology units and 69 paraphrased learning-outcome IDs. Eight units have no matching current bank topic label; 15 Ecology-tagged items need official-syllabus review. Topic-level matches do not prove outcome coverage. Next: map all 171 existing Biology questions to exact outcomes, then draft/review original questions for uncovered outcomes.
