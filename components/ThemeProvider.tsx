@@ -65,7 +65,8 @@ export function getTheme(): ThemeId {
 }
 
 function getServerThemeSnapshot(): ThemeId {
-  return "paper";
+  // The document defaults to midnight before client storage is available.
+  return "midnight";
 }
 
 export function useCurrentTheme(): ThemeId {
