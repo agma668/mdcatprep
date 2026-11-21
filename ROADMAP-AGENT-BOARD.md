@@ -453,3 +453,11 @@ See `MEDICAL-BANK-AUDIT-2026-11-21.md` for the full reproducible findings and li
 - [ ] Extract the full PM&DC official syllabus into stable learning-outcome IDs; then map all existing questions and identify uncovered outcomes.
 
 **Current next action:** build the canonical PM&DC syllabus outcome map and coverage report. Do not bulk-generate more Physics/English or publish an inflated question count while the map is missing.
+
+
+## 2026-11-21 — Biology syllabus coverage mapping started
+
+- [x] Created `docs/PMDC-MDCAT-2025-BIOLOGY-MAP.md` containing the 16 official PM&DC Biology units and 69 paraphrased outcome IDs from the 2025 Uniform Curriculum.
+- [x] First-pass topic comparison shows eight units with no matching current bank topic label and 15 Ecology-tagged questions that need syllabus review. The other eight units have topic-level matches but no outcome-level proof yet.
+- [ ] Map all 171 current Biology questions to the 69 official outcome IDs and produce per-outcome coverage counts.
+- [ ] Draft and academically review original questions for uncovered outcomes before adding them to any student-visible bank.
