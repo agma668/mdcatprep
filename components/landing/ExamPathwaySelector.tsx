@@ -1,17 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useSyncExternalStore } from "react";
 import { Calculator, GraduationCap, ShieldCheck, Stethoscope } from "lucide-react";
 import {
   PREP_SPACES,
   type PrepSpaceCapability,
   type PrepSpaceDefinition,
 } from "@/lib/prep-space-registry";
-
-const STORAGE_KEY = "edweb:selected-prep-space:v1";
-const SELECTION_EVENT = "edweb:prep-space-selection-change";
-let currentSelectedSlug: string | null = null;
+import { selectPrepSpace, useSelectedPrepSpace } from "@/lib/prep-space-selection";
 
 const CATEGORY_LABELS: Record<PrepSpaceDefinition["category"], string> = {
   medical: "Medical",
@@ -42,51 +38,13 @@ const CAPABILITY_LABELS: Record<PrepSpaceCapability, string> = {
   verbal_nonverbal_drills: "Verbal & non-verbal drills",
 };
 
-function subscribeToSelectedPath(onStoreChange: () => void) {
-  window.addEventListener(SELECTION_EVENT, onStoreChange);
-  window.addEventListener("storage", onStoreChange);
-  return () => {
-    window.removeEventListener(SELECTION_EVENT, onStoreChange);
-    window.removeEventListener("storage", onStoreChange);
-  };
-}
-
-function getSelectedPathSnapshot() {
-  try {
-    const saved = window.sessionStorage.getItem(STORAGE_KEY);
-    if (saved && PREP_SPACES.some((space) => space.slug === saved)) return saved;
-  } catch {
-    // Browser storage is an enhancement, not a requirement.
-  }
-  return currentSelectedSlug;
-}
-
-function getServerSelectedPathSnapshot() {
-  return null;
-}
-
-function rememberPath(slug: string) {
-  currentSelectedSlug = slug;
-  try {
-    window.sessionStorage.setItem(STORAGE_KEY, slug);
-  } catch {
-    // The selector remains fully usable when browser storage is unavailable.
-  }
-  window.dispatchEvent(new Event(SELECTION_EVENT));
-}
-
 export function ExamPathwaySelector() {
-  const selectedSlug = useSyncExternalStore(
-    subscribeToSelectedPath,
-    getSelectedPathSnapshot,
-    getServerSelectedPathSnapshot,
-  );
-
-  const selected = PREP_SPACES.find((space) => space.slug === selectedSlug) ?? null;
+  const selected = useSelectedPrepSpace();
+  const selectedSlug = selected?.slug ?? null;
   const canEnter = Boolean(selected && selected.readiness === "beta" && selected.legacyRoute);
 
   function selectPath(space: (typeof PREP_SPACES)[number]) {
-    rememberPath(space.slug);
+    selectPrepSpace(space.slug);
   }
 
   return (
