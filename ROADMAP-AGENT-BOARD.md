@@ -400,3 +400,15 @@ Official PMDC's 2026 public notice now provides the exact paper profile: 180 MCQ
 - [ ] Add catalogue seed data only after exam blueprint readiness and official source review.
 - [ ] Implement goal-aware server actions, then add scoped progress columns without guessing legacy ownership.
 - [ ] Build reviewed question ingestion and entitlement-aware delivery; do not seed the current incomplete MDCAT bank as published.
+
+
+## Wave 1 foundation validation — 2026-11-21
+
+- [x] PR #23 goal-scoped public-sample delivery: CI run #47 passed. The implementation remains a server-only seam and is not wired into existing practice pages/actions; paid `goal_access` remains fail-closed.
+- [x] PR #22 ownership migration + all-PR workflow: CI run #46 passed; PR remains draft and awaits founder approval before merge.
+- [x] PR #24 trigger hardening: PGlite regression tests passed (4/4) in run #48, but the full run failed because the RLS suite could not find the ownership migration on the original base. PR #24 has been retargeted to PR #22's foundation branch; a fresh full CI run is still required before validation.
+- [ ] PR #16/#17 landing stack: no GitHub Actions runs were found for their current head commits. Confirm the intended integration base/workflow path and obtain full quality checks before treating the landing work as validated.
+- [ ] Leaked-password protection: dashboard setting remains unchanged; perform compatibility review and obtain explicit approval before enabling.
+- [ ] Production Supabase schema/data, Auth settings and deployments: unchanged; require separate explicit approval.
+
+**Current gate:** no merge or production action. Next engineering action is to ensure the retargeted PR #24 receives a fresh test/lint/typecheck run, then investigate why #16/#17 have no checks. Do not infer a passing gate from preview deployment status.
