@@ -252,3 +252,13 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - Added `/dashboard/goals` and its client: add multiple goals (exam + paper + optional target date), make primary, pause/resume, archive. Ownership and safe fields remain enforced by the database, not the UI. Sidebar and dashboard switcher now point to saved goals instead of implying a route change creates one.
 - Extended the PGlite RLS suite to 16 tests: the seed is applied twice, beta spaces are visible to anon, a goal can attach to a seeded active paper, and a draft space is rejected. `npm test` 89/89, tsc 0, eslint 0 on touched files, `next build` 0, `/dashboard/goals` returns 307 → `/login` logged out.
 - The catalogue migration is still **unapplied** and no production data or deployment was touched, so issue #2 is code-complete but not live-complete.
+
+
+## 2026-11-21 — Wave 1 CI dependency and validation record
+
+- Confirmed PR #22 CI run #46 passed all four gates: dependency installation, unit tests, ESLint and TypeScript. PR #22 remains draft/unmerged pending founder approval.
+- Confirmed PR #23 CI run #47 passed. Its goal-scoped public-sample delivery remains an unintegrated server-only seam; paid entitlement delivery remains fail-closed.
+- Inspected PR #24 run #48 logs: 77/78 tests passed; the four new trigger-security regression tests passed. The failure was the RLS suite's missing ownership migration file, and lint/typecheck were skipped. Retargeted PR #24 to PR #22's foundation branch. Fresh CI is required; do not mark validated yet.
+- Confirmed no workflow runs are associated with the current PR #16/#17 head commits. These remain unvalidated.
+- Updated `ROADMAP-AGENT-BOARD.md` with the verified states and next gates.
+- No merge, live Supabase migration, Auth setting change, production data change or deployment was performed.
