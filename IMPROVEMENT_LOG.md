@@ -353,3 +353,10 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - Why it matters: a permanent-free promise is a price the founder can never lower and a promise the product may have to break. The approved model is pricing-ready, exam-scoped access; the copy now matches it without claiming anything is already paid or locked.
 - Verified on the served HTML of `/`, `/signup`, `/pricing`, `/faq`, `/resources`, `/exams`, `/blog/mdcat-guide`, `/notes/biology`: no "free forever", "100% free", "completely free" remains; the only "no expiry" left is the qualified "no expiry while the beta runs".
 - Gates: tsc 0, eslint 0 errors on all 13 touched files, `next build` 0. No database, deployment, pricing or entitlement change; the access policy itself is still the founder's call.
+
+## 2026-11-21 — D16 measured: duplicate-based key recovery is a dead end (1 of 1,568)
+
+- Before building any key-recovery machinery, I measured the cheapest honest route: treat a question as recoverable only when its stem **and** all four options exactly match a question whose key is already known.
+- Result: **1 row** out of 1,568 key-less candidates — 1 of 341 in the pipeline tier (`ready.json` vs `needs_key.json`) and **0 of 1,227** across the parsed inbox files. The key-less questions are almost all single-source originals whose paper printed no key.
+- So D16 is closed on evidence rather than shipped half-built. Scoring those questions requires OCR of printed key pages (D14) or keys from the founder — not inference from option order and not a model re-solving the question, neither of which is evidence.
+- Measurement script kept with the pipeline tools: `data/MCQS_INBOX/_pipeline/measure_key_recovery.mjs` (untracked extracts folder, same as the other ingest scripts). No bank rows, database or deployment changed.
