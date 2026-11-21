@@ -438,3 +438,16 @@ Official PMDC's 2026 public notice now provides the exact paper profile: 180 MCQ
 - [ ] Leaked-password protection remains unchanged pending compatibility review and explicit approval. No production Supabase schema/data, Auth settings or deployment changes.
 
 **Current gate:** PR #24 CI is green. The landing workflow trigger and selector lint fix are committed across the stack; latest PR #16/#17 CI runs are still in progress. No merges or production actions were performed.
+
+
+## 2026-11-21 — Wave 1 follow-up: unified selection and theme stores
+
+- [x] PR #16 latest pathway head CI run #60 passed dependency installation, all 89 tests, ESLint and TypeScript. The earlier lint blocker in `ExamPathwaySelector` is fixed.
+- [x] PR #17 CI run #57 exposed three additional React effect/state lint errors in `ThemeSwitcher`, `PathAwareHeroCopy` and `PathAwareOverview`. Replaced the effect-based initialization with shared external stores using `useSyncExternalStore`.
+- [x] Added `lib/prep-space-selection.ts` as the single source for selected Prep Space state, sessionStorage persistence, validation and same-tab notifications. Updated selector, hero and overview to consume it; this also fixes their previously mismatched event names.
+- [x] Updated the theme provider/switcher to use an observable theme store and aligned the server snapshot with the default Midnight palette.
+- [ ] PR #17 latest head `95e1c21082236b7626f657fca9d8df9d41da7296`: new quality run #62 is queued; earlier run #61 is for the preceding shared-store commit and run #57 failed on the pre-fix components. Keep PR #17 draft until the latest run passes.
+- [x] PR #24 latest documentation/head CI run #58 passed all four gates.
+- [ ] Desktop/mobile browser QA, interaction verification and preview review remain outstanding for the landing stack.
+
+**Current gate:** PR #16 CI is green; PR #17's shared-store/theme fix is committed and awaiting latest CI run #62. PR #24 CI is green. No merges, production migrations, Auth changes or deployments were performed.
