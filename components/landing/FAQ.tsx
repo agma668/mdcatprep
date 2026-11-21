@@ -36,12 +36,12 @@ export const FAQS: FAQItem[] = [
   {
     question: "How is MED Prep different from a regular coaching academy?",
     answer:
-      "Unlike coaching academies that give the same notes to everyone, MED Prep personalises your practice to your weak areas. You get instant explanations after every question, can study at any time, track your exact progress, and access exam-style practice questions — completely free.",
+      "Unlike coaching academies that give the same notes to everyone, MED Prep personalises your practice to your weak areas. You get instant explanations after every question, can study at any time, track your exact progress, and access exam-style practice questions — free during the beta.",
   },
   {
     question: "Is everything really free?",
     answer:
-      "Yes. Everything on MED Prep is completely free — all practice MCQs, master notes, mock tests, progress tracking, and the WhatsApp community. No credit card, no trial period, no hidden charges. It is a community initiative to help students across Pakistan.",
+      "Yes, for now. During the beta the practice MCQs, master notes, mock tests, progress tracking and the WhatsApp community are free — no credit card, no trial period, no hidden charges. Apex is in beta, so if paid access is introduced later it will be announced before anything is locked. It is a community initiative to help students across Pakistan.",
   },
   {
     question: "Can I use MED Prep on my phone?",

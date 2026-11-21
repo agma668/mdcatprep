@@ -51,7 +51,7 @@ const FAQS = [
       },
       {
         q: "Is MED Prep really free?",
-        a: "Yes. The full question bank, study notes, progress dashboard, and WhatsApp group are completely free. There is no trial period, no credit card required, and no expiry. Premium one-on-one mentoring is available for Rs. 6,000 but is optional.",
+        a: "Yes, during the beta. The question bank, study notes, progress dashboard and WhatsApp group cost nothing: no trial period, no credit card, no expiry while the beta runs. If paid access is introduced later, it will be announced before anything is locked. Premium one-on-one mentoring is available for Rs. 6,000 but is optional.",
       },
       {
         q: "Who can use MED Prep?",

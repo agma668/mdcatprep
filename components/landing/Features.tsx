@@ -115,7 +115,7 @@ export function Features() {
             </h2>
             <p className="mx-auto max-w-2xl text-lg leading-relaxed text-[var(--steel-300)]">
               Structured MCQ practice, instant explanations, progress tracking, and live classes —
-              all completely free for every student.
+              all free for every student during the beta.
             </p>
           </div>
         </Reveal>

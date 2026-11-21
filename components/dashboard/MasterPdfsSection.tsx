@@ -43,7 +43,7 @@ export function MasterPdfsSection({ unlocked, joinedCount, goal, code, link, mas
 
   const shareOnWhatsApp = () => {
     const text = encodeURIComponent(
-      `🎓 Join me on MED Prep — a 100% free platform to help every student prepare for MDCAT & NUMS. Sign up with my link so we can grow together!\n${link}`
+      `🎓 Join me on MED Prep — free during beta, to help every student prepare for MDCAT & NUMS. Sign up with my link so we can grow together!\n${link}`
     );
     window.open(`https://wa.me/?text=${text}`, "_blank", "noopener,noreferrer");
   };
@@ -156,7 +156,7 @@ export function MasterPdfsSection({ unlocked, joinedCount, goal, code, link, mas
           </div>
 
           <p className="mt-4 text-sm text-[var(--color-text-muted)]">
-            Sharing costs nothing and helps a lot — this is a 100% free platform, made for
+            Sharing costs nothing and helps a lot — the platform is free during beta, made for
             every MDCAT aspirant in Pakistan. Grow together: when {goal} of your
             friends join, these Master Notes unlock for you. Keep sharing with friends so
             they can unlock theirs too. 🙌

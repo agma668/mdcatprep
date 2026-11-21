@@ -213,8 +213,8 @@ export default async function SubjectNotesPage({ params }: Props) {
               </h2>
               <p className="text-sm text-[var(--steel-300)] mb-6 max-w-md mx-auto">
                 {deepTopics > 0
-                  ? `${deepTopics} fact buckets on this page, and an exam-style ${subject.name} drill one click away — instant explanations, streaks, progress tracking. 100% free.`
-                  : `An exam-style ${subject.name} drill is one click away — instant explanations, streaks and progress tracking. 100% free.`}
+                  ? `${deepTopics} fact buckets on this page, and an exam-style ${subject.name} drill one click away — instant explanations, streaks, progress tracking. Free during beta.`
+                  : `An exam-style ${subject.name} drill is one click away — instant explanations, streaks and progress tracking. Free during beta.`}
               </p>
               <div className="flex flex-wrap gap-3 justify-center">
                 <Link

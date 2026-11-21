@@ -62,7 +62,7 @@ export default async function SignupPage({
           </h2>
           <p className="text-white/65 text-base leading-relaxed mb-10">
             Join students across Pakistan preparing for MDCAT, NUMS, NUST,
-            GIKI, LUMS, HEC USAT and PMA. Everything is 100% free.
+            GIKI, LUMS, HEC USAT and PMA. Preparation is free during the beta.
           </p>
 
           {/* Feature cards */}
@@ -136,7 +136,7 @@ export default async function SignupPage({
               Create your account
             </h1>
             <p className="text-[var(--color-text-secondary)] mt-2 text-sm">
-              Free forever. No credit card required.
+              Free during beta. No credit card required.
             </p>
           </div>
 

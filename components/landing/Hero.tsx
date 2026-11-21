@@ -144,7 +144,7 @@ export function Hero({
                 <Rocket aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-[var(--signal-300)]" />
                 <p className="text-base font-bold leading-snug text-[var(--steel-100)] sm:text-lg">
                   <span className="text-liquid-gold">Free MDCAT, USAT, PMA & NUST Prep Platform</span>
-                  {" "}&mdash; Access resources & entire platform 100% free.
+                  {" "}&mdash; Access resources & the platform free during beta.
                 </p>
               </div>
 
@@ -152,7 +152,7 @@ export function Hero({
                   insignia and for the word "free". */}
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--line-brass)] bg-[var(--tint-brass)] px-4 py-1.5">
                 <span className="h-1.5 w-1.5 rounded-full bg-[var(--brass)]" />
-                <span className="text-sm font-semibold text-[var(--champagne)]">100% Free — No hidden charges</span>
+                <span className="text-sm font-semibold text-[var(--champagne)]">Free during beta — no card, no hidden charges</span>
               </div>
 
               <div className="mb-6 flex justify-center lg:justify-start">

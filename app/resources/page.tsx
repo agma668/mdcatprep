@@ -239,7 +239,7 @@ export default function ResourcesPage() {
             <div>
               <h2 className="text-xl font-extrabold text-white mb-2">Our Free Study Material</h2>
               <p className="text-sm text-white/60 mb-6">
-                Built from the PMDC MDCAT syllabus and real past-paper patterns. Free, forever.
+                Built from the PMDC MDCAT syllabus and real past-paper patterns. Free during beta.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {OWN_RESOURCES.map((r) => <ResourceCard key={r.url} resource={r} />)}
@@ -259,7 +259,7 @@ export default function ResourcesPage() {
             <div className="bg-white/[0.06] border border-white/15 rounded-[var(--radius-xl)] p-8 text-center">
               <h2 className="text-xl font-bold text-white mb-3">Want More Organized Practice?</h2>
               <p className="text-sm text-white/70 mb-6 max-w-md mx-auto">
-                MED Prep has exam-style MCQs across Biology, Chemistry, Physics and English — with instant explanations, streaks and progress tracking. 100% free.
+                MED Prep has exam-style MCQs across Biology, Chemistry, Physics and English — with instant explanations, streaks and progress tracking. Free during beta.
               </p>
               <div className="flex flex-wrap gap-3 justify-center">
                 <Link href="/signup" className="inline-flex items-center gap-2 px-6 py-3 rounded-[var(--radius-md)] bg-[var(--color-accent)] text-[var(--color-text-inverse)] font-bold hover:bg-[var(--color-accent-light)] transition-colors">

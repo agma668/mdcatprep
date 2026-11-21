@@ -106,8 +106,8 @@ export default async function Home() {
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
             <div>
               <p className="inline-flex items-center gap-2 rounded-[var(--r-pill)] border border-[var(--line-2)] bg-[var(--srf-1)] px-3 py-1.5 text-sm text-[var(--steel-200)]">
-                <span className="font-semibold text-[var(--brass)]">100% free</span>
-                · no fees, no card, nothing locked
+                <span className="font-semibold text-[var(--brass)]">Free during beta</span>
+                · no fees, no card, nothing to unlock yet
               </p>
               <h1
                 style={display}

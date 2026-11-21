@@ -272,7 +272,7 @@ export default function MDCATGuidePage() {
                 </h2>
                 <p>
                   MED Prep has exam-style MCQs across all four subjects, full
-                  mock tests and master notes — free, forever. Sign up, take a
+                  mock tests and master notes — free during the beta. Sign up, take a
                   mock, and let the analytics tell you exactly where your next
                   marks are hiding.
                 </p>

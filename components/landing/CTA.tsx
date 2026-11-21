@@ -37,7 +37,7 @@ export function CTA() {
         <Reveal direction="up" distance={20} duration={520}>
           <div className="mb-10 text-center">
             {/* Signal, not brass. The headline directly below already spends
-                the medal metal on the words "100% Free", and two brass things
+                the medal metal on its own phrase, and two brass things
                 stacked in one band is how brass stopped meaning anything on the
                 old site. The chip keeps its copy and gives up the metal. */}
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--line-signal)] bg-[var(--tint-signal)] px-5 py-2">
@@ -51,12 +51,12 @@ export function CTA() {
               className="mb-5 text-3xl text-[var(--steel-100)] sm:text-4xl md:text-5xl"
             >
               Everything Is{' '}
-              <span className="text-liquid-gold">100% Free</span>
+              <span className="text-liquid-gold">Free During Beta</span>
             </h2>
             <p className="mx-auto max-w-2xl text-xl leading-relaxed text-[var(--steel-300)]">
               MCQ practice, study notes, progress tracking, and live WhatsApp classes with teachers —
-              all completely free for every student preparing for MDCAT, NUMS and medical entrance tests.
-              No credit card, no trial, no hidden charges.
+              free while the platform is in beta for every student preparing for MDCAT, NUMS and
+              medical entrance tests. No credit card, no trial, no hidden charges.
             </p>
           </div>
         </Reveal>

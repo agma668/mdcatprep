@@ -95,12 +95,12 @@ export function WhatsAppSharePopup({ questionsAnswered, streak, accuracy }: Prop
       ? `${joinedCount} student${joinedCount !== 1 ? "s have" : " has"} already joined\n\n`
       : "";
   const msg =
-    `🎓 I'm using MED Prep to prepare for my MDCAT & NUMS entry test — and it's completely free!\n\n` +
+    `🎓 I'm using MED Prep to prepare for my MDCAT & NUMS entry test — free during beta!\n\n` +
     statsLine +
     socialProofLine +
     `Share it with 5 friends preparing for MDCAT, NUMS or any medical entrance test:\n\n` +
     `${url}\n\n` +
-    `100% free. Help more students succeed! 🇵🇰`;
+    `Free during beta. Help more students succeed! 🇵🇰`;
   const href = `https://wa.me/?text=${encodeURIComponent(msg)}`;
 
   return (

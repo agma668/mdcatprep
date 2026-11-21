@@ -107,7 +107,7 @@ export function RegisterSection({ mcqs, subjects }: { mcqs: number; subjects: nu
                   <div className="mb-6">
                     <h3 className="mb-1 text-xl text-[var(--steel-100)]">Create your account</h3>
                     <p className="text-sm text-[var(--steel-400)]">
-                      Free forever. No credit card required.
+                      Free during beta. No credit card required.
                     </p>
                   </div>
 
