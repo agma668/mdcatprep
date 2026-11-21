@@ -400,3 +400,72 @@ Official PMDC's 2026 public notice now provides the exact paper profile: 180 MCQ
 - [ ] Add catalogue seed data only after exam blueprint readiness and official source review.
 - [ ] Implement goal-aware server actions, then add scoped progress columns without guessing legacy ownership.
 - [ ] Build reviewed question ingestion and entitlement-aware delivery; do not seed the current incomplete MDCAT bank as published.
+
+
+## 2026-11-21 — Founder direction: medical-only execution priority
+
+**Priority decision:** until the medical Prep Space passes its content and core-workflow release gates, all new product, question-bank, learning-engine, design and SEO execution is focused on medical entrance preparation. This is a sequencing decision, not deletion or cancellation of other exam work.
+
+### Active scope
+1. PM&DC MDCAT is the flagship and first complete Prep Space. Provincial conducting bodies/regions are metadata where the national paper is the same.
+2. NUMS MDCAT is the second medical Prep Space and must retain its own official syllabus, paper structure, question mappings, mocks and progress.
+3. Medical admission guidance/calculators may support these two spaces only when their formulas and sources are verified.
+
+### Parked scope
+- No new engineering/NUST/GIKI/LUMS, PMA/ISSB or general USAT expansion during this wave. Preserve existing work and routes; do not break or delete them.
+- HEC Balochistan/Ex-FATA scholarship pre-medical is a separate assessment and needs a separate scope decision before inclusion.
+- MBBS clinical learning is post-admission education and remains separate from entrance preparation.
+
+### Evidence and constraints
+- Created `MEDICAL-CONTENT-AGENT-BOARD.md` as the detailed content factory and execution queue.
+- PM&DC official listing currently exposes the 2025 uniform curriculum; its 19 May 2026 notice applied that syllabus to MDCAT-2026. The 2026 pattern is 180 MCQs / 180 minutes / no negative marking: Bio 81, Chem 45, Physics 36, English 9, Logical Reasoning 9; difficulty 15/70/15. Do not assert a 2027 blueprint until PM&DC publishes it.
+- NUMS official 2026 syllabus is separate: Paper-I 150 MCQs / 165 minutes (Bio 55, Chem 40, Physics 40, English 15) plus Paper-II 50 psychological MCQs / 15 minutes; total 200. Difficulty 20/60/20; Bio/Chem/Physics 70% recall and 30% application. Do not assume 2027 rules remain unchanged.
+- Static source scan found 163 Biology, 179 Chemistry, 305 Physics, 172 English and 70 `PAST_PAPER_BANK` keyed records (889 in total). This is an internal provisional count, not a marketing number: reconcile with runtime `MDCAT_QUESTIONS.length`, duplicates and the stale 40-vs-70 comment in `lib/past-paper-bank.ts` before publishing a count.
+- The flashcard source has 356 literal card IDs in a static scan; verify actual unique/reviewed cards. The NUMS psychological bank has only three scenario records in source and is not a complete Paper-II bank.
+- Last recorded live Supabase read (2026-11-08) found `public.questions` empty. Re-check read-only; do not run the legacy production seed script. No production schema/data or Auth setting changes are authorized by this priority decision.
+
+### Ordered execution queue
+1. M1: exact bank/corpus inventory, structural + duplicate audit, official syllabus learning-outcome map, source/provenance review and answer-key audit.
+2. M2: expand PM&DC question coverage only where the audit proves gaps; preserve aggregate difficulty and paper subject balance.
+3. M3: make practice, attempts, bookmarks, mistakes and progress reliable and goal-scoped; replace empty-database dependency with a reviewed safe ingestion/delivery path.
+4. M4: build and verify the true PM&DC 180-question mock and chapter/topic study loop.
+5. M5: finish notes, flashcards, topicals, released-paper library and revision tools against the same syllabus map.
+6. M6: build NUMS as a separate, blueprint-accurate medical Prep Space.
+7. M7: responsive, accessibility, low-bandwidth, academic and release QA.
+
+**Release rule:** do not chase a huge public question counter. First make every syllabus outcome discoverable and practiseable; then expand with distinct, reviewed variants. All non-medical expansion stays parked until the medical release gate is met.
+
+
+## 2026-11-21 — Medical M1 content audit findings
+
+See `MEDICAL-BANK-AUDIT-2026-11-21.md` for the full reproducible findings and limitations.
+
+- [x] Parsed all five current MCQ source arrays: 889 records total (Biology 163, Chemistry 179, Physics 305, English 172, `PAST_PAPER_BANK` 70).
+- [x] Structural scan: no missing key/subject/topic/stem/options/answer/explanation; no duplicate stable keys; no exact duplicate full items.
+- [x] Found six repeated-stem groups: four concept-level repeats need review; two generic spelling templates have different options and require educational-value review, not automatic deletion.
+- [x] Measured subject distribution: Biology 171 (19.2%), Chemistry 187 (21.0%), Physics 313 (35.2%), English 180 (20.2%), Logical Reasoning 38 (4.3%). Compared with PM&DC 2026 paper weights, the bank is over-weighted in Physics/English and under-weighted in Biology/Chemistry/LR. Biology is the first expansion priority.
+- [x] Measured difficulty: Easy 362 (40.7%), Moderate 411 (46.2%), Hard 116 (13.1%); the aggregate bank does not reflect PM&DC's 15/70/15 profile. Review labels and expand moderate/application/difficult coverage.
+- [x] Measured correct-option position: A 168, B 403, C 219, D 99. B is overrepresented and D underrepresented; rebalance only after answer verification, moving option text and answer key together.
+- [x] Found topic/taxonomy drift: current bank has 9 Biology, 10 Chemistry, 14 Physics, 5 English and 10 Logical Reasoning topic labels; 8 taxonomy labels and 6 bank topic labels do not match exactly. A canonical outcome map and aliases are required.
+- [x] Provenance check: none of the 889 records has a `pastPaper` metadata object; `PAST_PAPER_BANK` is original exam-style content despite its filename. Its header says 40 records while 70 were parsed. The actual released-paper registry is `lib/past-papers.ts`.
+- [ ] Independently verify answer keys, explanations, distractors and permissions; structural validity is not academic correctness.
+- [ ] Parse the large topicals/knowledge-base/OCR corpus and map all source items to outcomes before counting them.
+- [ ] Extract the full PM&DC official syllabus into stable learning-outcome IDs; then map all existing questions and identify uncovered outcomes.
+
+**Current next action:** build the canonical PM&DC syllabus outcome map and coverage report. Do not bulk-generate more Physics/English or publish an inflated question count while the map is missing.
+
+
+## 2026-11-21 — Biology syllabus coverage mapping started
+
+- [x] Created `docs/PMDC-MDCAT-2025-BIOLOGY-MAP.md` containing the 16 official PM&DC Biology units and 69 paraphrased outcome IDs from the 2025 Uniform Curriculum.
+- [x] First-pass topic comparison shows eight units with no matching current bank topic label and 15 Ecology-tagged questions that need syllabus review. The other eight units have topic-level matches but no outcome-level proof yet.
+- [ ] Map all 171 current Biology questions to the 69 official outcome IDs and produce per-outcome coverage counts.
+- [ ] Draft and academically review original questions for uncovered outcomes before adding them to any student-visible bank.
+
+
+## 2026-11-21 — First PM&DC Biology gap batch drafted
+
+- [x] Created a draft-only batch of 28 original Biology MCQs for currently under-mapped units in `data/drafts/medical/pmdc-biology-gap-batch-001.json`.
+- [x] Mapped the batch to 22 PM&DC Biology learning outcomes; schema validation passed 28/28, with no duplicate keys/stems, 4 distinct options per item, explanation and three distractor rationales.
+- [x] Balanced correct-answer positions 7 each across A/B/C/D; difficulty is 4 easy / 20 moderate / 4 hard.
+- [ ] Academic review and source verification remain mandatory. Draft questions are not imported or student-visible.
