@@ -166,3 +166,25 @@ Do not merge or promote this work until all of the following are true:
 - No production data/schema, billing or paid infrastructure has been changed without explicit approval.
 
 **Current status:** not student-launch-ready. The immediate priority is trustworthy content identity and goal-scoped persistence, not adding more features or more portals.
+
+
+## 2026-11-21 — Medical-only priority reset
+
+Founder direction: maximize the medical preparation experience first. All new work on other exam families is parked until the medical release gate passes; existing routes/work are preserved.
+
+**Priority:** PM&DC MDCAT first, NUMS MDCAT second. PM&DC regional conducting bodies remain metadata where the same national blueprint applies. NUMS has a separate official 2026 syllabus and paper profile. HEC Balochistan/Ex-FATA scholarship pre-medical remains separate and is not silently included. MBBS clinical learning is a separate post-admission product.
+
+### Immediate next steps
+1. Use `MEDICAL-CONTENT-AGENT-BOARD.md` as the content source of truth.
+2. Produce a complete source inventory for current subject banks, topicals, flashcards, past-paper records, OCR corpora and NUMS material.
+3. Run the full structural audit; resolve the 40-vs-70 comment discrepancy in `lib/past-paper-bank.ts`; compute exact runtime totals and exact/near duplicate candidates.
+4. Parse the official PM&DC syllabus into stable learning-outcome IDs and map every existing question. Keep 2027 status pending until PM&DC publishes it.
+5. Independently verify answer keys and explanations in reviewable batches. No OCR/AI output auto-publishes.
+6. Only after the gap report, expand question batches for uncovered outcomes and underrepresented skills. Balance the aggregate PM&DC pool to the verified paper profile; don't generate paraphrase clones to inflate totals.
+7. Repair the canonical question ingestion/delivery/attempt pipeline on a test environment before any production import.
+8. After PM&DC is reliable, build the separate NUMS 2026 blueprint and review its psychological-test content against the official document.
+
+### Current provisional source baseline
+A static scan found 889 literal keyed records across the five core source arrays (163 Bio, 179 Chem, 305 Physics, 172 English, 70 in `PAST_PAPER_BANK`) and 356 literal flashcard IDs. These are not public counts; runtime totals, duplicates, syllabus mapping and academic review remain to be checked. The raw knowledge-base and topicals files are large and need full inventory before they are counted as approved questions.
+
+Official references and the verified 2026 profiles are recorded in `MEDICAL-CONTENT-AGENT-BOARD.md`. No production database writes, migrations, Auth changes, billing or deployments are authorized by this planning update.
