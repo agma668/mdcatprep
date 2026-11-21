@@ -424,3 +424,17 @@ Official PMDC's 2026 public notice now provides the exact paper profile: 180 MCQ
 - [ ] Production Supabase schema/data, Auth settings and deployments: unchanged; require separate explicit approval.
 
 **Current gate:** PR #24's full CI is green. Landing-stack workflow configuration is repaired on all three branches, but #16/#17 remain unvalidated until GitHub Actions runs are observed. No merges, production migrations, Auth changes or deployments were performed.
+
+
+## 2026-11-21 — Wave 1 follow-up: selector lint fix and branch-push CI
+
+- [x] PR #24 trigger hardening: latest branch CI run #54 passed dependency installation, all tests, ESLint and TypeScript.
+- [x] Landing-stack workflow now runs on unfiltered `pull_request` and `push` events in all three stack branches. This closes the feature-branch trigger gap and ensures subsequent branch pushes are checked.
+- [x] Fixed `components/landing/ExamPathwaySelector.tsx`: replaced synchronous state restoration inside `useEffect` with `useSyncExternalStore` backed by validated sessionStorage and a same-tab change event. This preserves tab-level path restoration without the React hooks lint error.
+- [x] Carried the selector fix into both PR #16's pathway branch and PR #17's editorial branch so the stacked diff does not reintroduce the lint failure.
+- [ ] PR #16 latest head push run #56: tests/lint/typecheck still running at this update. Earlier run #55 passed all three gates, but it predates the latest workflow commit.
+- [ ] PR #17 latest head push run #57: tests/lint/typecheck still running at this update. Earlier run #53 failed ESLint on the pre-fix selector; do not count that as current validation.
+- [ ] Desktop/mobile browser QA and full preview review remain outstanding; keep PR #16/#17 draft.
+- [ ] Leaked-password protection remains unchanged pending compatibility review and explicit approval. No production Supabase schema/data, Auth settings or deployment changes.
+
+**Current gate:** PR #24 CI is green. The landing workflow trigger and selector lint fix are committed across the stack; latest PR #16/#17 CI runs are still in progress. No merges or production actions were performed.
