@@ -198,3 +198,14 @@ See `MEDICAL-BANK-AUDIT-2026-11-21.md` for the full static-audit findings and li
 - [ ] Extract the full PM&DC official syllabus into stable learning-outcome IDs; then map all existing questions and identify uncovered outcomes.
 
 **Current next action:** build the canonical PM&DC syllabus outcome map and coverage report. Do not bulk-generate more Physics/English or publish an inflated question count while the map is missing.
+
+
+## Wave M1 progress — PM&DC Biology map drafted (2026-11-21)
+
+- [x] Created `docs/PMDC-MDCAT-2025-BIOLOGY-MAP.md` with all 16 official Biology units and 69 paraphrased learning-outcome IDs, preserving the official numbering for traceability.
+- [x] Compared the existing Biology topic labels to the 16 units: eight units have no matching topic label (Acellular Life, Enzymes, Evolution, Circulation, Immunity, Respiration, Digestion, Biotechnology). Eight units have plausible topic labels but still need outcome-level mapping.
+- [x] Identified 15 Biology questions labelled Ecology that do not map to a named unit in the current PM&DC 2025 Biology section; hold them out of PM&DC mock pools until reviewed.
+- [ ] Map all 171 existing Biology questions to exact outcome IDs; topic labels alone are insufficient.
+- [ ] Review answer keys/explanations, then draft original batches for uncovered units. Keep all new questions in draft until academic review.
+
+Next: complete the question-to-outcome coverage matrix, then start with the eight uncovered Biology units. Do not bulk-add to already-heavy Physics/English pools.
