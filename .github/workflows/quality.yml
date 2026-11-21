@@ -5,7 +5,6 @@ on:
   # Keep this workflow in each target branch so GitHub evaluates its PR event.
   pull_request:
   push:
-    branches: [main]
 
 permissions:
   contents: read
