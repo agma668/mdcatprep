@@ -188,3 +188,10 @@ Founder direction: maximize the medical preparation experience first. All new wo
 A static scan found 889 literal keyed records across the five core source arrays (163 Bio, 179 Chem, 305 Physics, 172 English, 70 in `PAST_PAPER_BANK`) and 356 literal flashcard IDs. These are not public counts; runtime totals, duplicates, syllabus mapping and academic review remain to be checked. The raw knowledge-base and topicals files are large and need full inventory before they are counted as approved questions.
 
 Official references and the verified 2026 profiles are recorded in `MEDICAL-CONTENT-AGENT-BOARD.md`. No production database writes, migrations, Auth changes, billing or deployments are authorized by this planning update.
+
+
+## M1 audit result — 2026-11-21
+
+The five current MCQ arrays contain 889 parsed records: Biology 171, Chemistry 187, Physics 313, English 180 and Logical Reasoning 38. Structural scan found no missing fields, duplicate keys or exact full-item duplicates; it did find four concept-level repeated stems and two repeated spelling templates. Difficulty mix is 40.7% easy / 46.2% moderate / 13.1% hard, versus the PM&DC 2026 aggregate 15/70/15. Correct answer position B is 45.3% and D 11.1%. Biology is underweighted relative to the paper and is the first expansion priority; Physics and English already dominate the pool. Taxonomy mapping is incomplete and the past-paper-bank filename is misleading: its 70 items are original exam-style content, not tagged PYQs. Full details: `MEDICAL-BANK-AUDIT-2026-11-21.md`.
+
+**Next:** create stable PM&DC learning-outcome IDs and map every existing item before authoring bulk additions. Independently verify answer keys and provenance; do not treat this static structural scan as academic QA.
