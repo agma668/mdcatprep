@@ -1,15 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useSelectedPrepSpace } from "@/lib/prep-space-selection";
 import {
   PREP_SPACES,
   type PrepSpaceCapability,
   type PrepSpaceDefinition,
 } from "@/lib/prep-space-registry";
 
-const STORAGE_KEY = "edweb:selected-prep-space:v1";
-const EVENT_NAME = "edweb:prep-space-selected";
 
 const CAPABILITY_DETAILS: Record<PrepSpaceCapability, { title: string; detail: string }> = {
   mcq_practice: { title: "Question practice", detail: "Work through focused questions where the bank is available." },
@@ -26,27 +24,8 @@ const READINESS: Record<PrepSpaceDefinition["readiness"], string> = {
   coming_soon: "Coming soon",
 };
 
-function getSavedSpace() {
-  try {
-    const slug = window.sessionStorage.getItem(STORAGE_KEY);
-    return PREP_SPACES.find((space) => space.slug === slug) ?? null;
-  } catch {
-    return null;
-  }
-}
-
 export function PathAwareOverview() {
-  const [selected, setSelected] = useState<(typeof PREP_SPACES)[number] | null>(null);
-
-  useEffect(() => {
-    setSelected(getSavedSpace());
-    const handleSelection = (event: Event) => {
-      const custom = event as CustomEvent<string>;
-      setSelected(PREP_SPACES.find((space) => space.slug === custom.detail) ?? null);
-    };
-    window.addEventListener(EVENT_NAME, handleSelection);
-    return () => window.removeEventListener(EVENT_NAME, handleSelection);
-  }, []);
+  const selected = useSelectedPrepSpace();
 
   if (!selected) {
     return (
