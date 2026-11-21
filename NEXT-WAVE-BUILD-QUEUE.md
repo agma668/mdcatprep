@@ -200,3 +200,8 @@ The five current MCQ arrays contain 889 parsed records: Biology 171, Chemistry 1
 ## Biology syllabus map — first M1 deliverable
 
 Created `docs/PMDC-MDCAT-2025-BIOLOGY-MAP.md` with 16 PM&DC Biology units and 69 paraphrased learning-outcome IDs. Eight units have no matching current bank topic label; 15 Ecology-tagged items need official-syllabus review. Topic-level matches do not prove outcome coverage. Next: map all 171 existing Biology questions to exact outcomes, then draft/review original questions for uncovered outcomes.
+
+
+## First draft content batch — 2026-11-21
+
+Created `data/drafts/medical/pmdc-biology-gap-batch-001.json` with 28 original MCQs for under-mapped PM&DC Biology units, linked to 22 official outcome IDs. Static JSON validation passed: all keys/stems unique, all four options distinct, valid answer letters, explanations and distractor rationales present; answer positions are balanced 7 each; difficulty mix is 4 easy / 20 moderate / 4 hard. **These remain drafts only.** Academic verification, reviewer evidence and approval are outstanding; do not import or show them to students yet.
