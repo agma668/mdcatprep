@@ -209,3 +209,14 @@ See `MEDICAL-BANK-AUDIT-2026-11-21.md` for the full static-audit findings and li
 - [ ] Review answer keys/explanations, then draft original batches for uncovered units. Keep all new questions in draft until academic review.
 
 Next: complete the question-to-outcome coverage matrix, then start with the eight uncovered Biology units. Do not bulk-add to already-heavy Physics/English pools.
+
+
+## Wave M2 started — first Biology gap batch drafted (2026-11-21)
+
+- [x] Created `data/drafts/medical/pmdc-biology-gap-batch-001.json`: 28 original MCQs across the eight under-mapped PM&DC Biology units, mapped to 22 learning outcomes.
+- [x] Draft batch structural validation: 28/28 valid schema fields, unique keys, unique stems, four distinct options, answer key, explanation and all three distractor rationales. Correct-answer positions are balanced 7/7/7/7; difficulty is 4 easy / 20 moderate / 4 hard (close to the PM&DC aggregate 15/70/15 profile).
+- [ ] Academic reviewer must independently verify all 28 answers, explanations, distractors and syllabus mappings. Structural validation is not academic approval.
+- [ ] Add reviewer identity/date, evidence and approval state; only then can approved items be considered for the student bank.
+- [ ] Extend the batch to outcomes not yet represented and map existing bank questions before treating any unit as complete.
+
+**Important:** these 28 questions are draft-only JSON under `data/drafts/`; no application code imports them, no student-facing bank changed, and no production database import occurred.
