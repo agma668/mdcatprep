@@ -1,28 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { PREP_SPACES } from "@/lib/prep-space-registry";
-
-const STORAGE_KEY = "edweb:selected-prep-space:v1";
-const EVENT_NAME = "edweb:prep-space-selected";
+import { useSelectedPrepSpace } from "@/lib/prep-space-selection";
 
 export function PathAwareHeroCopy() {
-  const [selected, setSelected] = useState<(typeof PREP_SPACES)[number] | null>(null);
+  const selected = useSelectedPrepSpace();
 
-  useEffect(() => {
-    try {
-      const slug = window.sessionStorage.getItem(STORAGE_KEY);
-      setSelected(PREP_SPACES.find((space) => space.slug === slug) ?? null);
-    } catch {
-      setSelected(null);
-    }
-
-    const handleSelection = (event: Event) => {
-      const custom = event as CustomEvent<string>;
-      setSelected(PREP_SPACES.find((space) => space.slug === custom.detail) ?? null);
-    };
-    window.addEventListener(EVENT_NAME, handleSelection);
-    return () => window.removeEventListener(EVENT_NAME, handleSelection);
+  return () => window.removeEventListener(EVENT_NAME, handleSelection);
   }, []);
 
   return (
