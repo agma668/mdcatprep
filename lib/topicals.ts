@@ -59,6 +59,21 @@ export function isSetChapter(title: string): boolean {
   );
 }
 
+/**
+ * Two banks sometimes name the same chapter differently. Left alone, each spelling became its own
+ * page, and two spellings that slug the same ("Work And Energy" / "Work and Energy") collided on one
+ * URL, so the page showed only whichever was listed first and the rest of the questions were
+ * unreachable. Chapters are therefore grouped by slug, and true synonyms are folded in here.
+ */
+const CHAPTER_ALIAS: Record<string, string> = {
+  'Biology|Genetics': 'Inheritance',
+};
+
+/** The chapter name a question is served under, after synonyms are folded together. */
+export function resolveChapter(subject: string, chapter: string): string {
+  return CHAPTER_ALIAS[`${subject}|${chapter}`] ?? chapter;
+}
+
 function buildSubjects(): TopicSubject[] {
   const order = [
     { name: 'Biology', icon: '🧬' },
@@ -68,12 +83,17 @@ function buildSubjects(): TopicSubject[] {
   const subjects: TopicSubject[] = [];
   for (const s of order) {
     const rows = BANK.filter((q) => q.subject === s.name);
-    const chapterMap = new Map<string, number>();
+    // Keyed by slug, so "Work And Energy" and "Work and Energy" are one chapter, not two.
+    const chapterMap = new Map<string, { title: string; count: number }>();
     for (const q of rows) {
-      chapterMap.set(q.chapter, (chapterMap.get(q.chapter) ?? 0) + 1);
+      const title = resolveChapter(q.subject, q.chapter);
+      const slug = topicSlug(title);
+      const entry = chapterMap.get(slug);
+      if (entry) entry.count += 1;
+      else chapterMap.set(slug, { title, count: 1 });
     }
     const all: TopicChapter[] = [...chapterMap.entries()]
-      .map(([title, count]) => ({ slug: topicSlug(title), title, count }))
+      .map(([slug, { title, count }]) => ({ slug, title, count }))
       .sort((a, b) => b.count - a.count || a.title.localeCompare(b.title));
     subjects.push({
       slug: topicSlug(s.name),
@@ -120,8 +140,12 @@ export function topicalChapter(
     subject.chapters.find((c) => c.slug === chapterSlug) ??
     subject.sets.find((c) => c.slug === chapterSlug);
   if (!chapter) return null;
+  // Compared by slug, not title: the two banks spell some chapters differently and the page must
+  // hold every question filed under any spelling of that chapter.
   const questions = BANK.filter(
-    (q) => q.subject === subject.name && q.chapter === chapter.title
+    (q) =>
+      q.subject === subject.name &&
+      topicSlug(resolveChapter(q.subject, q.chapter)) === chapter.slug
   );
   return { subject, chapter, questions };
 }

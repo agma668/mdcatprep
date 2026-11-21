@@ -338,3 +338,10 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - Published this way: 1,015 parsed inbox rows (SET 1 TEST, PHYSICS COMPILED, the worksheets) and 338 public `needs_key` rows that already had four clean options — **1,353 more studyable questions**. Site bank 5,389 → **6,742**: 3,721 curated + 926 founder keyed + 742 pipeline keyed + 1,353 practice-only.
 - Board: **D13 closed**; D14 (OCR the 44 image-only PDFs), D15 (chapter taxonomy split) and D16 (key recovery) stay open with their real blockers recorded.
 - Gates: tsc 0, eslint 0 on the touched files, `next build` 0, and a live run in the browser on `/topicals/physics/mixed-bank` confirming the practice-only message and the disabled options. No database contact, no deployment, no push.
+
+## 2026-11-21 — D15: one page per chapter, and 24 unreachable questions found
+
+- The two banks spell one Physics chapter differently (`Work And Energy` in the curated bank, `Work and Energy` in the pipeline bank). Both slugged to `/topicals/physics/work-and-energy`, so the hub listed two entries with the same URL and the page rendered only whichever came first — 24 questions existed in the bank and could not be reached by anyone. Chapters are now grouped by slug with their counts summed, and the page filter matches questions by slug rather than by exact title: the page went 86 → 110.
+- `Biology|Genetics` is folded into `Inheritance` through one explicit alias map, because both name the same MDCAT chapter: 85 → 147 questions on that page. Nothing else was renamed by guesswork; the deeper re-filing ("Cell Biology" vs "Acellular Life", "Force And Motion" vs "Kinematics"/"Dynamics") needs a syllabus decision and stays with the roadmap's syllabus-map item.
+- Added a verifier (`data/MCQS_INBOX/_pipeline/verify_pages.mjs`) that compares every hub entry's count with the count its own page renders. It covers this whole bug class: **63 pages checked, 0 mismatches**.
+- Gates: tsc 0, eslint 0, `next build` 0, and the hub/page check above against the running dev server. No database contact, no deployment, no push.
