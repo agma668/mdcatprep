@@ -412,3 +412,15 @@ Official PMDC's 2026 public notice now provides the exact paper profile: 180 MCQ
 - [ ] Production Supabase schema/data, Auth settings and deployments: unchanged; require separate explicit approval.
 
 **Current gate:** no merge or production action. Next engineering action is to ensure the retargeted PR #24 receives a fresh test/lint/typecheck run, then investigate why #16/#17 have no checks. Do not infer a passing gate from preview deployment status.
+
+
+## 2026-11-21 — Wave 1 follow-up: CI retarget and landing-stack workflow repair
+
+- [x] PR #24 trigger hardening: retargeted to `fix/rls-goals-migration-ci-dependency`; fresh GitHub Actions run #50 passed dependency installation, all tests, ESLint and TypeScript. The earlier run #48 failure is superseded; PR #24 is validated by CI but remains draft/unmerged.
+- [x] Confirmed landing PR stack: #16 targets `apex/design-prep-space-discovery` from `apex/design-pathway-landing-onboarding`; #17 targets `apex/design-pathway-landing-onboarding` from `apex/design-editorial-landing`.
+- [x] Fixed `.github/workflows/quality.yml` in all three landing-stack branches so `pull_request` is not restricted to `main`. Commits: discovery `ffc68e5b8e94a33a8b9845aa2d6b5186e8cf3392`; pathway `23049ccf7c522189bde0f0a023d9acb392a6016b`; editorial `0a25038b2b4c5924e79c0c832473740b98c951f1`.
+- [ ] PR #16/#17 quality checks: no Actions runs were visible for the new head commits at the time of this update. Do not treat workflow-file repair as validation; obtain and inspect fresh full checks before moving either PR out of draft.
+- [ ] Leaked-password protection: dashboard setting remains unchanged; perform compatibility review and obtain explicit approval before enabling.
+- [ ] Production Supabase schema/data, Auth settings and deployments: unchanged; require separate explicit approval.
+
+**Current gate:** PR #24's full CI is green. Landing-stack workflow configuration is repaired on all three branches, but #16/#17 remain unvalidated until GitHub Actions runs are observed. No merges, production migrations, Auth changes or deployments were performed.
