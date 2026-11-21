@@ -400,3 +400,37 @@ Official PMDC's 2026 public notice now provides the exact paper profile: 180 MCQ
 - [ ] Add catalogue seed data only after exam blueprint readiness and official source review.
 - [ ] Implement goal-aware server actions, then add scoped progress columns without guessing legacy ownership.
 - [ ] Build reviewed question ingestion and entitlement-aware delivery; do not seed the current incomplete MDCAT bank as published.
+
+
+## 2026-11-21 — Founder direction: medical-only execution priority
+
+**Priority decision:** until the medical Prep Space passes its content and core-workflow release gates, all new product, question-bank, learning-engine, design and SEO execution is focused on medical entrance preparation. This is a sequencing decision, not deletion or cancellation of other exam work.
+
+### Active scope
+1. PM&DC MDCAT is the flagship and first complete Prep Space. Provincial conducting bodies/regions are metadata where the national paper is the same.
+2. NUMS MDCAT is the second medical Prep Space and must retain its own official syllabus, paper structure, question mappings, mocks and progress.
+3. Medical admission guidance/calculators may support these two spaces only when their formulas and sources are verified.
+
+### Parked scope
+- No new engineering/NUST/GIKI/LUMS, PMA/ISSB or general USAT expansion during this wave. Preserve existing work and routes; do not break or delete them.
+- HEC Balochistan/Ex-FATA scholarship pre-medical is a separate assessment and needs a separate scope decision before inclusion.
+- MBBS clinical learning is post-admission education and remains separate from entrance preparation.
+
+### Evidence and constraints
+- Created `MEDICAL-CONTENT-AGENT-BOARD.md` as the detailed content factory and execution queue.
+- PM&DC official listing currently exposes the 2025 uniform curriculum; its 19 May 2026 notice applied that syllabus to MDCAT-2026. The 2026 pattern is 180 MCQs / 180 minutes / no negative marking: Bio 81, Chem 45, Physics 36, English 9, Logical Reasoning 9; difficulty 15/70/15. Do not assert a 2027 blueprint until PM&DC publishes it.
+- NUMS official 2026 syllabus is separate: Paper-I 150 MCQs / 165 minutes (Bio 55, Chem 40, Physics 40, English 15) plus Paper-II 50 psychological MCQs / 15 minutes; total 200. Difficulty 20/60/20; Bio/Chem/Physics 70% recall and 30% application. Do not assume 2027 rules remain unchanged.
+- Static source scan found 163 Biology, 179 Chemistry, 305 Physics, 172 English and 70 `PAST_PAPER_BANK` keyed records (889 in total). This is an internal provisional count, not a marketing number: reconcile with runtime `MDCAT_QUESTIONS.length`, duplicates and the stale 40-vs-70 comment in `lib/past-paper-bank.ts` before publishing a count.
+- The flashcard source has 356 literal card IDs in a static scan; verify actual unique/reviewed cards. The NUMS psychological bank has only three scenario records in source and is not a complete Paper-II bank.
+- Last recorded live Supabase read (2026-11-08) found `public.questions` empty. Re-check read-only; do not run the legacy production seed script. No production schema/data or Auth setting changes are authorized by this priority decision.
+
+### Ordered execution queue
+1. M1: exact bank/corpus inventory, structural + duplicate audit, official syllabus learning-outcome map, source/provenance review and answer-key audit.
+2. M2: expand PM&DC question coverage only where the audit proves gaps; preserve aggregate difficulty and paper subject balance.
+3. M3: make practice, attempts, bookmarks, mistakes and progress reliable and goal-scoped; replace empty-database dependency with a reviewed safe ingestion/delivery path.
+4. M4: build and verify the true PM&DC 180-question mock and chapter/topic study loop.
+5. M5: finish notes, flashcards, topicals, released-paper library and revision tools against the same syllabus map.
+6. M6: build NUMS as a separate, blueprint-accurate medical Prep Space.
+7. M7: responsive, accessibility, low-bandwidth, academic and release QA.
+
+**Release rule:** do not chase a huge public question counter. First make every syllabus outcome discoverable and practiseable; then expand with distinct, reviewed variants. All non-medical expansion stays parked until the medical release gate is met.
