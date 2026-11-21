@@ -5,9 +5,6 @@ import { useSelectedPrepSpace } from "@/lib/prep-space-selection";
 export function PathAwareHeroCopy() {
   const selected = useSelectedPrepSpace();
 
-  return () => window.removeEventListener(EVENT_NAME, handleSelection);
-  }, []);
-
   return (
     <>
       <h1 className="mt-5 max-w-[22ch] text-[2.25rem] leading-[1.06] tracking-tight text-[var(--steel-100)] sm:text-5xl lg:text-[3.4rem]">
