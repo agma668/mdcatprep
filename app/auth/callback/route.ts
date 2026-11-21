@@ -26,6 +26,22 @@ export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url)
   const code = searchParams.get('code')
   const refCode = searchParams.get('ref')?.trim() || null
+  const requestedExam = searchParams.get('exam_target')?.trim() || null
+  const allowedExamTargets = new Set([
+    'MDCAT',
+    'NUMS',
+    'MBBS Notes',
+    'HEC Balochistan Scholarship — Pre-Medical',
+    'HEC USAT',
+    'HEC USAT-M',
+    'HEC USAT-E',
+    'NUST (NET)',
+    'GIKI',
+    'LUMS',
+    'PMA Long Course',
+    'ISSB Intelligence',
+  ])
+  const examTarget = requestedExam && allowedExamTargets.has(requestedExam) ? requestedExam : null
 
   if (code) {
     const supabase = await createClient()
@@ -41,18 +57,31 @@ export async function GET(request: NextRequest) {
         // fallback) must not 500 the callback: allowlisted admins still route
         // to /admin, everyone else routes by the profile-less default
         // (/pending) exactly as login() degrades.
-        let profile: { role?: string | null; status?: string | null; referred_by?: string | null } | null = null
+        let profile: { role?: string | null; status?: string | null; referred_by?: string | null; exam_target?: string | null } | null = null
         let service: ReturnType<typeof createServiceClient> | null = null
         try {
           service = createServiceClient()
           const { data } = await service
             .from('profiles')
-            .select('role, status, referred_by')
+            .select('role, status, referred_by, exam_target')
             .eq('id', user.id)
             .single()
           profile = data
         } catch {
           service = null
+        }
+
+        // A selected preparation path from the signup screen is applied
+        // only to a new profile that does not already have a target. A later
+        // Google sign-in can never overwrite an existing student's choice.
+        if (service && profile && !profile.exam_target && examTarget) {
+          const { error: examUpdateError } = await service
+            .from('profiles')
+            .update({ exam_target: examTarget })
+            .eq('id', user.id)
+          if (examUpdateError) {
+            console.error('Failed to save Google signup exam target:', examUpdateError.message)
+          }
         }
 
         // Allowlist email OR a DB-assigned admin role both route to the

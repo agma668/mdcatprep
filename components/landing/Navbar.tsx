@@ -7,6 +7,17 @@ import { CompassLogo } from "@/components/landing/CompassLogo";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { useRouter } from "next/navigation";
 
+const SELECTED_PATH_KEY = "edweb:selected-prep-space:v1";
+
+function getSignupHref() {
+  try {
+    const selected = window.sessionStorage.getItem(SELECTED_PATH_KEY);
+    return selected ? `/signup?exam=${encodeURIComponent(selected)}` : "/signup";
+  } catch {
+    return "/signup";
+  }
+}
+
 const NAV_LINKS = [
   { label: "All Tests", href: "/exams" },
   { label: "How It Works", href: "#how-it-works" },
@@ -115,8 +126,8 @@ export function Navbar() {
             <Button variant="ghost" size="sm" onClick={() => router.push("/login")}>
               Sign In
             </Button>
-            <Button variant="primary" size="sm" onClick={() => router.push("/signup")}>
-              Get Started Free
+            <Button variant="primary" size="sm" onClick={() => router.push(getSignupHref())}>
+              Create Account
             </Button>
           </div>
 
@@ -183,8 +194,8 @@ export function Navbar() {
               <Button variant="secondary" size="md" fullWidth onClick={() => { setMenuOpen(false); router.push("/login"); }}>
                 Sign In
               </Button>
-              <Button variant="primary" size="md" fullWidth onClick={() => { setMenuOpen(false); router.push("/signup"); }}>
-                Get Started Free
+              <Button variant="primary" size="md" fullWidth onClick={() => { setMenuOpen(false); router.push(getSignupHref()); }}>
+                Create Account
               </Button>
             </li>
           </ul>

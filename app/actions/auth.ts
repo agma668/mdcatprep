@@ -108,6 +108,7 @@ async function performLogin(formData: FormData) {
 export async function signup(formData: FormData) {
   const email = (formData.get('email') as string)?.trim() || ''
   const password = (formData.get('password') as string) || ''
+  const confirm_password = (formData.get('confirm_password') as string) || ''
   const full_name = (formData.get('full_name') as string)?.trim() || ''
   const phone = (formData.get('phone') as string)?.trim() || null
   const exam_target = (formData.get('exam_target') as string)?.trim() || null
@@ -119,6 +120,24 @@ export async function signup(formData: FormData) {
   if (!full_name) return { error: 'Please enter your full name.' }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { error: 'Please enter a valid email address.' }
   if (password.length < 8) return { error: 'Password must be at least 8 characters long.' }
+  if (password !== confirm_password) return { error: 'Passwords do not match.' }
+  const allowedExamTargets = new Set([
+    'MDCAT',
+    'NUMS',
+    'MBBS Notes',
+    'HEC Balochistan Scholarship — Pre-Medical',
+    'HEC USAT',
+    'HEC USAT-M',
+    'HEC USAT-E',
+    'NUST (NET)',
+    'GIKI',
+    'LUMS',
+    'PMA Long Course',
+    'ISSB Intelligence',
+  ])
+  if (!exam_target || !allowedExamTargets.has(exam_target)) {
+    return { error: 'Please choose a valid preparation path.' }
+  }
 
   // Service role when available (creates the user pre-confirmed and fills the
   // enrollment fields). Without the service key — a real secret with no

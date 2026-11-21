@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Navbar } from "@/components/landing/Navbar";
 import { ExamPaper } from "@/components/landing/ExamPaper";
+import { ExamPathwaySelector } from "@/components/landing/ExamPathwaySelector";
 import { FAQ, FAQS } from "@/components/landing/FAQ";
 import { RegisterSection } from "@/components/landing/RegisterSection";
 import { Footer } from "@/components/landing/Footer";
@@ -14,7 +15,7 @@ const siteUrl = getSiteUrl();
 // Names only the tests that have a real practice surface on this site — the
 // H1, metadata and JSON-LD must not claim an exam the bank does not serve.
 const homeDescription =
-  "Exam-style MCQ practice for MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT and PMA — explanations, released past papers with keys, and study notes.";
+  "Explore distinct preparation spaces for Pakistan’s medical, engineering, scholarship and defence entry tests, with exam-specific tools, practice and resources.";
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -29,7 +30,7 @@ const faqJsonLd = {
 const learningResourceJsonLd = {
   "@context": "https://schema.org",
   "@type": "LearningResource",
-  name: "MDCAT, NUMS, NET, USAT & PMA Entry Test Preparation",
+  name: "Pakistan Entry-Test Preparation Spaces",
   description: homeDescription,
   url: siteUrl,
   provider: { "@type": "Organization", name: SITE_NAME, url: siteUrl },
@@ -41,7 +42,7 @@ const learningResourceJsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "MDCAT, NUMS, NUST, GIKI, USAT & PMA Test Preparation",
+  title: "Choose Your Exam Preparation Path | MED Prep",
   description: homeDescription,
 };
 
@@ -51,38 +52,19 @@ export const revalidate = 60;
 const display = { fontFamily: "var(--font-display)" } as const;
 
 const PRACTICE = [
-  { href: "/topicals", title: "Topical MCQs", body: "Chapter-wise questions for Biology, Chemistry and Physics. Answer, see why, move on." },
-  { href: "/past-papers", title: "Past papers", body: "Released MDCAT and NUMS papers, sorted by board and year." },
-  { href: "/daily-quiz", title: "Daily quiz", body: "A short set every day, so practice becomes a habit instead of a plan." },
-  { href: "/flashcards", title: "Flashcards", body: "Spaced-repetition cards for the facts that keep repeating in the paper." },
-  { href: "/notes", title: "Concept notes", body: "Short notes written from the PMDC syllabus for every topic you miss." },
+  { href: "/topicals", title: "Question practice", body: "Topic-based MCQ practice in preparation spaces where this tool is available." },
+  { href: "/past-papers", title: "Released papers", body: "Browse verified past-paper collections where released papers are available." },
+  { href: "/daily-quiz", title: "Daily quiz", body: "Short practice sets for supported subjects and exam tracks." },
+  { href: "/flashcards", title: "Flashcards", body: "Spaced-repetition revision for facts and concepts that need recall." },
+  { href: "/notes", title: "Study notes", body: "Focused notes for subjects with published study coverage." },
 ];
 
 const STEPS = [
-  { title: "Take the diagnostic", body: "Ten questions across five subjects, about two minutes. It shows where you are strong and where you are not." },
-  { title: "Practise by topic", body: "Work through chapter-wise MCQs. Every answer comes with its explanation." },
-  { title: "Redo what you missed", body: "Wrong answers collect in your mistake notebook so you can drill them until they stick." },
+  { title: "Choose your preparation path", body: "Start with the exact exam or admission route you are working toward." },
+  { title: "Use the tools available", body: "Each preparation space lists its current practice formats, resources and readiness." },
+  { title: "Build from what you learn", body: "Review explanations, revisit difficult areas and use supported progress tools to keep improving." },
 ];
 
-// The hero's choose-your-test row: one chip per test family a student names
-// when you ask them what they are preparing for. Every chip points at a real
-// practice surface — GIKI and LUMS sit inside the engineering portal's shared
-// bank, exactly like the unified-portal architecture says they should.
-const EXAM_CHIPS = [
-  { label: "MDCAT", href: "/topicals" },
-  { label: "NUMS", href: "/past-papers" },
-  { label: "NUST NET", href: "/nust/practice" },
-  { label: "GIKI", href: "/nust/practice" },
-  { label: "LUMS", href: "/nust/practice" },
-  { label: "HEC USAT", href: "/usat/practice" },
-  { label: "PMA", href: "/pma/practice" },
-];
-
-const OTHER_EXAMS = [
-  { href: "/usat/practice", name: "HEC USAT", body: "Quantitative, verbal and science sections." },
-  { href: "/pma/practice", name: "PMA & ISSB", body: "Verbal and non-verbal intelligence, initial academic test." },
-  { href: "/nust/practice", name: "NUST, GIKI, LUMS", body: "Maths, physics, chemistry and English." },
-];
 
 export default async function Home() {
   const stats = await getPublicStats();
@@ -99,46 +81,34 @@ export default async function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(learningResourceJsonLd) }} />
       <Navbar />
       <main>
-        {/* Hero: one action dominates — answer a question. The H1 names every
-            test the site actually serves, not only the medical flagships. */}
+        {/* General entry point first; the pathway selector below personalizes the next step. */}
         <section className="container-page pb-16 pt-28 sm:pb-24 sm:pt-36">
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
             <div>
               <p className="inline-flex items-center gap-2 rounded-[var(--r-pill)] border border-[var(--line-2)] bg-[var(--srf-1)] px-3 py-1.5 text-sm text-[var(--steel-200)]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[var(--brass)]" aria-hidden="true" />
-                Preparation built around Pakistan&apos;s entry tests
+                One account · Exam-specific preparation spaces
               </p>
               <h1
                 style={display}
                 className="mt-5 max-w-[22ch] text-[2.25rem] font-bold leading-[1.06] tracking-tight text-[var(--steel-100)] sm:text-5xl lg:text-[3.4rem]"
               >
-                Prepare for MDCAT, NUMS, NUST and more — one question at a time.
+                Choose your path. Prepare for what’s next.
               </h1>
               <p className="mt-5 max-w-[52ch] text-base leading-relaxed text-[var(--steel-300)] sm:text-lg">
-                Exam-style MCQs with an explanation behind every answer, plus the real past papers the boards have released, sorted by board and year.
+                Explore preparation spaces built around different entry tests. Choose your path to see the tools, practice and resources currently available for that exam.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link href="/diagnostic" className="btn-primary inline-flex min-h-[48px] items-center justify-center px-6 text-base">
-                  Take the 2-minute diagnostic
+                <Link href="/exams" className="btn-primary inline-flex min-h-[48px] items-center justify-center px-6 text-base">
+                  Explore all preparation paths
                 </Link>
                 <Link href="/past-papers" className="btn-secondary inline-flex min-h-[48px] items-center justify-center px-6 text-base">
                   Browse past papers
                 </Link>
               </div>
-              <div className="mt-6 flex flex-wrap items-center gap-2">
-                <span className="mr-1 text-sm font-semibold text-[var(--steel-300)]">Choose your test:</span>
-                {EXAM_CHIPS.map((chip) => (
-                  <Link
-                    key={chip.label}
-                    href={chip.href}
-                    className="rounded-[var(--r-pill)] border border-[var(--line-2)] bg-[var(--srf-1)] px-3 py-1.5 text-sm font-medium text-[var(--steel-100)] transition-colors duration-[var(--dur-1)] hover:border-[var(--line-3)] hover:bg-[var(--srf-2)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal-300)]"
-                  >
-                    {chip.label}
-                  </Link>
-                ))}
-              </div>
+              <ExamPathwaySelector />
               <p className="mt-4 max-w-[52ch] text-sm leading-relaxed text-[var(--steel-300)]">
-                Original questions built from the official syllabi; the past papers are real released papers. Every answer explains itself.
+                Tools and content differ by exam. Each preparation path shows what is currently available; always check the exam authority’s latest syllabus and admission notice.
               </p>
               <dl className="mt-10 flex flex-wrap gap-x-10 gap-y-4 border-t border-[var(--line-1)] pt-6">
                 <div>
@@ -244,46 +214,10 @@ export default async function Home() {
           </div>
         </section>
 
-        <section id="other-exams" className="py-16 sm:py-20">
-          <div className="container-page">
-            <h2 style={display} className="text-2xl font-bold tracking-tight sm:text-3xl">
-              Preparing for something else too?
-            </h2>
-            <p className="mt-3 max-w-[56ch] text-[var(--steel-300)]">The same account covers these tests. They are smaller than the medical track, and growing.</p>
-            <ul className="mt-6 grid gap-3 sm:grid-cols-3">
-              {OTHER_EXAMS.map((e) => (
-                <li key={e.href}>
-                  <Link
-                    href={e.href}
-                    className="block h-full rounded-[var(--r-3)] border border-[var(--line-2)] bg-[var(--srf-1)] p-4 transition-colors duration-[var(--dur-1)] hover:border-[var(--line-3)] hover:bg-[var(--srf-2)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal-300)]"
-                  >
-                    <span className="block font-semibold text-[var(--steel-100)]">{e.name}</span>
-                    <span className="mt-1 block text-sm text-[var(--steel-300)]">{e.body}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-sm text-[var(--steel-300)]">
-              Questions or study material?{" "}
-              <a
-                href="https://chat.whatsapp.com/GbhjI1A6FvBBtAd4PZR2NU"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-[var(--signal-300)] underline underline-offset-4 hover:text-[var(--signal-200)]"
-              >
-                Join the WhatsApp group
-              </a>
-              .
-            </p>
-          </div>
-        </section>
-
         <section>
           <FAQ />
         </section>
-        <section id="register">
-          <RegisterSection mcqs={mcqs} subjects={stats.hero.subjects} />
-        </section>
+        <RegisterSection mcqs={mcqs} subjects={stats.hero.subjects} />
       </main>
       <Footer />
     </div>
