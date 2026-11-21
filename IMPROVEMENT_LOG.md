@@ -262,3 +262,12 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - Confirmed no workflow runs are associated with the current PR #16/#17 head commits. These remain unvalidated.
 - Updated `ROADMAP-AGENT-BOARD.md` with the verified states and next gates.
 - No merge, live Supabase migration, Auth setting change, production data change or deployment was performed.
+
+
+## 2026-11-21 — Wave 1 follow-up: CI retarget and landing-stack workflow repair
+
+- PR #24 was retargeted to `fix/rls-goals-migration-ci-dependency`; fresh GitHub Actions run #50 passed all four gates: dependency installation, unit tests, ESLint and TypeScript. The prior run #48 failure is superseded. PR #24 remains draft/unmerged.
+- Confirmed the landing stack's exact dependency chain: PR #16 is `apex/design-pathway-landing-onboarding` → `apex/design-prep-space-discovery`; PR #17 is `apex/design-editorial-landing` → `apex/design-pathway-landing-onboarding`.
+- Removed the `branches: [main]` restriction from the `pull_request` trigger in `.github/workflows/quality.yml` on all three branches. Commits: `ffc68e5b8e94a33a8b9845aa2d6b5186e8cf3392`, `23049ccf7c522189bde0f0a023d9acb392a6016b`, and `0a25038b2b4c5924e79c0c832473740b98c951f1`.
+- No Actions runs were visible for the updated #16/#17 head commits when checked. Workflow configuration is repaired, but test/lint/typecheck status is still unverified; keep both PRs draft.
+- No merge, live Supabase migration, Auth setting change, production data change or deployment was performed.
