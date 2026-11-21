@@ -73,12 +73,15 @@ for (const r of rows) {
   r.chapter = /^(?:biolog\w*|chem\w*|physic\w*|DOC\b|WA\d{4})/i.test(label) ? 'Mixed Bank' : label;
 }
 
-const keyed = rows.filter((r) => r.correct_answer && ['A', 'B', 'C', 'D'].includes(r.correct_answer));
-const skippedNoKey = rows.filter((r) => !r.correct_answer);
+// Every parsed row is published: a row without a printed key is shown practice-only and is never
+// scored, so it cannot mislead. Rows with a malformed key are dropped instead.
+const publishable = rows.filter((r) => !r.correct_answer || ['A', 'B', 'C', 'D'].includes(r.correct_answer));
+const keyed = publishable.filter((r) => r.correct_answer);
+const skippedNoKey = publishable.filter((r) => !r.correct_answer);
 
 const seen = new Set();
 const entries = [];
-for (const r of keyed) {
+for (const r of publishable) {
   const id = `found-${hash8(r.subject + '|' + r.question_text)}`;
   if (seen.has(id)) continue;
   seen.add(id);
@@ -104,7 +107,7 @@ const body = entries
     option_b: ${q(r.option_b)},
     option_c: ${q(r.option_c)},
     option_d: ${q(r.option_d)},
-    correct_answer: ${q(r.correct_answer)},
+    correct_answer: ${r.correct_answer ? q(r.correct_answer) : 'null'},
     source: ${q(source)},
   },`,
   )
@@ -135,5 +138,5 @@ for (const { r } of entries) {
   bySet[k] = (bySet[k] || 0) + 1;
 }
 console.log('written', path.relative(ROOT, OUT));
-console.log('rows', entries.length, '| excluded for no printed key', skippedNoKey.length);
+console.log('rows', entries.length, '| keyed', keyed.length, '| practice-only (no printed key)', skippedNoKey.length);
 console.log(JSON.stringify(bySet, null, 1));

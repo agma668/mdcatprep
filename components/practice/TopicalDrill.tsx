@@ -61,14 +61,16 @@ export function TopicalDrill({
           {subjectName} · {chapterTitle}
         </p>
         <p className="text-4xl font-extrabold text-[var(--color-accent-light)] my-4">
-          {correctCount}/{answered}
+          {answered ? `${correctCount}/${answered}` : "Practice run"}
         </p>
         <p className="text-sm text-[var(--steel-300)] mb-6">
-          {pct >= 80
-            ? "Strong — this chapter is in good shape."
-            : pct >= 50
-              ? "Solid — reread the explanations and run it again."
-              : "Read every explanation below your answers and go again."}
+          {!answered
+            ? "None of the questions in this run had a printed key, so nothing is scored."
+            : pct >= 80
+              ? "Strong — this chapter is in good shape."
+              : pct >= 50
+                ? "Solid — reread the explanations and run it again."
+                : "Read every explanation below your answers and go again."}
         </p>
         <div className="flex flex-wrap gap-3 justify-center">
           <button
@@ -95,7 +97,10 @@ export function TopicalDrill({
     );
   }
 
-  const isCorrect = picked !== null && picked === q.correct_answer;
+  // A question whose paper printed no key is practice-only: it is never scored and never reveals a
+  // green answer, because inventing one would be worse than showing none.
+  const hasKey = q.correct_answer !== null;
+  const isCorrect = hasKey && picked !== null && picked === q.correct_answer;
   const revealed = picked !== null;
 
   return (
@@ -106,7 +111,7 @@ export function TopicalDrill({
           {subjectName} · {chapterTitle}
         </span>
         <span>
-          Question {index + 1} of {total} · {correctCount}/{answered} correct
+          Question {index + 1} of {total} · {answered ? `${correctCount}/${answered} correct` : "practice"}
         </span>
       </div>
 
@@ -134,8 +139,10 @@ export function TopicalDrill({
                 disabled={revealed}
                 onClick={() => {
                   setPicked(letter);
-                  setAnswered((n) => n + 1);
-                  if (letter === q.correct_answer) setCorrectCount((n) => n + 1);
+                  if (hasKey) {
+                    setAnswered((n) => n + 1);
+                    if (letter === q.correct_answer) setCorrectCount((n) => n + 1);
+                  }
                 }}
                 className={`w-full flex items-start gap-3 text-left rounded-[var(--radius-md)] border px-4 py-3 transition-colors ${cls}`}
               >
@@ -157,10 +164,20 @@ export function TopicalDrill({
         {revealed && (
           <div className="mt-5 rounded-[var(--radius-md)] bg-[var(--signal-500)]/10 border border-[var(--signal-500)]/25 px-4 py-3">
             <p className="text-sm text-[var(--steel-200)]">
-              <span className="font-semibold text-[var(--signal-300)]">
-                {isCorrect ? "Correct. " : "Why this is the answer: "}
-              </span>
-              The answer is {q.correct_answer} — {optionText(q, q.correct_answer)}.
+              {q.correct_answer !== null ? (
+                <>
+                  <span className="font-semibold text-[var(--signal-300)]">
+                    {isCorrect ? "Correct. " : "Why this is the answer: "}
+                  </span>
+                  The answer is {q.correct_answer} — {optionText(q, q.correct_answer)}.
+                </>
+              ) : (
+                <>
+                  <span className="font-semibold text-[var(--signal-300)]">Practice only. </span>
+                  The paper this question came from printed no answer key, so there is no answer to reveal
+                  and this one is not scored. Reason it through, then move on.
+                </>
+              )}
             </p>
           </div>
         )}

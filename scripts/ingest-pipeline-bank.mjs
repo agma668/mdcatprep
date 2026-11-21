@@ -45,10 +45,22 @@ for (const f of ['lib/topicals-bank.ts', 'lib/founder-bank.ts']) {
 
 const ready = JSON.parse(fs.readFileSync(IN, 'utf8')).questions;
 const publicReady = ready.filter((r) => r.visibility === 'public');
+// Practice-only rows: a public question whose source printed no key but whose four options are all
+// present. It is served unscored rather than withheld, and never guessed at.
+const NEEDS_KEY = path.join(ROOT, 'data/MCQS_FINAL/by_status/needs_key.json');
+const practice = fs.existsSync(NEEDS_KEY)
+  ? JSON.parse(fs.readFileSync(NEEDS_KEY, 'utf8')).questions.filter(
+      (r) =>
+        r.visibility === 'public' &&
+        r.option_a && r.option_b && r.option_c && r.option_d &&
+        String(r.question_text || '').length > 14 &&
+        new Set([r.option_a, r.option_b, r.option_c, r.option_d].map((x) => norm(x))).size === 4,
+    )
+  : [];
 const subjects = new Set(['Biology', 'Chemistry', 'Physics', 'English']);
 
 const rows = [];
-const skipped = { notPublic: ready.length - publicReady.length, subject: 0, duplicate: 0, badKey: 0 };
+const skipped = { notPublic: ready.length - publicReady.length, subject: 0, duplicate: 0, badKey: 0, practice: 0 };
 const seen = new Set();
 for (const r of publicReady) {
   if (!subjects.has(r.subject)) { skipped.subject += 1; continue; }
@@ -73,6 +85,24 @@ for (const r of publicReady) {
   });
 }
 
+for (const r of practice) {
+  const k = norm(r.question_text);
+  if (!subjects.has(r.subject) || onSite.has(k) || seen.has(k)) { skipped.practice += 1; continue; }
+  seen.add(k);
+  rows.push({
+    id: `prac-${hash8(r.subject + '|' + r.question_text)}`,
+    subject: r.subject,
+    chapter: r.chapter && r.chapter !== 'Unplaced' ? r.chapter : 'Mixed Bank',
+    question_text: r.question_text,
+    option_a: r.option_a,
+    option_b: r.option_b,
+    option_c: r.option_c,
+    option_d: r.option_d,
+    correct_answer: null,
+    source: 'Question bank — practice (no printed key)',
+  });
+}
+
 const body = rows
   .map(
     (r) => `  {
@@ -84,7 +114,7 @@ const body = rows
     option_b: ${q(r.option_b)},
     option_c: ${q(r.option_c)},
     option_d: ${q(r.option_d)},
-    correct_answer: ${q(r.correct_answer)},
+    correct_answer: ${r.correct_answer ? q(r.correct_answer) : 'null'},
     source: ${q(r.source)},
   },`,
   )

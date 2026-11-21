@@ -20,7 +20,11 @@ export type TopicalsQuestion = {
   option_b: string;
   option_c: string;
   option_d: string;
-  correct_answer: "A" | "B" | "C" | "D";
+  /**
+   * The key when the source printed one. `null` means the paper printed no answer key: the question
+   * is shown as practice-only and is never scored, never reveals an answer we do not have.
+   */
+  correct_answer: "A" | "B" | "C" | "D" | null;
   source: string;
 };
 

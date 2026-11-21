@@ -56,14 +56,21 @@ export default async function TopicalChapterPage({ params }: Props) {
   // The two banks have different provenance, so they get different sourcing notes. A set can hold
   // both, and then it says so rather than crediting one origin for all of it.
   const founderRows = questions.filter((q) => q.source.startsWith("Founder bank")).length;
+  const keyedRows = questions.filter((q) => q.correct_answer !== null).length;
+  const keyNote =
+    keyedRows === questions.length
+      ? ""
+      : keyedRows === 0
+        ? " None of these questions had a printed answer key in their source, so the drill runs in practice-only mode and scores nothing."
+        : ` ${questions.length - keyedRows} of them had no printed answer key and run as practice-only, unscored.`;
   const mixedOrigin = founderRows > 0 && founderRows < questions.length;
-  const sourcingNote = mixedOrigin
+  const sourcingNote = (mixedOrigin
     ? `Sourcing: ${founderRows} of these ${questions.length} questions come from the founder's own papers, the rest from a third-party question-bank extraction (MCQ Universe) compiled by MED Prep. The set name follows the source file; nothing here is presented as a verified official paper.`
     : founderRows > 0
       ? "Sourcing: every question here comes from the founder's own papers. The set name follows the source file, and no item is presented as a verified official paper."
       : isSet
         ? "Sourcing: this set is named after the year of a third-party question-bank extraction (MCQ Universe) compiled by MED Prep. It is not a verified official paper, and no item here is presented as one."
-        : "Sourcing: chapter-wise questions from a third-party question-bank extraction (MCQ Universe) compiled by MED Prep. These are practice questions, not past-paper items — nothing here claims a real exam year.";
+        : "Sourcing: chapter-wise questions from a third-party question-bank extraction (MCQ Universe) compiled by MED Prep. These are practice questions, not past-paper items — nothing here claims a real exam year.") + keyNote;
 
   return (
     <div className="min-h-screen bg-[var(--field-1)] font-sans text-[var(--steel-100)] antialiased">
@@ -83,7 +90,8 @@ export default async function TopicalChapterPage({ params }: Props) {
             </h1>
             <p className="mt-2 text-sm text-[var(--steel-400)]">
               {questions.length} {isSet ? "questions in this set" : "chapter-wise questions"} ·
-              instant explanations · guest-friendly (progress stays on your device).
+              the answer appears instantly where the source printed a key · guest-friendly (progress
+              stays on your device).
             </p>
           </div>
         </section>
