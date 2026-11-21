@@ -461,3 +461,11 @@ See `MEDICAL-BANK-AUDIT-2026-11-21.md` for the full reproducible findings and li
 - [x] First-pass topic comparison shows eight units with no matching current bank topic label and 15 Ecology-tagged questions that need syllabus review. The other eight units have topic-level matches but no outcome-level proof yet.
 - [ ] Map all 171 current Biology questions to the 69 official outcome IDs and produce per-outcome coverage counts.
 - [ ] Draft and academically review original questions for uncovered outcomes before adding them to any student-visible bank.
+
+
+## 2026-11-21 — First PM&DC Biology gap batch drafted
+
+- [x] Created a draft-only batch of 28 original Biology MCQs for currently under-mapped units in `data/drafts/medical/pmdc-biology-gap-batch-001.json`.
+- [x] Mapped the batch to 22 PM&DC Biology learning outcomes; schema validation passed 28/28, with no duplicate keys/stems, 4 distinct options per item, explanation and three distractor rationales.
+- [x] Balanced correct-answer positions 7 each across A/B/C/D; difficulty is 4 easy / 20 moderate / 4 hard.
+- [ ] Academic review and source verification remain mandatory. Draft questions are not imported or student-visible.
