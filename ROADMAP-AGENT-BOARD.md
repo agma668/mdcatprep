@@ -434,3 +434,22 @@ Official PMDC's 2026 public notice now provides the exact paper profile: 180 MCQ
 7. M7: responsive, accessibility, low-bandwidth, academic and release QA.
 
 **Release rule:** do not chase a huge public question counter. First make every syllabus outcome discoverable and practiseable; then expand with distinct, reviewed variants. All non-medical expansion stays parked until the medical release gate is met.
+
+
+## 2026-11-21 — Medical M1 content audit findings
+
+See `MEDICAL-BANK-AUDIT-2026-11-21.md` for the full reproducible findings and limitations.
+
+- [x] Parsed all five current MCQ source arrays: 889 records total (Biology 163, Chemistry 179, Physics 305, English 172, `PAST_PAPER_BANK` 70).
+- [x] Structural scan: no missing key/subject/topic/stem/options/answer/explanation; no duplicate stable keys; no exact duplicate full items.
+- [x] Found six repeated-stem groups: four concept-level repeats need review; two generic spelling templates have different options and require educational-value review, not automatic deletion.
+- [x] Measured subject distribution: Biology 171 (19.2%), Chemistry 187 (21.0%), Physics 313 (35.2%), English 180 (20.2%), Logical Reasoning 38 (4.3%). Compared with PM&DC 2026 paper weights, the bank is over-weighted in Physics/English and under-weighted in Biology/Chemistry/LR. Biology is the first expansion priority.
+- [x] Measured difficulty: Easy 362 (40.7%), Moderate 411 (46.2%), Hard 116 (13.1%); the aggregate bank does not reflect PM&DC's 15/70/15 profile. Review labels and expand moderate/application/difficult coverage.
+- [x] Measured correct-option position: A 168, B 403, C 219, D 99. B is overrepresented and D underrepresented; rebalance only after answer verification, moving option text and answer key together.
+- [x] Found topic/taxonomy drift: current bank has 9 Biology, 10 Chemistry, 14 Physics, 5 English and 10 Logical Reasoning topic labels; 8 taxonomy labels and 6 bank topic labels do not match exactly. A canonical outcome map and aliases are required.
+- [x] Provenance check: none of the 889 records has a `pastPaper` metadata object; `PAST_PAPER_BANK` is original exam-style content despite its filename. Its header says 40 records while 70 were parsed. The actual released-paper registry is `lib/past-papers.ts`.
+- [ ] Independently verify answer keys, explanations, distractors and permissions; structural validity is not academic correctness.
+- [ ] Parse the large topicals/knowledge-base/OCR corpus and map all source items to outcomes before counting them.
+- [ ] Extract the full PM&DC official syllabus into stable learning-outcome IDs; then map all existing questions and identify uncovered outcomes.
+
+**Current next action:** build the canonical PM&DC syllabus outcome map and coverage report. Do not bulk-generate more Physics/English or publish an inflated question count while the map is missing.
