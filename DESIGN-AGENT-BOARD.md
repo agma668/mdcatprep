@@ -260,3 +260,34 @@ P0 UX/architecture constraint from the live audit: the standalone USAT/NUST/PMA 
 
 
 PMDC-2026 official paper UX must show the correct 180-question structure (Biology 81, Chemistry 45, Physics 36, English 9, Logical Reasoning 9; 3 hours; no negative marking). The current 100-question mock card is not a full official-pattern paper. Until the canonical bank and server-side attempt path are repaired, label it as a custom short practice format or keep it out of the “full mock” slot. Never display a full-paper success/ready state for an empty draw.
+
+
+## 2026-11-21 — Medical-first design execution
+
+For the current product wave, design work is restricted to PM&DC MDCAT first and NUMS second. Engineering, defence, general USAT and other exam-specific design expansion is parked; existing routes must remain intact.
+
+### Medical learning loop — priority order
+1. Student enters the correct medical Prep Space and sees the active exam, syllabus version and what is genuinely available.
+2. Select subject → official chapter → syllabus learning outcome → practice mode.
+3. Answer an MCQ with calm, accessible option states; reveal the correct answer only after submission.
+4. Show a worked explanation, the concept being tested and why the tempting distractor is wrong where relevant.
+5. Offer next question, bookmark, mark-for-review and report-an-issue actions.
+6. Route wrong/uncertain answers into an exam-scoped mistake notebook and spaced-revision queue.
+7. Show progress only from persisted attempts; distinguish local guest progress from account-synced progress.
+
+### PM&DC-specific UX requirements
+- The full mock uses the verified 2026 structure only while that is the latest official profile: 180 questions, 180 minutes, Bio 81 / Chem 45 / Physics 36 / English 9 / Logical Reasoning 9, no negative marking. The 2027 profile remains pending official publication.
+- The 100-question custom practice format must not be presented as the full official mock.
+- The syllabus navigator should show outcome coverage and available reviewed question counts without fabricated per-chapter official weights.
+- Support text and diagram questions, numerical working, formula references and explanation reading on mobile.
+
+### NUMS-specific UX requirements
+- A separate Prep Space and assessment instructions: 150-question Paper-I plus 50-question Paper-II on the verified 2026 profile.
+- Do not merge PM&DC Logical Reasoning into NUMS; NUMS Paper-II is a distinct psychological-test section.
+- Do not imply a full NUMS Paper-II simulator while the current source contains only three unreviewed scenario items.
+
+### Design acceptance
+- 360/390/768px and desktop; keyboard-only; 200% zoom; reduced motion; contrast and screen-reader labels.
+- A student can tell PM&DC and NUMS apart before starting a test and while reviewing progress.
+- Every empty, locked, error, offline and not-yet-reviewed state is explicit. No “saved” or “mastered” label without a durable source record.
+- Visual polish follows learning clarity; avoid heavy animation, low-contrast exam chrome or dense layouts that slow repeated study.
