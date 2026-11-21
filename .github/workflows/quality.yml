@@ -4,6 +4,7 @@ on:
   # Stacked PRs may target feature/integration branches, not only main.
   # Keep this workflow in each target branch so GitHub evaluates its PR event.
   # Retain the same trigger in the stacked head so merging cannot restore a main-only filter.
+  # Re-run the full gate whenever shared landing components change across the stack.
   pull_request:
   push:
     branches: [main]
