@@ -7,7 +7,6 @@ on:
   # Re-run the full gate whenever shared landing components change across the stack.
   pull_request:
   push:
-    branches: [main]
 
 permissions:
   contents: read
