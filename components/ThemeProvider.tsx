@@ -2,32 +2,28 @@
 
 // Theme engine for MED Prep.
 //
-// Applies a `data-theme` attribute on <html> (midnight | emerald | crimson |
-// violet | paper). All recolouring happens in CSS via [data-theme="..."] blocks in
+// Applies a `data-theme` attribute on <html> (paper | midnight). All recolouring happens in CSS via [data-theme="..."] blocks in
 // globals.css — this component only sets the attribute, persists the choice in
 // localStorage, and avoids a flash of the wrong theme on reload (FOUC) by
 // honouring an inline <script> written into <head> by layout.tsx.
 //
-// `midnight` is the default and needs no attribute (it IS :root); the others
-// override the tokens.
+// Paper is the default light appearance; Midnight is the matching dark mode.
 
 import { useEffect, useState, type ReactNode } from "react";
 
-export type ThemeId = "midnight" | "emerald" | "crimson" | "violet" | "paper";
+export type ThemeId = "midnight" | "paper";
 
 export const THEMES: { id: ThemeId; label: string; dots: [string, string, string] }[] = [
-  { id: "midnight", label: "Midnight", dots: ["#05080F", "#3D7EDB", "#C9A24B"] },
-  { id: "emerald", label: "Forest", dots: ["#04100C", "#3FAE8B", "#C9A24B"] },
-  { id: "crimson", label: "Wine", dots: ["#0F0508", "#BC5267", "#C9A24B"] },
-  { id: "violet", label: "Iris", dots: ["#0E0814", "#7260C0", "#C9A24B"] },
-  { id: "paper", label: "Paper", dots: ["#F8F7F3", "#285A87", "#A47B36"] },
+  { id: "paper", label: "Paper · Light", dots: ["#EEEAE1", "#526548", "#A47B36"] },
+  { id: "midnight", label: "Midnight · Dark", dots: ["#090F1B", "#93BCF6", "#C9A24B"] },
 ];
 
 const STORAGE_KEY = "med-prep-theme";
 
 function getInitialTheme(): ThemeId {
   if (typeof window === "undefined") return "midnight";
-  return (window.__MED_PREP_THEME__ as ThemeId) || "midnight";
+  const current = window.__MED_PREP_THEME__;
+  return current === "midnight" || current === "paper" ? current : "paper";
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
@@ -62,7 +58,7 @@ export function applyTheme(theme: ThemeId) {
 }
 
 export function getTheme(): ThemeId {
-  return (window.__MED_PREP_THEME__ as ThemeId) || "midnight";
+  return window.__MED_PREP_THEME__ === "midnight" ? "midnight" : "paper";
 }
 
 // Type augmentation

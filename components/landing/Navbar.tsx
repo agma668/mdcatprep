@@ -131,7 +131,9 @@ export function Navbar() {
             </Button>
           </div>
 
-          {/* Mobile menu toggle */}
+          {/* Mobile controls: keep the day/night switch visible in the top bar. */}
+          <div className="flex items-center gap-2 md:hidden">
+          <ThemeSwitcher />
           <button
             type="button"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -139,7 +141,7 @@ export function Navbar() {
             aria-controls="mobile-menu"
             onClick={() => setMenuOpen((v) => !v)}
             className={[
-              "tap-44 flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-[var(--radius-md)] md:hidden",
+              "tap-44 flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-[var(--radius-md)]",
               "transition-colors hover:bg-[var(--srf-2)]",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--signal-300)]",
             ].join(" ")}
@@ -163,6 +165,7 @@ export function Navbar() {
               ].join(" ")}
             />
           </button>
+          </div>
         </nav>
       </div>
 
