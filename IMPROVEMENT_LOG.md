@@ -281,3 +281,14 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - PR #16's earlier retry run #55 passed tests, ESLint and TypeScript, but the latest head includes a subsequent workflow commit; latest push run #56 was still running at log time.
 - PR #17's earlier run #53 failed ESLint against the pre-fix selector. The fix was carried into its head branch; latest push run #57 was still running at log time.
 - Browser/responsive QA remains outstanding. Both landing PRs remain draft. No merge, production Supabase migration, Auth setting change, production data change or deployment was performed.
+
+
+## 2026-11-21 — Wave 1 follow-up: unified selection and theme stores
+
+- PR #16 latest pathway head CI run #60 passed dependency installation, all 89 tests, ESLint and TypeScript.
+- PR #17 run #57 passed tests but failed ESLint on three effect-based state initializers: `ThemeSwitcher`, `PathAwareHeroCopy` and `PathAwareOverview`.
+- Added `lib/prep-space-selection.ts` as a shared `useSyncExternalStore` implementation for selected exam path, validated sessionStorage persistence and same-tab notifications. The selector, hero and overview now read the same store, fixing both the lint errors and the prior event-name mismatch.
+- Reworked `ThemeProvider`/`ThemeSwitcher` to observe theme changes through `useSyncExternalStore`; the server snapshot now matches the default Midnight palette to avoid an incorrect initial icon.
+- Latest PR #17 head is `95e1c21082236b7626f657fca9d8df9d41da7296`; quality run #62 is queued. Run #61 applies to the immediately preceding shared-store commit; run #57 is the pre-fix failure. Keep PR #17 draft until the latest run passes.
+- PR #24 latest docs/head CI run #58 passed dependency installation, tests, ESLint and TypeScript. PR #16 latest head run #60 also passed all gates.
+- Desktop/mobile browser QA and preview review remain outstanding. No merge, production Supabase migration, Auth setting change, production data change or deployment was performed.
