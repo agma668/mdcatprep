@@ -53,6 +53,17 @@ export default async function TopicalChapterPage({ params }: Props) {
   if (!found) notFound();
   const { subject: s, chapter: c, questions } = found;
   const isSet = isSetChapter(c.title);
+  // The two banks have different provenance, so they get different sourcing notes. A set can hold
+  // both, and then it says so rather than crediting one origin for all of it.
+  const founderRows = questions.filter((q) => q.source.startsWith("Founder bank")).length;
+  const mixedOrigin = founderRows > 0 && founderRows < questions.length;
+  const sourcingNote = mixedOrigin
+    ? `Sourcing: ${founderRows} of these ${questions.length} questions come from the founder's own papers, the rest from a third-party question-bank extraction (MCQ Universe) compiled by MED Prep. The set name follows the source file; nothing here is presented as a verified official paper.`
+    : founderRows > 0
+      ? "Sourcing: every question here comes from the founder's own papers. The set name follows the source file, and no item is presented as a verified official paper."
+      : isSet
+        ? "Sourcing: this set is named after the year of a third-party question-bank extraction (MCQ Universe) compiled by MED Prep. It is not a verified official paper, and no item here is presented as one."
+        : "Sourcing: chapter-wise questions from a third-party question-bank extraction (MCQ Universe) compiled by MED Prep. These are practice questions, not past-paper items — nothing here claims a real exam year.";
 
   return (
     <div className="min-h-screen bg-[var(--field-1)] font-sans text-[var(--steel-100)] antialiased">
@@ -81,9 +92,7 @@ export default async function TopicalChapterPage({ params }: Props) {
           <div className="container-page">
             <TopicalDrill questions={questions} subjectName={s.name} chapterTitle={c.title} />
             <p className="mt-10 text-xs text-[var(--steel-500)] max-w-2xl mx-auto text-center">
-              {isSet
-                ? "Sourcing: this set is named after the year of a third-party question-bank extraction (MCQ Universe) compiled by MED Prep. It is not a verified official paper, and no item here is presented as one."
-                : "Sourcing: chapter-wise questions from a third-party question-bank extraction (MCQ Universe) compiled by MED Prep. These are practice questions, not past-paper items — nothing here claims a real exam year."}
+              {sourcingNote}
             </p>
           </div>
         </section>

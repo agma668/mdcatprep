@@ -6,6 +6,11 @@
 // for the honesty rules). This file never edits question text.
 
 import { TOPICALS_BANK, type TopicalsQuestion } from './topicals-bank';
+import { FOUNDER_BANK } from './founder-bank';
+
+// One bank for the pages: the curated extraction plus the founder's own papers. Both carry their own
+// source label, so a row is never presented as something it is not.
+const BANK: TopicalsQuestion[] = [...TOPICALS_BANK, ...FOUNDER_BANK];
 
 export type { TopicalsQuestion };
 
@@ -43,7 +48,13 @@ export type TopicSubject = {
  * verified sitting, so callers must not present these as official papers.
  */
 export function isSetChapter(title: string): boolean {
-  return /^past\s*paper\b/i.test(title) || /^(?:mixed|full)\s*bank$/i.test(title) || /^mock\b/i.test(title);
+  return (
+    /^past\s*paper\b/i.test(title) ||
+    /^(?:mixed|full)\s*bank$/i.test(title) ||
+    /^mock\b/i.test(title) ||
+    // A worksheet is a themed paper set, not a syllabus chapter.
+    /^worksheet\b/i.test(title)
+  );
 }
 
 function buildSubjects(): TopicSubject[] {
@@ -54,7 +65,7 @@ function buildSubjects(): TopicSubject[] {
   ];
   const subjects: TopicSubject[] = [];
   for (const s of order) {
-    const rows = TOPICALS_BANK.filter((q) => q.subject === s.name);
+    const rows = BANK.filter((q) => q.subject === s.name);
     const chapterMap = new Map<string, number>();
     for (const q of rows) {
       chapterMap.set(q.chapter, (chapterMap.get(q.chapter) ?? 0) + 1);
@@ -76,7 +87,7 @@ function buildSubjects(): TopicSubject[] {
 
 export const TOPICALS_SUBJECTS: TopicSubject[] = buildSubjects();
 
-export const TOPICALS_TOTAL: number = TOPICALS_BANK.length;
+export const TOPICALS_TOTAL: number = BANK.length;
 
 /** Real syllabus chapters only — past-paper sets are not chapters. */
 export const TOPICALS_CHAPTER_COUNT: number = TOPICALS_SUBJECTS.reduce(
@@ -107,7 +118,7 @@ export function topicalChapter(
     subject.chapters.find((c) => c.slug === chapterSlug) ??
     subject.sets.find((c) => c.slug === chapterSlug);
   if (!chapter) return null;
-  const questions = TOPICALS_BANK.filter(
+  const questions = BANK.filter(
     (q) => q.subject === subject.name && q.chapter === chapter.title
   );
   return { subject, chapter, questions };
