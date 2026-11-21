@@ -229,3 +229,26 @@ The code audit confirms full USAT/NUST/PMA banks are currently imported by publi
 
 
 PMDC-2026's official notice confirms 180 MCQs with 81 Biology / 45 Chemistry / 36 Physics / 9 English / 9 Logical Reasoning, 3 hours and no negative marking. Public exam pages should use this current-year pattern and link to PMDC's official notice. The repository's current 100-question “full mock” does not match this structure; do not claim a full official-pattern mock is available until corrected and backed by a populated, verified question source.
+
+
+## 2026-11-21 — Medical-first SEO execution
+
+The current SEO wave serves medical entrance intent only: PM&DC MDCAT first, NUMS MDCAT second. Park new engineering, defence, generic USAT and unrelated exam pages until the medical Prep Space is release-ready. Preserve existing URLs; do not delete other exam pages.
+
+### Priority page architecture
+- One high-quality national PM&DC MDCAT information page covering the verified syllabus, subject structure, learning outcomes, preparation workflow and available resources.
+- Regional conducting-body/city information belongs as useful context on that national page where the same national blueprint applies; do not generate thin doorway pages for every city or province.
+- A distinct NUMS MDCAT page with its own Paper-I/Paper-II syllabus and 2026 structure, with an explicit note that the next cycle must be checked against the latest official NUMS publication.
+- Supporting subject/chapter guides only where they provide original teaching value, map to an official syllabus outcome and link to a working practice experience.
+
+### Source and freshness rules
+- PM&DC's official syllabus listing currently shows the 2025 Uniform Curriculum; the 19 May 2026 notice applied it to MDCAT-2026. Do not title or describe it as a confirmed 2027 syllabus until PM&DC publishes the next version.
+- Cite PM&DC's official syllabus listing/PDF and the 2026 paper notice for the current verified pattern.
+- Cite the official NUMS 2026 syllabus PDF for the distinct 150 + 50 structure; do not use third-party summaries where the official document is available.
+- Date-stamp source checks and re-verify dates, admissions policies, merit formulas and eligibility before publishing.
+
+### Search content quality gate
+- Each indexable medical page must answer a distinct student question, include accurate original guidance, link to a working tool/practice route and identify source/version.
+- Never inflate question counts, imply a past-paper source for original questions, claim affiliation/endorsement or publish unsupported admission promises.
+- Public samples must be deliberate; full banks and answers must not leak through public client bundles when the protected delivery model is enabled.
+- Measure actual impressions/clicks and mobile performance before expanding the medical content cluster.
