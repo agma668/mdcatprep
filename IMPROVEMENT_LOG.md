@@ -265,3 +265,12 @@ Static source inspection at `main` SHA `1f54c344418e5fd6e45c1d4ca8c2102772c9eaba
 Official-source check on 2026-11-21: PM&DC's syllabus listing still shows the 2025 Uniform Curriculum, and the 19 May 2026 notice applied it to MDCAT-2026. The official 2026 pattern is 180 MCQs / 180 minutes / no negative marking with Bio 81, Chem 45, Physics 36, English 9, Logical Reasoning 9 and 15/70/15 difficulty. No 2027 blueprint is asserted. NUMS's official 2026 syllabus is distinct: Paper-I 150 MCQs / 165 minutes (Bio 55, Chem 40, Physics 40, English 15) plus Paper-II 50 psychological MCQs / 15 minutes; difficulty 20/60/20 and 70% recall / 30% application in Bio/Chem/Physics.
 
 No application code, question content, database schema/data, production Auth settings, billing or deployment was changed in this documentation wave. No PR was merged. Work is on `strategy/medical-first-content-expansion` pending review.
+
+
+## 2026-11-21 — Medical bank structural audit
+
+Created `MEDICAL-BANK-AUDIT-2026-11-21.md` after parsing the five current MCQ source arrays. The scan found 889 records: Biology 171, Chemistry 187, Physics 313, English 180, Logical Reasoning 38. All records passed the basic required-field scan; no duplicate keys or exact duplicate full-item signatures were found. Six repeated stem groups need review (four concept repeats and two spelling templates).
+
+The bank difficulty mix is 40.7% easy / 46.2% moderate / 13.1% hard, unlike the PM&DC 2026 aggregate profile of 15/70/15. Correct-option positions are skewed toward B (45.3%) and away from D (11.1%). The subject pool is skewed toward Physics (35.2%) and English (20.2%), while Biology is 19.2% despite being 45% of the PM&DC 2026 paper. Biology is therefore the first question expansion priority; do not bulk-add Physics/English until the official syllabus outcome map shows a gap.
+
+The topic taxonomy has naming/coverage drift; no question in the 889-record set carries a `pastPaper` metadata object; `PAST_PAPER_BANK` is original exam-style content and its header's 40-item claim conflicts with 70 parsed records. These findings are static structural evidence only, not academic correctness or permission review. Full limitations and next steps are in the audit report.
