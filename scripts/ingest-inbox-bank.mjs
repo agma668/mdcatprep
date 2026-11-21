@@ -28,6 +28,12 @@ if (!fs.existsSync(IN)) {
 }
 
 const rows = JSON.parse(fs.readFileSync(IN, 'utf8'));
+// Rows from the rest of his MED material on the machine. Only the ones flagged publishable (not an
+// academy compilation) and carrying a printed key go out.
+const IN_E = path.join(ROOT, 'data/MCQS_INBOX/parsed/questions_e.json');
+if (fs.existsSync(IN_E)) {
+  for (const r of JSON.parse(fs.readFileSync(IN_E, 'utf8'))) if (r.publishable) rows.push(r);
+}
 
 // Stable id: the same stem always gets the same key, so re-running does not churn the diff.
 function hash8(s) {
@@ -39,6 +45,33 @@ function hash8(s) {
   return h.toString(16).padStart(8, '0');
 }
 const q = (s) => `'${String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`;
+
+// Set labels come from file names, so they are tidied: duplicate segments collapsed, stray codes
+// dropped, length capped. The name still describes the source file, nothing more.
+function tidyLabel(chapter) {
+  const parts = String(chapter)
+    .split(/\s*[·|]\s*/)
+    .map((p) => p.replace(/\.pdf$/i, '').replace(/\s{2,}/g, ' ').trim())
+    .filter(Boolean)
+    .filter((p) => !/^MDCAT\d*$/i.test(p) || p.toUpperCase() === 'MDCAT');
+  const seen = new Set();
+  const out = [];
+  for (const p of parts) {
+    const k = p.toLowerCase();
+    if (seen.has(k)) continue;
+    seen.add(k);
+    out.push(p);
+  }
+  return (out.join(' · ') || 'Collection').slice(0, 48);
+}
+
+for (const r of rows) {
+  if (!r.source || r.publishable === undefined) continue;
+  const label = tidyLabel(r.chapter);
+  // A file name that says nothing about the set ("Biologgy", "DOC · 20260917 · WA0021") is filed as
+  // a mixed bank rather than shown to a student as if it were a named paper.
+  r.chapter = /^(?:biolog\w*|chem\w*|physic\w*|DOC\b|WA\d{4})/i.test(label) ? 'Mixed Bank' : label;
+}
 
 const keyed = rows.filter((r) => r.correct_answer && ['A', 'B', 'C', 'D'].includes(r.correct_answer));
 const skippedNoKey = rows.filter((r) => !r.correct_answer);
@@ -54,7 +87,9 @@ for (const r of keyed) {
     ? `Founder bank — MDCAT past paper set, ${yearNote[1]}`
     : r.chapter === 'Mixed Bank'
       ? 'Founder bank — mixed past-paper compilation'
-      : 'Founder bank — subject worksheet';
+      : /mdcat|hec|nums|past|paper|test|mock|bumhs|usat|entry/i.test(r.chapter)
+        ? `Founder bank — ${r.chapter}`
+        : 'Founder bank — subject worksheet';
   entries.push({ id, r, source });
 }
 

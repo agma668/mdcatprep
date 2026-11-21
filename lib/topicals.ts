@@ -7,10 +7,12 @@
 
 import { TOPICALS_BANK, type TopicalsQuestion } from './topicals-bank';
 import { FOUNDER_BANK } from './founder-bank';
+import { PIPELINE_BANK } from './pipeline-bank';
 
-// One bank for the pages: the curated extraction plus the founder's own papers. Both carry their own
-// source label, so a row is never presented as something it is not.
-const BANK: TopicalsQuestion[] = [...TOPICALS_BANK, ...FOUNDER_BANK];
+// One bank for the pages: the curated extraction, the founder's own papers and the import-ready rows
+// of the question bank. Each row keeps its own source label, so it is never presented as something
+// it is not.
+const BANK: TopicalsQuestion[] = [...TOPICALS_BANK, ...FOUNDER_BANK, ...PIPELINE_BANK];
 
 export type { TopicalsQuestion };
 
