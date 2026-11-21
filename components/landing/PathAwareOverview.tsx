@@ -3,11 +3,9 @@
 import Link from "next/link";
 import { useSelectedPrepSpace } from "@/lib/prep-space-selection";
 import {
-  PREP_SPACES,
   type PrepSpaceCapability,
   type PrepSpaceDefinition,
 } from "@/lib/prep-space-registry";
-
 
 const CAPABILITY_DETAILS: Record<PrepSpaceCapability, { title: string; detail: string }> = {
   mcq_practice: { title: "Question practice", detail: "Work through focused questions where the bank is available." },
