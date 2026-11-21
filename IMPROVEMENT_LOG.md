@@ -279,3 +279,8 @@ The topic taxonomy has naming/coverage drift; no question in the 889-record set 
 ## 2026-11-21 — PM&DC Biology learning-outcome map
 
 Created `docs/PMDC-MDCAT-2025-BIOLOGY-MAP.md` from the official PM&DC Uniform Curriculum MDCAT-2025 PDF. The map records all 16 Biology units and 69 paraphrased learning-outcome IDs. First-pass comparison against the current 171-question Biology bank shows eight official units without a matching topic label: Acellular Life, Enzymes, Evolution, Circulation, Immunity, Respiration, Digestion and Biotechnology. Eight other units have plausible topic labels but still require question-level outcome mapping. Fifteen Ecology-tagged questions do not map to a named unit in the current syllabus and are held from PM&DC mock pools pending review. No question content was added to the student bank and no application or production database was changed.
+
+
+## 2026-11-21 — First original PM&DC Biology draft batch
+
+Created `data/drafts/medical/pmdc-biology-gap-batch-001.json` with 28 original questions across the eight under-mapped PM&DC Biology units, mapped to 22 official learning-outcome IDs. A follow-up static JSON check passed 28/28 for required fields, unique keys/stems, four distinct options, valid answer letters, explanations and all three distractor rationales. Answer positions are balanced A/B/C/D at 7 each; difficulty is 4 easy, 20 moderate and 4 hard. All items remain `draft_needs_academic_review`; this is not a claim of academic correctness or syllabus approval. The draft file is not imported into the app, no student-facing question bank changed, and no production database write occurred.
