@@ -252,3 +252,16 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - Added `/dashboard/goals` and its client: add multiple goals (exam + paper + optional target date), make primary, pause/resume, archive. Ownership and safe fields remain enforced by the database, not the UI. Sidebar and dashboard switcher now point to saved goals instead of implying a route change creates one.
 - Extended the PGlite RLS suite to 16 tests: the seed is applied twice, beta spaces are visible to anon, a goal can attach to a seeded active paper, and a draft space is rejected. `npm test` 89/89, tsc 0, eslint 0 on touched files, `next build` 0, `/dashboard/goals` returns 307 → `/login` logged out.
 - The catalogue migration is still **unapplied** and no production data or deployment was touched, so issue #2 is code-complete but not live-complete.
+
+
+## 2026-11-21 — Medical-first product priority and content baseline
+
+Founder direction: focus all new product work on medical preparation first. Engineering, PMA/ISSB, general USAT and other exam expansion are parked, not deleted. The execution order is PM&DC MDCAT first, NUMS MDCAT second; HEC scholarship pre-medical remains a separate scope decision and MBBS clinical learning remains post-admission.
+
+Created `MEDICAL-CONTENT-AGENT-BOARD.md` and updated the master, design, SEO and next-wave boards. The new content board defines official blueprint baselines, question metadata/QA states, OCR and source-ingestion workflow, syllabus coverage audit, expansion waves and medical release gates.
+
+Static source inspection at `main` SHA `1f54c344418e5fd6e45c1d4ca8c2102772c9eaba` found 889 literal keyed MCQ records across Biology (163), Chemistry (179), Physics (305), English (172) and `PAST_PAPER_BANK` (70), plus 356 literal flashcard IDs. These are provisional internal source counts only: runtime totals, duplicate detection, academic answer review, provenance and exact syllabus mapping are still required. The past-paper-bank header says 40 items while 70 literal keys were found; this discrepancy is now explicitly queued for resolution. The large raw knowledge-base/topicals corpus has not been fully inspected and must not be counted as ready questions.
+
+Official-source check on 2026-11-21: PM&DC's syllabus listing still shows the 2025 Uniform Curriculum, and the 19 May 2026 notice applied it to MDCAT-2026. The official 2026 pattern is 180 MCQs / 180 minutes / no negative marking with Bio 81, Chem 45, Physics 36, English 9, Logical Reasoning 9 and 15/70/15 difficulty. No 2027 blueprint is asserted. NUMS's official 2026 syllabus is distinct: Paper-I 150 MCQs / 165 minutes (Bio 55, Chem 40, Physics 40, English 15) plus Paper-II 50 psychological MCQs / 15 minutes; difficulty 20/60/20 and 70% recall / 30% application in Bio/Chem/Physics.
+
+No application code, question content, database schema/data, production Auth settings, billing or deployment was changed in this documentation wave. No PR was merged. Work is on `strategy/medical-first-content-expansion` pending review.
