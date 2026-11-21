@@ -274,3 +274,8 @@ Created `MEDICAL-BANK-AUDIT-2026-11-21.md` after parsing the five current MCQ so
 The bank difficulty mix is 40.7% easy / 46.2% moderate / 13.1% hard, unlike the PM&DC 2026 aggregate profile of 15/70/15. Correct-option positions are skewed toward B (45.3%) and away from D (11.1%). The subject pool is skewed toward Physics (35.2%) and English (20.2%), while Biology is 19.2% despite being 45% of the PM&DC 2026 paper. Biology is therefore the first question expansion priority; do not bulk-add Physics/English until the official syllabus outcome map shows a gap.
 
 The topic taxonomy has naming/coverage drift; no question in the 889-record set carries a `pastPaper` metadata object; `PAST_PAPER_BANK` is original exam-style content and its header's 40-item claim conflicts with 70 parsed records. These findings are static structural evidence only, not academic correctness or permission review. Full limitations and next steps are in the audit report.
+
+
+## 2026-11-21 — PM&DC Biology learning-outcome map
+
+Created `docs/PMDC-MDCAT-2025-BIOLOGY-MAP.md` from the official PM&DC Uniform Curriculum MDCAT-2025 PDF. The map records all 16 Biology units and 69 paraphrased learning-outcome IDs. First-pass comparison against the current 171-question Biology bank shows eight official units without a matching topic label: Acellular Life, Enzymes, Evolution, Circulation, Immunity, Respiration, Digestion and Biotechnology. Eight other units have plausible topic labels but still require question-level outcome mapping. Fifteen Ecology-tagged questions do not map to a named unit in the current syllabus and are held from PM&DC mock pools pending review. No question content was added to the student bank and no application or production database was changed.
