@@ -72,7 +72,7 @@ Some of these are legitimate chapter-vs-topic naming differences, so exact strin
 
 - The 70 records in `PAST_PAPER_BANK` use the shared source label `PMDC/NUMS Exam Style`; none of the 889 parsed records has a `pastPaper` metadata object.
 - The file header itself says these are original exam-style questions, not transcribed past-paper questions, but its comment says 40 items while the parser found 70. Fix the comment and keep the questions labelled as original exam-style material.
-- Actual released-paper entries are maintained separately in `lib/past-papers.ts` / `lib/past-paper-bank.ts` metadata should not be inferred from the filename. Confirm the true paper registry and provenance before calling anything a PYQ.
+- The actual released-paper registry is maintained separately in `lib/past-papers.ts`. `lib/past-paper-bank.ts` is an original MCQ array despite its filename; it contains no `pastPaper` metadata. Confirm the registry's year, authority, code and provenance before calling anything a PYQ.
 - Large source files in `knowledge-base/questions/`, `knowledge-base/reference/`, `data/raw/mdcat/` and `lib/topicals-bank.ts` were identified but not fully parsed in this pass. They are an unreviewed corpus, not additional approved question counts.
 
 ## 6. What this audit does not prove
