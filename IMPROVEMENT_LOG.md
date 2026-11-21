@@ -252,3 +252,43 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - Added `/dashboard/goals` and its client: add multiple goals (exam + paper + optional target date), make primary, pause/resume, archive. Ownership and safe fields remain enforced by the database, not the UI. Sidebar and dashboard switcher now point to saved goals instead of implying a route change creates one.
 - Extended the PGlite RLS suite to 16 tests: the seed is applied twice, beta spaces are visible to anon, a goal can attach to a seeded active paper, and a draft space is rejected. `npm test` 89/89, tsc 0, eslint 0 on touched files, `next build` 0, `/dashboard/goals` returns 307 → `/login` logged out.
 - The catalogue migration is still **unapplied** and no production data or deployment was touched, so issue #2 is code-complete but not live-complete.
+
+
+## 2026-11-21 — Wave 1 CI dependency and validation record
+
+- Confirmed PR #22 CI run #46 passed all four gates: dependency installation, unit tests, ESLint and TypeScript. PR #22 remains draft/unmerged pending founder approval.
+- Confirmed PR #23 CI run #47 passed. Its goal-scoped public-sample delivery remains an unintegrated server-only seam; paid entitlement delivery remains fail-closed.
+- Inspected PR #24 run #48 logs: 77/78 tests passed; the four new trigger-security regression tests passed. The failure was the RLS suite's missing ownership migration file, and lint/typecheck were skipped. Retargeted PR #24 to PR #22's foundation branch. Fresh CI is required; do not mark validated yet.
+- Confirmed no workflow runs are associated with the current PR #16/#17 head commits. These remain unvalidated.
+- Updated `ROADMAP-AGENT-BOARD.md` with the verified states and next gates.
+- No merge, live Supabase migration, Auth setting change, production data change or deployment was performed.
+
+
+## 2026-11-21 — Wave 1 follow-up: CI retarget and landing-stack workflow repair
+
+- PR #24 was retargeted to `fix/rls-goals-migration-ci-dependency`; fresh GitHub Actions run #50 passed all four gates: dependency installation, unit tests, ESLint and TypeScript. The prior run #48 failure is superseded. PR #24 remains draft/unmerged.
+- Confirmed the landing stack's exact dependency chain: PR #16 is `apex/design-pathway-landing-onboarding` → `apex/design-prep-space-discovery`; PR #17 is `apex/design-editorial-landing` → `apex/design-pathway-landing-onboarding`.
+- Removed the `branches: [main]` restriction from the `pull_request` trigger in `.github/workflows/quality.yml` on all three branches. Commits: `ffc68e5b8e94a33a8b9845aa2d6b5186e8cf3392`, `23049ccf7c522189bde0f0a023d9acb392a6016b`, and `0a25038b2b4c5924e79c0c832473740b98c951f1`.
+- No Actions runs were visible for the updated #16/#17 head commits when checked. Workflow configuration is repaired, but test/lint/typecheck status is still unverified; keep both PRs draft.
+- No merge, live Supabase migration, Auth setting change, production data change or deployment was performed.
+
+
+## 2026-11-21 — Wave 1 follow-up: selector lint fix and branch-push CI
+
+- PR #24 latest branch CI run #54 passed dependency installation, unit tests, ESLint and TypeScript.
+- Updated `.github/workflows/quality.yml` across `apex/design-prep-space-discovery`, `apex/design-pathway-landing-onboarding` and `apex/design-editorial-landing`: both `pull_request` and `push` triggers now include feature branches, not only `main`.
+- Fixed the selector's React lint error by replacing synchronous `setState` in an effect with `useSyncExternalStore`; the store validates the tab's saved prep-space slug and emits a same-tab selection event. The fix is present on both the PR #16 pathway branch and PR #17 editorial branch.
+- PR #16's earlier retry run #55 passed tests, ESLint and TypeScript, but the latest head includes a subsequent workflow commit; latest push run #56 was still running at log time.
+- PR #17's earlier run #53 failed ESLint against the pre-fix selector. The fix was carried into its head branch; latest push run #57 was still running at log time.
+- Browser/responsive QA remains outstanding. Both landing PRs remain draft. No merge, production Supabase migration, Auth setting change, production data change or deployment was performed.
+
+
+## 2026-11-21 — Wave 1 follow-up: unified selection and theme stores
+
+- PR #16 latest pathway head CI run #60 passed dependency installation, all 89 tests, ESLint and TypeScript.
+- PR #17 run #57 passed tests but failed ESLint on three effect-based state initializers: `ThemeSwitcher`, `PathAwareHeroCopy` and `PathAwareOverview`.
+- Added `lib/prep-space-selection.ts` as a shared `useSyncExternalStore` implementation for selected exam path, validated sessionStorage persistence and same-tab notifications. The selector, hero and overview now read the same store, fixing both the lint errors and the prior event-name mismatch.
+- Reworked `ThemeProvider`/`ThemeSwitcher` to observe theme changes through `useSyncExternalStore`; the server snapshot now matches the default Midnight palette to avoid an incorrect initial icon.
+- Latest PR #17 head is `95e1c21082236b7626f657fca9d8df9d41da7296`; quality run #62 is queued. Run #61 applies to the immediately preceding shared-store commit; run #57 is the pre-fix failure. Keep PR #17 draft until the latest run passes.
+- PR #24 latest docs/head CI run #58 passed dependency installation, tests, ESLint and TypeScript. PR #16 latest head run #60 also passed all gates.
+- Desktop/mobile browser QA and preview review remain outstanding. No merge, production Supabase migration, Auth setting change, production data change or deployment was performed.

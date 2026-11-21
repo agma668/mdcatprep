@@ -400,3 +400,54 @@ Official PMDC's 2026 public notice now provides the exact paper profile: 180 MCQ
 - [ ] Add catalogue seed data only after exam blueprint readiness and official source review.
 - [ ] Implement goal-aware server actions, then add scoped progress columns without guessing legacy ownership.
 - [ ] Build reviewed question ingestion and entitlement-aware delivery; do not seed the current incomplete MDCAT bank as published.
+
+
+## Wave 1 foundation validation — 2026-11-21
+
+- [x] PR #23 goal-scoped public-sample delivery: CI run #47 passed. The implementation remains a server-only seam and is not wired into existing practice pages/actions; paid `goal_access` remains fail-closed.
+- [x] PR #22 ownership migration + all-PR workflow: CI run #46 passed; PR remains draft and awaits founder approval before merge.
+- [x] PR #24 trigger hardening: PGlite regression tests passed (4/4) in run #48, but the full run failed because the RLS suite could not find the ownership migration on the original base. PR #24 has been retargeted to PR #22's foundation branch; a fresh full CI run is still required before validation.
+- [ ] PR #16/#17 landing stack: no GitHub Actions runs were found for their current head commits. Confirm the intended integration base/workflow path and obtain full quality checks before treating the landing work as validated.
+- [ ] Leaked-password protection: dashboard setting remains unchanged; perform compatibility review and obtain explicit approval before enabling.
+- [ ] Production Supabase schema/data, Auth settings and deployments: unchanged; require separate explicit approval.
+
+**Current gate:** no merge or production action. Next engineering action is to ensure the retargeted PR #24 receives a fresh test/lint/typecheck run, then investigate why #16/#17 have no checks. Do not infer a passing gate from preview deployment status.
+
+
+## 2026-11-21 — Wave 1 follow-up: CI retarget and landing-stack workflow repair
+
+- [x] PR #24 trigger hardening: retargeted to `fix/rls-goals-migration-ci-dependency`; fresh GitHub Actions run #50 passed dependency installation, all tests, ESLint and TypeScript. The earlier run #48 failure is superseded; PR #24 is validated by CI but remains draft/unmerged.
+- [x] Confirmed landing PR stack: #16 targets `apex/design-prep-space-discovery` from `apex/design-pathway-landing-onboarding`; #17 targets `apex/design-pathway-landing-onboarding` from `apex/design-editorial-landing`.
+- [x] Fixed `.github/workflows/quality.yml` in all three landing-stack branches so `pull_request` is not restricted to `main`. Commits: discovery `ffc68e5b8e94a33a8b9845aa2d6b5186e8cf3392`; pathway `23049ccf7c522189bde0f0a023d9acb392a6016b`; editorial `0a25038b2b4c5924e79c0c832473740b98c951f1`.
+- [ ] PR #16/#17 quality checks: no Actions runs were visible for the new head commits at the time of this update. Do not treat workflow-file repair as validation; obtain and inspect fresh full checks before moving either PR out of draft.
+- [ ] Leaked-password protection: dashboard setting remains unchanged; perform compatibility review and obtain explicit approval before enabling.
+- [ ] Production Supabase schema/data, Auth settings and deployments: unchanged; require separate explicit approval.
+
+**Current gate:** PR #24's full CI is green. Landing-stack workflow configuration is repaired on all three branches, but #16/#17 remain unvalidated until GitHub Actions runs are observed. No merges, production migrations, Auth changes or deployments were performed.
+
+
+## 2026-11-21 — Wave 1 follow-up: selector lint fix and branch-push CI
+
+- [x] PR #24 trigger hardening: latest branch CI run #54 passed dependency installation, all tests, ESLint and TypeScript.
+- [x] Landing-stack workflow now runs on unfiltered `pull_request` and `push` events in all three stack branches. This closes the feature-branch trigger gap and ensures subsequent branch pushes are checked.
+- [x] Fixed `components/landing/ExamPathwaySelector.tsx`: replaced synchronous state restoration inside `useEffect` with `useSyncExternalStore` backed by validated sessionStorage and a same-tab change event. This preserves tab-level path restoration without the React hooks lint error.
+- [x] Carried the selector fix into both PR #16's pathway branch and PR #17's editorial branch so the stacked diff does not reintroduce the lint failure.
+- [ ] PR #16 latest head push run #56: tests/lint/typecheck still running at this update. Earlier run #55 passed all three gates, but it predates the latest workflow commit.
+- [ ] PR #17 latest head push run #57: tests/lint/typecheck still running at this update. Earlier run #53 failed ESLint on the pre-fix selector; do not count that as current validation.
+- [ ] Desktop/mobile browser QA and full preview review remain outstanding; keep PR #16/#17 draft.
+- [ ] Leaked-password protection remains unchanged pending compatibility review and explicit approval. No production Supabase schema/data, Auth settings or deployment changes.
+
+**Current gate:** PR #24 CI is green. The landing workflow trigger and selector lint fix are committed across the stack; latest PR #16/#17 CI runs are still in progress. No merges or production actions were performed.
+
+
+## 2026-11-21 — Wave 1 follow-up: unified selection and theme stores
+
+- [x] PR #16 latest pathway head CI run #60 passed dependency installation, all 89 tests, ESLint and TypeScript. The earlier lint blocker in `ExamPathwaySelector` is fixed.
+- [x] PR #17 CI run #57 exposed three additional React effect/state lint errors in `ThemeSwitcher`, `PathAwareHeroCopy` and `PathAwareOverview`. Replaced the effect-based initialization with shared external stores using `useSyncExternalStore`.
+- [x] Added `lib/prep-space-selection.ts` as the single source for selected Prep Space state, sessionStorage persistence, validation and same-tab notifications. Updated selector, hero and overview to consume it; this also fixes their previously mismatched event names.
+- [x] Updated the theme provider/switcher to use an observable theme store and aligned the server snapshot with the default Midnight palette.
+- [ ] PR #17 latest head `95e1c21082236b7626f657fca9d8df9d41da7296`: new quality run #62 is queued; earlier run #61 is for the preceding shared-store commit and run #57 failed on the pre-fix components. Keep PR #17 draft until the latest run passes.
+- [x] PR #24 latest documentation/head CI run #58 passed all four gates.
+- [ ] Desktop/mobile browser QA, interaction verification and preview review remain outstanding for the landing stack.
+
+**Current gate:** PR #16 CI is green; PR #17's shared-store/theme fix is committed and awaiting latest CI run #62. PR #24 CI is green. No merges, production migrations, Auth changes or deployments were performed.
