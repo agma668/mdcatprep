@@ -395,3 +395,10 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
   6. `/copyright` had no meta description.
 - Also corrected my own audit's misclassification: `/nust|usat|pma/practice` are public practice surfaces, not private, and are no longer reported as failures.
 - Gates: tsc 0, eslint 0 on all 14 touched files, `next build` 0 (125/125 static pages), audit 0 problems after the build. No database contact, no deployment, no push.
+
+## 2026-11-22 — The hero counted a different bank from the pages (Phase 2 count reconciliation)
+
+- Board item "Confirm all question counts displayed on the site reconcile to actual bundled content" measured against the running site: the homepage hero said **889 "Practice MCQs" and 5 subjects**, while `/topicals` — two clicks away, same session — said **16,556 questions and six subjects**. Two public numbers for the same claim.
+- Cause: `contentHero()` in `lib/public-stats.ts` read `BANK_TOTAL` / `BANK_SECTION_COUNT`, which are derived from the legacy MDCAT portal array (`lib/mdcat.ts`), not from the served topical bank. The hero is advertising what a student can practise, so it now reads `TOPICALS_TOTAL` and `TOPICALS_SUBJECTS.length` — the same seam `/topicals` renders from, so the two can no longer disagree.
+- Also found: `components/landing/SocialProofBar.tsx` imports `BANK_TOTAL` and is **never rendered anywhere** — dead code carrying a stale count and pulling the bank into a client bundle. Left in place (deleting a component is a separate call) but recorded here so nobody trusts its number.
+- Gates: tsc 0, eslint 0, `next build` 0 (125/125 static pages), homepage renders "Practice MCQs 16,556" and "Subjects 6", route audit still 0 problems. No database contact, no deployment, no push.

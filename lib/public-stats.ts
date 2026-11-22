@@ -1,6 +1,7 @@
 import { createServiceClient } from "@/lib/supabase/service";
 import { DEMO_EMAIL_SUFFIX } from "@/lib/demo";
-import { BANK_SECTION_COUNT, BANK_TOTAL, COLLEGE_COUNT, communitySize } from "@/lib/stats";
+import { COLLEGE_COUNT, communitySize } from "@/lib/stats";
+import { TOPICALS_SUBJECTS, TOPICALS_TOTAL } from "@/lib/topicals";
 import {
   finalizeLeaderboard,
   type LeaderboardEntry,
@@ -116,8 +117,13 @@ async function fetchDemoAccounts(service: ServiceClient): Promise<DemoAccounts |
 function contentHero(): PublicHeroStats {
   return {
     colleges: COLLEGE_COUNT,
-    subjects: BANK_SECTION_COUNT,
-    mcqs: BANK_TOTAL,
+    // The hero advertises what a student can actually practise, so it counts the served topical
+    // bank (every chapter and set page) — not `BANK_TOTAL`, which is only the legacy MDCAT portal
+    // array. That mismatch was public: the hero said 889 "Practice MCQs" and a few clicks later
+    // /topicals said 16,556, on the same site, in the same session. Subjects likewise come from the
+    // six subjects the topical pages render, not the five the old portal bank covered.
+    subjects: TOPICALS_SUBJECTS.length,
+    mcqs: TOPICALS_TOTAL,
     students: communitySize(null),
     asOf: new Date().toISOString(),
   };
