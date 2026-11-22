@@ -15,20 +15,22 @@ const siteUrl = getSiteUrl();
 export const metadata: Metadata = {
   title: "MDCAT Topical MCQs — Chapter-wise Practice by Subject (Free)",
   description:
-    "Chapter-wise MDCAT topical MCQs for Biology, Chemistry and Physics: pick a subject, pick a chapter, drill with instant explanations. Free, no signup needed.",
+    "Chapter-wise MDCAT topical MCQs for Biology, Chemistry, Physics, English, Mathematics and Reasoning: pick a subject, pick a chapter, drill with instant explanations. Free, no signup needed.",
   keywords: [
     "MDCAT topical MCQs",
     "MDCAT chapter wise questions",
     "MDCAT biology chapter wise MCQs",
     "MDCAT physics topical practice",
     "MDCAT chemistry chapter wise MCQs",
+    "MDCAT English practice MCQs",
+    "MDCAT logical reasoning practice",
   ],
   openGraph: {
     type: "website",
     url: `${siteUrl}/topicals`,
     title: "MDCAT Topical MCQs — Chapter-wise | MED Prep",
     description:
-      "Chapter-wise MDCAT MCQs for Biology, Chemistry and Physics — drill any chapter with instant explanations, free.",
+      "Chapter-wise MDCAT MCQs for Biology, Chemistry, Physics, English, Mathematics and Reasoning — drill any chapter with instant explanations, free.",
     siteName: "MED Prep",
     images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: "MDCAT topical MCQs — MED Prep" }],
   },
@@ -52,8 +54,8 @@ export default function TopicalsHubPage() {
             </p>
             <p className="mt-3 text-sm text-[var(--steel-400)]">
               {TOPICALS_TOTAL.toLocaleString("en-US")} questions across {TOPICALS_CHAPTER_COUNT}{" "}
-              chapters plus {TOPICALS_SET_COUNT} whole-paper sets, all three science subjects · free, no
-              signup needed.
+              chapters plus {TOPICALS_SET_COUNT} whole-paper sets across all six MDCAT subjects · free,
+              no signup needed.
             </p>
           </div>
         </section>

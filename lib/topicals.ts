@@ -75,10 +75,16 @@ export function resolveChapter(subject: string, chapter: string): string {
 }
 
 function buildSubjects(): TopicSubject[] {
+  // Every subject the bank actually carries is listed here. A subject missing from this list used to
+  // mean its questions were ingested and then invisibly dropped at render time, so the ingest allow-list
+  // in scripts/ingest-pipeline-bank.mjs must stay identical to this one.
   const order = [
     { name: 'Biology', icon: '🧬' },
     { name: 'Chemistry', icon: '⚗️' },
     { name: 'Physics', icon: '⚛️' },
+    { name: 'English', icon: '📖' },
+    { name: 'Mathematics', icon: '📐' },
+    { name: 'Reasoning', icon: '🧩' },
   ];
   const subjects: TopicSubject[] = [];
   for (const s of order) {

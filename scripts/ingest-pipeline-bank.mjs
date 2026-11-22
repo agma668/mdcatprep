@@ -49,17 +49,24 @@ for (const f of ['lib/topicals-bank.ts', 'lib/founder-bank.ts']) {
 }
 
 // A brand still visible in a question would defeat the de-branding, so such a row is dropped: editing
-// a stem to hide a name is rewriting someone's question, and we do not do that.
+// a stem to hide a name is rewriting someone's question, and we do not do that. The bare `academy` /
+// `institute` / `college` words matter: a scan header reads "VISIT NK ACADEMY YOUTUBE CHANNEL", and
+// none of the named brands below would have matched it.
 const BRAND = new RegExp(
   [
-    'kips', 'aakash', 'akash', '\\bpgc\\b', 'star\\s+academy', 'nearpeer', 'maqsad',
-    'dr\\.?\\s*shakeel', 'shakeel', 'edwardes', 'dow\\s+medical', '\\bkmu\\b', 'ace\\s+academy',
-    'horizon', 'superior\\s+group', 'unique\\s+academy', 'scholar\\s+series', 'step\\s+academy',
-    'medico\\s+academy', 'noble\\s+academy', 'punjab\\s+group', 'la\\s*education',
-    'harvard\\s+academy', 'allied\\s+academy', 'pace\\s+academy',
+    'academy', 'institute', 'college', 'coaching', 'medexel', 'med\\s?excel', 'dawar', 'anees',
+    '\\bkips\\b', 'aakash', 'akash', '\\bpgc\\b',
+    'nearpeer', 'maqsad', 'dr\\.?\\s*shakeel', 'shakeel', 'edwardes', 'dow\\s+medical', '\\bkmu\\b',
+    'horizon', 'superior\\s+group', 'scholar\\s+series', 'medic\\w*\\s+academy', 'noble\\s+academy',
+    'punjab\\s+group', 'la\\s*education', 'harvard\\s+academy', 'allied\\s+academy', 'pace\\s+academy',
+    '\\bgrip\\b',
   ].join('|'),
   'i'
 );
+
+// Scan furniture that is not part of the question: compiler credits, channel plugs, page numbering and
+// phone numbers. A stem holding any of this is a bad extraction, not a question.
+const JUNK = /compiled\s+by|visit\s+[^.]{0,40}(?:youtube|channel)|page\s+\d+\s+of\s+\d+|\b0\d{10}\b|\b03\d{2}[-\s]?\d{7}\b/i;
 const WATERMARK =
   /(scanned\s+by|downloaded\s+from|www\.|https?:\/\/|facebook|whatsapp|@\w+\.(?:com|net|pk))/i;
 
@@ -78,7 +85,13 @@ function reject(r) {
   if (/[a-z]{28,}/i.test(stem.replace(/\s+/g, ' '))) return 'glued-words';
   if (WATERMARK.test(stem) || opts.some((o) => WATERMARK.test(o))) return 'watermark-or-url';
   if (BRAND.test([stem, ...opts].join(' '))) return 'brand-name';
+  if (JUNK.test([stem, ...opts].join(' '))) return 'scan-furniture';
   if (r.duplicate_of) return 'duplicate';
+  // A stem that points at a figure the site does not serve is unanswerable as text, so it stays out
+  // until images are supported. The `figure` tier is not read here at all; this catches the phrasings
+  // that survive in the other tiers ("illustrated in the diagram below").
+  if (/(?:diagram|figure|graph|chart|table|picture|image|circuit)s?\s+(?:below|above|shown|given)/i.test(stem))
+    return 'needs-figure';
   return null;
 }
 
@@ -92,15 +105,19 @@ const publicNeedKey = needsKey.filter((r) => r.visibility === 'public');
 const privateNeedKey = needsKey.filter((r) => r.visibility !== 'public');
 
 // Exactly the subjects lib/topicals.ts renders. A row for any other subject would sit in the bank and
-// never reach a page, so it is counted as skipped instead of inflating the total.
-const subjects = new Set(['Biology', 'Chemistry', 'Physics']);
+// never reach a page, so it is counted as skipped instead of inflating the total. If a subject is
+// added to either list it must be added to both.
+const subjects = new Set(['Biology', 'Chemistry', 'Physics', 'English', 'Mathematics', 'Reasoning']);
 // Chapter labels come from the syllabus, so they never carry a brand; "Unplaced" is filed as a mixed
-// bank rather than shown to a student as if it were a named chapter.
-const chapterOf = (r) => (r.chapter && r.chapter !== 'Unplaced' ? r.chapter : 'Mixed Bank');
+// bank rather than shown to a student as if it were a named chapter. A label that does carry a brand
+// (some sources name the academy in the chapter) falls back to the mixed bank.
+const chapterOf = (r) => {
+  const c = r.chapter && r.chapter !== 'Unplaced' ? String(r.chapter) : '';
+  return c && !BRAND.test(c) && !JUNK.test(c) ? c : 'Mixed Bank';
+};
 
 const rows = [];
 const skipped = {
-  notPublicKeyed: ready.length - publicReady.length - privateReady.length,
   subject: 0, duplicate: 0, badKey: 0, gate: 0, practiceGate: 0, practice: 0,
 };
 const gateReasons = {};
@@ -172,6 +189,25 @@ for (const r of publicNeedKey) {
 }
 for (const r of privateNeedKey) {
   admit(r, { keyed: false, idPrefix: 'acadprac', source: 'Practice (no printed key)' });
+}
+
+// The inbox's second extraction (`questions_e.json`): rows from the founder's other MED material. They
+// were held back only because their file names marked them as an academy compilation; under the
+// private-use ruling they are admitted when they pass the same gate, de-branded like the rest.
+const EXTRA = path.join(ROOT, 'data/MCQS_INBOX/parsed/questions_e.json');
+if (fs.existsSync(EXTRA)) {
+  for (const r of JSON.parse(fs.readFileSync(EXTRA, 'utf8'))) {
+    if (!r.question_text) continue;
+    const keyed = ['A', 'B', 'C', 'D'].includes(r.correct_answer);
+    // These rows carry no `visibility`, so they must be treated as private: the gate runs on all of
+    // them, and their id prefix says where they came from.
+    const asPrivate = { ...r, visibility: 'private' };
+    admit(asPrivate, {
+      keyed,
+      idPrefix: keyed ? 'ext' : 'extprac',
+      source: keyed ? 'Keyed collection' : 'Practice (no printed key)',
+    });
+  }
 }
 
 // TypeScript refuses to infer a union from one huge array literal (TS2590), so the rows are emitted as
