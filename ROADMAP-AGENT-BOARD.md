@@ -400,3 +400,275 @@ Official PMDC's 2026 public notice now provides the exact paper profile: 180 MCQ
 - [ ] Add catalogue seed data only after exam blueprint readiness and official source review.
 - [ ] Implement goal-aware server actions, then add scoped progress columns without guessing legacy ownership.
 - [ ] Build reviewed question ingestion and entitlement-aware delivery; do not seed the current incomplete MDCAT bank as published.
+
+
+---
+
+## 2026-11-20 — Wave 0 live-state audit and sequential execution reset
+
+**Audit scope:** GitHub repository/PR stack, active Vercel project and deployments, active Apex Supabase project, public schema/migration history, RLS policies/advisors, current roadmap/agent-board claims and Med readiness. Read-only infrastructure inspection only. No production app changes, DB writes, migrations, settings changes, merges, domain actions or deployment promotion were made.
+
+### Verified live infrastructure
+
+- GitHub repository: `agma668/mdcatprep`; default branch `main`. Production Vercel project: `edweb`, linked to this repository.
+- Vercel production deployment is READY on `main` at `1f54c344418e5fd6e45c1d4ca8c2102772c9eaba`; production aliases include `edweb-nine.vercel.app`.
+- Latest inspected preview is READY on `apex/prepspace-foundation` at `fc8f7c714007669cd5687f892f6a9e86dd7ae776`. It is a preview, not production.
+- The editorial landing PR #17 remains open and draft, based on draft PR #16; PR #16 is based on `apex/design-prep-space-discovery`. The PR stack must be reviewed and tested in dependency order; do not merge an upper PR independently. PR #17 has successful Vercel status checks, but this is not proof that typecheck, lint, unit tests or browser QA passed.
+- The connected Apex Supabase project is `edweb` (`niiskuwlpccmdtwjoxvm`), ACTIVE_HEALTHY. The separate inactive `CAT` project is not the Apex backend and remains out of scope.
+
+### Supabase schema and actual content state (read-only)
+
+- Live migration history contains **28 migrations** through `20261113000000_prep_space_catalogue_seed`.
+- The public schema contains **24 tables**; RLS is enabled on all 24.
+- The live schema now includes `exam_registry` (9 rows), `exam_variants` (9 rows), `assessment_profiles`, `student_goals`, and `question_exam_map`. This supersedes older board notes that said these tables/migrations were not yet present.
+- Live row counts at audit time: `questions` 0; published questions 0; `student_goals` 0; `question_attempts` 0; `flashcard_reviews` 0; `notes` 0. `profiles` has 2 rows and `client_telemetry` has 75 rows.
+- Therefore the registry/schema foundation exists, but **canonical question ingestion and durable student learning activity are not verified as live**. A roadmap entry saying “automated ingestion deployed” must not be interpreted as proof that production `public.questions` is populated. Static/bundled question banks and a deployed ingest script are not the same as canonical, exam-mapped, reviewed database content.
+- Existing `question_attempts`, `question_bookmarks`, `flashcard_reviews`, `mistake_reviews` and related tables have goal-related columns/links in the current schema, but the actual end-to-end goal-scoped student journey still needs integration tests with real, reviewed question rows.
+- The public `questions` SELECT policy currently checks `status = 'published'` but has no exam/variant predicate. Do not expose more than one exam's bank through this shared pool until server-side exam mapping and authorization are enforced. `question_exam_map` has RLS enabled and no client policy, consistent with an internal-only map until a trusted delivery action is implemented. `client_telemetry` also has RLS enabled with no policy; verify the intended server/service-role write path and ensure no client insert is required.
+
+### Supabase advisor triage — findings, not authorization to change production
+
+- Security: 2 RLS-enabled tables with no policies (`client_telemetry`, `question_exam_map`); 3 `SECURITY DEFINER` functions callable by anon/authenticated (`count_referral_on_signup`, `generate_referral_code`, `handle_new_user`); leaked-password protection disabled.
+- Performance: 19 unindexed foreign keys; 37 auth/RLS init-plan warnings; 36 unused-index notices; 1 table with multiple permissive SELECT policies (`notes`).
+- Health advisor returned no lints.
+- Triage each item against actual call sites and expected workload. Do not blindly revoke RPC grants, add broad policies, or drop “unused” indexes. In particular, inspect function callers/triggers and the server-side telemetry flow before proposing a migration or Auth setting change.
+
+### Codebase and product truth
+
+- `lib/prep-space-registry.ts` is the canonical nine-path catalogue. Medical has PMDC MDCAT (beta) and NUMS (content in progress); the registry correctly warns against treating a scaled PMDC mock as an official full paper.
+- `lib/seo-pages.ts`, `app/sitemap.ts` and `app/robots.ts` provide an existing SEO foundation. Extend the single SEO page registry; do not create a second sitemap/IndexNow list.
+- Main branch still identifies the site as **MED Prep** in `lib/site.ts` and `app/layout.tsx`. The current main homepage is a broad multi-exam landing page, not yet the approved Apex Academy parent chooser. The current draft landing PR changes design/path discovery but does not complete the parent + specialist brand architecture.
+- `package.json` includes tests for FSRS, flashcards, mistake classification, quiz blueprints, question-bank structural audit, Prep Space registry and RLS goals. Existing tests are useful, but passing unit tests alone do not prove the hosted Supabase integration works.
+- The current roadmap/queue correctly warns not to run `scripts/seed-mdcat-questions.mjs`: it uses a service-role key, publishes immediately, handles only the MDCAT bank and does not create exam/variant mappings. Build a new idempotent, dry-run-first importer with target allowlisting, draft/review state, provenance and explicit mapping. No import is authorized by this audit.
+
+### Board hygiene corrections
+
+- Reconcile older statements of 22 migrations / 13 public tables / absent goal tables with the current live count of 28 migrations / 24 tables / present registry and goal tables.
+- Keep “feature code exists”, “preview deployed”, “database seeded”, “end-to-end tested” and “production released” as separate statuses.
+- The GitHub integration available to this audit exposes repository files, issues and PRs, but no GitHub Projects v2 board mutation tools. This Markdown master board and issue #18 are the supported coordination records; do not claim a Projects board was changed.
+
+## Sequential implementation plan — one wave at a time
+
+### Wave 0 — Repository and infrastructure audit
+**Status: audit pass completed; a few evidence checks remain.**
+- [x] Confirm repository, production/preview deployment relationship and active Apex Supabase project.
+- [x] Inspect current PR stack and verify #16/#17 are still drafts.
+- [x] Inspect live schema, migrations, row counts, key RLS policies and Supabase advisors.
+- [x] Reconcile current exam registry and SEO foundation with the roadmap.
+- [ ] Finish local/CI baseline on the exact intended release branch: typecheck, lint, all tests and production build.
+- [ ] Verify public production and protected preview access in a clean browser; inspect core routes at mobile and desktop.
+- [ ] Choose one canonical integration branch and document the merge order for stacked PRs.
+**Exit gate:** known branch strategy, reproducible quality baseline, verified public/preview access and no ambiguous production-vs-preview claims.
+
+### Wave 1 — Stabilize shared foundation
+- Complete Prep Space goal ownership and RLS regression coverage against the current live schema using local/disposable test data.
+- Review the current migrations against the live 28-migration history; identify drift and missing integration, without applying any production migration.
+- Define the trusted server-side question-delivery boundary: user → owned goal → active exam/variant → approved question mapping → permitted content.
+- Resolve the shared `questions` table's exam-scope gap before importing or exposing multiple exam pools.
+- Review SECURITY DEFINER grants, telemetry policy design, leaked-password protection, notes policy overlap and RLS performance. Produce a risk-ranked change plan first.
+- Establish CI checks and a repeatable local verification script.
+**Exit gate:** goal ownership and exam isolation proven by tests; no unresolved critical security finding; no production schema mutation without separate approval.
+
+### Wave 2 — Apex public architecture, with Med as the first specialist destination
+- Preserve one platform, one account system and one canonical domain.
+- Build `/` as the Apex Academy goal chooser and `/med/` as the first complete specialist mini-funnel.
+- Keep engineering and defence discovery visible as honest “in progress/coming soon” destinations; do not build their full learning engines in this wave.
+- Route MDCAT/medical-intent searches to Apex Med; generic Apex Academy searches to the parent chooser.
+- Use unique route metadata, canonical URLs, structured data where valid, internal links and the existing single SEO registry.
+- Preserve existing routes as aliases until redirects and student journeys are tested.
+**Exit gate:** clear parent-vs-Med positioning, crawlable unique pages, accurate readiness claims, responsive/light-dark QA.
+
+### Wave 3 — Med content and canonical question pipeline
+- Audit bundled MDCAT content for stable keys, duplicates, answer labels, explanations, subject/topic mapping, provenance and academic correctness.
+- Verify PMDC MDCAT blueprint/version from current official sources; keep NUMS a separate exam and blueprint.
+- Produce a reviewed content manifest before import. Distinguish authentic past-paper items from original practice questions.
+- Build a new idempotent dry-run-first importer; target only the confirmed Apex Supabase project, require explicit target allowlisting, import as draft/review state and log rejects.
+- Create explicit exam/variant/syllabus mappings and editorial approval before publishing.
+- Test imported counts against the manifest and prove no cross-exam leakage.
+**Exit gate:** reviewed PMDC bank is mapped, auditable, correctly counted and safely queryable; NUMS is not represented as ready until its own content/blueprint gate passes.
+
+### Wave 4 — Med learning loop and durable progress
+Deliver in dependency order:
+1. Server-delivered goal-scoped QBank and custom practice (filters, self-test/review, explanations, confidence and timing).
+2. Durable attempts, bookmarks and retry/idempotency; refresh and offline reconnect must not lose or duplicate work.
+3. Mistake notebook (wrong/guessed/slow/flagged), targeted retries and demonstrated mastery rechecks.
+4. Flashcards/FSRS with source provenance, goal-scoped decks/reviews and daily workload controls.
+5. Diagnostic and editable study planner based on verified syllabus topics and real student activity.
+6. PMDC-accurate scaled/full mock only when the verified content pool and blueprint support it; NUMS mock separately after its own readiness review.
+7. Analytics derived only from persisted attempts; show insufficient data honestly.
+**Exit gate:** end-to-end student journey works across sign-in, goal selection, practice, explanation, saved mistake/card, refresh, analytics and mobile.
+
+### Wave 5 — Med release hardening
+- Accessibility, low-bandwidth performance, offline sync, privacy, error states and admin/editorial workflows.
+- Validate every displayed count, exam claim, answer key and paper provenance.
+- Run full typecheck, lint, tests, build, RLS tests and desktop/mobile smoke checks on the release candidate.
+- Promote only after founder review and explicit approval.
+**Exit gate:** Med is genuinely useful and trustworthy, not merely visually complete.
+
+### Wave 6 — Apex Engineering
+Only after Med release gate: establish independent NUST/GIKI/LUMS/ECAT exam identities and verified blueprints, content mappings and exam-specific practice. Do not relabel NUST questions as GIKI or LUMS content.
+
+### Wave 7 — Apex Defence
+Only after Engineering gate: build the safe, age-appropriate PMA/ISSB preparation journeys with accurate selection-process guidance and separate aptitude/content readiness. Do not imply official affiliation or guarantee selection.
+
+### Wave 8 — Growth and continuous improvement
+Only after the specialist products are genuinely ready: publish source-backed guides, exam updates, analytics, search monitoring, content review cadence and performance improvements. Expand only where demand and verified content justify it.
+
+## Operating rule for every wave
+
+One active wave, one accountable implementation owner and one defined file/database scope at a time. No overlapping agent edits to the same code tree. Each task moves **Ready → In Progress → Review → Testing → Done** only when evidence exists. A preview marked READY is not a production release; a merged PR is not proof of a working feature; a deployed ingestion script is not proof of populated, reviewed database content. No production database, auth, billing, domain or deployment-promotion action without task-specific approval.
+
+
+---
+
+## 2026-11-20 — Wave 1 investigation update
+
+**Status: investigation and task decomposition completed; implementation and executable test gates still pending.** No application code, production data, production database schema, Auth settings, branch merges or deployment promotions were changed during this pass.
+
+### 1. Branch and PR integration findings
+
+- `main` is at `1f54c344418e5fd6e45c1d4ca8c2102772c9eaba`; `apex/prepspace-foundation` now contains the Wave 0 board update at `734734934e9114f403d39fb7c6e04a52bcc85892`.
+- GitHub compare reports the foundation branch and `main` have diverged: **3 commits ahead and 3 behind**, with merge base `15fa25b4326f31c66b6872882fcfc478d950dee6`. Do not force-push or merge this blindly. First inspect the three main-side commits and resolve the shared RLS test file deliberately.
+- The landing PR stack is separate from the foundation branch:
+  - PR #16: `apex/design-pathway-landing-onboarding` → `apex/design-prep-space-discovery`.
+  - PR #17: `apex/design-editorial-landing` → `apex/design-pathway-landing-onboarding`.
+- PR #16 and #17 remain open drafts. No submitted PR reviews were found. Their descriptions explicitly say local typecheck/lint/tests/build/browser checks have not run.
+- `.github/workflows/quality.yml` exists on main, foundation and the PR #16 base branch, but filters both `pull_request` and `push` to `main`. The stacked PRs target feature branches, so the normal GitHub Actions quality job is not triggered for them. The latest inspected commits had no GitHub Actions workflow runs; Vercel deployment status is green but does not prove unit tests, lint or TypeScript passed.
+- Created issue **#19** to correct the stacked-PR quality-gate workflow and prove it runs.
+
+### 2. Student-goal foundation — useful code exists, runtime integration is incomplete
+
+- The live DB has the goal-related tables and columns from the migrations through Nov 13. `question_attempts.goal_id`, `question_bookmarks.goal_id` and `flashcard_reviews.goal_id` exist and remain nullable for legacy rows.
+- The Nov 14 follow-up migration `20261114000000_student_goals_ownership_and_primary_fix.sql` is present on the foundation branch but **is not applied to live Supabase**. It adds composite ownership FKs for `mistake_reviews`, `review_flashcards` and `flashcard_decks`, and adjusts the narrowly scoped `set_primary_goal` RPC. Keep it a draft until the local PGlite suite is executed and reviewed.
+- `scripts/rls-goals.test.mjs` is extensive: it exercises goal ownership, duplicate active goals, primary switching, inactive variants, student access to catalogue/mappings, goal-scoped progress references, cross-student references on older progress tables, deletion detachment and legacy no-backfill behavior. This is promising test coverage, **not a passing test result**; the suite was inspected but not executed in this environment.
+- Existing goal server actions derive the student from the authenticated session and update only permitted lifecycle/date fields. The DB column grants and RLS provide another ownership boundary.
+- Existing code and live schema must be kept in sync: inspect migrations 9–14 in order and test them against a clean database before any production application.
+
+### 3. Critical exam-isolation gap in the question runtime
+
+Code inspection shows that the catalogue is not yet the authority for question delivery:
+
+- `lib/questions-repo.ts` reads `questions` with only `status = 'published'`; it does not join/filter `question_exam_map`.
+- `lib/analytics/question-scheduler.ts` draws from that same general published pool and scores by attempt history, subject/topic and difficulty. It does not resolve an owned student goal.
+- Live RLS on `questions` has a SELECT policy named `Students can read published questions.` There is no exam/variant condition in that policy. `question_exam_map` has RLS enabled and no student policy/grant, which is a useful deny-by-default boundary, but no trusted server-side delivery path was found using it.
+- `app/actions/practice.ts` derives the student from the session and computes correctness server-side, but it accepts only question ID/answer/timing/idempotency key. It does not validate or persist a goal ID into `question_attempts.goal_id`.
+- `lib/offline-sync.ts` calls the same goal-unaware recording actions, so goal identity is not carried through offline retries.
+- The bundled `/practice/session` route chooses MDCAT vs USAT from a URL parameter and loads bundled banks; it does not resolve an owned goal. The dashboard adaptive quiz reads the general published DB pool.
+- The live `questions` table has 0 rows and 0 published rows. This is not yet an active cross-exam data leak, but the current path must be fixed before any canonical bank is imported or published.
+- Initial question payloads currently include `correct_answer` in the shared question model and some client player props. Review answer-key exposure as part of the delivery redesign; ideally reveal correctness/explanation only after server-validated submission for protected content.
+- Created issue **#20** with the required server-side goal-scoped delivery, exam/variant mapping, attempt persistence, offline idempotency and negative-test acceptance criteria.
+
+### 4. Supabase SECURITY DEFINER follow-up
+
+A live read-only catalog query confirmed three trigger functions are SECURITY DEFINER, owned by postgres, configured with mutable `search_path=public`, and EXECUTE is granted to PUBLIC/anon/authenticated:
+- `handle_new_user` → `on_auth_user_created`
+- `generate_referral_code` → `on_profile_create_referral`
+- `count_referral_on_signup` → `on_referral_attributed`
+
+They are attached to the expected triggers and their bodies use schema-qualified `public.profiles`. Do not blindly revoke grants or change behavior: test trigger invocation and direct execution separately. The Auth advisor also reports leaked-password protection disabled. Created issue **#21** to test least-privilege grants, pin safe search paths, add signup/referral regression tests and evaluate the Auth setting. No Auth setting was changed.
+
+### 5. Wave 1 task queue and exit gate
+
+1. **Branch integration:** inspect main-side commits since the merge base and reconcile foundation changes without force-push; choose the canonical integration branch.
+2. **CI:** fix issue #19 on the actual PR base branches; prove #16/#17 receive GitHub Actions runs.
+3. **Executable baseline:** run `npm ci`, `npm test`, `npm run lint`, `npx tsc --noEmit`, and a production build on the canonical branch; record exact outputs. Do not claim these passed until run.
+4. **Goal/RLS:** execute the PGlite suite from a clean checkout; review migration 14 and cross-student composite FKs. No live migration without explicit approval.
+5. **Security:** complete issue #21's disposable-environment regression tests and document a production change plan.
+6. **Question delivery:** implement issue #20 only after the integration baseline is stable. The delivery action must validate the authenticated owner, active goal, active exam/variant, approved mapping, published question and entitlement; attempt writes and offline retries must preserve the server-verified goal ID.
+7. **Content gate:** only after all above pass may Wave 3 begin reviewed MDCAT content ingestion.
+
+**Wave 1 exit criteria:** clean reproducible quality baseline; no unresolved critical ownership/exam-isolation defect; goal-scoped attempts work online/offline; security changes tested; founder approval for any production DB/Auth change. A green Vercel preview alone does not satisfy this gate.
+
+
+### Wave 1 live execution — CI workflow fix opened
+
+- Converted tracking issue #19 into draft PR **#19**: [Run quality gates for all pull requests](https://github.com/agma668/mdcatprep/pull/19).
+- The proposed workflow removes the `pull_request: branches: [main]` restriction while keeping push checks on `main`. It retains read-only permissions, pinned GitHub Actions versions, Node 24, `npm ci`, unit tests, ESLint and TypeScript checks.
+- GitHub Actions run **#43** has started on commit `0fd91f554ed99183927aee55df08126a8ef29f49`; checkout and Node setup completed, dependency installation was in progress at last inspection. No test/lint/typecheck result is claimed yet.
+- The Vercel preview for this workflow-only branch was also still building at last inspection.
+- Important: PR #19 must be merged before main contains this change. PR #16/#17 have feature branches as their base targets, so the same workflow update must then be present in those target branches (or brought in by a controlled sync) before their own GitHub Actions runs can be expected. Do not mark #16/#17 ready based on PR #19's checks.
+
+
+## Wave 1 CI follow-up — 2026-11-20
+
+- [ ] PR #19 quality workflow is **not passing**. GitHub Actions run #43 completed with failure: 73 tests passed, and `scripts/rls-goals.test.mjs` failed at startup because `20261114000000_student_goals_ownership_and_primary_fix.sql` was absent from the PR's `main` checkout. ESLint and TypeScript steps were skipped after the test failure. Run: https://github.com/agma668/mdcatprep/actions/runs/44783767745
+- [x] Confirmed the migration exists on `apex/prepspace-foundation` but not on `main`; the existing RLS test already references it. This is a repository/branch dependency gap, not evidence of a production database failure.
+- [x] Opened draft PR #22 to add the already-authored migration to `main` so the RLS test can execute against the migration it expects: https://github.com/agma668/mdcatprep/pull/22
+- [ ] PR #22 must pass the RLS suite and receive review before merge. Merging the SQL file into GitHub does **not** apply it to Supabase. Do not apply it to production without separate explicit approval.
+- [ ] After #22 is validated, rerun/recheck #19; only then assess lint and TypeScript gates. Do not mark #19 ready or merge based on Vercel preview status.
+- [ ] PR #16/#17 still need their own visible GitHub Actions runs after the workflow is available in their target branches. Preserve their stacked dependency order.
+- No production DB schema/data, Auth settings, merges, or production promotions were changed in this follow-up.
+
+
+### Latest check — 2026-11-20 17:33 UTC
+
+- PR #22 now has a GitHub Actions run: https://github.com/agma668/mdcatprep/actions/runs/44784298082
+- At last poll, dependency installation was still running; the RLS test, ESLint and TypeScript checks had not started. No pass/fail result is claimed yet.
+
+
+## Wave 1 — CI gate result and Issue #20 implementation discovery (2026-11-20)
+
+### CI verification
+- [x] PR #22 quality run #44 completed successfully: `npm ci`, `npm test`, `npm run lint`, and `npx tsc --noEmit` all completed successfully. Run: https://github.com/agma668/mdcatprep/actions/runs/44784298082
+- [ ] PR #22 remains draft and unmerged; no production migration has been applied. No human review is recorded yet.
+- [ ] PR #19's earlier run #43 remains failed on its own commit because the referenced migration was absent from that checkout. The successful #22 run validates the migration-inclusive commit, but does not retroactively make #19 green. Re-run #19 after its branch includes the migration.
+- [ ] PR #16/#17 still need their own visible Actions runs and must retain stacked merge order.
+
+### Issue #20 — implementation discovery
+- [x] Confirmed the catalogue migration creates `question_exam_map`, with `review_state`, `access_level`, and exact `variant_id` / `exam_id` mapping; the student-facing roles are deliberately denied direct mapping-table access.
+- [x] Confirmed a server-only service-role client helper already exists at `lib/supabase/service.ts`; any mapping lookup must remain server-side after validating the caller's owned active goal through the cookie-bound RLS client.
+- [x] Confirmed `fetchPublishedQuestions` has seven callers and the answer recorder/offline queue is shared by multiple surfaces. Avoid a global rewrite that silently breaks unrelated legacy/bundled practice flows.
+- [x] No entitlement/subscription authorization service was found in the code search. Until one is implemented and verified, `goal_access` mappings must fail closed; only explicitly approved `public_sample` mappings can be delivered.
+- [ ] Implementation sequence: (1) goal resolver + exact-variant approved-map query using service client; (2) scoped question delivery and remove answer keys from initial payload; (3) validate goal/question mapping on answer submission and persist goal_id; (4) carry goal identity through IndexedDB queue and retry; (5) adapt adaptive scheduler and dashboard/mock/diagnostic entry points; (6) add cross-user/cross-variant/pending/rejected/unpublished/idempotency tests.
+- [ ] Do not import/publish questions or apply migrations until the complete delivery boundary and tests are reviewed.
+
+### Gate
+Wave 1 remains active. The successful PR #22 run is a green test result on that branch only; integration is not complete until the owner approves the required PR merges and the dependent branches are rechecked. No merges, production database changes, Auth changes, or content imports were made.
+
+
+## Wave 1 — question-runtime source review (2026-11-20, follow-up)
+
+A fresh source review on `main` confirms the previously identified issue is present in the actual call paths, not just a design concern:
+
+- `lib/questions-repo.ts`: `fetchPublishedQuestions` selects `correct_answer` and `explanation` from `questions`, filters only `status = 'published'`, and is also used by `fillQuestions` / `fetchSubjectQuota`. A goal-scoped API must be a distinct server-only seam; changing this shared helper in place would silently alter several legacy and bundled callers.
+- `lib/analytics/question-scheduler.ts`: `fetchAdaptiveQuestions(userId, ...)` trusts the supplied userId for history filtering and draws from the general published pool. It needs a goal-aware server entry point whose user identity is derived from the session, not the argument.
+- `app/actions/practice.ts`: both `recordAttempt` and `recordAttemptByQuestionKey` resolve any published question and call a shared insert that writes `student_id` but no `goal_id`. Correctness is server-computed, which should be preserved. The new goal-scoped action must independently validate the question mapping before computing/recording the answer.
+- `lib/offline-sync.ts`: online send, offline enqueue and drain currently preserve question identity + attempt id only. A new goal-aware queue entry needs an immutable goal ID captured from the verified practice session and the server must re-resolve ownership on every retry; a client-supplied goal ID is a selector, never authority.
+- `lib/supabase/service.ts`: a server-only service client exists, but it bypasses RLS and throws if the service secret is absent. Use it only after cookie-session authentication and owner-scoped goal validation; missing service credentials must fail closed.
+- `supabase/migrations/20261109000000_exam_registry_and_student_goals.sql`: the checked-in mapping schema has exact `exam_id` + `variant_id`, `review_state`, and `access_level`; mapping table is intentionally unavailable to student Data API roles. Goal rows use `student_id`, `exam_id`, `variant_id`, and `status`.
+- `supabase/migrations/20261112000000_student_goals_foundation.sql`: goal references are nullable by design for legacy progress. Do not backfill old activity or make goal_id required globally.
+
+### Implementation guardrails confirmed
+
+1. Build a new server-only goal-scoped delivery seam; do not widen direct student access to `question_exam_map` and do not globally change `fetchPublishedQuestions` until all seven callers are migrated deliberately.
+2. First query the caller's active goal through the cookie-bound Supabase client and verify `student_id = auth.uid()`. Then use the service client to fetch only approved mappings for that exact variant and published question rows.
+3. Since no entitlement authorization service is implemented, fail closed for `goal_access`; only an explicitly approved `public_sample` mapping can pass in the first implementation. Never treat goal ownership as a paid-content entitlement.
+4. Return a student-safe question DTO without `correct_answer`; reveal the stored answer and explanation only after a valid submission action has rechecked goal ownership, active exam/variant, mapping review state, access level and question publication state.
+5. Attempt writes must include the verified `goal_id` and session-derived `student_id`; preserve server-computed correctness, clamped timing and the existing idempotency key semantics.
+6. Offline retries must revalidate the same goal and mapping server-side. If the goal is paused/archived or access is revoked before drain, do not record the attempt under a different/current goal.
+7. Keep bundled legacy practice paths isolated until they have explicit exam identity and a migration plan; do not infer their goal from URL parameters or profile.exam_target.
+
+### Current disposition
+
+This pass was read-only source inspection plus documentation. No application code, branch refs, PR state, migrations, production data, Auth settings or deployments were changed. Implementation remains gated on controlled integration of the CI/RLS migration PRs and an executable baseline. PR #22 remains unmerged pending the founder's previously requested approval; the user has not yet explicitly authorized that merge.
+
+
+## Wave 1 implementation slice — PR #23 (2026-11-21)
+
+Created draft PR #23: https://github.com/agma668/mdcatprep/pull/23
+Branch: `feat/goal-scoped-public-sample-delivery`, based on `main`.
+
+Files added/updated:
+- `lib/goal-question-delivery.ts`: server-only boundary. Resolves the caller with the cookie-bound session, verifies an owned active goal, verifies the exam and variant are still active using the service client, then reads exact exam+variant mappings. Only `review_state=approved` + `access_level=public_sample` + published question rows are returned. Missing service credentials, query errors, or invalid goal all fail closed. The initial DTO is an explicit allow-list without answer key/explanation.
+- `lib/goal-question-policy.ts`: pure exact-scope/access policy and safe DTO conversion.
+- `lib/goal-question-policy.test.ts`: tests exact goal/variant, inactive goal, pending mapping, goal_access/admin_draft denial and answer/explanation non-disclosure.
+- `package.json`: includes the new policy test in `npm test`.
+
+Important limits:
+- This is an isolated delivery seam, not yet wired into existing practice routes/actions.
+- No entitlement service exists, so all `goal_access` mappings are denied; only intentionally reviewed public samples are eligible.
+- The separate answer lookup is server-only and revalidates goal/mapping; a follow-up authenticated submission action must validate the selected answer and write goal_id once the required migration is integrated.
+- Legacy `fetchPublishedQuestions` and bundled question flows were intentionally not changed, to avoid silently altering seven existing callers.
+- No production database, content, Auth settings or deployments changed.
+
+Validation status: PR opened as draft; no workflow run was returned for its head SHA at the time of this board update. CI, lint and typecheck remain pending. The main-branch RLS-goals test currently depends on the ownership migration proposed in PR #22, which remains unmerged pending explicit founder approval.
