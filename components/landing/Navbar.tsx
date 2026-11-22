@@ -9,8 +9,10 @@ import { useRouter } from "next/navigation";
 
 const NAV_LINKS = [
   { label: "All Tests", href: "/exams" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Past Papers", href: "#past-papers" },
+  // The navbar is shared by every page, so a bare "#how-it-works" only worked on the homepage and
+  // was a dead link everywhere else (it needs the page those sections live on).
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Past Papers", href: "/#past-papers" },
   { label: "Free Flashcards", href: "/flashcards" },
   { label: "Daily Quiz", href: "/daily-quiz" },
   { label: "FAQ", href: "/faq" },

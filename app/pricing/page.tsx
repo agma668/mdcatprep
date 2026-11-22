@@ -1,5 +1,16 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, BookOpen, ShieldCheck } from 'lucide-react';
+
+// This page had no metadata at all: it inherited the layout title (so it duplicated the homepage's)
+// and its canonical fell back to the site root. The title stays brand-neutral on purpose — the live
+// brand decision (MED Prep / Apex Pakistan) is still open and this page must not pre-empt it.
+export const metadata: Metadata = {
+  title: 'Pricing & Access — Free During Beta',
+  description:
+    'What is free during beta, what is not for sale yet, and what will be announced before anything is locked. No payment is taken on this site.',
+  alternates: { canonical: '/pricing' },
+};
 
 export default function PricingPage() {
   return (

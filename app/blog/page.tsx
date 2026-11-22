@@ -39,12 +39,17 @@ export const metadata: Metadata = {
   alternates: { canonical: "/blog" },
 };
 
+// Only slugs with a real page under app/blog/<slug>/ may be linked. The other cards were rendered as
+// links to routes that do not exist, so five of the six posts on /blog were 404s — a dead end on the
+// most crawlable content page of the site.
+const LIVE_SLUGS = new Set(["mdcat-guide"]);
+
 const ARTICLES = [
   {
     slug: "mdcat-guide",
     title: "MDCAT 2026 Complete Guide — Pattern, Syllabus & Study Plan",
     description:
-      "Everything about MDCAT 2026: the official PMDC marks distribution (Biology 68, Chemistry 56, Physics 56, English 20), the syllabus units that matter, and a week-by-week study plan.",
+      "Everything about MDCAT 2026: the official PMDC marks distribution (180 MCQs — Biology 81, Chemistry 45, Physics 36, English 9, Logical Reasoning 9), the syllabus units that matter, and a week-by-week study plan.",
     date: "September 2026",
     readTime: "8 min read",
     tag: "MDCAT",
@@ -60,7 +65,7 @@ const ARTICLES = [
   },
   {
     slug: "mdcat-biology-guide",
-    title: "How to Prepare MDCAT Biology — The 68-Mark Subject",
+    title: "How to Prepare MDCAT Biology — The 81-Mark Subject",
     description:
       "Biology is the biggest section of MDCAT. Which PMDC syllabus units carry the most weight, the facts that repeat every year, and how to revise them.",
     date: "September 2026",
@@ -116,33 +121,54 @@ export default function BlogPage() {
         <section className="py-16">
           <div className="container-page">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {ARTICLES.map(({ slug, title, description, date, readTime, tag }) => (
-                <Link
-                  key={slug}
-                  href={`/blog/${slug}`}
-                  className="group bg-white/[0.06] border border-white/10 rounded-[var(--radius-xl)] p-6 flex flex-col hover:bg-white/[0.09] hover:border-white/20 transition-all"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <Badge variant="glass">{tag}</Badge>
-                    <span className="flex items-center gap-1 text-xs text-[var(--steel-400)]">
-                      <Calendar className="w-3 h-3" />
-                      {date}
-                    </span>
+              {ARTICLES.map((article) => {
+                const live = LIVE_SLUGS.has(article.slug);
+                const card = (
+                  <>
+                    <div className="flex items-center gap-3 mb-4">
+                      <Badge variant="glass">{article.tag}</Badge>
+                      <span className="flex items-center gap-1 text-xs text-[var(--steel-400)]">
+                        <Calendar className="w-3 h-3" />
+                        {article.date}
+                      </span>
+                    </div>
+                    <h2 className="text-lg font-bold text-white mb-3 group-hover:text-[var(--color-accent-light)] transition-colors leading-snug">
+                      {article.title}
+                    </h2>
+                    <p className="text-sm text-white/60 leading-relaxed flex-1 mb-4">
+                      {article.description}
+                    </p>
+                    <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                      <span className="text-xs text-[var(--steel-400)]">{article.readTime}</span>
+                      {live ? (
+                        <span className="flex items-center gap-1 text-xs font-semibold text-[var(--color-accent-light)] group-hover:gap-2 transition-all">
+                          Read More <ArrowRight className="w-3 h-3" />
+                        </span>
+                      ) : (
+                        // Honest state: planned, not published. Rendered as a plain card, so there is
+                        // no href for a crawler to follow and nothing for a student to click into a 404.
+                        <span className="text-xs font-semibold text-[var(--steel-400)]">In progress</span>
+                      )}
+                    </div>
+                  </>
+                );
+                return live ? (
+                  <Link
+                    key={article.slug}
+                    href={`/blog/${article.slug}`}
+                    className="group bg-white/[0.06] border border-white/10 rounded-[var(--radius-xl)] p-6 flex flex-col hover:bg-white/[0.09] hover:border-white/20 transition-all"
+                  >
+                    {card}
+                  </Link>
+                ) : (
+                  <div
+                    key={article.slug}
+                    className="bg-white/[0.04] border border-dashed border-white/10 rounded-[var(--radius-xl)] p-6 flex flex-col"
+                  >
+                    {card}
                   </div>
-                  <h2 className="text-lg font-bold text-white mb-3 group-hover:text-[var(--color-accent-light)] transition-colors leading-snug">
-                    {title}
-                  </h2>
-                  <p className="text-sm text-white/60 leading-relaxed flex-1 mb-4">
-                    {description}
-                  </p>
-                  <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                    <span className="text-xs text-[var(--steel-400)]">{readTime}</span>
-                    <span className="flex items-center gap-1 text-xs font-semibold text-[var(--color-accent-light)] group-hover:gap-2 transition-all">
-                      Read More <ArrowRight className="w-3 h-3" />
-                    </span>
-                  </div>
-                </Link>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>

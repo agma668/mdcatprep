@@ -4,12 +4,16 @@ import { CompassLogo } from "@/components/landing/CompassLogo";
 import { getWhatsAppLink } from "@/lib/site";
 
 const FOOTER_LINKS = {
+  // The footer renders on every page, so these anchors carry the homepage path. Bare "#features"
+  // resolved only on the homepage: on the other ~90 pages every one of them was a dead click.
+  // "Contact" pointed at "#cta", a section id that never existed even on the homepage — the closing
+  // section is "register".
   Platform: [
-    { label: "Features", href: "#features" },
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Past Papers", href: "#past-papers" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Contact", href: "#cta" },
+    { label: "Features", href: "/#features" },
+    { label: "How It Works", href: "/#how-it-works" },
+    { label: "Past Papers", href: "/#past-papers" },
+    { label: "FAQ", href: "/#faq" },
+    { label: "Contact", href: "/#register" },
   ],
   Prepare: [
     { label: "Free Flashcards", href: "/flashcards" },
