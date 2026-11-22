@@ -179,6 +179,13 @@ export function TopicalDrill({
                 </>
               )}
             </p>
+            {/* The source's own explanation, when it wrote one. Most questions have none, and the
+                absence is shown as nothing rather than filled with generated reasoning. */}
+            {q.explanation && (
+              <p className="mt-2 border-t border-[var(--signal-500)]/20 pt-2 text-sm text-[var(--steel-300)]">
+                {q.explanation}
+              </p>
+            )}
           </div>
         )}
       </div>

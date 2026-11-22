@@ -212,6 +212,31 @@ if (fs.existsSync(EXTRA)) {
 
 // TypeScript refuses to infer a union from one huge array literal (TS2590), so the rows are emitted as
 // fixed-size typed chunks that are spread once. The published shape is a single array either way.
+// Explanations the SOURCE itself carries. Very few rows have one (~100 of 16k): the field is attached
+// only when the source wrote it, and nothing is generated. A missing explanation stays missing rather
+// than being filled with a plausible-sounding guess.
+const EXP = new Map();
+const allSubjects = (() => {
+  const p = path.join(ROOT, 'data/MCQS/ALL_QUESTIONS/ALL_SUBJECTS.json');
+  if (!fs.existsSync(p)) return [];
+  const j = JSON.parse(fs.readFileSync(p, 'utf8'));
+  return Array.isArray(j) ? j : j.questions ?? [];
+})();
+for (const src of [ready, needsKey, allSubjects]) {
+  for (const r of src) {
+    const e = typeof r.explanation === 'string' ? r.explanation.trim() : '';
+    if (e.length > 20 && !EXP.has(norm(r.question_text))) EXP.set(norm(r.question_text), e);
+  }
+}
+let withExplanation = 0;
+for (const row of rows) {
+  const e = EXP.get(norm(row.question_text));
+  if (e) {
+    row.explanation = e;
+    withExplanation += 1;
+  }
+}
+
 const CHUNK_SIZE = 500;
 const rowText = (r) => `  {
     key: ${q(r.id)},
@@ -224,7 +249,7 @@ const rowText = (r) => `  {
     option_d: ${q(r.option_d)},
     correct_answer: ${r.correct_answer ? q(r.correct_answer) : 'null'},
     source: ${q(r.source)},
-  },`;
+${r.explanation ? `    explanation: ${q(r.explanation)},\n` : ''}  },`;
 
 const chunks = [];
 for (let i = 0; i < rows.length; i += CHUNK_SIZE) chunks.push(rows.slice(i, i + CHUNK_SIZE));
@@ -263,7 +288,7 @@ for (const r of rows) {
 }
 const keyed = rows.filter((r) => r.correct_answer).length;
 console.log('written', path.relative(ROOT, OUT));
-console.log(`published ${rows.length} | keyed ${keyed} | practice-only ${rows.length - keyed}`);
+console.log(`published ${rows.length} | keyed ${keyed} | practice-only ${rows.length - keyed} | with source explanation ${withExplanation}`);
 console.log('skipped', JSON.stringify(skipped));
 console.log('gate reasons', JSON.stringify(gateReasons));
 console.log(JSON.stringify(byChapter, null, 1));

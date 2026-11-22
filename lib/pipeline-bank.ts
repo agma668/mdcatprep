@@ -71,6 +71,7 @@ const CHUNK_0: TopicalsQuestion[] = [
     option_d: 'Solution having more electrolytes',
     correct_answer: 'A',
     source: 'Question bank — past-paper provenance',
+    explanation: 'A cell without a wall placed in a hypotonic solution gains water by osmosis and swells until it bursts. In an isotonic solution there is no net water movement, while a hypertonic solution causes shrinkage.',
   },
   {
     key: 'pipe-0a5d4745',
@@ -1307,6 +1308,7 @@ const CHUNK_0: TopicalsQuestion[] = [
     option_d: 'Fructose + Galactose',
     correct_answer: 'C',
     source: 'Question bank — past-paper provenance',
+    explanation: 'Lactose is a disaccharide made of one glucose and one galactose unit. Glucose plus glucose forms maltose, and glucose plus fructose forms sucrose.',
   },
   {
     key: 'pipe-7469b5f7',
@@ -1331,6 +1333,7 @@ const CHUNK_0: TopicalsQuestion[] = [
     option_d: 'Zymase',
     correct_answer: 'B',
     source: 'Question bank — past-paper provenance',
+    explanation: 'L-Asparaginase is used in acute lymphoblastic leukaemia because leukaemic cells depend on asparagine from the blood. Thrombin, LDH-1 and zymase have unrelated roles.',
   },
   {
     key: 'pipe-80571689',
@@ -1463,6 +1466,7 @@ const CHUNK_0: TopicalsQuestion[] = [
     option_d: 'It changes the shape of the enzyme',
     correct_answer: 'A',
     source: 'Question bank — past-paper provenance',
+    explanation: 'The active site is the region that binds the substrate and positions it for catalysis. It does not supply energy or simply change the enzyme\'s overall shape.',
   },
   {
     key: 'pipe-db9d2bcb',
@@ -1955,6 +1959,7 @@ const CHUNK_0: TopicalsQuestion[] = [
     option_d: 'Component of DNA and RNA',
     correct_answer: 'A',
     source: 'Question bank — past-paper provenance',
+    explanation: 'Ribulose is a five-carbon intermediate in the Calvin cycle of photosynthesis. It is not a respiratory fuel or a DNA/RNA component.',
   },
   {
     key: 'pipe-fd9768c6',
@@ -2831,6 +2836,7 @@ const CHUNK_0: TopicalsQuestion[] = [
     option_d: 'Hypo',
     correct_answer: 'B',
     source: 'Question bank — past-paper provenance',
+    explanation: 'Long-term processes such as growth and sexual maturation are controlled by hormones. Neurons mainly carry rapid electrical signals, and glands act by releasing hormones.',
   },
   {
     key: 'pipe-51edc4a1',
@@ -2915,6 +2921,7 @@ const CHUNK_0: TopicalsQuestion[] = [
     option_d: 'Balance, posture and coordination',
     correct_answer: 'D',
     source: 'Question bank — past-paper provenance',
+    explanation: 'The cerebellum coordinates balance, posture and smooth voluntary movement. Vision and hearing are chiefly cerebral functions, and heartbeat control is medullary.',
   },
   {
     key: 'pipe-2d9ce6b4',
@@ -3107,6 +3114,7 @@ const CHUNK_0: TopicalsQuestion[] = [
     option_d: 'Reflex arc',
     correct_answer: 'D',
     source: 'Question bank — past-paper provenance',
+    explanation: 'An involuntary response travels along a reflex arc, the neural pathway from receptor to effector. Reflex action is the response itself, not the pathway.',
   },
   {
     key: 'pipe-ab1a25dc',
@@ -3143,6 +3151,7 @@ const CHUNK_0: TopicalsQuestion[] = [
     option_d: 'Amygdala',
     correct_answer: 'A',
     source: 'Question bank — past-paper provenance',
+    explanation: 'The cerebellum is part of the hindbrain, not the forebrain. Hypothalamus, hippocampus and amygdala are forebrain structures.',
   },
   {
     key: 'pipe-c93186ec',
@@ -4031,6 +4040,7 @@ const CHUNK_0: TopicalsQuestion[] = [
     option_d: 'Reducing physical activity',
     correct_answer: 'C',
     source: 'Question bank — past-paper provenance',
+    explanation: 'Drinking plenty of water dilutes urine and reduces the concentration of stone-forming salts. Antibiotics do not prevent common calcium stones, and avoiding all dairy can worsen oxalate stones.',
   },
   {
     key: 'pipe-932ea6bb',
@@ -4367,6 +4377,7 @@ const CHUNK_0: TopicalsQuestion[] = [
     option_d: 'Collagen',
     correct_answer: 'D',
     source: 'Question bank — past-paper provenance',
+    explanation: 'Collagen is the main protein of the bone and cartilage matrix. Myoglobin and haemoglobin carry oxygen, and fibrinogen functions in clotting.',
   },
   {
     key: 'pipe-d73ccf3e',
@@ -4463,6 +4474,7 @@ const CHUNK_0: TopicalsQuestion[] = [
     option_d: 'Increase in sarcomere length',
     correct_answer: 'D',
     source: 'Question bank — past-paper provenance',
+    explanation: 'During contraction the sarcomere shortens, so its length does not increase. Calcium release, cross-bridge formation and actin sliding over myosin all occur.',
   },
   {
     key: 'pipe-84df8eb8',
@@ -4931,6 +4943,7 @@ const CHUNK_0: TopicalsQuestion[] = [
     option_d: 'Inheritance of acquired character',
     correct_answer: 'B',
     source: 'Question bank — past-paper provenance',
+    explanation: 'Darwin\'s main mechanism is natural selection of favourable inherited variations. Use and disuse and inheritance of acquired characters are Lamarckian ideas.',
   },
   {
     key: 'pipe-6558974f',
@@ -5003,6 +5016,7 @@ const CHUNK_0: TopicalsQuestion[] = [
     option_d: 'More in larger organisms',
     correct_answer: 'C',
     source: 'Question bank — past-paper provenance',
+    explanation: 'Each species has a characteristic fixed chromosome number. It is not the same across all animals and does not simply increase with body size.',
   },
   {
     key: 'pipe-261166d4',
@@ -5267,6 +5281,7 @@ const CHUNK_0: TopicalsQuestion[] = [
     option_d: 'DNA transcription occurs',
     correct_answer: 'B',
     source: 'Question bank — past-paper provenance',
+    explanation: 'DNA ligase seals nicks and joins DNA fragments into a continuous strand. Restriction enzymes cut DNA, while polymerases carry out replication or transcription.',
   },
   {
     key: 'pipe-dfe23ed1',
@@ -5483,6 +5498,7 @@ const CHUNK_0: TopicalsQuestion[] = [
     option_d: 'Secretory stage',
     correct_answer: 'D',
     source: 'Question bank — past-paper provenance',
+    explanation: 'After ovulation the follicle becomes the corpus luteum, which secretes progesterone and drives the secretory phase. The follicular and proliferative phases precede ovulation.',
   },
   {
     key: 'pipe-fcf2fed7',
@@ -5507,6 +5523,7 @@ const CHUNK_0: TopicalsQuestion[] = [
     option_d: 'Secretion of testosterone',
     correct_answer: 'B',
     source: 'Question bank — past-paper provenance',
+    explanation: 'FSH is secreted by the anterior pituitary, not by the testes. The testes produce sperm, inhibin and testosterone.',
   },
   {
     key: 'pipe-4849d4d5',
@@ -5531,6 +5548,7 @@ const CHUNK_0: TopicalsQuestion[] = [
     option_d: 'Lactation from HIV positive mother to baby',
     correct_answer: 'C',
     source: 'Question bank — past-paper provenance',
+    explanation: 'HIV is not transmitted by mosquito bites; the virus does not replicate in mosquitoes. Blood transfusion, transplacental transfer and breastfeeding are recognised routes.',
   },
   {
     key: 'pipe-b38d49c2',
@@ -5879,6 +5897,7 @@ const CHUNK_0: TopicalsQuestion[] = [
     option_d: 'Neisseria gonorrhaeae',
     correct_answer: 'D',
     source: 'Question bank — past-paper provenance',
+    explanation: 'Gonorrhoea is caused by Neisseria gonorrhoeae, a Gram-negative diplococcus. Treponema causes syphilis and Mycobacterium causes tuberculosis.',
   },
   {
     key: 'pipe-c3702eb0',
@@ -9818,6 +9837,7 @@ const CHUNK_1: TopicalsQuestion[] = [
     option_d: 'Influenza virus',
     correct_answer: 'A',
     source: 'Keyed collection',
+    explanation: 'Reoviruses are the only major group of viruses with a double-stranded RNA genome and are associated with diseases like viral diarrhea in children.',
   },
   {
     key: 'acad-d184045d',
@@ -10742,6 +10762,7 @@ const CHUNK_1: TopicalsQuestion[] = [
     option_d: 'Medulla',
     correct_answer: 'B',
     source: 'Keyed collection',
+    explanation: 'The cerebellum coordinates voluntary movements, balance, and posture. It also stores memory for learned motor behaviours like riding a bike or playing an instrument. For Full PDF Join Our Whatsapp Click Here',
   },
   {
     key: 'acad-41a539b7',
@@ -11006,6 +11027,7 @@ const CHUNK_1: TopicalsQuestion[] = [
     option_d: 'None of the above',
     correct_answer: 'A',
     source: 'Keyed collection',
+    explanation: 'Swollen lymph nodes can be a sign of asymptomatic infection (e.g., viral carriers) and often resolve within 6 months without progressing to symptoms.',
   },
   {
     key: 'acad-878ae666',
@@ -11102,6 +11124,7 @@ const CHUNK_1: TopicalsQuestion[] = [
     option_d: 'Bilateral symmetry',
     correct_answer: 'B',
     source: 'Keyed collection',
+    explanation: 'Jointed appendages allow arthropods to move efficiently and adapt to various environments, contributing to their evolutionary success and dominance.',
   },
   {
     key: 'acad-effb65b9',
@@ -11210,6 +11233,7 @@ const CHUNK_1: TopicalsQuestion[] = [
     option_d: 'Collagen',
     correct_answer: 'D',
     source: 'Keyed collection',
+    explanation: 'Collagen is present in the alveolar walls providing structural support. Hemoglobin is in red blood cells, myoglobin in muscles, and myosin is a muscle protein.',
   },
   {
     key: 'acad-2351f627',
@@ -11246,6 +11270,7 @@ const CHUNK_1: TopicalsQuestion[] = [
     option_d: 'blessing . rashly',
     correct_answer: 'D',
     source: 'Keyed collection',
+    explanation: 'Bane means cause of ruin, misery. A. Deliberately B. cautiously',
   },
   {
     key: 'acad-9b98a37a',
@@ -11594,6 +11619,7 @@ const CHUNK_1: TopicalsQuestion[] = [
     option_d: 'Epistasis',
     correct_answer: 'B',
     source: 'Keyed collection',
+    explanation: 'Gene linkage means genes located close together on the same chromosome tend to be inherited together, violating the law of independent assortment which states genes assort independently.',
   },
   {
     key: 'acad-aa210422',
@@ -11954,6 +11980,7 @@ const CHUNK_1: TopicalsQuestion[] = [
     option_d: 'She shall not sung a song here. 40. Will you be taken this exam? shall is used with first person pronouns (1, We) and will Correct Answer: a is used with 2™ and third person pronouns (he, she, it, N Explanation: This is future continuous tense. If they) but this rule doesn’t really apply now. expresses an ongeing event that will occur at some 35, point in future, It uses will be/shall be as helping verb tosis siiirnareseeninn oo, 4 ARE ys — w= 53 _— 3 a s,, CEN Slr i PS . ~ CLA RI e [jy en i — 78 He will had taken this exam. \\ ongoing action that will complete in future.',
     correct_answer: 'A',
     source: 'Keyed collection',
+    explanation: 'This is future perfect tense. It expresses ‘ .',
   },
   {
     key: 'acad-bb238b16',
@@ -13841,6 +13868,7 @@ const CHUNK_2: TopicalsQuestion[] = [
     option_d: 'Se',
     correct_answer: 'A',
     source: 'Keyed collection',
+    explanation: 'Magnesium (Mg) has the lowest ionization energy among the given elements because it is a metal with a larger atomic radius and fewer electrons to lose compared to non-metals like Ar, Si, and Se.',
   },
   {
     key: 'acad-e4b61872',
@@ -13925,6 +13953,7 @@ const CHUNK_2: TopicalsQuestion[] = [
     option_d: 'Electron configuration',
     correct_answer: 'B',
     source: 'Keyed collection',
+    explanation: 'The decay constant determines the probability of a nucleus decaying per unit time and reflects the stability of a radioactive isotope -- lower decay constant = more stable.',
   },
   {
     key: 'acad-702064af',
@@ -15041,6 +15070,7 @@ const CHUNK_2: TopicalsQuestion[] = [
     option_d: 'Magnesium',
     correct_answer: 'B',
     source: 'Keyed collection',
+    explanation: 'Ceruloplasmin is the major copper-carrying protein in the blood and also plays a role in iron metabolism by oxidizing Fe� to Fe�. For Whole Paper PDF Join Our Whatsapp Scan Below QR Code',
   },
   {
     key: 'acad-ea7e1569',
@@ -15053,6 +15083,7 @@ const CHUNK_2: TopicalsQuestion[] = [
     option_d: 'Copper',
     correct_answer: 'C',
     source: 'Keyed collection',
+    explanation: 'Ferritin is a protein complex that stores iron and releases it in a controlled manner, playing a key role in iron homeostasis.',
   },
   {
     key: 'acad-7ee0779c',
@@ -16625,6 +16656,7 @@ const CHUNK_2: TopicalsQuestion[] = [
     option_d: 'deprivation N tickling',
     correct_answer: 'B',
     source: 'Keyed collection',
+    explanation: 'profusion and plenty both mean state of Explanation: Trifling and trivial both mean something abundance; lavish supply. that is of very low importance.',
   },
   {
     key: 'acad-88da70a1',
@@ -18164,6 +18196,7 @@ const CHUNK_3: TopicalsQuestion[] = [
     option_d: 'Halves',
     correct_answer: 'C',
     source: 'Keyed collection',
+    explanation: 'Kinetic energy (KE) = � mv�. If velocity (v) doubles, KE becomes � m(2v)� = 4 � � mv�, so kinetic energy quadruples.`',
   },
   {
     key: 'acad-f0f4b5d8',
@@ -18824,6 +18857,7 @@ const CHUNK_3: TopicalsQuestion[] = [
     option_d: 'Quadruples',
     correct_answer: 'C',
     source: 'Keyed collection',
+    explanation: 'Cyclotron frequency (f) = qB / (2m). If mass (m) doubles, frequency halves since they are inversely proportional.',
   },
   {
     key: 'acad-d04bc345',
@@ -19928,6 +19962,7 @@ const CHUNK_3: TopicalsQuestion[] = [
     option_d: 'Isobaric',
     correct_answer: 'A',
     source: 'Keyed collection',
+    explanation: 'In an adiabatic process, no heat is exchanged with the surroundings. The sudden bursting of iron involves rapid expansion without heat transfer, making it adiabatic.',
   },
   {
     key: 'acad-96f27fbf',
@@ -20612,6 +20647,7 @@ const CHUNK_3: TopicalsQuestion[] = [
     option_d: 'Beta rays',
     correct_answer: 'B',
     source: 'Keyed collection',
+    explanation: 'Gamma rays have high penetration power and are used to sterilize medical equipment and destroy bacteria and insects by damaging their DNA.',
   },
   {
     key: 'acad-2892037e',
@@ -20852,6 +20888,7 @@ const CHUNK_3: TopicalsQuestion[] = [
     option_d: 'Faraday\'s law',
     correct_answer: 'A',
     source: 'Keyed collection',
+    explanation: 'The right-hand rule is used to determine the direction of angular velocity by curling fingers in the direction of rotation; the thumb points in the direction of the angular velocity vector.',
   },
   {
     key: 'acad-30c41f52',
@@ -63725,6 +63762,7 @@ const CHUNK_10: TopicalsQuestion[] = [
     option_d: 'All the above. reasons for this are that rich children stay longer in school, that a year in high school, and that most private universities',
     correct_answer: null,
     source: 'Practice (no printed key)',
+    explanation: 'a year in a university is disproportionately more expensive than',
   },
   {
     key: 'acadprac-99194b64',
@@ -63953,6 +63991,7 @@ const CHUNK_10: TopicalsQuestion[] = [
     option_d: '833 The first thing we need to do Is to check which of the given options has a sum of digits equal to 18. For option {A), 2 + 4 + 6 # 18, so we can eliminate it. For (B), 3 + 6+ 9 = 18, This is a possible answer. For (C), 8 + 5 + 5 = 1B, another possible answer. For choice (D), 8 + 9+3 #18, the correct answer is option (B}. Note that we did not need the fact that the hundred’s digit is 1/3 the unit\'s digit.',
     correct_answer: null,
     source: 'Practice (no printed key)',
+    explanation: '; By plugging in the answer chaices, {starting with 0) we get, 110 Another effective approach is called Plugging in. In it, instead of substituting numbers into the problem, we can simply add the answer choices given, Sometimes instead of making up numbers to substitute into the problem, we can use the actual answer- choices. Example 1: The digits of a three-digit number add up to 18. If the ten’s digit is twice the hundreds digit and the hundred’s digit is 1/3 the unit\'s digit, what is the number?',
   },
   {
     key: 'acadprac-482698b0',
@@ -64925,6 +64964,7 @@ const CHUNK_10: TopicalsQuestion[] = [
     option_d: 'the promise of future returns should always be 8. Both education and medical care are severely given greater always be given greater welght in underfunded. performance. i be better spent in education. goal of educational equality is to be realized. PASSAGE (with detailed explanations) E. Obligatory education does not and cannot In the United States the per capita costs of schooling have risen provide equal education. almost as fast as the cost of medical treatment. But increased Explanation treatment by both doctors and teachers has shown steadily The answer to a main idea question will summarize the declining results. Medical expenses concentrated on those passage, without going beyond it. above forty-five have doubled several times over a period of i . ee 88 : false claim. ; - polarizes society and sets up a caste system. Obviously, such a Increased funding for education is irrelevant, if The other choices can be easily dismissed. : not counterproductive. In fact, the sentence (B} Is incorrect because nothing in the passage suggests that “The President\'s committee for the study of the author would advocate a solution that would polarize school finance should ask not how to support or society even more. Indeed, at the end of paragraph three, he how to trim such increasing costs, but how they suggests that the rich already get more than thelr falr share. can be avoided” implies that he thinks an {C) Is incorrect because it contradicts the author. Paragraph increase fn funding would be counterproductive. two is dedicated to showing that the United States is too poor [+ is implied by the sentence “The United States. ., to provide equal schooling. You can’t divert money you don’t Is obviously too poor to provide equal have. schooling,” but the author does not fully develop {D) is incorrect. It reads too much into the last paragraph. this idea. Besides, he Implies that the problem is Finally, {E} is the second-best answer choice. Although the not financial. author probably believes that future spending should be',
     correct_answer: null,
     source: 'Practice (no printed key)',
+    explanation: 'Obligatory schooling must be scrapped if the',
   },
   {
     key: 'acadprac-f9cd6c99',
@@ -66308,6 +66348,7 @@ const CHUNK_11: TopicalsQuestion[] = [
     option_d: '1/3 21% increase i OURS NS N «7 4 4b oo N ¢ ~~ Ro SR - R ” ; kK [R ] Vt Ee Fu sr ie [ny i JERE ST .o RY 207 : SOLVED EXERCISE CL Directions: In this section soive each problem, using any available space on the page for scratéh work. Then decide which the best of the choices given is and circle the corresponding letter. The answers and explanation of each question has been given at the bottom of the question.',
     correct_answer: null,
     source: 'Practice (no printed key)',
+    explanation: 'D. 12 hours, 960 miles E is the best response. i . . E. 6 hours, 1000 miles The likelihood of a trouser not being black is 2/3. For a shirt to Explanation: not be black, the likelihood is %. Hence, for neither of them to Cs the best response. be black, the likelihood is 2/3x3/4=1/2. Since both the trains are moving in opposite directions, the ke Value of Tis given by T= KE . If k and g remain effective sped of approach till the time they meet is 200 miles . per hour (80 mph+120 mph}. At this rate, the two trains will unchanged, what should be the parentage change in take 1200/200 = 6 hours to meet each other. The distance € such that T increase by 10%? covered by train leaving A during this time is equal to |',
   },
   {
     key: 'acadprac-e0167c2c',
@@ -66824,6 +66865,7 @@ const CHUNK_11: TopicalsQuestion[] = [
     option_d: '24 E10 .',
     correct_answer: null,
     source: 'Practice (no printed key)',
+    explanation: 'Explanation . Cs the best response. E is the best response. ? L is the weight of first lift and P is the weight of the second lift. Convert the given conditions in equations, Based o gen conditions you have the equation 2L = P + 150 X= z Y and XY = 24. Solve the-equations tofrave the answer. andL+P=',
   },
   {
     key: 'acadprac-b5b39fa6',
@@ -67388,6 +67430,7 @@ const CHUNK_11: TopicalsQuestion[] = [
     option_d: 'Countries should cooperate to establish education, This eliminates {D). Next, the opening to the common minimal educational standards. passage states that the costs of education “have risen almost E. Future spending should be capped. as fast as the cost of medical. The Six Questions 371 be recognized as at least economically unfeasible.” Still, there D0. ambivalent , ETN is a possible misunderstanding here: perhaps the author E. resentful s/ 5 ¥ [AE Ea ~ believes that obligatory education is a noble but unrealistic rr voli 7, hv . idea. This possibility, however, is dispelled by the closing or FEL Ta Lon NE wn), FE — — — = BE UEEEEESSISSS--. +L. . 89 admire the obligatory school system. This eliminates (A); it also ES E. underfinding of lower education is a world-wide measured response, and it is the answer. Although the author Explanation strongly opposes obligatory schooling, “resentful” is too strong This Is another extension question. By stating that the amount and too personal. A scholar would never directly express of funding spent on graduate students is more than 350 times resentment or envy, even if that is his true feeling. the amount spent on the average citizen, the author implies «10. By stating “in Latin America the amount of public money that It would be impossible to equalize the funding. Hence the spent on each graduate student is between 350 and answer is (B). None of the other choices have any real merit. 1,500 times the amount spent on the median citizen” and {A) is incorrect because the import of the passage is that the “In the United States the discrepancy is smaller” the rich get better schooling and more public funds in the United author implies that States and therefore discrimination is “keener” here {lines 42- are “Incorrect because they are neither but not in Latin America. mentioned nor implied by the passage. (E) is the second-best unrealistic ideal. little to do with the primary purpose of the passage—to show Cc educational spending is more efficient in the that obligatory education is perhaps not such a good idea. United States. 2 SOLVED EXERCISE based on its content. After reading a passage, chonse the best lasts for centurles. The workers In nuclear plant are not safe from the passage on the basis of what Is stated or implied In that radlation. passage. E. Radioactivity generates heat that is a long term The answers and explanations of the questions have been hazardous of the nuclear energy. given at the bottom of each question. Explanation: Passage: Question Type: Inference Unfortunately, nuclear power Isn\'t a goad answer to our need Cis the best response. to get loose from our Middle East oll dependency. For all its In the last paragraph of the passage, the author explicitly chrome-plated promise, nuclear power has fallen flat on Its describes that much of the radioactivity decays away within 50 face and the worst Is yet to come. Nuclear power plants are years, but three million years must pass before a nuclear plant now facing a challenge that their designers never anticipated, becomes no more radioactive than the original uranium that though they should have-what to do with the power plants initially fueled it. Therefore, waste nuclear substances are the after their useful lives are over. actual long-term source of pollution. Nuclear power plants last 30 years or less. After 30 years, a 3. Which of the following can be best inferred from the reactor\'s pressure vessel becomes brittle and subject to passage? radioactivity in plpes and valves has accumulated to a point countries must acquire nuclear energy plants. of radioactivity, so more maintenance crews must come In {to ground under deep sea, so that it does not cause reduce the time any one worker spends getting zapped), which radiation pollution. Nuclear plants should be banned throughout the Old nuclear plants cannot simply be abandoned, or demolished world. with a wrecking ball. They are full of radioactivity, all of which E. The author is In favor that advanced countries must be kept away from living things. Much of the radioactivity should capture Middle East oll sources. decays away within 50 years, but three million years must pass Explanation: before a nuclear plant becomes no more radioactive than the Question Type: Inference original uranium that initially fueled it Ais the best response. Questions: tn the first paragraph, the author describes that nuclear',
     correct_answer: null,
     source: 'Practice (no printed key)',
+    explanation: 'D. higher education is more expensive than lower Like most tone questions this one is rather easy. Although education both in Latin America and in the',
   },
   {
     key: 'acadprac-557dc561',
@@ -67400,6 +67443,7 @@ const CHUNK_11: TopicalsQuestion[] = [
     option_d: 'There was no literature with other people. Explanation: Modern communication means provide medium to Question Type: Detail connect people. Cis the best response. E. A particular class of people is actuaily a system of The first line of the passage describes the beginning of the interacting people. literature as sing and dance for joy around the campfires after Repeated what has handed down to it objective. 8. The first war-song follow their own rules independent of others. 9. The war song evolved out of A system is mechanical combination of items to Yelling and shouting To record and communicate Passage: 11. The word ‘measure’ in the context of the passage means Quantity and caught the measure of the coherent and caught the Passage: measure of the dance and thus the first war song was sung. As Besides many other factors, the nation\'s health system the idea of God developed prayers were framed. The songs and requires a continual supply of new blood from donors to prayers became traditional and were repeated from one replenish its stockpiles. Storing blood for long-térm use is a generation to another, each generation adding something of its delicate, expensive, and time-consuming process; moreover, own. : many doctors believe that the stored blood is unreliable. When stored in a solution of plasma and nutritive dextrose (a sugar), Explanation: fresh red blood cells can survive and remain viable for Question Type: Detail transfusion for only six weeks, therefore it cannot be used for Als the best response. long period. Redundancy means repetition of linguistic information Questions: inherent in the structure of a language.',
     correct_answer: null,
     source: 'Practice (no printed key)',
+    explanation: 'Man invented writing because he wanted',
   },
   {
     key: 'acadprac-a0578122',
@@ -67412,6 +67456,7 @@ const CHUNK_11: TopicalsQuestion[] = [
     option_d: 'Redundancy of arguments should be avoided in food insecurity continues to haunt the poor in the country. written English. Increasing the purchasing power of the poor through providing E. Before writing something, one should think a lot productive employment leading to rising income, and thus what he is to write. goad standard of living is the ultimate objective of public',
     correct_answer: null,
     source: 'Practice (no printed key)',
+    explanation: 'policy. However, till then, there is a need to provide assured Question Type: Main Idea supply of food through a restructured, more efficient and B is the best response. decentralized public distribution system {PDS}, Choices A, C, and D have narrow scope and cannot cover the Although the PDS is extensive — it is one of the largest such whole idea. Choice E is also out of scope leading to another systems in the world - it has yet to reach the rural poor and issue. Only the choice B expresses the main idea. the far off places. It remains an urban phenomenon, with the',
   },
   {
     key: 'acadprac-66a7df70',
@@ -67424,6 +67469,7 @@ const CHUNK_11: TopicalsQuestion[] = [
     option_d: 'Decrease In food grains production In the fourth line from the bottom the sentence “by making Areasonable check on economic power. passage on the basis of what is stated or implied In that Passage: passage. Educational planning should aim at meeting the educational Answer of each question has been given at the bottom of needs of the entire population of all age groups. While the exercise. traditional structure of education as a‘three layer hierarchy Passage from the primary stage to the university represents the core, Democratic societies from the earliest times have expected we should not overlook the periphery which is equally their governments to protect the weak against the strong. No important. Under modern conditions, workers need to rewind, ‘era of good feeling’ can justify discharging the police force or or renew their enthuslasm, or strike out in a new direction, or giving up the idea of public control over concentrated private improve their skills as much as any university professor. The wealth. On the other hand, it is obvious that a spirit of self- retired and the aged have their needs as well. Educational denial and moderation on the part of those who hold economic planning, in their words, should take care of the needs of power will greatly soften the demand for absolute equality. everyone. Men are more interested in freedom and security than in an Our structures of education have been built up on the equal distribution of wealth. The extent to which Government assumption that there is a terminal point to education. This must Interfere with business, therefore, is not exactly basic defect has become all the more harmful today. A UNESCO measured by the extent to which economic power is report entitled ‘Learning to Be’ prepared by Edgar Faure and concentrated into a few hands. The required degree of others in 1973 asserts that the education of children must government interference depends mainly on whether prepare the future adult for various forms of self-learning. A economic powers are oppressively used, and on the necessity viable education system of the future should consist of of keeping economic factors in a tolerable state of balance. modules with different kinds of functions serving a diversity of But with the necessity of meeting all these dangers and threats constituents. And performance, not the period of study, should to liberty, the powers of government are unavoidably be the basis for credentials. The writing is already on the wall. increased, whichever political party may be In office. The in view of the fact that the significance of a commitment of growth of government Is a necessary result of the growth of lifelong learning and lifetime education is being discussed only technology and of the problems that go with the use of = in recent years even in educationally advanced countries, the machines and science. Since the Government in our nation, possibility of the idea becoming an integral part of educational must take on more powers to meet its problems, there is no thinking seems to be a far cry. For, to move in that direction way to preserve freedom except by making democracy more means such more than some simple rearrangement of the powerful, present organization of education. But a good beginning can be Questions: made by developing Open University programs for older',
     correct_answer: null,
     source: 'Practice (no printed key)',
+    explanation: 'PDS target group oriented, not only the poorest and neediest B Is the best response. would be reached without additional cost” gives the answer {C} In the second line of the last part of the passage, the sentence “subsidles often create a psychology of dependence” gives the right answer (B). TE rent mr sf RS pg Lire YASS - Tt. 5 : \' oe Va TS EA Ne 7 RISA HYASRIPAS “ N EE — EE 95 SWEET CANDIES .',
   },
   {
     key: 'acadprac-a5f86c08',

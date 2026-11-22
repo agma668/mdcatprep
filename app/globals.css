@@ -1718,3 +1718,15 @@ html.lenis body { height: auto; }
     font-size: 14px;
   }
 }
+
+/* OMR answer-sheet backdrop for the homepage hero: a field of empty bubbles
+   that fades out toward the content. Decorative only (aria-hidden), no motion. */
+.omr-field {
+  background-image:
+    radial-gradient(60% 55% at 78% 8%, rgba(61, 126, 219, 0.2), transparent 70%),
+    radial-gradient(circle at center, transparent 6px, rgba(198, 210, 228, 0.09) 6.5px, rgba(198, 210, 228, 0.09) 7.5px, transparent 8px);
+  background-size: auto, 34px 34px;
+  background-position: 0 0, 0 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 92%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 92%);
+}

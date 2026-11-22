@@ -26,6 +26,12 @@ export type TopicalsQuestion = {
    */
   correct_answer: "A" | "B" | "C" | "D" | null;
   source: string;
+  /**
+   * The explanation the source itself carries, when it has one. Optional and absent by default:
+   * most rows in this bank have no written explanation, and a made-up one is worse than none — the
+   * drill says nothing rather than inventing "why". Never auto-generated.
+   */
+  explanation?: string | null;
 };
 
 export const TOPICALS_BANK: TopicalsQuestion[] = [
