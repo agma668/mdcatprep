@@ -414,3 +414,11 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - Current state: link audit **0 broken links, 0 dead anchors** (4 informational redirects from public pages to the login-gated dashboard, which is correct for signed-out visitors); route audit **96 sitemap URLs + 13 private routes, 0 problems**.
 - D14 recorded as **blocked on tooling**, not code: the poppler binary and tesseract.js bundle the OCR script points at are gone from Temp. The earlier OCR tier (451 pages → 7,286 questions) is already in the bank and already served.
 - Gates: tsc 0, eslint 0 on touched files, `next build` 0 (125/125 static pages), both audits clean against a rebuilt dev server. No database contact, no deployment, no push.
+
+## 2026-11-22 — Source explanations wired in, branch merged, and the push hold lifted by the founder
+
+- Added `explanation` to `TopicalsQuestion` and to the drill: when the revealed answer's source wrote an explanation, the drill now shows it under the answer. Attached **46 rows** that genuinely have one (38 in `ready.json`, 21 in `needs_key.json`, 61 in the canonical `ALL_SUBJECTS.json`, deduplicated by stem). Nothing is generated: 16,510 of the 16,556 served questions have no written explanation in any source I hold, and they show none rather than a plausible invention.
+- Corrected the hero's now-false claim: "an explanation behind every answer" became "the answer key each source printed, the source's own explanation where it wrote one". The old line was true of the marketing, not of the data.
+- Merged `origin/main` (three commits behind, including the OMR homepage redesign) into this branch. One conflict, in `app/page.tsx`: resolved by taking the newer redesign but keeping this branch's truthful "Free during beta" badge instead of "100% free", which the access policy no longer promises.
+- Push hold lifted by the founder, so the branch and `main` are pushed; Vercel rebuilds production from `main`.
+- Gates after the merge: tsc 0, eslint 0, `next build` 0 (125/125 static pages), route audit 96 URLs + 13 private routes 0 problems, link audit 0 broken links and 0 dead anchors. Homepage renders "16,556 Practice MCQs · 25 Past papers · 6 Subjects" — the strip reads value-then-label, so an earlier grep that reported "Practice MCQs 25" was reading across two tiles, not a wrong count.
