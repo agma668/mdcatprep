@@ -452,3 +452,43 @@ MDCAT, by contrast, is already served: live past-paper sets `Past Paper 2021/202
 hold **2,038 questions**. The 2024 UHS and KMU papers on disk still have real text layers
 (`uhs_2024_code_A_incomplete.pdf` 22 font refs, `kmu_mdcat_2024_code_a.pdf` 43), so those can be
 extracted without OCR once a PDF text extractor is available — no OCR tooling needed for that route.
+
+## 2026-11-22 — D14 unblocked for real: OCR toolchain restored, 304 pages re-OCRed, and the answer keys are simply not in the scans
+
+D14 said the poppler binary and tesseract bundle were missing from Temp. Both are back, and the OCR
+pass has now been run. The result is measured, not assumed.
+
+**Toolchain restored (no repo change needed — the script's paths are correct):**
+- `C:/Users/admin/AppData/Local/Temp/poppler/poppler-24.08.0/Library/bin/pdftoppm.exe` — the original
+  15 MB `p.zip` was still sitting in that folder; extracted it rather than re-downloading.
+- `C:/Users/admin/AppData/Local/Temp/kips-ocr/node/node_modules` — `tesseract.js@5.1.1` and
+  `@napi-rs/canvas` installed, plus `eng.traineddata` (23 MB) at the script's `langPath`.
+
+**What was run:** `node data/MCQS/_pipeline/ocr_scans.mjs --dpi=300` (the default 180 dpi shredded
+stems; 300 dpi measured better on a smoke test first, see `_pipeline/ocr_smoke.mjs`).
+- The report lists **40 image-only PDFs** (the "44" was approximate), 2,064 pages; deduped by
+  page/char signature and excluding the three practice books, that is **19 documents / 451 pages**.
+- **304 pages across 14 documents** were OCRed and written: the HEC Model QCA key, HEC 2018 with key,
+  HEC past papers (18 pp), HEC past papers 2019-1, HEC PAST PAPER 2019 with Answer Keys, HEC 2022,
+  HEC Complete pre-medical 2023, HEC test 2022-2023, HEC Test 2024, HEC Past Papers (67 pp),
+  Chemistry Shorlisting, Physics one-page shortlist, and two Super Batch papers.
+- The run was stopped deliberately with 5 duplicate/notes documents left (~139 pages): two scans of
+  the same 26/40-page document, an organic-chemistry shortlist, and NUMS 2026 (37 pp, partial).
+  Resumable — rerunning skips the finished files.
+
+**Quality, measured:** structure improved a lot. Numbered stems that pass a clean-token check went
+from the old interleaved text (which yielded 4 of 632 usable) to 69 of 83 in the HEC Model QCA file,
+69 of 91 in HEC Past Papers, 49 of 69 in HEC 2018.
+
+**Keys, measured: zero recovered.** The answer-key tables in these scans are stacked grids that OCR
+into `oe | ow | oc | a | 0` even at 300 dpi — the information is not in the image, so no matcher can
+recover it. Consequence: the rebuilt OCR tier is 7,271 rows with **244 keyed, exactly as before**, and
+the pipeline bank came out **10,864 published / 2,126 keyed** versus 10,894 / 2,126 — 30 rows fewer
+and no new keys. That rebuild was **reverted** (`lib/pipeline-bank.ts` back to 10,894 rows) rather
+than ship a shrink.
+
+So D14's code path works now; what it cannot do is invent keys that the scanner destroyed. Adding HEC
+past papers with answers needs clean source PDFs, not better OCR of these copies.
+
+The pre-rerun OCR text is preserved in `data/MCQS/OCR_SCANS_PREV/` (outside the extraction roots, so
+it cannot double-count) in case the old text is ever wanted for comparison.
