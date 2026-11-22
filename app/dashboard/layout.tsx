@@ -20,6 +20,8 @@ export const metadata: Metadata = {
     default: "Dashboard",
     template: "%s | MED Prep Dashboard",
   },
+  // Student-private surface: robots.txt disallows /dashboard, and the meta tag now agrees with it.
+  robots: { index: false, follow: false },
 };
 
 export default async function DashboardLayout({

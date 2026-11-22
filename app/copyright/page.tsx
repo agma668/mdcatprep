@@ -3,7 +3,13 @@ import Link from 'next/link'
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import { getWhatsAppLink } from '@/lib/site'
 
-export const metadata: Metadata = { title: 'Copyright & Terms' }
+export const metadata: Metadata = {
+  title: 'Copyright & Terms',
+  description:
+    'How MED Prep sources its questions, what may be reused, and the terms that apply to the practice material and past-paper labels on this site.',
+  // Without an explicit canonical the tag pointed at the site root.
+  alternates: { canonical: '/copyright' },
+}
 
 const WHATSAPP = getWhatsAppLink()
 

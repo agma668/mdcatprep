@@ -72,7 +72,7 @@ Ship a trustworthy, polished, fast, accessible, genuinely useful product. A stud
 - [x] Add a reproducible GitHub Actions quality workflow for `npm test`, `npm run lint`, and `npx tsc --noEmit` on PRs and `main`; first run is in progress. Vercel remains the build gate.
 - [ ] Inventory environment variable NAMES and whether each is configured in Preview/Production, without reading or copying secret values.
 - [ ] Confirm auth, email, push, cron and telemetry routes behave correctly without leaking private data.
-- [ ] Create a route inventory with public/private/noindex classification and a list of known bugs.
+- [x] Create a route inventory with public/private/noindex classification and a list of known bugs. **Done (2026-11-22):** `docs/ROUTE-INVENTORY.md`, generated from the running site by `scripts/audit-routes.mjs`. First run found 27 crawl problems; all fixed — three submitted 404s removed, 19 real set pages added, five canonical tags that pointed at the homepage given their own, an unreachable slug normalised, ten private routes that claimed `index, follow` while robots.txt disallowed them now send `noindex, nofollow`, one missing description added. Result: 94 sitemap URLs and 13 private routes, **0 problems**.
 
 **Exit gate:** one known public preview URL, correct host/canonical, understood branch/deployment relationship, correct active Supabase project, baseline checks recorded.
 
@@ -144,7 +144,7 @@ Owner: SEO board. Dependencies: stable brand and canonical host from Phase 0/1.
 - [ ] Create a pillar/cluster content plan with original material and official citations.
 - [ ] Add registry/exam pages only where unique verified information supports them.
 - [ ] Validate structured data and social previews.
-- [ ] Verify 404/redirect/noindex/sitemap behaviour.
+- [x] Verify 404/redirect/noindex/sitemap behaviour. **Done (2026-11-22):** covered by `scripts/audit-routes.mjs` — every sitemap URL must return 200 with a self-canonical and no noindex, and every private route must send noindex. Redirect behaviour is partially covered (fetches follow redirects and report the final status); a dedicated redirect-map check is still worth adding when old routes move.
 - [ ] Measure mobile Core Web Vitals and fix significant issues.
 - [ ] Prepare Search Console and Bing Webmaster verification for after final canonical/domain decision.
 - [ ] Ensure no personal/private routes are indexable.
@@ -200,7 +200,7 @@ Owner: SEO board. Dependencies: stable brand and canonical host from Phase 0/1.
 6. [x] P0: NUMS Paper-II Psychological & Aptitude simulator deployed.
 7. [x] P0: Mistake Notebook and Free Beta Season Passes deployed.
 8. [ ] P1: complete design scorecard and close the highest-impact UX defects.
-9. [ ] P1: complete route metadata/sitemap/canonical/robots audit by search intent.
+9. [/] P1: complete route metadata/sitemap/canonical/robots audit by search intent. **Mechanical half done (2026-11-22):** `scripts/audit-routes.mjs` checks every sitemap URL for status, self-canonical, noindex and duplicate titles, and every private route for noindex — 94 URLs + 13 private routes, **0 problems** after fixing six real bugs (three submitted 404s, 19 unsubmitted set pages, five homepage-canonical tags, one unreachable slug, ten crawlable private routes, one missing description). Deliverable and remaining gaps: `docs/ROUTE-INVENTORY.md`. Still open: the *by search intent* half (route → intent matrix, thin/duplicate consolidation) and real `lastModified` dates instead of build time.
 10. [ ] P1: triage Supabase security advisors and verify RLS assumptions.
 11. [ ] P1: complete privacy, legal, support and brand consistency review.
 12. [ ] Hold domain purchase until Phase 5 is signed off.

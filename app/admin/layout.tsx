@@ -5,6 +5,8 @@ import { AdminNav } from "./AdminNav";
 
 export const metadata: Metadata = {
   title: "Admin Dashboard | MED Prep",
+  // Admin surface: disallowed in robots.txt, so it must not also claim "index, follow".
+  robots: { index: false, follow: false },
 };
 
 export default function AdminLayout({

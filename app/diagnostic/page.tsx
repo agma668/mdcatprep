@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: 'Free Diagnostic Quiz — Check Your Level',
   description:
     'Take a free 10-question diagnostic quiz across Biology, Chemistry, Physics and English. Find your strongest and weakest subjects instantly.',
+  // Without this the canonical fell back to the site root, telling search engines this page was a
+  // duplicate of the homepage.
+  alternates: { canonical: '/diagnostic' },
 }
 
 export const dynamic = 'force-dynamic'

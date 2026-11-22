@@ -4,7 +4,10 @@ import { createClient } from "@/lib/supabase/server";
 import { logout } from "@/app/actions/auth";
 import { PendingReferralCard } from "@/components/auth/PendingReferralCard";
 
-export const metadata = { title: "Application Pending" };
+export const metadata = {
+  title: "Application Pending",
+  robots: { index: false, follow: false },
+};
 
 // Reads the live session every request — never prerender at build time.
 export const dynamic = "force-dynamic";

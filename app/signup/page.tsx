@@ -3,6 +3,9 @@ import { GraduationCap, Trophy, BookOpenCheck, BarChart3 } from "lucide-react";
 import { SignupForm } from "./SignupForm";
 import { BANK_SECTION_COUNT } from "@/lib/stats";
 
+// Utility page: noindex in the meta tag as well as robots.txt (see app/login/page.tsx).
+export const metadata = { title: "Create your account", robots: { index: false, follow: false } };
+
 /**
  * The referral code is read HERE, on the server, and handed to the form as a
  * prop. `useSearchParams()` inside the client form opted this route out of

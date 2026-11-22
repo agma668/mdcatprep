@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { LoginForm } from "./LoginForm";
 
+// An auth utility page: robots.txt disallows it, and the meta tag must agree. A page that is blocked
+// in robots.txt but ships "index, follow" is a contradiction crawlers report and users debug.
+export const metadata = { title: "Sign in", robots: { index: false, follow: false } };
+
 /**
  * The two query flags this page reacts to are read HERE, on the server, and
  * handed down as props.

@@ -39,10 +39,10 @@ export const SEO_PAGES: SeoPage[] = [
 
   // Practice surfaces — the honest numbers live on the pages themselves
   { path: "/flashcards", priority: 0.8, changeFrequency: "weekly" },
+  // There is no /topicals/<subject> route — the hub lists subjects and the drill pages live at
+  // /topicals/<subject>/<chapter>. Three subject URLs were submitted here and returned 404 with a
+  // noindex 404 shell, the exact submitted-vs-noindex contradiction this file is meant to prevent.
   { path: "/topicals", priority: 0.9, changeFrequency: "daily" },
-  { path: "/topicals/biology", priority: 0.8, changeFrequency: "weekly" },
-  { path: "/topicals/chemistry", priority: 0.8, changeFrequency: "weekly" },
-  { path: "/topicals/physics", priority: 0.8, changeFrequency: "weekly" },
 
   // Notes hub + per-subject pages (public master-notes library)
   { path: "/notes", priority: 0.9, changeFrequency: "daily" },
@@ -90,6 +90,10 @@ export function topicalDrillPaths(): string[] {
   const paths: string[] = [];
   for (const s of TOPICALS_SUBJECTS) {
     for (const c of s.chapters) paths.push(`/topicals/${s.slug}/${c.slug}`);
+    // Whole-paper sets are prerendered content pages too (past-paper and mixed-bank URLs). They were
+    // left out here, so 19 real pages — some with hundreds of questions — were never submitted while
+    // the three subject URLs above, which do not exist, were.
+    for (const c of s.sets) paths.push(`/topicals/${s.slug}/${c.slug}`);
   }
   return paths;
 }

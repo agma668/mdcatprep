@@ -16,17 +16,26 @@ import {
 
 const siteUrl = getSiteUrl();
 
-/** Board slug: "uhs-mdcat" → the exam key the registry uses. */
+/**
+ * Board slug: "uhs-mdcat" → the exam key the registry uses.
+ *
+ * Trailing separators are stripped on both sides of this contract. An exam named
+ * "SZABMU MDCAT (reconducted)" collapsed to "szabmu-mdcat-reconducted-", so its page was only
+ * reachable at a URL ending in a dash while the sitemap submitted the clean one — a 404 for every
+ * crawler and a dead link for the board list.
+ */
+function boardSlug(examKey: string): string {
+  return examKey.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+
 function examForSlug(slug: string): string | null {
-  return (
-    papersByExam().find((g) => g.key.toLowerCase().replace(/[^a-z0-9]+/g, "-") === slug)?.key ??
-    null
-  );
+  const wanted = slug.replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  return papersByExam().find((g) => boardSlug(g.key) === wanted)?.key ?? null;
 }
 
 export function generateStaticParams(): { board: string }[] {
   return papersByExam().map((g) => ({
-    board: g.key.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
+    board: boardSlug(g.key),
   }));
 }
 

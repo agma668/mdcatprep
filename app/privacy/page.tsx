@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "How MED Prep collects, uses and protects your data — practice records, account details, offline copies and telemetry.",
+  // Without an explicit canonical the tag pointed at the site root.
+  alternates: { canonical: "/privacy" },
 };
 
 const SECTIONS: { heading: string; body: string[] }[] = [

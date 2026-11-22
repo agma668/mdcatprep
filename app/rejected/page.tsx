@@ -2,7 +2,10 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { getWhatsAppNumber, getWhatsAppLink } from "@/lib/site";
 
-export const metadata = { title: "Application Rejected" };
+export const metadata = {
+  title: "Application Rejected",
+  robots: { index: false, follow: false },
+};
 
 const whatsapp = getWhatsAppNumber();
 

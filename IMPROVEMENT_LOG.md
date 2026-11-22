@@ -381,3 +381,17 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - Site bank 15,810 → **16,556** (3,721 curated + 1,941 founder + 10,894 pipeline, of which 2,126 keyed). 48 chapters plus 19 whole-paper sets across six subjects; 67 hub entries, **0 mismatches**.
 - Not served, and why — these are the honest residue: **5,671** rows genuinely missing an option in the source, 15 whose stem needs a figure the site does not display, 188 still naming a brand, 66 carrying scan furniture, plus 1,927 duplicates and 4,118 rejected by the quality gate. Nothing was invented or reworded to reach a bigger number.
 - Gates: tsc 0, eslint 0 on the touched files, `next build` 0, hub/page verifier 0 mismatches, bank sweep 0 brand items. No database contact, no deployment, no push.
+
+## 2026-11-22 — Crawl foundation: route inventory, 0 sitemap contradictions (Phase 0 / sprint 9)
+
+- Built `scripts/audit-routes.mjs`: it fetches every URL in `/sitemap.xml`, checks status, self-canonical, `robots` meta, duplicate titles and missing descriptions, then checks the must-not-index list for `noindex`. It is the check behind the Phase 0 route-inventory item and the Phase 4 "404/redirect/noindex/sitemap" item; write-up in `docs/ROUTE-INVENTORY.md`.
+- First run: **27 problems**. After the fixes: **0 problems** across 94 sitemap URLs and 13 private routes, on a fresh production build as well as the dev server.
+- Six real crawl bugs, all found by measurement rather than reading code:
+  1. Three sitemap URLs were **404s** — `/topicals/biology|chemistry|physics` are submitted but no subject route exists (only the hub and `/topicals/<subject>/<chapter>`), and each 404 shell carried `noindex`, the exact submitted-vs-noindex contradiction `lib/seo-pages.ts` forbids. Removed.
+  2. **19 whole-paper set pages were never submitted** — they prerender and hold real questions but were excluded from `topicalDrillPaths()`. Added.
+  3. **Five canonical tags pointed at the homepage** (`/diagnostic`, `/privacy`, `/copyright`, plus the `/past-papers/[board]` error path) because no explicit canonical was set and Next fell back to the root. Each now declares its own.
+  4. **`SZABMU MDCAT (reconducted)` was unreachable at its own URL**: the slug ended in a separator (`szabmu-mdcat-reconducted-`) while the sitemap submitted the clean form. Slug normalisation now runs on both sides.
+  5. **Ten private routes shipped `index, follow` while robots.txt disallowed them** (login, signup, pending, rejected, suspended, forgot/reset password, admin, dashboard, dashboard/practice). All now send `noindex, nofollow`, admin and dashboard at layout level so children inherit it.
+  6. `/copyright` had no meta description.
+- Also corrected my own audit's misclassification: `/nust|usat|pma/practice` are public practice surfaces, not private, and are no longer reported as failures.
+- Gates: tsc 0, eslint 0 on all 14 touched files, `next build` 0 (125/125 static pages), audit 0 problems after the build. No database contact, no deployment, no push.
