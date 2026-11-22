@@ -422,3 +422,33 @@ The final Apex preview at commit `6dfc8a3222f3aeb6259bfc0162dcab0427e744d9` reac
 - Merged `origin/main` (three commits behind, including the OMR homepage redesign) into this branch. One conflict, in `app/page.tsx`: resolved by taking the newer redesign but keeping this branch's truthful "Free during beta" badge instead of "100% free", which the access policy no longer promises.
 - Push hold lifted by the founder, so the branch and `main` are pushed; Vercel rebuilds production from `main`.
 - Gates after the merge: tsc 0, eslint 0, `next build` 0 (125/125 static pages), route audit 96 URLs + 13 private routes 0 problems, link audit 0 broken links and 0 dead anchors. Homepage renders "16,556 Practice MCQs · 25 Past papers · 6 Subjects" — the strip reads value-then-label, so an earlier grep that reported "Practice MCQs 25" was reading across two tiles, not a wrong count.
+
+## 2026-11-22 — HEC past papers measured: the scans on disk cannot be completed, and MDCAT is already ahead
+
+Asked to complete the HEC past papers from the PDFs and OCR on this PC, then MDCAT. Measured first
+(`data/MCQS_INBOX/_pipeline/measure_hec.mjs`, `probe_hec_parse.mjs`, `gate_hec_parse.mjs`,
+`measure_hec_papers.mjs`) instead of assuming the material was usable.
+
+- **10 HEC/USAT OCR text files, 146k chars.** Parsed with the existing shared parser: **632 questions,
+  0 with a printed key**. A strict quality gate (real words in stem and all four options, distinct
+  options, closed stem) passes **4 of 632 (0.6%)**, and those four are truncated mid-sentence
+  ("Which one of the foll tracking a satellite?"). Sample of what the text actually contains:
+  "Thy srr the ressesios ar bapresshess of $y", options "Tissies / Foss / Calum / Statutes", and answer
+  key tables rendered as "| 2% | 0 [ o | a". The OCR is two-column damage, not a parsing bug.
+- **No HEC PDFs survive to re-OCR.** `find data -iname "*hec*.pdf"` returns three files: a 424 KB HEC
+  sample, a guidance book, and a backup copy. The papers themselves exist only as those `.txt` scans.
+- **The typed canonical bank adds nothing new.** Word-boundary match for HEC/USAT in `ALL_SUBJECTS.json`
+  (573 rows, 209 keyed, across HEC 2018/2019/2023/2024, USAT sample, English notes). Only **74 are
+  clean, and all 74 are already served** — 0 clean rows are unserved. The 2018 and 2019 files, whose
+  names promise answer keys, carry **0 keys** in the parsed data.
+- Corrected a false positive I had measured earlier in this session: a "724 HEC rows" figure came from
+  matching the substring `hec` inside `MCQS_AI_CHECK`. The strict count is 573, of which 74 are clean.
+- `LIBRARY/test/HEC.json` is empty (0 rows).
+- Conclusion: completing the HEC papers needs clean source documents, not more parsing. The blocker is
+  the same D14 one — no poppler (`pdftoppm`) and no tesseract/canvas bundle — and it would still need
+  the original HEC PDFs, which are not on this machine.
+
+MDCAT, by contrast, is already served: live past-paper sets `Past Paper 2021/2022/2023/2024/2025`
+hold **2,038 questions**. The 2024 UHS and KMU papers on disk still have real text layers
+(`uhs_2024_code_A_incomplete.pdf` 22 font refs, `kmu_mdcat_2024_code_a.pdf` 43), so those can be
+extracted without OCR once a PDF text extractor is available — no OCR tooling needed for that route.
