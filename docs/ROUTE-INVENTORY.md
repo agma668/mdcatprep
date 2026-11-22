@@ -65,6 +65,12 @@ noindex, so they can be indexed if linked; they are simply not submitted. Adding
    ship `noindex, nofollow` as well.
 6. **`/copyright` had no meta description.**
 
+## Link integrity (2026-11-22)
+
+`node scripts/audit-links.mjs` crawls 97 pages and 103 internal links: **0 broken links, 0 dead anchors**. The only remaining findings are four links from public pages to `/dashboard*`, which redirect signed-out visitors to `/login` — correct behaviour, listed for information.
+
+Fixed in this pass: five blog cards linked to unwritten guides (now plain "In progress" cards, no href), the shared navbar/footer used homepage-only anchor fragments so they were dead on ~90 pages, and `#cta` never existed (the section id is `register`).
+
 ## Known bugs still open (not fixed here)
 
 - `/nust/practice`, `/usat/practice`, `/pma/practice` are public client components that import the
