@@ -19,7 +19,7 @@ Project boundary:
 - Supabase: founder-confirmed Apex project `edweb`
 - Vercel: founder-confirmed Apex project `edweb`
 - Credit College Prep and Cadet College projects are separate and out of scope.
-- Agent Board work is owned by Freebuff and is out of scope for this queue.
+- Agent-board coordination is part of this queue; use the current medical-first board for active work.
 
 ## 2. Verified current blockers
 
@@ -180,7 +180,7 @@ The earlier sections are retained as historical discovery notes. For active work
 
 ## Ordered next tasks
 
-1. **Reproducible bank audit:** inspect the exact runtime bank and every committed source; produce per-source/subject counts, keyed vs practice-only, structure issues, source labels and dedupe results.
+1. **Reproducible bank audit:** source-level parsing and a quarantine guard are implemented on PR #26. Run `npm run audit:medical-topicals` and the updated `npm test` in CI, then add exact runtime/source manifests and near-duplicate results.
 2. **Exam classification:** assign each row to PM&DC, NUMS, another exam, mixed/unknown or out-of-scope. Unknown rows cannot count toward PM&DC coverage.
 3. **Outcome mapping:** map PM&DC-eligible questions to exact 2025 curriculum outcomes and NUMS separately to its 2026 syllabus. Produce zero/thin/adequate coverage heatmaps.
 4. **Rights and academic QA:** record source and permission; de-branding is not rights clearance. Verify answer keys and explanations with subject reviewers. No guessed keys.
