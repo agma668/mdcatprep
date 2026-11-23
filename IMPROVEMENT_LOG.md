@@ -492,3 +492,48 @@ past papers with answers needs clean source PDFs, not better OCR of these copies
 
 The pre-rerun OCR text is preserved in `data/MCQS/OCR_SCANS_PREV/` (outside the extraction roots, so
 it cannot double-count) in case the old text is ever wanted for comparison.
+
+## 2026-11-23 — the last 5 scans finished (451/451 pages), and the rebuild that came out 9 rows smaller is kept because it is cleaner, not because it is bigger
+
+The previous entry left 5 documents un-OCRed. They are done: the OCR tier now covers **all 19
+documents / 451 pages** the report calls image-only, with **0 failed pages and 0 thin pages**.
+
+**What went wrong on the way, and was fixed rather than hidden:**
+- The first run died at 279/451 pages when the desktop dropped. Resume worked as designed.
+- The relaunch found `pdftoppm.exe` gone: Windows had cleared `Temp/poppler` down to the leftover
+  `p.zip`. Every page failed `ENOENT`, and because the driver counts a failed page as a processed
+  page the run "completed" in 60 s while writing two stub files (651 and 791 chars). The stubs are
+  quarantined in `data/MCQS/_pipeline/cache/trash/`, poppler was re-extracted from `p.zip`, and the
+  two documents were re-OCRed properly.
+- Lesson recorded for the next person: a run that finishes suspiciously fast is a broken toolchain,
+  not a fast machine. `grep -c PAGE_FAIL` is the check.
+
+**Documents finished (chars of cleaned text):** `Organic Chemistry shortlisting` 28,776 (was 651),
+`. pdf (1)` 56,238 (was 791, and it is the 26/40-page duplicate scan), `NUMS 2026` 32,989.
+
+**The rebuild, measured against 10,894 published / 2,126 keyed:**
+
+| | before | after |
+|---|---|---|
+| published | 10,894 | **10,885** |
+| keyed | 2,126 | **2,126** |
+| practice-only | 8,768 | **8,759** |
+| source explanations | 46 | 46 |
+
+That is 9 rows fewer, and unlike the rejected 2026-11-22 rebuild it was kept. The reason is the row
+diff, not the total: of 65 rows that left the bank, 56 came back under new keys as **visibly cleaner
+renderings of the same questions** (e.g. `A car moving on a more steeply bank … (o] Small speed`
+became `… C Small speed a…`), one old stem still ships verbatim under a new key, and the 8 that are
+genuinely gone are practice-only rows whose stems were OCR debris (`La cusmertbon with X-ray eoslesien
+the vy=`). Keyed count is identical, which is the proof no answer key was dropped: the OCR tier
+cannot produce keys at all (see the 2026-11-22 entry), so every loss here is by definition an unkeyed
+practice row.
+
+**Still true, and still the real limit:** these scans carry no recoverable answer keys. 451 pages of
+better OCR bought 0 keyed questions. The bank is 41% keyed and that will not move without clean
+source PDFs that print keys as text.
+
+**Gates:** `npx tsc --noEmit` clean · `npx eslint lib/pipeline-bank.ts` clean · `npx next build` OK
+(125/125 static pages, `/topicals/biology/mixed-bank` 1,823 kB, the largest) · `audit-routes.mjs`
+and `audit-links.mjs` 0 problems · brand sweep of the three served banks: 0 real hits (the two in
+`lib/topicals-bank.ts` are a source comment and the buffalo breed `Bhadawari`).
