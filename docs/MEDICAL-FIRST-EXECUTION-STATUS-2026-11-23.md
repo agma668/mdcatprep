@@ -10,10 +10,25 @@ The active development priority is **medical preparation only**: PMDC MDCAT firs
 
 - Latest repository activity visible during this reconciliation includes commits dated through **2026-11-23**; the previous board baselines of 2026-11-08 and the queue prepared 2026-11-09 are historical, not current status.
 - The current master roadmap records the route inventory work dated 2026-11-22: 94 sitemap URLs and 13 private routes, with zero reported audit problems. A separate later improvement-log entry reports 96 URLs. **Reconcile this 94-versus-96 discrepancy from a fresh generated inventory before publishing a definitive count.**
-- The latest supplied content audit reports 16,556 served topical questions: 3,721 curated, 1,941 founder-source and 10,894 pipeline records; 48 chapters; 19 whole-paper sets; six displayed subjects. Treat these as a dated audit snapshot, not a live count. It reports only 46 source-written explanations and 16,510 items without written explanations. Do not describe the entire bank as academically verified or fully explained.
+- The earlier supplied content audit reported 16,556 served topical questions (3,721 curated, 1,941 founder-source and 10,894 pipeline records). **A newer 2026-11-23 `IMPROVEMENT_LOG.md` entry supersedes the pipeline component:** `lib/pipeline-bank.ts` was rebuilt to 10,885 rows, then 100 newly extracted official HEC/USAT-keyed rows were added, for **10,985 pipeline rows: 2,229 keyed and 8,756 practice-only**. The generated `lib/founder-bank.ts` was independently counted at 1,941 rows. The large `lib/topicals-bank.ts` could not be returned by the GitHub file connector, so do not publish a new grand total until that base bank is counted and the three-way total is recomputed. The pipeline report records 46 source explanations; the pipeline script attaches only explanations present in source. Do not describe the entire bank as academically verified or fully explained.
 - The supplied audit reports PM&DC 2026's structure as 180 questions: Biology 81, Chemistry 45, Physics 36, English 9 and Logical Reasoning 9; 3 hours; no negative marking. Mathematics is not a separate PM&DC section. Keep Mathematics content clearly labelled as supplementary or mapped elsewhere, never as a sixth official MDCAT subject.
 - The last documented live Supabase inspection is dated 2026-11-20 and reported zero canonical questions, goals, attempts and flashcard reviews. This is **not a fresh live query**. Do not infer current production row counts from it.
 - The supplied audit reports ten open draft PRs and identifies #22–25 and #12–17 as important outstanding work. PR bodies and workflow statuses must be rechecked against GitHub before any status is marked current. No merge or production change is authorized by this board update.
+
+
+## Fresh corpus/OCR evidence discovered on 2026-11-23
+
+The latest `IMPROVEMENT_LOG.md` is more current than the older OCR notes in `docs/AGENT-BOARD.md`:
+
+- OCR toolchain restoration was completed; the earlier D14 claim that Poppler/Tesseract were missing is stale.
+- The 19 image-only documents / 451 pages are now reported complete, with 0 failed pages and 0 thin pages. A separate 304-page pass covered 14 documents before the remaining scans were finished.
+- Rebuilding after OCR cleanup changed the pipeline bank from 10,894 to 10,885. The 9-row reduction was retained because the changed rows were cleaner OCR renderings and 8 removed practice-only stems were debris; keyed count stayed 2,126.
+- The official HEC/USAT extraction then added 100 servable rows / 103 keyed rows, bringing the pipeline bank to 10,985 total, 2,229 keyed and 8,756 practice-only. The 36 rows with unsupported subject headings were held back.
+- The latest text-layer audit covered 62 PDFs (16 duplicate copies, 46 distinct parsed), found 3,094 questions, matched 2,019 to the bank and left 1,075 unmatched. Of those, 572 were classified by the audit as likely real question stems (question mark, blank or colon). The five official USAT samples now have zero missing questions.
+- A parser fix for `(a)` and `(a).` option markers recovered 185 Balochistan MDCAT 2022 questions. Twenty text-layer files still parse zero; several substantive files remain unmeasured by this parser.
+- These are repository-log measurements, not a new local execution in this session. Reproduce them before treating them as final.
+
+**Important rights/provenance gate:** the ingestion script describes de-branding and a private-use ruling for some academy-derived content. Removing names does not itself establish permission to republish a source's questions. Before extracting or publishing any of the 572 unmatched items, record ownership/licence or obtain permission; otherwise keep them out of the public bank. The next task is therefore a rights-aware parser-gap triage, not a blind bulk import.
 
 ## Current priority queue
 
@@ -63,4 +78,4 @@ The active development priority is **medical preparation only**: PMDC MDCAT firs
 
 ## Next concrete task
 
-**Run a reproducible, read-only medical corpus inventory against the current main-branch source**, outputting counts by exam/source/subject and quality state without changing question data. Then use that inventory to design the review batches. This is the next task after the documentation reconciliation PR is reviewed; it must not seed production.
+**Create a rights-aware parser-gap triage for the 572 likely-real unmatched text-layer questions.** First classify each source PDF by owner/licence/permission, then run the existing parser audit by source and record the exact parsing failure patterns. Do not import or publish any source without documented reuse rights. Keep the existing bank unchanged; do not seed production.
