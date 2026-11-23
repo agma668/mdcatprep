@@ -550,3 +550,8 @@ and `audit-links.mjs` 0 problems · brand sweep of the three served banks: 0 rea
 - Corrected public copy that promised instant explanations, full syllabus coverage, every answer being explained, or all practice being saved to account analytics. The topical page now distinguishes the five PM&DC sections from the extra Mathematics practice category.
 - Updated the medical-first board, corpus audit, roadmap, design, SEO, build queue, readiness matrix and legacy-board notice. PM&DC remains Beta; NUMS remains Content in progress.
 - PR #26 is a draft and unmerged. Documentation and application source changes only; no production database writes, imports, migrations, Auth changes, billing/domain changes or deployment promotion.
+
+- Corrected topical navigation classification: the hub now has 45 chapter pages and 22 practice/paper sets. Three source collections were moved out of chapter navigation; Genetics/Inheritance and Work And Energy case variants are grouped. The chapter inventory records 7,150 chapter-labeled rows and 9,144 set-labeled rows.
+- Added `docs/PMDC-TOPICAL-CHAPTER-INVENTORY-2026-11-23.md`: Biology has 3,271 rows under the 16 official unit chapter labels, zero under a dedicated Immunity chapter, 181 Ecology rows outside the 2025 PM&DC Biology unit list, and 3,921 Biology Mixed Bank rows still needing question-level mapping.
+- Confirmed the current records do not carry per-question topic, exam, variant, outcome, blueprint, source-locator or rights metadata. `lib/mdcat-topics.ts` is a legacy four-subject display taxonomy, not a question mapping.
+- Extended the audit report to include chapter/set counts and mapping-metadata coverage; CI validation is pending for this latest extension.
