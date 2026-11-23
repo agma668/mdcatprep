@@ -81,7 +81,7 @@ const PRACTICE = [
 
 const STEPS = [
   { title: "Take the diagnostic", body: "Ten questions across five subjects, about two minutes. It shows where you are strong and where you are not." },
-  { title: "Practise by topic", body: "Work through chapter-wise MCQs. See the source's answer key and explanation where available; no-key questions remain practice-only." }
+  { title: "Practise by topic", body: "Work through chapter-wise MCQs. See the source's answer key and explanation where available; no-key questions remain practice-only." },
   { title: "Redo what you missed", body: "Wrong answers collect in your mistake notebook so you can drill them until they stick." },
 ];
 
