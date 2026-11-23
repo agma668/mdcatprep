@@ -34,16 +34,16 @@ const FEATURES: {
     icon: NotebookPen,
     title: "MCQ Practice with Explanations",
     description:
-      "Practice subject-wise and topic-wise MCQs with instant explanations after every answer. Your progress is recorded automatically.",
+      "Practice subject-wise and topic-wise MCQs. Source answer keys appear where provided; questions without a printed key remain practice-only, and source explanations appear where available.",
     badge: "Practice",
     wide: true,
     tone: "signal",
   },
   {
     icon: BookOpen,
-    title: "Full Syllabus Coverage",
+    title: "Topic-wise Practice",
     description:
-      "Every subject, every topic — Biology, Chemistry, Physics, and English — structured exactly as the real medical entrance tests.",
+      "Browse the available question categories and chapters. The bank is still being mapped against the official PM&DC and NUMS learning outcomes, so this is not a claim of complete syllabus coverage.",
     badge: "Complete",
     tone: "signal",
   },
@@ -68,7 +68,7 @@ const FEATURES: {
     icon: BarChart,
     title: "Progress Dashboard",
     description:
-      "Track your performance with detailed analytics. See your score trends, identify weak topics, and measure improvement week over week.",
+      "Review the study activity and progress tools currently available. Goal-scoped analytics and cross-device progress are still being completed.",
     badge: "Analytics",
     tone: "beacon",
   },
@@ -114,7 +114,7 @@ export function Features() {
               <span className="text-[var(--signal-200)]">Prepare with Confidence</span>
             </h2>
             <p className="mx-auto max-w-2xl text-lg leading-relaxed text-[var(--steel-300)]">
-              Structured MCQ practice, instant explanations, progress tracking, and live classes —
+              Structured MCQ practice, source-provided explanations where available, study tools, and community support —
               all free for every student during the beta.
             </p>
           </div>
