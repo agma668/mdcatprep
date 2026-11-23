@@ -3,6 +3,7 @@ import {
   TOPICALS_SUBJECTS,
   TOPICALS_TOTAL,
   isSetChapter,
+  resolveChapter,
   topicalChapter,
 } from "../lib/topicals.ts";
 
@@ -41,7 +42,9 @@ for (const question of questions) {
   bySubject[question.subject] = (bySubject[question.subject] ?? 0) + 1;
   bySource[question.source] = (bySource[question.source] ?? 0) + 1;
   const chapterKind = isSetChapter(question.chapter) ? "set" : "chapter";
-  const chapterKey = `${question.subject} / ${chapterKind} / ${question.chapter}`;
+  const canonicalChapter = resolveChapter(question.subject, question.chapter);
+  const chapterLabel = canonicalChapter.trim().toLowerCase().replace(/\\s+/g, " ");
+  const chapterKey = `${question.subject} / ${chapterKind} / ${chapterLabel}`;
   byChapter[chapterKey] = (byChapter[chapterKey] ?? 0) + 1;
   for (const field of metadataFields) {
     if (Object.prototype.hasOwnProperty.call(question, field)) {
