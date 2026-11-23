@@ -109,7 +109,7 @@ The source-level parse found no populated per-question `topic`, `exam_id`, `vari
 
 ## 8. Remaining work — academic and exam mapping
 
-- [x] Execute the audit report and full `npm test` in CI. Run #45204606893 passed tests, the audit command, ESLint and TypeScript on `ee7686d7e1692a00f2805500404ecfd15bf90513`.
+- [x] Execute the audit report and full `npm test` in CI. Run #45206336705 passed all 97 tests, the audit command, ESLint and TypeScript on `f81f987f43446d5c7b300c6312d0eb3c1875dc7b`.
 - [ ] Classify every row as PM&DC, NUMS, another exam, mixed/unknown or out-of-scope.
 - [ ] Map PM&DC-eligible rows to exact PM&DC learning-outcome IDs.
 - [ ] Map NUMS independently to its official syllabus outcomes.
