@@ -51,7 +51,7 @@ Suggested sidecar fields:
 
 ## 3. Outcome catalogue
 
-All outcomes below currently have **0 verified mapped questions**. A first 50-question candidate batch exists in `data/drafts/medical/mappings/pmdc-biology-unit-01-batch-001.json`: 34 provisional outcome candidates and 16 held for scope review. None are verified; the batch must pass subject review before it changes any coverage count. This is an honest baseline, not a claim that the question bank contains none of these concepts.
+All outcomes below currently have **0 verified mapped questions**. A first 50-question candidate batch exists in `data/drafts/medical/mappings/pmdc-biology-unit-01-batch-001.json`: 33 provisional outcome candidates and 17 held for scope review. None are verified; the batch must pass subject review before it changes any coverage count. This is an honest baseline, not a claim that the question bank contains none of these concepts.
 
 ### Unit 1 — Acellular life
 
