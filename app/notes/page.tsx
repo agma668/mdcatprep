@@ -124,7 +124,7 @@ export default function NotesHubPage() {
                   Topical MCQs — chapter-wise
                 </h3>
                 <p className="text-xs text-[var(--steel-400)] leading-relaxed">
-                  Drill any Biology, Chemistry or Physics chapter with instant explanations — no
+                  Practise available Biology, Chemistry or Physics chapters; source answer keys and explanations appear where available — no
                   signup needed.
                 </p>
               </Link>
