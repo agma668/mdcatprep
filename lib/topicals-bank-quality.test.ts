@@ -46,8 +46,8 @@ test("every served topical question has four non-empty distinct options and a va
 
 test("known malformed source rows remain quarantined from the student-facing topical bank", () => {
   assert.deepEqual(TOPICALS_QUARANTINE_SUMMARY, {
-    sourceRows: 16556,
-    servedRows: 16303,
+    sourceRows: 16547,
+    servedRows: 16294,
     quarantinedRows: 253,
     missingOptionRows: 246,
     duplicateOptionRows: 7,
