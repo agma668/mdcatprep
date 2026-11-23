@@ -105,7 +105,7 @@ NUMS has a separate 2026 profile: Paper-I 150 MCQs (Biology 55, Chemistry 40, Ph
 
 The current hub contains 45 chapter pages and 22 practice/paper sets. The full per-subject and per-chapter counts, including the 16 Biology unit chapter-label proxy counts and the unmapped Mixed Bank totals, are recorded in [`docs/PMDC-TOPICAL-CHAPTER-INVENTORY-2026-11-23.md`](./PMDC-TOPICAL-CHAPTER-INVENTORY-2026-11-23.md).
 
-The audit script reports zero populated per-question `topic`, `exam_id`, `variant_id`, `learning_outcome_id`, `blueprint_version`, source URL/document/page or licence fields. The legacy `lib/mdcat-topics.ts` file is a four-subject display taxonomy with approximate subtopics; it is not linked to question rows. Chapter labels are not exact outcome mappings.
+The source-level parse found no populated per-question `topic`, `exam_id`, `variant_id`, `learning_outcome_id`, `blueprint_version`, source URL/document/page or licence fields. The audit script reports this metadata coverage for ongoing regression checks. The legacy `lib/mdcat-topics.ts` file is a four-subject display taxonomy with approximate subtopics; it is not linked to question rows. Chapter labels are not exact outcome mappings.
 
 ## 8. Remaining work — academic and exam mapping
 
@@ -120,7 +120,7 @@ The audit script reports zero populated per-question `topic`, `exam_id`, `varian
 - [ ] Reconcile the homepage “25 Past papers” tile with the 22 topical practice/paper sets (not all full official papers) and the separate past-paper registry.
 - [ ] Build zero/thin/adequate coverage heatmaps before writing more questions.
 
-## 8. Limitations and release status
+## 9. Limitations and release status
 
 This audit proves structural facts about committed arrays. It does **not** prove academic correctness, official exam membership, syllabus coverage, copyright permission, student progress persistence or readiness for a full official mock.
 
