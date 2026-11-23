@@ -239,8 +239,8 @@ PMDC-2026's official notice confirms 180 MCQs with 81 Biology / 45 Chemistry / 3
 
 - Route MDCAT preparation intent to the PM&DC medical destination; route NUMS-specific intent to a distinct NUMS destination. Generic Apex Academy intent remains the parent chooser.
 - The topical hub currently lists six practice categories, but the PM&DC paper has five official sections. Mathematics is not an official separate PM&DC section; avoid title tags, headings, structured data or copy that says otherwise.
-- The current 16,556 count is a served topical collection count, not a verified PM&DC-only, fully mapped, fully keyed or academically reviewed count. Do not use "16,556 MDCAT questions with answers/explanations" or similar claims.
-- Only 46 of 16,556 served rows have a source-written explanation attached per the latest log. Copy must describe explanation availability accurately.
+- The latest main log recorded 16,556 source rows; this branch's quality guard leaves 16,303 served rows after quarantining 253 malformed items. Neither count is a verified PM&DC-only, fully mapped or academically reviewed count. Do not use "16,303 MDCAT questions with answers/explanations" or similar claims.
+- Only 46 of 16,303 served rows have a source-written explanation attached per the latest log. Copy must describe explanation availability accurately.
 - A "Past Paper 2021" or similar set name may come from a source file and is not proof of an official sitting. Use "practice set" unless provenance verifies the actual paper.
 - Reconcile the homepage "25 Past papers" tile with the 19 topical whole-paper/set entries and the separate past-paper registry before using the number in title/description/schema copy.
 - Keep current route/link audit results as historical evidence (96 sitemap URLs + 13 private routes, zero reported issues in the latest log); rerun after route or metadata changes. The route inventory's earlier 94 URL snapshot is stale.
