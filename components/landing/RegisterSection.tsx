@@ -62,14 +62,14 @@ export function RegisterSection({ mcqs, subjects }: { mcqs: number; subjects: nu
               </h2>
 
               <p className="mx-auto mb-8 max-w-lg text-lg leading-relaxed text-[var(--steel-300)] lg:mx-0">
-                Create a free account and get instant access to {fmtInt(mcqs)} MCQs, study notes,
-                progress tracking, and the WhatsApp community. No credit card required.
+                Create a free account and access {fmtInt(mcqs)} practice questions, study notes,
+                available study tools, and the WhatsApp community. Some account-level progress features are still being completed.
               </p>
 
               <div className="mx-auto grid max-w-md grid-cols-2 gap-3 lg:mx-0">
                 {[
                   { icon: BookOpenCheck, label: `${fmtInt(mcqs)} MCQs`, sub: 'Exam-style practice' },
-                  { icon: BarChart3, label: 'Track Progress', sub: 'Real-time analytics' },
+                  { icon: BarChart3, label: 'Study Activity', sub: 'Progress tools in development' },
                   { icon: GraduationCap, label: `${subjects} Practice Categories`, sub: 'Available topics in the bank' },
                   { icon: Trophy, label: 'Leaderboard', sub: 'Compete with peers' },
                 ].map(({ icon: Icon, label, sub }) => (
