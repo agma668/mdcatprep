@@ -492,3 +492,16 @@ past papers with answers needs clean source PDFs, not better OCR of these copies
 
 The pre-rerun OCR text is preserved in `data/MCQS/OCR_SCANS_PREV/` (outside the extraction roots, so
 it cannot double-count) in case the old text is ever wanted for comparison.
+
+
+## 2026-11-23 — Medical-first board and corpus-baseline reconciliation
+
+- Inspected current `main` at `45ed1579a9acc57656bf69d5062a4f984b50eba8`, the six current agent/planning boards, the readiness matrix, recent improvement-log entries, source-bank seams and open PR state.
+- Added `MEDICAL-CONTENT-AGENT-BOARD.md` as the active PM&DC-first / NUMS-second execution board. Engineering, Defence, general HEC and other non-medical expansion are parked without deleting their existing work.
+- Added `docs/MEDICAL-CORPUS-AUDIT-2026-11-23.md` to preserve the measured current baseline and separate verified facts from work not yet performed.
+- Reconciled the recorded served count: 16,556 = 3,721 curated + 1,941 founder + 10,894 pipeline. Recorded six topical navigation categories versus five official PM&DC sections; Mathematics is not an official separate PM&DC section.
+- Recorded that only 46 served rows have source-written explanations; 16,510 do not. Pipeline has 2,126 printed-key rows; practice-only rows remain unscored rather than receiving guessed answers.
+- Corrected the OCR task state: tooling was restored locally and 304 pages across 14 documents were OCRed at 300 dpi, but zero new answer keys were recovered. The 10,894-row pipeline bank was restored after a 30-row reduction; OCR outputs are not fully committed/reproducible from Git.
+- Identified the next work as reproducible runtime audit, exam classification, exact syllabus outcome mapping, provenance/rights review, academic answer verification, then gap-only expansion and goal-scoped delivery.
+- Updated roadmap, design, SEO, build queue, readiness matrix and legacy-board notices to point to the same active medical-first source of truth.
+- This was documentation and GitHub-branch work only. No application code, production database, imports, Auth, billing, domains, merges or deployment promotion changed. PRs remain drafts pending review/approval.
