@@ -43,7 +43,7 @@ for (const question of questions) {
   bySource[question.source] = (bySource[question.source] ?? 0) + 1;
   const chapterKind = isSetChapter(question.chapter) ? "set" : "chapter";
   const canonicalChapter = resolveChapter(question.subject, question.chapter);
-  const chapterLabel = canonicalChapter.trim().toLowerCase().replace(/\\s+/g, " ");
+  const chapterLabel = canonicalChapter.trim().toLowerCase().replace(/\s+/g, " ");
   const chapterKey = `${question.subject} / ${chapterKind} / ${chapterLabel}`;
   byChapter[chapterKey] = (byChapter[chapterKey] ?? 0) + 1;
   for (const field of metadataFields) {
