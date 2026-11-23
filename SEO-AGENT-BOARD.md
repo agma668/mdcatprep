@@ -229,3 +229,5 @@ The code audit confirms full USAT/NUST/PMA banks are currently imported by publi
 
 
 PMDC-2026's official notice confirms 180 MCQs with 81 Biology / 45 Chemistry / 36 Physics / 9 English / 9 Logical Reasoning, 3 hours and no negative marking. Public exam pages should use this current-year pattern and link to PMDC's official notice. The repository's current 100-question “full mock” does not match this structure; do not claim a full official-pattern mock is available until corrected and backed by a populated, verified question source.
+
+> **Current priority update (2026-11-23):** Medical-only development priority; PMDC first, NUMS second. Keep public PMDC subject/blueprint claims accurate (five sections; Mathematics is not a separate official section), distinguish unofficial practice from official past papers, and do not promise explanations/progress that are not actually available. Current cross-board evidence and next actions: [Medical-first execution status](docs/MEDICAL-FIRST-EXECUTION-STATUS-2026-11-23.md).
