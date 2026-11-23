@@ -54,3 +54,17 @@ A question count or attractive portal page is not enough to make a Prep Space re
 - ISSB official selection system: https://www.issb.gov.pk/selection-system
 
 The NUMS 2026 page links a dedicated syllabus PDF, but that PDF could not be fetched during this review. Its detailed sections and weightings are therefore intentionally not asserted here.
+
+
+## Medical-first status reconciliation — 2026-11-23
+
+This update supersedes the 2026-11-09 content-count snapshot but does not promote either medical Prep Space to Available.
+
+| Medical Prep Space | Current evidence | Status | Release blockers |
+|---|---|---|---|
+| PM&DC MDCAT | 16,556 topical rows are served across six navigation categories; the six categories are not all official PM&DC sections. Only 46 source-written explanations are attached. PM&DC-2026 blueprint is 180 MCQs with 81/45/36/9/9 sections. | **Beta — limited topical practice** | No complete learning-outcome coverage proof; answer/rights review incomplete; durable goal-scoped attempts and exact exam mapping need verification; 100-question custom mock is not official full paper. |
+| NUMS MDCAT | Separate official 2026 150 + 50 syllabus profile exists; only three psychological scenario items were found in the earlier source scan; recent OCR included only a partial NUMS scan. | **Content in progress** | Independent outcome map and Paper-I bank review; Paper-II content and suitability; goal-scoped delivery and progress; next-cycle official blueprint recheck. |
+
+**Content-count language:** 16,556 means served topical rows across Biology, Chemistry, Physics, English, Mathematics and Reasoning. It does not mean 16,556 PM&DC-mapped, keyed, explained, licensed or academically approved questions. Mathematics is not a separate PM&DC section.
+
+**OCR:** local OCR tooling has been restored and 304 pages were OCRed in the 2026-11-22 run, but no new answer keys were recovered. OCR output remains raw source material pending classification, mapping, rights review and academic QA.
