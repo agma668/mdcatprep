@@ -680,7 +680,7 @@ Validation status: PR opened as draft; no workflow run was returned for its head
 
 The detailed active board is now `MEDICAL-CONTENT-AGENT-BOARD.md`; the evidence snapshot is `docs/MEDICAL-CORPUS-AUDIT-2026-11-23.md`. These supersede the stale November 9 queue and the earlier medical draft on PR #25 for current task ordering.
 
-**Verified current content baseline from the 2026-11-22 committed improvement log:** 16,556 served topical rows (3,721 curated + 1,941 founder + 10,894 pipeline); six navigation categories; 48 chapters + 19 whole-paper/set entries; 46 source-written explanations. The six categories are not the five PM&DC sections: Mathematics is not a separate official MDCAT section. The pipeline bank has 2,126 printed-key rows; no-key rows remain practice-only.
+**Verified source baseline plus quality guard on this branch:** 16,556 source rows (3,721 curated + 1,941 founder + 10,894 pipeline); 16,303 remain served after quarantining 253 malformed rows. The six navigation categories have 48 chapters + 19 whole-paper/set entries; 46 served rows have source-written explanations. The six categories are not the five PM&DC sections: Mathematics is not a separate official MDCAT section. The pipeline bank has 2,126 printed-key rows; no-key rows remain practice-only.
 
 **OCR correction:** D14's tooling blocker is no longer current. Poppler/Tesseract were restored locally and 304 pages across 14 documents were OCRed at 300 dpi. The run recovered zero new answer keys, and the attempted 30-row smaller pipeline rebuild was reverted. Five documents (~139 pages), including a partial NUMS-2026 scan, remain for a later decision. The extraction outputs are not committed in the Git tree, so this work is not yet reproducible from the repository alone.
 
