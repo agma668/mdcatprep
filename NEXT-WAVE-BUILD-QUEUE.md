@@ -166,3 +166,29 @@ Do not merge or promote this work until all of the following are true:
 - No production data/schema, billing or paid infrastructure has been changed without explicit approval.
 
 **Current status:** not student-launch-ready. The immediate priority is trustworthy content identity and goal-scoped persistence, not adding more features or more portals.
+
+
+---
+
+# Current build queue — superseding the 2026-11-09 preparation snapshot (2026-11-23)
+
+The earlier sections are retained as historical discovery notes. For active work, follow `MEDICAL-CONTENT-AGENT-BOARD.md` and `docs/MEDICAL-CORPUS-AUDIT-2026-11-23.md`.
+
+**Active scope:** PM&DC MDCAT → NUMS. Engineering, Defence, HEC scholarship expansion and other non-medical tracks are parked. The user has asked to maximize medical preparation first.
+
+**Current baseline:** main `45ed1579a9acc57656bf69d5062a4f984b50eba8`; 16,556 served topical rows (3,721 curated + 1,941 founder + 10,894 pipeline), six navigation categories, 48 chapters, 19 whole-paper/set entries and 46 source-written explanations per the latest committed improvement log. Six navigation categories must not be confused with five PM&DC official sections; Mathematics is extra practice, not an official PM&DC section.
+
+## Ordered next tasks
+
+1. **Reproducible bank audit:** inspect the exact runtime bank and every committed source; produce per-source/subject counts, keyed vs practice-only, structure issues, source labels and dedupe results.
+2. **Exam classification:** assign each row to PM&DC, NUMS, another exam, mixed/unknown or out-of-scope. Unknown rows cannot count toward PM&DC coverage.
+3. **Outcome mapping:** map PM&DC-eligible questions to exact 2025 curriculum outcomes and NUMS separately to its 2026 syllabus. Produce zero/thin/adequate coverage heatmaps.
+4. **Rights and academic QA:** record source and permission; de-branding is not rights clearance. Verify answer keys and explanations with subject reviewers. No guessed keys.
+5. **Gap expansion:** create original 25–50 question batches only for demonstrated gaps, with answer evidence, worked explanations and review state.
+6. **Goal-scoped delivery:** reconcile stale PRs #22–24, complete exact exam/variant delivery, protect answer keys, persist goal_id and make offline retries idempotent.
+7. **PM&DC learning loop:** reviewed topic drills, mistakes, flashcards, diagnostics and planner backed by real attempts.
+8. **PM&DC mock:** 180/180 only after the verified pool supports the exact 81/45/36/9/9 blueprint. Short mocks remain clearly custom/scaled.
+9. **NUMS:** separate Paper-I/Paper-II content and assessment after independent mapping and review.
+10. **Release QA:** full tests/lint/typecheck/build, RLS and exam-isolation tests, route/link audit and authenticated mobile/desktop student journey.
+
+**Do not:** run `scripts/seed-mdcat-questions.mjs` against production; import OCR or unreviewed rows; relabel practice compilations as official past papers; expand non-medical tracks; merge PRs; apply production migrations; change Auth, billing, domains or promote deployments without task-specific approval.
