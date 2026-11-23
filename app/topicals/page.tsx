@@ -54,7 +54,7 @@ export default function TopicalsHubPage() {
             </p>
             <p className="mt-3 text-sm text-[var(--steel-400)]">
               {TOPICALS_TOTAL.toLocaleString("en-US")} questions across {TOPICALS_CHAPTER_COUNT}{" "}
-              chapters plus {TOPICALS_SET_COUNT} whole-paper sets across six practice categories (five PM&DC sections plus extra Mathematics practice) · free,
+              chapters plus {TOPICALS_SET_COUNT} practice and paper sets across six practice categories (five PM&DC sections plus extra Mathematics practice) · free,
               no signup needed.
             </p>
           </div>
