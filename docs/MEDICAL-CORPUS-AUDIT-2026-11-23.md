@@ -101,7 +101,13 @@ Difficulty distribution: 15% easy, 70% moderate, 15% difficult. This is a verifi
 
 NUMS has a separate 2026 profile: Paper-I 150 MCQs (Biology 55, Chemistry 40, Physics 40, English 15) and Paper-II 50 psychological-test MCQs. Difficulty is 20/60/20. An earlier source scan found only three NUMS psychological scenario items; the NUMS-2026 source scan is partial. NUMS is not ready.
 
-## 7. Remaining work — academic and exam mapping
+## 7. Chapter and mapping inventory
+
+The current hub contains 45 chapter pages and 22 practice/paper sets. The full per-subject and per-chapter counts, including the 16 Biology unit chapter-label proxy counts and the unmapped Mixed Bank totals, are recorded in [`docs/PMDC-TOPICAL-CHAPTER-INVENTORY-2026-11-23.md`](./PMDC-TOPICAL-CHAPTER-INVENTORY-2026-11-23.md).
+
+The audit script reports zero populated per-question `topic`, `exam_id`, `variant_id`, `learning_outcome_id`, `blueprint_version`, source URL/document/page or licence fields. The legacy `lib/mdcat-topics.ts` file is a four-subject display taxonomy with approximate subtopics; it is not linked to question rows. Chapter labels are not exact outcome mappings.
+
+## 8. Remaining work — academic and exam mapping
 
 - [x] Execute the audit report and full `npm test` in CI. Run #45204606893 passed tests, the audit command, ESLint and TypeScript on `ee7686d7e1692a00f2805500404ecfd15bf90513`.
 - [ ] Classify every row as PM&DC, NUMS, another exam, mixed/unknown or out-of-scope.
@@ -111,7 +117,7 @@ NUMS has a separate 2026 profile: Paper-I 150 MCQs (Biology 55, Chemistry 40, Ph
 - [ ] Run near-duplicate detection across served banks, flashcards and committed source corpus.
 - [ ] Verify answer correctness and explanations in small subject-reviewed batches.
 - [ ] Record source provenance and reuse permission for each approved batch.
-- [ ] Reconcile the homepage “25 Past papers” tile with the 19 topical whole-paper/set entries and the separate past-paper registry.
+- [ ] Reconcile the homepage “25 Past papers” tile with the 22 topical practice/paper sets (not all full official papers) and the separate past-paper registry.
 - [ ] Build zero/thin/adequate coverage heatmaps before writing more questions.
 
 ## 8. Limitations and release status
