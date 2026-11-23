@@ -99,10 +99,36 @@ const readTier = (p) => (fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf8'
 const ready = readTier(IN);
 const needsKey = readTier(NEEDS_KEY);
 
+// Hand-typed keys (scripts/hec-keys.mjs): the HEC scans print their keys as image grids OCR cannot
+// read, so a person reads the grid and types the letter. That letter is trusted only where the
+// paper's own option TEXT appears among the row's options — so a row whose options are ordered
+// differently still gets the correct letter, and a mismatched row is left unkeyed rather than guessed.
+const MANUAL = path.join(ROOT, 'question-keys/resolved.json');
+const manualKeys = new Map();
+if (fs.existsSync(MANUAL)) {
+  const doc = JSON.parse(fs.readFileSync(MANUAL, 'utf8'));
+  for (const [paper, entry] of Object.entries(doc.papers || {})) {
+    for (const k of Object.values(entry.keys || {})) {
+      if (k.stem && k.answer_text) manualKeys.set(norm(k.stem), { ...k, paper });
+    }
+  }
+}
+let manualApplied = 0;
+const withManualKey = (r) => {
+  if (r.correct_answer || !manualKeys.size) return r;
+  const m = manualKeys.get(norm(r.question_text));
+  if (!m) return r;
+  const opts = { A: r.option_a, B: r.option_b, C: r.option_c, D: r.option_d };
+  const letter = ['A', 'B', 'C', 'D'].find((L) => opts[L] && norm(opts[L]) === norm(m.answer_text));
+  if (!letter) return r;
+  manualApplied += 1;
+  return { ...r, correct_answer: letter, answer_status: 'manual_key' };
+};
+
 const publicReady = ready.filter((r) => r.visibility === 'public');
 const privateReady = ready.filter((r) => r.visibility !== 'public');
-const publicNeedKey = needsKey.filter((r) => r.visibility === 'public');
-const privateNeedKey = needsKey.filter((r) => r.visibility !== 'public');
+const publicNeedKey = needsKey.filter((r) => r.visibility === 'public').map(withManualKey);
+const privateNeedKey = needsKey.filter((r) => r.visibility !== 'public').map(withManualKey);
 
 // Exactly the subjects lib/topicals.ts renders. A row for any other subject would sit in the bank and
 // never reach a page, so it is counted as skipped instead of inflating the total. If a subject is
@@ -183,12 +209,23 @@ for (const r of privateReady) {
   admit(r, { keyed: true, idPrefix: 'acad', source: 'Keyed collection' });
 }
 
-// Practice-only rows: four real options, no printed key. Served unscored, never guessed.
+// Unkeyed rows: four real options, no printed key. Served unscored, never guessed — unless a person
+// typed the key from a paper that printed one, in which case the row is served scored.
 for (const r of publicNeedKey) {
-  admit(r, { keyed: false, idPrefix: 'prac', source: 'Question bank — practice (no printed key)' });
+  const keyed = !!r.correct_answer;
+  admit(r, {
+    keyed,
+    idPrefix: keyed ? 'heckey' : 'prac',
+    source: keyed ? 'Question bank — printed key, typed from the paper' : 'Question bank — practice (no printed key)',
+  });
 }
 for (const r of privateNeedKey) {
-  admit(r, { keyed: false, idPrefix: 'acadprac', source: 'Practice (no printed key)' });
+  const keyed = !!r.correct_answer;
+  admit(r, {
+    keyed,
+    idPrefix: keyed ? 'acadkey' : 'acadprac',
+    source: keyed ? 'Printed key, typed from the paper' : 'Practice (no printed key)',
+  });
 }
 
 // The inbox's second extraction (`questions_e.json`): rows from the founder's other MED material. They
@@ -288,7 +325,7 @@ for (const r of rows) {
 }
 const keyed = rows.filter((r) => r.correct_answer).length;
 console.log('written', path.relative(ROOT, OUT));
-console.log(`published ${rows.length} | keyed ${keyed} | practice-only ${rows.length - keyed} | with source explanation ${withExplanation}`);
+console.log(`published ${rows.length} | keyed ${keyed} | practice-only ${rows.length - keyed} | with source explanation ${withExplanation} | hand-typed keys applied ${manualApplied}`);
 console.log('skipped', JSON.stringify(skipped));
 console.log('gate reasons', JSON.stringify(gateReasons));
 console.log(JSON.stringify(byChapter, null, 1));

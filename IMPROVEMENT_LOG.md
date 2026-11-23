@@ -537,3 +537,44 @@ source PDFs that print keys as text.
 (125/125 static pages, `/topicals/biology/mixed-bank` 1,823 kB, the largest) · `audit-routes.mjs`
 and `audit-links.mjs` 0 problems · brand sweep of the three served banks: 0 real hits (the two in
 `lib/topicals-bank.ts` are a source comment and the buffalo breed `Bhadawari`).
+
+## 2026-11-23 — hand-typed HEC answer keys: a sheet you fill in, and a chain that only attaches a key the paper actually supports
+
+The HEC scans print their keys as image grids that no OCR can read (2026-11-22 entry). A person reads
+those grids in seconds, so this is the entry path for them: `scripts/hec-keys.mjs`.
+
+**The three commands:**
+- `node scripts/hec-keys.mjs list` — every HEC/USAT/NUMS paper in the OCR tier, how many questions
+  parse with four distinct options, and how many of those are reachable as bank rows.
+- `node scripts/hec-keys.mjs sheet <paper>` — writes `question-keys/<paper>.tsv`, one question per
+  line: `row · letter · in bank · page · qno · stem · options`. You type a letter in column two.
+  Regenerating preserves letters already typed.
+- `node scripts/hec-keys.mjs apply` — validates the letters and writes `question-keys/resolved.json`,
+  which `scripts/ingest-pipeline-bank.mjs` now reads. Commit `resolved.json` to ship keys to Vercel.
+
+**Why `row` exists and not just "question number":** printed numbers restart in every section of these
+papers (English 1-20, then Biology 1-20), so "question 7" identifies nothing on its own. `row` is the
+tool's own unique number; `page` and `qno` are shown so a person can find it in the PDF.
+
+**How a letter is trusted.** Three checks, none of them a guess:
+1. the paper's option TEXT for that letter must appear among the bank row's four options — so a row
+   whose options are ordered differently still gets the correct letter;
+2. the row is matched by exact stem, or by a unique token-overlap match with a clear margin over the
+   runner-up; anything ambiguous is reported and left untouched;
+3. a row already keyed with a different letter is never overwritten — it is reported.
+
+**Proved end to end, then reverted.** Typing two letters into `hec-past-papers.tsv` moved the bank to
+`published 10885 | keyed 2128 | practice-only 8757 | hand-typed keys applied 2`; clearing them and
+re-running ingest returned it to `keyed 2126` with `git diff lib/pipeline-bank.ts` empty. The test
+letters were my own inferences, not printed keys, so they were removed rather than kept.
+
+**The limit, measured, and it is not the tool.** Of 218 questions that parse out of these papers, only
+**38 are reachable as bank rows today** (19 of them NUMS 2026; `HEC Past Papers` 7, 2018 6, 2022 3,
+2019 2, Test 2024 1). Confirmed from both directions: of 8,938 unkeyed four-option rows in the built
+tiers, only 35 correspond to any HEC paper text at all. The cause is upstream — the OCR parse merges
+successive questions into `option_d` (667 rows have an option longer than 200 characters, 32 contain a
+literal `Ans:`), so those rows fail the gate and never reach a page. Until the HEC paper parse is fixed
+there is very little for a typed key to land on; the tool is ready for when there is.
+
+**Gates:** `npx tsc --noEmit` clean · `npx eslint scripts/hec-keys.mjs scripts/ingest-pipeline-bank.mjs`
+clean · `npx next build` OK · bank unchanged from HEAD.
