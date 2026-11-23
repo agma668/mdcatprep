@@ -87,9 +87,12 @@ Required fields for every approved item:
 
 - [x] Reconcile the currently served topical count and source components against the 2026-11-22 improvement log.
 - [x] Record the six navigation categories versus the five official PM&DC sections; Mathematics must not be represented as an official MDCAT section.
-- [x] Record explanation coverage honestly: 46 source-written explanations attached; 16,510 served rows have no source-written explanation.
+- [x] Record explanation coverage honestly: 46 source-written explanations attached; 16,257 of the 16,303 served rows have no source-written explanation.
 - [x] Record the 304-page OCR rerun and its zero-new-key result; do not count OCR volume as approved content.
-- [ ] Run a fresh reproducible audit against the committed runtime bank and report per-source/per-subject totals, keyed/practice-only totals, missing fields, invalid keys and source labels.
+- [x] Parse all three committed source arrays and reconcile their exact source counts, keyed/practice-only states, missing options, duplicate options, keys and explanation coverage.
+- [x] Add a runtime guard that quarantines the 246 missing-option and seven duplicate-option rows without deleting source records.
+- [x] Add a regression test and `npm run audit:medical-topicals` report script.
+- [ ] Execute the new report and test in CI; record the actual workflow result before marking the implementation slice tested.
 - [ ] Classify every served row as PM&DC, NUMS, another exam, mixed/unknown or out-of-scope; exclude unknown and other-exam items from PM&DC coverage claims.
 - [ ] Map every PM&DC-eligible row to the exact official 2025 curriculum learning outcome; report unmapped rows and per-outcome counts.
 - [ ] Audit NUMS rows separately against the official 2026 blueprint; no implicit PM&DC-to-NUMS mapping.
@@ -97,6 +100,7 @@ Required fields for every approved item:
 - [ ] Review source provenance and rights. De-branding alone is not a publication licence.
 - [ ] Verify answer keys and explanations in small review batches with independent subject review; do not infer keys from option patterns or model re-solving.
 - [ ] Reconcile the homepage's "25 Past papers" claim with the 19 topical whole-paper sets and the distinct past-paper registry; publish only a count with a clear definition.
+- [ ] Review the 272 option-label-like stem candidates using a stricter, manually checked heuristic; do not auto-discard broad-regex matches.
 - [ ] Produce a per-outcome coverage heatmap: zero, thin, adequate, overrepresented and pending review.
 
 ### M2 — PM&DC question-bank expansion (BLOCKED ON M1)
