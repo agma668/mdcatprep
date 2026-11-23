@@ -672,3 +672,18 @@ Important limits:
 - No production database, content, Auth settings or deployments changed.
 
 Validation status: PR opened as draft; no workflow run was returned for its head SHA at the time of this board update. CI, lint and typecheck remain pending. The main-branch RLS-goals test currently depends on the ownership migration proposed in PR #22, which remains unmerged pending explicit founder approval.
+
+
+## Current execution reconciliation — 2026-11-23
+
+**Current main baseline:** `45ed1579a9acc57656bf69d5062a4f984b50eba8`. The current product scope is medical only: PM&DC MDCAT first, NUMS second. Engineering, Defence, HEC scholarship expansion and other non-medical work are parked without deleting their existing code/routes.
+
+The detailed active board is now `MEDICAL-CONTENT-AGENT-BOARD.md`; the evidence snapshot is `docs/MEDICAL-CORPUS-AUDIT-2026-11-23.md`. These supersede the stale November 9 queue and the earlier medical draft on PR #25 for current task ordering.
+
+**Verified current content baseline from the 2026-11-22 committed improvement log:** 16,556 served topical rows (3,721 curated + 1,941 founder + 10,894 pipeline); six navigation categories; 48 chapters + 19 whole-paper/set entries; 46 source-written explanations. The six categories are not the five PM&DC sections: Mathematics is not a separate official MDCAT section. The pipeline bank has 2,126 printed-key rows; no-key rows remain practice-only.
+
+**OCR correction:** D14's tooling blocker is no longer current. Poppler/Tesseract were restored locally and 304 pages across 14 documents were OCRed at 300 dpi. The run recovered zero new answer keys, and the attempted 30-row smaller pipeline rebuild was reverted. Five documents (~139 pages), including a partial NUMS-2026 scan, remain for a later decision. The extraction outputs are not committed in the Git tree, so this work is not yet reproducible from the repository alone.
+
+**Next execution order:** (1) reproducible runtime/source audit; (2) exam classification and exact PM&DC/NUMS outcome mapping; (3) provenance/rights and academic answer review; (4) only then expand verified gaps; (5) complete canonical goal-scoped delivery and durable progress; (6) PM&DC mock and NUMS-specific workflow; (7) medical release QA.
+
+**PR state:** PRs #22–25 remain open drafts; #22–24 have successful historical quality runs on their own branch heads but are stale/diverged from current main. PR #25 is based on an older content baseline and its failed CI result should not be treated as current-main validation. Do not merge any PR without explicit founder approval. No production database changes, imports, deployment promotion or Auth/billing/domain changes were made by this reconciliation.
