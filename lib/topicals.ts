@@ -9,10 +9,52 @@ import { TOPICALS_BANK, type TopicalsQuestion } from './topicals-bank';
 import { FOUNDER_BANK } from './founder-bank';
 import { PIPELINE_BANK } from './pipeline-bank';
 
-// One bank for the pages: the curated extraction, the founder's own papers and the import-ready rows
-// of the question bank. Each row keeps its own source label, so it is never presented as something
-// it is not.
-const BANK: TopicalsQuestion[] = [...TOPICALS_BANK, ...FOUNDER_BANK, ...PIPELINE_BANK];
+// One source bank for the pages: the curated extraction, the founder's own papers and the
+// import-ready rows of the question bank. Each row keeps its own source label.
+const SOURCE_BANK: TopicalsQuestion[] = [...TOPICALS_BANK, ...FOUNDER_BANK, ...PIPELINE_BANK];
+
+function normalizedOption(value: string | null | undefined): string {
+  return typeof value === 'string' ? value.trim().replace(/\\s+/g, ' ') : '';
+}
+
+// Do not serve an item with a blank option or repeated options. The November 2026
+// founder-bank extraction contained OCR/parser failures that left answer choices
+// inside the stem and one or more option fields empty. Seven curated rows also
+// repeated an option. These items remain in their source files for correction,
+// but cannot reach students until the source is fixed and the audit passes.
+function hasFourDistinctOptions(question: TopicalsQuestion): boolean {
+  const options = [
+    question.option_a,
+    question.option_b,
+    question.option_c,
+    question.option_d,
+  ].map(normalizedOption);
+  return options.every(Boolean) && new Set(options).size === 4;
+}
+
+const missingOptionRows = SOURCE_BANK.filter((question) =>
+  [question.option_a, question.option_b, question.option_c, question.option_d]
+    .some((option) => !normalizedOption(option))
+).length;
+const duplicateOptionRows = SOURCE_BANK.filter((question) => {
+  const options = [
+    question.option_a,
+    question.option_b,
+    question.option_c,
+    question.option_d,
+  ].map(normalizedOption);
+  return options.every(Boolean) && new Set(options).size !== 4;
+}).length;
+
+export const TOPICALS_QUARANTINE_SUMMARY = {
+  sourceRows: SOURCE_BANK.length,
+  servedRows: SOURCE_BANK.filter(hasFourDistinctOptions).length,
+  quarantinedRows: SOURCE_BANK.length - SOURCE_BANK.filter(hasFourDistinctOptions).length,
+  missingOptionRows,
+  duplicateOptionRows,
+} as const;
+
+const BANK: TopicalsQuestion[] = SOURCE_BANK.filter(hasFourDistinctOptions);
 
 export type { TopicalsQuestion };
 
