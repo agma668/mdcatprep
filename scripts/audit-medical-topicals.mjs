@@ -34,7 +34,7 @@ for (const question of questions) {
     question.option_b,
     question.option_c,
     question.option_d,
-  ].map((value) => (typeof value === "string" ? value.trim().replace(/\\s+/g, " ") : ""));
+  ].map((value) => (typeof value === "string" ? value.trim().replace(/\s+/g, " ") : ""));
   if (options.some((value) => !value)) missingFields.option += 1;
 
   if (question.correct_answer === null) answerState.practiceOnly += 1;
@@ -49,7 +49,7 @@ for (const question of questions) {
   const signature = [
     question.question_text,
     ...options,
-  ].map((value) => (value ?? "").trim().replace(/\\s+/g, " ")).join("\\u0000");
+  ].map((value) => (value ?? "").trim().replace(/\s+/g, " ")).join("\u0000");
   if (exactSignatures.has(signature)) exactDuplicateQuestions += 1;
   exactSignatures.add(signature);
 }
