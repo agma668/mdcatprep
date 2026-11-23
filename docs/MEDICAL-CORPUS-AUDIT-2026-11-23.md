@@ -111,7 +111,7 @@ The source-level parse found no populated per-question `topic`, `exam_id`, `vari
 
 - [x] Execute the audit report and full `npm test` in CI. Run #45206336705 passed all 97 tests, the audit command, ESLint and TypeScript on `f81f987f43446d5c7b300c6312d0eb3c1875dc7b`.
 - [ ] Classify every row as PM&DC, NUMS, another exam, mixed/unknown or out-of-scope.
-- [ ] Map PM&DC-eligible rows to exact PM&DC learning-outcome IDs.
+- [ ] Map PM&DC-eligible rows to exact PM&DC learning-outcome IDs. The 69-outcome Biology register is `docs/PMDC-BIOLOGY-OUTCOME-REGISTER-2026-11-23.md`; all outcomes remain unmapped pending question-level review.
 - [ ] Map NUMS independently to its official syllabus outcomes.
 - [ ] Review the 272 option-label-like stem candidates with a stricter, manually checked rule.
 - [ ] Run near-duplicate detection across served banks, flashcards and committed source corpus.
