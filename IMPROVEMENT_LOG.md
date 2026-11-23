@@ -493,26 +493,57 @@ past papers with answers needs clean source PDFs, not better OCR of these copies
 The pre-rerun OCR text is preserved in `data/MCQS/OCR_SCANS_PREV/` (outside the extraction roots, so
 it cannot double-count) in case the old text is ever wanted for comparison.
 
+## 2026-11-23 — the last 5 scans finished (451/451 pages), and the rebuild that came out 9 rows smaller is kept because it is cleaner, not because it is bigger
 
-## 2026-11-23 — Medical-first board and corpus-baseline reconciliation
+The previous entry left 5 documents un-OCRed. They are done: the OCR tier now covers **all 19
+documents / 451 pages** the report calls image-only, with **0 failed pages and 0 thin pages**.
 
-- Inspected current `main` at `45ed1579a9acc57656bf69d5062a4f984b50eba8`, the six current agent/planning boards, the readiness matrix, recent improvement-log entries, source-bank seams and open PR state.
-- Added `MEDICAL-CONTENT-AGENT-BOARD.md` as the active PM&DC-first / NUMS-second execution board. Engineering, Defence, general HEC and other non-medical expansion are parked without deleting their existing work.
-- Added `docs/MEDICAL-CORPUS-AUDIT-2026-11-23.md` to preserve the measured current baseline and separate verified facts from work not yet performed.
-- Reconciled the recorded served count: 16,556 = 3,721 curated + 1,941 founder + 10,894 pipeline. Recorded six topical navigation categories versus five official PM&DC sections; Mathematics is not an official separate PM&DC section.
-- Recorded that only 46 served rows have source-written explanations; 16,510 do not. Pipeline has 2,126 printed-key rows; practice-only rows remain unscored rather than receiving guessed answers.
-- Corrected the OCR task state: tooling was restored locally and 304 pages across 14 documents were OCRed at 300 dpi, but zero new answer keys were recovered. The 10,894-row pipeline bank was restored after a 30-row reduction; OCR outputs are not fully committed/reproducible from Git.
-- Identified the next work as reproducible runtime audit, exam classification, exact syllabus outcome mapping, provenance/rights review, academic answer verification, then gap-only expansion and goal-scoped delivery.
-- Updated roadmap, design, SEO, build queue, readiness matrix and legacy-board notices to point to the same active medical-first source of truth.
-- This was documentation and GitHub-branch work only. No application code, production database, imports, Auth, billing, domains, merges or deployment promotion changed. PRs remain drafts pending review/approval.
+**What went wrong on the way, and was fixed rather than hidden:**
+- The first run died at 279/451 pages when the desktop dropped. Resume worked as designed.
+- The relaunch found `pdftoppm.exe` gone: Windows had cleared `Temp/poppler` down to the leftover
+  `p.zip`. Every page failed `ENOENT`, and because the driver counts a failed page as a processed
+  page the run "completed" in 60 s while writing two stub files (651 and 791 chars). The stubs are
+  quarantined in `data/MCQS/_pipeline/cache/trash/`, poppler was re-extracted from `p.zip`, and the
+  two documents were re-OCRed properly.
+- Lesson recorded for the next person: a run that finishes suspiciously fast is a broken toolchain,
+  not a fast machine. `grep -c PAGE_FAIL` is the check.
 
+**Documents finished (chars of cleaned text):** `Organic Chemistry shortlisting` 28,776 (was 651),
+`. pdf (1)` 56,238 (was 791, and it is the 26/40-page duplicate scan), `NUMS 2026` 32,989.
+
+**The rebuild, measured against 10,894 published / 2,126 keyed:**
+
+| | before | after |
+|---|---|---|
+| published | 10,894 | **10,885** |
+| keyed | 2,126 | **2,126** |
+| practice-only | 8,768 | **8,759** |
+| source explanations | 46 | 46 |
+
+That is 9 rows fewer, and unlike the rejected 2026-11-22 rebuild it was kept. The reason is the row
+diff, not the total: of 65 rows that left the bank, 56 came back under new keys as **visibly cleaner
+renderings of the same questions** (e.g. `A car moving on a more steeply bank … (o] Small speed`
+became `… C Small speed a…`), one old stem still ships verbatim under a new key, and the 8 that are
+genuinely gone are practice-only rows whose stems were OCR debris (`La cusmertbon with X-ray eoslesien
+the vy=`). Keyed count is identical, which is the proof no answer key was dropped: the OCR tier
+cannot produce keys at all (see the 2026-11-22 entry), so every loss here is by definition an unkeyed
+practice row.
+
+**Still true, and still the real limit:** these scans carry no recoverable answer keys. 451 pages of
+better OCR bought 0 keyed questions. The bank is 41% keyed and that will not move without clean
+source PDFs that print keys as text.
+
+**Gates:** `npx tsc --noEmit` clean · `npx eslint lib/pipeline-bank.ts` clean · `npx next build` OK
+(125/125 static pages, `/topicals/biology/mixed-bank` 1,823 kB, the largest) · `audit-routes.mjs`
+and `audit-links.mjs` 0 problems · brand sweep of the three served banks: 0 real hits (the two in
+`lib/topicals-bank.ts` are a source comment and the buffalo breed `Bhadawari`).
 
 ## 2026-11-23 — Medical corpus source audit and malformed-question quarantine (PR #26)
 
-- Parsed the three committed topical source arrays directly: curated `lib/topicals-bank.ts` (3,721), founder `lib/founder-bank.ts` (1,941) and pipeline `lib/pipeline-bank.ts` (10,894), total **16,556 source rows**.
+- Parsed the three committed topical source arrays directly: curated `lib/topicals-bank.ts` (3,721), founder `lib/founder-bank.ts` (1,941) and pipeline `lib/pipeline-bank.ts` (10,885), total **16,547 source rows**.
 - Found **246 founder-bank rows with at least one blank option** (76 Biology, 9 Chemistry, 161 Physics; 54 had printed keys and 192 were practice-only) and **7 curated rows with exact repeated options** (3 Biology, 4 Chemistry). These 253 items were previously included in the student-facing topical bank.
 - Added a runtime gate in `lib/topicals.ts` that requires four non-empty, distinct options (case-sensitive after whitespace normalization). It quarantines the 253 rows without deleting or rewriting the original source records.
-- The resulting branch baseline is **16,303 served rows**: 6,712 keyed and 9,591 practice-only. By subject: Biology 8,509; Chemistry 4,568; Physics 2,815; English 270; Mathematics 84; Reasoning 57. The last category counts are navigation categories, not a claim that Mathematics is a PM&DC paper section.
+- The resulting branch baseline is **16,294 served rows**: 6,712 keyed and 9,582 practice-only. By subject: Biology 8,503; Chemistry 4,565; Physics 2,815; English 270; Mathematics 84; Reasoning 57. The last category counts are navigation categories, not a claim that Mathematics is a PM&DC paper section.
 - Exact source parse found 0 duplicate keys, 0 exact duplicate stem+ordered-option signatures, 0 empty stems, 0 missing source labels and 0 invalid answer states. Only **46** served rows have source-written explanations.
 - A broad heuristic flagged 272 option-label-like stems (77 founder, 195 pipeline), but it also catches legitimate strings such as “A. C. generator”; these remain a manual-review candidate set, not confirmed defects.
 - Added `lib/topicals-bank-quality.test.ts`, included it in `npm test`, and added `scripts/audit-medical-topicals.mjs` plus `npm run audit:medical-topicals`. The test and report are pending GitHub Actions execution; no passing result is claimed yet.
