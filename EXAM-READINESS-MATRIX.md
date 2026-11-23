@@ -53,7 +53,7 @@ A question count or attractive portal page is not enough to make a Prep Space re
 - NUST subjects included in NET with weightings: https://nust.edu.pk/admissions/undergraduates/subjects-included-in-net-with-weightings
 - ISSB official selection system: https://www.issb.gov.pk/selection-system
 
-The NUMS 2026 page links a dedicated syllabus PDF, but that PDF could not be fetched during this review. Its detailed sections and weightings are therefore intentionally not asserted here.
+This was the limitation in the 2026-11-09 snapshot. The official NUMS MDCAT-2026 syllabus PDF was retrieved in the 2026-11-21 review; its Paper-I/Paper-II structure is documented in the medical content board and the current status table above.
 
 
 ## Medical-first status reconciliation — 2026-11-23
