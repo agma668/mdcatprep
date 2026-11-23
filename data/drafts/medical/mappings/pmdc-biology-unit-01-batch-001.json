@@ -6,8 +6,8 @@
   "outcome_register": "docs/PMDC-BIOLOGY-OUTCOME-REGISTER-2026-11-23.md",
   "summary": {
     "questions": 50,
-    "candidateMappings": 34,
-    "heldForScopeReview": 16,
+    "candidateMappings": 33,
+    "heldForScopeReview": 17,
     "verifiedMappings": 0
   },
   "review_rules": [
@@ -27,7 +27,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests the non-cellular/non-living characteristics used to classify viruses.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -42,7 +42,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests nucleic-acid type in plant viruses.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -57,7 +57,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests disease associations of named viruses.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -72,7 +72,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests the helical symmetry/structure of Tobacco Mosaic Virus.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -87,7 +87,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests genome-based viral classification.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -102,7 +102,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests the role of envelope glycoprotein spikes in viral attachment.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -117,7 +117,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests structural contents of the virion core.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -132,7 +132,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests capsid symmetry as a viral structural feature.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -160,7 +160,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests a living characteristic used when classifying viruses.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -175,7 +175,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests bacteriophage genome type and complex structure.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -190,7 +190,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests crystallization as a non-living characteristic of viruses.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -205,7 +205,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests an animal virus example by DNA genome type.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -233,7 +233,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests the cellular/metabolic limitation underlying obligate intracellular parasitism.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -248,7 +248,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests a bacteriophage-specific structural feature.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -263,7 +263,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests capsid architecture and capsomere number.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -278,7 +278,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests classification through disease associations.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -293,7 +293,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests the protective function of the viral capsid.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -308,7 +308,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests how the viral envelope affects environmental stability.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -323,7 +323,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests classification of TMV by structural form.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -364,7 +364,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests distinguishing viral particles from other acellular infectious agents.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -392,7 +392,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests HIV virion morphology.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -407,7 +407,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests the glycoprotein components of the HIV envelope.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -435,7 +435,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests the host-cell association of HIV through CD4 receptor targeting.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -472,11 +472,9 @@
       "chapter": "Acellular Life",
       "source_label": "MCQ Universe (curated extraction)",
       "blueprint_version": "PMDC-MDCAT-2025",
-      "candidate_outcome_ids": [
-        "pmdc-bio-1.2"
-      ],
-      "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses HIV/AIDS causation, transmission, symptoms or opportunistic infection.",
+      "candidate_outcome_ids": [],
+      "mapping_state": "hold_scope_review",
+      "mapping_rationale": "The stem asks for a symptom during an 'asymptomatic carrier' stage, which is internally inconsistent; hold for scientific review.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -491,7 +489,7 @@
         "pmdc-bio-1.2"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses HIV/AIDS causation, transmission, symptoms or opportunistic infection.",
+      "mapping_rationale": "Candidate appears to assess the stated outcome; confirm against the official syllabus and full question context.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -506,7 +504,7 @@
         "pmdc-bio-1.2"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses HIV/AIDS causation, transmission, symptoms or opportunistic infection.",
+      "mapping_rationale": "Candidate appears to assess the stated outcome; confirm against the official syllabus and full question context.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -534,7 +532,7 @@
         "pmdc-bio-1.2"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses HIV/AIDS causation, transmission, symptoms or opportunistic infection.",
+      "mapping_rationale": "Candidate appears to assess the stated outcome; confirm against the official syllabus and full question context.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -549,7 +547,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests the location of a structural HIV matrix-protein layer.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -577,7 +575,7 @@
         "pmdc-bio-1.2"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses HIV/AIDS causation, transmission, symptoms or opportunistic infection.",
+      "mapping_rationale": "Candidate appears to assess the stated outcome; confirm against the official syllabus and full question context.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -592,7 +590,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests the host-cell origin of the HIV lipid envelope.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -620,7 +618,7 @@
         "pmdc-bio-1.2"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses HIV/AIDS causation, transmission, symptoms or opportunistic infection.",
+      "mapping_rationale": "Candidate appears to assess the stated outcome; confirm against the official syllabus and full question context.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -635,7 +633,7 @@
         "pmdc-bio-1.2"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses HIV/AIDS causation, transmission, symptoms or opportunistic infection.",
+      "mapping_rationale": "Candidate appears to assess the stated outcome; confirm against the official syllabus and full question context.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -663,7 +661,7 @@
         "pmdc-bio-1.2"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses HIV/AIDS causation, transmission, symptoms or opportunistic infection.",
+      "mapping_rationale": "Candidate appears to assess the stated outcome; confirm against the official syllabus and full question context.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
@@ -717,7 +715,7 @@
         "pmdc-bio-1.1"
       ],
       "mapping_state": "candidate_pending_subject_review",
-      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "mapping_rationale": "Tests the role of HIV gp120 in host-cell attachment.",
       "academic_review_state": "not_reviewed",
       "answer_key_review_state": "not_reviewed",
       "rights_state": "unverified"
