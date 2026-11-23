@@ -80,7 +80,7 @@ export default async function PracticePage({
       <PageHeader
         eyebrow="Sharpen your skills"
         title="Practice"
-        description="Practice exam-style questions modelled on real entry tests, or pick a subject to drill academy questions. Every answer is recorded to your analytics."
+        description="Practise from the available question banks. Saved analytics depend on the practice mode and its supported account-linked question records; guest topical drills keep progress on your device."
       />
 
       <PracticeClient
