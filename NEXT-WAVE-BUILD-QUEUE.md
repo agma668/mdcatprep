@@ -166,3 +166,5 @@ Do not merge or promote this work until all of the following are true:
 - No production data/schema, billing or paid infrastructure has been changed without explicit approval.
 
 **Current status:** not student-launch-ready. The immediate priority is trustworthy content identity and goal-scoped persistence, not adding more features or more portals.
+
+> **Superseded queue notice (2026-11-23):** This queue was prepared on 2026-11-09 and is retained as historical planning context. The active priority, verified evidence caveats and next task are now in [Medical-first execution status](docs/MEDICAL-FIRST-EXECUTION-STATUS-2026-11-23.md). Do not treat the old working branch/base or owner notes above as current.
