@@ -619,3 +619,36 @@ pipeline inputs), so re-running ingest on a machine without that file silently l
 **Gates:** `npx tsc --noEmit` clean · `npx eslint scripts/extract-hec-official.mjs
 scripts/ingest-pipeline-bank.mjs` clean · `npx next build` OK, 125/125 static pages ·
 `audit-routes.mjs` and `audit-links.mjs` 0 problems.
+
+## 2026-11-23 — every text-layer PDF audited against the bank: 572 real questions sit unharvested, and the USAT samples are fully in
+
+Prompted by the USAT samples turning out to be almost entirely absent, the same check was run over
+**all 62 PDFs the report calls text-layer** (`data/MCQS_INBOX/_pipeline/audit_textlayer.mjs`): parse
+numbered questions with four options out of each PDF, then match them to the bank by exact stem or a
+unique token-overlap match (inverted index, so 3k questions against 16.4k rows is quick).
+
+**Totals:** 62 files → 16 are the same PDF stored twice, 0 read errors, **46 distinct parsed**,
+3,094 questions found, **2,019 already in the bank, 1,075 missing**, of which **572 end in a question
+mark, a blank or a colon** and are therefore real questions rather than headings.
+
+The five USAT samples now show **0 missing** — yesterday's extraction covers them completely.
+
+**Biggest gaps:** `500 MOST POWERFUL MCQS ... with key` 159 (154 real, has a printed key),
+`Biologgy.pdf` 138 (136 real, Italian IMAT booklet with a grading key), `HEC PAST PAPER BY NK ACADEMY`
+101 (40 real), `MedExel_Biology_Most_Repeated_MCQs` 120 (29), `FINAL JETS MDCAT MOCK` 67 (44),
+`Balochistan-MDCAT-2022` 57 (36), `GRIP (PHYSICS)` 60 (7), `DOC-20260917-WA0021` 26 (23, has a key),
+and `Physics and Maths Med..pdf` 21 (21) where **none** of its questions reached the bank.
+
+**Why they are missing:** their text is already in the pipeline tier
+(`data/MCQS/PDF_TEXT/RAW/Med/…`), so this is a parsing loss, not a discovery gap — the block parser
+never turns those layouts into rows.
+
+**Parser fix made on the way out:** `parsePaper` in `scripts/hec-keys.mjs` now accepts `(a)` and
+`(a).` option markers as well as `a)` and `A.`. That alone recovered `Balochistan-MDCAT-2022`'s 185
+questions, which had been invisible; the audit total went from 1,017 missing to 1,075.
+
+**Blind spot, stated:** 20 text-layer files parse zero questions. Most are prose or near-empty
+(~1–2k chars over 30–121 pages is a scan, not a text layer), but `Biology in 3 hours` (48k chars),
+`Biology_Master_Notes` (117k), `Chemistry_Master_Notes` (84k) and `MedExel_MDCAT_Revision_Guide`
+(80k) are substantive and may hide MCQs in a layout this parser does not read — unmeasured, not
+counted as clear.

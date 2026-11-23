@@ -86,7 +86,8 @@ export function parsePaper(text) {
       continue;
     }
     const q = line.match(/^(?:Q\s*)?(\d{1,3})\s*[.)]?\s+(\S.*)$/);
-    const opt = line.match(/^([a-dA-D])[a-dA-D]?\s*[).:]\s*(.+)$/);
+    // Option markers come in several house styles: "A. text", "a) text", "(a) text", "(a). text".
+    const opt = line.match(/^\(?([a-dA-D])[a-dA-D]?\)?\s*[).:]\s*(.+)$/);
 
     if (opt && cur) {
       const letter = opt[1].toUpperCase();
