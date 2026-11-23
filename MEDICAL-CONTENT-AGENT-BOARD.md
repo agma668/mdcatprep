@@ -94,7 +94,7 @@ Required fields for every approved item:
 - [x] Add a regression test and `npm run audit:medical-topicals` report script.
 - [x] Add a chapter/set inventory: 7,150 rows are chapter-labeled and 9,144 are set-labeled; see `docs/PMDC-TOPICAL-CHAPTER-INVENTORY-2026-11-23.md`.
 - [x] Establish the 69-outcome PM&DC Biology register; all 69 outcomes correctly remain at zero verified question mappings until question-level review. See `docs/PMDC-BIOLOGY-OUTCOME-REGISTER-2026-11-23.md`.
-- [x] Draft the first 50-question Unit 1 mapping sidecar: 34 provisional outcome candidates and 16 held for scope review, with zero verified mappings. See `data/drafts/medical/mappings/pmdc-biology-unit-01-batch-001.json`.
+- [x] Draft the first 50-question Unit 1 mapping sidecar: 33 provisional outcome candidates and 17 held for scope review, with zero verified mappings. See `data/drafts/medical/mappings/pmdc-biology-unit-01-batch-001.json`.
 - [ ] Obtain subject review for batch 001, including mapping fit, answer correctness and question quality; only then update verified outcome counts.
 - [x] Confirm current question rows have no per-question topic, exam, variant, outcome, source-locator or rights metadata; the legacy `lib/mdcat-topics.ts` taxonomy is not joined to the bank.
 - [x] Execute the new report and test in CI. GitHub Actions run #45206336705 passed all 97 unit tests (including the audit report), ESLint and TypeScript on `f81f987f43446d5c7b300c6312d0eb3c1875dc7b`.
