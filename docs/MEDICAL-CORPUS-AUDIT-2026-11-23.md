@@ -103,7 +103,7 @@ NUMS has a separate 2026 profile: Paper-I 150 MCQs (Biology 55, Chemistry 40, Ph
 
 ## 7. Remaining work — academic and exam mapping
 
-- [ ] Execute `npm run audit:medical-topicals` and the full `npm test` in CI; record the report and workflow result.
+- [x] Execute the audit report and full `npm test` in CI. Run #45204606893 passed tests, the audit command, ESLint and TypeScript on `ee7686d7e1692a00f2805500404ecfd15bf90513`.
 - [ ] Classify every row as PM&DC, NUMS, another exam, mixed/unknown or out-of-scope.
 - [ ] Map PM&DC-eligible rows to exact PM&DC learning-outcome IDs.
 - [ ] Map NUMS independently to its official syllabus outcomes.
@@ -118,4 +118,4 @@ NUMS has a separate 2026 profile: Paper-I 150 MCQs (Biology 55, Chemistry 40, Ph
 
 This audit proves structural facts about committed arrays. It does **not** prove academic correctness, official exam membership, syllabus coverage, copyright permission, student progress persistence or readiness for a full official mock.
 
-The quarantine guard, public-copy corrections and tests are proposed on this branch and are not yet merged into `main`. PR #26 remains a draft. No production database write, content import, migration, Auth change, deployment promotion or merge was performed.
+The quarantine guard, public-copy corrections and tests are proposed on this branch and are not yet merged into `main`. PR #26 remains a draft. The Vercel check for the preview passed; this is not a production deployment. No production database write, content import, migration, Auth change, deployment promotion or merge was performed.
