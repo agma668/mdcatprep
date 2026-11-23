@@ -15,7 +15,7 @@ const siteUrl = getSiteUrl();
 export const metadata: Metadata = {
   title: "MDCAT Topical MCQs — Chapter-wise Practice by Subject (Free)",
   description:
-    "Chapter-wise MDCAT topical MCQs for Biology, Chemistry, Physics, English, Mathematics and Reasoning: pick a subject, pick a chapter, drill with instant explanations. Free, no signup needed.",
+    "Chapter-wise practice across Biology, Chemistry, Physics, English, Reasoning and additional Mathematics practice. Source answer keys and explanations appear only where available; questions without a printed key remain practice-only. Free, no signup needed.",
   keywords: [
     "MDCAT topical MCQs",
     "MDCAT chapter wise questions",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     url: `${siteUrl}/topicals`,
     title: "MDCAT Topical MCQs — Chapter-wise | MED Prep",
     description:
-      "Chapter-wise MDCAT MCQs for Biology, Chemistry, Physics, English, Mathematics and Reasoning — drill any chapter with instant explanations, free.",
+      "Chapter-wise practice across five PM&DC sections plus additional Mathematics practice. Source-provided answer keys and explanations appear where available; no-key questions remain practice-only.",
     siteName: "MED Prep",
     images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: "MDCAT topical MCQs — MED Prep" }],
   },
@@ -49,12 +49,12 @@ export default function TopicalsHubPage() {
             </h1>
             <p className="text-lg text-[var(--steel-300)] max-w-2xl">
               Practice one chapter at a time — the way the exam actually tests you. Pick a subject,
-              pick a chapter, drill with instant explanations. Answers are tracked on your device
+              pick a chapter and practise. Source answer keys and explanations appear only where available; questions without a printed key remain unscored. Guest progress is tracked on your device
               only; sign in to have attempts count toward your progress.
             </p>
             <p className="mt-3 text-sm text-[var(--steel-400)]">
               {TOPICALS_TOTAL.toLocaleString("en-US")} questions across {TOPICALS_CHAPTER_COUNT}{" "}
-              chapters plus {TOPICALS_SET_COUNT} whole-paper sets across all six MDCAT subjects · free,
+              chapters plus {TOPICALS_SET_COUNT} whole-paper sets across six practice categories (five PM&DC sections plus extra Mathematics practice) · free,
               no signup needed.
             </p>
           </div>
