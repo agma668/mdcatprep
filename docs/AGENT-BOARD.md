@@ -1,3 +1,5 @@
+> **Current active-work notice (2026-11-23):** This legacy multi-exam board is historical. Current scope is PM&DC MDCAT first and NUMS second. Use the repository-root `MEDICAL-CONTENT-AGENT-BOARD.md` and `docs/MEDICAL-CORPUS-AUDIT-2026-11-23.md` for active tasks. Engineering, Defence and general HEC expansion are parked, not deleted. Do not rely on old local-machine paths or old bank counts as current evidence.
+
 # MED Prep (Apex Pakistan) — Official Project Agent Board & Roadmap
 
 > **Agent Communication Log & Master Roadmap**
