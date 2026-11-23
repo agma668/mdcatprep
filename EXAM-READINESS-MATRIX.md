@@ -12,7 +12,7 @@
 - **Coming soon:** No sufficiently verified, exam-specific learning workflow is established.
 - **Not offered:** Explicitly outside the current product scope.
 
-No Prep Space should be marked **Available** while the shared question-attempt persistence path cannot resolve bundled questions in the empty canonical Supabase question table.
+The last recorded read-only Supabase check found the canonical question table empty. Recheck current live state before relying on that historical observation. No Prep Space should be marked **Available** until goal-scoped question delivery and durable attempt persistence pass end-to-end tests.
 
 ## Current readiness
 
