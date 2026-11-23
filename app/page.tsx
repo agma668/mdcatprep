@@ -21,7 +21,7 @@ const siteUrl = getSiteUrl();
 // Names only the tests that have a real practice surface on this site \u2014 the
 // H1, metadata and JSON-LD must not claim an exam the bank does not serve.
 const homeDescription =
-  "Free exam-style MCQ practice for MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT and PMA \u2014 an explanation behind every answer, past papers with keys, and study notes.";
+  "Free exam-style MCQ practice for MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT and PMA \u2014 source-provided answer keys and explanations where available; no-key questions remain practice-only, alongside past-paper references and study notes.";
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -81,7 +81,7 @@ const PRACTICE = [
 
 const STEPS = [
   { title: "Take the diagnostic", body: "Ten questions across five subjects, about two minutes. It shows where you are strong and where you are not." },
-  { title: "Practise by topic", body: "Work through chapter-wise MCQs. Every answer comes with its explanation." },
+  { title: "Practise by topic", body: "Work through chapter-wise MCQs. See the source's answer key and explanation where available; no-key questions remain practice-only." },
   { title: "Redo what you missed", body: "Wrong answers collect in your mistake notebook so you can drill them until they stick." },
 ];
 
@@ -152,7 +152,7 @@ export default async function Home() {
               </div>
               <div className="border-l border-[var(--line-2)] px-4 py-5 sm:px-8 sm:py-6">
                 <dd style={display} className="text-3xl font-bold tabular-nums text-[var(--steel-100)] sm:text-4xl">{stats.hero.subjects}</dd>
-                <dt className="mt-1 text-sm text-[var(--steel-300)]">Subjects</dt>
+                <dt className="mt-1 text-sm text-[var(--steel-300)]">Practice categories</dt>
               </div>
             </dl>
           </div>

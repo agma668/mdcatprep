@@ -36,7 +36,7 @@ export const FAQS: FAQItem[] = [
   {
     question: "How is MED Prep different from a regular coaching academy?",
     answer:
-      "Unlike coaching academies that give the same notes to everyone, MED Prep personalises your practice to your weak areas. You get instant explanations after every question, can study at any time, track your exact progress, and access exam-style practice questions — free during the beta.",
+      "MED Prep brings topic-wise practice and study tools together. The bank shows a source answer key where one exists, marks questions without a printed key as practice-only, and displays source-written explanations where available. Goal-scoped progress tools are still being completed.",
   },
   {
     question: "Is everything really free?",
@@ -51,7 +51,7 @@ export const FAQS: FAQItem[] = [
   {
     question: "Is my data safe?",
     answer:
-      "Your practice records are tied to your account so they survive across devices, and we never sell or share your data. You can read the full privacy policy on our Privacy page, and delete your account (and all your data) at any time from Profile → Delete account.",
+      "Account-backed activity is associated with your account where the feature supports saving; guest topical practice keeps progress on your device. We do not sell your data. See the Privacy page for details and use Profile → Delete account to request account deletion.",
   },
   {
     question: "Can students from rural areas or small cities use MED Prep?",
@@ -61,7 +61,7 @@ export const FAQS: FAQItem[] = [
   {
     question: "How is this different from YouTube channels and free PDFs?",
     answer:
-      "YouTube videos and PDFs are great for one-off topic explanations, but they can't tell you which topics you personally are weak in, give you instant feedback after every MCQ, or record your progress over weeks. MED Prep is the practice + tracking layer — the structured system that turns content into improvement.",
+      "YouTube videos and PDFs provide learning material; MED Prep adds topic-wise practice and study tools. Answer feedback depends on whether the source supplied a key, and source explanations appear only where available. Broader saved-progress features are still being completed.",
   },
   {
     question: "What if I have questions outside the platform — can I get help?",

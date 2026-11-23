@@ -672,3 +672,18 @@ Important limits:
 - No production database, content, Auth settings or deployments changed.
 
 Validation status: PR opened as draft; no workflow run was returned for its head SHA at the time of this board update. CI, lint and typecheck remain pending. The main-branch RLS-goals test currently depends on the ownership migration proposed in PR #22, which remains unmerged pending explicit founder approval.
+
+
+## Current execution reconciliation — 2026-11-23
+
+**Current main baseline:** `e3b4d63065c69a60fb816939f4bbbd0ee2f1eb9f`. The current product scope is medical only: PM&DC MDCAT first, NUMS second. Engineering, Defence, HEC scholarship expansion and other non-medical work are parked without deleting their existing code/routes.
+
+The detailed active board is now `MEDICAL-CONTENT-AGENT-BOARD.md`; the evidence snapshot is `docs/MEDICAL-CORPUS-AUDIT-2026-11-23.md`. These supersede the stale November 9 queue and the earlier medical draft on PR #25 for current task ordering.
+
+**Verified source baseline plus quality guard on this branch:** 16,547 source rows (3,721 curated + 1,941 founder + 10,885 pipeline); 16,294 remain served after quarantining 253 malformed rows. The six navigation categories have 45 chapter pages + 22 practice/paper sets after source-set reclassification and alias grouping; 46 served rows have source-written explanations. The six categories are not the five PM&DC sections: Mathematics is not a separate official MDCAT section. The pipeline bank has 2,126 printed-key rows; no-key rows remain practice-only.
+
+**OCR correction:** D14's tooling blocker is no longer current. Poppler/Tesseract were restored locally and all 451 pages across 19 documents were OCRed at 300 dpi with zero failed and zero thin pages. The run recovered zero new answer keys. The pipeline bank was rebuilt to 10,885 rows (2,126 keyed, 8,759 practice-only); the NUMS-2026 source scan itself is partial. The extraction outputs are not committed in the Git tree, so this work is not yet reproducible from the repository alone.
+
+**Next execution order:** (1) reproducible runtime/source audit; (2) exam classification and exact PM&DC/NUMS outcome mapping; (3) provenance/rights and academic answer review; (4) only then expand verified gaps; (5) complete canonical goal-scoped delivery and durable progress; (6) PM&DC mock and NUMS-specific workflow; (7) medical release QA.
+
+**PR state:** PRs #22–26 remain open drafts. #22–24 have successful historical quality runs on their own branch heads but are stale/diverged from current main. PR #25 is based on an older content baseline and its failed CI result should not be treated as current-main validation. PR #26 carries the current medical-board reconciliation, the 253-row quarantine guard and public-copy corrections; its new test/audit commands passed CI run #45206336705 (97 tests including the audit report, ESLint and TypeScript); the Vercel preview check passed. Do not merge any PR without explicit founder approval. No production database changes, imports, deployment promotion or Auth/billing/domain changes were made by this reconciliation.

@@ -12,14 +12,14 @@
 - **Coming soon:** No sufficiently verified, exam-specific learning workflow is established.
 - **Not offered:** Explicitly outside the current product scope.
 
-No Prep Space should be marked **Available** while the shared question-attempt persistence path cannot resolve bundled questions in the empty canonical Supabase question table.
+The last recorded read-only Supabase check found the canonical question table empty. Recheck current live state before relying on that historical observation. No Prep Space should be marked **Available** until goal-scoped question delivery and durable attempt persistence pass end-to-end tests.
 
 ## Current readiness
 
 | Exam / goal | Evidence in repository | Main gap | Current status |
 |---|---|---|---|
-| PMDC MDCAT | Large bundled Biology, Chemistry, Physics and English bank; topical content; mock and practice surfaces. PMDC 2026 notice applies the 2025 syllabus and confirms a 180-MCQ structure including Logical Reasoning. | Current generic 100-question mock is not the official 180-question split and has no Logical Reasoning section. Canonical DB question rows are absent, so durable attempts/analytics are blocked. | **Beta — limited practice** |
-| NUMS MDCAT | NUMS chooser and subtest exist; NUMS official 2026 admissions page links a dedicated 2026 syllabus. | Current topic mapping and shared-bank assumptions have not been reconciled against the dedicated NUMS syllabus. No official evidence reviewed for a separate psychological Paper-II; that feature is hidden pending verification. | **Content in progress** |
+| PMDC MDCAT | 16,294 served topical rows on the medical-first reconciliation branch after 253 malformed rows are quarantined; topical content, mock and practice surfaces. PMDC 2026 notice applies the 2025 syllabus and confirms a 180-MCQ structure including Logical Reasoning. | Current generic 100-question mock is not the official 180-question split and has no Logical Reasoning section. Durable goal-scoped attempts and canonical question delivery still need a fresh live-state check and end-to-end verification. | **Beta — limited practice** |
+| NUMS MDCAT | NUMS chooser and subtest exist; NUMS official 2026 admissions page links a dedicated 2026 syllabus. | The 2026 NUMS syllabus has a separate 150-question Paper-I and 50-question psychological-test Paper-II. Only three psychological scenario items were found in the earlier source scan; NUMS topic mapping and the Paper-II bank remain incomplete. | **Content in progress** |
 | HEC Balochistan & Ex-FATA scholarship — Pre-Medical | Dedicated bundled question bank and 100-MCQ / 100-minute mock. The split matches HEC Batch-IV published weightages. | The located official pattern is Batch-IV (2025); a newer 2026 batch-specific blueprint was not found. Canonical DB ingestion and durable goal-scoped progress are incomplete. | **Beta — limited pattern practice** |
 | Standard HEC USAT | Some broad config labels and partial shared content. | Standard USAT variants (Pre-Medical, Pre-Engineering, Arts & Humanities, Commerce, Computer Science, General Science) are not represented by a verified complete assessment workflow. The scholarship bank must not be labelled standard USAT-M. | **Coming soon** |
 | NUST NET Engineering | 81-question NET-pattern bank; timed mock uses current NUST admissions-page weighting (Math 50%, Physics 30%, English 20%) and scales to the bank. | Bank is too small for a full 200-question paper simulation; no durable goal-scoped progress. The older prospectus has a different weighting and must not override the current official admissions page without a dated version decision. | **Beta — scaled practice** |
@@ -53,4 +53,18 @@ A question count or attractive portal page is not enough to make a Prep Space re
 - NUST subjects included in NET with weightings: https://nust.edu.pk/admissions/undergraduates/subjects-included-in-net-with-weightings
 - ISSB official selection system: https://www.issb.gov.pk/selection-system
 
-The NUMS 2026 page links a dedicated syllabus PDF, but that PDF could not be fetched during this review. Its detailed sections and weightings are therefore intentionally not asserted here.
+This was the limitation in the 2026-11-09 snapshot. The official NUMS MDCAT-2026 syllabus PDF was retrieved in the 2026-11-21 review; its Paper-I/Paper-II structure is documented in the medical content board and the current status table above.
+
+
+## Medical-first status reconciliation — 2026-11-23
+
+This update supersedes the 2026-11-09 content-count snapshot but does not promote either medical Prep Space to Available.
+
+| Medical Prep Space | Current evidence | Status | Release blockers |
+|---|---|---|---|
+| PM&DC MDCAT | 16,547 source rows were measured; the guard in this branch leaves 16,294 served after quarantining 253 malformed rows. Six navigation categories are not all official PM&DC sections. Only 46 source-written explanations are attached. PM&DC-2026 blueprint is 180 MCQs with 81/45/36/9/9 sections. | **Beta — limited topical practice** | No complete learning-outcome coverage proof; answer/rights review incomplete; durable goal-scoped attempts and exact exam mapping need verification; 100-question custom mock is not official full paper. |
+| NUMS MDCAT | Separate official 2026 150 + 50 syllabus profile exists; only three psychological scenario items were found in the earlier source scan; recent OCR included only a partial NUMS scan. | **Content in progress** | Independent outcome map and Paper-I bank review; Paper-II content and suitability; goal-scoped delivery and progress; next-cycle official blueprint recheck. |
+
+**Content-count language:** 16,547 means source rows before the quality guard; 16,294 remain served on this branch. Neither number means PM&DC-mapped, syllabus-covered, fully keyed, explained, licensed or academically approved questions. Mathematics is not a separate PM&DC section.
+
+**OCR:** local OCR tooling has been restored and all 451 pages across 19 documents were OCRed in the 2026-11-23 run with zero failed or thin pages, but no new answer keys were recovered. OCR output remains raw source material pending classification, mapping, rights review and academic QA.

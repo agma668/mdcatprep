@@ -1,3 +1,5 @@
+> **Current active-work notice (2026-11-23):** This legacy multi-exam board is historical. Current scope is PM&DC MDCAT first and NUMS second. Use the repository-root `MEDICAL-CONTENT-AGENT-BOARD.md` and `docs/MEDICAL-CORPUS-AUDIT-2026-11-23.md` for active tasks. Engineering, Defence and general HEC expansion are parked, not deleted. Do not rely on old local-machine paths or old bank counts as current evidence.
+
 # MED Prep (Apex Pakistan) — Official Project Agent Board & Roadmap
 
 > **Agent Communication Log & Master Roadmap**
@@ -159,3 +161,10 @@ Closed on this branch: **A1** (`26fe9ff`), **A5** (`26fe9ff`), **A8** (`f6b5297`
 - A2, A3 (one brand name, one access sentence) and A4/C9 (custom domain) are founder decisions; the SEO work that depends on a canonical host cannot start before them.
 - C3 and C4 write to Supabase `edweb` and need explicit approval plus a non-production test target.
 - A6 and A9 belong to their current owners (Antigravity, Claude); D1 is shared with Claude.
+
+
+---
+
+## Active-board notice — 2026-11-23
+
+This older multi-exam board contains historical work notes and stale local-machine paths. It is **not** the active execution queue. Current scope is medical only (PM&DC MDCAT first, NUMS second); engineering, Defence and general HEC work are parked. Use the repository-root `MEDICAL-CONTENT-AGENT-BOARD.md` for active tasks and `docs/MEDICAL-CORPUS-AUDIT-2026-11-23.md` for the current evidence baseline. Do not use historical checkboxes or machine-local OCR paths as proof of current completion.

@@ -15,14 +15,14 @@ const STEPS = [
     icon: BookOpen,
     title: "Practice Daily",
     description:
-      "Create a free account, then solve exam-style MCQs with instant explanations. Follow your personalised study plan.",
+      "Create a free account, then practise with exam-style MCQs. Source answer keys and explanations appear where available; questions without a printed key remain practice-only.",
   },
   {
     number: "03",
     icon: Trophy,
     title: "Improve & Track",
     description:
-      "Watch your accuracy improve, track streaks, and walk into the exam confident. Prepare with structure, practice with confidence.",
+      "Review your practice, revisit topics that need work, and build a steady study routine.",
   },
 ];
 

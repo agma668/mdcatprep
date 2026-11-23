@@ -260,3 +260,29 @@ P0 UX/architecture constraint from the live audit: the standalone USAT/NUST/PMA 
 
 
 PMDC-2026 official paper UX must show the correct 180-question structure (Biology 81, Chemistry 45, Physics 36, English 9, Logical Reasoning 9; 3 hours; no negative marking). The current 100-question mock card is not a full official-pattern paper. Until the canonical bank and server-side attempt path are repaired, label it as a custom short practice format or keep it out of the “full mock” slot. Never display a full-paper success/ready state for an empty draw.
+
+
+## Medical-first design execution update — 2026-11-23
+
+**Active scope:** PM&DC MDCAT first, NUMS second. All engineering, Defence and general HEC expansion is parked for this wave; preserve existing pages and work, but do not add new workflows to them.
+
+### Current product truth to design around
+
+- The topical hub currently has six navigation categories: Biology, Chemistry, Physics, English, Mathematics and Reasoning. PM&DC MDCAT-2026 has five official paper sections: Biology, Chemistry, Physics, English and Logical Reasoning. Mathematics is an extra practice category and must not be styled or labelled as an official PM&DC section.
+- The latest main log recorded 16,547 source rows. This branch quarantines 253 malformed rows, leaving 16,294 served; only 46 served rows have a source-written explanation attached. Do not use copy or UI implying every answer has a worked explanation.
+- Many rows are practice-only because the source printed no answer key. UI must distinguish scored questions from unscored practice-only questions before students answer.
+- "Past Paper <year>" set names can be source-file labels, not proof of an official exam sitting. Keep provenance visible and avoid an official-paper badge without verification.
+- PM&DC 2026 baseline is 180 questions / 180 minutes / no negative marking with 81/45/36/9/9 subject counts. A shorter mock must be labelled scaled/custom practice.
+- NUMS is a separate Prep Space with its own 150-question Paper-I and 50-question Paper-II 2026 profile; do not share PM&DC section labels or progress by default.
+
+### Next design tasks
+
+1. Make PM&DC the primary medical entry path and keep NUMS clearly separate, with an honest readiness label.
+2. Design a syllabus-first coverage view driven by verified learning outcomes, not guessed chapter weightings.
+3. Show clear states for answered/keyed, practice-only/no printed key, source explanation available, and reviewed explanation available.
+4. Distinguish verified official past papers from founder/source-file practice sets.
+5. Make question count, subject taxonomy and readiness copy derive from the same audited runtime source.
+6. Design useful empty/error states until server-backed goal-scoped attempts are verified; never simulate saved progress.
+7. Preserve the existing calm editorial light/dark direction and mobile-first usability; do not start a broad visual redesign before content and persistence truth is stable.
+
+Acceptance: design claims must match the medical content board and readiness matrix. No mock is described as a full official paper until its blueprint, content pool and timing match the verified cycle.

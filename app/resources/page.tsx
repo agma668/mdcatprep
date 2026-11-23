@@ -119,7 +119,7 @@ const OWN_RESOURCES: Resource[] = [
     title: "Topical MCQs — chapter-wise (read online)",
     url: "/topicals",
     description:
-      "Chapter-wise Biology, Chemistry and Physics MCQs with instant explanations. Free, no signup — progress stays on your device.",
+      "Chapter-wise practice across the available subject categories. Source answer keys and explanations appear where available; questions without printed keys remain practice-only. Guest progress stays on your device.",
     type: "mcqs",
   },
   {
@@ -140,7 +140,7 @@ const OWN_RESOURCES: Resource[] = [
     title: "Exam-Style MCQ Practice",
     url: "/signup",
     description:
-      "Biology, Chemistry, Physics and English MCQs with instant explanations, streaks and progress tracking — all free.",
+      "Practice across the available Biology, Chemistry, Physics and English banks. Answer-key and explanation availability depends on the source; guest topical activity stays on your device.",
     type: "mcqs",
   },
 ];
@@ -259,7 +259,7 @@ export default function ResourcesPage() {
             <div className="bg-white/[0.06] border border-white/15 rounded-[var(--radius-xl)] p-8 text-center">
               <h2 className="text-xl font-bold text-white mb-3">Want More Organized Practice?</h2>
               <p className="text-sm text-white/70 mb-6 max-w-md mx-auto">
-                MED Prep has exam-style MCQs across Biology, Chemistry, Physics and English — with instant explanations, streaks and progress tracking. Free during beta.
+                MED Prep has exam-style MCQs across several subject categories. The source answer key and explanation are shown where available; questions without a printed key remain practice-only. Free during beta.
               </p>
               <div className="flex flex-wrap gap-3 justify-center">
                 <Link href="/signup" className="inline-flex items-center gap-2 px-6 py-3 rounded-[var(--radius-md)] bg-[var(--color-accent)] text-[var(--color-text-inverse)] font-bold hover:bg-[var(--color-accent-light)] transition-colors">

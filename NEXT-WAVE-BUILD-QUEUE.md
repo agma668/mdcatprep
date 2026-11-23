@@ -19,7 +19,7 @@ Project boundary:
 - Supabase: founder-confirmed Apex project `edweb`
 - Vercel: founder-confirmed Apex project `edweb`
 - Credit College Prep and Cadet College projects are separate and out of scope.
-- Agent Board work is owned by Freebuff and is out of scope for this queue.
+- Agent-board coordination is part of this queue; use the current medical-first board for active work.
 
 ## 2. Verified current blockers
 
@@ -166,3 +166,29 @@ Do not merge or promote this work until all of the following are true:
 - No production data/schema, billing or paid infrastructure has been changed without explicit approval.
 
 **Current status:** not student-launch-ready. The immediate priority is trustworthy content identity and goal-scoped persistence, not adding more features or more portals.
+
+
+---
+
+# Current build queue — superseding the 2026-11-09 preparation snapshot (2026-11-23)
+
+The earlier sections are retained as historical discovery notes. For active work, follow `MEDICAL-CONTENT-AGENT-BOARD.md` and `docs/MEDICAL-CORPUS-AUDIT-2026-11-23.md`.
+
+**Active scope:** PM&DC MDCAT → NUMS. Engineering, Defence, HEC scholarship expansion and other non-medical tracks are parked. The user has asked to maximize medical preparation first.
+
+**Current baseline:** main `e3b4d63065c69a60fb816939f4bbbd0ee2f1eb9f`; 16,547 source rows (3,721 curated + 1,941 founder + 10,885 pipeline). The quality guard in this branch leaves 16,294 served and quarantines 253 malformed rows (246 with missing options, seven with duplicate options). The served bank has 6,712 keyed and 9,582 practice-only rows; only 46 source-written explanations. Six navigation categories must not be confused with five PM&DC official sections; Mathematics is extra practice, not an official PM&DC section.
+
+## Ordered next tasks
+
+1. **Reproducible bank audit:** source-level parsing, quarantine guard and audit script are implemented on PR #26. The audit + test suite, ESLint and TypeScript passed CI run #45206336705 (97 tests including the audit report, ESLint and TypeScript); the Vercel preview check passed. The chapter inventory is now in `docs/PMDC-TOPICAL-CHAPTER-INVENTORY-2026-11-23.md` (45 chapter pages, 22 sets, 7,150 chapter-labeled rows and 9,144 set-labeled rows). Next add exact exam/outcome mappings, near-duplicate results and a provenance/rights manifest.
+2. **Exam classification:** assign each row to PM&DC, NUMS, another exam, mixed/unknown or out-of-scope. Unknown rows cannot count toward PM&DC coverage.
+3. **Outcome mapping:** subject-review the first 50-question Unit 1 sidecar (`data/drafts/medical/mappings/pmdc-biology-unit-01-batch-001.json`: 33 provisional candidates, 17 held). Then continue through the remaining Biology units, Mixed Bank and sets; map NUMS separately to its 2026 syllabus. Produce zero/thin/adequate heatmaps only from verified mappings.
+4. **Rights and academic QA:** record source and permission; de-branding is not rights clearance. Verify answer keys and explanations with subject reviewers. No guessed keys.
+5. **Gap expansion:** create original 25–50 question batches only for demonstrated gaps, with answer evidence, worked explanations and review state.
+6. **Goal-scoped delivery:** reconcile stale PRs #22–24, complete exact exam/variant delivery, protect answer keys, persist goal_id and make offline retries idempotent.
+7. **PM&DC learning loop:** reviewed topic drills, mistakes, flashcards, diagnostics and planner backed by real attempts.
+8. **PM&DC mock:** 180/180 only after the verified pool supports the exact 81/45/36/9/9 blueprint. Short mocks remain clearly custom/scaled.
+9. **NUMS:** separate Paper-I/Paper-II content and assessment after independent mapping and review.
+10. **Release QA:** full tests/lint/typecheck/build, RLS and exam-isolation tests, route/link audit and authenticated mobile/desktop student journey.
+
+**Do not:** run `scripts/seed-mdcat-questions.mjs` against production; import OCR or unreviewed rows; relabel practice compilations as official past papers; expand non-medical tracks; merge PRs; apply production migrations; change Auth, billing, domains or promote deployments without task-specific approval.

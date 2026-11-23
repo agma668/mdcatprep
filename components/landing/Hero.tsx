@@ -33,7 +33,7 @@ export function Hero({
   const statTiles = [
     { value: formatStat(stats.students), label: "Students" },
     { value: formatStat(stats.colleges), label: "Colleges Covered" },
-    { value: formatStat(stats.subjects), label: "Subjects" },
+    { value: formatStat(stats.subjects), label: "Practice categories" },
     { value: "24/7", label: "Online Access" },
     { value: formatStat(stats.mcqs), label: "Practice MCQs" },
   ] as const;
@@ -173,7 +173,7 @@ export function Hero({
                 BUMHS, HEC USAT-M/E/CS, PMA Long Course, ISSB, NUST NET, GIKI Entrance,
                 LUMS SBASSE & SDSB admissions — and all Pakistani university entry tests.
                 Take a quick diagnostic to find your level, then practice
-                {formatStat(stats.mcqs)} exam-style MCQs with instant explanations
+                {formatStat(stats.mcqs)} practice MCQs, with source answer keys and explanations where available
                 across Biology, Chemistry, Physics, Mathematics, English, Intelligence,
                 and all subject areas.
               </p>

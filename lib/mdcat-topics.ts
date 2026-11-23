@@ -1,7 +1,9 @@
-// PMDC MDCAT topic taxonomy.
-// Organises the four subjects into chapters → topics so the practice page can
-// render a structured drill-down navigator.  The leaf `topics` arrays contain
-// the exact strings stored in each question's `topic` field.
+// Legacy PM&DC MDCAT display taxonomy.
+// This file contains approximate topic labels for four subjects; it is not joined
+// to the current topical question rows. The runtime bank currently stores subject
+// and chapter labels, but no per-question topic, exam, variant, learning-outcome
+// or source-rights metadata. Do not use this taxonomy as proof of syllabus coverage.
+// The active topical hub is assembled in ./topicals.ts.
 
 export type TopicEntry = {
   /** Display name shown in the UI. */

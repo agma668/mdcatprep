@@ -142,7 +142,7 @@ export default async function ExamPortalPage({ params }: PageProps) {
                   <div key={sub.id} className="bg-card border border-border rounded-xl p-5 shadow-sm hover:border-accent/50 transition-colors">
                     <h3 className="font-bold text-foreground text-base">{sub.name}</h3>
                     <p className="text-xs text-muted-foreground mt-1">
-                      Chapter-wise practice drills, explanations behind every answer, and exam-pattern questions.
+                      Chapter-wise practice drills, source answer keys where provided, and explanations where available. No-key questions remain practice-only.
                     </p>
                   </div>
                 ))}
