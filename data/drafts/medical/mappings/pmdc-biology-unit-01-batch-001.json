@@ -1,0 +1,739 @@
+{
+  "batch_id": "pmdc-bio-unit-01-acellular-life-001",
+  "status": "draft_not_for_runtime",
+  "source_baseline": "main@e3b4d63065c69a60fb816939f4bbbd0ee2f1eb9f",
+  "chapter_inventory": "docs/PMDC-TOPICAL-CHAPTER-INVENTORY-2026-11-23.md",
+  "outcome_register": "docs/PMDC-BIOLOGY-OUTCOME-REGISTER-2026-11-23.md",
+  "summary": {
+    "questions": 50,
+    "candidateMappings": 34,
+    "heldForScopeReview": 16,
+    "verifiedMappings": 0
+  },
+  "review_rules": [
+    "Candidate outcome IDs are provisional and must not count as verified coverage.",
+    "A subject reviewer must confirm both the mapping and the scientific correctness of the question/answer.",
+    "Questions held for scope review must not be forced into an outcome.",
+    "All rights remain unverified; this file is a draft sidecar and does not change runtime delivery."
+  ],
+  "records": [
+    {
+      "question_key": "top-1",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-2",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-3",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-4",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-5",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-6",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-7",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-8",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-9",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [],
+      "mapping_state": "hold_scope_review",
+      "mapping_rationale": "Vocabulary etymology is not listed in the unit outcomes.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-10",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-11",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-12",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-13",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-14",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [],
+      "mapping_state": "hold_scope_review",
+      "mapping_rationale": "Reverse-transcriptase enzyme function is more specific than the stated classification/genome-type outcome; hold for subject review.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-15",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-16",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-17",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-18",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-19",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-20",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-21",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-22",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [],
+      "mapping_state": "hold_scope_review",
+      "mapping_rationale": "Retroviral core-enzyme detail is more specific than the stated outcome; hold for subject review.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-23",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [],
+      "mapping_state": "hold_scope_review",
+      "mapping_rationale": "Historical evidence for early virology is not listed in the unit outcomes.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-24",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-25",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [],
+      "mapping_state": "hold_scope_review",
+      "mapping_rationale": "Historical year of HIV identification is not listed in the unit outcomes.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-26",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-27",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-28",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [],
+      "mapping_state": "hold_scope_review",
+      "mapping_rationale": "Reverse-transcriptase mechanism is more specific than the stated outcome; hold for subject review.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-29",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-30",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [],
+      "mapping_state": "hold_scope_review",
+      "mapping_rationale": "Detailed HIV replication sequence is not explicit in the stated outcome; hold for subject review.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-31",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [],
+      "mapping_state": "hold_scope_review",
+      "mapping_rationale": "Detailed provirus terminology is not explicit in the stated outcome; hold for subject review.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-32",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.2"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses HIV/AIDS causation, transmission, symptoms or opportunistic infection.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-33",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.2"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses HIV/AIDS causation, transmission, symptoms or opportunistic infection.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-34",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.2"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses HIV/AIDS causation, transmission, symptoms or opportunistic infection.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-35",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [],
+      "mapping_state": "hold_scope_review",
+      "mapping_rationale": "Antiretroviral therapy details are not explicit in the stated outcome; hold for subject review.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-36",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.2"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses HIV/AIDS causation, transmission, symptoms or opportunistic infection.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-37",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-38",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [],
+      "mapping_state": "hold_scope_review",
+      "mapping_rationale": "Detailed uncoating step is not explicit in the stated outcome; hold for subject review.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-39",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.2"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses HIV/AIDS causation, transmission, symptoms or opportunistic infection.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-40",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-41",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [],
+      "mapping_state": "hold_scope_review",
+      "mapping_rationale": "Integrase enzyme detail is not explicit in the stated outcome; hold for subject review.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-42",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.2"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses HIV/AIDS causation, transmission, symptoms or opportunistic infection.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-43",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.2"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses HIV/AIDS causation, transmission, symptoms or opportunistic infection.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-44",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [],
+      "mapping_state": "hold_scope_review",
+      "mapping_rationale": "Host-cell effect during budding is not explicit in the stated outcome; hold for subject review.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-45",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.2"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses HIV/AIDS causation, transmission, symptoms or opportunistic infection.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-46",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [],
+      "mapping_state": "hold_scope_review",
+      "mapping_rationale": "Protease function is not explicit in the stated outcome; hold for subject review.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-47",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [],
+      "mapping_state": "hold_scope_review",
+      "mapping_rationale": "Viral RNA degradation enzyme detail is not explicit in the stated outcome; hold for subject review.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-48",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [],
+      "mapping_state": "hold_scope_review",
+      "mapping_rationale": "ART treatment effect is not explicit in the stated outcome; hold for subject review.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-49",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [
+        "pmdc-bio-1.1"
+      ],
+      "mapping_state": "candidate_pending_subject_review",
+      "mapping_rationale": "Assesses viral structure, genome type, classification, host association or disease association.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    },
+    {
+      "question_key": "top-50",
+      "subject": "Biology",
+      "chapter": "Acellular Life",
+      "source_label": "MCQ Universe (curated extraction)",
+      "blueprint_version": "PMDC-MDCAT-2025",
+      "candidate_outcome_ids": [],
+      "mapping_state": "hold_scope_review",
+      "mapping_rationale": "Detailed HIV entry mechanism is not explicit in the stated outcome; hold for subject review.",
+      "academic_review_state": "not_reviewed",
+      "answer_key_review_state": "not_reviewed",
+      "rights_state": "unverified"
+    }
+  ]
+}
