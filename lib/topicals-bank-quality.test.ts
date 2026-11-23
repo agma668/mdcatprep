@@ -1,9 +1,12 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import {
+  TOPICALS_CHAPTER_COUNT,
   TOPICALS_QUARANTINE_SUMMARY,
+  TOPICALS_SET_COUNT,
   TOPICALS_SUBJECTS,
   TOPICALS_TOTAL,
+  isSetChapter,
   topicalChapter,
 } from "./topicals.ts";
 
@@ -52,4 +55,14 @@ test("known malformed source rows remain quarantined from the student-facing top
     missingOptionRows: 246,
     duplicateOptionRows: 7,
   });
+});
+
+
+test("source-named mocks and paper collections are grouped as sets, not syllabus chapters", () => {
+  assert.equal(TOPICALS_CHAPTER_COUNT, 45);
+  assert.equal(TOPICALS_SET_COUNT, 22);
+  assert.equal(isSetChapter("FINAL JETS MDCAT MOCK"), true);
+  assert.equal(isSetChapter("Balochistan · MDCAT · 2022"), true);
+  assert.equal(isSetChapter("500 MOST POWERFUL MCQS FOR MDCAT 2026 with key.p"), true);
+  assert.equal(isSetChapter("Biological Molecules"), false);
 });
