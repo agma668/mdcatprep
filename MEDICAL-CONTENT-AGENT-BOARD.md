@@ -1,6 +1,6 @@
 # Medical Content & Prep Experience Agent Board — Apex Pakistan
 
-> **Current source of truth (updated 2026-11-23).** Repository: `agma668/mdcatprep`, baseline `main` at `45ed1579a9acc57656bf69d5062a4f984b50eba8`. Scope is PM&DC MDCAT first, NUMS second. Engineering, Defence and general HEC expansion are parked; preserve existing work and routes without expanding those tracks.
+> **Current source of truth (updated 2026-11-23).** Repository: `agma668/mdcatprep`, baseline `main` at `e3b4d63065c69a60fb816939f4bbbd0ee2f1eb9f`. Scope is PM&DC MDCAT first, NUMS second. Engineering, Defence and general HEC expansion are parked; preserve existing work and routes without expanding those tracks.
 
 ## Mission and release standard
 
@@ -10,20 +10,20 @@ A question is not approved merely because it parses, has four options, has an an
 
 ## Verified repository baseline — 2026-11-23
 
-The latest committed improvement log (2026-11-22) records:
+The latest committed improvement log (2026-11-23) records:
 
-- **16,556 source rows before the quality guard** across six navigation categories; the new guard in this branch leaves **16,303 served rows** and quarantines 253 malformed rows. Categories: Biology, Chemistry, Physics, English, Mathematics and Reasoning.
-- Source components before quarantine: 3,721 curated topical rows + 1,941 founder-bank rows + 10,894 pipeline-bank rows. After the guard: 3,714 curated + 1,695 founder + 10,894 pipeline = 16,303 served rows.
-- After quarantine, 6,712 rows have a printed answer key and 9,591 are practice-only: curated 3,714 keyed; founder 872 keyed + 823 practice-only; pipeline 2,126 keyed + 8,768 practice-only.
-- Only **46 of the 16,303** served rows currently have a source-written explanation attached. Do not promise explanations for every question.
+- **16,547 source rows before the quality guard** across six navigation categories; the new guard in this branch leaves **16,294 served rows** and quarantines 253 malformed rows. Categories: Biology, Chemistry, Physics, English, Mathematics and Reasoning.
+- Source components before quarantine: 3,721 curated topical rows + 1,941 founder-bank rows + 10,885 pipeline-bank rows. After the guard: 3,714 curated + 1,695 founder + 10,885 pipeline = 16,294 served rows.
+- After quarantine, 6,712 rows have a printed answer key and 9,582 are practice-only: curated 3,714 keyed; founder 872 keyed + 823 practice-only; pipeline 2,126 keyed + 8,759 practice-only.
+- Only **46 of the 16,294** served rows currently have a source-written explanation attached. Do not promise explanations for every question.
 - The hub has 48 chapter entries and 19 whole-paper/set entries (67 hub entries), with a recorded hub/page mismatch check of zero.
 - A prior source sweep recorded 1,927 duplicates, 5,671 rows with a genuinely missing option, 15 figure-dependent rows not rendered, 188 brand-bearing rows and 66 scan-furniture rows among excluded/rejected material. Treat these as the logged pipeline measurements, not necessarily mutually exclusive categories.
-- The latest OCR pass restored Poppler + Tesseract locally and OCRed 304 pages across 14 documents at 300 dpi. It recovered **zero new answer keys**; the pipeline bank was deliberately restored to its prior 10,894 rows rather than publishing a 30-row shrink. The OCR outputs and source PDFs are not all tracked in Git, so they cannot be treated as a reproducible committed corpus yet.
+- The latest OCR pass restored Poppler + Tesseract locally and completed all 451 pages across 19 documents at 300 dpi, with zero failed and zero thin pages. It recovered **zero new answer keys**. The pipeline bank was rebuilt from 10,894 to 10,885 rows: 2,126 keyed and 8,759 practice-only, with 46 source explanations. OCR outputs and source PDFs are not all tracked in Git, so the extraction is not fully reproducible from the repository alone.
 - The audit found 246 founder rows with one or more blank options (54 keyed, 192 practice-only) and seven curated rows with repeated options. The guard quarantines all 253; source files remain intact for correction.
 - A further 272 stems match a broad option-label-like pattern; this includes false positives such as “A. C. generator”, so it is a review candidate set, not 272 confirmed corrupt questions.
 - The current website's six topical categories are **not** the five official PM&DC paper sections. Mathematics is an extra practice category, not an official PM&DC MDCAT section. Do not label all six as official MDCAT sections.
 
-These are source/log counts, not an independent academic-quality audit and not a claim that all 16,556 questions belong to PM&DC MDCAT.
+These are source/log counts, not an independent academic-quality audit and not a claim that all 16,547 source rows belong to PM&DC MDCAT.
 
 ## Official blueprint baseline
 
@@ -85,9 +85,9 @@ Required fields for every approved item:
 
 ### M1 — Corpus truth, classification and coverage (ACTIVE)
 
-- [x] Reconcile the currently served topical count and source components against the 2026-11-22 improvement log.
+- [x] Reconcile the currently served topical count and source components against the 2026-11-23 improvement log.
 - [x] Record the six navigation categories versus the five official PM&DC sections; Mathematics must not be represented as an official MDCAT section.
-- [x] Record explanation coverage honestly: 46 source-written explanations attached; 16,257 of the 16,303 served rows have no source-written explanation.
+- [x] Record explanation coverage honestly: 46 source-written explanations attached; 16,248 of the 16,294 served rows have no source-written explanation.
 - [x] Record the 304-page OCR rerun and its zero-new-key result; do not count OCR volume as approved content.
 - [x] Parse all three committed source arrays and reconcile their exact source counts, keyed/practice-only states, missing options, duplicate options, keys and explanation coverage.
 - [x] Add a runtime guard that quarantines the 246 missing-option and seven duplicate-option rows without deleting source records.
