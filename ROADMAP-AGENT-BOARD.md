@@ -672,3 +672,5 @@ Important limits:
 - No production database, content, Auth settings or deployments changed.
 
 Validation status: PR opened as draft; no workflow run was returned for its head SHA at the time of this board update. CI, lint and typecheck remain pending. The main-branch RLS-goals test currently depends on the ownership migration proposed in PR #22, which remains unmerged pending explicit founder approval.
+
+> **Current coordination addendum (2026-11-23):** The medical-first priority, evidence freshness, reconciled execution queue and next task are maintained in [Medical-first execution status](docs/MEDICAL-FIRST-EXECUTION-STATUS-2026-11-23.md). Treat earlier baseline dates/counts below as historical unless reverified. This addendum controls current priority and safety boundaries.
