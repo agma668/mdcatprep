@@ -2,6 +2,7 @@ import {
   TOPICALS_QUARANTINE_SUMMARY,
   TOPICALS_SUBJECTS,
   TOPICALS_TOTAL,
+  isSetChapter,
   topicalChapter,
 } from "../lib/topicals.ts";
 
@@ -14,6 +15,20 @@ const questions = TOPICALS_SUBJECTS.flatMap((subject) =>
 
 const bySubject = {};
 const bySource = {};
+const byChapter = {};
+const metadataFields = [
+  "topic",
+  "exam_id",
+  "variant_id",
+  "learning_outcome_id",
+  "blueprint_version",
+  "source_url",
+  "source_document",
+  "source_page",
+  "license",
+  "licence",
+];
+const metadataCoverage = Object.fromEntries(metadataFields.map((field) => [field, 0]));
 const answerState = { keyed: 0, practiceOnly: 0, invalid: 0 };
 const missingFields = { key: 0, stem: 0, option: 0, source: 0 };
 const duplicateKeys = [];
@@ -25,6 +40,14 @@ let explanations = 0;
 for (const question of questions) {
   bySubject[question.subject] = (bySubject[question.subject] ?? 0) + 1;
   bySource[question.source] = (bySource[question.source] ?? 0) + 1;
+  const chapterKind = isSetChapter(question.chapter) ? "set" : "chapter";
+  const chapterKey = `${question.subject} / ${chapterKind} / ${question.chapter}`;
+  byChapter[chapterKey] = (byChapter[chapterKey] ?? 0) + 1;
+  for (const field of metadataFields) {
+    if (Object.prototype.hasOwnProperty.call(question, field)) {
+      metadataCoverage[field] += 1;
+    }
+  }
 
   if (!question.key?.trim()) missingFields.key += 1;
   if (!question.question_text?.trim()) missingFields.stem += 1;
@@ -59,13 +82,16 @@ const report = {
   sourceBaseline: TOPICALS_QUARANTINE_SUMMARY,
   servedRows: TOPICALS_TOTAL,
   rowsBySubject: bySubject,
+  rowsByChapterOrSet: byChapter,
   rowsBySourceLabel: bySource,
+  metadataCoverage,
   answerState,
   sourceWrittenExplanations: explanations,
   missingFields,
   duplicateKeyCount: duplicateKeys.length,
   exactDuplicateStemAndOrderedOptionCount: exactDuplicateQuestions,
   subjectTaxonomyNote: "Mathematics is a navigation category, not a separate PM&DC MDCAT paper section.",
+  mappingNote: "The current question records are organized by subject and chapter; the metadata coverage counts show whether topic, exam, variant, learning-outcome, source-locator and rights fields exist.",
   limitations: [
     "This is a structural audit, not an academic correctness review.",
     "It does not establish PM&DC or NUMS exam membership or syllabus-outcome mapping.",
