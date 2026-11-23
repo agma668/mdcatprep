@@ -269,7 +269,7 @@ PMDC-2026 official paper UX must show the correct 180-question structure (Biolog
 ### Current product truth to design around
 
 - The topical hub currently has six navigation categories: Biology, Chemistry, Physics, English, Mathematics and Reasoning. PM&DC MDCAT-2026 has five official paper sections: Biology, Chemistry, Physics, English and Logical Reasoning. Mathematics is an extra practice category and must not be styled or labelled as an official PM&DC section.
-- The latest main log recorded 16,556 source rows. This branch quarantines 253 malformed rows, leaving 16,303 served; only 46 served rows have a source-written explanation attached. Do not use copy or UI implying every answer has a worked explanation.
+- The latest main log recorded 16,547 source rows. This branch quarantines 253 malformed rows, leaving 16,294 served; only 46 served rows have a source-written explanation attached. Do not use copy or UI implying every answer has a worked explanation.
 - Many rows are practice-only because the source printed no answer key. UI must distinguish scored questions from unscored practice-only questions before students answer.
 - "Past Paper <year>" set names can be source-file labels, not proof of an official exam sitting. Keep provenance visible and avoid an official-paper badge without verification.
 - PM&DC 2026 baseline is 180 questions / 180 minutes / no negative marking with 81/45/36/9/9 subject counts. A shorter mock must be labelled scaled/custom practice.
