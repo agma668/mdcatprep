@@ -32,7 +32,7 @@ test("every served topical question has four non-empty distinct options and a va
       question.option_b,
       question.option_c,
       question.option_d,
-    ].map((option) => option.trim().replace(/\\s+/g, " "));
+    ].map((option) => option.trim().replace(/\s+/g, " "));
     assert.ok(options.every(Boolean), `missing option: ${question.key}`);
     assert.equal(new Set(options).size, 4, `duplicate option: ${question.key}`);
 
