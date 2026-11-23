@@ -51,7 +51,7 @@ Suggested sidecar fields:
 
 ## 3. Outcome catalogue
 
-All outcomes below currently have **0 verified mapped questions**. This is an honest baseline, not a claim that the question bank contains none of these concepts.
+All outcomes below currently have **0 verified mapped questions**. A first 50-question candidate batch exists in `data/drafts/medical/mappings/pmdc-biology-unit-01-batch-001.json`: 34 provisional outcome candidates and 16 held for scope review. None are verified; the batch must pass subject review before it changes any coverage count. This is an honest baseline, not a claim that the question bank contains none of these concepts.
 
 ### Unit 1 — Acellular life
 
@@ -171,6 +171,8 @@ All outcomes below currently have **0 verified mapped questions**. This is an ho
 - `pmdc-bio-16.3`: identify biotechnology-derived products used in disease treatment.
 
 ## 4. Next mapping batch
+
+- [ ] Subject-review batch 001: confirm the 34 provisional mappings, assess the 16 held items, and independently verify the answer keys/scientific correctness. Do not mark any outcome covered until this review is complete.
 
 1. Start with chapter-labeled Biology rows in Unit 1–16 and map each question to the exact outcome it tests.
 2. Review the Biology Mixed Bank (3,921 rows) in manageable batches; do not map all of it to a unit just because it is in Biology.
