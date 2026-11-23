@@ -505,3 +505,17 @@ it cannot double-count) in case the old text is ever wanted for comparison.
 - Identified the next work as reproducible runtime audit, exam classification, exact syllabus outcome mapping, provenance/rights review, academic answer verification, then gap-only expansion and goal-scoped delivery.
 - Updated roadmap, design, SEO, build queue, readiness matrix and legacy-board notices to point to the same active medical-first source of truth.
 - This was documentation and GitHub-branch work only. No application code, production database, imports, Auth, billing, domains, merges or deployment promotion changed. PRs remain drafts pending review/approval.
+
+
+## 2026-11-23 — Medical corpus source audit and malformed-question quarantine (PR #26)
+
+- Parsed the three committed topical source arrays directly: curated `lib/topicals-bank.ts` (3,721), founder `lib/founder-bank.ts` (1,941) and pipeline `lib/pipeline-bank.ts` (10,894), total **16,556 source rows**.
+- Found **246 founder-bank rows with at least one blank option** (76 Biology, 9 Chemistry, 161 Physics; 54 had printed keys and 192 were practice-only) and **7 curated rows with exact repeated options** (3 Biology, 4 Chemistry). These 253 items were previously included in the student-facing topical bank.
+- Added a runtime gate in `lib/topicals.ts` that requires four non-empty, distinct options (case-sensitive after whitespace normalization). It quarantines the 253 rows without deleting or rewriting the original source records.
+- The resulting branch baseline is **16,303 served rows**: 6,712 keyed and 9,591 practice-only. By subject: Biology 8,509; Chemistry 4,568; Physics 2,815; English 270; Mathematics 84; Reasoning 57. The last category counts are navigation categories, not a claim that Mathematics is a PM&DC paper section.
+- Exact source parse found 0 duplicate keys, 0 exact duplicate stem+ordered-option signatures, 0 empty stems, 0 missing source labels and 0 invalid answer states. Only **46** served rows have source-written explanations.
+- A broad heuristic flagged 272 option-label-like stems (77 founder, 195 pipeline), but it also catches legitimate strings such as “A. C. generator”; these remain a manual-review candidate set, not confirmed defects.
+- Added `lib/topicals-bank-quality.test.ts`, included it in `npm test`, and added `scripts/audit-medical-topicals.mjs` plus `npm run audit:medical-topicals`. The test and report are pending GitHub Actions execution; no passing result is claimed yet.
+- Corrected public copy that promised instant explanations, full syllabus coverage, every answer being explained, or all practice being saved to account analytics. The topical page now distinguishes the five PM&DC sections from the extra Mathematics practice category.
+- Updated the medical-first board, corpus audit, roadmap, design, SEO, build queue, readiness matrix and legacy-board notice. PM&DC remains Beta; NUMS remains Content in progress.
+- PR #26 is a draft and unmerged. Documentation and application source changes only; no production database writes, imports, migrations, Auth changes, billing/domain changes or deployment promotion.
