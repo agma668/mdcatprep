@@ -79,25 +79,25 @@ export type TopicSubject = {
   /** Real syllabus chapters ("Respiration", "Waves"). */
   chapters: TopicChapter[];
   /**
-   * Past-paper sets and mixed banks. They live in the same bank column as a
-   * chapter but are not chapters — listing "Past Paper 2023" beside
-   * "Respiration" told students the year was a syllabus topic.
+   * Paper sets, mixed banks, mocks and worksheets. They live in the same bank
+   * column as chapters but are not syllabus chapters.
    */
   sets: TopicChapter[];
 };
 
 /**
- * True for a bank entry that is a whole-paper set rather than a syllabus
- * chapter. The year in the name comes from the source extraction, not from a
- * verified sitting, so callers must not present these as official papers.
+ * True for a paper set, mixed bank, mock or worksheet rather than a syllabus
+ * chapter. A year in a source title is not proof of an official sitting.
  */
 export function isSetChapter(title: string): boolean {
   return (
     /^past\s*paper\b/i.test(title) ||
     /^(?:mixed|full)\s*bank$/i.test(title) ||
-    /^mock\b/i.test(title) ||
-    // A worksheet is a themed paper set, not a syllabus chapter.
-    /^worksheet\b/i.test(title)
+    /\bmock\b/i.test(title) ||
+    // These source-file collections are practice sets, not syllabus chapters.
+    /^worksheet\b/i.test(title) ||
+    /^balochistan\s*[·-]\s*mdcat\b/i.test(title) ||
+    /^500\s+most\s+powerful\s+mcqs\b/i.test(title)
   );
 }
 
@@ -165,7 +165,7 @@ export const TOPICALS_CHAPTER_COUNT: number = TOPICALS_SUBJECTS.reduce(
   0
 );
 
-/** Whole-paper sets (Past Paper <year>, Mixed Bank) across all subjects. */
+/** Practice and paper sets (past papers, mixed banks, mocks, worksheets) across all subjects. */
 export const TOPICALS_SET_COUNT: number = TOPICALS_SUBJECTS.reduce(
   (n, s) => n + s.sets.length,
   0
