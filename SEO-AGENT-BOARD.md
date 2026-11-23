@@ -229,3 +229,27 @@ The code audit confirms full USAT/NUST/PMA banks are currently imported by publi
 
 
 PMDC-2026's official notice confirms 180 MCQs with 81 Biology / 45 Chemistry / 36 Physics / 9 English / 9 Logical Reasoning, 3 hours and no negative marking. Public exam pages should use this current-year pattern and link to PMDC's official notice. The repository's current 100-question “full mock” does not match this structure; do not claim a full official-pattern mock is available until corrected and backed by a populated, verified question source.
+
+
+## Medical-first SEO execution update — 2026-11-23
+
+**Active scope:** PM&DC MDCAT first, NUMS second. Non-medical exam expansion is parked; do not create additional engineering/Defence/USAT pages in this wave.
+
+### Search-intent and claims guardrails
+
+- Route MDCAT preparation intent to the PM&DC medical destination; route NUMS-specific intent to a distinct NUMS destination. Generic Apex Academy intent remains the parent chooser.
+- The topical hub currently lists six practice categories, but the PM&DC paper has five official sections. Mathematics is not an official separate PM&DC section; avoid title tags, headings, structured data or copy that says otherwise.
+- The current 16,556 count is a served topical collection count, not a verified PM&DC-only, fully mapped, fully keyed or academically reviewed count. Do not use "16,556 MDCAT questions with answers/explanations" or similar claims.
+- Only 46 of 16,556 served rows have a source-written explanation attached per the latest log. Copy must describe explanation availability accurately.
+- A "Past Paper 2021" or similar set name may come from a source file and is not proof of an official sitting. Use "practice set" unless provenance verifies the actual paper.
+- Reconcile the homepage "25 Past papers" tile with the 19 topical whole-paper/set entries and the separate past-paper registry before using the number in title/description/schema copy.
+- Keep current route/link audit results as historical evidence (96 sitemap URLs + 13 private routes, zero reported issues in the latest log); rerun after route or metadata changes. The route inventory's earlier 94 URL snapshot is stale.
+
+### Next SEO tasks
+
+1. Create an evidence-backed route-to-search-intent matrix for PM&DC MDCAT and NUMS.
+2. Review the existing MDCAT guide for cycle freshness, exact syllabus source links and claims.
+3. Create no new topic guide until the mapped syllabus and reviewed content support genuinely distinct student value.
+4. Ensure canonical, sitemap, robots, structured data and internal links distinguish PM&DC from NUMS.
+5. Keep public readiness labels consistent with `EXAM-READINESS-MATRIX.md`; do not index thin or placeholder pages as complete specialist destinations.
+6. Re-run route and link audits after changes and reconcile sitemap counts with `docs/ROUTE-INVENTORY.md`.
