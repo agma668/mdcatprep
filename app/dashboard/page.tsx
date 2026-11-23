@@ -183,7 +183,7 @@ export default async function DashboardOverviewPage() {
               {
                 step: "02",
                 title: "Answer your first MCQs",
-                desc: "Practice exam-style questions with instant explanations.",
+                desc: "Practise exam-style questions; source answer keys and explanations appear where available.",
                 href: "/dashboard/practice",
               },
               {
