@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     : `${found.chapter.title} MDCAT MCQs — ${found.subject.name} Chapter-wise Practice`;
   const description = isSet
     ? `${found.chapter.count} MDCAT ${found.subject.name.toLowerCase()} MCQs from the ${found.chapter.title} set with source-provided explanations where available. Questions without a printed key are practice-only. Free practice, no signup needed.`
-    : `${found.chapter.count} chapter-wise MDCAT ${found.subject.name.toLowerCase()} MCQs on ${found.chapter.title} with instant explanations. Free topical practice, no signup needed.`;
+    : `${found.chapter.count} chapter-wise MDCAT ${found.subject.name.toLowerCase()} MCQs on ${found.chapter.title} with source-provided explanations where available. Questions without a printed key are practice-only. Free topical practice, no signup needed.`;
   return {
     title,
     description,
