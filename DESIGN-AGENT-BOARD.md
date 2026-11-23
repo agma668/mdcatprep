@@ -260,3 +260,5 @@ P0 UX/architecture constraint from the live audit: the standalone USAT/NUST/PMA 
 
 
 PMDC-2026 official paper UX must show the correct 180-question structure (Biology 81, Chemistry 45, Physics 36, English 9, Logical Reasoning 9; 3 hours; no negative marking). The current 100-question mock card is not a full official-pattern paper. Until the canonical bank and server-side attempt path are repaired, label it as a custom short practice format or keep it out of the “full mock” slot. Never display a full-paper success/ready state for an empty draw.
+
+> **Current priority update (2026-11-23):** Medical-only development priority; PMDC first, NUMS second. This board remains the design/UX specialist checklist, while current evidence, content-quality constraints and cross-board order are in [Medical-first execution status](docs/MEDICAL-FIRST-EXECUTION-STATUS-2026-11-23.md). Do not mark older unchecked items complete without fresh evidence.
