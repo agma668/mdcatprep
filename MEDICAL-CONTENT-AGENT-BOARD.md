@@ -12,13 +12,15 @@ A question is not approved merely because it parses, has four options, has an an
 
 The latest committed improvement log (2026-11-22) records:
 
-- **16,556 served topical questions** across six navigation categories: Biology, Chemistry, Physics, English, Mathematics and Reasoning.
-- Source components: 3,721 curated topical rows + 1,941 founder-bank rows + 10,894 pipeline-bank rows.
-- The pipeline component has 2,126 keyed rows; the other pipeline rows are intentionally practice-only because their sources printed no answer key.
-- Only **46 of the 16,556** served rows currently have a source-written explanation attached. Do not promise explanations for every question.
+- **16,556 source rows before the quality guard** across six navigation categories; the new guard in this branch leaves **16,303 served rows** and quarantines 253 malformed rows. Categories: Biology, Chemistry, Physics, English, Mathematics and Reasoning.
+- Source components before quarantine: 3,721 curated topical rows + 1,941 founder-bank rows + 10,894 pipeline-bank rows. After the guard: 3,714 curated + 1,695 founder + 10,894 pipeline = 16,303 served rows.
+- After quarantine, 6,712 rows have a printed answer key and 9,591 are practice-only: curated 3,714 keyed; founder 872 keyed + 823 practice-only; pipeline 2,126 keyed + 8,768 practice-only.
+- Only **46 of the 16,303** served rows currently have a source-written explanation attached. Do not promise explanations for every question.
 - The hub has 48 chapter entries and 19 whole-paper/set entries (67 hub entries), with a recorded hub/page mismatch check of zero.
 - A prior source sweep recorded 1,927 duplicates, 5,671 rows with a genuinely missing option, 15 figure-dependent rows not rendered, 188 brand-bearing rows and 66 scan-furniture rows among excluded/rejected material. Treat these as the logged pipeline measurements, not necessarily mutually exclusive categories.
 - The latest OCR pass restored Poppler + Tesseract locally and OCRed 304 pages across 14 documents at 300 dpi. It recovered **zero new answer keys**; the pipeline bank was deliberately restored to its prior 10,894 rows rather than publishing a 30-row shrink. The OCR outputs and source PDFs are not all tracked in Git, so they cannot be treated as a reproducible committed corpus yet.
+- The audit found 246 founder rows with one or more blank options (54 keyed, 192 practice-only) and seven curated rows with repeated options. The guard quarantines all 253; source files remain intact for correction.
+- A further 272 stems match a broad option-label-like pattern; this includes false positives such as “A. C. generator”, so it is a review candidate set, not 272 confirmed corrupt questions.
 - The current website's six topical categories are **not** the five official PM&DC paper sections. Mathematics is an extra practice category, not an official PM&DC MDCAT section. Do not label all six as official MDCAT sections.
 
 These are source/log counts, not an independent academic-quality audit and not a claim that all 16,556 questions belong to PM&DC MDCAT.
