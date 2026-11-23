@@ -93,10 +93,11 @@ Required fields for every approved item:
 - [x] Add a runtime guard that quarantines the 246 missing-option and seven duplicate-option rows without deleting source records.
 - [x] Add a regression test and `npm run audit:medical-topicals` report script.
 - [x] Add a chapter/set inventory: 7,150 rows are chapter-labeled and 9,144 are set-labeled; see `docs/PMDC-TOPICAL-CHAPTER-INVENTORY-2026-11-23.md`.
+- [x] Establish the 69-outcome PM&DC Biology register; all 69 outcomes correctly remain at zero verified question mappings until question-level review. See `docs/PMDC-BIOLOGY-OUTCOME-REGISTER-2026-11-23.md`.
 - [x] Confirm current question rows have no per-question topic, exam, variant, outcome, source-locator or rights metadata; the legacy `lib/mdcat-topics.ts` taxonomy is not joined to the bank.
 - [x] Execute the new report and test in CI. GitHub Actions run #45206336705 passed all 97 unit tests (including the audit report), ESLint and TypeScript on `f81f987f43446d5c7b300c6312d0eb3c1875dc7b`.
 - [ ] Classify every served row as PM&DC, NUMS, another exam, mixed/unknown or out-of-scope; exclude unknown and other-exam items from PM&DC coverage claims.
-- [ ] Map every PM&DC-eligible row to the exact official 2025 curriculum learning outcome; report unmapped rows and per-outcome counts. Chapter labels are only a starting point; 3,921 Biology Mixed Bank rows and other sets need question-level classification.
+- [ ] Map every PM&DC-eligible row to the exact official 2025 curriculum learning outcome; report unmapped rows and per-outcome counts. Start with chapter-labeled Biology questions, then review Mixed Bank and paper/mock sets. Chapter labels are only a starting point; 3,921 Biology Mixed Bank rows and other sets need question-level classification.
 - [ ] Audit NUMS rows separately against the official 2026 blueprint; no implicit PM&DC-to-NUMS mapping.
 - [ ] Run exact and near-duplicate detection across the three served banks, past-paper sets, flashcards and committed source corpora.
 - [ ] Review source provenance and rights. De-branding alone is not a publication licence.
