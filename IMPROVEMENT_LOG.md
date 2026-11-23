@@ -578,3 +578,44 @@ there is very little for a typed key to land on; the tool is ready for when ther
 
 **Gates:** `npx tsc --noEmit` clean · `npx eslint scripts/hec-keys.mjs scripts/ingest-pipeline-bank.mjs`
 clean · `npx next build` OK · bank unchanged from HEAD.
+
+## 2026-11-23 — the answers HEC printed are now servable: 103 keyed rows from the official USAT samples and the past-paper compilation's worked answers
+
+The bank had no HEC question with an official key. Two sources on disk print their answers as text,
+so this reads them from the PDF text layer — no OCR, no key invented:
+`node scripts/extract-hec-official.mjs` → `data/MCQS_INBOX/parsed/hec_official.json`, which
+`scripts/ingest-pipeline-bank.mjs` now admits **before** the practice rows, so a keyed official copy of
+a question claims the stem instead of being skipped as a duplicate of the unkeyed copy.
+
+**Source 1 — the five official USAT sample papers.** Each ends with an `ANSWER KEY` table
+(`1 A 7 A 13 C 19 C …`). A question is emitted only when its own number appears in that table.
+104 rows. Spot check: Pre-Medical Q1 "She usually is a careful driver but yesterday she had a / an
+______." → `A`, and the table's Q1 is `A`, and option A is "accident". Two questions refer to a
+reading passage that is not in the text layer; they are dropped, not served unanswerable.
+
+**Source 2 — the 48-page past-paper compilation.** First half prints questions with A–D options, the
+back half prints worked solutions ending `Answer: <value>`. 180 questions, 124 worked solutions, 59
+join by stem (full, then first 60, then first 40 normalised characters, requiring a unique match), and
+**36 rows** where the printed answer equals one of the four options exactly. The other 22 joined
+answers are dropped because they do not: the source prints "5.09 m" against an option of "5.1 m",
+"198 sq units" against "198", "8 and 12" against "8, 12". A near miss is not rounded into a key.
+
+**Subject labels are a stated rule, not a guess.** The samples name their sections, so subject comes
+from the section header. The compilation names none, so: a word-pair analogy is English, a stem with
+arithmetic is Mathematics, the rest is Reasoning. An all-caps section the site does not serve
+(PAKISTAN STUDIES, GENERAL KNOWLEDGE, COMPUTER SCIENCE) also ends the previous section and marks its
+own rows `needs_subject` — 36 rows are held in the tier that way and skipped by ingest, rather than
+inherited into the section above, which had briefly filed a capital-city question under Mathematics.
+
+**Measured result:** official tier 140 rows — 104 servable, 36 held back. Bank moves from
+`published 10885 | keyed 2126` to **`published 10985 | keyed 2229 | practice-only 8756`**, i.e. +100
+published and +103 keyed, every one of them carrying "Official USAT sample paper (HEC)" or
+"HEC past-paper compilation (worked answer)" as its source label. Brand sweep of the served bank: 0.
+
+**One dependency worth knowing:** the tier lives under `data/` (untracked, like the rest of the
+pipeline inputs), so re-running ingest on a machine without that file silently loses these 103 rows.
+`lib/pipeline-bank.ts` — the committed artefact Vercel builds from — already carries them.
+
+**Gates:** `npx tsc --noEmit` clean · `npx eslint scripts/extract-hec-official.mjs
+scripts/ingest-pipeline-bank.mjs` clean · `npx next build` OK, 125/125 static pages ·
+`audit-routes.mjs` and `audit-links.mjs` 0 problems.

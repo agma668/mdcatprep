@@ -209,6 +209,28 @@ for (const r of privateReady) {
   admit(r, { keyed: true, idPrefix: 'acad', source: 'Keyed collection' });
 }
 
+// Official sources whose answers the exam body itself printed (scripts/extract-hec-official.mjs): the
+// USAT sample answer-key tables, and the past-paper compilation's worked answers where the printed
+// answer equals an option exactly. Admitted BEFORE the practice rows so a keyed official version of a
+// question claims the stem, instead of being skipped as a duplicate of the unkeyed copy.
+const OFFICIAL = path.join(ROOT, 'data/MCQS_INBOX/parsed/hec_official.json');
+let officialAdmitted = 0;
+if (fs.existsSync(OFFICIAL)) {
+  for (const r of JSON.parse(fs.readFileSync(OFFICIAL, 'utf8'))) {
+    if (!r.question_text || !['A', 'B', 'C', 'D'].includes(r.correct_answer)) continue;
+    const before = rows.length;
+    admit(
+      { ...r, visibility: 'public' },
+      {
+        keyed: true,
+        idPrefix: r.answer_status === 'official_key' ? 'usat' : 'wick',
+        source: r.source_label,
+      },
+    );
+    if (rows.length > before) officialAdmitted += 1;
+  }
+}
+
 // Unkeyed rows: four real options, no printed key. Served unscored, never guessed — unless a person
 // typed the key from a paper that printed one, in which case the row is served scored.
 for (const r of publicNeedKey) {
@@ -325,7 +347,7 @@ for (const r of rows) {
 }
 const keyed = rows.filter((r) => r.correct_answer).length;
 console.log('written', path.relative(ROOT, OUT));
-console.log(`published ${rows.length} | keyed ${keyed} | practice-only ${rows.length - keyed} | with source explanation ${withExplanation} | hand-typed keys applied ${manualApplied}`);
+console.log(`published ${rows.length} | keyed ${keyed} | practice-only ${rows.length - keyed} | with source explanation ${withExplanation} | hand-typed keys applied ${manualApplied} | official keyed rows admitted ${officialAdmitted}`);
 console.log('skipped', JSON.stringify(skipped));
 console.log('gate reasons', JSON.stringify(gateReasons));
 console.log(JSON.stringify(byChapter, null, 1));
