@@ -92,7 +92,7 @@ Required fields for every approved item:
 - [x] Parse all three committed source arrays and reconcile their exact source counts, keyed/practice-only states, missing options, duplicate options, keys and explanation coverage.
 - [x] Add a runtime guard that quarantines the 246 missing-option and seven duplicate-option rows without deleting source records.
 - [x] Add a regression test and `npm run audit:medical-topicals` report script.
-- [ ] Execute the new report and test in CI; record the actual workflow result before marking the implementation slice tested.
+- [x] Execute the new report and test in CI. GitHub Actions run #45204606893 passed unit tests (including the audit report), ESLint and TypeScript on `ee7686d7e1692a00f2805500404ecfd15bf90513`.
 - [ ] Classify every served row as PM&DC, NUMS, another exam, mixed/unknown or out-of-scope; exclude unknown and other-exam items from PM&DC coverage claims.
 - [ ] Map every PM&DC-eligible row to the exact official 2025 curriculum learning outcome; report unmapped rows and per-outcome counts.
 - [ ] Audit NUMS rows separately against the official 2026 blueprint; no implicit PM&DC-to-NUMS mapping.
