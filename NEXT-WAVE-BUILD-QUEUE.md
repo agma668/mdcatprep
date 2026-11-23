@@ -180,7 +180,7 @@ The earlier sections are retained as historical discovery notes. For active work
 
 ## Ordered next tasks
 
-1. **Reproducible bank audit:** source-level parsing and a quarantine guard are implemented on PR #26. Run `npm run audit:medical-topicals` and the updated `npm test` in CI, then add exact runtime/source manifests and near-duplicate results.
+1. **Reproducible bank audit:** source-level parsing, quarantine guard and audit script are implemented on PR #26. The audit + test suite, ESLint and TypeScript passed CI run #45204606893; the Vercel preview check passed. Next add chapter/outcome manifests and near-duplicate results.
 2. **Exam classification:** assign each row to PM&DC, NUMS, another exam, mixed/unknown or out-of-scope. Unknown rows cannot count toward PM&DC coverage.
 3. **Outcome mapping:** map PM&DC-eligible questions to exact 2025 curriculum outcomes and NUMS separately to its 2026 syllabus. Produce zero/thin/adequate coverage heatmaps.
 4. **Rights and academic QA:** record source and permission; de-branding is not rights clearance. Verify answer keys and explanations with subject reviewers. No guessed keys.
