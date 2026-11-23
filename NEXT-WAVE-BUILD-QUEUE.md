@@ -176,7 +176,7 @@ The earlier sections are retained as historical discovery notes. For active work
 
 **Active scope:** PM&DC MDCAT → NUMS. Engineering, Defence, HEC scholarship expansion and other non-medical tracks are parked. The user has asked to maximize medical preparation first.
 
-**Current baseline:** main `45ed1579a9acc57656bf69d5062a4f984b50eba8`; 16,556 source rows (3,721 curated + 1,941 founder + 10,894 pipeline). The quality guard in this branch leaves 16,303 served and quarantines 253 malformed rows (246 with missing options, seven with duplicate options). The served bank has 6,712 keyed and 9,591 practice-only rows; only 46 source-written explanations. Six navigation categories must not be confused with five PM&DC official sections; Mathematics is extra practice, not an official PM&DC section.
+**Current baseline:** main `e3b4d63065c69a60fb816939f4bbbd0ee2f1eb9f`; 16,547 source rows (3,721 curated + 1,941 founder + 10,885 pipeline). The quality guard in this branch leaves 16,294 served and quarantines 253 malformed rows (246 with missing options, seven with duplicate options). The served bank has 6,712 keyed and 9,582 practice-only rows; only 46 source-written explanations. Six navigation categories must not be confused with five PM&DC official sections; Mathematics is extra practice, not an official PM&DC section.
 
 ## Ordered next tasks
 
