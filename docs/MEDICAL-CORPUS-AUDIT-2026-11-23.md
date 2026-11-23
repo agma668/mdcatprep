@@ -111,7 +111,7 @@ The source-level parse found no populated per-question `topic`, `exam_id`, `vari
 
 - [x] Execute the audit report and full `npm test` in CI. Run #45206336705 passed all 97 tests, the audit command, ESLint and TypeScript on `f81f987f43446d5c7b300c6312d0eb3c1875dc7b`.
 - [ ] Classify every row as PM&DC, NUMS, another exam, mixed/unknown or out-of-scope.
-- [x] Establish the 69-outcome Biology register and draft the first 50-question Unit 1 sidecar: 34 provisional candidates, 16 held for scope review, zero verified mappings. `data/drafts/medical/mappings/pmdc-biology-unit-01-batch-001.json`.
+- [x] Establish the 69-outcome Biology register and draft the first 50-question Unit 1 sidecar: 33 provisional candidates, 17 held for scope review, zero verified mappings. `data/drafts/medical/mappings/pmdc-biology-unit-01-batch-001.json`.
 - [ ] Subject-review that batch, then map PM&DC-eligible rows to exact learning-outcome IDs. All 69 outcomes remain at zero verified mappings until review.
 - [ ] Map NUMS independently to its official syllabus outcomes.
 - [ ] Review the 272 option-label-like stem candidates with a stricter, manually checked rule.
