@@ -14,7 +14,7 @@ import { PIPELINE_BANK } from './pipeline-bank';
 const SOURCE_BANK: TopicalsQuestion[] = [...TOPICALS_BANK, ...FOUNDER_BANK, ...PIPELINE_BANK];
 
 function normalizedOption(value: string | null | undefined): string {
-  return typeof value === 'string' ? value.trim().replace(/\\s+/g, ' ') : '';
+  return typeof value === 'string' ? value.trim().replace(/\s+/g, ' ') : '';
 }
 
 // Do not serve an item with a blank option or repeated options. The November 2026
