@@ -16,7 +16,7 @@ The latest committed improvement log (2026-11-23) records:
 - Source components before quarantine: 3,721 curated topical rows + 1,941 founder-bank rows + 10,885 pipeline-bank rows. After the guard: 3,714 curated + 1,695 founder + 10,885 pipeline = 16,294 served rows.
 - After quarantine, 6,712 rows have a printed answer key and 9,582 are practice-only: curated 3,714 keyed; founder 872 keyed + 823 practice-only; pipeline 2,126 keyed + 8,759 practice-only.
 - Only **46 of the 16,294** served rows currently have a source-written explanation attached. Do not promise explanations for every question.
-- The hub has 48 chapter entries and 19 whole-paper/set entries (67 hub entries), with a recorded hub/page mismatch check of zero.
+- The hub now has 45 chapter pages and 22 practice/paper sets (67 entries total) after correcting three source collections that were misclassified as chapters and grouping two chapter-name aliases. The earlier hub/page mismatch audit recorded zero mismatches.
 - A prior source sweep recorded 1,927 duplicates, 5,671 rows with a genuinely missing option, 15 figure-dependent rows not rendered, 188 brand-bearing rows and 66 scan-furniture rows among excluded/rejected material. Treat these as the logged pipeline measurements, not necessarily mutually exclusive categories.
 - The latest OCR pass restored Poppler + Tesseract locally and completed all 451 pages across 19 documents at 300 dpi, with zero failed and zero thin pages. It recovered **zero new answer keys**. The pipeline bank was rebuilt from 10,894 to 10,885 rows: 2,126 keyed and 8,759 practice-only, with 46 source explanations. OCR outputs and source PDFs are not all tracked in Git, so the extraction is not fully reproducible from the repository alone.
 - The audit found 246 founder rows with one or more blank options (54 keyed, 192 practice-only) and seven curated rows with repeated options. The guard quarantines all 253; source files remain intact for correction.
@@ -92,9 +92,11 @@ Required fields for every approved item:
 - [x] Parse all three committed source arrays and reconcile their exact source counts, keyed/practice-only states, missing options, duplicate options, keys and explanation coverage.
 - [x] Add a runtime guard that quarantines the 246 missing-option and seven duplicate-option rows without deleting source records.
 - [x] Add a regression test and `npm run audit:medical-topicals` report script.
+- [x] Add a chapter/set inventory: 7,150 rows are chapter-labeled and 9,144 are set-labeled; see `docs/PMDC-TOPICAL-CHAPTER-INVENTORY-2026-11-23.md`.
+- [x] Confirm current question rows have no per-question topic, exam, variant, outcome, source-locator or rights metadata; the legacy `lib/mdcat-topics.ts` taxonomy is not joined to the bank.
 - [x] Execute the new report and test in CI. GitHub Actions run #45204606893 passed unit tests (including the audit report), ESLint and TypeScript on `ee7686d7e1692a00f2805500404ecfd15bf90513`.
 - [ ] Classify every served row as PM&DC, NUMS, another exam, mixed/unknown or out-of-scope; exclude unknown and other-exam items from PM&DC coverage claims.
-- [ ] Map every PM&DC-eligible row to the exact official 2025 curriculum learning outcome; report unmapped rows and per-outcome counts.
+- [ ] Map every PM&DC-eligible row to the exact official 2025 curriculum learning outcome; report unmapped rows and per-outcome counts. Chapter labels are only a starting point; 3,921 Biology Mixed Bank rows and other sets need question-level classification.
 - [ ] Audit NUMS rows separately against the official 2026 blueprint; no implicit PM&DC-to-NUMS mapping.
 - [ ] Run exact and near-duplicate detection across the three served banks, past-paper sets, flashcards and committed source corpora.
 - [ ] Review source provenance and rights. De-branding alone is not a publication licence.
