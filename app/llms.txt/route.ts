@@ -37,7 +37,7 @@ export function GET(): Response {
 
   const body = `# MED Prep
 
-> Free preparation for Pakistan's major entry tests — MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT and PMA/ISSB — on one platform: exam-style MCQ practice with an explanation behind every answer, chapter-wise topical drills, master notes, publicly released past papers with keys, and daily questions. No fee, no signup wall on the practice surfaces.
+> MED Prep provides entry-test study tools, with medical preparation focused on PM&DC MDCAT first and NUMS as a separate syllabus. The topical bank contains keyed and practice-only questions; answer keys appear only where the source printed one, and source-written explanations appear where available. Public-paper references are distinguished from original practice material.
 
 Practice is free and works without an account. Progress tracking, leaderboards and the protected master-notes reader need a free account. The medical bank follows the PMDC MDCAT syllabus (Biology, Chemistry, Physics, English, Logical Reasoning); dedicated portals serve engineering (NUST NET / GIKI / LUMS), HEC USAT and PMA/ISSB with their own banks.
 
