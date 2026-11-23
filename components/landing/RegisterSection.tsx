@@ -70,7 +70,7 @@ export function RegisterSection({ mcqs, subjects }: { mcqs: number; subjects: nu
                 {[
                   { icon: BookOpenCheck, label: `${fmtInt(mcqs)} MCQs`, sub: 'Exam-style practice' },
                   { icon: BarChart3, label: 'Track Progress', sub: 'Real-time analytics' },
-                  { icon: GraduationCap, label: `${subjects} Subjects`, sub: 'Full syllabus coverage' },
+                  { icon: GraduationCap, label: `${subjects} Practice Categories`, sub: 'Available topics in the bank' },
                   { icon: Trophy, label: 'Leaderboard', sub: 'Compete with peers' },
                 ].map(({ icon: Icon, label, sub }) => (
                   <div
