@@ -39,7 +39,7 @@ export function GET(): Response {
 
 > MED Prep provides entry-test study tools, with medical preparation focused on PM&DC MDCAT first and NUMS as a separate syllabus. The topical bank contains keyed and practice-only questions; answer keys appear only where the source printed one, and source-written explanations appear where available. Public-paper references are distinguished from original practice material.
 
-Practice is free and works without an account. Progress tracking, leaderboards and the protected master-notes reader need a free account. The medical bank follows the PMDC MDCAT syllabus (Biology, Chemistry, Physics, English, Logical Reasoning); dedicated portals serve engineering (NUST NET / GIKI / LUMS), HEC USAT and PMA/ISSB with their own banks.
+Guest topical practice works without an account and keeps progress on the device. Account-backed progress, leaderboards and protected notes require sign-in; not every practice surface currently syncs activity across devices. Active development is focused on PM&DC MDCAT first and NUMS second. The topical hub has five PM&DC-aligned section categories plus additional Mathematics practice; exact learning-outcome mapping is still in progress. Existing non-medical routes remain available but are not being expanded in this wave.
 
 ## Core practice surfaces
 
