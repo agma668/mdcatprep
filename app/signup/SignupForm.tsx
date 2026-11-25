@@ -13,7 +13,7 @@ import { GoogleButton, OrDivider } from "@/components/auth/GoogleButton";
  * hook opts the route out of SSR and leaves the served HTML with no form. The
  * query string is read in `page.tsx`, which carries the measurements.
  */
-export function SignupForm({ refCode }: { refCode: string }) {
+export function SignupForm({ refCode, defaultExam = "MDCAT" }: { refCode: string; defaultExam?: string }) {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -148,7 +148,7 @@ export function SignupForm({ refCode }: { refCode: string }) {
           id="signup-exam"
           name="exam_target"
           required
-          defaultValue="MDCAT"
+          defaultValue={defaultExam}
           className="w-full px-4 py-2.5 border border-white/10 rounded-[var(--radius-md)] text-sm text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-shadow bg-[#0a1a2e]"
         >
           <optgroup label="Medical Entrance (PMDC & NUMS)">

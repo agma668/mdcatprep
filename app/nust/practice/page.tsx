@@ -47,6 +47,12 @@ export default function NUSTPracticePage() {
               <span className="shrink-0 rounded-full bg-accent/10 px-3 py-1 text-xs font-bold text-accent">
                 NUST NET bank
               </span>
+              <Link
+                href="/signup?exam=nust"
+                className="shrink-0 text-xs font-semibold text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground"
+              >
+                Save progress
+              </Link>
             </div>
           </div>
         </div>

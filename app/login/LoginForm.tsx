@@ -129,6 +129,14 @@ export function LoginForm({ resetDone, googleFailed }: LoginFormProps) {
         {loading ? "Signing in..." : "Sign In"}
       </Button>
       </form>
+      {/* Accounts are approved by hand, so "I signed in and it says pending"
+          needs a visible way to check rather than a support message. */}
+      <p className="mt-4 text-center text-xs text-[var(--color-text-secondary)]">
+        Applied already?{" "}
+        <Link href="/pending" className="font-semibold text-[var(--color-primary)] hover:underline">
+          Check your application status
+        </Link>
+      </p>
     </>
   );
 }

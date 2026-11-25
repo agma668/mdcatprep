@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { MDCAT_QUESTIONS } from "@/lib/mdcat";
 import { USAT_ELITE_BANK } from "@/lib/usat-comprehensive-bank";
@@ -42,11 +41,15 @@ export default async function PracticeSessionPage({
     group?: string;
   }>;
 }) {
+  // No login wall. This run is held in localStorage and the recording layer
+  // already returns { local: true } for guests (lib/offline-sync.ts), so the old
+  // redirect bought no persistence and cost every anonymous visitor the page
+  // they had just clicked. Guests practise; the session and results offer the
+  // account at the moment it has value.
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) redirect("/login");
 
   const params = await searchParams;
   const subject = params.subject?.trim() || null;
@@ -92,9 +95,13 @@ export default async function PracticeSessionPage({
     bankParam === "usat"
       ? (subjectLabelFor(group, chapterSubject, subject))
       : (subject ?? undefined);
-  const homeHref = college
-    ? `/dashboard/practice?college=${encodeURIComponent(college)}`
-    : "/dashboard/practice";
+  // A guest's "back" must not be a login wall — send them to the public home.
+  const homeHref = !user
+    ? "/"
+    : college
+      ? `/dashboard/practice?college=${encodeURIComponent(college)}`
+      : "/dashboard/practice";
+  const signupHref = `/signup?exam=${bankParam === "usat" ? "usat" : "mdcat"}`;
 
   if (questions.length === 0) {
     return (
@@ -129,6 +136,8 @@ export default async function PracticeSessionPage({
         sessionKey={sessionKey}
         subjectLabel={subjectLabel}
         homeHref={homeHref}
+        signedIn={Boolean(user)}
+        signupHref={signupHref}
       />
     </main>
   );

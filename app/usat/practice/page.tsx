@@ -94,6 +94,12 @@ export default function USATPracticePage() {
             <span className="shrink-0 self-start rounded-full bg-accent/10 px-3 py-1 text-xs font-bold text-accent sm:self-auto">
               USAT-M bank
             </span>
+            <Link
+              href="/signup?exam=usat"
+              className="shrink-0 self-start text-xs font-semibold text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground sm:self-auto"
+            >
+              Save progress
+            </Link>
           </div>
         </div>
 

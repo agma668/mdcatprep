@@ -14,12 +14,32 @@ export const metadata = { title: "Create your account", robots: { index: false, 
  * cold cache) the fields did not appear until ~3.0 s. See app/login/page.tsx
  * for the full numbers and the reasoning.
  */
+// A student arriving from a test card or a practice page has already told us
+// which paper they care about. Asking them again in a dropdown is the cheapest
+// way to lose them, so the choice travels in the URL and pre-selects the field.
+const EXAM_ALIASES: Record<string, string> = {
+  mdcat: "MDCAT",
+  nums: "NUMS",
+  usat: "HEC USAT-M",
+  "usat-m": "HEC USAT-M",
+  "hec-usat": "HEC USAT-M",
+  "usat-e": "HEC USAT-E",
+  nust: "NUST (NET)",
+  net: "NUST (NET)",
+  giki: "GIKI",
+  lums: "LUMS",
+  pma: "PMA Long Course",
+  issb: "ISSB Intelligence",
+  mbbs: "MBBS Notes",
+};
+
 export default async function SignupPage({
   searchParams,
 }: {
-  searchParams: Promise<{ ref?: string }>;
+  searchParams: Promise<{ ref?: string; exam?: string }>;
 }) {
   const params = await searchParams;
+  const defaultExam = EXAM_ALIASES[(params.exam ?? "").toLowerCase()] ?? "MDCAT";
   return (
     <div className="min-h-screen landing-canvas flex flex-col md:flex-row">
       {/* Left side - visual / branding */}
@@ -143,7 +163,23 @@ export default async function SignupPage({
             </p>
           </div>
 
-          <SignupForm refCode={params.ref ?? ""} />
+          <SignupForm refCode={params.ref ?? ""} defaultExam={defaultExam} />
+
+          {/* The account is reviewed by hand before access, and there is no
+              reliable email notification yet. Saying that here costs one line
+              and prevents "I signed up and nothing happened" from becoming a
+              student lost on the first screen. */}
+          <ol className="mt-6 space-y-1.5 text-xs leading-relaxed text-[var(--color-text-secondary)]">
+            <li>1. Create the account — no card, no payment.</li>
+            <li>2. We review it by hand before the dashboard opens.</li>
+            <li>
+              3. Check the status any time from the{" "}
+              <Link href="/pending" className="font-semibold text-[var(--color-primary)] hover:underline">
+                application status page
+              </Link>
+              .
+            </li>
+          </ol>
 
           <p className="text-center text-sm text-[var(--color-text-secondary)] mt-8">
             Already have an account?{" "}

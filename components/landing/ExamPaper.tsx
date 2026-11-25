@@ -136,10 +136,19 @@ export function ExamPaper() {
         <span className="text-sm text-[var(--steel-300)]">
           Score <span className="tabular-nums text-[var(--steel-100)]">{score}</span>
         </span>
+        {/* The last sample used to loop back to the first, which is a dead end
+            dressed as progress. It now offers the real next step. */}
         {done && (
-          <button type="button" onClick={next} className="btn-secondary min-h-[44px] px-5 text-sm">
-            {last ? "Try again" : "Next question"}
-          </button>
+          <div className="flex flex-wrap items-center justify-end gap-2">
+            {last && (
+              <a href="/diagnostic" className="btn-primary min-h-[44px] px-5 text-sm">
+                Try 10 for real →
+              </a>
+            )}
+            <button type="button" onClick={next} className="btn-secondary min-h-[44px] px-5 text-sm">
+              {last ? "Restart samples" : "Next question"}
+            </button>
+          </div>
         )}
       </div>
     </div>

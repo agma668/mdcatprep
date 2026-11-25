@@ -31,11 +31,16 @@ export function PracticeSession({
   sessionKey,
   subjectLabel,
   homeHref = "/dashboard/practice",
+  signedIn = true,
+  signupHref = "/signup",
 }: {
   questions: QuizQuestion[];
   sessionKey: string;
   subjectLabel?: string;
   homeHref?: string;
+  /** Guests may practise; nothing is written for them, so say so plainly. */
+  signedIn?: boolean;
+  signupHref?: string;
 }) {
   const router = useRouter();
   const total = questions.length;
@@ -127,6 +132,24 @@ export function PracticeSession({
             Back to Practice
           </button>
         </div>
+        {/* The honest conversion moment: a guest's run is real work that
+            vanishes when they close the tab. Offer the account there and then,
+            instead of at a wall before they start. */}
+        {!signedIn && (
+          <div className="mx-auto mt-8 max-w-md rounded-[var(--radius-md)] border border-[var(--color-primary)]/25 bg-[var(--color-primary)]/10 p-4 text-center">
+            <p className="text-sm font-semibold text-white">Keep this run.</p>
+            <p className="mt-1 text-xs text-[var(--color-text-secondary)]">
+              These answers live on this device only. A free account stores your streak, mistakes and
+              weak areas so the next session starts where this one ended.
+            </p>
+            <a
+              href={signupHref}
+              className="mt-3 inline-flex rounded-[var(--radius-md)] bg-[var(--color-primary)] px-5 py-2 text-xs font-bold text-[var(--color-text-inverse)] hover:bg-[var(--color-primary-light)]"
+            >
+              Create a free account →
+            </a>
+          </div>
+        )}
         <p className="mt-6 text-[11px] text-[var(--color-text-muted)]">
           <kbd className="rounded-[4px] border border-white/15 bg-white/[0.06] px-1.5 py-0.5 font-sans text-[10px] text-[var(--color-primary-light)]">Esc</kbd>{" "}
           to exit anytime · answering every question improves your weak-area plan
@@ -141,6 +164,14 @@ export function PracticeSession({
 
   return (
     <div className="mx-auto w-full max-w-2xl px-4 py-6 sm:py-10">
+      {!signedIn && (
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-2 rounded-[var(--radius-md)] border border-[var(--color-primary)]/25 bg-[var(--color-primary)]/10 px-3 py-2 text-xs text-white/80">
+          <span>Practising as a guest — answers stay on this device.</span>
+          <a href={signupHref} className="font-bold text-[var(--color-primary-light)] hover:underline">
+            Save my progress →
+          </a>
+        </div>
+      )}
       {/* Slim session header: exit · subject · position · running score */}
       <div className="mb-4 flex items-center justify-between gap-3">
         <button

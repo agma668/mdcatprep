@@ -877,3 +877,38 @@ suite: 115/115.
 **What this deliberately does not do:** it does not apply the migration to the `edweb` project, add a
 price, add a payment provider, or lock any existing content. Those are founder decisions; the code
 now exists so the decision is a switch, not a rewrite.
+
+---
+
+## The conversion path had four leaks; three of them were invisible
+
+Audited the way a student actually moves — hero → practice → signup → login → portal — against how
+course platforms of this shape behave. The pages looked fine; the path leaked.
+
+**The practice wall bought nothing.** `/practice/session` redirected every anonymous visitor to
+`/login`, but that run is held in localStorage and the recording layer already returns
+`{ local: true }` for guests (`lib/offline-sync.ts`) — the gate protected no data and cost the page
+the visitor had just clicked. Guests can now practise, with a banner that says the truth ("answers
+stay on this device") and a *Save my progress* link, plus the same offer on the results screen as
+"Keep this run" — the account is offered where it has value, not before the first question.
+Verified: anonymous request returns **200**, not a redirect, and the banner renders.
+
+**Signup forgot what the student had already chosen.** Every test card, portal and drill knows which
+paper someone wants, and `/signup` still reset the dropdown to MDCAT. `/signup?exam=nust` now
+pre-selects that exact option (aliases for mdcat, nums, usat/-m/e, nust/net, giki, lums, pma, issb,
+mbbs; unknown values fall back to MDCAT). Verified in the served HTML:
+`<option value="NUST (NET)" selected>`, and plain `/signup` still selects MDCAT. The three public
+drills now carry a *Save progress* link that lands on the right preselected form.
+
+**Nobody was told the account is reviewed by hand.** Signup creates a `pending` account behind a
+manual approval gate, and the page said only "free during beta" — so "I signed up and nothing
+happened" was the predictable outcome, made worse by approval email not being configured. Signup now
+states the three steps (create → we review it → check status) with a link to `/pending`, and the
+sign-in form gained "Applied already? Check your application status".
+
+**The hero sample ended in a loop.** After the third question the only control said "Try again",
+sending an interested visitor back to question one. The last sample now offers **Try 10 for real →**
+(the public two-minute diagnostic) alongside a restart.
+
+**Gates:** `tsc --noEmit` clean · `eslint` clean on all nine touched files · `next build` clean ·
+runtime checks on a fresh production build for all four flows.
