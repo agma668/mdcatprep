@@ -39,6 +39,21 @@ const paths = sitemapUrls.map((u) => u.replace(/^https?:\/\/[^/]+/, ''));
 
 console.log(`sitemap URLs: ${paths.length}  canonical host in sitemap: ${canonicalHost}`);
 
+// Host hygiene, written for the domain cutover: when the canonical host becomes a real domain, any
+// surviving vercel.app / localhost URL in shipped HTML is a mixed-host bug that splits indexing and
+// leaks the deployment address. While the site itself is on vercel.app those hosts are expected.
+const canonicalIsVercel = /\.vercel\.app$/i.test(canonicalHost.replace(/^https?:\/\//, ''));
+function hostProblems(html) {
+  const found = [];
+  if (/https?:\/\/(?:localhost|127\.0\.0\.1)[:/]/i.test(html)) found.push('LOCALHOST URL IN HTML');
+  if (/mdcatprep-eight/i.test(html)) found.push('STALE HOST IN HTML');
+  if (!canonicalIsVercel) {
+    const m = html.match(/https?:\/\/[a-z0-9-]+\.vercel\.app/gi);
+    if (m) found.push(`PREVIEW/DEPLOYMENT HOST IN HTML (${m[0]})`);
+  }
+  return found;
+}
+
 const seenTitles = new Map();
 const problems = [];
 const noDescription = [];
@@ -65,7 +80,7 @@ for (const path of paths) {
   if (/noindex/i.test(robots)) problems.push(`NOINDEX BUT IN SITEMAP  ${path}`);
   if (!title) problems.push(`NO TITLE  ${path}`);
   if (!description) noDescription.push(path);
-  if (/mdcatprep-eight/.test(html)) problems.push(`STALE HOST IN HTML  ${path}`);
+  for (const hostProblem of hostProblems(html)) problems.push(`${hostProblem}  ${path}`);
 }
 
 for (const [title, n] of seenTitles) {

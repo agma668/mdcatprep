@@ -64,14 +64,14 @@ Ship a trustworthy, polished, fast, accessible, genuinely useful product. A stud
 
 ## Phase 0 — Establish truth and unblock public preview (P0)
 
-- [ ] Confirm the public production alias `https://edweb-nine.vercel.app` is accessible without SSO in a clean browser. Project config is now SSO-protected for `preview` only; production reachability still needs an external smoke test.
+- [x] Confirm the public production alias `https://edweb-nine.vercel.app` is accessible without SSO in a clean browser. **Done (2026-11-25):** unauthenticated request from outside the deployment returns **200** with the real app (`<title>MDCAT, NUMS, NUST, GIKI, USAT & PMA Test Preparation — Free</title>` and the live hero), not a Vercel login page; `/robots.txt` serves the real policy. The stale `mdcatprep-eight.vercel.app` host returns 404 and is referenced nowhere in shipped code.
 - [x] Set Vercel SSO protection to `preview` only: public production deployment URLs are not gated by team SSO, while previews remain protected. Founder explicitly approved this change; password protection and trusted IP restrictions remain disabled.
 - [x] Align `lib/site.ts` canonical fallback with the verified production alias `https://edweb-nine.vercel.app`; `NEXT_PUBLIC_SITE_URL` is not configured in production.
 - [x] Verify GitHub branch divergence: `main` is ahead of `master`, with no reverse-only commits at the last GitHub comparison on 2026-11-08; re-check exact divergence before any deployment or sync. `AGENTS.md` now identifies `main` as the active branch. Still verify Vercel's live production-branch setting before any deployment/promotion.
 - [x] Confirm Supabase project mapping: active `edweb` is the founder-confirmed Apex Pakistan backend; no other site's Supabase or Vercel setup is in scope.
 - [x] Add a reproducible GitHub Actions quality workflow for `npm test`, `npm run lint`, and `npx tsc --noEmit` on PRs and `main`; first run is in progress. Vercel remains the build gate.
-- [ ] Inventory environment variable NAMES and whether each is configured in Preview/Production, without reading or copying secret values.
-- [ ] Confirm auth, email, push, cron and telemetry routes behave correctly without leaking private data.
+- [/] Inventory environment variable NAMES and whether each is configured in Preview/Production, without reading or copying secret values. **Partial (2026-11-25):** production presence is now known for the cron-checked set — **present:** Supabase URL + service-role (2/2). **Missing in production:** `CRON_SECRET`, `NEXT_PUBLIC_VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_SUBJECT`, and all six `EMAILJS_*` keys. Effect: approval/enrolment email is skipped silently (`lib/email.ts` logs "email skipped") and web push is dead, so a student who signs up today gets no approval email. Preview environment values were not inspected.
+- [/] Confirm auth, email, push, cron and telemetry routes behave correctly without leaking private data. **Partial (2026-11-25):** `/api/cron/maintenance` was answering 200 to any caller and publishing the deployment hostname plus which secrets were configured — an unauthenticated deployment-reconnaissance leak. It now returns `{ ok, service, utc }` to unauthenticated callers and the full report only with `Authorization: Bearer $CRON_SECRET`; live behaviour re-checked after deploy. `/api/cron/demo-activity` was already fail-closed (503 with no secret, 401 on a wrong bearer). `/api/telemetry` answers 405 on GET and 400 "Expected a non-empty batch" on POST. Email and push are **not** working in production (missing keys above) — that is a configuration blocker, not a code defect.
 - [x] Create a route inventory with public/private/noindex classification and a list of known bugs. **Done (2026-11-22):** `docs/ROUTE-INVENTORY.md`, generated from the running site by `scripts/audit-routes.mjs`. First run found 27 crawl problems; all fixed — three submitted 404s removed, 19 real set pages added, five canonical tags that pointed at the homepage given their own, an unreachable slug normalised, ten private routes that claimed `index, follow` while robots.txt disallowed them now send `noindex, nofollow`, one missing description added. Result: 94 sitemap URLs and 13 private routes, **0 problems**.
 
 **Exit gate:** one known public preview URL, correct host/canonical, understood branch/deployment relationship, correct active Supabase project, baseline checks recorded.
@@ -138,7 +138,7 @@ Owner: Design board with roadmap/product coordination. Dependencies: Phase 0.
 ## Phase 4 — SEO and public content readiness (P1)
 
 Owner: SEO board. Dependencies: stable brand and canonical host from Phase 0/1.
-- [ ] Fix canonical host and audit all metadata, sitemap, robots, IndexNow and JSON-LD.
+- [/] Fix canonical host and audit all metadata, sitemap, robots, IndexNow and JSON-LD. **Mechanical half done (2026-11-25):** `scripts/audit-routes.mjs` now checks host hygiene as well as status/canonical/noindex — it flags a `localhost`/`127.0.0.1` URL in shipped HTML, the stale `mdcatprep-eight` host, and, once the canonical host stops being a `vercel.app` address, any surviving `*.vercel.app` URL (the mixed-host bug that would split indexing after the domain cutover). Verified: live production sweep of 96 sitemap URLs + 13 private routes → **0 problems**, and a 6-case predicate test covering both firing and staying quiet.
 - [ ] Build an academy/category/exam route-to-search-intent matrix; consolidate thin/duplicate routes and avoid doorway pages.
 - [ ] Improve homepage, exam hub and high-intent guides with accurate, useful content.
 - [ ] Create a pillar/cluster content plan with original material and official citations.
@@ -174,7 +174,7 @@ Owner: SEO board. Dependencies: stable brand and canonical host from Phase 0/1.
 - [ ] Check availability, renewal price, registrar, ownership and DNS control before buying.
 - [ ] Purchase only after explicit founder approval; domain costs are not assumed.
 - [ ] Add domain to Vercel and configure DNS/TLS.
-- [ ] Set `NEXT_PUBLIC_SITE_URL` to the final HTTPS origin.
+- [ ] Set `NEXT_PUBLIC_SITE_URL` to the final HTTPS origin. **Code side is ready (verified 2026-11-25):** canonical, `metadataBase`, OpenGraph URLs, sitemap, IndexNow and `/llms.txt` all derive from `getSiteUrl()`, so switching hosts is this one variable plus a redeploy — no source edit. `app/actions/auth.ts` builds email links from `getSiteUrl()` and `app/auth/callback` routes off the request origin, so auth links follow the domain. Nothing else in shipped code hardcodes a host except the deliberate `lib/site.ts` fallback. Re-run `node scripts/audit-routes.mjs <new-origin>` after the switch: it will fail the moment any page still renders a `vercel.app` URL.
 - [ ] Verify redirects from temporary Vercel host to canonical domain and avoid redirect chains.
 - [ ] Recheck canonical, sitemap, robots, OG, JSON-LD and IndexNow on the new host.
 - [ ] Verify auth callback URLs, email links, OAuth redirect URLs, push service-worker scope and any external integrations.

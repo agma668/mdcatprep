@@ -22,9 +22,10 @@ export const maxDuration = 60;
  *  Idempotent: one line per UTC day — a double-fire (Vercel crons are
  *  best-effort, or a manual re-run) is detected and skipped.
  *
- *  Auth: mirrors /api/cron/demo-activity — if CRON_SECRET is configured it
- *  must be sent as `Authorization: Bearer <CRON_SECRET>`; without it the
- *  endpoint accepts (it only reads statuses and appends one log line).
+ *  Auth: if CRON_SECRET is configured it must be sent as
+ *  `Authorization: Bearer <CRON_SECRET>`. Without it the checks still run (the
+ *  heartbeat is the point), but the response is reduced to `{ ok, service, utc }`:
+ *  the env inventory and deployment hostname go only to an authenticated caller.
  *
  *  Base URL the route probes: MAINTENANCE_BASE_URL if set, else
  *  NEXT_PUBLIC_SITE_URL if the host sets it, else the Vercel deployment URL,
@@ -104,11 +105,9 @@ async function appendHeartbeatLine(line: string, day: string, hour: string) {
 
 export async function GET(request: Request) {
   const secret = process.env.CRON_SECRET;
-  if (secret) {
-    const auth = request.headers.get("authorization");
-    if (auth !== `Bearer ${secret}`) {
-      return NextResponse.json({ error: "unauthorized" }, { status: 401 });
-    }
+  const authorized = Boolean(secret) && request.headers.get("authorization") === `Bearer ${secret}`;
+  if (secret && !authorized) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 
   const baseUrl = resolveBaseUrl();
@@ -148,6 +147,18 @@ export async function GET(request: Request) {
   // `ok` reports the health checks. The log append has its own field: on
   // read-only hosts (Vercel) a healthy run legitimately reports appended:false.
   const allUp = PROBE_PATHS.every((p) => routeResults[p] === 200);
+
+  // Disclosure is gated on the caller proving it is the cron. When CRON_SECRET
+  // is unset the route still runs its checks (the heartbeat is the point), but an
+  // anonymous caller only learns whether the site is up — never the deployment
+  // hostname or which secrets are configured, which is deployment reconnaissance.
+  if (!authorized) {
+    return NextResponse.json(
+      { ok: allUp, service: "Apex Pakistan maintenance cron", utc: `${day} ${hour}` },
+      { headers: { "Cache-Control": "no-store" } }
+    );
+  }
+
   return NextResponse.json(
     {
       ok: allUp,

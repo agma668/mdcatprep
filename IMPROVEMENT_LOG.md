@@ -729,3 +729,58 @@ either the printed originals or manual transcription.
 
 **Gates:** `tsc --noEmit` clean, `eslint scripts/hec-keys.mjs lib/sci.ts lib/questions.ts` clean,
 `next build` clean.
+
+---
+
+## Domain-cutover readiness: the public site was open, but three things would have bitten at launch
+
+Verified rather than assumed, from outside the deployment on 2026-11-25.
+
+**The public site is genuinely public.** `https://edweb-nine.vercel.app` returns 200 to an
+unauthenticated request with the real app and `/robots.txt`, not a Vercel login page — the Phase 0
+SSO blocker is closed. `mdcatprep-eight.vercel.app` returns 404 and is referenced by no shipped code.
+
+**Crawl health on the live deployment: 0 problems.** 96 sitemap URLs all 200, self-canonical, indexable,
+unique titles, every one with a description; all 13 private routes send `noindex, nofollow`. Run with
+`node scripts/audit-routes.mjs https://edweb-nine.vercel.app`.
+
+**The cron endpoint was publishing the deployment's configuration.** `/api/cron/maintenance` answered
+`200` to anyone — including with a wrong bearer token — and returned the deployment hostname plus which
+of `CRON_SECRET`, Supabase, VAPID and EmailJS variables were present or missing. That is free
+reconnaissance for an attacker and it existed only because `CRON_SECRET` is unset in production, which
+made the handler treat \"no secret configured\" as \"no auth needed\" *and* disclose everything. It now
+gates disclosure on the caller proving it is the cron: unauthenticated callers get `{ ok, service, utc }`
+and nothing else, while the checks and heartbeat still run. `/api/cron/demo-activity` was already
+fail-closed (503 with no secret, 401 on a wrong bearer) and is unchanged.
+
+**Email and push are not working in production.** The env inventory (names only, via that endpoint's
+presence check) shows Supabase configured 2/2, but `CRON_SECRET`, `NEXT_PUBLIC_VAPID_PUBLIC_KEY`,
+`VAPID_PRIVATE_KEY`, `VAPID_SUBJECT` and all six `EMAILJS_*` keys missing. Consequences: approval and
+enrolment email is skipped with a log line (`lib/email.ts`), so a student who signs up now is never
+told they were approved, and web push is dead. This is configuration, not code — the founder must add
+the keys in Vercel; nothing was invented or written here.
+
+**The route audit now guards the domain switch itself.** It knew exactly one stale hostname
+(`mdcatprep-eight`). It now also flags a `localhost`/`127.0.0.1` URL in shipped HTML and — the case that
+matters after cutover — any `*.vercel.app` URL in a page whose canonical host is no longer a vercel.app
+address. Without that, a domain switch leaves mixed hosts in the markup and splits indexing. Predicate
+proven with a 6-case test (fires on each bad host, quiet on legitimate `vercel.app` and custom-domain
+HTML), and the live sweep still reports 0 problems.
+
+**Domain cutover is one variable.** Canonical, `metadataBase`, OpenGraph URLs, sitemap, IndexNow and
+`/llms.txt` all derive from `getSiteUrl()`; auth email links use it and `/auth/callback` routes off the
+request origin. Setting `NEXT_PUBLIC_SITE_URL` to the final origin plus a redeploy is the whole code
+change — no source edit.
+
+**Gates:** `tsc --noEmit` clean · `eslint app/api/cron/maintenance/route.ts scripts/audit-routes.mjs`
+clean · `next build` clean · live route audit 0 problems · host-predicate test 6/6.
+
+**Still founder-only, not done here:** buying/attaching the domain, the final brand name (three names
+are live: \"MED Prep\", \"Apex Pakistan\", \"MED\"), the Vercel env keys above, and Supabase advisor/RLS
+triage.
+
+## Maintenance heartbeat
+
+Auto-appended by the 03:00 UTC cron (app/api/cron/maintenance/route.ts). On Vercel the filesystem is read-only, so appends happen only on hosts that allow file writes — elsewhere the run's heartbeat is the cron's own log line.
+
+- `2026-11-25 17:53 UTC` — routes: / 200, /api/health 200, /daily-quiz 200 · env missing: CRON_SECRET, SUPABASE_SERVICE_ROLE_KEY, EMAILJS_PUBLIC_KEY, EMAILJS_PRIVATE_KEY, EMAILJS_TEMPLATE_ID_APPROVAL, EMAILJS_TEMPLATE_ID_REJECTION · checked http://127.0.0.1:3117
