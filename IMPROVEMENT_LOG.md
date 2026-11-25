@@ -784,3 +784,10 @@ triage.
 Auto-appended by the 03:00 UTC cron (app/api/cron/maintenance/route.ts). On Vercel the filesystem is read-only, so appends happen only on hosts that allow file writes — elsewhere the run's heartbeat is the cron's own log line.
 
 - `2026-11-25 17:53 UTC` — routes: / 200, /api/health 200, /daily-quiz 200 · env missing: CRON_SECRET, SUPABASE_SERVICE_ROLE_KEY, EMAILJS_PUBLIC_KEY, EMAILJS_PRIVATE_KEY, EMAILJS_TEMPLATE_ID_APPROVAL, EMAILJS_TEMPLATE_ID_REJECTION · checked http://127.0.0.1:3117
+
+**Deployed and verified on production (2026-11-25).** Founder approved promotion; `main` was
+fast-forwarded to `19b8147` and pushed (`b271323..19b8147`). Vercel built within ~45 s, detected by
+polling the cron endpoint itself for the change. On `https://edweb-nine.vercel.app` after the deploy:
+anonymous and wrong-bearer calls both return only `{"ok":true,"service":"…","utc":"…"}` with no host
+and no env inventory, `/api/cron/demo-activity` still fail-closed at 503, the homepage 200, and the
+full route sweep reports **96 sitemap URLs + 13 private routes, 0 problems**.
