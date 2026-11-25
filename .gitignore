@@ -83,3 +83,6 @@ next-env.d.ts
 .claude-flow/policy/
 .claude-flow/security/
 .claude-flow/swarm/
+
+# Agent screenshots (kept locally, never shipped)
+/landing-*.png
