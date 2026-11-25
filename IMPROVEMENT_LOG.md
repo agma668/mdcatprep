@@ -834,3 +834,46 @@ by measuring boxes in the live DOM (card counts, widths, heights, overflow, nav 
 by eye; the final look needs the founder's glance.
 
 **Gates:** `tsc --noEmit` clean · `eslint` clean on all four touched pages · `next build` clean.
+
+---
+
+## Access that can be sold: exam-scoped entitlements, with the boundaries proven in Postgres
+
+Nothing in the schema modelled "this student bought this Prep Space". A student had an approved
+account — the global gate — and that was the whole access model, which is why the site can only be
+free today. This adds the missing half without wiring a payment provider.
+
+**`supabase/migrations/20261125000000_prep_space_entitlements.sql` (written, NOT applied).**
+`access_orders` records a student's claim of payment (amount, method — raast / easypaisa / jazzcash /
+bank transfer / manual — reference, status pending → verified|rejected, who verified it and when).
+`prep_space_entitlements` records the grant itself: one Prep Space, a source (purchase, scholarship,
+trial, sponsored, staff, launch grant), a status, and a window where `ends_at = null` means "no fixed
+end" for launch grants. Two partial unique indexes keep the history honest: one open claim per
+student per space, and at most one live grant per student per space — re-granting means ending the
+old row, not overwriting it.
+
+**The boundaries are enforced in the database, not the UI.** A student can read only their own rows
+and can insert only their own `pending` order; there is no insert/update/delete policy on
+entitlements at all, so only the service role can grant, extend or revoke. `has_prep_space_access(text)`
+is `SECURITY DEFINER` with a pinned `search_path` and takes the student from `auth.uid()` rather than
+an argument, so it cannot be used to probe another student's access.
+
+**`lib/entitlements.ts` is the decision, and it is pure.** `LAUNCH_ACCESS_POLICY` is `beta_open`
+today; flipping it to `entitled_only` is the whole difference between "free while we prove the bank"
+and "chargeable", and both states are tested. `decideAccess` refuses an unknown Prep Space before
+anything else (so a typo can never fall through to the beta allowance), treats the end of a grant as
+exclusive, and reports *why*: `public_beta`, `entitled`, `revoked`, `expired`, `not_started`,
+`no_entitlement`.
+
+**Proven, not asserted: 21 tests.** Eight of them run the real migration SQL in PGlite as the
+`authenticated` role and try what a student would — a student cannot grant themselves access, cannot
+file a pre-verified order, cannot file one for someone else, cannot see another student's rows, does
+not inherit access from another Prep Space, loses access on a lapsed or revoked grant, and cannot
+hold two live grants for the same space. The other thirteen cover the policy matrix directly. Full
+suite: 115/115.
+
+**Gates:** `tsc --noEmit` clean · `eslint` clean · `next build` clean · `npm test` 115/115.
+
+**What this deliberately does not do:** it does not apply the migration to the `edweb` project, add a
+price, add a payment provider, or lock any existing content. Those are founder decisions; the code
+now exists so the decision is a switch, not a rewrite.
