@@ -959,3 +959,9 @@ papers as "released board papers where they exist".
 **Gates:** `tsc --noEmit` clean · `eslint` clean on `app/page.tsx`, `ExamPaper.tsx`, `FAQ.tsx` ·
 `next build` clean · served HTML checked for 8 tiles, physics-first sample, exam chips,
 "See every test", the new papers heading and the absence of "Browse past papers".
+
+**The tab and the search result still led with MDCAT.** `app/page.tsx` set its own title,
+"MDCAT, NUMS, NUST, GIKI, USAT & PMA Test Preparation — Free", which is read before any hero copy.
+It is now "Entry Test Practice — MDCAT, NUMS, NUST, USAT, PMA & More", short enough not to be cut
+off and not led by one test. Layout-width smoke at 1280 / 768 / 390: eight tiles, four per row, two
+per row, one per row respectively, equal widths, no horizontal overflow, hero chips visible at 390.

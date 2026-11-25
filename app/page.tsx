@@ -49,7 +49,10 @@ const learningResourceJsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "MDCAT, NUMS, NUST, GIKI, USAT & PMA Test Preparation \u2014 Free",
+  // No test leads the title: a browser tab and a search result are read before
+  // any hero copy, and "MDCAT, NUMS, ..." told every other aspirant this was a
+  // medical site.
+  title: "Entry Test Practice \u2014 MDCAT, NUMS, NUST, USAT, PMA & More",
   description: homeDescription,
 };
 
