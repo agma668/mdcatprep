@@ -12,9 +12,12 @@ import { PublicFlashcardsClient } from './PublicFlashcardsClient'
 const siteUrl = getSiteUrl()
 
 export const metadata: Metadata = {
-  title: 'Free MDCAT Flashcards — Biology, Chemistry, Physics & English',
+  // Same rule as /notes: this page is the category, not one exam. The decks
+  // themselves are medical science (including the USAT-M maths deck), and the
+  // description says so rather than implying engineering coverage.
+  title: 'Free Entry-Test Flashcards — Biology, Chemistry, Physics & Maths',
   description:
-    'Study free MDCAT flashcards online — spaced-repetition decks for Biology, Chemistry, Physics and English built from the PMDC syllabus. No signup needed; Anki-style Again/Hard/Good/Easy scheduling.',
+    'Free spaced-repetition flashcards for MDCAT, NUMS and HEC USAT-M: Biology, Chemistry, Physics, English and Mathematics decks built from the syllabus. No signup; Anki-style Again/Hard/Good/Easy scheduling.',
   keywords: [
     'MDCAT flashcards free',
     'MDCAT online flashcards',
@@ -30,15 +33,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: `${siteUrl}/flashcards`,
-    title: 'Free MDCAT Flashcards — Spaced Repetition, No Signup | MED Prep',
-    description: `Free spaced-repetition flashcards for MDCAT and NUMS: ${FLASHCARD_META.totalDecks} decks across Biology, Chemistry, Physics and English. Study instantly, progress saved on your device.`,
+    title: 'Free Entry-Test Flashcards — Spaced Repetition, No Signup | MED Prep',
+    description: `Free spaced-repetition flashcards for MDCAT, NUMS and USAT-M: ${FLASHCARD_META.totalDecks} decks across Biology, Chemistry, Physics, English and Mathematics. Progress saved on your device.`,
     siteName: 'MED Prep',
-    images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: 'Free MDCAT Flashcards — MED Prep' }],
+    images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: 'Free entry-test flashcards — MED Prep' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free MDCAT Flashcards | MED Prep',
-    description: 'Spaced-repetition MDCAT flashcards for all four subjects. Free, no signup.',
+    title: 'Free Entry-Test Flashcards | MED Prep',
+    description: 'Spaced-repetition flashcards for MDCAT, NUMS and USAT-M. Free, no signup.',
     images: [`${siteUrl}/og.png`],
   },
   alternates: { canonical: '/flashcards' },

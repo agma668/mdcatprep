@@ -9,9 +9,12 @@ import { PUBLIC_NOTES_SUBJECTS, countBlocks, countTopics } from "@/lib/public-no
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
-  title: "MDCAT Notes — Biology, Chemistry, Physics, English (Free, All PMDC Units)",
+  // The library is medical science today. The page therefore leads with the
+  // category (entry-test notes) and states the coverage, instead of telling a
+  // NUST or PMA aspirant the whole product is somebody else's exam.
+  title: "Free Entry-Test Notes — Biology, Chemistry, Physics & English",
   description:
-    "Free MDCAT notes for every PMDC syllabus unit: core concepts in easy language plus exam-depth revision notes built from the past-paper corpus. Read online, no signup.",
+    "Free entry-test notes for MDCAT, NUMS and HEC USAT-M: every PMDC syllabus unit explained in easy language, then taken to exam depth from the past-paper corpus. Engineering and defence notes are not published yet.",
   keywords: [
     "MDCAT notes",
     "MDCAT notes free",
@@ -25,16 +28,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${siteUrl}/notes`,
-    title: "Free MDCAT Notes — Every PMDC Unit | MED Prep",
+    title: "Free Entry-Test Notes — MDCAT, NUMS & USAT-M | MED Prep",
     description:
-      "Biology, Chemistry, Physics and English notes for MDCAT and NUMS — core concepts plus exam-depth revision, free and without a signup wall.",
+      "Biology, Chemistry, Physics and English notes for MDCAT, NUMS and USAT-M — core concepts plus exam-depth revision, free and without a signup wall.",
     siteName: "MED Prep",
     images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: "Free MDCAT notes — MED Prep" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free MDCAT Notes — Every PMDC Unit | MED Prep",
-    description: "Biology, Chemistry, Physics and English notes for MDCAT and NUMS, free.",
+    title: "Free Entry-Test Notes — MDCAT, NUMS & USAT-M | MED Prep",
+    description: "Biology, Chemistry, Physics and English notes for MDCAT, NUMS and USAT-M, free.",
     images: [`${siteUrl}/og.png`],
   },
   alternates: { canonical: "/notes" },
@@ -49,12 +52,16 @@ export default function NotesHubPage() {
         <section className="relative pt-32 pb-12 overflow-hidden">
           <div className="container-page relative z-10">
             <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4">
-              Free MDCAT <span className="text-[var(--color-accent-light)]">Notes</span>
+              Free Entry-Test <span className="text-[var(--color-accent-light)]">Notes</span>
             </h1>
             <p className="text-lg text-[var(--steel-300)] max-w-2xl">
-              Every PMDC MDCAT syllabus unit, explained in easy language — then taken to exam depth
-              with fact-level revision notes derived from the past-paper corpus. Read online, free,
-              no account needed.
+              Medical-science notes for MDCAT, NUMS and HEC USAT-M — every PMDC syllabus unit in
+              easy language, then taken to exam depth with fact-level revision notes from the
+              past-paper corpus. Read online, free, no account needed.
+            </p>
+            <p className="mt-3 text-sm text-[var(--steel-400)] max-w-2xl">
+              Engineering and defence notes are not written yet. Those spaces link to practice
+              questions instead of an empty library.
             </p>
           </div>
         </section>
@@ -86,7 +93,7 @@ export default function NotesHubPage() {
                           <h3 className="text-base font-bold group-hover:text-[var(--color-accent-light)] transition-colors">
                             {s.name} notes
                           </h3>
-                          <p className="text-xs text-[var(--steel-400)]">{s.weight} · PMDC MDCAT</p>
+                          <p className="text-xs text-[var(--steel-400)]">{s.weight} · MDCAT paper</p>
                         </div>
                       </div>
                       <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--signal-300)] bg-[var(--signal-500)]/10 px-2 py-1 rounded-full">

@@ -22,6 +22,12 @@ export default function ExamsHubPage() {
               MED Prep <span className="text-xs text-muted-foreground font-normal">Prep Spaces</span>
             </Link>
             <div className="flex items-center gap-4">
+              <Link href="/notes" className="hidden text-xs font-semibold text-muted-foreground hover:text-foreground sm:block">
+                Notes
+              </Link>
+              <Link href="/flashcards" className="hidden text-xs font-semibold text-muted-foreground hover:text-foreground sm:block">
+                Flashcards
+              </Link>
               <Link href="/login" className="text-xs font-semibold hover:text-accent transition-colors">
                 Sign In
               </Link>
@@ -53,8 +59,20 @@ export default function ExamsHubPage() {
 
       {/* Footer */}
       <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
+        <nav aria-label="Footer" className="mb-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+          <Link href="/notes" className="hover:text-foreground">Notes</Link>
+          <Link href="/flashcards" className="hover:text-foreground">Flashcards</Link>
+          <Link href="/past-papers" className="hover:text-foreground">Past papers</Link>
+          <Link href="/blog" className="hover:text-foreground">Blog</Link>
+          <Link href="/pricing" className="hover:text-foreground">Pricing</Link>
+        </nav>
         <p>© {new Date().getFullYear()} MED Prep. All rights reserved.</p>
-        <p className="mt-1">Honesty is our product. Original PMDC, HEC, and military-syllabus prep material.</p>
+        {/* "Original PMDC, HEC and military-syllabus material" claimed authorship
+            of material no one here wrote. This says what is actually true. */}
+        <p className="mx-auto mt-1 max-w-xl">
+          Questions are written by us from each test&apos;s published syllabus. Released papers are
+          the boards&apos; own and labelled as such. Not affiliated with PMDC, NUMS, NUST, HEC or ISSB.
+        </p>
       </footer>
     </main>
   );

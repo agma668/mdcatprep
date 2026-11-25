@@ -40,12 +40,17 @@ export function PublicFlashcardsClient() {
             Retain what you learn · free, no signup
           </p>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-gradient-brand tracking-tight mb-3">
-            Free MDCAT Flashcards
+            Free Entry-Test Flashcards
           </h1>
-          <p className="text-sm sm:text-base text-[var(--color-text-muted)] max-w-2xl mb-8 leading-relaxed">
+          <p className="text-sm sm:text-base text-[var(--color-text-muted)] max-w-2xl mb-3 leading-relaxed">
             {FLASHCARD_META.totalDecks} spaced-repetition decks · {FLASHCARD_META.totalCards} cards
-            across Biology, Chemistry, Physics and English, built from the PMDC syllabus. Rate each
-            card honestly — Again, Hard, Good or Easy — and weak cards come back sooner.
+            across Biology, Chemistry, Physics, English and Mathematics, for MDCAT, NUMS and HEC
+            USAT-M. Rate each card honestly — Again, Hard, Good or Easy — and weak cards come back
+            sooner.
+          </p>
+          <p className="text-xs text-[var(--color-text-muted)] max-w-2xl mb-8 leading-relaxed">
+            Engineering and defence decks are not written yet — those spaces use practice questions
+            instead, so nothing here pretends to cover them.
           </p>
 
           <FlashcardsClient
