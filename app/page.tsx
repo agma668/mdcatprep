@@ -141,7 +141,59 @@ export default async function Home() {
               <ExamPaper />
             </div>
 
-            <dl className="mt-14 grid grid-cols-3 overflow-hidden rounded-[var(--r-4)] border border-[var(--line-2)] bg-[var(--srf-1)]/70 backdrop-blur-sm sm:mt-20">
+            {/* Pick your test — inside the hero on purpose. A visitor decides in the
+                first seconds whether this site serves their paper, so the tests we
+                actually run are part of the first screen, not a section three
+                scrolls down. The empty bubble in each corner fills when you reach
+                for it, like marking an answer. */}
+            <div id="other-exams" className="mt-16 sm:mt-20">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                <h2 style={display} className="text-2xl font-bold leading-tight tracking-tight sm:text-3xl">
+                  Which test are you sitting?
+                </h2>
+                <p className="max-w-[46ch] text-sm text-[var(--steel-400)] sm:text-right">
+                  One account covers all of them. The medical track is the deepest today; the others are smaller and growing.
+                </p>
+              </div>
+              <ul className="mt-6 grid gap-3 lg:grid-cols-12">
+                {TESTS.map((t) => (
+                  <li key={t.name} className={t.span}>
+                    <Link
+                      href={t.href}
+                      className={`group relative flex h-full min-h-[104px] flex-col justify-between gap-3 overflow-hidden rounded-[var(--r-4)] border border-[var(--line-2)] bg-[var(--srf-1)]/80 p-5 shadow-[var(--shadow-card)] backdrop-blur-sm transition-colors duration-[var(--dur-1)] hover:border-[var(--line-signal)] hover:bg-[var(--srf-2)] sm:min-h-[124px] sm:p-6 ${focusRing}`}
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="absolute right-4 top-4 h-4 w-4 rounded-full border-2 border-[var(--steel-600)] transition-[background-color,border-color,box-shadow] duration-[var(--dur-2)] group-hover:border-[var(--signal-400)] group-hover:bg-[var(--signal-400)] group-hover:shadow-[var(--glow-signal-sm)]"
+                      />
+                      <span className="pr-6 text-xs uppercase tracking-[0.12em] text-[var(--steel-400)]">{t.track}</span>
+                      <span className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                        <span style={display} className="text-xl font-bold tracking-tight text-[var(--steel-100)] sm:text-2xl">
+                          {t.name}
+                        </span>
+                        <span className="hidden max-w-[46ch] text-sm leading-relaxed text-[var(--steel-300)] sm:inline">
+                          {t.body}
+                        </span>
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 text-sm text-[var(--steel-300)]">
+                Questions or study material?{" "}
+                <a
+                  href="https://chat.whatsapp.com/GbhjI1A6FvBBtAd4PZR2NU"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-[var(--signal-300)] underline underline-offset-4 hover:text-[var(--signal-200)]"
+                >
+                  Join the WhatsApp group
+                </a>
+                .
+              </p>
+            </div>
+
+            <dl className="mt-10 grid grid-cols-3 overflow-hidden rounded-[var(--r-4)] border border-[var(--line-2)] bg-[var(--srf-1)]/70 backdrop-blur-sm">
               <div className="px-4 py-5 sm:px-8 sm:py-6">
                 <dd style={display} className="text-3xl font-bold tabular-nums text-[var(--steel-100)] sm:text-4xl">{mcqs.toLocaleString("en-US")}</dd>
                 <dt className="mt-1 text-sm text-[var(--steel-300)]">Practice MCQs</dt>
@@ -155,51 +207,6 @@ export default async function Home() {
                 <dt className="mt-1 text-sm text-[var(--steel-300)]">Subjects</dt>
               </div>
             </dl>
-          </div>
-        </section>
-
-        {/* Pick your test: one tile per test. The empty bubble in the corner
-            fills when you reach for it, like marking an answer. */}
-        <section id="other-exams" className="py-16 sm:py-24">
-          <div className="container-page">
-            <h2 style={display} className="max-w-[22ch] text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
-              Which test are you sitting?
-            </h2>
-            <p className="mt-4 max-w-[56ch] text-[var(--steel-300)]">
-              One account covers all of them. The medical track is the deepest today; the others are smaller and growing.
-            </p>
-            <ul className="mt-10 grid gap-4 lg:grid-cols-12">
-              {TESTS.map((t) => (
-                <li key={t.name} className={t.span}>
-                  <Link
-                    href={t.href}
-                    className={`group relative flex h-full min-h-[150px] flex-col justify-between gap-6 overflow-hidden rounded-[var(--r-4)] border border-[var(--line-2)] bg-[var(--srf-1)] p-6 shadow-[var(--shadow-card)] transition-colors duration-[var(--dur-1)] hover:border-[var(--line-signal)] hover:bg-[var(--srf-2)] ${focusRing}`}
-                  >
-                    <span
-                      aria-hidden="true"
-                      className="absolute right-5 top-5 h-5 w-5 rounded-full border-2 border-[var(--steel-600)] transition-[background-color,border-color,box-shadow] duration-[var(--dur-2)] group-hover:border-[var(--signal-400)] group-hover:bg-[var(--signal-400)] group-hover:shadow-[var(--glow-signal-sm)]"
-                    />
-                    <span className="text-sm text-[var(--steel-400)]">{t.track}</span>
-                    <span>
-                      <span style={display} className="block text-2xl font-bold tracking-tight text-[var(--steel-100)]">{t.name}</span>
-                      <span className="mt-1.5 block max-w-[48ch] text-sm leading-relaxed text-[var(--steel-300)]">{t.body}</span>
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-8 text-sm text-[var(--steel-300)]">
-              Questions or study material?{" "}
-              <a
-                href="https://chat.whatsapp.com/GbhjI1A6FvBBtAd4PZR2NU"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-[var(--signal-300)] underline underline-offset-4 hover:text-[var(--signal-200)]"
-              >
-                Join the WhatsApp group
-              </a>
-              .
-            </p>
           </div>
         </section>
 

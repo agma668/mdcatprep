@@ -791,3 +791,46 @@ polling the cron endpoint itself for the change. On `https://edweb-nine.vercel.a
 anonymous and wrong-bearer calls both return only `{"ok":true,"service":"…","utc":"…"}` with no host
 and no env inventory, `/api/cron/demo-activity` still fail-closed at 503, the homepage 200, and the
 full route sweep reports **96 sitemap URLs + 13 private routes, 0 problems**.
+
+---
+
+## The test picker now lives in the hero, and the three practice drills wear the site's own header
+
+**Which test are you sitting? moved into the hero.** The seven test tiles (MDCAT, NUMS, NUST NET,
+GIKI, LUMS, HEC USAT, PMA & ISS B) sat in their own section a long scroll down — the one question a
+visitor needs answered first was the answer they had to hunt for. The grid now sits inside the hero,
+directly under the headline and CTAs and above the stats strip, in the same 12-column rhythm
+(two 6-wide, three 4-wide, two 6-wide), compacted for the hero: 104px tiles on mobile rising to 124px
+on `sm`, the body line hidden on mobile so the list stays short, the answer-bubble corner kept, and
+the WhatsApp line carried along with it. The old section is gone rather than duplicated, and its
+`#other-exams` anchor moved with it. Measured at 1164px: seven cards at 523/523/344/344/344/523/523,
+zero horizontal overflow; at 327px: seven 104px cards, zero overflow.
+
+**The drills no longer look like a different product.** `/nust/practice`, `/pma/practice` and
+`/usat/practice` each shipped a cloned sticky header — "Elite Practice & Drills", a purple or amber
+"Master Bank" pill, no site navigation — while every other public page uses the shared `Navbar`.
+That was the board's A6 finding, and the same header had been copy-pasted into all three pages, so
+the fix went into all three: the shared nav on top, then a thin breadcrumb sub-bar carrying the
+portal back-link, the page name, the "Preparing for" chooser and the bank badge. The sub-bar stacks
+on mobile instead of squeezing the chooser into the same 64px row, and carries `pt-16 md:pt-18`
+because the nav is `fixed` (without it the sub-bar slid under the nav — caught by measuring at 360px,
+not by looking). Page footers now read `SITE_NAME` instead of inventing a third sub-brand
+("Apex Pakistan — NUST NET/GIKI/LUMS Elite Prep Engine"). The per-exam purple/amber palettes stay:
+they come from `lib/exams-config.ts` and are deliberate exam identity, not drift.
+
+**USAT's timed practice could not time.** `startTimer()` existed but nothing ever called it, so
+"Start Timed Practice" set a flag and no countdown, auto-skip or progress ever ran — a control that
+promised a behaviour it did not have. It is now one effect that owns the interval (guarded on
+`examStarted` / answered / skipped, restarted per question) with the clock derived from state rather
+than mirrored into it, so there is no second source of truth and no `setState` inside an effect.
+Verified in the browser: the clock appears at 20, decrements, stops the moment an option is answered,
+and the rationale then reveals. A broken `absolute`-positioned timer overlay that painted a purple
+band across the whole page was removed; the countdown display and the "Xs remaining" footer already
+say the same thing honestly.
+
+**Not verified visually, stated plainly:** the Freebuff window was minimised while this landed, so the
+automation tab could not be painted — screenshots and wheel-scrolling were blocked. Layout was checked
+by measuring boxes in the live DOM (card counts, widths, heights, overflow, nav clearance) rather than
+by eye; the final look needs the founder's glance.
+
+**Gates:** `tsc --noEmit` clean · `eslint` clean on all four touched pages · `next build` clean.

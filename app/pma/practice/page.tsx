@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { PMA_QUESTIONS, pmaOptionFigure } from '@/lib/pma-questions';
 import { PmaFigure } from '@/components/pma/PmaFigure';
 import { TestPrepChooser } from '@/components/dashboard/TestPrepChooser';
+import { Navbar } from '@/components/landing/Navbar';
+import { SITE_NAME } from '@/lib/site';
 import { usePrepChoice } from '@/lib/prep-choice';
 import { getPrepTest } from '@/lib/prep-tests';
 
@@ -130,26 +132,25 @@ export default function PMAPracticePage() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col justify-between font-sans">
       <div>
-        {/* Navbar */}
-        <header className="border-b border-border bg-card/50 backdrop-blur sticky top-0 z-50">
-          <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Link href="/portal/pma" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+        {/* Shared site nav; the sub-bar stacks on mobile so the chooser can no longer overlap it. */}
+        <Navbar />
+        <div className="pt-16 md:pt-18 border-b border-border bg-card/50 backdrop-blur">
+          <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex min-w-0 items-center gap-2 text-xs">
+              <Link href="/portal/pma" className="shrink-0 text-muted-foreground transition-colors hover:text-foreground">
                 &larr; PMA Portal
               </Link>
-              <span className="text-border">/</span>
-              <span className="font-extrabold text-sm text-foreground">Intelligence Practice</span>
+              <span className="text-border" aria-hidden="true">/</span>
+              <span className="truncate font-extrabold text-foreground">Intelligence Practice</span>
             </div>
-            <div className="flex items-center gap-3 min-w-0">
-              <div className="min-w-0 w-[calc(100%-4.5rem)] sm:w-auto">
-                <TestPrepChooser family="military" />
-              </div>
-              <span className="hidden sm:inline-block text-xs px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 font-bold shrink-0">
+            <div className="flex flex-wrap items-center gap-3">
+              <TestPrepChooser family="military" />
+              <span className="shrink-0 rounded-full bg-accent/10 px-3 py-1 text-xs font-bold text-accent">
                 {prepTest?.label ?? 'PMA Long Course'}
               </span>
             </div>
           </div>
-        </header>
+        </div>
 
         {/* Timer Display */}
         {examStarted && (
@@ -351,7 +352,7 @@ export default function PMAPracticePage() {
 
       {/* Footer */}
       <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
-        <p>&copy; {new Date().getFullYear()} Apex Pakistan &mdash; PMA Intelligence Prep Engine.</p>
+        <p>&copy; {new Date().getFullYear()} {SITE_NAME} &mdash; PMA intelligence practice.</p>
       </footer>
     </div>
   );

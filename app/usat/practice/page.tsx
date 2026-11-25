@@ -1,16 +1,16 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { USAT_ELITE_BANK } from '@/lib/usat-comprehensive-bank';
 import Link from 'next/link';
+import { Navbar } from '@/components/landing/Navbar';
+import { SITE_NAME } from '@/lib/site';
 
 export default function USATPracticePage() {
   const [selectedSubject, setSelectedSubject] = useState<string>('All');
   const [currentIdx, setCurrentIdx] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, 'A' | 'B' | 'C' | 'D'>>({});
-  const [showResults, setShowResults] = useState(false);
   const [examStarted, setExamStarted] = useState(false);
-  const [timerRunning, setTimerRunning] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState(20);
   const [questionSkipped, setQuestionSkipped] = useState(false);
 
@@ -23,37 +23,30 @@ export default function USATPracticePage() {
   const userChoice = selectedAnswers[currentQ.key];
   const isAnswered = userChoice !== undefined;
   const isCorrect = isAnswered && currentQ.correct_answer === userChoice;
+  // The clock is derived, never mirrored into state: it runs while a timed question is unanswered.
+  const showClock = examStarted && !isAnswered;
 
-  // Timer state
-  const timerRef = useRef<number | null>(null);
-
-  const startTimer = () => {
-    setTimeRemaining(20);
-    setTimerRunning(true);
-    timerRef.current = window.setInterval(() => {
+  // One effect owns the countdown. It restarts on every question change and stops the moment the
+  // question is answered or time runs out, because its guard reads derived state rather than setting
+  // any. Before this, startTimer() existed but was never called: "Start Timed Practice" set a flag
+  // and no clock ever ran, so the timer and the auto-skip it advertises were dead controls.
+  useEffect(() => {
+    if (!examStarted || isAnswered || questionSkipped) return;
+    const id = window.setInterval(() => {
       setTimeRemaining(prev => {
         if (prev <= 1) {
-          clearInterval(timerRef.current!);
-          setTimerRunning(false);
+          window.clearInterval(id);
           setQuestionSkipped(true);
           return 0;
         }
         return prev - 1;
       });
     }, 1000);
-  };
-
-  const stopTimer = () => {
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-      timerRef.current = null;
-    }
-    setTimerRunning(false);
-  };
+    return () => window.clearInterval(id);
+  }, [examStarted, isAnswered, questionSkipped, currentIdx]);
 
   const handleSelectOption = (option: 'A' | 'B' | 'C' | 'D') => {
     setSelectedAnswers(prev => ({ ...prev, [currentQ.key]: option }));
-    stopTimer();
     setQuestionSkipped(false);
   };
 
@@ -61,8 +54,7 @@ export default function USATPracticePage() {
     if (currentIdx < totalQuestions - 1) {
       setCurrentIdx(prev => prev + 1);
       setSelectedAnswers({});
-      setShowResults(false);
-      setTimerRunning(false);
+      setQuestionSkipped(false);
       setTimeRemaining(20);
     }
   }, [currentIdx, totalQuestions]);
@@ -71,8 +63,7 @@ export default function USATPracticePage() {
     if (currentIdx > 0) {
       setCurrentIdx(prev => prev - 1);
       setSelectedAnswers({});
-      setShowResults(false);
-      setTimerRunning(false);
+      setQuestionSkipped(false);
       setTimeRemaining(20);
     }
   };
@@ -89,21 +80,22 @@ export default function USATPracticePage() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col justify-between font-sans">
       <div>
-        {/* Navbar */}
-        <header className="border-b border-border bg-card/50 backdrop-blur sticky top-0 z-50">
-          <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Link href="/portal/usat" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+        {/* Shared site nav — same fix as the NUST and PMA drills, which had cloned this header. */}
+        <Navbar />
+        <div className="pt-16 md:pt-18 border-b border-border bg-card/50 backdrop-blur">
+          <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex min-w-0 items-center gap-2 text-xs">
+              <Link href="/portal/usat" className="shrink-0 text-muted-foreground transition-colors hover:text-foreground">
                 ← USAT-M Portal
               </Link>
-              <span className="text-border">/</span>
-              <span className="font-extrabold text-sm text-foreground">Elite Practice & Drills</span>
+              <span className="text-border" aria-hidden="true">/</span>
+              <span className="truncate font-extrabold text-foreground">USAT-M Practice</span>
             </div>
-            <span className="text-xs px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 font-bold">
-              USAT-M Master Bank
+            <span className="shrink-0 self-start rounded-full bg-accent/10 px-3 py-1 text-xs font-bold text-accent sm:self-auto">
+              USAT-M bank
             </span>
           </div>
-        </header>
+        </div>
 
         {/* Timer & Progress Bar */}
         {!examStarted && (
@@ -118,9 +110,9 @@ export default function USATPracticePage() {
         )}
 
         {/* Timer Display */}
-        {examStarted && timerRunning && (
+        {showClock && (
           <div className="mb-6 text-center">
-            <div className="text-3xl font-bold text-purple-400">{timeRemaining}</div>
+            <div className={`text-3xl font-bold ${timeRemaining <= 5 ? 'text-rose-400' : 'text-purple-400'}`}>{timeRemaining}</div>
             <div className="mt-2 text-sm text-purple-300">Seconds per question — auto-skips if unanswered</div>
           </div>
         )}
@@ -138,7 +130,7 @@ export default function USATPracticePage() {
               {subjects.map(sub => (
                 <button
                   key={sub}
-                  onClick={() => { setSelectedSubject(sub); setCurrentIdx(0); setExamStarted(false); setSelectedAnswers({}); setQuestionSkipped(false); stopTimer(); }}
+                  onClick={() => { setSelectedSubject(sub); setCurrentIdx(0); setExamStarted(false); setSelectedAnswers({}); setQuestionSkipped(false); setTimeRemaining(20); }}
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                     selectedSubject === sub
                       ? 'bg-accent text-accent-foreground shadow'
@@ -190,7 +182,7 @@ export default function USATPracticePage() {
                   const isCorrect = isAnswered && currentQ.correct_answer === optKey;
 
                   let btnStyle = 'border-border bg-card/80 hover:bg-muted/50 text-foreground';
-                  if (timerRunning && timeRemaining <= 5) {
+                  if (showClock && timeRemaining <= 5) {
                     btnStyle = 'border-purple-500 bg-purple-500/20 text-purple-300 font-semibold';
                   }
                   if (userChoice) {
@@ -214,13 +206,6 @@ export default function USATPracticePage() {
                   );
                 })}
               </div>
-
-              {/* Timer Visual (overlay during active questions) */}
-              {examStarted && timerRunning && !isAnswered && !questionSkipped && (
-                <div className="absolute top-0 left-0 right-0 h-full bg-purple-500/10">
-                  <div className="h-full bg-purple-500" style={{width: `${(timeRemaining / 20) * 100}%`}} />
-                </div>
-              )}
 
               {/* Explanation Box */}
               {userChoice && (
@@ -253,7 +238,7 @@ export default function USATPracticePage() {
                 </button>
 
                 <div className="text-xs text-muted-foreground">
-                  {examStarted && timerRunning ? `${timeRemaining}s remaining` : `Question ${currentIdx + 1} of ${filteredQuestions.length}`}
+                  {showClock ? `${timeRemaining}s remaining` : `Question ${currentIdx + 1} of ${filteredQuestions.length}`}
                 </div>
 
                 <button
@@ -270,7 +255,7 @@ export default function USATPracticePage() {
 
         {/* Footer */}
         <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} Apex Pakistan — HEC USAT-M Elite Prep Engine.</p>
+          <p>© {new Date().getFullYear()} {SITE_NAME} — HEC USAT-M practice.</p>
         </footer>
       </div>
     </div>
