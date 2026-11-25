@@ -39,7 +39,7 @@ export const PREP_SPACES = [
     category: "medical",
     readiness: "beta",
     summary:
-      "Limited MCQ practice and supporting study tools. The current custom mock is not an official-format 2026 full paper.",
+      "Chapter-wise practice, whole-paper sets and released board papers with their keys. The current custom mock is not an official-format 2026 full paper.",
     capabilities: [
       "mcq_practice",
       "scaled_timed_mock",
@@ -54,11 +54,14 @@ export const PREP_SPACES = [
     slug: "nums-mdcat",
     name: "NUMS MDCAT",
     category: "medical",
-    readiness: "content_in_progress",
+    // NUMS has a live practice surface (the shared medical bank) and its own
+    // released papers in the library. It said "Not open for practice" next to a
+    // working link, which is the contradiction a visitor notices first.
+    readiness: "beta",
     summary:
-      "Separate NUMS preparation identity. Dedicated syllabus and paper rules must be reconciled before full-format claims.",
-    capabilities: [],
-    legacyRoute: "/dashboard",
+      "Practises on the shared medical bank, and its released papers are in the paper library. A separately weighted NUMS bank is not split out yet.",
+    capabilities: ["mcq_practice", "released_past_papers"],
+    legacyRoute: "/topicals",
   },
   {
     id: "hec-bfap-scholarship-pre-medical",
@@ -76,10 +79,12 @@ export const PREP_SPACES = [
     slug: "hec-usat",
     name: "HEC USAT",
     category: "scholarship",
-    readiness: "coming_soon",
+    // A 417-question USAT drill is live at /usat/practice. Calling it "Coming
+    // soon" was the single worst contradiction on this page.
+    readiness: "beta",
     summary:
-      "Standard HEC USAT needs its own verified stream variants and Part I / Part II workflow.",
-    capabilities: [],
+      "Quantitative, verbal and science practice on the USAT pattern. No released USAT papers exist, so every question is written from the syllabus.",
+    capabilities: ["mcq_practice"],
     legacyRoute: "/usat/practice",
   },
   {
@@ -89,7 +94,7 @@ export const PREP_SPACES = [
     category: "engineering",
     readiness: "beta",
     summary:
-      "Scaled NET-Engineering practice using the current verified subject weighting; not a full-length 200-question simulation.",
+      "Maths, physics, chemistry and English on the NET pattern, using the verified subject weighting. Not a full-length 200-question simulation.",
     capabilities: ["mcq_practice", "scaled_timed_mock"],
     legacyRoute: "/nust/practice",
   },
@@ -98,10 +103,10 @@ export const PREP_SPACES = [
     slug: "giki-undergraduate-test",
     name: "GIKI Undergraduate Admission Test",
     category: "engineering",
-    readiness: "coming_soon",
+    readiness: "beta",
     summary:
-      "A separate exam identity; an independent GIKI blueprint and question bank are not yet established.",
-    capabilities: [],
+      "Runs on the shared engineering bank today. GIKI's own blueprint and weighting are not split out yet, so treat it as engineering practice rather than a GIKI simulation.",
+    capabilities: ["mcq_practice"],
     legacyRoute: "/nust/practice",
   },
   {
@@ -109,10 +114,10 @@ export const PREP_SPACES = [
     slug: "lums-sbasse-lcat",
     name: "LUMS SBASSE — LCAT route",
     category: "engineering",
-    readiness: "coming_soon",
+    readiness: "beta",
     summary:
-      "A distinct LCAT preparation route. SAT and ACT remain separate LUMS admission routes.",
-    capabilities: [],
+      "LCAT-route practice on the shared engineering bank. SAT and ACT remain separate LUMS admission routes with no practice here yet.",
+    capabilities: ["mcq_practice"],
     legacyRoute: "/nust/practice",
   },
   {
@@ -122,7 +127,7 @@ export const PREP_SPACES = [
     category: "defence",
     readiness: "beta",
     summary:
-      "Limited initial-test practice with locally held progress; durable goal-scoped progress is not yet verified.",
+      "Initial-test practice across verbal, non-verbal and academic questions, timed at 20 seconds a question. Full PMA selection is not simulated.",
     capabilities: ["mcq_practice", "scaled_timed_mock", "verbal_nonverbal_drills"],
     legacyRoute: "/pma/practice",
   },
@@ -131,9 +136,9 @@ export const PREP_SPACES = [
     slug: "issb-selection",
     name: "ISSB Selection Preparation",
     category: "defence",
-    readiness: "content_in_progress",
+    readiness: "beta",
     summary:
-      "Focused reasoning drills only. This is not a complete ISSB selection-preparation workflow.",
+      "Verbal and non-verbal reasoning drills inside the defence practice surface. The multi-day ISSB selection process itself is not simulated.",
     capabilities: ["verbal_nonverbal_drills"],
     legacyRoute: "/pma/practice",
   },

@@ -1,4 +1,5 @@
 import { ExamHubSelector } from '@/components/exams/ExamHubSelector';
+import { PORTAL_BANK_COUNTS } from '@/lib/stats';
 import Link from 'next/link';
 
 export const metadata = {
@@ -36,7 +37,17 @@ export default function ExamsHubPage() {
 
         {/* Hero & Hub Selector */}
         <section className="py-12">
-          <ExamHubSelector />
+          {/* Counts are server-derived and passed in, so a card can never
+              advertise a bank size the bank does not hold. Shared banks are
+              labelled as shared in the registry summary. */}
+          <ExamHubSelector
+            counts={{
+              'pmdc-mdcat': PORTAL_BANK_COUNTS.mdcat,
+              'nust-net-engineering': PORTAL_BANK_COUNTS.nust,
+              'hec-usat': PORTAL_BANK_COUNTS.usat,
+              'pma-long-course': PORTAL_BANK_COUNTS.pma,
+            }}
+          />
         </section>
       </div>
 

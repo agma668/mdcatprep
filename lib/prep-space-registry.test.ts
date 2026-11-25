@@ -27,7 +27,12 @@ test("standard HEC USAT is distinct from the scholarship test", () => {
 
   assert.ok(usat && scholarship);
   assert.notEqual(usat.id, scholarship.id);
-  assert.equal(usat.readiness, "coming_soon");
+  // /usat/practice serves a live 417-question bank, so the catalogue must say
+  // beta: "Coming soon" next to a working link was the page's worst lie.
+  assert.equal(usat.readiness, "beta");
+  // The literal tuple type narrows to never here, so widen it for the check.
+  assert.ok((usat.capabilities as readonly string[]).includes("mcq_practice"));
+  assert.equal(usat.legacyRoute, "/usat/practice");
   assert.equal(scholarship.readiness, "beta");
 });
 
@@ -38,8 +43,12 @@ test("GIKI and LUMS have distinct identities from NUST NET", () => {
 
   assert.ok(nust && giki && lums);
   assert.equal(new Set([nust.id, giki.id, lums.id]).size, 3);
-  assert.deepEqual(giki.capabilities, []);
-  assert.deepEqual(lums.capabilities, []);
+  // They share the engineering bank, and the catalogue says so instead of
+  // pretending the space is unopened while its link works.
+  assert.deepEqual(giki.capabilities, ["mcq_practice"]);
+  assert.deepEqual(lums.capabilities, ["mcq_practice"]);
+  assert.equal(giki.legacyRoute, "/nust/practice");
+  assert.equal(lums.legacyRoute, "/nust/practice");
 });
 
 test("category lookup returns only matching Prep Spaces", () => {

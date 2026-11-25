@@ -348,7 +348,7 @@ export default function PMAPracticePage() {
                   onClick={() => goTo(currentIdx + 1)}
                   className="px-4 py-2 rounded-xl bg-amber-600 text-amber-100 font-semibold text-sm disabled:opacity-40 hover:opacity-90 transition-opacity"
                 >
-                  {currentIdx >= total - 1 ? 'Review &rarr;' : 'Next Question &rarr;'}
+                  {currentIdx >= total - 1 ? 'Review →' : 'Next Question →'}
                 </button>
               </div>
             </div>

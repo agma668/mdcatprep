@@ -13,6 +13,7 @@ import { FAQ, FAQS } from "@/components/landing/FAQ";
 import { RegisterSection } from "@/components/landing/RegisterSection";
 import { Footer } from "@/components/landing/Footer";
 import { getPublicStats } from "@/lib/public-stats";
+import { PORTAL_BANK_COUNTS } from "@/lib/stats";
 import { getSiteUrl, SITE_NAME } from "@/lib/site";
 import { PAST_PAPERS, PAST_PAPER_COUNT, isOfficialKey, papersByYear } from "@/lib/past-papers";
 
@@ -101,6 +102,19 @@ export default async function Home() {
   const stats = await getPublicStats();
   const mcqs = stats.hero.mcqs;
 
+  // A tile that shows its real bank size is proof; the old copy ("shares the
+  // engineering bank") told a GIKI student there was nothing here for them.
+  const tileMeta: Record<string, string> = {
+    MDCAT: `${mcqs.toLocaleString("en-US")} questions`,
+    NUMS: `${PAST_PAPER_COUNT} released papers`,
+    "NUST NET": `${PORTAL_BANK_COUNTS.nust} questions`,
+    GIKI: `${PORTAL_BANK_COUNTS.nust} shared questions`,
+    LUMS: `${PORTAL_BANK_COUNTS.nust} shared questions`,
+    "HEC USAT": `${PORTAL_BANK_COUNTS.usat} questions`,
+    PMA: `${PORTAL_BANK_COUNTS.pma} questions`,
+    ISSB: "reasoning drills",
+  };
+
   const dated = papersByYear().filter((g) => /^\d{4}$/.test(g.key));
   const keyed = PAST_PAPERS.filter(isOfficialKey).length;
   const firstYear = dated.length ? dated[dated.length - 1].key : null;
@@ -124,7 +138,9 @@ export default async function Home() {
               <div>
                 <p className="inline-flex items-center gap-2 rounded-[var(--r-pill)] border border-[var(--line-brass)] bg-[var(--tint-brass)] px-3.5 py-1.5 text-sm text-[var(--steel-100)]">
                   <span className="font-semibold text-[var(--champagne)]">Free during beta</span>
-                  <span className="text-[var(--steel-300)]">no fees, no card, nothing to unlock yet</span>
+                  <span className="w-full text-[13px] text-[var(--steel-300)] sm:w-auto sm:text-sm">
+                    no fees, no card
+                  </span>
                 </p>
                 <h1
                   style={display}
@@ -143,6 +159,21 @@ export default async function Home() {
                     See every test
                   </Link>
                 </div>
+                {/* On a phone the sample card and the grid are both below the
+                    fold, so without this strip the first screen never names a
+                    test. All eight, before the scroll. */}
+                <ul className="mt-5 flex flex-wrap gap-1.5 lg:hidden" aria-label="Tests covered">
+                  {TESTS.map((t) => (
+                    <li key={t.name}>
+                      <Link
+                        href={t.href}
+                        className="inline-flex rounded-full border border-[var(--line-2)] bg-[var(--srf-1)]/70 px-2.5 py-1 text-[11px] font-semibold text-[var(--steel-200)]"
+                      >
+                        {t.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
                 <p className="mt-5 max-w-[52ch] text-sm leading-relaxed text-[var(--steel-400)]">
                   Questions are written by us from each test&apos;s official syllabus. Released papers are the boards&apos; own — never reconstructed.
                 </p>
@@ -183,6 +214,9 @@ export default async function Home() {
                         <span className="hidden max-w-[46ch] text-sm leading-relaxed text-[var(--steel-300)] sm:inline">
                           {t.body}
                         </span>
+                        <span className="w-full text-[11px] font-semibold tabular-nums text-[var(--steel-400)]">
+                          {tileMeta[t.name]}
+                        </span>
                       </span>
                     </Link>
                   </li>
@@ -212,8 +246,8 @@ export default async function Home() {
                 <dt className="mt-1 text-sm text-[var(--steel-300)]">Past papers</dt>
               </div>
               <div className="border-l border-[var(--line-2)] px-4 py-5 sm:px-8 sm:py-6">
-                <dd style={display} className="text-3xl font-bold tabular-nums text-[var(--steel-100)] sm:text-4xl">{stats.hero.subjects}</dd>
-                <dt className="mt-1 text-sm text-[var(--steel-300)]">Subjects</dt>
+                <dd style={display} className="text-3xl font-bold tabular-nums text-[var(--steel-100)] sm:text-4xl">{TESTS.length}</dd>
+                <dt className="mt-1 text-sm text-[var(--steel-300)]">Test tracks</dt>
               </div>
             </dl>
           </div>

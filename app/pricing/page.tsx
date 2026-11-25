@@ -17,9 +17,13 @@ export default function PricingPage() {
     <main className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-40 border-b border-border bg-card/80 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+          {/* Same wordmark as the rest of the site. The page used to say
+              APEX PAKISTAN while every other header said MED Prep, which read
+              as a different company's checkout page. The new name is still a
+              founder decision, so this page does not make it. */}
           <Link href="/" className="flex items-center gap-2 text-sm font-extrabold tracking-tight">
             <span className="h-3 w-3 rounded-full bg-accent" aria-hidden="true" />
-            APEX PAKISTAN
+            MED Prep <span className="text-xs font-normal text-muted-foreground">Prep Spaces</span>
           </Link>
           <nav className="flex items-center gap-4 text-xs font-semibold">
             <Link href="/exams" className="text-muted-foreground transition-colors hover:text-foreground">
@@ -41,7 +45,7 @@ export default function PricingPage() {
           Start preparing without a payment.
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Apex is currently in beta. You can create an account without entering payment details
+          MED Prep is currently in beta. You can create an account without entering payment details
           and explore the preparation spaces and features that are available today.
         </p>
 

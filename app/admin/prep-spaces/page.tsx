@@ -24,9 +24,14 @@ export default async function AdminPrepSpacesPage() {
     { category: "defence", title: "Defence" },
   ] as const;
 
-  const betaCount = PREP_SPACES.filter((space) => space.readiness === "beta").length;
-  const inProgressCount = PREP_SPACES.filter((space) => space.readiness === "content_in_progress").length;
-  const comingSoonCount = PREP_SPACES.filter((space) => space.readiness === "coming_soon").length;
+  // Compared through the declared union, not the narrowed literal: while every
+  // space happens to be "beta", `space.readiness === "coming_soon"` is a
+  // no-overlap comparison the compiler rejects. The counts still have to work
+  // the day a space moves back to in-progress.
+  const readinessOf = (space: (typeof PREP_SPACES)[number]): string => space.readiness;
+  const betaCount = PREP_SPACES.filter((space) => readinessOf(space) === "beta").length;
+  const inProgressCount = PREP_SPACES.filter((space) => readinessOf(space) === "content_in_progress").length;
+  const comingSoonCount = PREP_SPACES.filter((space) => readinessOf(space) === "coming_soon").length;
 
   return (
     <main className="mx-auto w-full max-w-6xl p-5 sm:p-8">

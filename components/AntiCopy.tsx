@@ -1,15 +1,29 @@
 'use client'
 
 import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 
 /**
- * Lightweight anti-copy friction (a deterrent, not a security measure).
- * Disables right-click, blocks text selection outside of input/textarea
- * fields, blocks common copy / view-source / devtools shortcuts, and adds
- * a watermark when the page is printed.
+ * Lightweight anti-copy friction (a deterrent, not a security measure) for the
+ * question surfaces only.
+ *
+ * It used to run on every route: no text could be selected anywhere, Ctrl+C was
+ * swallowed outside form fields, and images were `pointer-events: none`. That
+ * made a blog post impossible to quote, broke browser translation and reading
+ * aids, and was the first thing a visitor noticed. The protection now applies
+ * only where the paid question content lives; everything a reader should be
+ * able to select stays selectable.
  */
+const PROTECTED_PREFIXES = ['/practice', '/dashboard', '/mock', '/topicals', '/past-papers']
+
 export function AntiCopy() {
+  const pathname = usePathname()
+  const protectedRoute = PROTECTED_PREFIXES.some(
+    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
+  )
+
   useEffect(() => {
+    if (!protectedRoute) return
     const isEditable = (target: EventTarget | null) => {
       const el = target as HTMLElement | null
       if (!el) return false
@@ -59,15 +73,19 @@ export function AntiCopy() {
       document.removeEventListener('dragstart', blockDrag)
       document.removeEventListener('selectstart', blockSelection)
     }
-  }, [])
+  }, [protectedRoute])
+
+  if (!protectedRoute) return null
 
   return (
     <>
-      {/* Block text selection app-wide, but allow it inside form fields. */}
+      {/* Block text selection on question surfaces, but allow it inside form
+          fields. Images stay clickable (pointer-events) — the drag handler
+          already stops saving by drag. */}
       <style>{`
         body { -webkit-user-select: none; user-select: none; }
         input, textarea, [contenteditable="true"] { -webkit-user-select: text; user-select: text; }
-        img { -webkit-user-drag: none; user-drag: none; pointer-events: none; }
+        img { -webkit-user-drag: none; }
       `}</style>
       {/* Print watermark: page footer shows ownership on any print/save. */}
       <style>{`

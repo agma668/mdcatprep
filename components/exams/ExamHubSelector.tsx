@@ -60,7 +60,7 @@ function CapabilityList({ space }: { space: PrepSpaceDefinition }) {
   );
 }
 
-function PrepSpaceCard({ space }: { space: PrepSpaceDefinition }) {
+function PrepSpaceCard({ space, count }: { space: PrepSpaceDefinition; count?: number }) {
   const status = READINESS[space.readiness];
   const canEnter = space.readiness === "beta" && Boolean(space.legacyRoute);
 
@@ -78,10 +78,17 @@ function PrepSpaceCard({ space }: { space: PrepSpaceDefinition }) {
       </div>
 
       <h3 className="mt-4 text-lg font-bold leading-snug text-foreground">{space.name}</h3>
+      {/* A number is proof where a sentence is only a promise: the bank size
+          comes from the same server count the practice page uses. */}
+      {count ? (
+        <p className="mt-1 text-xs font-bold tabular-nums text-accent">
+          {count.toLocaleString("en-US")} questions in this bank
+        </p>
+      ) : null}
       <p className="mt-2 min-h-12 text-sm leading-relaxed text-muted-foreground">{space.summary}</p>
 
       <div className="mt-4">
-        <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Available tools</p>
+        <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">What&apos;s inside</p>
         <CapabilityList space={space} />
       </div>
 
@@ -105,7 +112,7 @@ function PrepSpaceCard({ space }: { space: PrepSpaceDefinition }) {
   );
 }
 
-export function ExamHubSelector() {
+export function ExamHubSelector({ counts = {} }: { counts?: Record<string, number> }) {
   return (
     <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:py-10">
       <header className="mx-auto mb-10 max-w-3xl text-center">
@@ -116,7 +123,7 @@ export function ExamHubSelector() {
           Choose your preparation space
         </h1>
         <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Choose the exam you are preparing for. Each space has its own tools and readiness status, while your Apex account stays the same.
+          Each space shows exactly what is inside it today — the question count, the tools that work, and what is still being built. One Apex account covers all of them.
         </p>
       </header>
 
@@ -132,7 +139,9 @@ export function ExamHubSelector() {
                 <p className="mt-1 text-sm text-muted-foreground">{group.description}</p>
               </div>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                {spaces.map((space) => <PrepSpaceCard key={space.id} space={space} />)}
+                {spaces.map((space) => (
+                  <PrepSpaceCard key={space.id} space={space} count={counts[space.id]} />
+                ))}
               </div>
             </section>
           );
