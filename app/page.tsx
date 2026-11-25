@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
+  ArrowUpRight,
+  BookOpen,
   BookOpenCheck,
+  Brain,
+  Calculator,
+  Cpu,
   FileText,
+  GraduationCap,
   Layers,
   NotebookPen,
+  Shield,
   Sparkles,
+  Stethoscope,
 } from "lucide-react";
 import { Navbar } from "@/components/landing/Navbar";
-import { ExamPaper } from "@/components/landing/ExamPaper";
 import { FAQ, FAQS } from "@/components/landing/FAQ";
 import { RegisterSection } from "@/components/landing/RegisterSection";
 import { Footer } from "@/components/landing/Footer";
@@ -98,6 +105,21 @@ const STEPS = [
 const focusRing =
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal-300)]";
 
+// One glyph per paper. A medical cross for MDCAT, engineers' tools for NET and
+// GIKI, a cap for admissions, a shield for defence. The hero used to show a
+// Biology sample question, which told seven of the eight audiences that the
+// product was not theirs; this plate says the opposite in one glance.
+const TEST_ICONS: Record<string, typeof Stethoscope> = {
+  MDCAT: Stethoscope,
+  NUMS: FileText,
+  "NUST NET": Calculator,
+  GIKI: Cpu,
+  "HEC USAT": GraduationCap,
+  LUMS: BookOpen,
+  PMA: Shield,
+  ISSB: Brain,
+};
+
 export default async function Home() {
   const stats = await getPublicStats();
   const mcqs = stats.hero.mcqs;
@@ -131,16 +153,15 @@ export default async function Home() {
         {/* Merge resolution (2026-11-22): the OMR hero comes from origin/main; the badge keeps this
             branch's truthful "Free during beta" wording instead of "100% free", which the access
             policy no longer promises. */}
-        <section className="relative isolate overflow-hidden">
-          <div aria-hidden="true" className="omr-field absolute inset-0 -z-10" />
+        <section className="relative isolate">
           <div className="container-page pb-16 pt-28 sm:pb-24 sm:pt-36">
             <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
               <div>
-                <p className="inline-flex items-center gap-2 rounded-[var(--r-pill)] border border-[var(--line-brass)] bg-[var(--tint-brass)] px-3.5 py-1.5 text-sm text-[var(--steel-100)]">
+                {/* One line, always. Two spans in a pill wrapped into a
+                    three-storey block on a phone and looked broken. */}
+                <p className="inline-flex flex-wrap items-baseline gap-x-2 rounded-[var(--r-pill)] border border-[var(--line-brass)] bg-[var(--tint-brass)] px-3.5 py-1.5 text-[13px] leading-5 text-[var(--steel-100)] sm:text-sm">
                   <span className="font-semibold text-[var(--champagne)]">Free during beta</span>
-                  <span className="w-full text-[13px] text-[var(--steel-300)] sm:w-auto sm:text-sm">
-                    no fees, no card
-                  </span>
+                  <span className="text-[var(--steel-300)]">no fees, no card</span>
                 </p>
                 <h1
                   style={display}
@@ -159,26 +180,62 @@ export default async function Home() {
                     See every test
                   </Link>
                 </div>
-                {/* On a phone the sample card and the grid are both below the
-                    fold, so without this strip the first screen never names a
-                    test. All eight, before the scroll. */}
-                <ul className="mt-5 flex flex-wrap gap-1.5 lg:hidden" aria-label="Tests covered">
-                  {TESTS.map((t) => (
-                    <li key={t.name}>
-                      <Link
-                        href={t.href}
-                        className="inline-flex rounded-full border border-[var(--line-2)] bg-[var(--srf-1)]/70 px-2.5 py-1 text-[11px] font-semibold text-[var(--steel-200)]"
-                      >
-                        {t.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
                 <p className="mt-5 max-w-[52ch] text-sm leading-relaxed text-[var(--steel-400)]">
                   Questions are written by us from each test&apos;s official syllabus. Released papers are the boards&apos; own — never reconstructed.
                 </p>
               </div>
-              <ExamPaper />
+              {/* The coverage plate. Eight names, eight glyphs, one header —
+                  the whole promise of the product readable before a single
+                  question is answered. Numbers stay below in the picker so the
+                  two blocks do different jobs. */}
+              <aside aria-label="Tests covered" className="relative">
+                <div className="rounded-[var(--r-5)] border border-[var(--line-2)] bg-[var(--srf-1)] p-5 shadow-[var(--shadow-card)] sm:p-6">
+                  <div className="flex items-baseline justify-between gap-4 border-b border-[var(--line-1)] pb-4">
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--steel-400)]">
+                        Covered on Apex
+                      </p>
+                      <p style={display} className="mt-1.5 text-2xl font-bold tracking-tight text-[var(--steel-100)]">
+                        Eight papers
+                      </p>
+                    </div>
+                    <span className="rounded-[var(--r-pill)] border border-[var(--line-brass)] bg-[var(--tint-brass)] px-2.5 py-1 text-[11px] font-bold tabular-nums text-[var(--champagne)]">
+                      1 account
+                    </span>
+                  </div>
+
+                  <ul className="mt-2 grid grid-cols-1 gap-0.5 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                    {TESTS.map((t) => {
+                      const Icon = TEST_ICONS[t.name] ?? BookOpenCheck;
+                      return (
+                        <li key={t.name}>
+                          <Link
+                            href={t.href}
+                            className={`group flex items-center gap-2.5 rounded-[var(--radius-md)] px-2 py-2 transition-colors duration-[var(--dur-1)] hover:bg-[var(--srf-2)] ${focusRing}`}
+                          >
+                            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--line-2)] bg-[var(--field-2)] text-[var(--signal-400)] transition-colors group-hover:border-[var(--line-signal)] group-hover:text-[var(--signal-300)]">
+                              <Icon aria-hidden="true" size={14} strokeWidth={1.8} />
+                            </span>
+                            <span className="min-w-0 flex-1 text-sm font-semibold text-[var(--steel-200)] group-hover:text-[var(--steel-100)]">
+                              {t.name}
+                            </span>
+                            <ArrowUpRight
+                              aria-hidden="true"
+                              size={13}
+                              className="shrink-0 text-[var(--steel-500)] opacity-0 transition-opacity group-hover:opacity-100"
+                            />
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+
+                  <p className="mt-4 border-t border-[var(--line-1)] pt-4 text-xs leading-relaxed text-[var(--steel-400)]">
+                    Released board papers where a board publishes them. Everything else is written by us
+                    from that test&apos;s syllabus.
+                  </p>
+                </div>
+              </aside>
             </div>
 
             {/* Pick your test — inside the hero on purpose. A visitor decides in the

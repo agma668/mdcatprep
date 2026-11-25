@@ -11,7 +11,7 @@ import { submitFeedback } from '@/app/actions/feedback'
  * own control panel). Kept deliberately minimal: one textarea, no name, no
  * extra questions — just "what would you like us to improve?".
  */
-export function FeedbackWidget() {
+export function FeedbackWidget({ hideOnMobile = false }: { hideOnMobile?: boolean } = {}) {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [message, setMessage] = useState('')
@@ -116,6 +116,9 @@ export function FeedbackWidget() {
     <div
       className={[
         'fixed z-40 right-4 md:right-6 bottom-20 md:bottom-6',
+        // Landing has a full-width CTA pair where the FAB lands on a phone, so
+        // it is desktop-only there; every other route keeps the mobile button.
+        hideOnMobile ? 'hidden md:flex' : '',
         'transition-all duration-[var(--transition-base)] motion-reduce:transition-none',
         tucked ? 'pointer-events-none translate-y-3 opacity-0' : 'translate-y-0 opacity-100',
       ].join(' ')}

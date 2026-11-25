@@ -20,5 +20,7 @@ const HIDDEN_ON = new Set(["/pending"]);
 export default function FeedbackWidgetMount() {
   const pathname = usePathname();
   if (HIDDEN_ON.has(pathname ?? "")) return null;
-  return <FeedbackWidget />;
+  // The landing page's CTA pair sits exactly where the floating button lands on
+  // a phone, so the button is desktop-only there.
+  return <FeedbackWidget hideOnMobile={pathname === "/"} />;
 }

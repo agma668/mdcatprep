@@ -183,7 +183,7 @@ export default function RootLayout({
             applied; the ThemeProvider keeps it live thereafter. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("med-prep-theme");var valid={midnight:1,emerald:1,crimson:1,violet:1};if(t&&valid[t]){document.documentElement.dataset.theme=t;window.__MED_PREP_THEME__=t;}}catch(e){}})();`,
+            __html: `(function(){try{var m=localStorage.getItem("med-prep-mode");if(m!=="light"&&m!=="dark"){m=window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.mode=m;document.documentElement.style.colorScheme=m;window.__MED_PREP_MODE__=m;}catch(e){document.documentElement.dataset.mode="dark";}})();`,
           }}
         /><script
           type="application/ld+json"

@@ -1,5 +1,46 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-25 — Landing rebuild: new palette, real light mode, coverage plate
+
+The landing page looked like a template because it was one: navy field, blue
+signal, gold halo, and a painted radial-gradient backdrop with an OMR-dot
+pattern behind the hero. Four things changed.
+
+**Palette.** A new token layer at the end of `globals.css` replaces cold
+navy/blue/gold with green-black paper, a jade action colour and oxidised brass
+insignia. It is an override block on purpose — every existing component already
+reads the same tokens, so nothing else needed rewriting. Measured on the
+rendered page in light mode: ink 16.5:1, secondary 8.2:1, and the CTA gradient
+starts at 6.4:1 for white.
+
+**Light mode.** The four dark theme variants were removed (four shades of the
+same palette is a preference menu, not a feature) and replaced with a real
+light mode: ivory paper, ink type, deep-jade links, its own shadows and
+hairlines. `data-mode="light"` swaps tokens; nothing is filtered or inverted.
+The choice follows `prefers-color-scheme` on a first visit, is stored in
+`med-prep-mode`, and is written before paint by the inline script in
+`layout.tsx`, so there is no flash.
+
+**The toggle** is a sun and a moon in the same 20px box: the outgoing icon
+rotates 90° and shrinks while the incoming one settles. 520ms, one ease, and a
+crossfade only under `prefers-reduced-motion`. It replaced the colour-dot
+popover; `ThemeWheel` and the unused `landing/Hero` were deleted with it.
+
+**Hero.** The Biology sample question is gone — it told seven of the eight
+audiences the product was not theirs. In its place is a coverage plate: all
+eight papers, each with its own glyph (stethoscope, calculator, chip, cap,
+shield, brain), a "1 account" mark, and one honest line about which papers are
+board-released. The OMR canvas was deleted, not just hidden. The beta pill now
+stays on one line on a phone, and the floating feedback button is desktop-only
+on `/` because it landed on the secondary CTA at 390px.
+
+**Gates:** `tsc` 0 · ESLint 0 on every touched file · `npm test` 115/115 ·
+`next build` 0. Rendered and checked at 390px in both modes: no horizontal
+overflow, pill on one line, FAB off the CTA, light-mode contrast as measured
+above. **Not verified:** desktop composition — the preview surface captures a
+narrow crop of the panel, so any claim about the 1280px layout would be
+invented.
+
 ## 2026-11-25 — Approval gate paused behind a switch; WhatsApp group removed
 
 The review-by-hand queue was blocking every new account during a free outreach period, which loses signups for no revenue. The gate is **paused, not deleted**: `approveStudent` / `rejectStudent`, `/pending`, `/rejected`, `/suspended`, the profile `status` column and the middleware gate all remain. A new `lib/signup-approval.ts` reads `SIGNUP_APPROVAL` and defaults to `auto`; setting `SIGNUP_APPROVAL=manual` in the host restores the queue with no code change. Signup writes `status: 'approved'` together with phone/exam target (service client), first login promotes an existing **pending** account, and the Google OAuth callback does the same before routing. Only `pending` is ever promoted — a rejected or suspended account keeps its admin decision. Copy followed the switch: `/signup` shows "Accounts are active immediately during the free beta" instead of the three review steps, the success state links to sign-in rather than `/pending`, the login page hides its "check your application status" link, and the FAQ answer no longer says an admin approves accounts.

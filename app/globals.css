@@ -1749,3 +1749,199 @@ html.lenis body { height: auto; }
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 92%);
   mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 92%);
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PALETTE v2 — warm ink, jade signal, sand insignia.
+   ───────────────────────────────────────────────────────────────────────────
+   Replaces the cold navy/blue/gold field. The old scheme read as a dashboard
+   template: blue-on-navy with gold haloes, the exact combination every AI
+   landing page ships. This one is built from three materials instead of three
+   hues — paper, ink, oxidised copper — so the page holds up in daylight.
+
+   This block is appended on purpose: it overrides the original :root without
+   touching four years of component rules that already read the same tokens.
+   Every pair below is measured against its own ground; the ratios in the
+   comments are WCAG 2.1 contrast, not vibes.
+
+   LIGHT MODE IS A TOKEN SWAP, NOT A FILTER. No inversion, no opacity tricks:
+   the light values are chosen so text keeps AA on paper and the accent keeps
+   AA as a link colour. Components that hard-code a dark canvas (admin, study
+   dashboards) keep their own background and stay legible in both modes.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Paper turned to night. Green-black, never #000. */
+  --field-0: #070A09;
+  --field-1: #0A0F0D;
+  --field-2: #0E1512;
+
+  --srf-1: #111917;
+  --srf-2: #16211D;
+  --srf-3: #1C2A25;
+  --srf-4: #24352E;
+
+  --steel-100: #F3F1E9; /* body text on --field-1   17.1:1 */
+  --steel-200: #D8D9CE; /* strong secondary         13.2:1 */
+  --steel-300: #B0B7AB; /* secondary                 9.0:1 */
+  --steel-400: #8A948B; /* muted, AA floor            5.9:1 */
+  --steel-500: #66716A; /* non-text only              3.7:1 */
+  --steel-600: #46524B;
+  --steel-700: #2E3A34;
+  --steel-800: #1D2723;
+
+  /* Jade: the action colour. Cool enough to sit with green-black, warm enough
+     not to read as a hospital sign. */
+  --signal-100: #D9F5E9;
+  --signal-200: #AFE9D4; /* accent text, hover   13.0:1 */
+  --signal-300: #7EDCB9; /* links, accent type    9.9:1 */
+  --signal-400: #4EC49E; /* icon accents          7.2:1 */
+  --signal-500: #2A9C7B;
+  --signal-600: #1B7C61; /* CTA fill — white on it 5.3:1 */
+  --signal-700: #0F5C47;
+
+  --beacon-300: #9BEBDD;
+  --beacon-400: #5FD8C8;
+  --beacon-600: #1E7F72;
+
+  /* Insignia: oxidised brass, not yellow gold. */
+  --brass: #C9A96A;
+  --brass-dim: #8E7748;
+  --brass-bright: #F0DCA8;
+  --champagne: #EAD3A2; /*      12.6:1 */
+
+  --line-1: rgba(243, 241, 233, 0.07);
+  --line-2: rgba(243, 241, 233, 0.12);
+  --line-3: rgba(243, 241, 233, 0.19);
+  --line-lit: rgba(255, 255, 255, 0.06);
+  --line-signal: rgba(126, 220, 185, 0.3);
+  --line-brass: rgba(201, 169, 106, 0.32);
+  --line-beacon: rgba(95, 216, 200, 0.3);
+
+  --tint-signal: rgba(126, 220, 185, 0.12);
+  --tint-signal-strong: rgba(126, 220, 185, 0.2);
+  --tint-brass: rgba(201, 169, 106, 0.1);
+  --tint-champagne: rgba(234, 211, 162, 0.1);
+  --tint-beacon: rgba(95, 216, 200, 0.12);
+
+  --rgb-signal: 126, 220, 185;
+  --rgb-steel: 216, 217, 206;
+
+  --shadow-sm: 0 1px 2px rgba(3, 7, 5, 0.5);
+  --shadow-md: 0 4px 14px rgba(3, 7, 5, 0.45);
+  --shadow-lg: 0 14px 38px rgba(3, 7, 5, 0.5);
+  --shadow-xl: 0 28px 72px rgba(3, 7, 5, 0.58);
+  --shadow-card: 0 1px 2px rgba(3, 7, 5, 0.5), inset 0 1px 0 var(--line-lit);
+  --shadow-glow: 0 0 40px rgba(42, 156, 123, 0.16);
+  --shadow-cta: 0 6px 22px rgba(15, 92, 71, 0.45);
+  --glow-signal: 0 0 26px rgba(42, 156, 123, 0.2);
+  --glow-brass: 0 0 22px rgba(201, 169, 106, 0.16);
+
+  --cta-from: var(--signal-600);
+  --cta-to: var(--signal-700);
+  --on-cta: #FFFFFF;
+}
+
+/* ── Daylight. Ivory paper, ink type, deep jade links. ─────────────────── */
+[data-mode="light"] {
+  --field-0: #F4F1E9;
+  --field-1: #FBF9F4;
+  --field-2: #F1EEE5;
+
+  --srf-1: #FFFFFF;
+  --srf-2: #F8F6EF;
+  --srf-3: #F0EDE4;
+  --srf-4: #E5E0D4;
+
+  --steel-100: #131C18; /* ink on paper      15.6:1 */
+  --steel-200: #23332C; /* strong secondary  12.1:1 */
+  --steel-300: #3C5049; /* secondary          8.4:1 */
+  --steel-400: #5A6B62; /* muted, AA floor    5.3:1 */
+  --steel-500: #7B8880; /* non-text only      3.4:1 */
+  --steel-600: #C3C8BE;
+  --steel-700: #D8D9CE;
+  --steel-800: #E8E6DB;
+
+  --signal-100: #E3F5EC;
+  --signal-200: #0A5A43; /* accent text        8.1:1 */
+  --signal-300: #0C6B50; /* links              6.8:1 */
+  --signal-400: #128060;
+  --signal-500: #1B9673;
+  --signal-600: #0F6B52; /* CTA fill, white on it 6.4:1 */
+  --signal-700: #0A4E3C;
+
+  --beacon-300: #0A5B60;
+  --beacon-400: #0C6E72;
+  --beacon-600: #084A4E;
+
+  --brass: #7C5E28; /* 5.4:1 as type on paper */
+  --brass-dim: #96794A;
+  --brass-bright: #5E4519;
+  --champagne: #6B4F1C; /* 7.6:1 */
+
+  --line-1: rgba(19, 28, 24, 0.08);
+  --line-2: rgba(19, 28, 24, 0.14);
+  --line-3: rgba(19, 28, 24, 0.22);
+  --line-lit: rgba(255, 255, 255, 0.9);
+  --line-signal: rgba(12, 107, 80, 0.32);
+  --line-brass: rgba(124, 94, 40, 0.3);
+  --line-beacon: rgba(10, 91, 96, 0.3);
+
+  --tint-signal: rgba(12, 107, 80, 0.09);
+  --tint-signal-strong: rgba(12, 107, 80, 0.15);
+  --tint-brass: rgba(124, 94, 40, 0.09);
+  --tint-champagne: rgba(107, 79, 28, 0.1);
+  --tint-beacon: rgba(10, 91, 96, 0.09);
+
+  --rgb-signal: 12, 107, 80;
+  --rgb-steel: 35, 51, 44;
+
+  --shadow-sm: 0 1px 2px rgba(24, 32, 27, 0.07);
+  --shadow-md: 0 4px 14px rgba(24, 32, 27, 0.08);
+  --shadow-lg: 0 14px 38px rgba(24, 32, 27, 0.1);
+  --shadow-xl: 0 28px 72px rgba(24, 32, 27, 0.12);
+  --shadow-card: 0 1px 2px rgba(24, 32, 27, 0.06), inset 0 1px 0 var(--line-lit);
+  --shadow-glow: 0 0 40px rgba(12, 107, 80, 0.12);
+  --shadow-cta: 0 6px 22px rgba(10, 78, 60, 0.28);
+  --glow-signal: 0 0 26px rgba(12, 107, 80, 0.14);
+  --glow-brass: 0 0 22px rgba(124, 94, 40, 0.12);
+}
+
+/* Body and the landing canvas stop painting their own gradient — that was
+   the "AI background": a blue radial wash behind the hero. */
+html { background-color: var(--field-1); }
+body { background-color: var(--field-1); color: var(--steel-100); }
+.landing-canvas { background: var(--field-1); }
+.landing-canvas::before, .landing-canvas::after { content: none; }
+.omr-field { display: none !important; }
+
+/* Nav material in daylight: paper with a hairline, not a black bar. */
+[data-mode="light"] .nav-material {
+  background: rgba(251, 249, 244, 0.82);
+  border-bottom: 1px solid var(--line-2);
+}
+[data-mode="dark"] .nav-material {
+  background: rgba(10, 15, 13, 0.72);
+  border-bottom: 1px solid var(--line-1);
+}
+
+/* ── Sun / moon transition ─────────────────────────────────────────────────
+   Both icons occupy the same box. The active one is upright and opaque; the
+   other is rotated 90°, scaled down and transparent. 320ms, one ease — the
+   motion is a rotation of the same object, not two icons swapping. */
+.mode-icon-sun,
+.mode-icon-moon {
+  transition:
+    opacity 320ms var(--ease-out-quart, cubic-bezier(0.22, 1, 0.36, 1)),
+    transform 520ms var(--ease-out-quart, cubic-bezier(0.22, 1, 0.36, 1));
+  will-change: opacity, transform;
+}
+.mode-icon-sun[data-on="false"] { opacity: 0; transform: rotate(-90deg) scale(0.55); }
+.mode-icon-moon[data-on="false"] { opacity: 0; transform: rotate(90deg) scale(0.55); }
+.mode-icon-sun[data-on="true"],
+.mode-icon-moon[data-on="true"] { opacity: 1; transform: rotate(0deg) scale(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .mode-icon-sun, .mode-icon-moon { transition: opacity 120ms linear; }
+  .mode-icon-sun[data-on="false"],
+  .mode-icon-moon[data-on="false"] { transform: none; }
+}
