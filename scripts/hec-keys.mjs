@@ -87,11 +87,22 @@ export function parsePaper(text) {
     }
     const q = line.match(/^(?:Q\s*)?(\d{1,3})\s*[.)]?\s+(\S.*)$/);
     // Option markers come in several house styles: "A. text", "a) text", "(a) text", "(a). text".
-    const opt = line.match(/^\(?([a-dA-D])[a-dA-D]?\)?\s*[).:]\s*(.+)$/);
+    // Scanned papers often print two options across one line ("A. x B. y"), so a line that begins with
+    // a marker is split at every later marker instead of swallowing the rest of the row into one option.
+    const optMarker = /(?:^|\s)\(?([a-dA-D])\)?\s*[).:]\s+/g;
+    const marks = [];
+    for (let m = optMarker.exec(line); m; m = optMarker.exec(line)) {
+      marks.push({ letter: m[1].toUpperCase(), start: m.index, textStart: optMarker.lastIndex });
+    }
+    const startsWithMarker = marks.length > 0 && line.slice(0, marks[0].start).trim() === '';
 
-    if (opt && cur) {
-      const letter = opt[1].toUpperCase();
-      if (!cur.opts[letter]) cur.opts[letter] = opt[2].trim();
+    if (startsWithMarker && cur) {
+      for (let i = 0; i < marks.length; i++) {
+        const mark = marks[i];
+        const end = i + 1 < marks.length ? marks[i + 1].start : line.length;
+        const text = line.slice(mark.textStart, end).trim();
+        if (text && !cur.opts[mark.letter]) cur.opts[mark.letter] = text;
+      }
       continue;
     }
     if (q) {

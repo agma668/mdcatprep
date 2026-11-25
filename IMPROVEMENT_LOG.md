@@ -652,3 +652,80 @@ questions, which had been invisible; the audit total went from 1,017 missing to 
 `Biology_Master_Notes` (117k), `Chemistry_Master_Notes` (84k) and `MedExel_MDCAT_Revision_Guide`
 (80k) are substantive and may hide MCQs in a layout this parser does not read — unmeasured, not
 counted as clear.
+
+---
+
+## OCR backlog: the missing document was not the one we thought, and formulas were typewriter text
+
+**The 26/40-page "duplicates" were already done.** Both pairs are byte-identical (`md5`
+`661f0db…` for `RAW/Med/(1).pdf` = `.pdf`; `e9f4996…` for `. pdf (1).pdf` = `. pdf.pdf`), and each
+pair has one complete output: 40/40 pages, 0 empty pages, 56,317 chars (`RAW-Med pdf (1).txt`);
+26/26 pages, 2 near-empty pages, 27,334 chars (`RAW-Med-(1).txt`). The organic chemistry shortlist
+(33/33) and NUMS 2026 (37/37, 9 near-empty pages) were complete too. Nothing was re-OCR'd, because
+identical bytes cannot produce different text.
+
+**The document actually missing was hidden by the old dedupe.** Bumping the dedupe signature to
+include file size (`pages|chars|size`) exposed `MedQuack NUMS FLP2.pdf` (26 pp, 7,658,049 B), which
+`pages|chars` had merged with the unrelated `(1).pdf` (5,351,927 B) on a shared 26-page count and a
+header-only 381-char score. It was never OCR'd. Now: **26/26 pages, 0 failures, 0 thin pages**,
+sidecar written, and a re-run skips it cleanly. (That first pass ran with the old column splitter;
+the 300 dpi re-run after the splitter fix below supersedes its text — 33,823 chars, 170 four-option
+questions. The 34,967-char / 181-question figures came from the splintered output and are not the
+numbers to quote.)
+
+**Chemistry and maths were being shown as typewriter text.** `lib/sci.ts` rewrites notation to real
+Unicode — subscripts (`H₂O`, `C₆H₁₂O₆`, `Ca(OH)₂`), charges (`Fe²⁺`, `SO₄²⁻`), powers (`1.1 × 10⁻³`),
+arrows (`→`, `⇌`), unit exponents (`cm³`, `mol⁻¹`), general formulas (`CₙH₂ₙ₊₂`) — and is applied in
+`toQuizQuestion`, the one seam every question surface shares, so stems, options and solutions all
+render properly with no maths renderer and no per-component edits. Guarded against known false
+positives (`SN2`/`SN1` are mechanisms, not formulas) and idempotent; 36-case test battery, and a
+sweep of the real bank rewrites only 46 of 3,258 strings, all of them genuine formulas.
+
+**Limits, stated:** notation that OCR already destroyed (`A. l.1x10*C B.42#10°C`) is untouched by any
+formatter — that needs re-OCR at higher resolution, not a regex. Fractions stay inline (`1/2`), and
+no maths expression is laid out two-dimensionally.
+
+---
+
+## Splitter fix and two-up option parsing: FLP2 goes from 6 usable questions to 170
+
+**The column splitter was cutting single-column pages in half.** `findGutter` in
+`data/MCQS/_pipeline/ocr_scans.mjs` accepted any vertical strip narrower than one gutter width as a
+cut, and `--split` defaults to 2, so a one-column paper whose two-up *option* rows happened to line up
+was chopped down the middle of its own option grid. The OCR then read each half as a separate column
+and the option letters landed in the wrong order. A candidate gutter is now only accepted when the
+same strip is ink-free for more than 60% of the sampled rows (`findGutter` returns `0` otherwise, and
+`bands` falls back to `[[0, width]]`). Measured: FLP2 page 3's candidate strip is 8% clear → no cut;
+QCA page 1's is 98% clear → still splits at 52.4%. Genuinely two-column pages are unaffected.
+
+**FLP2 re-OCRed at 300 dpi:** 26/26 pages, 0 failures, 0 thin pages, **33,823 chars**, 218 numbered
+blocks of which **172 carry all four options** (was 6 before the splitter fix). Re-runs skip it via
+the sidecar.
+
+**Parser: two options printed on one line were being swallowed.** `parsePaper` in
+`scripts/hec-keys.mjs` matched only a line-leading option marker, so a row like
+`A. W.M. Stanley  B. Edward Jenner` stored all of it as option A and the following
+`C. …  D. …` row as option C — two options instead of four, so the question was dropped. A line that
+begins with a marker is now split at every later marker. FLP2: **7 → 170 parsed**. Papers with
+one option per line are unaffected (NUMS 2026 has zero multi-marker lines; its count is unchanged at
+59 by `parsePaper` — the 61 quoted earlier came from a different heuristic in `doc_report.mjs`).
+Whole-paper total: 377 questions parsed, 114 reachable as bank rows.
+
+**Per-document state, measured after the run**
+
+| document | pages | failures | near-empty | chars | four-option questions |
+|---|---|---|---|---|---|
+| `MedQuack NUMS FLP2.pdf` (new) | 26 | 0 | 0 | 33,823 | 170 |
+| `Med pdf (1).pdf` | 40 | 0 | 0 | 56,317 | 0 |
+| `Med-(1).pdf` | 26 | 0 | 2 | 27,334 | 0 |
+| `MedQuack NUMS 2026.pdf` | 37 | 0 | 9 | 32,824 | 59 |
+| `Organic Chemistry shortlisting by Junaid Khattak.pdf` | 33 | 0 | 0 | 28,841 | 0 |
+
+**The three zero-question documents are not parser failures.** Rendering their pages
+(`data/MCQS/_pipeline/cache/look/organics.png`, `dup40s.png`) shows CamScanner photographs of
+handwritten notes and drawn structures — benzene rings, `4πn+2`, sp² annotations — with no printed
+option grid. Their text is degradation, not content to be recovered by a better parser; they need
+either the printed originals or manual transcription.
+
+**Gates:** `tsc --noEmit` clean, `eslint scripts/hec-keys.mjs lib/sci.ts lib/questions.ts` clean,
+`next build` clean.

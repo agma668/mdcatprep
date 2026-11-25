@@ -10,6 +10,8 @@
  * don't always set.
  */
 
+import { formatSci } from "./sci";
+
 export type QuizQuestion = {
   /** DB row id — present on questions from the Supabase bank. */
   id?: string;
@@ -50,13 +52,16 @@ export function toQuizQuestion(q: QuestionLike): QuizQuestion {
     key: typeof q.key === "string" ? q.key : undefined,
     subject: typeof q.subject === "string" ? q.subject : "",
     topic: typeof q.topic === "string" ? q.topic : null,
-    question_text: typeof q.question_text === "string" ? q.question_text : "",
-    option_a: typeof q.option_a === "string" ? q.option_a : "",
-    option_b: typeof q.option_b === "string" ? q.option_b : "",
-    option_c: typeof q.option_c === "string" ? q.option_c : null,
-    option_d: typeof q.option_d === "string" ? q.option_d : null,
+    // Chemistry and maths notation is rewritten to real subscripts/superscripts
+    // here, at the one seam every question surface shares, so a formula reads as
+    // H₂O → CO₂ rather than H2O -> CO2 in stems, options and solutions alike.
+    question_text: typeof q.question_text === "string" ? formatSci(q.question_text) : "",
+    option_a: typeof q.option_a === "string" ? formatSci(q.option_a) : "",
+    option_b: typeof q.option_b === "string" ? formatSci(q.option_b) : "",
+    option_c: typeof q.option_c === "string" ? formatSci(q.option_c) : null,
+    option_d: typeof q.option_d === "string" ? formatSci(q.option_d) : null,
     correct_answer: typeof q.correct_answer === "string" ? q.correct_answer : "",
-    explanation: typeof q.explanation === "string" ? q.explanation : null,
+    explanation: typeof q.explanation === "string" ? formatSci(q.explanation) : null,
     difficulty: typeof q.difficulty === "string" ? q.difficulty : null,
     college: typeof q.college === "string" ? q.college : null,
     past_paper_exam: typeof q.past_paper_exam === "string" ? q.past_paper_exam : null,
