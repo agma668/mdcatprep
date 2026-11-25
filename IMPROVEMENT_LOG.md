@@ -912,3 +912,8 @@ sending an interested visitor back to question one. The last sample now offers *
 
 **Gates:** `tsc --noEmit` clean · `eslint` clean on all nine touched files · `next build` clean ·
 runtime checks on a fresh production build for all four flows.
+
+**The MDCAT portal CTA dead-ended too.** Its "Start Practice Session" pointed at
+`/dashboard/practice`, which is login-gated — so the flagship portal sent every visitor who had not
+signed up to a login form. It now points at the public `/practice/session`, and only the portal reads
+that field, so no other navigation changed. `tsc`, `eslint` and `next build` clean.

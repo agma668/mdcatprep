@@ -40,7 +40,10 @@ export const EXAMS_CONFIG: Record<ExamCategory, ExamConfig> = {
     tagline: 'Unified medical entrance preparation for PMDC MDCAT, NUMS, HEC USAT-M, Balochistan and FATA tests — the deepest bank on the platform',
     badge: 'Medical Flagship',
     route: '/dashboard',
-    practiceRoute: '/dashboard/practice',
+    // /practice/session is public and is the full-focus run; /dashboard/practice
+    // is login-gated, so the portal CTA used to dead-end for every visitor who
+    // had not signed up yet.
+    practiceRoute: '/practice/session',
     accentColor: 'from-emerald-500 to-teal-600',
     bank: 'mdcat',
     subtests: [
