@@ -917,3 +917,45 @@ runtime checks on a fresh production build for all four flows.
 `/dashboard/practice`, which is login-gated — so the flagship portal sent every visitor who had not
 signed up to a login form. It now points at the public `/practice/session`, and only the portal reads
 that field, so no other navigation changed. `tsc`, `eslint` and `next build` clean.
+
+---
+
+## The landing page read as a medical site, which is what it was
+
+A NUST or PMA aspirant could arrive, answer a Biology question at 1/3 in the hero, see two half-width
+medical tiles on the top row of the test grid and a section of medical board papers, and leave
+convinced this was a medical site. Every one of those signals was ours, not theirs.
+
+**Hero sample.** `components/landing/ExamPaper.tsx` opened on DNA ligase and spent two of three
+samples on medical subjects. It now runs five samples across four families — physics (MDCAT, NUST
+NET, USAT), quantitative reasoning (NUST NET, LUMS, USAT, PMA), verbal reasoning (PMA, ISSB, USAT),
+chemistry, biology — and every question carries chips naming the papers that ask it, so the first
+card a visitor sees says "NUST NET" before they have read the question. The card also labels itself
+"written by us", because these are original questions, not leaked papers.
+
+**Hero copy and CTA.** The paragraph now names all eight tests and explains the papers honestly. The
+secondary button was "Browse past papers" — a medical destination as the second thing on the page —
+and is now "See every test", which jumps to the grid.
+
+**The grid favoured medical by geometry.** MDCAT and NUMS held two `col-span-6` cards on the top row
+while GIKI, LUMS, USAT and PMA shared half-width cards below. There are now eight identical
+`col-span-3` tiles — PMA and ISSB separated — interleaved Medical / Engineering / University /
+Defence, two rows of four on desktop and a 2×4 grid on tablet.
+
+**The past-papers section.** It was titled "Real papers, sorted by board and year" as if that were
+the whole library. It is now "The papers medical boards actually released", and says plainly that
+NUST, GIKI, LUMS, USAT, PMA and ISSB do not publish papers, so those banks are written from each
+test's syllabus and nothing is dressed up as a real paper. The column also links straight to those
+banks, and the section points back to the test grid.
+
+**FAQ.** The first four questions were MDCAT-only, so the FAQ confirmed the medical read. The first
+answers now name every test and answer "is this only for medical students?" directly; the MDCAT paper
+facts survive as question five. FAQ JSON-LD is generated from the same array, so structured data
+followed automatically.
+
+**Metadata.** `homeDescription` and the LearningResource name now include ISSB and describe the
+papers as "released board papers where they exist".
+
+**Gates:** `tsc --noEmit` clean · `eslint` clean on `app/page.tsx`, `ExamPaper.tsx`, `FAQ.tsx` ·
+`next build` clean · served HTML checked for 8 tiles, physics-first sample, exam chips,
+"See every test", the new papers heading and the absence of "Browse past papers".

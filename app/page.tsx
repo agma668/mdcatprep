@@ -21,7 +21,7 @@ const siteUrl = getSiteUrl();
 // Names only the tests that have a real practice surface on this site \u2014 the
 // H1, metadata and JSON-LD must not claim an exam the bank does not serve.
 const homeDescription =
-  "Free exam-style MCQ practice for MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT and PMA \u2014 an explanation behind every answer, past papers with keys, and study notes.";
+  "Free exam-style MCQ practice for MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT, PMA and ISSB \u2014 an explanation behind every answer, released board papers where they exist, and study notes.";
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -36,7 +36,7 @@ const faqJsonLd = {
 const learningResourceJsonLd = {
   "@context": "https://schema.org",
   "@type": "LearningResource",
-  name: "MDCAT, NUMS, NET, USAT & PMA Entry Test Preparation",
+  name: "MDCAT, NUMS, NUST NET, GIKI, LUMS, USAT, PMA & ISSB Entry Test Preparation",
   description: homeDescription,
   url: siteUrl,
   provider: { "@type": "Organization", name: SITE_NAME, url: siteUrl },
@@ -61,22 +61,28 @@ const display = { fontFamily: "var(--font-display)" } as const;
 // Every tile points at a real practice surface. GIKI and LUMS sit inside the
 // engineering portal's shared bank, exactly like the unified-portal
 // architecture says they should.
+// Eight tests, eight identical tiles. The medical papers used to take two
+// half-width cards on the top row while the rest shared a row underneath, so
+// the grid itself said "medical site" before anyone read a word. Every tile is
+// now the same size and the families are interleaved, because a NUST or PMA
+// aspirant has to see their paper given the same weight as MDCAT.
 const TESTS = [
-  { href: "/topicals", name: "MDCAT", track: "Medical", body: "Chapter-wise topicals, released papers and a diagnostic for the PMDC syllabus.", span: "lg:col-span-6" },
-  { href: "/past-papers", name: "NUMS", track: "Medical", body: "Released NUMS papers sorted by year, each labelled with how it relates to the real sitting.", span: "lg:col-span-6" },
-  { href: "/nust/practice", name: "NUST NET", track: "Engineering", body: "Maths, physics, chemistry and English.", span: "lg:col-span-4" },
-  { href: "/nust/practice", name: "GIKI", track: "Engineering", body: "Shares the engineering bank with NET.", span: "lg:col-span-4" },
-  { href: "/nust/practice", name: "LUMS", track: "Engineering", body: "Shares the engineering bank with NET.", span: "lg:col-span-4" },
-  { href: "/usat/practice", name: "HEC USAT", track: "University admission", body: "Quantitative, verbal and science sections.", span: "lg:col-span-6" },
-  { href: "/pma/practice", name: "PMA & ISSB", track: "Defence", body: "Verbal and non-verbal intelligence, initial academic test.", span: "lg:col-span-6" },
+  { href: "/topicals", name: "MDCAT", track: "Medical", body: "Chapter-wise topicals and a diagnostic for the PMDC syllabus." },
+  { href: "/nust/practice", name: "NUST NET", track: "Engineering", body: "Maths, physics, chemistry and English." },
+  { href: "/past-papers", name: "NUMS", track: "Medical", body: "Released NUMS papers sorted by year." },
+  { href: "/nust/practice", name: "GIKI", track: "Engineering", body: "Shares the engineering bank with NET." },
+  { href: "/usat/practice", name: "HEC USAT", track: "University admission", body: "Quantitative, verbal and science sections." },
+  { href: "/nust/practice", name: "LUMS", track: "University admission", body: "Shares the engineering bank with NET." },
+  { href: "/pma/practice", name: "PMA", track: "Defence", body: "Verbal and non-verbal intelligence, academic test." },
+  { href: "/pma/practice", name: "ISSB", track: "Defence", body: "Intelligence and psychological screening." },
 ];
 
 const PRACTICE = [
   { href: "/topicals", title: "Topical MCQs", body: "Chapter-wise questions for Biology, Chemistry and Physics. Answer, see why, move on.", Icon: BookOpenCheck, span: "lg:col-span-7" },
-  { href: "/past-papers", title: "Past papers", body: "Released MDCAT and NUMS papers, sorted by board and year.", Icon: FileText, span: "lg:col-span-5" },
+  { href: "/past-papers", title: "Past papers", body: "Released medical board papers, plus syllabus-built banks for the engineering, USAT and defence tests.", Icon: FileText, span: "lg:col-span-5" },
   { href: "/daily-quiz", title: "Daily quiz", body: "A short set every day, so practice becomes a habit instead of a plan.", Icon: Sparkles, span: "lg:col-span-4" },
   { href: "/flashcards", title: "Flashcards", body: "Spaced-repetition cards for the facts that keep repeating in the paper.", Icon: Layers, span: "lg:col-span-4" },
-  { href: "/notes", title: "Concept notes", body: "Short notes written from the PMDC syllabus for every topic you miss.", Icon: NotebookPen, span: "lg:col-span-4" },
+  { href: "/notes", title: "Concept notes", body: "Short notes for the topic you miss, written from each test's official syllabus.", Icon: NotebookPen, span: "lg:col-span-4" },
 ];
 
 const STEPS = [
@@ -124,18 +130,18 @@ export default async function Home() {
                   Practise for your entry test the way the paper asks.
                 </h1>
                 <p className="mt-6 max-w-[50ch] text-base leading-relaxed text-[var(--steel-300)] sm:text-lg">
-                  Exam-style MCQs for MDCAT, NUMS, NUST, GIKI, LUMS, USAT and PMA, with the answer key each source printed, the source&apos;s own explanation where it wrote one, and the real past papers the boards have released.
+                  Exam-style MCQs for every major entry test in Pakistan — MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT, PMA and ISSB. Every answer carries its key and the reasoning behind it, and where a board releases its paper you can read that paper here in full.
                 </p>
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                   <Link href="/diagnostic" className="btn-primary inline-flex min-h-[52px] items-center justify-center px-7 text-base">
                     Take the 2-minute diagnostic
                   </Link>
-                  <Link href="/past-papers" className="btn-secondary inline-flex min-h-[52px] items-center justify-center px-7 text-base">
-                    Browse past papers
+                  <Link href="#other-exams" className="btn-secondary inline-flex min-h-[52px] items-center justify-center px-7 text-base">
+                    See every test
                   </Link>
                 </div>
                 <p className="mt-5 max-w-[52ch] text-sm leading-relaxed text-[var(--steel-400)]">
-                  Questions are original and built from the official syllabi. The past papers are the real released papers.
+                  Questions are written by us from each test&apos;s official syllabus. Released papers are the boards&apos; own — never reconstructed.
                 </p>
               </div>
               <ExamPaper />
@@ -152,12 +158,12 @@ export default async function Home() {
                   Which test are you sitting?
                 </h2>
                 <p className="max-w-[46ch] text-sm text-[var(--steel-400)] sm:text-right">
-                  One account covers all of them. The medical track is the deepest today; the others are smaller and growing.
+                  All eight, one account, free during beta. Where a board releases its paper we carry it; where it doesn&apos;t, the bank is built from that test&apos;s own syllabus.
                 </p>
               </div>
-              <ul className="mt-6 grid gap-3 lg:grid-cols-12">
+              <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-12">
                 {TESTS.map((t) => (
-                  <li key={t.name} className={t.span}>
+                  <li key={t.name} className="lg:col-span-3">
                     <Link
                       href={t.href}
                       className={`group relative flex h-full min-h-[104px] flex-col justify-between gap-3 overflow-hidden rounded-[var(--r-4)] border border-[var(--line-2)] bg-[var(--srf-1)]/80 p-5 shadow-[var(--shadow-card)] backdrop-blur-sm transition-colors duration-[var(--dur-1)] hover:border-[var(--line-signal)] hover:bg-[var(--srf-2)] sm:min-h-[124px] sm:p-6 ${focusRing}`}
@@ -245,7 +251,7 @@ export default async function Home() {
           <div className="container-page grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
             <div className="lg:sticky lg:top-28 lg:self-start">
               <h2 style={display} className="max-w-[16ch] text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
-                Real papers, sorted by board and year
+                The papers medical boards actually released
               </h2>
               <p className="mt-4 max-w-[46ch] text-[var(--steel-300)]">
                 <span className="tabular-nums">{PAST_PAPER_COUNT}</span> papers
@@ -256,9 +262,45 @@ export default async function Home() {
                 ) : null}
                 . <span className="tabular-nums">{keyed}</span> come with an official answer key. The rest say so on the card, so a missing key is never mistaken for a wrong answer.
               </p>
-              <Link href="/past-papers" className="btn-secondary mt-7 inline-flex min-h-[48px] items-center justify-center px-6">
-                Open the past papers
-              </Link>
+              <p className="mt-3 max-w-[46ch] text-sm leading-relaxed text-[var(--steel-400)]">
+                Only medical boards publish their papers. NUST, GIKI, LUMS, USAT, PMA and ISSB do not, so
+                those banks are written from each test&apos;s own syllabus — nothing here is dressed up as a
+                real paper.
+              </p>
+              <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3">
+                <Link href="/past-papers" className="btn-secondary inline-flex min-h-[48px] items-center justify-center px-6">
+                  Open the past papers
+                </Link>
+                <Link
+                  href="#other-exams"
+                  className="text-sm font-semibold text-[var(--signal-300)] underline underline-offset-4 hover:text-[var(--signal-200)]"
+                >
+                  Preparing for a different test? →
+                </Link>
+              </div>
+              <p className="mt-6 max-w-[46ch] text-xs leading-relaxed text-[var(--steel-400)]">
+                Practising for{" "}
+                <Link href="/nust/practice" className="font-semibold text-[var(--steel-200)] underline underline-offset-4">
+                  NUST NET
+                </Link>
+                ,{" "}
+                <Link href="/nust/practice" className="font-semibold text-[var(--steel-200)] underline underline-offset-4">
+                  GIKI
+                </Link>
+                ,{" "}
+                <Link href="/nust/practice" className="font-semibold text-[var(--steel-200)] underline underline-offset-4">
+                  LUMS
+                </Link>
+                ,{" "}
+                <Link href="/usat/practice" className="font-semibold text-[var(--steel-200)] underline underline-offset-4">
+                  HEC USAT
+                </Link>{" "}
+                or{" "}
+                <Link href="/pma/practice" className="font-semibold text-[var(--steel-200)] underline underline-offset-4">
+                  PMA / ISSB
+                </Link>
+                ? Those banks are open too.
+              </p>
             </div>
             <ol className="relative ml-3 border-l border-[var(--line-3)]">
               {dated.map((g) => {

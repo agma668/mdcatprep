@@ -8,30 +8,34 @@ export interface FAQItem {
 }
 
 export const FAQS: FAQItem[] = [
+  // The first question used to be "Who can take MDCAT and NUMS?", and the four
+  // after it were MDCAT too — so a visitor preparing for NET, LUMS or PMA read
+  // a medical FAQ and left. The first answers now name every track, and the
+  // "is this only for medical students" worry is answered in the second line.
   {
-    question: "Who can take MDCAT and NUMS?",
+    question: "Which tests does MED Prep cover?",
     answer:
-      "Students who have completed or are appearing in FSc Pre-Medical (or an equivalent qualification like A-Levels with Biology, Chemistry and Physics) can sit MDCAT. NUMS uses the same PMDC syllabus for its own test, plus a Logical Reasoning section. Always verify eligibility in the current year's official PMDC/NUMS announcement.",
+      "Eight: MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT, PMA and ISSB. Each has its own bank and its own practice surface — medical, engineering, university admission and defence — and one free account covers all of them.",
   },
   {
-    question: "How long does it take to prepare for MDCAT?",
+    question: "Is this only for medical students?",
     answer:
-      "We recommend 3–6 months of consistent preparation. Students who practise daily for 1–2 hours typically see significant improvement within 6–8 weeks. Our structured plan guides you through the full PMDC syllabus in an organised, exam-focused sequence.",
+      "No. MDCAT and NUMS are the largest banks today, but that is because those boards publish their papers and it is easy to check our work against them — not because the site is medical-only. NUST NET, GIKI, LUMS, HEC USAT, PMA and ISSB have their own banks written from each test's official syllabus and pattern, and they use the same practice, explanation and progress tools.",
+  },
+  {
+    question: "Do you have past papers for NUST, GIKI, LUMS, USAT or PMA?",
+    answer:
+      "No, and neither does anyone else honestly. Those boards do not release their papers, so we publish no 'past papers' for them. What you get instead is an exam-style bank written from the official syllabus and the paper pattern, inside the same timed practice as everything else. The papers we list as released — MDCAT and NUMS — are the boards' own, and each card says whether an official key came with it.",
+  },
+  {
+    question: "How do I know an answer key is official?",
+    answer:
+      "Every released paper states whether the board printed a key. Where there was no key, the card says so, and the question is marked as unverified rather than given an invented answer. Practice questions are ours, written from the syllabus, and are labelled as written by us.",
   },
   {
     question: "What subjects and marks does the MDCAT paper cover?",
     answer:
       "The PMDC MDCAT paper is 180 MCQs completed in 3 hours, with no negative marking. Biology carries the largest share, followed by Chemistry and Physics, with English and Logical Reasoning as the smaller sections. Confirm the exact year's split on pmdc.pk — it is the official source.",
-  },
-  {
-    question: "Which universities accept MDCAT or NUMS scores?",
-    answer:
-      "MDCAT scores are used by public and private medical colleges across Pakistan — UHS, DUHS, KMU, SZABMU, Bolan and more. NUMS runs its own test for Army Medical College and its affiliated institutions. One score, many doors.",
-  },
-  {
-    question: "Do you have past papers?",
-    answer:
-      "Yes. The Past Papers section lists the MDCAT and NUMS papers we hold, sorted by board and year, and each one says plainly whether an official answer key exists. Alongside them you get exam-style questions written from scratch on the official PMDC syllabus, so you always know what is a real paper and what is practice.",
   },
   {
     question: "How is MED Prep different from a regular coaching academy?",

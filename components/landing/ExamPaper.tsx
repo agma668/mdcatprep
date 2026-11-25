@@ -9,27 +9,20 @@ type Sample = {
   options: string[];
   answer: number;
   why: string;
+  /** Which papers actually ask this kind of question. */
+  exams: string[];
 };
 
-// Three original sample questions (not from any paper) so the hero can be
-// answered, not just looked at. The card labels them as samples.
+// Original sample questions (not from any paper) so the hero can be answered,
+// not just looked at. Ordered so the FIRST thing a visitor answers is not a
+// biology question: physics and quantitative reasoning sit on several papers,
+// and every card names the tests it belongs to. A NUST, LUMS or PMA aspirant
+// should recognise their own paper in the first screen, not infer that this is
+// a medical site.
 const SAMPLES: Sample[] = [
   {
-    subject: "Biology",
-    q: "Which enzyme joins Okazaki fragments on the lagging strand?",
-    options: ["Helicase", "DNA ligase", "Primase", "Topoisomerase"],
-    answer: 1,
-    why: "DNA ligase seals the nicks between fragments. Primase only lays the RNA primers, and helicase unwinds the helix.",
-  },
-  {
-    subject: "Chemistry",
-    q: "What is the hybridisation of each carbon atom in ethene, C\u2082H\u2084?",
-    options: ["sp", "sp\u00b2", "sp\u00b3", "sp\u00b3d"],
-    answer: 1,
-    why: "Each carbon forms three sigma bonds and one pi bond, so it uses three sp\u00b2 orbitals and keeps one unhybridised p orbital for the pi bond.",
-  },
-  {
     subject: "Physics",
+    exams: ["MDCAT", "NUST NET", "HEC USAT"],
     q: "A ball thrown straight up is at its highest point. What is true at that instant?",
     options: [
       "Velocity and acceleration are both zero",
@@ -39,6 +32,43 @@ const SAMPLES: Sample[] = [
     ],
     answer: 1,
     why: "Velocity passes through zero as it changes direction, but gravity keeps acting, so acceleration stays 9.8 m/s\u00b2 downward.",
+  },
+  {
+    subject: "Quantitative reasoning",
+    exams: ["NUST NET", "LUMS", "HEC USAT", "PMA"],
+    q: "A shirt is marked at Rs 2,400 and sold at a 15% discount. What does it sell for?",
+    options: ["Rs 1,800", "Rs 2,040", "Rs 2,160", "Rs 2,280"],
+    answer: 1,
+    why: "15% of 2,400 is 360, so the price is 2,400 \u2212 360 = Rs 2,040. Subtracting 15 from 2,400 by mistake is the trap answer 2,385, which is why the options are built around the real arithmetic.",
+  },
+  {
+    subject: "Verbal reasoning",
+    exams: ["PMA", "ISSB", "HEC USAT"],
+    q: "Every cadet who passes the physical test is interviewed. Ali passed the physical test. Which must be true?",
+    options: [
+      "Ali was selected",
+      "Ali was interviewed",
+      "Ali was rejected",
+      "Ali skipped the interview",
+    ],
+    answer: 1,
+    why: "The first sentence covers every cadet who passed, so Ali must have been interviewed. Selection and rejection both depend on the interview result, which the passage never gives.",
+  },
+  {
+    subject: "Chemistry",
+    exams: ["MDCAT", "NUMS", "NUST NET"],
+    q: "What is the hybridisation of each carbon atom in ethene, C\u2082H\u2084?",
+    options: ["sp", "sp\u00b2", "sp\u00b3", "sp\u00b3d"],
+    answer: 1,
+    why: "Each carbon forms three sigma bonds and one pi bond, so it uses three sp\u00b2 orbitals and keeps one unhybridised p orbital for the pi bond.",
+  },
+  {
+    subject: "Biology",
+    exams: ["MDCAT", "NUMS"],
+    q: "Which enzyme joins Okazaki fragments on the lagging strand?",
+    options: ["Helicase", "DNA ligase", "Primase", "Topoisomerase"],
+    answer: 1,
+    why: "DNA ligase seals the nicks between fragments. Primase only lays the RNA primers, and helicase unwinds the helix.",
   },
 ];
 
@@ -71,12 +101,26 @@ export function ExamPaper() {
           Sample question{" "}
           <span className="tabular-nums text-[var(--steel-100)]">
             {idx + 1}/{SAMPLES.length}
-          </span>
+          </span>{" "}
+          <span className="text-[var(--steel-400)]">· written by us</span>
         </span>
         <span>{s.subject}</span>
       </div>
 
-      <p className="mt-5 text-lg font-semibold leading-snug text-[var(--steel-100)] sm:text-xl">{s.q}</p>
+      {/* The exam tags are the point of the card in the hero: before a visitor
+          reads the question, they see their own paper named. */}
+      <div className="mt-3 flex flex-wrap gap-1.5">
+        {s.exams.map((exam) => (
+          <span
+            key={exam}
+            className="rounded-[var(--r-2)] border border-[var(--line-2)] bg-[var(--srf-1)] px-2 py-0.5 text-[11px] font-semibold text-[var(--steel-200)]"
+          >
+            {exam}
+          </span>
+        ))}
+      </div>
+
+      <p className="mt-4 text-lg font-semibold leading-snug text-[var(--steel-100)] sm:text-xl">{s.q}</p>
 
       <div role="group" aria-label="Answer options" className="mt-5 space-y-2">
         {s.options.map((opt, i) => {
