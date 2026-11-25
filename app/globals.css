@@ -1945,3 +1945,49 @@ body { background-color: var(--field-1); color: var(--steel-100); }
   .mode-icon-sun[data-on="false"],
   .mode-icon-moon[data-on="false"] { transform: none; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LEARNED FROM THE CADET SITE (elite-cadet-prep), applied to this token set.
+   Only the parts that fix something or add craft — not its gold identity.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* 1. Native controls follow the mode.
+   Without this, Windows Chrome paints <option> popups and date pickers white
+   with our white text inside a dark form. `color-scheme` is the only hook that
+   reaches those OS-drawn surfaces; it cannot be styled with CSS. */
+:root { color-scheme: dark; }
+[data-mode="light"] { color-scheme: light; }
+
+/* 2. Selection follows the signal, not the retired blue.
+   The 355th line still hard-coded rgba(61,126,219,.32) — the old palette. */
+::selection {
+  background: rgba(var(--rgb-signal), 0.26);
+  color: var(--steel-100);
+}
+
+/* 3. Section seam — a hairline that brightens toward the centre.
+   Consecutive bands read as machined panels butted together instead of a
+   stack of unrelated blocks. One pseudo-element, no wrapper markup. */
+.section-seam { position: relative; }
+.section-seam::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50% 0;
+  width: min(1100px, 92%);
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--line-3) 22%,
+    var(--line-signal) 50%,
+    var(--line-3) 78%,
+    transparent
+  );
+}
+
+/* 4. Film grain must not fight paper. On light mode 4.5% noise over ivory
+   reads as a dirty screen; the same texture at 2% reads as paper stock. */
+[data-mode="light"] .film-grain { opacity: 0.022; }

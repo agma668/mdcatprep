@@ -281,7 +281,10 @@ export default async function Home() {
               </ul>
             </div>
 
-            <dl className="mt-10 grid grid-cols-3 overflow-hidden rounded-[var(--r-4)] border border-[var(--line-2)] bg-[var(--srf-1)]/70 backdrop-blur-sm">
+            {/* A hairline seam above the numbers, so the hero band and the
+                stat band read as two machined panels rather than one long
+                scroll. Borrowed from the cadet site's section-glow-divider. */}
+            <dl className="section-seam mt-10 grid grid-cols-3 overflow-hidden rounded-[var(--r-4)] border border-[var(--line-2)] bg-[var(--srf-1)]/70 backdrop-blur-sm">
               <div className="px-4 py-5 sm:px-8 sm:py-6">
                 <dd style={display} className="text-3xl font-bold tabular-nums text-[var(--steel-100)] sm:text-4xl">{mcqs.toLocaleString("en-US")}</dd>
                 <dt className="mt-1 text-sm text-[var(--steel-300)]">Practice MCQs</dt>

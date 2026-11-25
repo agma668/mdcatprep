@@ -1,5 +1,29 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-25 — Studied `elite-cadet-prep`; three craft fixes applied (not pushed)
+
+Compared the cadet site's design guide and token sheet against ours. It is
+stronger in four places: a documented curation rule for effects (one WebGL
+engine, motion only where it means something), optical type rules, native
+control theming, and section-level seams that make a long landing read as one
+machined object. Three of those are portable without importing its gold-on-
+black identity.
+
+`color-scheme` now follows the mode. Without it, Windows Chrome paints
+`<option>` popups, date pickers and autofill white while the text stays light —
+the cadet guide documents exactly this bug. `::selection` was still hard-coded
+to the retired blue at line 355; it now uses `--rgb-signal`. A`.section-seam`
+utility adds the hairline that brightens toward the centre, used above the
+landing stat band, and film grain drops to 2.2% in light mode where 4.5% noise
+over ivory reads as a dirty screen.
+
+Their trust strip, founder voice, recently-updated strip and link-dense prep
+map are worth building next, but they need real content (verified dates, a
+first-person bio) rather than placeholders, so they are not in this commit.
+
+**Gates:** `tsc` 0 · `next build` 0 · `npm test` 115/115. **Not pushed** — Vercel
+deployment budget, per instruction.
+
 ## 2026-11-25 — Landing rebuild: new palette, real light mode, coverage plate
 
 The landing page looked like a template because it was one: navy field, blue
