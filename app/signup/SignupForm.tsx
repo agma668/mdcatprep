@@ -13,7 +13,16 @@ import { GoogleButton, OrDivider } from "@/components/auth/GoogleButton";
  * hook opts the route out of SSR and leaves the served HTML with no form. The
  * query string is read in `page.tsx`, which carries the measurements.
  */
-export function SignupForm({ refCode, defaultExam = "MDCAT" }: { refCode: string; defaultExam?: string }) {
+export function SignupForm({
+  refCode,
+  defaultExam = "MDCAT",
+  autoApprove = false,
+}: {
+  refCode: string;
+  defaultExam?: string;
+  /** Mirrors SIGNUP_APPROVAL_MODE so the success state points at the right next step. */
+  autoApprove?: boolean;
+}) {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -55,10 +64,10 @@ export function SignupForm({ refCode, defaultExam = "MDCAT" }: { refCode: string
             {success}
           </div>
           <Link
-            href="/pending"
+            href={autoApprove ? "/login" : "/pending"}
             className="block text-center w-full px-4 py-2.5 rounded-[var(--radius-md)] text-sm font-semibold bg-white/[0.06] text-white border border-white/10 hover:bg-white/[0.12] transition-colors"
           >
-            Check your application status →
+            {autoApprove ? "Sign in and start practising →" : "Check your application status →"}
           </Link>
         </div>
       )}

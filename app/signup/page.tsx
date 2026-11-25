@@ -2,6 +2,7 @@ import Link from "next/link";
 import { GraduationCap, Trophy, BookOpenCheck, BarChart3 } from "lucide-react";
 import { SignupForm } from "./SignupForm";
 import { BANK_SECTION_COUNT } from "@/lib/stats";
+import { AUTO_APPROVE_SIGNUPS } from "@/lib/signup-approval";
 
 // Utility page: noindex in the meta tag as well as robots.txt (see app/login/page.tsx).
 export const metadata = { title: "Create your account", robots: { index: false, follow: false } };
@@ -163,23 +164,33 @@ export default async function SignupPage({
             </p>
           </div>
 
-          <SignupForm refCode={params.ref ?? ""} defaultExam={defaultExam} />
+          <SignupForm
+            refCode={params.ref ?? ""}
+            defaultExam={defaultExam}
+            autoApprove={AUTO_APPROVE_SIGNUPS}
+          />
 
-          {/* The account is reviewed by hand before access, and there is no
-              reliable email notification yet. Saying that here costs one line
-              and prevents "I signed up and nothing happened" from becoming a
-              student lost on the first screen. */}
-          <ol className="mt-6 space-y-1.5 text-xs leading-relaxed text-[var(--color-text-secondary)]">
-            <li>1. Create the account — no card, no payment.</li>
-            <li>2. We review it by hand before the dashboard opens.</li>
-            <li>
-              3. Check the status any time from the{" "}
-              <Link href="/pending" className="font-semibold text-[var(--color-primary)] hover:underline">
-                application status page
-              </Link>
-              .
-            </li>
-          </ol>
+          {/* Two modes, one page: while the gate is paused the account is live
+              immediately; when SIGNUP_APPROVAL=manual returns, the review steps
+              come back as they were (lib/signup-approval.ts). */}
+          {AUTO_APPROVE_SIGNUPS ? (
+            <p className="mt-6 text-xs leading-relaxed text-[var(--color-text-secondary)]">
+              Accounts are active immediately during the free beta — create one, sign in, and
+              start practising. No card, no payment, no waiting for approval.
+            </p>
+          ) : (
+            <ol className="mt-6 space-y-1.5 text-xs leading-relaxed text-[var(--color-text-secondary)]">
+              <li>1. Create the account — no card, no payment.</li>
+              <li>2. We review it by hand before the dashboard opens.</li>
+              <li>
+                3. Check the status any time from the{" "}
+                <Link href="/pending" className="font-semibold text-[var(--color-primary)] hover:underline">
+                  application status page
+                </Link>
+                .
+              </li>
+            </ol>
+          )}
 
           <p className="text-center text-sm text-[var(--color-text-secondary)] mt-8">
             Already have an account?{" "}

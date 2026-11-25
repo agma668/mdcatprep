@@ -222,18 +222,6 @@ export default async function Home() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-sm text-[var(--steel-300)]">
-                Questions or study material?{" "}
-                <a
-                  href="https://chat.whatsapp.com/GbhjI1A6FvBBtAd4PZR2NU"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-[var(--signal-300)] underline underline-offset-4 hover:text-[var(--signal-200)]"
-                >
-                  Join the WhatsApp group
-                </a>
-                .
-              </p>
             </div>
 
             <dl className="mt-10 grid grid-cols-3 overflow-hidden rounded-[var(--r-4)] border border-[var(--line-2)] bg-[var(--srf-1)]/70 backdrop-blur-sm">

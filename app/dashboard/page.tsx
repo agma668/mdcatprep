@@ -186,19 +186,11 @@ export default async function DashboardOverviewPage() {
                 desc: "Practice exam-style questions with instant explanations.",
                 href: "/dashboard/practice",
               },
-              {
-                step: "03",
-                title: "Join the community",
-                desc: "Ask questions and get guidance in the WhatsApp group.",
-                href: "https://chat.whatsapp.com/GbhjI1A6FvBBtAd4PZR2NU",
-                external: true,
-              },
-            ].map(({ step, title, desc, href, external }) => (
+            ].map(({ step, title, desc, href }) => (
               <TrackedLink
                 key={step}
                 to={href}
                 label={`onboarding-step-${step}`}
-                {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="group glass-tile-glow rounded-[var(--radius-lg)] p-5 text-left hover:translate-y-[-2px] transition-all duration-300 relative overflow-hidden"
               >
                 <span

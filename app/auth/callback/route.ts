@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { createServiceClient } from '@/lib/supabase/service'
 import { isAdminEmail } from '@/lib/auth'
+import { AUTO_APPROVE_SIGNUPS } from '@/lib/signup-approval'
 
 /**
  * OAuth return route (Supabase PKCE). After Google consent the browser lands
@@ -82,12 +83,25 @@ export async function GET(request: NextRequest) {
           }
         }
 
+        // Approval gate paused for the free period (lib/signup-approval.ts).
+        // A first-time Google signup arrives pending; only pending is promoted.
+        // Rejected and suspended accounts still route to their own pages.
+        let status = profile?.status ?? null
+        if (AUTO_APPROVE_SIGNUPS && status === 'pending' && service) {
+          try {
+            await service.from('profiles').update({ status: 'approved' }).eq('id', user.id)
+            status = 'approved'
+          } catch (err) {
+            console.error('Auto-approval on OAuth callback failed:', (err as Error).message)
+          }
+        }
+
         const destination =
-          profile?.status === 'approved'
+          status === 'approved'
             ? '/dashboard'
-            : profile?.status === 'rejected'
+            : status === 'rejected'
               ? '/rejected'
-              : profile?.status === 'suspended'
+              : status === 'suspended'
                 ? '/suspended'
                 : '/pending'
         return NextResponse.redirect(`${origin}${destination}`)

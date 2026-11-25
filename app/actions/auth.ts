@@ -7,6 +7,7 @@ import { createServiceClient } from '@/lib/supabase/service'
 import { isAdminEmail } from '@/lib/auth'
 import { sendEnrollmentEmail } from '@/lib/email'
 import { getSiteUrl } from '@/lib/site'
+import { AUTO_APPROVE_SIGNUPS, SIGNUP_SUCCESS_MESSAGE } from '@/lib/signup-approval'
 
 export async function login(formData: FormData) {
   try {
@@ -84,6 +85,19 @@ async function performLogin(formData: FormData) {
   if (profile?.role === 'admin') {
     revalidatePath('/admin', 'layout')
     return { success: true, redirectTo: '/admin' }
+  }
+
+  // Approval gate paused for the free period: a pending account is promoted on
+  // first login instead of being bounced to /pending. Rejected and suspended
+  // accounts are untouched — the admin decision is still the source of truth.
+  if (AUTO_APPROVE_SIGNUPS && profile?.status === 'pending') {
+    try {
+      const service = createServiceClient()
+      await service.from('profiles').update({ status: 'approved' }).eq('id', authData.user.id)
+      profile = { ...profile, status: 'approved' }
+    } catch (err) {
+      console.error('Auto-approval on login failed:', (err as Error).message)
+    }
   }
 
   // The real gate is admin payment approval. Pending (or missing) students go
@@ -187,7 +201,13 @@ export async function signup(formData: FormData) {
       .update(
         isAdmin
           ? { role: 'admin', status: 'approved', phone, exam_target }
-          : { phone, exam_target }
+          : {
+              phone,
+              exam_target,
+              // Only while the gate is paused. Set SIGNUP_APPROVAL=manual to
+              // return new accounts to the review queue (see lib/signup-approval.ts).
+              ...(AUTO_APPROVE_SIGNUPS ? { status: 'approved' as const } : {}),
+            }
       )
       .eq('id', userId)
 
@@ -229,11 +249,10 @@ export async function signup(formData: FormData) {
     message: isAdmin
       ? 'Signup successful. You can now log in to the admin panel.'
       : adminSupabase
-        ? // Honest about the process: activation is a manual admin approval, and
-          // no email is sent (EmailJS/Resend vars are unset) — the student checks
-          // their status by logging in.
-          'Signup successful. Your application is under review — once an admin approves it you can log in and start preparing. No email is sent; check your status by signing in.'
-        : 'Signup successful. Your application is under review — once an admin approves it you can log in and start preparing. If sign-in asks you to confirm your email, check your inbox first.',
+        ? SIGNUP_SUCCESS_MESSAGE
+        : // No service client in this environment: the profile trigger leaves the
+          // account pending, so the honest message is the email-confirmation one.
+          'Signup successful. Your account has been created. If sign-in asks you to confirm your email, check your inbox first.',
   }
 }
 

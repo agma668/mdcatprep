@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LoginForm } from "./LoginForm";
+import { AUTO_APPROVE_SIGNUPS } from "@/lib/signup-approval";
 
 // An auth utility page: robots.txt disallows it, and the meta tag must agree. A page that is blocked
 // in robots.txt but ships "index, follow" is a contradiction crawlers report and users debug.
@@ -45,6 +46,7 @@ export default async function LoginPage({
         <LoginForm
           resetDone={params.reset === "done"}
           googleFailed={params.error === "google"}
+          showPendingStatus={!AUTO_APPROVE_SIGNUPS}
         />
 
         <p className="text-center text-sm text-[var(--color-text-secondary)] mt-8">

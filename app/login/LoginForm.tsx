@@ -18,6 +18,8 @@ type LoginFormProps = {
    * instead of silently showing a bare form.
    */
   googleFailed: boolean;
+  /** False while signups are auto-approved: there is no queue to check. */
+  showPendingStatus?: boolean;
 };
 
 /**
@@ -25,7 +27,7 @@ type LoginFormProps = {
  * route out of SSR and leave the served HTML with no form at all. The query
  * string is read in `page.tsx` and passed down. See that file for the numbers.
  */
-export function LoginForm({ resetDone, googleFailed }: LoginFormProps) {
+export function LoginForm({ resetDone, googleFailed, showPendingStatus = true }: LoginFormProps) {
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -129,14 +131,16 @@ export function LoginForm({ resetDone, googleFailed }: LoginFormProps) {
         {loading ? "Signing in..." : "Sign In"}
       </Button>
       </form>
-      {/* Accounts are approved by hand, so "I signed in and it says pending"
-          needs a visible way to check rather than a support message. */}
-      <p className="mt-4 text-center text-xs text-[var(--color-text-secondary)]">
-        Applied already?{" "}
-        <Link href="/pending" className="font-semibold text-[var(--color-primary)] hover:underline">
-          Check your application status
-        </Link>
-      </p>
+      {/* Only useful while the review gate is on. During the free period every
+          account is approved instantly, so this link would invent a queue. */}
+      {showPendingStatus && (
+        <p className="mt-4 text-center text-xs text-[var(--color-text-secondary)]">
+          Applied already?{" "}
+          <Link href="/pending" className="font-semibold text-[var(--color-primary)] hover:underline">
+            Check your application status
+          </Link>
+        </p>
+      )}
     </>
   );
 }

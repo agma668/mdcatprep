@@ -47,11 +47,11 @@ const FAQS = [
     items: [
       {
         q: "What is MED Prep?",
-        a: "MED Prep is a free online preparation platform for MDCAT and NUMS in Pakistan. It provides exam-style MCQ practice, master concept notes, repeat-fact high-yield notes, progress analytics, and a WhatsApp community — all at no cost.",
+        a: "MED Prep is a free online preparation platform for MDCAT and NUMS in Pakistan. It provides exam-style MCQ practice, master concept notes, repeat-fact high-yield notes and progress analytics — all at no cost.",
       },
       {
         q: "Is MED Prep really free?",
-        a: "Yes, during the beta. The question bank, study notes, progress dashboard and WhatsApp group cost nothing: no trial period, no credit card, no expiry while the beta runs. If paid access is introduced later, it will be announced before anything is locked. Premium one-on-one mentoring is available for Rs. 6,000 but is optional.",
+        a: "Yes, during the beta. The question bank, study notes and progress dashboard cost nothing: no trial period, no credit card, no expiry while the beta runs. If paid access is introduced later, it will be announced before anything is locked.",
       },
       {
         q: "Who can use MED Prep?",
@@ -135,7 +135,7 @@ const FAQS = [
     items: [
       {
         q: "How do I sign up?",
-        a: "Click 'Sign Up Free' on the homepage. Enter your name, email, and optionally your phone and exam target. Your account is reviewed by admin and approved — then you can log in and start practising.",
+        a: "Click 'Sign Up Free' on the homepage. Enter your name, email, and optionally your phone and exam target. During the beta the account is active immediately, so you can sign in and start practising right away.",
       },
       {
         q: "I forgot my password. How do I reset it?",
@@ -143,7 +143,7 @@ const FAQS = [
       },
       {
         q: "How do I contact MED Prep?",
-        a: "Use the WhatsApp button on the homepage or your dashboard to message us directly, and join the WhatsApp community group from the homepage link for guidance and updates.",
+        a: "Use the WhatsApp button on the homepage or your dashboard to message us directly.",
       },
     ],
   },
