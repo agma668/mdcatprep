@@ -138,6 +138,7 @@ export default async function PracticeSessionPage({
         homeHref={homeHref}
         signedIn={Boolean(user)}
         signupHref={signupHref}
+        exam={bankParam === "usat" ? "usat" : "mdcat"}
       />
     </main>
   );

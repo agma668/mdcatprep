@@ -1,5 +1,71 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-26 — Practice tools on every drill, and the tokens those pages were never using
+
+Two things landed together, because the second was found while testing the first.
+
+**Study tools beside every question.** `components/practice/StudyTools.tsx` +
+`lib/exam-tools.ts`, wired into `/nust/practice`, `/usat/practice`,
+`/pma/practice` and the full-focus player at `/practice/session` (so MDCAT
+topicals and past-paper runs get them too):
+
+- **Focus block** — pomodoro at 25/5, 15/3 or 50/10, with start/pause/reset. The
+  deadline is stored, not a counter: reload mid-block and it resumes at the real
+  remaining time instead of restarting at 25:00, and a block that already
+  expired is not silently restarted. State is initialised from a resolved
+  snapshot read outside render rather than restored in an effect, so no cascade
+  render and no `Date.now()` during render.
+- **Calculator** — a real one: recursive-descent parser over the displayed
+  string, `12+7×3 = 33`, `250×15% = 37.5`, brackets, an `Error` state on
+  anything it cannot read. No `eval`.
+- **Decks** — a link to the flashcard decks where they exist (MDCAT, NUMS,
+  USAT-M), and a disabled control with an honest reason where they do not
+  (NUST, PMA): "Engineering decks are not written yet", not a dead link.
+
+**The calculator is not presented as an exam allowance, because it is not one.**
+Checked against what the boards publish: UHS's MDCAT advertisement lists
+calculators among the strictly prohibited items, PMDC's rules say the same, and
+HEC's candidate instructions forbid calculators at USAT centres. NUST and
+PMA/ISSB publish no rule — which is not permission. So `lib/exam-tools.ts` has
+two states and no "allowed" state at all, the panel is labelled "Arithmetic
+aid", and the note under it is per-exam and blunt.
+
+**The drill pages were built on tokens this codebase does not define.**
+`bg-card`, `border-border`, `text-foreground`, `bg-secondary` appear throughout
+those three pages; measured in the browser, `bg-card` resolved to
+`rgba(0, 0, 0, 0)` and `--card` to an empty string — every "card" on those pages
+was transparent and every border was falling back to `currentColor`. Mapped to
+the design system that exists (`--srf-1/2/3`, `--line-1/2`, `--line-signal`,
+`--tint-signal`, `--signal-*`, `--steel-*`, `--field-1`). While there, USAT's
+purple and PMA's amber — two more palettes nothing else on the site uses — became
+the one primary the rest of the product already runs.
+
+**Defects found and fixed while testing:**
+
+- USAT's `nextQuestion`/`prevQuestion` called `setSelectedAnswers({})`, so
+  walking back through a timed run silently erased every answer recorded so far.
+  Navigation no longer touches the answer map.
+- The tools dock started bottom-left and covered the answer options at 1280px.
+  It is now a vertical rail on the right from `sm` up (clears the question card
+  by 141px at 1269 CSS) and a centred horizontal dock on phones, with `pb-28` on
+  the drill mains so the end of the content scrolls clear of it.
+- The first panel was translucent over `backdrop-blur`, which smeared the card
+  behind it into the display. Both tones are opaque now.
+
+**Verified:** `tsc` 0 · `eslint` 0 on all seven touched files · clean
+`next build` 0 · 200 on `/`, `/topicals`, `/past-papers`, `/flashcards`,
+`/nust/practice`, `/usat/practice`, `/pma/practice`,
+`/practice/session?bank=usat`, `/practice/session?subject=Biology&count=10` ·
+timer measured 25:00 → 24:51 with the button flipping to Pause and the deadline
+persisted · calculator measured `12+7×3 = 33`, `250×15% = 37.5`, `12+×3 = Error`
+in rose · deck link `href="/flashcards"` on USAT, disabled generic on NUST ·
+desktop (1269) and phone (379) both 0 horizontal overflow, card background now
+opaque `rgb(17, 25, 23)`.
+
+**Not verified:** the flashcards page's own deck filtering beyond the link
+target, and the drill pages' behaviour signed-in against Supabase — this checkout
+has no working local auth session, so those paths are typecheck/build only.
+
 ## 2026-11-26 — Hero, second pass: four elements on each side
 
 Reading the previous commit with fresh eyes, the hero still repeated itself. Cut:

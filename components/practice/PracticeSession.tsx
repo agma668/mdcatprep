@@ -25,6 +25,8 @@ import { BookmarkFlag } from "@/components/practice/BookmarkFlag";
 import { TrapReasons } from "@/components/practice/TrapReasons";
 import { useQuizSession } from "@/lib/quiz-session";
 import { pastPaperTag, type OptionLetter, type QuizQuestion } from "@/lib/questions";
+import { StudyTools } from "@/components/practice/StudyTools";
+import type { ExamToolsId } from "@/lib/exam-tools";
 
 export function PracticeSession({
   questions,
@@ -33,6 +35,7 @@ export function PracticeSession({
   homeHref = "/dashboard/practice",
   signedIn = true,
   signupHref = "/signup",
+  exam = "mdcat",
 }: {
   questions: QuizQuestion[];
   sessionKey: string;
@@ -41,6 +44,8 @@ export function PracticeSession({
   /** Guests may practise; nothing is written for them, so say so plainly. */
   signedIn?: boolean;
   signupHref?: string;
+  /** Which toolkit the dock offers: mdcat for topicals/past papers, usat for the USAT bank. */
+  exam?: ExamToolsId;
 }) {
   const router = useRouter();
   const total = questions.length;
@@ -95,7 +100,9 @@ export function PracticeSession({
             ? "Solid effort — read the explanations and go again."
             : "Every attempt counts — run it once more and watch it climb.";
     return (
-      <div className="glass-tile-glow relative overflow-hidden rounded-[var(--radius-xl)] border border-white/10 p-8 text-center sm:p-10">
+      <>
+        <StudyTools exam={exam} tone="dark" />
+        <div className="glass-tile-glow relative overflow-hidden rounded-[var(--radius-xl)] border border-white/10 p-8 text-center sm:p-10">
         <div className="mx-auto">
           <ScoreRing value={pct} size={168} stroke={12}>
             <span className="text-[2.75rem] font-extrabold leading-none tabular-nums text-gradient-brand">
@@ -155,6 +162,7 @@ export function PracticeSession({
           to exit anytime · answering every question improves your weak-area plan
         </p>
       </div>
+      </>
     );
   }
 
@@ -163,7 +171,9 @@ export function PracticeSession({
   const progressPct = ((index + 1) / total) * 100;
 
   return (
-    <div className="mx-auto w-full max-w-2xl px-4 py-6 sm:py-10">
+    <>
+      <StudyTools exam={exam} tone="dark" />
+      <div className="mx-auto w-full max-w-2xl px-4 py-6 sm:py-10">
       {!signedIn && (
         <div className="mb-4 flex flex-wrap items-center justify-between gap-2 rounded-[var(--radius-md)] border border-[var(--color-primary)]/25 bg-[var(--color-primary)]/10 px-3 py-2 text-xs text-white/80">
           <span>Practising as a guest — answers stay on this device.</span>
@@ -325,6 +335,7 @@ export function PracticeSession({
           </button>
         )}
       </div>
-    </div>
+      </div>
+    </>
   );
 }
