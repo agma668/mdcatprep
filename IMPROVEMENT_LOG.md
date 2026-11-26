@@ -1,5 +1,54 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-26 — Hero, second pass: four elements on each side
+
+Reading the previous commit with fresh eyes, the hero still repeated itself. Cut:
+
+- **"no fees, no card"** from the status line. The picker paragraph 150px below
+  says "All eight, one account, free during beta", and the card said "no
+  account" again — three statements of one fact inside one screen.
+- **The fine-print paragraph and its rule.** Its content is the picker
+  paragraph's second sentence, almost word for word, a scroll-inch away. The
+  hero now ends on the buttons.
+- **The card's "2 min" pill.** The primary button says "2-minute" already.
+- **The card's four-row spec table.** "Questions 10" restated the ten ticks
+  above it; "Subjects 4" and "Account: not needed" restated the sentence
+  directly above it. Only "Result by subject" carried information the card did
+  not already give, so it moved into that sentence.
+- **The card's "Start the diagnostic" link.** A third route to `/diagnostic` on
+  the same screen as the primary button 300px to its left. The card is a
+  preview of what that button opens, not a second door.
+- **The card's status dot.** Two identical 6px dots in one viewport is a tic,
+  not a signal.
+
+What is left is four elements per column: status line · headline · paragraph ·
+two buttons, and label · title · sentence · ten-question strip.
+
+**Layout defects this pass found by measuring, not guessing:**
+
+- The column rule had only the card's height, so it began at y=210 and ended at
+  y=500 while the copy ran 144 → 566: a bracket floating in the middle of
+  nothing. `lg:self-stretch` on the aside plus flex centring makes the rule
+  span the row exactly — at 1299px CSS it is now 144 → 566.2, the copy's own
+  top and bottom. Measured: gutters 97.5 / 97.6px, boundary at x=677, text
+  clearing the rule by 56px, card starting 56px after it, card centred in the
+  column to 0.0px, zero horizontal overflow.
+- The card title's hard `<br />` produced a widow below 640px ("An honest
+  starting / point."). The break is now `hidden sm:block`, so the two sentences
+  run as one flowing line under `sm` and still break deliberately above it.
+- The card is capped at `30rem` below `lg` so a stacked card does not stretch
+  into a banner, with `lg:max-w-none` so the desktop card edge still lands on
+  the container's right gutter.
+
+Gates: `tsc` 0 · `eslint` 0 · clean `next build` 0 · browser at 1299, 1026 and
+345 CSS px with zero horizontal overflow · contrast measured 7.23 / 13.19:1 for
+the status line, 8.19 / 9.39 body, 5.65 card label, 8.62 card copy (light /
+dark).
+
+**Tooling note:** `next build` served stale HTML twice even after `rm -rf .next`,
+so a browser read is not evidence on its own — grep `.next/server/app/index.html`
+for the string that changed before trusting one.
+
 ## 2026-11-26 — Hero reworked: no gradient phrase, no glow
 
 The pass before this one gave the hero a radial key light and a jade gradient on

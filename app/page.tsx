@@ -160,14 +160,9 @@ export default async function Home() {
           <div className="container-page pb-16 pt-28 sm:pb-24 sm:pt-36">
             <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-0">
               <div className="hero-intro lg:pr-14">
-                {/* One line, always. Two spans in a pill wrapped into a
-                    three-storey block on a phone and looked broken. */}
-                <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em]">
-                  <span aria-hidden="true" className="hero-live-dot text-[var(--champagne)]" />
-                  <span className="text-[var(--champagne)]">Free during beta</span>
-                  <span className="font-medium normal-case tracking-normal text-[var(--steel-400)]">
-                    no fees, no card
-                  </span>
+                <p className="flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--champagne)]">
+                  <span aria-hidden="true" className="hero-live-dot" />
+                  Free during beta
                 </p>
                 <h1
                   style={display}
@@ -180,7 +175,7 @@ export default async function Home() {
                   Every answer carries its key and the reasoning behind it, and where a board
                   releases its paper you can read that paper here in full.
                 </p>
-                <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                   <Link
                     href="/diagnostic"
                     className={`btn-primary group inline-flex min-h-[52px] w-full items-center justify-center gap-2 px-7 text-base sm:w-auto ${focusRing}`}
@@ -198,38 +193,33 @@ export default async function Home() {
                     See every test
                   </Link>
                 </div>
-                <p className="mt-10 max-w-[54ch] border-t border-[var(--line-1)] pt-4 text-sm leading-relaxed text-[var(--steel-400)]">
-                  Questions are written by us from each test&apos;s official syllabus. Released papers are the boards&apos; own — never reconstructed.
-                </p>
               </div>
 
-              {/* The first two minutes, drawn. This replaces a plate that
-                  repeated the same eight tests the picker below already lists,
-                  under three labels that read like invented statistics. The card
-                  shows the product's own opening move, and every number on it is
-                  the draw /diagnostic actually makes: ten questions, four
-                  subjects, no account, a subject-by-subject result at the end. */}
+
+
+              {/* The first two minutes, drawn. Not a stat plate, and no longer a
+                  second call to action either: the primary button to its left
+                  goes to the same page. This is the shape of what that button
+                  opens — ten questions across four subjects, no account, a
+                  result broken down by subject. Every number here is what
+                  /diagnostic actually draws. */}
               <aside
                 aria-label="The diagnostic"
-                className="relative lg:border-l lg:border-[var(--line-2)] lg:pl-14"
+                className="lg:flex lg:flex-col lg:justify-center lg:self-stretch lg:border-l lg:border-[var(--line-2)] lg:pl-14"
               >
-                <div className="relative overflow-hidden rounded-[var(--r-4)] border border-[var(--line-2)] bg-[var(--srf-1)] p-6 shadow-[var(--shadow-md)] sm:p-7">
-                  <div className="flex items-center justify-between gap-4">
-                    <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--steel-400)]">
-                      <span aria-hidden="true" className="hero-live-dot text-[var(--signal-300)]" />
-                      Free diagnostic
-                    </span>
-                    <span className="rounded-[var(--r-pill)] border border-[var(--line-signal)] bg-[var(--tint-signal)] px-2.5 py-1 text-[11px] font-bold tabular-nums text-[var(--signal-200)]">
-                      2 min
-                    </span>
-                  </div>
-                  <p style={display} className="mt-5 text-[1.6rem] font-bold leading-[1.15] tracking-tight text-[var(--steel-100)]">
-                    Ten questions.
-                    <br />
+                <div className="rounded-[var(--r-4)] border border-[var(--line-2)] bg-[var(--srf-1)] p-6 shadow-[var(--shadow-md)] sm:max-w-[30rem] sm:p-7 lg:max-w-none">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--steel-400)]">
+                    Free diagnostic
+                  </p>
+                  <p style={display} className="mt-4 text-[1.6rem] font-bold leading-[1.15] tracking-tight text-[var(--steel-100)]">
+                    Ten questions.{" "}
+                    <br className="hidden sm:block" />
+                    {" "}
                     An honest starting point.
                   </p>
-                  <p className="mt-2.5 text-sm leading-relaxed text-[var(--steel-300)]">
-                    Drawn across Biology, Chemistry, Physics and English. No account, nothing to install.
+                  <p className="mt-3 max-w-[46ch] text-sm leading-relaxed text-[var(--steel-300)]">
+                    Drawn from Biology, Chemistry, Physics and English, with no account and
+                    nothing to install. The result breaks down by subject.
                   </p>
                   <ol aria-hidden="true" className="mt-6 flex items-center gap-1.5">
                     {Array.from({ length: 10 }).map((_, i) => (
@@ -243,36 +233,10 @@ export default async function Home() {
                     <span>Question 1</span>
                     <span>10</span>
                   </div>
-                  <dl className="mt-6 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-[var(--line-1)] pt-5 text-sm">
-                    <div>
-                      <dt className="text-[var(--steel-400)]">Questions</dt>
-                      <dd className="font-semibold text-[var(--steel-100)]">10</dd>
-                    </div>
-                    <div>
-                      <dt className="text-[var(--steel-400)]">Subjects</dt>
-                      <dd className="font-semibold text-[var(--steel-100)]">4</dd>
-                    </div>
-                    <div>
-                      <dt className="text-[var(--steel-400)]">Account</dt>
-                      <dd className="font-semibold text-[var(--steel-100)]">Not needed</dd>
-                    </div>
-                    <div>
-                      <dt className="text-[var(--steel-400)]">Result</dt>
-                      <dd className="font-semibold text-[var(--steel-100)]">By subject</dd>
-                    </div>
-                  </dl>
-                  <Link
-                    href="/diagnostic"
-                    className={`group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--signal-300)] underline-offset-4 transition-colors hover:text-[var(--signal-200)] hover:underline ${focusRing}`}
-                  >
-                    Start the diagnostic
-                    <ArrowRight
-                      aria-hidden="true"
-                      className="h-4 w-4 transition-transform duration-[var(--dur-2)] group-hover:translate-x-1"
-                    />
-                  </Link>
                 </div>
               </aside>
+
+
             </div>
 
             {/* Pick your test — inside the hero on purpose. A visitor decides in the
