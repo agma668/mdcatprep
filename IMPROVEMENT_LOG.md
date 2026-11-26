@@ -1,5 +1,30 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-26 — Second pass over the light-mode batch (not pushed)
+
+Read the previous commits as a stranger would. Two things were overbuilt: the
+switcher wrote the mode into state, then into the document, and the provider
+broadcast it again — one path now sets it and everything else listens. Three
+rules were dead: a duplicate `html, body` pair and the whole `.omr-field` block
+that outlived the painted OMR canvas.
+
+The real bug was unseen because every page had been checked in dark. In light
+mode a page that paints its own black canvas still inherited the light navbar,
+so the wordmark sat at 1.1:1 and "All Tests" at 2.3:1 over the blog. Pages now
+declare `.dark-surface`; inside it the argument tokens, the nav material and
+the compatibility aliases are pinned to the dark set. The aliases mattered
+because `--color-accent-light` resolves where it is declared (`:root`), not
+where it is used, so pinning `--signal-*` alone left it handing the page the
+light-theme jade. Failing text runs on `/blog` went 23 → 3 → 0.
+
+The portal is a deliberate dark island in both themes, and admin, daily quiz
+and account-deleted stay hard-coded dark for the same reason: they mix white
+text with token surfaces, and flipping them needs a component-by-component
+pass that is not worth doing before launch.
+
+**Gates:** `tsc` 0 · `eslint` 0 · `next build` 0 · `npm test` 115/115.
+**Not pushed** — Vercel deployment budget, per instruction.
+
 ## 2026-11-25 — Studied `elite-cadet-prep`; three craft fixes applied (not pushed)
 
 Compared the cadet site's design guide and token sheet against ours. It is

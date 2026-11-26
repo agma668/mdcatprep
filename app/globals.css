@@ -1906,13 +1906,77 @@ html.lenis body { height: auto; }
   --glow-brass: 0 0 22px rgba(124, 94, 40, 0.12);
 }
 
-/* Body and the landing canvas stop painting their own gradient — that was
-   the "AI background": a blue radial wash behind the hero. */
-html { background-color: var(--field-1); }
-body { background-color: var(--field-1); color: var(--steel-100); }
+/* The landing canvas stops painting its own two decorative layers — the blue
+   radial wash and the 34px OMR dot grid. The element keeps the paper token so
+   light mode still applies; html/body already take their ground from the base
+   rules, so this block does not repeat them. */
 .landing-canvas { background: var(--field-1); }
-.landing-canvas::before, .landing-canvas::after { content: none; }
-.omr-field { display: none !important; }
+.landing-canvas::before,
+.landing-canvas::after { content: none; }
+
+/* The study portal is a dark work surface in BOTH modes. Its shell is
+   token-driven, but several of its components hard-code white text; letting
+   the surfaces flip to ivory made those headings white-on-white. Pinning the
+   tokens here keeps the portal coherent and leaves light mode to the public
+   pages, where every colour is a token. */
+[data-mode="light"] .bg-dashboard,
+[data-mode="light"] .dark-surface {
+  color-scheme: dark;
+  --field-0: #070A09;
+  --field-1: #0A0F0D;
+  --field-2: #0E1512;
+  --srf-1: #111917;
+  --srf-2: #16211D;
+  --srf-3: #1C2A25;
+  --srf-4: #24352E;
+  --steel-100: #F3F1E9;
+  --steel-200: #D8D9CE;
+  --steel-300: #B0B7AB;
+  --steel-400: #8A948B;
+  --steel-500: #66716A;
+  --steel-600: #46524B;
+  --steel-700: #2E3A34;
+  --steel-800: #1D2723;
+  --signal-100: #D9F5E9;
+  --signal-200: #AFE9D4;
+  --signal-300: #7EDCB9;
+  --signal-400: #4EC49E;
+  --signal-500: #2A9C7B;
+  --signal-600: #1B7C61;
+  --signal-700: #0F5C47;
+  --line-1: rgba(243, 241, 233, 0.07);
+  --line-2: rgba(243, 241, 233, 0.12);
+  --line-3: rgba(243, 241, 233, 0.19);
+  --line-lit: rgba(255, 255, 255, 0.06);
+  --line-signal: rgba(126, 220, 185, 0.3);
+  --rgb-signal: 126, 220, 185;
+  --color-navy: #0A0F0D;
+  --color-text-primary: var(--steel-100);
+  --color-text-secondary: var(--steel-300);
+  --color-text-muted: var(--steel-400);
+  /* Compatibility aliases resolve where they are DECLARED (:root), so pinning
+     --signal-* here is not enough: --color-accent-light was still handing these
+     pages the light-theme jade (2.3:1 on black). */
+  --color-primary: #7EDCB9;
+  --color-primary-light: #AFE9D4;
+  --color-primary-dark: #2A9C7B;
+  --color-accent: #7EDCB9;
+  --color-accent-light: #AFE9D4;
+  --color-gold: #7EDCB9;
+  --color-gold-light: #AFE9D4;
+  --brass: #C9A96A;
+  --brass-bright: #F0DCA8;
+  --champagne: #EAD3A2;
+  background-color: var(--field-1);
+}
+
+/* A dark-surface page keeps a dark navigation bar too. Without this the nav's
+   light-mode material and ink sat on top of a black canvas: "All Tests"
+   measured 2.3:1 and the wordmark 1.1:1 in the light theme. */
+[data-mode="light"] .dark-surface .nav-material {
+  background: rgba(10, 15, 13, 0.72);
+  border-bottom-color: var(--line-1);
+}
 
 /* Nav material in daylight: paper with a hairline, not a black bar. */
 [data-mode="light"] .nav-material {

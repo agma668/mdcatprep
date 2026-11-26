@@ -95,8 +95,11 @@ const ARTICLES = [
 ];
 
 export default function BlogPage() {
+  // Deliberately a dark canvas in both modes: the cards, dates and badges below
+  // are built on hard-coded white-on-black values, and `bg-field` follows light
+  // mode — which made every headline white on ivory.
   return (
-    <div className="min-h-screen bg-field font-sans text-white antialiased">
+    <div className="dark-surface min-h-screen bg-[#0a0a0a] font-sans text-white antialiased">
       <Navbar />
       <main>
         <section className="relative pt-32 pb-16 overflow-hidden">

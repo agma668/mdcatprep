@@ -28,7 +28,7 @@ export function PublicFlashcardsClient() {
   )
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] font-sans text-white antialiased">
+    <div className="dark-surface min-h-screen bg-[#0a0a0a] font-sans text-white antialiased">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(flashcardsJsonLd) }}
