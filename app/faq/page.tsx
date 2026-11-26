@@ -3,6 +3,7 @@ import { ANALYSIS_CORPUS, formatStat } from "@/lib/stats";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import { getSiteUrl, getWhatsAppLink } from "@/lib/site";
+import { CONTENT_REVIEWED_ON, formatReviewedOn } from "@/lib/dated-claims";
 
 const siteUrl = getSiteUrl();
 
@@ -75,8 +76,8 @@ const FAQS = [
         a: "The PMDC MDCAT paper is 180 MCQs, completed in 3 hours with no negative marking. Biology carries the most weight, so your study plan should reflect that. Check pmdc.pk for the official split of the current year.",
       },
       {
-        q: "When is the MDCAT 2026 exam?",
-        a: "The national MDCAT 2026 was rescheduled by PMDC and will be held on Sunday, 20 September 2026 (source: PMDC public notice and Dawn, 2026-08-06). NUMS MDCAT 2026 is on Sunday, 13 September 2026 (source: numspak.edu.pk). Always confirm on pmdc.pk and numspak.edu.pk for last-minute changes.",
+        q: "When is the next MDCAT?",
+        a: `The 2026 cycle is over. MDCAT 2026 was held on Sunday, 20 September 2026, after PMDC rescheduled it on 6 August 2026 (source: PMDC public alert). NUMS MDCAT 2026 was held on Sunday, 13 September 2026 (source: numspak.edu.pk). Neither body had published a 2027 date, fee or syllabus when this page was last checked, ${formatReviewedOn(CONTENT_REVIEWED_ON)} — pmdc.pk and numspak.edu.pk announce it first. A preparation site quoting another preparation site is how a wrong date becomes consensus, so we wait for the notice.`,
       },
       {
         q: "What is the eligibility criteria for MDCAT?",
@@ -166,7 +167,7 @@ const faqJsonLd = {
 
 export default function FAQPage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] font-sans text-white antialiased">
+    <div className="dark-surface min-h-screen bg-[#0a0a0a] font-sans text-white antialiased">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

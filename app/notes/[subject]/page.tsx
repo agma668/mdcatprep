@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import { getSiteUrl } from "@/lib/site";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { topicalSubject } from "@/lib/topicals";
 import {
   PUBLIC_NOTES_SUBJECTS,
   countTopics,
@@ -12,6 +14,9 @@ import {
 } from "@/lib/public-notes";
 
 const siteUrl = getSiteUrl();
+
+const linkFocus =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal-300)]";
 
 /** The dashboard page's anchor scheme: every heading gets a stable id. */
 function slugify(s: string): string {
@@ -118,6 +123,10 @@ export default async function SubjectNotesPage({ params }: Props) {
 
   const deepTopics = countTopics(subject.deep);
   const hasDeep = subject.deep.length > 0;
+  // The chapters we actually hold questions for, resolved from the same registry
+  // the drill route uses — so this list can never point at a page that 404s.
+  const drills = topicalSubject(subject.slug);
+  const otherSubjects = PUBLIC_NOTES_SUBJECTS.filter((s) => s.slug !== subject.slug);
 
   return (
     <div className="min-h-screen bg-[var(--field-1)] font-sans text-[var(--steel-100)] antialiased">
@@ -126,12 +135,13 @@ export default async function SubjectNotesPage({ params }: Props) {
         {/* Hero */}
         <section className="relative pt-32 pb-10 overflow-hidden">
           <div className="container-page relative z-10">
-            <Link
-              href="/notes"
-              className="text-sm font-medium text-[var(--signal-300)] hover:underline"
-            >
-              ← All MDCAT Notes
-            </Link>
+            <Breadcrumbs
+              items={[
+                { name: "Home", href: "/" },
+                { name: "Notes", href: "/notes" },
+                { name: `${subject.name} notes` },
+              ]}
+            />
             <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight">
               {subject.name} <span className="text-[var(--color-accent-light)]">MDCAT Notes</span>
             </h1>
@@ -202,6 +212,59 @@ export default async function SubjectNotesPage({ params }: Props) {
                       <SectionCard section={s} compact />
                     </div>
                   ))}
+                </div>
+              </section>
+            )}
+
+            {/* Chapters with questions behind them. Reading a unit and answering
+                its questions in the same sitting is the whole point of keeping
+                notes and drills on one site. */}
+            {drills && drills.chapters.length > 0 && (
+              <section className="mb-14">
+                <div className="mb-2 flex items-center gap-3">
+                  <span className="h-6 w-1.5 rounded-full bg-[var(--signal-500)]" aria-hidden="true" />
+                  <h2 className="text-xl font-extrabold">
+                    Practise {subject.name}, chapter by chapter
+                  </h2>
+                </div>
+                <p className="mb-6 max-w-3xl text-sm text-[var(--steel-400)]">
+                  {drills.chapters.length} {subject.name} chapters with questions behind them. Read the
+                  unit above, then answer its questions while it is still fresh.
+                </p>
+                <ul role="list" className="grid gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
+                  {drills.chapters.map((chapter) => (
+                    <li key={chapter.slug}>
+                      <Link
+                        href={`/topicals/${drills.slug}/${chapter.slug}`}
+                        className={`group flex items-baseline justify-between gap-3 text-sm ${linkFocus}`}
+                      >
+                        <span className="text-[var(--steel-200)] transition-colors group-hover:text-[var(--steel-100)] group-hover:underline">
+                          {chapter.title}
+                        </span>
+                        <span className="shrink-0 text-[11px] tabular-nums text-[var(--steel-500)]">
+                          {chapter.count} Qs
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-7 flex flex-wrap items-baseline gap-x-5 gap-y-2 text-sm">
+                  <span className="text-[var(--steel-400)]">Other subjects:</span>
+                  {otherSubjects.map((sibling) => (
+                    <Link
+                      key={sibling.slug}
+                      href={`/notes/${sibling.slug}`}
+                      className={`font-semibold text-[var(--signal-300)] underline underline-offset-4 hover:text-[var(--signal-200)] ${linkFocus}`}
+                    >
+                      {sibling.name}
+                    </Link>
+                  ))}
+                  <Link
+                    href="/notes/usat-m"
+                    className={`font-semibold text-[var(--signal-300)] underline underline-offset-4 hover:text-[var(--signal-200)] ${linkFocus}`}
+                  >
+                    HEC USAT-M
+                  </Link>
                 </div>
               </section>
             )}

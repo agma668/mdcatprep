@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import { getSiteUrl } from "@/lib/site";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import {
   KIND_DESCRIPTIONS,
   PAST_PAPERS,
@@ -16,6 +17,9 @@ import {
 } from "@/lib/past-papers";
 
 const siteUrl = getSiteUrl();
+
+const linkFocus =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal-300)]";
 
 /**
  * Board slug: "uhs-mdcat" → the exam key the registry uses.
@@ -67,6 +71,7 @@ export default async function BoardPage({ params }: Props) {
   const papers = PAST_PAPERS.filter((p) => p.exam === exam);
 
   // Year groups, newest first; undated last.
+  const boards = papersByExam();
   const yearKeys = [...new Set(papers.map((p) => p.year ?? null))].sort(
     (a, b) => (b ?? -1) - (a ?? -1)
   );
@@ -77,9 +82,13 @@ export default async function BoardPage({ params }: Props) {
       <main>
         <section className="relative pt-32 pb-10 overflow-hidden">
           <div className="container-page relative z-10">
-            <Link href="/past-papers" className="text-sm font-medium text-[var(--signal-300)] hover:underline">
-              ← All past papers
-            </Link>
+            <Breadcrumbs
+              items={[
+                { name: "Home", href: "/" },
+                { name: "Past papers", href: "/past-papers" },
+                { name: exam },
+              ]}
+            />
             <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight">
               {exam} <span className="text-[var(--color-accent-light)]">Past Papers</span>
             </h1>
@@ -127,6 +136,52 @@ export default async function BoardPage({ params }: Props) {
                 </div>
               );
             })}
+          </div>
+        </section>
+        {/* Lateral exits. This page used to carry one outbound link — back to the
+            hub — so eleven boards with real paper lists were dead ends for a
+            reader and for a crawler. */}
+        <section className="pb-20">
+          <div className="container-page">
+            <h2 className="mb-2 text-xl font-extrabold">Other examining bodies</h2>
+            <p className="mb-6 max-w-2xl text-sm text-[var(--steel-400)]">
+              Papers are held for {boards.length} boards. Each board page lists its own sittings and
+              says whether a key ships with every item.
+            </p>
+            <ul role="list" className="flex flex-wrap gap-2">
+              {boards
+                .filter((group) => group.key !== exam)
+                .map((group) => (
+                  <li key={group.key}>
+                    <Link
+                      href={`/past-papers/${boardSlug(group.key)}`}
+                      className={`inline-flex items-baseline gap-2 rounded-[var(--radius-md)] border border-[var(--line-2)] bg-white/[0.05] px-3 py-1.5 text-xs font-semibold text-[var(--steel-200)] transition-colors hover:border-[var(--signal-500)]/40 hover:text-white ${linkFocus}`}
+                    >
+                      {group.key}
+                      <span className="text-[10px] font-normal tabular-nums text-[var(--steel-500)]">
+                        {group.papers.length}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+            <p className="mt-8 max-w-2xl text-sm leading-relaxed text-[var(--steel-300)]">
+              Reading a paper is half the job.{" "}
+              <Link
+                href="/topicals"
+                className={`font-semibold text-[var(--signal-300)] underline underline-offset-4 hover:text-[var(--signal-200)] ${linkFocus}`}
+              >
+                Drill the syllabus chapter by chapter
+              </Link>{" "}
+              or read the{" "}
+              <Link
+                href="/notes"
+                className={`font-semibold text-[var(--signal-300)] underline underline-offset-4 hover:text-[var(--signal-200)] ${linkFocus}`}
+              >
+                notes for the same units
+              </Link>
+              .
+            </p>
           </div>
         </section>
       </main>

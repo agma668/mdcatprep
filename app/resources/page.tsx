@@ -208,7 +208,7 @@ function ResourceCard({ resource }: { resource: Resource }) {
 
 export default function ResourcesPage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] font-sans text-white antialiased">
+    <div className="dark-surface min-h-screen bg-[#0a0a0a] font-sans text-white antialiased">
       <Navbar />
       <main>
         <section className="relative pt-32 pb-16 overflow-hidden">

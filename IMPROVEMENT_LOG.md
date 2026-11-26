@@ -1,5 +1,57 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-26 — The prep map's missing half: lateral links, and a FAQ that was dating a past exam
+
+The map put every test, subject and paper year one click from the homepage, and
+then stopped. Below it, the 47 chapter-drill pages — the deepest content on the
+site — carried two outbound links each: their hub and the footer. The notes
+pages carried none to the drills. The eleven board pages carried one, back to
+the hub. A crawler could reach all of it and then had nowhere to go.
+
+Drill pages now end with the rest of their subject: every sibling chapter with
+its question count, the whole-paper sets, the subject's hub anchor, and the
+matching notes page. Notes pages gained the chapters they actually cover, read
+from the same registry the drill route resolves, plus links to the other
+subjects. Board pages list the other ten boards and point at the syllabus they
+test. `/topicals` groups gained `id="<subject>"` so "all chapters" lands on the
+subject rather than the top of the page. Deep pages replace their single "←
+back" link with a real breadcrumb trail, and the BreadcrumbList ships with it —
+structured data only where the trail is visible.
+
+The map's heading overclaimed. It read "Every page, one click from here" and
+listed 25 of the site's ~77 indexable URLs; it now says what it is — every test,
+subject and paper year.
+
+**The FAQ was dating an exam that had already happened.** It is 26 November
+2026 and `/faq` still said the 2026 MDCAT "will be held on" 20 September 2026.
+`lib/dated-claims.ts` now holds every time-sensitive sentence with the day it
+was checked, the day it must be checked again and its official source. The FAQ
+reads its check date from there, says the 2026 cycle is over, and says plainly
+that neither PMDC nor NUMS had published a 2027 date, fee or syllabus when
+checked. The same register feeds the sitemap: `lastModified` was `new Date()` on
+every URL at every build, which is how a crawler learns to ignore the signal.
+
+Four public pages were still hard-coded dark without declaring `.dark-surface` —
+`/past-papers`, `/faq`, `/resources` and the published guide. In light mode they
+inherited the light navbar and ivory footer around a black canvas, and
+`--color-accent-light` resolved to the light-theme jade on black for every
+heading: the same defect `/blog` needed 23 → 0 runs to clear.
+
+`/blog` also advertised "MDCAT and NUMS guides are published" when only the
+MDCAT guide exists, and rendered five "Not published yet" tiles above it. One
+guide is now what the page says, and unpublished cards no longer render.
+
+**Gates:** `tsc` 0 · `eslint` 0 on all twelve touched files · `npm test`
+115/115 · `next build` 0. Live smoke on the production build (`:3230`): all nine
+touched routes 200; `/faq` 0 "will be held on"; `/notes/biology` 36 drill links;
+a drill page 52 sibling links and one breadcrumb; `/past-papers/uhs-mdcat` the
+board list; `/blog` 0 unpublished tiles; `sitemap.xml` carries 2026-11-26.
+**Not done, deliberately:** the custom domain, Search Console and analytics need
+the founder's accounts (the site still canonicalises to
+`edweb-nine.vercel.app`); new guides need sourced research; per-page OG cards
+and a mobile performance pass need a design and a measurement first.
+**Not pushed** — deployment budget, per instruction.
+
 ## 2026-11-26 — A prep map on the homepage (not pushed)
 
 The site publishes fourteen public pages that matter to a student and the

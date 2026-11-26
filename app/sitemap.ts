@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { getSiteUrl } from '@/lib/site'
 import { SEO_PAGES, topicalDrillPaths } from '@/lib/seo-pages'
+import { CONTENT_REVIEWED_ON } from '@/lib/dated-claims'
 
 /**
  * Sitemap from the ONE list (lib/seo-pages.ts) — the same source the IndexNow
@@ -11,12 +12,16 @@ import { SEO_PAGES, topicalDrillPaths } from '@/lib/seo-pages'
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const url = getSiteUrl()
-  const now = new Date()
+  // Deliberately not `new Date()`: that stamped every URL as modified on every
+  // build, which is the fastest way to have crawlers ignore lastmod entirely.
+  // The register's reviewed-on date is bumped in the same commit as a content
+  // change, so this value is a claim we can stand behind.
+  const lastModified = new Date(`${CONTENT_REVIEWED_ON}T00:00:00Z`)
 
   const staticPages: MetadataRoute.Sitemap = SEO_PAGES.map(
     ({ path, priority, changeFrequency }) => ({
       url: `${url}${path}`,
-      lastModified: now,
+      lastModified,
       changeFrequency,
       priority,
     }),
@@ -24,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const drills: MetadataRoute.Sitemap = topicalDrillPaths().map((path) => ({
     url: `${url}${path}`,
-    lastModified: now,
+    lastModified,
     changeFrequency: 'weekly' as const,
     priority: 0.7,
   }))

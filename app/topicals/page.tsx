@@ -63,7 +63,7 @@ export default function TopicalsHubPage() {
         <section className="pb-20">
           <div className="container-page space-y-12">
             {TOPICALS_SUBJECTS.map((s) => (
-              <div key={s.slug}>
+              <div key={s.slug} id={s.slug} className="scroll-mt-28">
                 <div className="flex items-center gap-3 mb-5">
                   <span className="w-10 h-10 flex items-center justify-center rounded-[var(--radius-md)] bg-white/[0.06] border border-[var(--line-2)] text-xl" aria-hidden="true">
                     {s.icon}

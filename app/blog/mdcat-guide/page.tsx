@@ -62,7 +62,7 @@ const articleJsonLd = {
 
 export default function MDCATGuidePage() {
   return (
-    <div className="min-h-screen bg-field font-sans text-white antialiased">
+    <div className="dark-surface min-h-screen bg-field font-sans text-white antialiased">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}

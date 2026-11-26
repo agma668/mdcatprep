@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   // description rather than promising guides that do not exist.
   title: "Blog — Entry-Test Guides for MDCAT, NUMS & More",
   description:
-    "Preparation guides for Pakistani entry tests: exam patterns, syllabus breakdowns and subject strategy. MDCAT and NUMS guides are published; NUST, USAT and PMA guides are being written.",
+    "Preparation guides for Pakistani entry tests: exam patterns, syllabus breakdowns and subject strategy. An MDCAT guide is published; the NUMS, NUST, USAT and PMA guides are being written.",
   keywords: [
     "MDCAT blog",
     "MDCAT preparation tips",
@@ -109,9 +109,9 @@ export default function BlogPage() {
               Entry-Test <span className="text-[var(--color-accent-light)]">Guides</span>
             </h1>
             <p className="text-lg text-white/70 max-w-2xl">
-              Exam patterns, syllabus breakdowns and subject strategy. The published guides cover
-              MDCAT and NUMS; NUST, USAT and PMA guides are being written, and nothing unpublished
-              is linked.
+              Exam patterns, syllabus breakdowns and subject strategy. One guide is published so
+              far — the MDCAT one below. The NUMS, NUST, USAT and PMA guides are still being
+              written, and nothing unpublished is linked or dated.
             </p>
           </div>
         </section>
@@ -119,7 +119,11 @@ export default function BlogPage() {
         <section className="py-16">
           <div className="container-page">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {ARTICLES.map((article) => {
+              {/* Only published guides render. Five cards reading "Not published yet"
+                  above the one real guide made the blog read as abandoned; the
+                  planned topics stay in ARTICLES so each has one place to land
+                  when it ships. */}
+              {ARTICLES.filter((article) => LIVE_SLUGS.has(article.slug)).map((article) => {
                 const live = LIVE_SLUGS.has(article.slug);
                 const card = (
                   <>

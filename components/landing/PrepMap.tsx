@@ -67,11 +67,11 @@ export function PrepMap() {
         <div className="grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <h2 style={display} className="max-w-[20ch] text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
-              Every page, one click from here
+              Every test, subject and paper year
             </h2>
             <p className="mt-3 max-w-[52ch] text-[var(--steel-300)]">
-              The full map: each test&apos;s practice surface, each notes subject and every paper year we
-              hold. Nothing on this list is waiting to be written.
+              Each test&apos;s practice surface, each notes subject, and every paper year we hold with the
+              boards that sat it. Nothing on this list is waiting to be written.
             </p>
           </div>
           <Link
