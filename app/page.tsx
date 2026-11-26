@@ -157,27 +157,23 @@ export default async function Home() {
             branch's truthful "Free during beta" wording instead of "100% free", which the access
             policy no longer promises. */}
         <section aria-label="Hero" className="relative isolate">
-          {/* One warm key light and a survey grid behind the copy. The landing
-              canvas had been left with no decorative layer at all, so the first
-              screen was a flat near-black rectangle; this is two static
-              gradients, no filter and no animation. */}
-          <div aria-hidden="true" className="hero-aura" />
           <div className="container-page pb-16 pt-28 sm:pb-24 sm:pt-36">
-            <div className="grid items-center gap-12 lg:grid-cols-[1.06fr_0.94fr] lg:gap-16">
-              <div className="hero-intro">
+            <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-0">
+              <div className="hero-intro lg:pr-14">
                 {/* One line, always. Two spans in a pill wrapped into a
                     three-storey block on a phone and looked broken. */}
-                <p className="inline-flex flex-wrap items-center gap-x-2.5 rounded-[var(--r-pill)] border border-[var(--line-brass)] bg-[var(--tint-brass)] px-3.5 py-1.5 text-[13px] leading-5 text-[var(--steel-100)] sm:text-sm">
+                <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em]">
                   <span aria-hidden="true" className="hero-live-dot text-[var(--champagne)]" />
-                  <span className="font-semibold text-[var(--champagne)]">Free during beta</span>
-                  <span className="text-[var(--steel-300)]">no fees, no card</span>
+                  <span className="text-[var(--champagne)]">Free during beta</span>
+                  <span className="font-medium normal-case tracking-normal text-[var(--steel-400)]">
+                    no fees, no card
+                  </span>
                 </p>
                 <h1
                   style={display}
-                  className="mt-6 max-w-[20ch] text-[2.55rem] font-bold leading-[1.03] tracking-[-0.035em] text-[var(--steel-100)] sm:text-[3.35rem] lg:text-[3.9rem]"
+                  className="mt-5 max-w-[20ch] text-[2.5rem] font-bold leading-[1.04] tracking-[-0.038em] text-[var(--steel-100)] sm:text-[3.1rem] lg:text-[3.35rem]"
                 >
-                  Practise for your entry test{" "}
-                  <span className="hero-accent">the way the paper asks.</span>
+                  Practise for your entry test the way the paper asks.
                 </h1>
                 <p className="mt-6 max-w-[48ch] text-base leading-relaxed text-[var(--steel-300)] sm:text-[1.0625rem]">
                   Exam-style MCQs for MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT, PMA and ISSB.
@@ -202,7 +198,7 @@ export default async function Home() {
                     See every test
                   </Link>
                 </div>
-                <p className="mt-5 max-w-[52ch] text-sm leading-relaxed text-[var(--steel-400)]">
+                <p className="mt-10 max-w-[54ch] border-t border-[var(--line-1)] pt-4 text-sm leading-relaxed text-[var(--steel-400)]">
                   Questions are written by us from each test&apos;s official syllabus. Released papers are the boards&apos; own — never reconstructed.
                 </p>
               </div>
@@ -213,8 +209,11 @@ export default async function Home() {
                   shows the product's own opening move, and every number on it is
                   the draw /diagnostic actually makes: ten questions, four
                   subjects, no account, a subject-by-subject result at the end. */}
-              <aside aria-label="The diagnostic" className="relative">
-                <div className="card-sheen relative overflow-hidden rounded-[var(--r-5)] border border-[var(--line-2)] bg-[var(--srf-1)] p-6 shadow-[var(--shadow-lg)] sm:p-7">
+              <aside
+                aria-label="The diagnostic"
+                className="relative lg:border-l lg:border-[var(--line-2)] lg:pl-14"
+              >
+                <div className="relative overflow-hidden rounded-[var(--r-4)] border border-[var(--line-2)] bg-[var(--srf-1)] p-6 shadow-[var(--shadow-md)] sm:p-7">
                   <div className="flex items-center justify-between gap-4">
                     <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--steel-400)]">
                       <span aria-hidden="true" className="hero-live-dot text-[var(--signal-300)]" />

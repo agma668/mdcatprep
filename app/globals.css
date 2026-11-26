@@ -440,27 +440,6 @@
   z-index: 1;
 }
 
-/* ── HERO KEY LIGHT ─────────────────────────────────────────────────────────
-   The landing canvas keeps no decorative layers of its own, which left the
-   first screen a flat near-black rectangle. This is one absolutely positioned
-   div carrying two static radial washes — jade from the left, a trace of brass
-   from the right — masked out before the picker. No filter, no animation, no
-   second paint layer: nothing here touches the frame budget, and nothing here
-   writes the per-frame custom properties ScrollEffects owns. */
-.hero-aura {
-  position: absolute;
-  inset: -3rem auto auto -2rem;
-  width: min(78rem, 118%);
-  height: 46rem;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(34rem 22rem at 24% 10%, rgba(var(--rgb-signal), 0.14), transparent 68%),
-    radial-gradient(28rem 18rem at 82% 0%, rgba(201, 162, 75, 0.1), transparent 70%);
-  mask-image: linear-gradient(to bottom, #000 0, #000 52%, transparent 92%);
-  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 52%, transparent 92%);
-}
-
 /* The live mark: a 6px dot that takes its colour from the text it sits in. */
 .hero-live-dot {
   width: 6px;
@@ -468,26 +447,6 @@
   flex: none;
   border-radius: var(--r-pill);
   background: currentColor;
-}
-
-/* One phrase of the headline carries the gradient, the way the accent type
-   works elsewhere on the page. Held in @supports because a failed
-   background-clip would otherwise leave the phrase transparent — every stop
-   already clears AA on the field on its own (steel-100 16.4:1, signal-300
-   9.8:1 in the dark theme). */
-@supports ((background-clip: text) or (-webkit-background-clip: text)) {
-  .hero-accent {
-    background-image: linear-gradient(
-      96deg,
-      var(--steel-100) 0%,
-      var(--signal-200) 62%,
-      var(--signal-300) 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-  }
 }
 
 /* Section mesh (FAQ) — a banded surface that separates a long list from the

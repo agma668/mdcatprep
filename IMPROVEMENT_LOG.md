@@ -1,5 +1,49 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-26 — Hero reworked: no gradient phrase, no glow
+
+The pass before this one gave the hero a radial key light and a jade gradient on
+the last clause of the headline. Both are the house style of generated landing
+pages — a soft halo behind the type, and a two-colour gradient across one
+phrase — and the founder called it. It reads as decoration applied to a page,
+which is the opposite of what an entry-test product should signal.
+
+The hero is flat now, and structure does the work instead:
+
+- **One ink.** The headline is `--steel-100` on the field, one weight, 3.35rem
+  at desktop, three lines. No background-clip, no transparent fill, no second
+  colour.
+- **A hairline, not a halo.** The two columns are separated by a 1px
+  `--line-2` rule on the card column (`lg:border-l`), the same machined-seam
+  language the rest of the site already speaks. It costs nothing to paint and
+  survives both themes.
+- **Status line, not capsule.** "Free during beta" lost its brass pill. It is
+  now a 6px dot, the phrase in champagne caps, and "no fees, no card" in
+  steel-400 next to it. A caps label plus a plain sentence is how a spec sheet
+  reads; a bordered pill holding two facts is how a template reads.
+- **Footnote under a rule.** The "questions are written by us" line sits below
+  a hairline now, so it belongs to the claim above it instead of floating as
+  loose grey text.
+- **The card is a panel.** `card-sheen` (a light sweep on hover) is gone, the
+  radius dropped to `--r-4` and the shadow to `--shadow-md`. Its content is
+  untouched — still the real ten-question draw: ten ticks, four subjects, no
+  account, result by subject.
+- **Scale.** The headline came down from 3.95rem to 3.35rem: at the old size it
+  ran four lines and pushed the primary CTA to the fold on a 900px-tall screen.
+
+Kept: the `.hero-intro` stagger (subtle, reduced-motion safe) and the arrow that
+moves on the CTA. The picker's eight tiles are unchanged.
+
+**Measured:** `tsc` 0 · `eslint` 0 · clean `next build` 0, with `hero-aura` and
+`hero-accent` absent from the built HTML. Browser at 1440 and 390 in both
+themes: no horizontal overflow, the hairline renders only at `lg`, the headline
+is three lines at desktop and four at phone width, and the light theme measures
+16.5:1 for the headline on paper.
+
+**Note for whoever reads the entry below this one:** it describes the glow and
+the gradient. That is the history of that pass, not the current page. This entry
+supersedes it.
+
 ## 2026-11-26 — The hero stops repeating itself, and gains a light
 
 The hero's right-hand plate said three things at once: "Covered on Apex",
