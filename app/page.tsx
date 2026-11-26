@@ -70,9 +70,11 @@ export const revalidate = 60;
 
 const display = { fontFamily: "var(--font-display)" } as const;
 
-// Every tile points at a real practice surface. GIKI and LUMS sit inside the
-// engineering portal's shared bank, exactly like the unified-portal
-// architecture says they should.
+// Every tile points at that exam's own start page (/start/<test>): the demo
+// questions from its bank, the decks whose subjects it examines, and the signup
+// form already set to that test. GIKI and LUMS sit inside the engineering
+// portal's shared bank, exactly like the unified-portal architecture says they
+// should.
 // Eight tests, eight identical tiles. The medical papers used to take two
 // half-width cards on the top row while the rest shared a row underneath, so
 // the grid itself said "medical site" before anyone read a word. Every tile is
@@ -81,14 +83,14 @@ const display = { fontFamily: "var(--font-display)" } as const;
 // The tile's own line is its real bank size (tileMeta below), so the list
 // carries no second sentence to compete with it.
 const TESTS = [
-  { href: "/topicals", name: "MDCAT", track: "Medical" },
-  { href: "/nust/practice", name: "NUST NET", track: "Engineering" },
-  { href: "/past-papers", name: "NUMS", track: "Medical" },
-  { href: "/nust/practice", name: "GIKI", track: "Engineering" },
-  { href: "/usat/practice", name: "HEC USAT", track: "University admission" },
-  { href: "/nust/practice", name: "LUMS", track: "University admission" },
-  { href: "/pma/practice", name: "PMA", track: "Defence" },
-  { href: "/pma/practice", name: "ISSB", track: "Defence" },
+  { href: "/start/mdcat", name: "MDCAT", track: "Medical" },
+  { href: "/start/nust", name: "NUST NET", track: "Engineering" },
+  { href: "/start/nums", name: "NUMS", track: "Medical" },
+  { href: "/start/giki", name: "GIKI", track: "Engineering" },
+  { href: "/start/usat", name: "HEC USAT", track: "University admission" },
+  { href: "/start/lums", name: "LUMS", track: "University admission" },
+  { href: "/start/pma", name: "PMA", track: "Defence" },
+  { href: "/start/issb", name: "ISSB", track: "Defence" },
 ];
 
 const PRACTICE = [

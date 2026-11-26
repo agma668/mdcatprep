@@ -9,112 +9,17 @@
 //   Decks   a link to the flashcard decks for this exam, or an honest note when
 //           none exist yet instead of a link that goes nowhere
 //
-// Everything lives in a bottom-left dock so it never covers the question card
-// (the feedback button owns the bottom-right). The dock is one tab stop per
-// control and Escape closes the open panel.
+// The timer lives in lib/use-focus-timer.ts so the per-test start page runs the
+// exact same clock. The rail is a right-edge column from `sm` up (it clears the
+// question card) and a centred dock on phones.
 
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Calculator, Layers, Pause, Play, RotateCcw, Timer, X } from "lucide-react";
 import { calculatorStatusLabel, EXAM_TOOLKITS, type ExamToolsId } from "@/lib/exam-tools";
+import { FOCUS_PRESETS, formatClock, useFocusTimer } from "@/lib/use-focus-timer";
 
 type Tab = "focus" | "calc";
-
-const PRESETS = [
-  { id: "25", label: "25 / 5", focus: 25 * 60, rest: 5 * 60 },
-  { id: "15", label: "15 / 3", focus: 15 * 60, rest: 3 * 60 },
-  { id: "50", label: "50 / 10", focus: 50 * 60, rest: 10 * 60 },
-] as const;
-
-type PresetId = (typeof PRESETS)[number]["id"];
-
-type StoredTimer = {
-  preset: PresetId;
-  phase: "focus" | "rest";
-  remaining: number;
-  endsAt: number | null;
-};
-
-const STORAGE_KEY = "apex.practice.focus";
-
-function presetFor(id: PresetId) {
-  return PRESETS.find((p) => p.id === id) ?? PRESETS[0];
-}
-
-function phaseLength(preset: PresetId, phase: "focus" | "rest"): number {
-  const p = presetFor(preset);
-  return phase === "focus" ? p.focus : p.rest;
-}
-
-/**
- * The timer that was running when this browser last left the page, read once
- * per module. Initialised lazily rather than restored in an effect: writing
- * state from an effect body would cascade a render for a panel that is closed
- * on first paint anyway.
- */
-let storedCache: ResolvedTimer | undefined;
-
-type ResolvedTimer = {
-  preset: PresetId;
-  phase: "focus" | "rest";
-  remaining: number;
-  running: boolean;
-  endsAt: number | null;
-};
-
-const DEFAULT_TIMER: ResolvedTimer = {
-  preset: "25",
-  phase: "focus",
-  remaining: 25 * 60,
-  running: false,
-  endsAt: null,
-};
-
-/**
- * The timer this browser left behind, resolved against the clock ONCE per
- * module load. Read outside render so the component never calls Date.now while
- * rendering, and never writes state from an effect just to restore a value the
- * first paint does not show anyway (the panel is closed).
- */
-function readStoredTimer(): ResolvedTimer {
-  if (typeof window === "undefined") return DEFAULT_TIMER;
-  if (storedCache !== undefined) return storedCache;
-  storedCache = DEFAULT_TIMER;
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return storedCache;
-    const saved = JSON.parse(raw) as StoredTimer;
-    if (!PRESETS.some((p) => p.id === saved.preset)) return storedCache;
-    if (saved.phase !== "focus" && saved.phase !== "rest") return storedCache;
-    if (saved.endsAt) {
-      const left = Math.round((saved.endsAt - Date.now()) / 1000);
-      if (left > 0) {
-        storedCache = { preset: saved.preset, phase: saved.phase, remaining: left, running: true, endsAt: saved.endsAt };
-        return storedCache;
-      }
-    }
-    storedCache = {
-      preset: saved.preset,
-      phase: saved.phase,
-      remaining:
-        Number.isFinite(saved.remaining) && saved.remaining > 0
-          ? saved.remaining
-          : phaseLength(saved.preset, saved.phase),
-      running: false,
-      endsAt: null,
-    };
-  } catch {
-    /* a corrupt or unreadable value is ignored, never repaired by guessing */
-  }
-  return storedCache;
-}
-
-function clock(totalSeconds: number): string {
-  const safe = Math.max(0, Math.round(totalSeconds));
-  const m = Math.floor(safe / 60);
-  const s = safe % 60;
-  return `${m}:${String(s).padStart(2, "0")}`;
-}
 
 /**
  * Arithmetic with no eval: a tiny recursive-descent parser over the string the
@@ -222,93 +127,13 @@ export function StudyTools({
   const toolkit = EXAM_TOOLKITS[exam];
   const [open, setOpen] = useState<Tab | null>(null);
 
-  const initial = readStoredTimer();
-
-  const [preset, setPreset] = useState<PresetId>(initial.preset);
-  const [phase, setPhase] = useState<"focus" | "rest">(initial.phase);
-  const [remaining, setRemaining] = useState(initial.remaining);
-  const [running, setRunning] = useState(initial.running);
-  const endsAt = useRef<number | null>(initial.running ? initial.endsAt : null);
-  const [notice, setNotice] = useState<string | null>(null);
+  const { preset, phase, remaining, running, notice, start, pause, reset, choosePreset } =
+    useFocusTimer();
 
   const [expr, setExpr] = useState("");
   const [result, setResult] = useState<string | null>(null);
   const [calcError, setCalcError] = useState(false);
 
-  const persist = useCallback(
-    (next: StoredTimer) => {
-      try {
-        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-      } catch {
-        /* storage may be unavailable; the timer still works for this tab */
-      }
-    },
-    []
-  );
-
-  // ── The one tick loop ─────────────────────────────────────────────────────
-  useEffect(() => {
-    if (!running) return;
-    const id = window.setInterval(() => {
-      const end = endsAt.current;
-      if (!end) return;
-      const left = Math.round((end - Date.now()) / 1000);
-      if (left > 0) {
-        setRemaining(left);
-        return;
-      }
-      // Block finished: flip the phase, stop, and say so without a sound.
-      const finished = phase;
-      const nextPhase: "focus" | "rest" = finished === "focus" ? "rest" : "focus";
-      const nextLength = phaseLength(preset, nextPhase);
-      endsAt.current = null;
-      setRunning(false);
-      setPhase(nextPhase);
-      setRemaining(nextLength);
-      setNotice(
-        nextPhase === "rest"
-          ? "Focus block done — take the break."
-          : "Break over — back to the paper."
-      );
-      persist({ preset, phase: nextPhase, remaining: nextLength, endsAt: null });
-    }, 500);
-    return () => window.clearInterval(id);
-  }, [running, phase, preset, persist]);
-
-  const start = () => {
-    const end = Date.now() + remaining * 1000;
-    endsAt.current = end;
-    setRunning(true);
-    setNotice(null);
-    persist({ preset, phase, remaining, endsAt: end });
-  };
-
-  const pause = () => {
-    endsAt.current = null;
-    setRunning(false);
-    persist({ preset, phase, remaining, endsAt: null });
-  };
-
-  const reset = () => {
-    const length = phaseLength(preset, phase);
-    endsAt.current = null;
-    setRunning(false);
-    setRemaining(length);
-    setNotice(null);
-    persist({ preset, phase, remaining: length, endsAt: null });
-  };
-
-  const choosePreset = (id: PresetId) => {
-    const length = phaseLength(id, phase);
-    setPreset(id);
-    endsAt.current = null;
-    setRunning(false);
-    setRemaining(length);
-    setNotice(null);
-    persist({ preset: id, phase, remaining: length, endsAt: null });
-  };
-
-  // ── Calculator ────────────────────────────────────────────────────────────
   const press = useCallback((key: string) => {
     setCalcError(false);
     if (key === "C") {
@@ -325,8 +150,7 @@ export function StudyTools({
       setExpr((current) => {
         if (!current.trim()) return current;
         try {
-          const value = evaluateExpression(current);
-          setResult(formatResult(value));
+          setResult(formatResult(evaluateExpression(current)));
         } catch {
           setResult("Error");
           setCalcError(true);
@@ -366,10 +190,10 @@ export function StudyTools({
           panel: "border-[var(--line-2)] bg-[var(--srf-1)] text-[var(--steel-100)] shadow-xl",
           muted: "text-[var(--steel-400)]",
           rule: "border-[var(--line-2)]",
-          chip: "border-[var(--line-2)] bg-[var(--srf-3)] text-[var(--steel-100)]/80 hover:bg-[var(--srf-3)]",
-          chipOn: "border-accent bg-[var(--tint-signal)] text-[var(--steel-100)]",
+          chip: "border-[var(--line-2)] bg-[var(--srf-3)] text-[var(--steel-300)] hover:bg-[var(--srf-2)]",
+          chipOn: "border-[var(--line-signal)] bg-[var(--tint-signal)] text-[var(--signal-300)]",
           key: "border-[var(--line-2)] bg-[var(--field-1)] text-[var(--steel-100)] hover:bg-[var(--srf-3)]",
-          keyFn: "border-[var(--line-2)] bg-[var(--srf-3)] text-[var(--steel-100)]/70 hover:bg-[var(--srf-3)]",
+          keyFn: "border-[var(--line-2)] bg-[var(--srf-3)] text-[var(--steel-300)] hover:bg-[var(--srf-2)]",
           dock: "border-[var(--line-2)] bg-[var(--srf-1)] text-[var(--steel-100)] shadow-lg",
           accent: "text-[var(--signal-300)]",
         };
@@ -420,13 +244,15 @@ export function StudyTools({
           {open === "focus" && (
             <div>
               <div className="flex items-baseline justify-between gap-2">
-                <span className="font-mono text-3xl font-bold tabular-nums">{clock(remaining)}</span>
+                <span className="font-mono text-3xl font-bold tabular-nums">
+                  {formatClock(remaining)}
+                </span>
                 <span className={`text-[10px] font-bold uppercase tracking-[0.14em] ${surface.muted}`}>
                   {phase === "focus" ? "Focus" : "Break"}
                 </span>
               </div>
               <div className="mt-2.5 flex flex-wrap gap-1.5">
-                {PRESETS.map((p) => (
+                {FOCUS_PRESETS.map((p) => (
                   <button
                     key={p.id}
                     type="button"
@@ -476,7 +302,7 @@ export function StudyTools({
             <div>
               <div
                 className={`rounded-[10px] border px-2.5 py-2 text-right ${surface.rule} ${
-                  tone === "dark" ? "bg-black/30" : "bg-[var(--srf-3)]"
+                  tone === "dark" ? "bg-black/30" : "bg-[var(--field-1)]"
                 }`}
               >
                 <p className={`truncate text-xs tabular-nums ${surface.muted}`} aria-hidden="true">

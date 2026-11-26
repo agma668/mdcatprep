@@ -1,5 +1,83 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-26 — Every test tile now lands on that test's own front door
+
+The homepage picker was handing every student straight into a drill. For
+somebody who had not decided yet that is the wrong first screen: eight tiles,
+eight bare question lists, and the account — the thing the whole product runs
+on — was reachable only from a nav link. This adds the missing step: a start page
+per test, with the demo, the cards and the clock on the left and the signup form
+already set to that exam on the right.
+
+**`/start/<test>`** — `mdcat`, `nums`, `nust`, `giki`, `lums`, `usat`, `pma`,
+`issb`; all eight tiles on `app/page.tsx` now point here. `lib/test-start.ts`
+holds one row per test: headline, honest blurb, which bundled bank the demo draws
+from, which subject decks apply, and the exact value the signup form's exam field
+should arrive pre-selected with.
+
+**The left side is a real demo, not a mock-up.** Three tabs, all of them the
+product's actual parts:
+
+- **Demo questions (5)** — five real questions from that test's own bank, picked
+  one per subject in bank order, so the same URL shows everyone the same demo and
+  a screenshot means something. Tap an option or press 1–4; the answer is graded
+  and the written rationale appears. PMA's SVG figure questions are filtered out
+  because the demo is text — a figure question with empty options would be a
+  broken card, not a preview.
+- **Flashcards** — the decks whose subjects that paper actually examines, two
+  decks of six cards, flip on click or Space. MDCAT gets 12 cards; PMA and ISSB
+  get an explicit "no deck written yet" panel with the reason, because inventing
+  a defence deck to fill the tab is the exact thing this product does not do.
+- **Focus block** — the same pomodoro as the drill, now genuinely the same code:
+  the timer moved out of `StudyTools` into `lib/use-focus-timer.ts` and both
+  surfaces run it, so a block started on the start page is the block the drill
+  shows. One implementation, one deadline in `localStorage`.
+
+**Per-test copy is per-test and checkable.** ISSB keeps to verbal and non-verbal
+reasoning because that is what ISSB screens; USAT says out loud that no
+calculator is permitted at USAT centres; GIKI and LUMS say they draw from the
+shared engineering bank and that one account covers all of it; NUST's decks are
+labelled "subject decks, not NET-specific" rather than dressed up as NET decks.
+
+**Two routing defects found while checking, both fixed.** `/start/nope` answered
+**200** with the 404 body: awaiting `searchParams` opted the route out of
+prerendering, the response began streaming before the page could decide the slug
+did not exist, so the status line was already sent. The page no longer reads the
+query string, the eight slugs prerender (`● /start/[test]`), and `dynamicParams =
+false` makes the router itself refuse anything else — `/start/nope` and
+`/start/issb-e` now both answer 404, verified with curl.
+
+**A third defect, found only in the browser:** the deck tab filtered by subject
+alone, so the MDCAT page opened with "USAT-M Verbal: High-Yield Vocabulary" as its
+first deck — a USAT deck on a medical front door. Decks carry an optional `tests`
+list; that list now decides where a deck may appear, and a deck without one (the
+PMDC-family subject decks) still travels. MDCAT now shows The Cell & Organelles
+and Biological Molecules.
+
+**Verified:** `tsc` 0 · `eslint` 0 on all six touched files · clean
+`next build` 0 with `/start/[test]` prerendered · 200 on all eight start pages
+and `/` · 404 on two invented slugs · served HTML for `/start/mdcat` carries
+"Demo questions (5)", "Flashcards (12)" and `value="MDCAT"` · `/start/pma`
+carries "Flashcards (0)" with `value="PMA Long Course"` · `/start/issb` carries
+the reasoning bank and `value="ISSB Intelligence"` · the homepage emits exactly
+eight `/start/*` hrefs, one per tile.
+
+**Verified in a live tab, 1280 and 379 CSS px:** the demo card sits 56→800 and the
+signup column 840→1224 on one row with a 40px gap and 0 horizontal overflow;
+answering option A grades green with the rationale ("Mitochondria are called the
+powerhouse…"), Next moves to question 2 and the reveal resets; the card flips
+from "Smallest structural and functional unit of life?" to "The cell." and Next
+resets it to the question face; the focus block runs 25:00 → 24:58 with the
+button on Pause; the form's exam field reads `MDCAT` on the MDCAT page and
+`PMA Long Course` on the PMA page; PMA's deck tab says "No deck written yet / No
+defence deck is written yet" instead of showing an empty viewer; at 379 the tabs
+wrap to two rows, the form sits below the demo, and overflow is 0.
+
+**Not verified:** actually submitting the form from a start page. The exam field
+arrives pre-set, but the signup round-trip needs a live Supabase session this
+checkout does not have, so the submit path is the one already shipping on
+`/signup` and nothing here was proved against the database.
+
 ## 2026-11-26 — Practice tools on every drill, and the tokens those pages were never using
 
 Two things landed together, because the second was found while testing the first.
