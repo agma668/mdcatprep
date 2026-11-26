@@ -4,14 +4,16 @@ import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 import { Badge } from "@/components/ui/Badge";
 import { getSiteUrl } from "@/lib/site";
-import { Calendar, Clock, ArrowLeft } from "lucide-react";
+import { Calendar, Clock } from "lucide-react";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { CONTENT_REVIEWED_ON, formatReviewedOn } from "@/lib/dated-claims";
 
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   title: "MDCAT 2026 Complete Guide — Pattern, Syllabus & Study Plan",
   description:
-    "The complete MDCAT 2026 guide: the PMDC pattern (180 MCQs, no negative marking), the exam date, syllabus strategy and a week-by-week study plan.",
+    "The complete MDCAT 2026 guide: the PMDC pattern (180 MCQs, no negative marking), when the 2026 sitting was held, syllabus strategy and a week-by-week study plan.",
   keywords: [
     "MDCAT 2026",
     "MDCAT guide",
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
     url: `${siteUrl}/blog/mdcat-guide`,
     title: "MDCAT 2026 Complete Guide — Pattern, Syllabus & Study Plan | MED Prep",
     description:
-      "The complete MDCAT 2026 guide: pattern, syllabus strategy and study plan.",
+      "The complete MDCAT 2026 guide: pattern, syllabus strategy and a study plan for the next sitting.",
     siteName: "MED Prep",
     images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: "MDCAT 2026 Complete Guide — MED Prep" }],
   },
@@ -44,7 +46,7 @@ const articleJsonLd = {
   "@type": "Article",
   headline: "MDCAT 2026 Complete Guide — Pattern, Syllabus & Study Plan",
   description:
-    "The complete MDCAT 2026 guide: pattern, syllabus strategy and study plan.",
+    "The complete MDCAT 2026 guide: pattern, syllabus strategy and a study plan for the next sitting.",
   url: `${siteUrl}/blog/mdcat-guide`,
   author: {
     "@type": "Organization",
@@ -57,7 +59,7 @@ const articleJsonLd = {
     url: siteUrl,
   },
   datePublished: "2026-09-10",
-  dateModified: "2026-09-10",
+  dateModified: CONTENT_REVIEWED_ON,
 };
 
 export default function MDCATGuidePage() {
@@ -71,12 +73,13 @@ export default function MDCATGuidePage() {
       <main>
         <article className="pt-32 pb-20">
           <div className="container-page max-w-3xl">
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-sm font-medium text-white/70 hover:text-[var(--color-accent-light)] transition-colors mb-8"
-            >
-              <ArrowLeft className="w-4 h-4" /> Back to Blog
-            </Link>
+            <Breadcrumbs
+              items={[
+                { name: "Home", href: "/" },
+                { name: "Blog", href: "/blog" },
+                { name: "MDCAT 2026 guide" },
+              ]}
+            />
 
             <div className="mb-10">
               <div className="flex items-center gap-3 mb-4">
@@ -94,11 +97,32 @@ export default function MDCATGuidePage() {
               <p className="text-lg text-white/70 leading-relaxed">
                 Everything you need to know about MDCAT 2026: the official PMDC
                 pattern, the syllabus units that carry the most marks, and a
-                study plan that fits the time you actually have left.
+                study plan that works for the next sitting.
               </p>
             </div>
 
             <div className="prose-custom space-y-8 text-white/80 leading-relaxed">
+              <div className="not-prose bg-[var(--tint-warn)] border border-[var(--line-warn)] rounded-[var(--radius-lg)] p-5">
+                <p className="text-sm font-bold text-white mb-1">
+                  Written for the 2026 cycle — that sitting is over.
+                </p>
+                <p className="text-sm text-white/75">
+                  MDCAT 2026 was held on Sunday, 20 September 2026, and NUMS
+                  MDCAT 2026 on Sunday, 13 September 2026. Neither PMDC nor
+                  NUMS had published a 2027 date, fee or syllabus when this
+                  page was last checked, {formatReviewedOn(CONTENT_REVIEWED_ON)}.
+                  The pattern, syllabus and study plan below still hold for
+                  the next sitting; the dates do not.{" "}
+                  <a href="https://pmdc.pk/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent-light)] underline hover:no-underline">
+                    pmdc.pk
+                  </a>{" "}
+                  and{" "}
+                  <a href="https://numspak.edu.pk/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent-light)] underline hover:no-underline">
+                    numspak.edu.pk
+                  </a>{" "}
+                  will announce it first.
+                </p>
+              </div>
               <section>
                 <h2 className="text-2xl font-bold text-white mb-4">
                   What is the MDCAT?
@@ -124,21 +148,21 @@ export default function MDCATGuidePage() {
 
               <section>
                 <h2 className="text-2xl font-bold text-white mb-4">
-                  MDCAT 2026 Exam Date
+                  When the 2026 MDCAT Was Held
                 </h2>
                 <p>
-                  The MDCAT 2026 exam is scheduled for{" "}
-                  <strong className="text-white">Sunday, September 20, 2026</strong>{" "}
-                  — PMDC rescheduled it from the original August date, so if you
-                  planned around August, recalibrate now. NUMS runs its own test
+                  MDCAT 2026 was held on{" "}
+                  <strong className="text-white">Sunday, 20 September 2026</strong>{" "}
+                  — PMDC moved it from its original August date, and that change was
+                  announced on pmdc.pk. NUMS runs its own test
                   separately:{" "}
-                  <strong className="text-white">Sunday, September 13, 2026</strong>{" "}
+                  <strong className="text-white">Sunday, 13 September 2026</strong>{" "}
                   (via{" "}
                   <a href="https://numspak.edu.pk/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent-light)] underline hover:no-underline">
                     numspak.edu.pk
                   </a>
-                  ). If you are sitting both, that gives you a NUMS first, then
-                  MDCAT a week later — a built-in second chance.
+                  ). Students sitting both sat NUMS first, then
+                  MDCAT a week later. The order is likely to repeat next cycle; the dates are not yet announced.
                 </p>
               </section>
 
@@ -147,9 +171,9 @@ export default function MDCATGuidePage() {
                   The Pattern: Where the Marks Live
                 </h2>
                 <p>
-                  The 2026 paper is 180 MCQs in 3 hours with no negative
+                  The 2026 paper was 180 MCQs in 3 hours with no negative
                   marking. Before you plan a single study hour, check the
-                  official split of the current year on{" "}
+                  official split for the year you are sitting on{" "}
                   <a href="https://pmdc.pk/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent-light)] underline hover:no-underline">
                     pmdc.pk
                   </a>{" "}
@@ -238,7 +262,7 @@ export default function MDCATGuidePage() {
                     </p>
                   </div>
                   <div className="bg-white/[0.06] border border-white/10 rounded-[var(--radius-lg)] p-5">
-                    <h3 className="font-bold text-white mb-2">Final week (that&apos;s now)</h3>
+                    <h3 className="font-bold text-white mb-2">Final week</h3>
                     <p className="text-sm">
                       Only revision and mocks — no new topics. Rerun your mistake book, drill Biology&apos;s fact-heavy units daily (they fade fastest), sleep properly the last two nights. A sharp mind on Sunday beats one more late-night chapter.
                     </p>

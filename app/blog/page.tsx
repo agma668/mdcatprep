@@ -54,7 +54,7 @@ const ARTICLES = [
     slug: "mdcat-guide",
     title: "MDCAT 2026 Complete Guide — Pattern, Syllabus & Study Plan",
     description:
-      "Everything about MDCAT 2026: the official PMDC marks distribution (180 MCQs — Biology 81, Chemistry 45, Physics 36, English 9, Logical Reasoning 9), the syllabus units that matter, and a week-by-week study plan.",
+      "Everything about MDCAT 2026: the PMDC pattern (180 MCQs in 3 hours, no negative marking), the syllabus units that matter, and a week-by-week study plan.",
     tag: "MDCAT",
   },
   {

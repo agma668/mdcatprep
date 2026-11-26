@@ -1,5 +1,47 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-26 — The only live guide was still talking about a sitting that already happened
+
+`/blog/mdcat-guide` is the one published guide on the site and the page a
+student arriving from a search for "MDCAT" is most likely to read. It was
+written on 10 September 2026, for an exam still eleven days away, and nothing
+since had told it otherwise: "The MDCAT 2026 exam is scheduled for Sunday,
+September 20, 2026", "Final week (that's now)", "if you planned around August,
+recalibrate now". On 26 November that is a page confidently describing the past
+in the future tense — the same failure `/faq` had, in the place where it costs
+most.
+
+The guide now opens with the cycle's status before any advice: the 2026 MDCAT
+and NUMS sittings were held on 20 and 13 September 2026, neither body had
+published a 2027 date, fee or syllabus when the page was last checked
+(`formatReviewedOn(CONTENT_REVIEWED_ON)`), and the pattern and study plan below
+still hold while the dates do not. The date section is past tense with its
+source, the plan's "final week (that's now)" is just "final week", and the
+syllabus advice points at "the year you are sitting" rather than "the current
+year". The check date comes from `lib/dated-claims.ts`, not from a second copy
+of the fact. Its lone "← Back to Blog" link became the same breadcrumb trail —
+visible plus BreadcrumbList — the other deep pages carry, and `dateModified`
+reads the register instead of a date the page had outgrown.
+
+`/blog`'s card for the guide also carried an exact marks split — "Biology 81,
+Chemistry 45, Physics 36, English 9, Logical Reasoning 9" — that no page we own
+sources, while the guide itself tells the reader to check the official split on
+pmdc.pk. The card now claims only the 180 MCQs and the three hours, which the
+guide and the FAQ both stand behind.
+
+**Also measured, not inferred:** the light-theme contrast of the pinned
+`.dark-surface` pages. Every text/surface pair used on those pages now has a
+number (worst 5.12:1 in light, 5.49:1 in dark), and a real browser run of
+`/blog/mdcat-guide` at 360 and 390 px with `data-mode="light"` confirms the
+surface stays #0A0F0D, links resolve to #AFE9D4 at 14.19:1, muted text at
+6.15:1, and nothing overflows horizontally.
+
+**Gates:** `tsc` 0 · `eslint` 0 on both touched files · `next build` 0. Live
+smoke on the production build (`:3231`): the guide 200, carries the cycle note,
+the past-tense date heading and the BreadcrumbList, and contains none of "is
+scheduled for", "Back to Blog", "recalibrate now" or "current year"; `/blog` no
+longer prints the split. **Not pushed** — deployment budget, per instruction.
+
 ## 2026-11-26 — The prep map's missing half: lateral links, and a FAQ that was dating a past exam
 
 The map put every test, subject and paper year one click from the homepage, and
