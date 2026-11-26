@@ -1,18 +1,24 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { Fragment, useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
-import { AlertCircle, ArrowLeft, CheckCircle2, Clock, Flag, Layers, Sparkles, TrendingUp } from 'lucide-react'
+import { ArrowLeft, CheckCircle2, Clock, Flag, HelpCircle, Layers, Sparkles, TrendingUp } from 'lucide-react'
 import {
   getMyMistakeReviews,
   getMistakeStats,
   updateMistakeReview,
   mistakeToFlashcard,
   mistakesToFlashcards,
+  markMistakeGuessed,
   type MistakeReviewRow,
   type MistakeStats,
 } from '@/app/actions/mistakes'
-import { MASTERY_REQUIRED_CORRECT_STREAK } from '@/lib/mistakes/classification'
+import {
+  bucketFor,
+  ERROR_BUCKET_LABELS,
+  ERROR_BUCKETS,
+  MASTERY_REQUIRED_CORRECT_STREAK,
+} from '@/lib/mistakes/classification'
 
 const CLASSIFICATION_LABELS: Record<string, string> = {
   incorrect: 'Incorrect',
@@ -68,20 +74,31 @@ export default function MistakeNotebookPage() {
     return () => window.clearTimeout(timer)
   }, [load])
 
-  // Due first, then by the date the next re-check falls on. A notebook sorted
-  // only by "when you missed it" buries the three things worth doing today
-  // under forty that are not due until next week.
-  const visible = reviews
-    .filter((r) => {
-      if (filter === 'all') return true
-      return filter === 'mastered' ? r.mastered : !r.mastered
-    })
-    .sort((a, b) => {
-      const aDue = a.retry?.due ? 0 : 1
-      const bDue = b.retry?.due ? 0 : 1
-      if (aDue !== bDue) return aDue - bDue
-      return (a.retry?.dueAt ?? '').localeCompare(b.retry?.dueAt ?? '')
-    })
+  const visible = reviews.filter((r) => {
+    if (filter === 'all') return true
+    return filter === 'mastered' ? r.mastered : !r.mastered
+  })
+
+  // Grouped by error type — wrong → guessed → too slow → flagged — and due
+  // first inside each group. The four are different problems with different
+  // fixes, and one flat list hid which of them was costing the most marks; the
+  // date sort on its own buried the three things worth doing today under forty
+  // that are not due until next week.
+  const ordered = [...visible].sort((a, b) => {
+    const bucketDiff =
+      ERROR_BUCKETS.indexOf(bucketFor(a.classification)) -
+      ERROR_BUCKETS.indexOf(bucketFor(b.classification))
+    if (bucketDiff !== 0) return bucketDiff
+    const aDue = a.retry?.due ? 0 : 1
+    const bDue = b.retry?.due ? 0 : 1
+    if (aDue !== bDue) return aDue - bDue
+    return (a.retry?.dueAt ?? '').localeCompare(b.retry?.dueAt ?? '')
+  })
+  const bucketCount = ordered.reduce<Record<string, number>>((acc, review) => {
+    const bucket = bucketFor(review.classification)
+    acc[bucket] = (acc[bucket] ?? 0) + 1
+    return acc
+  }, {})
 
   async function handleMissReason(id: string, value: string) {
     const result = await updateMistakeReview(id, { miss_reason: value === '' ? null : value })
@@ -115,6 +132,22 @@ export default function MistakeNotebookPage() {
     setNotice(result.success ? 'Flashcard created.' : result.error ?? 'Could not create a flashcard.')
   }
 
+  async function handleGuessed(id: string, guessed: boolean) {
+    const result = await markMistakeGuessed(id, guessed)
+    if (!result.success) {
+      setNotice(result.error ?? 'Could not save that.')
+      return
+    }
+    setReviews((prev) =>
+      prev.map((r) =>
+        r.id === id
+          ? { ...r, classification: guessed ? 'guessed_incorrect' : 'incorrect' }
+          : r
+      )
+    )
+    setNotice(guessed ? 'Filed as a guess.' : 'Filed as a wrong answer.')
+  }
+
   async function handleBulkFlashcards() {
     setBulkBusy(true)
     const result = await mistakesToFlashcards([])
@@ -134,7 +167,9 @@ export default function MistakeNotebookPage() {
         </Link>
         <h1 className="text-3xl font-extrabold tracking-tight">Mistake Recovery</h1>
         <p className="text-sm text-muted-foreground mt-1">
-          Review what you missed, name why it happened, and earn mastery through repeated successful practice.
+          Grouped by how you missed it — a wrong answer, a guess, a slow one, or a
+          flagged question — retried at 1, 3 and 7 days, and mastered only after two
+          correct re-answers.
         </p>
       </div>
 
@@ -142,7 +177,11 @@ export default function MistakeNotebookPage() {
         <StatCard label="Total" value={stats.total} />
         <StatCard label="To revise" value={stats.notMastered} accent="rose" />
         <StatCard label="Mastered" value={stats.masteredCount} accent="emerald" />
-        <StatCard label="Categories" value={Object.keys(stats.byClassification).length} accent="amber" />
+        <StatCard
+          label="Due today"
+          value={reviews.filter((r) => !r.mastered && r.retry?.due).length}
+          accent="amber"
+        />
       </div>
 
       <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -201,7 +240,26 @@ export default function MistakeNotebookPage() {
         </div>
       ) : (
         <div className="space-y-5">
-          {visible.map((review) => (
+          {ordered.map((review, index) => {
+            const bucket = bucketFor(review.classification)
+            const startsBucket =
+              index === 0 || bucketFor(ordered[index - 1].classification) !== bucket
+            return (
+            <Fragment key={review.id}>
+            {startsBucket ? (
+              <div
+                className={`flex items-baseline justify-between gap-3 border-b border-border pb-2 ${
+                  index === 0 ? '' : 'pt-6'
+                }`}
+              >
+                <h2 className="text-xs font-bold uppercase tracking-wider text-foreground">
+                  {ERROR_BUCKET_LABELS[bucket]}
+                </h2>
+                <span className="text-xs font-semibold text-muted-foreground">
+                  {bucketCount[bucket]} {bucketCount[bucket] === 1 ? 'question' : 'questions'}
+                </span>
+              </div>
+            ) : null}
             <article key={review.id} className="bg-card border border-border rounded-2xl p-6 shadow-sm space-y-4">
               <div className="flex items-center justify-between gap-3 flex-wrap">
                 <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-secondary text-secondary-foreground">
@@ -293,6 +351,21 @@ export default function MistakeNotebookPage() {
                   <Sparkles className="w-3.5 h-3.5" /> Make flashcard
                 </button>
 
+                {/* The one error type the app cannot see for itself. */}
+                <button
+                  onClick={() =>
+                    void handleGuessed(review.id, !review.classification.startsWith('guessed'))
+                  }
+                  aria-pressed={review.classification.startsWith('guessed')}
+                  className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border text-xs font-bold transition-colors ${
+                    review.classification.startsWith('guessed')
+                      ? 'bg-amber-500/15 border-amber-500/30 text-amber-400'
+                      : 'bg-background border-border text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  <HelpCircle className="w-3.5 h-3.5" /> I guessed
+                </button>
+
                 <Link
                   href="/dashboard/practice"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-accent"
@@ -301,24 +374,13 @@ export default function MistakeNotebookPage() {
                 </Link>
               </div>
             </article>
-          ))}
+            </Fragment>
+            )
+          })}
         </div>
       )}
 
-      {reviews.length > 0 && Object.keys(stats.byClassification).length > 0 ? (
-        <div className="mt-8 rounded-2xl border border-border bg-card p-5">
-          <h2 className="text-sm font-bold mb-3 flex items-center gap-1.5">
-            <AlertCircle className="w-4 h-4" /> By classification
-          </h2>
-          <div className="flex flex-wrap gap-2">
-            {Object.entries(stats.byClassification).map(([key, count]) => (
-              <span key={key} className="text-xs px-3 py-1 rounded-full bg-secondary text-secondary-foreground">
-                {CLASSIFICATION_LABELS[key] ?? key}: {count}
-              </span>
-            ))}
-          </div>
-        </div>
-      ) : null}
+
     </div>
   )
 }

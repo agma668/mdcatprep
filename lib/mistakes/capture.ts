@@ -13,6 +13,13 @@
 //  - a fresh miss clears mastery — the question is, by definition, not mastered;
 //  - every failure is swallowed. The notebook is a layer on top of practice, and
 //    practice must never fail because the notebook's table is missing.
+//
+// The error type is derived from signals the app already records, so the four
+// buckets are real rather than decorative: a wrong answer on a bookmarked
+// question is "flagged", a wrong answer past the time budget is "too slow", and
+// a question missed three times over is "repeatedly missed". "Guessed" is the
+// one thing only the student knows, so it is a one-tap attestation in the
+// notebook (markMistakeGuessed) rather than a guess by the machine.
 
 import { deriveClassification } from "@/lib/mistakes/classification";
 import type { createClient } from "@/lib/supabase/server";
@@ -29,10 +36,30 @@ export async function captureWrongAnswer(
   timeSpentSeconds?: number | null
 ): Promise<void> {
   try {
+    const [bookmark, priorWrong] = await Promise.all([
+      supabase
+        .from("question_bookmarks")
+        .select("id")
+        .eq("student_id", studentId)
+        .eq("question_id", questionId)
+        .maybeSingle(),
+      // `is_correct = false` on this question, counted after the current attempt
+      // has landed, so subtracting one gives the earlier misses the classifier
+      // expects.
+      supabase
+        .from("question_attempts")
+        .select("id", { count: "exact", head: true })
+        .eq("student_id", studentId)
+        .eq("question_id", questionId)
+        .eq("is_correct", false),
+    ]);
+
     const classification =
       deriveClassification({
         correct: false,
         slow: typeof timeSpentSeconds === "number" && timeSpentSeconds >= SLOW_ANSWER_SECONDS,
+        flagged: Boolean(bookmark.data),
+        priorWrongCount: Math.max(0, (priorWrong.count ?? 1) - 1),
       }) ?? "incorrect";
     const now = new Date().toISOString();
 

@@ -1,5 +1,56 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-26 — Mistake Notebook v2: grouped by how you missed it
+
+v1 had the parts and no view. The notebook now answers the question a student
+actually has — *what kind of mistake is costing me marks?* — instead of showing
+one chronological list of forty cards.
+
+**Grouped by error type.** `ERROR_BUCKETS` / `bucketFor` in
+`lib/mistakes/classification.ts` map every classification into exactly one of
+four groups, so no mistake is counted twice: **Wrong answer** (includes
+`repeatedly_missed`, which keeps its own badge on the card), **Guessed**
+(`guessed_correct` + `guessed_incorrect`), **Too slow**, and **Flagged, still
+wrong**. Groups render as sticky-headed sections with a count each, and cards
+inside a group are due-first. The old "by classification" footer is gone — the
+sections are the same information, in the place you can act on it.
+
+**The signals are real, not decorative.** A bucket that is always empty is worse
+than no bucket, so three of the four are derived from data the app already
+writes (`lib/mistakes/capture.ts`, run after the response):
+
+- *flagged* — the question is in `question_bookmarks`, which is literally "flag
+  for review";
+- *too slow* — the answer took 90 s or more;
+- *wrong* — everything else, with `priorWrongCount` counted from
+  `question_attempts` so a third miss on the same question is labelled
+  `repeatedly_missed`.
+
+*Guessed* is the one thing no table can see — a guessed-but-right answer and a
+known-but-right answer are identical rows — so it is a one-tap attestation in
+the notebook (`markMistakeGuessed`), which moves only the classification and
+never touches `updated_at`, because that timestamp anchors the ladder and
+re-labelling a mistake must not restart its clock.
+
+**Already in place and unchanged:** the 1/3/7-day ladder
+(`lib/mistakes/schedule.ts`) with "Due today / Overdue by 2 days" on every card,
+the mastery gate (two consecutive correct re-answers, enforced in the action as
+well as the button), and the single-press "make cards from all new mistakes".
+The stats strip now shows **Due today** instead of a category count, because one
+is a to-do and the other was trivia.
+
+**Verified:** `tsc` 0 · `eslint` 0 on all four touched files ·
+`lib/mistakes/classification.test.ts` 9/9 · `next build` 0 · prod server on
+`:3245` serving `/` and `/start/mdcat` 200 and redirecting
+`/dashboard/mistake-notebook` 307 to `/login` for a guest, which is the correct
+boundary.
+
+**Not verified:** the grouped screen itself, and every signed-in write behind it
+(capture with the new signal queries, the guessed attestation, the mastery gate,
+bulk cards). This checkout has no Supabase session and I will not write to the
+production `edweb` tables without approval, so those paths are type-checked,
+unit-tested where they are pure, and built — not exercised against the database.
+
 ## 2026-11-26 — The account card moved above the demo on a phone, and the notebook finally has a writer
 
 Two things, both from the review.

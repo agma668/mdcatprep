@@ -294,6 +294,36 @@ export async function updateMistakeReview(
   return { success: true };
 }
 
+/**
+ * One tap: "I guessed this one". A guess is the one error type the machine
+ * cannot see — a guessed-but-right answer and a known-but-right answer look
+ * identical in `question_attempts` — so the student attests it, and the
+ * notebook can then group guesses separately from knowledge gaps.
+ *
+ * Only the classification moves. `updated_at` is deliberately left alone: that
+ * timestamp anchors the 1/3/7-day ladder, and re-labelling a mistake must not
+ * restart its clock.
+ */
+export async function markMistakeGuessed(
+  reviewId: string,
+  guessed: boolean
+): Promise<{ success: boolean; error?: string }> {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return { success: false, error: "Not authenticated" };
+
+  const { error } = await supabase
+    .from("mistake_reviews")
+    .update({ classification: guessed ? "guessed_incorrect" : "incorrect" })
+    .eq("id", reviewId)
+    .eq("student_id", user.id);
+  if (error) return { success: false, error: error.message };
+  revalidatePath("/dashboard/mistake-notebook");
+  return { success: true };
+}
+
 /** All of the student's mistake reviews, newest first, with question bodies. */
 export async function getMyMistakeReviews(): Promise<{
   error?: string;

@@ -27,6 +27,43 @@ export const MISS_REASONS = [
 
 export type MissReason = (typeof MISS_REASONS)[number]
 
+/**
+ * The notebook groups by error type, not by subject: "I did not know it", "I
+ * guessed", "I was too slow" and "I flagged it and still got it wrong" are four
+ * different problems with four different fixes, and a flat list hides which one
+ * is costing the most marks.
+ *
+ * The mapping is deliberately total — every classification lands in exactly one
+ * bucket, so no mistake can be counted by two groups at once. `repeatedly_missed`
+ * stays in "wrong" because it is a wrong answer with a longer history; the card
+ * still names it in full, so nothing is hidden by the bucket.
+ */
+export const ERROR_BUCKETS = ["wrong", "guessed", "slow", "flagged"] as const
+
+export type ErrorBucket = (typeof ERROR_BUCKETS)[number]
+
+export const ERROR_BUCKET_LABELS: Record<ErrorBucket, string> = {
+  wrong: "Wrong answer",
+  guessed: "Guessed",
+  slow: "Too slow",
+  flagged: "Flagged, still wrong",
+}
+
+export function bucketFor(classification: MistakeClassification): ErrorBucket {
+  switch (classification) {
+    case "guessed_correct":
+    case "guessed_incorrect":
+      return "guessed"
+    case "slow":
+      return "slow"
+    case "flagged":
+      return "flagged"
+    case "incorrect":
+    case "repeatedly_missed":
+      return "wrong"
+  }
+}
+
 export function isMistakeClassification(value: string): value is MistakeClassification {
   return (CLASSIFICATIONS as readonly string[]).includes(value)
 }
