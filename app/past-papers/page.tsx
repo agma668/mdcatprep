@@ -89,7 +89,9 @@ export default function PastPapersPage() {
           <div className="container-page">
             <div className="space-y-10">
               {YEARS.map(({ key, papers }) => (
-                <div key={key}>
+                // Anchored so the homepage prep map can send a reader straight
+                // to the year they clicked, and the target is a real page.
+                <div key={key} id={`papers-${key}`} className="scroll-mt-28">
                   <div className="mb-4 flex items-center gap-3">
                     <span className="flex h-9 w-9 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-primary)]/15 text-[var(--color-primary-light)]">
                       <CalendarDays className="h-4 w-4" />

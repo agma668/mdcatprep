@@ -11,6 +11,7 @@ import {
   keyLabel,
   kindLabel,
   papersByExam,
+  pastPaperBoardSlug,
   pastPaperLabel,
 } from "@/lib/past-papers";
 
@@ -24,9 +25,7 @@ const siteUrl = getSiteUrl();
  * reachable at a URL ending in a dash while the sitemap submitted the clean one — a 404 for every
  * crawler and a dead link for the board list.
  */
-function boardSlug(examKey: string): string {
-  return examKey.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
-}
+const boardSlug = pastPaperBoardSlug;
 
 function examForSlug(slug: string): string | null {
   const wanted = slug.replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");

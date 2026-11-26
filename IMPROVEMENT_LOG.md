@@ -1,5 +1,33 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-26 — A prep map on the homepage (not pushed)
+
+The site publishes fourteen public pages that matter to a student and the
+footer linked five of them. The notes library was reachable only by knowing it
+existed; a chapter's questions needed a guessed URL; the paper boards were two
+hops away through a hub with no per-year anchors. That is the difference
+between a site a crawler can map and one it samples.
+
+The new section sits between the method and the FAQ and lists every test, all
+four notes subjects plus USAT-M, and every paper year with the examining bodies
+that sat it — 39 links, 25 distinct destinations. Every entry is derived from
+the registry that owns it: `PUBLIC_NOTES_SUBJECTS` for notes, `papersByYear()`
+for years and boards. The board slug rule moved into `lib/past-papers.ts` so
+the map and `/past-papers/[board]` cannot disagree about an address, and the
+hub's year groups gained `id="papers-YYYY"` anchors so a year link lands on the
+year it names instead of the top of a long page.
+
+Honesty: no year is listed that we hold no paper for, no board is listed that
+has no page, and the column's footnote says the years are sittings we hold
+rather than sittings we have every paper from.
+
+**Gates:** `tsc` 0 · `eslint` 0 · `next build` 0 · `npm test` 115/115. Live
+smoke on the production build: all 25 map destinations return 200 and every
+anchor id exists in the target HTML; no horizontal overflow at a 360px
+viewport (scrollWidth 327). Section heights read 0 in the preview panel (its
+known zero-rect bug), so the 360/390/768 stacking was checked by class
+inspection, not by measured layout. **Not pushed** — deployment budget.
+
 ## 2026-11-26 — Second pass over the light-mode batch (not pushed)
 
 Read the previous commits as a stranger would. Two things were overbuilt: the

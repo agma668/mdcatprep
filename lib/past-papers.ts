@@ -169,6 +169,13 @@ export function keyLabel(paper: Pick<PastPaper, 'kind' | 'hasKey'>): string | nu
   return isOfficialKey(paper) ? 'Official key' : 'Answer key'
 }
 
+/** URL segment for an examining body: "SZABMU MDCAT (reconducted)" →
+ *  "szabmu-mdcat-reconducted". Exported so the board routes and the homepage
+ *  prep map cannot disagree about what a board's address is. */
+export function pastPaperBoardSlug(examKey: string): string {
+  return examKey.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+}
+
 /** Human label for a paper, e.g. "UHS MDCAT 2025 · Code D", "NUMS MDCAT 2024",
  *  or "NUMS MDCAT 2012–2020" when a single item covers a span of sittings. */
 export function pastPaperLabel(paper: Pick<PastPaper, 'exam' | 'year' | 'fromYear' | 'code'>): string {

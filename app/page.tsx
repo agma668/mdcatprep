@@ -18,6 +18,7 @@ import {
 import { Navbar } from "@/components/landing/Navbar";
 import { FAQ, FAQS } from "@/components/landing/FAQ";
 import { RegisterSection } from "@/components/landing/RegisterSection";
+import { PrepMap } from "@/components/landing/PrepMap";
 import { Footer } from "@/components/landing/Footer";
 import { getPublicStats } from "@/lib/public-stats";
 import { PORTAL_BANK_COUNTS } from "@/lib/stats";
@@ -437,6 +438,11 @@ export default async function Home() {
             </ol>
           </div>
         </section>
+
+        {/* The prep map sits after the method and before the FAQ: a reader who
+            has decided the product is for them gets the whole library here,
+            and a crawler gets a path to every page we publish. */}
+        <PrepMap />
 
         <section id="faq">
           <FAQ />
