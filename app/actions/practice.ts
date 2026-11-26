@@ -1,6 +1,8 @@
 'use server'
 
+import { after } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
+import { captureWrongAnswer } from '@/lib/mistakes/capture'
 
 export type RecordAttemptResult =
   | { error: string }
@@ -225,6 +227,14 @@ async function insertAttempt(
     if (retry.error) return { error: retry.error.message }
   } else if (error) {
     return { error: error.message }
+  }
+
+  if (!isCorrect) {
+    // The mistake notebook's writer, scheduled with `after` so the student's
+    // answer is never held up by a bookkeeping row. Until this existed nothing
+    // ever inserted into mistake_reviews and the recovery page was always
+    // empty; the row is also what the 1/3/7-day retry rhythm counts from.
+    after(() => captureWrongAnswer(supabase, user.id, question.id, clampedTime))
   }
 
   return {

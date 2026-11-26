@@ -1,5 +1,78 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-26 — The account card moved above the demo on a phone, and the notebook finally has a writer
+
+Two things, both from the review.
+
+**The signup page on mobile.** `/start/<test>` was one grid in DOM order `heading →
+demo → account`, so on a 379px screen a visitor read a five-question drill and
+only then reached the form — the page said "practise first, sign up if you like"
+with its layout, whatever the copy said. The grid is now three items: the
+heading block (`lg:col-start-1 lg:row-start-1`), the account card
+(`lg:col-start-2 lg:row-span-2`), and the demo (`lg:col-start-1 lg:row-start-2`).
+On a phone that is heading → account → demo; on `lg` it is the same two-column
+split as before, with the card still sticky. The "Also open" link moved up into
+the heading block, where it belongs now that the demo is last.
+
+**The mistake notebook had no writer.** The recovery page had classification,
+miss reasons, mastery state and flashcard conversion, and nothing anywhere in
+the app inserted into `mistake_reviews` — so a student who missed twenty
+questions opened an empty notebook, forever. `lib/mistakes/capture.ts` is the
+writer, called from `insertAttempt` (the one path every surface records through)
+with Next's `after()`, so a bookkeeping row never delays the answer on screen.
+Rules it keeps: one row per student+question with no attempt attached (re-missing
+refreshes it instead of duplicating), a fresh miss clears mastery because the
+question is by definition not mastered, and every failure is swallowed — the
+notebook is a layer on top of practice and practice must never fail because that
+table is missing.
+
+On top of the writer, the three things the review asked for:
+
+- **The 1/3/7-day retry rhythm** (`lib/mistakes/schedule.ts`, pure functions).
+  A mistake comes back 1 day after the miss, then 3, then 7, keyed on correct
+  re-answers since that miss. No scheduler, no new column: the date is computed
+  from the row's own timestamp. Cards now carry "Due today" / "Overdue by 2
+  days" / "Due in 5 days" and the list sorts due-first, so three things worth
+  doing today are not buried under forty that are not due until next week.
+- **The mastery gate.** "Mark mastered" used to be one tap that meant nothing.
+  Mastery now requires two consecutive correct re-answers on that question
+  after the miss, counted from the student's own `question_attempts`, and the
+  gate is enforced in `updateMistakeReview` as well as in the button — a client
+  calling the action directly gets the same refusal. The card shows
+  `Mastery 1/2` and how many more it needs. `bulkMarkMastered` (an ungated
+  bypass, unused anywhere) is gone.
+- **Cards from all new mistakes.** `mistakesToFlashcards([])` turns every
+  unmastered mistake without a card into one, in a single insert, deduped on
+  `source_mistake_id` so a second press reports "already there" instead of
+  doubling the deck. One button, because making a student press it forty times
+  is how a review surface stops being used.
+
+**Also in this pass:** a "What we do not claim" section on the landing page
+(no guaranteed score/seat/rank, no invented papers, no calculator where the
+centre bans one, no "proven" schedule, no padded numbers) placed immediately
+before the FAQ; one new FAQ answering "Do you promise a score or a rank?"; and
+the diagnostic's result screen now opens a drill already filtered to the
+weakest subject (`/practice/session?subject=…&count=10`) instead of ending at
+advice.
+
+**Verified:** `tsc` 0 · `eslint` 0 on all nine touched files · `next build` 0 ·
+prod server on `:3245` serving `/start/mdcat` and `/start/pma` 200 with the
+account card at byte 10,138 / 9,661 and the demo at 18,535 / 18,055 — i.e. after
+it, which is the fix; `/` 200 with the limits section in the HTML;
+`/diagnostic` 200.
+
+**Not verified:** the signed-in writes. This checkout has no Supabase session,
+so the notebook's insert, the mastery gate and the bulk card action are
+type-checked and built but not exercised against the database. The insert
+shapes are copied from `mistakeToFlashcard`, the already-shipping path into
+`review_flashcards`, and from the `mistake_reviews` columns in
+`supabase/migrations/20261110000000_mistake_recovery_mastery.sql`. The mobile
+order was confirmed from the served DOM, not from a photograph of a phone.
+
+**Still open from the review:** mock-test autopsy + trend line, sub-60-second
+onboarding with Google (needs the OAuth client configured), and the page-weight
+pass (`/` is still ~255 KB of HTML).
+
 ## 2026-11-26 — The player can keep a question now (P0 from the review)
 
 The review's P0 was one sentence: a wrong answer should become a flashcard in one

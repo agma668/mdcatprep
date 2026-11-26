@@ -187,6 +187,18 @@ export function DiagnosticPlayer({ questions }: { questions: BankQuestion[] }) {
                     Focus area: {weakest} — spend your first practice sessions here.
                   </p>
                 )}
+                {/* The result used to end at advice. The weakest subject is a
+                    real answer to "what now", so it opens a drill already
+                    filtered to that subject instead of the generic list. */}
+                {weakest && (
+                  <Link
+                    href={`/practice/session?subject=${encodeURIComponent(weakest)}&count=10`}
+                    className="mt-3 inline-flex items-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-accent)] px-4 py-2.5 text-sm font-bold text-[var(--color-text-inverse)] transition-colors hover:bg-[var(--color-accent-light)]"
+                  >
+                    Practise {weakest} now
+                    <ArrowLeft className="h-4 w-4 rotate-180" aria-hidden="true" />
+                  </Link>
+                )}
               </div>
             </div>
           </div>

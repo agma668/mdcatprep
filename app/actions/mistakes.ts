@@ -12,10 +12,36 @@ import { createClient } from "@/lib/supabase/server";
 import { createServiceClient } from "@/lib/supabase/service";
 import { toQuizQuestion, type BankQuestion } from "@/lib/questions";
 import {
+  hasEarnedMastery,
   isMistakeClassification,
+  MASTERY_REQUIRED_CORRECT_STREAK,
   validateMissReason,
   type MistakeClassification,
 } from "@/lib/mistakes/classification";
+import { retryState, type RetryState } from "@/lib/mistakes/schedule";
+
+/**
+ * How many correct answers in a row the student has given on this question
+ * since the miss. This is the only evidence mastery accepts: opening an
+ * explanation, reading the notebook or pressing a button contributes nothing.
+ */
+async function correctStreakSince(
+  supabase: Awaited<ReturnType<typeof createClient>>,
+  studentId: string,
+  questionId: string,
+  sinceISO: string
+): Promise<number> {
+  const { data } = await supabase
+    .from("question_attempts")
+    .select("is_correct, created_at")
+    .eq("student_id", studentId)
+    .eq("question_id", questionId)
+    .gt("created_at", sinceISO)
+    .order("created_at", { ascending: true });
+  let streak = 0;
+  for (const attempt of data ?? []) streak = attempt.is_correct ? streak + 1 : 0;
+  return streak;
+}
 
 export type MistakeQuestion = BankQuestion & {
   wrongCount: number;
@@ -112,6 +138,10 @@ export interface MistakeReviewRow {
   question_correct_answer: string | null;
   question_selected_answer: string | null;
   question_explanation: string | null;
+  /** Correct re-answers in a row since the last miss (0–2+). */
+  correct_streak: number;
+  /** Next re-check from the 1/3/7-day rhythm, or null for an unreadable date. */
+  retry: RetryState | null;
 }
 
 export interface MistakeStats {
@@ -221,6 +251,31 @@ export async function updateMistakeReview(
   } = await supabase.auth.getUser();
   if (!user) return { success: false, error: "Not authenticated" };
 
+  if (updates.mastered === true) {
+    // The gate. Mastery is earned by answering the question again — twice in a
+    // row, after the miss — so a client that calls this action directly gets
+    // the same answer the button does.
+    const { data: review } = await supabase
+      .from("mistake_reviews")
+      .select("question_id, updated_at")
+      .eq("id", reviewId)
+      .eq("student_id", user.id)
+      .maybeSingle();
+    if (!review) return { success: false, error: "Review not found." };
+    const streak = await correctStreakSince(
+      supabase,
+      user.id,
+      review.question_id,
+      review.updated_at
+    );
+    if (!hasEarnedMastery({ correctStreak: streak })) {
+      return {
+        success: false,
+        error: `Mastery needs ${MASTERY_REQUIRED_CORRECT_STREAK} correct re-answers on this question. You have ${streak}.`,
+      };
+    }
+  }
+
   const payload: Record<string, unknown> = { updated_at: new Date().toISOString() };
   if (missReason !== undefined) payload.miss_reason = missReason;
   if (updates.confidence !== undefined) payload.confidence = updates.confidence;
@@ -270,8 +325,40 @@ export async function getMyMistakeReviews(): Promise<{
     for (const q of questions ?? []) byId.set(q.id, q);
   }
 
+  // Mastery evidence and the retry clock, read from the student's own attempts
+  // in one query (RLS scopes it) rather than from a button press.
+  const streakByQuestion = new Map<string, number>();
+  const anchorByQuestion = new Map<string, string>();
+  for (const r of rows) {
+    if (!anchorByQuestion.has(r.question_id)) {
+      anchorByQuestion.set(r.question_id, r.updated_at ?? r.created_at);
+    }
+  }
+  if (ids.length > 0) {
+    const earliest = rows.reduce(
+      (min, r) => (r.created_at < min ? r.created_at : min),
+      rows[0].created_at
+    );
+    const { data: attempts } = await supabase
+      .from("question_attempts")
+      .select("question_id, is_correct, created_at")
+      .eq("student_id", user.id)
+      .in("question_id", ids)
+      .gte("created_at", earliest)
+      .order("created_at", { ascending: true });
+    for (const attempt of attempts ?? []) {
+      const anchor = anchorByQuestion.get(attempt.question_id);
+      if (!anchor || String(attempt.created_at) <= anchor) continue;
+      streakByQuestion.set(
+        attempt.question_id,
+        attempt.is_correct ? (streakByQuestion.get(attempt.question_id) ?? 0) + 1 : 0
+      );
+    }
+  }
+
   const reviews: MistakeReviewRow[] = rows.map((r) => {
     const q = byId.get(r.question_id) ?? {};
+    const streak = streakByQuestion.get(r.question_id) ?? 0;
     return {
       id: r.id,
       student_id: r.student_id,
@@ -290,6 +377,11 @@ export async function getMyMistakeReviews(): Promise<{
       question_correct_answer: (q.correct_answer as string) ?? null,
       question_selected_answer: null,
       question_explanation: (q.explanation as string) ?? null,
+      correct_streak: streak,
+      retry: retryState(
+        anchorByQuestion.get(r.question_id) ?? r.updated_at ?? r.created_at,
+        streak
+      ),
     };
   });
   return { reviews };
@@ -326,30 +418,98 @@ export async function getMistakeStats(): Promise<{ error?: string; stats: Mistak
   return { stats };
 }
 
-/** Mark many of the student's own reviews as mastered in one update. */
-export async function bulkMarkMastered(
+/**
+ * One tap from a whole notebook to a whole deck: every unmastered mistake that
+ * does not already have a card becomes one. This is the bulk version of
+ * `mistakeToFlashcard`, and it exists because making a student press the same
+ * button forty times is how a review surface stops being used.
+ *
+ * Idempotent like its single sibling: cards are keyed on `source_mistake_id`, so
+ * pressing it twice reports "already there" instead of duplicating the deck.
+ * Pass an empty array for "everything unmastered".
+ */
+export async function mistakesToFlashcards(
   reviewIds: string[]
-): Promise<{ success: boolean; error?: string; updated: number }> {
-  if (reviewIds.length === 0) return { success: true, updated: 0 };
+): Promise<{ success: boolean; error?: string; created: number; skipped: number }> {
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) return { success: false, error: "Not authenticated", updated: 0 };
+  if (!user) return { success: false, error: "Not authenticated", created: 0, skipped: 0 };
 
-  const { data, error } = await supabase
+  const base = supabase
     .from("mistake_reviews")
-    .update({
-      mastered: true,
-      mastered_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    })
-    .in("id", reviewIds)
+    .select("id, question_id, exam_goal_id")
     .eq("student_id", user.id)
+    .eq("mastered", false)
+    .limit(200);
+  const { data: reviews, error } = reviewIds.length
+    ? await base.in("id", reviewIds)
+    : await base;
+  if (error) return { success: false, error: error.message, created: 0, skipped: 0 };
+  if (!reviews || reviews.length === 0) return { success: true, created: 0, skipped: 0 };
+
+  const { data: carded } = await supabase
+    .from("review_flashcards")
+    .select("source_mistake_id")
+    .eq("student_id", user.id)
+    .in(
+      "source_mistake_id",
+      reviews.map((r) => r.id)
+    );
+  const already = new Set((carded ?? []).map((c) => c.source_mistake_id as string));
+  const targets = reviews.filter((r) => !already.has(r.id));
+  if (targets.length === 0) {
+    return { success: true, created: 0, skipped: reviews.length };
+  }
+
+  const service = createServiceClient();
+  const { data: questions } = await service
+    .from("questions")
+    .select("id, question_text, subject, topic, correct_answer, explanation")
+    .in("id", [...new Set(targets.map((r) => r.question_id))]);
+  const byId = new Map<string, Record<string, unknown>>();
+  for (const q of questions ?? []) byId.set(q.id as string, q);
+
+  const rows = [];
+  for (const r of targets) {
+    const q = byId.get(r.question_id);
+    if (!q) continue;
+    const back = [
+      q.correct_answer ? `Answer: ${q.correct_answer}` : null,
+      (q.explanation as string) ?? null,
+    ]
+      .filter(Boolean)
+      .join("\n\n");
+    rows.push({
+      student_id: user.id,
+      source_question_id: r.question_id,
+      source_mistake_id: r.id,
+      exam_goal_id: r.exam_goal_id ?? null,
+      subject: (q.subject as string) ?? null,
+      topic: (q.topic as string) ?? null,
+      front: (q.question_text as string) ?? "Question",
+      back,
+    });
+  }
+  if (rows.length === 0) {
+    return { success: true, created: 0, skipped: reviews.length };
+  }
+
+  const { data: inserted, error: insertError } = await supabase
+    .from("review_flashcards")
+    .insert(rows)
     .select("id");
-  if (error) return { success: false, error: error.message, updated: 0 };
+  if (insertError) {
+    return { success: false, error: insertError.message, created: 0, skipped: already.size };
+  }
+  revalidatePath("/dashboard/flashcards");
   revalidatePath("/dashboard/mistake-notebook");
-  return { success: true, updated: data?.length ?? 0 };
+  return {
+    success: true,
+    created: inserted?.length ?? 0,
+    skipped: reviews.length - rows.length + already.size,
+  };
 }
 
 /** Turn a mistake's question + explanation into a review flashcard. */

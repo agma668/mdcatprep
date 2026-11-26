@@ -2,15 +2,17 @@
 
 import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
-import { AlertCircle, ArrowLeft, CheckCircle2, Flag, Sparkles, TrendingUp } from 'lucide-react'
+import { AlertCircle, ArrowLeft, CheckCircle2, Clock, Flag, Layers, Sparkles, TrendingUp } from 'lucide-react'
 import {
   getMyMistakeReviews,
   getMistakeStats,
   updateMistakeReview,
   mistakeToFlashcard,
+  mistakesToFlashcards,
   type MistakeReviewRow,
   type MistakeStats,
 } from '@/app/actions/mistakes'
+import { MASTERY_REQUIRED_CORRECT_STREAK } from '@/lib/mistakes/classification'
 
 const CLASSIFICATION_LABELS: Record<string, string> = {
   incorrect: 'Incorrect',
@@ -47,6 +49,7 @@ export default function MistakeNotebookPage() {
   const [error, setError] = useState<string | null>(null)
   const [notice, setNotice] = useState<string | null>(null)
   const [filter, setFilter] = useState<'all' | 'unmastered' | 'mastered'>('unmastered')
+  const [bulkBusy, setBulkBusy] = useState(false)
 
   const load = useCallback(async () => {
     const [reviewsResult, statsResult] = await Promise.all([getMyMistakeReviews(), getMistakeStats()])
@@ -65,10 +68,20 @@ export default function MistakeNotebookPage() {
     return () => window.clearTimeout(timer)
   }, [load])
 
-  const visible = reviews.filter((r) => {
-    if (filter === 'all') return true
-    return filter === 'mastered' ? r.mastered : !r.mastered
-  })
+  // Due first, then by the date the next re-check falls on. A notebook sorted
+  // only by "when you missed it" buries the three things worth doing today
+  // under forty that are not due until next week.
+  const visible = reviews
+    .filter((r) => {
+      if (filter === 'all') return true
+      return filter === 'mastered' ? r.mastered : !r.mastered
+    })
+    .sort((a, b) => {
+      const aDue = a.retry?.due ? 0 : 1
+      const bDue = b.retry?.due ? 0 : 1
+      if (aDue !== bDue) return aDue - bDue
+      return (a.retry?.dueAt ?? '').localeCompare(b.retry?.dueAt ?? '')
+    })
 
   async function handleMissReason(id: string, value: string) {
     const result = await updateMistakeReview(id, { miss_reason: value === '' ? null : value })
@@ -102,6 +115,17 @@ export default function MistakeNotebookPage() {
     setNotice(result.success ? 'Flashcard created.' : result.error ?? 'Could not create a flashcard.')
   }
 
+  async function handleBulkFlashcards() {
+    setBulkBusy(true)
+    const result = await mistakesToFlashcards([])
+    setBulkBusy(false)
+    setNotice(
+      result.success
+        ? `Cards: ${result.created} made${result.skipped > 0 ? `, ${result.skipped} already there` : ''}.`
+        : result.error ?? 'Could not create the cards.'
+    )
+  }
+
   return (
     <div className="max-w-5xl mx-auto py-8 px-4 text-foreground min-h-screen">
       <div className="mb-8">
@@ -121,7 +145,7 @@ export default function MistakeNotebookPage() {
         <StatCard label="Categories" value={Object.keys(stats.byClassification).length} accent="amber" />
       </div>
 
-      <div className="flex flex-wrap gap-2 mb-4">
+      <div className="flex flex-wrap items-center gap-2 mb-4">
         {(['unmastered', 'mastered', 'all'] as const).map((key) => (
           <button
             key={key}
@@ -135,6 +159,18 @@ export default function MistakeNotebookPage() {
             {key}
           </button>
         ))}
+
+        {reviews.some((r) => !r.mastered) ? (
+          <button
+            type="button"
+            onClick={() => void handleBulkFlashcards()}
+            disabled={bulkBusy}
+            className="ml-auto inline-flex items-center gap-1.5 px-4 py-2 rounded-xl border border-border text-xs font-bold text-foreground transition-colors hover:border-accent disabled:opacity-50"
+          >
+            <Layers className="w-3.5 h-3.5" />
+            {bulkBusy ? 'Making cards…' : 'Make cards from all new mistakes'}
+          </button>
+        ) : null}
       </div>
 
       {notice ? (
@@ -172,8 +208,15 @@ export default function MistakeNotebookPage() {
                   <Flag className="w-3 h-3" />
                   {CLASSIFICATION_LABELS[review.classification] ?? review.classification}
                 </span>
-                <span className="text-xs text-muted-foreground">
-                  {new Date(review.created_at).toLocaleDateString()}
+                <span
+                  className={`inline-flex items-center gap-1.5 text-xs font-semibold ${
+                    review.retry?.due ? 'text-rose-400' : 'text-muted-foreground'
+                  }`}
+                >
+                  <Clock className="w-3 h-3" />
+                  {review.retry
+                    ? review.retry.label
+                    : new Date(review.created_at).toLocaleDateString()}
                 </span>
               </div>
 
@@ -224,11 +267,24 @@ export default function MistakeNotebookPage() {
                 ) : (
                   <button
                     onClick={() => void handleMastered(review.id)}
-                    className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-bold"
+                    disabled={review.correct_streak < MASTERY_REQUIRED_CORRECT_STREAK}
+                    className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-bold transition-opacity disabled:opacity-45 disabled:cursor-not-allowed"
                   >
-                    <CheckCircle2 className="w-3.5 h-3.5" /> Mark mastered
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    {review.correct_streak > 0
+                      ? `Mastery ${review.correct_streak}/${MASTERY_REQUIRED_CORRECT_STREAK}`
+                      : 'Mark mastered'}
                   </button>
                 )}
+
+                {!review.mastered &&
+                review.correct_streak < MASTERY_REQUIRED_CORRECT_STREAK ? (
+                  <span className="text-[11px] text-muted-foreground">
+                    {review.correct_streak === 0
+                      ? `Answer it right ${MASTERY_REQUIRED_CORRECT_STREAK}× to earn mastery.`
+                      : `${MASTERY_REQUIRED_CORRECT_STREAK - review.correct_streak} more correct re-answer to earn mastery.`}
+                  </span>
+                ) : null}
 
                 <button
                   onClick={() => void handleFlashcard(review.id)}

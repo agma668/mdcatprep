@@ -174,8 +174,17 @@ export default async function TestStartPage({ params }: { params: Promise<{ test
           </div>
         </header>
 
-        <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-start lg:gap-10">
-          <section aria-labelledby="start-heading" className="min-w-0">
+        {/* Reading order on a phone is heading -> account -> demo. It used to be
+            heading -> five questions -> account, so the form a visitor came for
+            sat underneath a whole drill and the page read as "practise first,
+            sign up if you feel like it". One grid, two placements: on lg the
+            heading and the demo share the left column and the card is the
+            sticky right column; on a phone the card moves above the demo. */}
+        <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-start lg:gap-x-10 lg:gap-y-0">
+          <section
+            aria-labelledby="start-heading"
+            className="min-w-0 lg:col-start-1 lg:row-start-1"
+          >
             <p className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] text-white/55">
               <GraduationCap aria-hidden="true" className="h-3.5 w-3.5" />
               {config.label}
@@ -191,19 +200,6 @@ export default async function TestStartPage({ params }: { params: Promise<{ test
               {config.blurb}
             </p>
 
-            <div className="mt-6">
-              <StartDemo
-                label={config.label}
-                bankLabel={config.bankLabel}
-                totalQuestions={totalQuestions}
-                questions={questions}
-                decks={decks}
-                decksNote={config.decksNote}
-                drillHref={config.drill.href}
-                drillLabel={config.drill.label}
-              />
-            </div>
-
             {config.secondary && (
               <p className="mt-4 text-xs text-white/50">
                 Also open:{" "}
@@ -218,7 +214,10 @@ export default async function TestStartPage({ params }: { params: Promise<{ test
             )}
           </section>
 
-          <aside id="signup" className="lg:sticky lg:top-8">
+          <aside
+            id="signup"
+            className="lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:sticky lg:top-8"
+          >
             <div className="rounded-[20px] border border-white/10 bg-[var(--srf-1)] p-5 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)] sm:p-6">
               <h2 className="text-xl font-extrabold tracking-tight text-white">
                 Create your {config.label} account
@@ -264,6 +263,19 @@ export default async function TestStartPage({ params }: { params: Promise<{ test
               .
             </p>
           </aside>
+
+          <div className="min-w-0 lg:col-start-1 lg:row-start-2">
+            <StartDemo
+              label={config.label}
+              bankLabel={config.bankLabel}
+              totalQuestions={totalQuestions}
+              questions={questions}
+              decks={decks}
+              decksNote={config.decksNote}
+              drillHref={config.drill.href}
+              drillLabel={config.drill.label}
+            />
+          </div>
         </div>
       </div>
     </div>

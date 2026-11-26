@@ -38,6 +38,11 @@ export const FAQS: FAQItem[] = [
       "The PMDC MDCAT paper is 180 MCQs completed in 3 hours, with no negative marking. Biology carries the largest share, followed by Chemistry and Physics, with English and Logical Reasoning as the smaller sections. Confirm the exact year's split on pmdc.pk — it is the official source.",
   },
   {
+    question: "Do you promise a score or a rank?",
+    answer:
+      "No. Practice improves accuracy, and the dashboard shows your own accuracy moving, but what that becomes in the real paper depends on the paper, the merit list and the day. Any site promising a guaranteed score, a seat or a rank is promising something it cannot control. What we do promise is that every number here is counted from real accounts and real answers, and that a missing answer key is labelled missing instead of invented.",
+  },
+  {
     question: "How is MED Prep different from a regular coaching academy?",
     answer:
       "Unlike coaching academies that give the same notes to everyone, MED Prep personalises your practice to your weak areas. You get instant explanations after every question, can study at any time, track your exact progress, and access exam-style practice questions — free during the beta.",

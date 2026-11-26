@@ -107,6 +107,32 @@ const STEPS = [
   { title: "Redo what you missed", body: "Wrong answers collect in your mistake notebook so you can drill them until they stick." },
 ];
 
+// The promises this product refuses to make. Every prep site writes a wall of
+// outcomes it cannot control; the one thing a student can actually check is
+// what is missing here, so the list is stated plainly and kept short.
+const LIMITS = [
+  {
+    title: "No guaranteed score, seat or rank",
+    body: "Practising moves your own accuracy, and the dashboard shows it moving. What that becomes on the day is decided by the paper, the merit list and factors no website sees.",
+  },
+  {
+    title: "No invented papers",
+    body: "NUST, GIKI, LUMS, USAT, PMA and ISSB do not release their papers, so none are sold as past papers here. Only the medical boards' released papers are called that.",
+  },
+  {
+    title: "No calculator where the centre bans one",
+    body: "MDCAT, NUMS and USAT do not permit calculators. The one inside the drill is labelled a practice aid, not an allowance — nothing here is built assuming you will have it.",
+  },
+  {
+    title: "No 'proven' study schedule",
+    body: "There is no timetable that guarantees admission. The plan here is practice, read the explanation, retry what you missed — measured against your own attempts, not a promise.",
+  },
+  {
+    title: "No fake students or padded numbers",
+    body: "Every number on this page is counted from real accounts and real answers. Demo accounts are excluded from the totals and from the leaderboard above.",
+  },
+];
+
 const focusRing =
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal-300)]";
 
@@ -448,6 +474,49 @@ export default async function Home() {
             has decided the product is for them gets the whole library here,
             and a crawler gets a path to every page we publish. */}
         <PrepMap />
+
+        {/* What we do not claim. Sits immediately before the FAQ, because the
+            questions people actually ask are mostly versions of "is this too
+            good to be true". Answering that with a list of refusals is cheaper
+            and more honest than another promise. */}
+        <section
+          id="limits"
+          aria-labelledby="limits-heading"
+          className="border-t border-[var(--line-1)] py-16 sm:py-24"
+        >
+          <div className="container-page">
+            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--steel-400)]">
+                  The limits
+                </p>
+                <h2
+                  id="limits-heading"
+                  style={display}
+                  className="mt-4 max-w-[18ch] text-3xl font-bold leading-tight tracking-tight sm:text-4xl"
+                >
+                  What we do not claim
+                </h2>
+                <p className="mt-4 max-w-[46ch] leading-relaxed text-[var(--steel-300)]">
+                  A prep site cannot promise you a seat. Here is the short list of
+                  things you will not find written anywhere on these pages — check
+                  them against any other site you are comparing us to.
+                </p>
+              </div>
+              <ul className="grid gap-3 sm:grid-cols-2">
+                {LIMITS.map(({ title, body }) => (
+                  <li
+                    key={title}
+                    className="rounded-[var(--r-3)] border border-[var(--line-2)] bg-[var(--srf-1)] p-5"
+                  >
+                    <p className="text-sm font-semibold text-[var(--steel-100)]">{title}</p>
+                    <p className="mt-1.5 text-sm leading-relaxed text-[var(--steel-300)]">{body}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
 
         <section id="faq">
           <FAQ />
