@@ -1,5 +1,48 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-26 — Today's review: the ladder now has a run behind it
+
+The notebook could say *which* mistakes were due and could not put one of them
+in front of the student. "Retry similar" opened a generic drill, and the mastery
+gate counted correct re-attempts that nothing was producing — so the two best
+ideas in the notebook were labels. Both are now wired to the same run.
+
+**`getDueMistakes()`** (`app/actions/mistakes.ts`) returns the unmastered rows
+whose ladder says due now, **with full question bodies** — the notebook's own read
+only carries the stem, and a run has to be answerable. Each item carries its
+`reviewId`, the correct streak already banked, and the ladder label, so the drill
+knows what the answer should progress before it renders.
+
+**`MistakesDrill` records attempts.** This is also a bug fix: its header claimed
+"the server already recorded the attempt through the normal practice path" and
+nothing did — it was a local flip with a verdict. Every pick now goes through
+`recordAnswer`, the shared seam the drills and the daily quiz already use, which
+means:
+
+- a correct answer lands in `question_attempts`, which is the **only** evidence
+  the mastery gate accepts, so `Mastery 1/2 → 2/2` is earned rather than claimed;
+- a wrong re-answer reaches `captureWrongAnswer`, so the notebook's own writer
+  re-dates the mistake, resets its streak and puts it back on tomorrow's list —
+  the notebook now feeds itself;
+- "Confirm mastery" only appears at two in a row, and the server re-counts the
+  attempts before accepting it, so the button cannot outrun the evidence.
+
+**The run is reachable.** A "Today's review" panel sits above the list with the
+due count, the next re-check when nothing is due, and a **Start review (n)**
+button; the page switches to the drill and back. `masteryStreaks()` was extracted
+so the notebook and the run compute the same streak from one query rather than
+two copies of the rule. The unreachable `MistakeNotebookClient` is deleted — it
+was the only other caller and nothing rendered it.
+
+**Verified:** `tsc` 0 · `eslint` 0 on all three touched files · `next build` 0 ·
+prod server on `:3245`: `/` and `/start/mdcat` 200, `/dashboard/mistake-notebook`
+307 → `/login` for a guest.
+
+**Not verified:** the run itself. No Supabase session here and no demo password
+in the repo, so the due fetch, the attempt writes, the mastery confirm and the
+re-dating on a wrong answer are type-checked and built but not exercised against
+`edweb`. This is the one loop worth watching on the first signed-in test.
+
 ## 2026-11-26 — Mistake Notebook v2: grouped by how you missed it
 
 v1 had the parts and no view. The notebook now answers the question a student

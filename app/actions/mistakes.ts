@@ -10,7 +10,7 @@
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { createServiceClient } from "@/lib/supabase/service";
-import { toQuizQuestion, type BankQuestion } from "@/lib/questions";
+import { toQuizQuestion, type BankQuestion, type QuizQuestion } from "@/lib/questions";
 import {
   hasEarnedMastery,
   isMistakeClassification,
@@ -19,6 +19,53 @@ import {
   type MistakeClassification,
 } from "@/lib/mistakes/classification";
 import { retryState, type RetryState } from "@/lib/mistakes/schedule";
+
+/**
+ * The mastery evidence and the retry clock for a set of review rows: one
+ * attempts query for the whole notebook, so the streak and the ladder cost one
+ * round trip between them rather than one per card.
+ *
+ * A row's anchor is its `updated_at` — the last miss — and only attempts after
+ * it count. A wrong attempt resets the streak to zero, which is exactly the
+ * rule mastery needs: reading the explanation contributes nothing, answering
+ * the question again contributes one, and answering it wrong takes it back.
+ */
+async function masteryStreaks(
+  supabase: Awaited<ReturnType<typeof createClient>>,
+  studentId: string,
+  rows: Array<{ question_id: string; created_at: string; updated_at: string | null }>
+): Promise<{ streaks: Map<string, number>; anchors: Map<string, string> }> {
+  const anchors = new Map<string, string>();
+  for (const row of rows) {
+    if (!anchors.has(row.question_id)) {
+      anchors.set(row.question_id, row.updated_at ?? row.created_at);
+    }
+  }
+  const streaks = new Map<string, number>();
+  const ids = [...anchors.keys()];
+  if (ids.length === 0) return { streaks, anchors };
+
+  const earliest = rows.reduce(
+    (min, row) => (row.created_at < min ? row.created_at : min),
+    rows[0].created_at
+  );
+  const { data: attempts } = await supabase
+    .from("question_attempts")
+    .select("question_id, is_correct, created_at")
+    .eq("student_id", studentId)
+    .in("question_id", ids)
+    .gte("created_at", earliest)
+    .order("created_at", { ascending: true });
+  for (const attempt of attempts ?? []) {
+    const anchor = anchors.get(attempt.question_id);
+    if (!anchor || String(attempt.created_at) <= anchor) continue;
+    streaks.set(
+      attempt.question_id,
+      attempt.is_correct ? (streaks.get(attempt.question_id) ?? 0) + 1 : 0
+    );
+  }
+  return { streaks, anchors };
+}
 
 /**
  * How many correct answers in a row the student has given on this question
@@ -355,36 +402,11 @@ export async function getMyMistakeReviews(): Promise<{
     for (const q of questions ?? []) byId.set(q.id, q);
   }
 
-  // Mastery evidence and the retry clock, read from the student's own attempts
-  // in one query (RLS scopes it) rather than from a button press.
-  const streakByQuestion = new Map<string, number>();
-  const anchorByQuestion = new Map<string, string>();
-  for (const r of rows) {
-    if (!anchorByQuestion.has(r.question_id)) {
-      anchorByQuestion.set(r.question_id, r.updated_at ?? r.created_at);
-    }
-  }
-  if (ids.length > 0) {
-    const earliest = rows.reduce(
-      (min, r) => (r.created_at < min ? r.created_at : min),
-      rows[0].created_at
-    );
-    const { data: attempts } = await supabase
-      .from("question_attempts")
-      .select("question_id, is_correct, created_at")
-      .eq("student_id", user.id)
-      .in("question_id", ids)
-      .gte("created_at", earliest)
-      .order("created_at", { ascending: true });
-    for (const attempt of attempts ?? []) {
-      const anchor = anchorByQuestion.get(attempt.question_id);
-      if (!anchor || String(attempt.created_at) <= anchor) continue;
-      streakByQuestion.set(
-        attempt.question_id,
-        attempt.is_correct ? (streakByQuestion.get(attempt.question_id) ?? 0) + 1 : 0
-      );
-    }
-  }
+  const { streaks: streakByQuestion, anchors: anchorByQuestion } = await masteryStreaks(
+    supabase,
+    user.id,
+    rows
+  );
 
   const reviews: MistakeReviewRow[] = rows.map((r) => {
     const q = byId.get(r.question_id) ?? {};
@@ -415,6 +437,96 @@ export async function getMyMistakeReviews(): Promise<{
     };
   });
   return { reviews };
+}
+
+/**
+ * One item in today's review run: the question, plus the mistake row that this
+ * answer must progress. `correctStreak` is what the card already has banked, so
+ * the drill can say "1 of 2" before the student answers rather than after.
+ */
+export type DueMistakeQuestion = QuizQuestion & {
+  id: string;
+  subject: string;
+  reviewId: string;
+  classification: MistakeClassification;
+  correctStreak: number;
+  dueLabel: string;
+};
+
+/**
+ * Today's review. The notebook knows which mistakes are due but only keeps the
+ * stem; a run has to be answerable, so this resolves the full bodies (options
+ * included) for the rows the 1/3/7-day ladder says are due now.
+ *
+ * Why this exists: the ladder and the mastery gate were both labels until
+ * something put the question back in front of the student. Re-answering here
+ * goes through the shared recording seam (`recordAnswer`), so each attempt lands
+ * in `question_attempts` — which is the only evidence the gate accepts — and the
+ * drill cannot self-report mastery it did not earn.
+ */
+export async function getDueMistakes(): Promise<{
+  error?: string;
+  questions: DueMistakeQuestion[];
+}> {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return { error: "Not authenticated", questions: [] };
+
+  const { data, error } = await supabase
+    .from("mistake_reviews")
+    .select("*")
+    .eq("student_id", user.id)
+    .eq("mastered", false)
+    .order("created_at", { ascending: true })
+    .limit(200);
+  if (error) return { error: error.message, questions: [] };
+
+  const rows = data ?? [];
+  if (rows.length === 0) return { questions: [] };
+
+  const { streaks, anchors } = await masteryStreaks(supabase, user.id, rows);
+
+  const due: typeof rows = [];
+  for (const row of rows) {
+    const anchor = anchors.get(row.question_id) ?? row.updated_at ?? row.created_at;
+    const state = retryState(anchor, streaks.get(row.question_id) ?? 0);
+    if (state?.due) due.push(row);
+  }
+  if (due.length === 0) return { questions: [] };
+
+  const service = createServiceClient();
+  const ids = [...new Set(due.map((row) => row.question_id))];
+  const { data: bodies, error: bodyError } = await service
+    .from("questions")
+    .select("*")
+    .in("id", ids);
+  if (bodyError) return { error: bodyError.message, questions: [] };
+  const byId = new Map<string, Record<string, unknown>>();
+  for (const q of bodies ?? []) byId.set(q.id as string, q);
+
+  const questions: DueMistakeQuestion[] = [];
+  for (const row of due) {
+    const body = byId.get(row.question_id);
+    if (!body) continue;
+    const streak = streaks.get(row.question_id) ?? 0;
+    const state = retryState(
+      anchors.get(row.question_id) ?? row.updated_at ?? row.created_at,
+      streak
+    );
+    const normalized = toQuizQuestion(body as never);
+    questions.push({
+      ...normalized,
+      id: row.question_id,
+      subject: normalized.subject || "General",
+      reviewId: row.id,
+      classification: row.classification,
+      correctStreak: streak,
+      dueLabel: state?.label ?? "Due today",
+    });
+  }
+  return { questions };
 }
 
 /** Aggregate mistake statistics for the dashboard. */

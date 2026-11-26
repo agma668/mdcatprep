@@ -2,17 +2,30 @@
 
 import { Fragment, useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
-import { ArrowLeft, CheckCircle2, Clock, Flag, HelpCircle, Layers, Sparkles, TrendingUp } from 'lucide-react'
+import {
+  ArrowLeft,
+  CheckCircle2,
+  Clock,
+  Flag,
+  HelpCircle,
+  Layers,
+  RotateCcw,
+  Sparkles,
+  TrendingUp,
+} from 'lucide-react'
 import {
   getMyMistakeReviews,
   getMistakeStats,
+  getDueMistakes,
   updateMistakeReview,
   mistakeToFlashcard,
   mistakesToFlashcards,
   markMistakeGuessed,
+  type DueMistakeQuestion,
   type MistakeReviewRow,
   type MistakeStats,
 } from '@/app/actions/mistakes'
+import { MistakesDrill } from '@/components/dashboard/MistakesDrill'
 import {
   bucketFor,
   ERROR_BUCKET_LABELS,
@@ -56,6 +69,11 @@ export default function MistakeNotebookPage() {
   const [notice, setNotice] = useState<string | null>(null)
   const [filter, setFilter] = useState<'all' | 'unmastered' | 'mastered'>('unmastered')
   const [bulkBusy, setBulkBusy] = useState(false)
+  // The run. 'list' is the notebook; 'review' is today's due queue served one
+  // card at a time through the same drill the wrong-answer path always had.
+  const [mode, setMode] = useState<'list' | 'review'>('list')
+  const [dueBusy, setDueBusy] = useState(false)
+  const [dueQuestions, setDueQuestions] = useState<DueMistakeQuestion[]>([])
 
   const load = useCallback(async () => {
     const [reviewsResult, statsResult] = await Promise.all([getMyMistakeReviews(), getMistakeStats()])
@@ -99,6 +117,13 @@ export default function MistakeNotebookPage() {
     acc[bucket] = (acc[bucket] ?? 0) + 1
     return acc
   }, {})
+
+  // The count on the button and the cards underneath it read from the same
+  // state, so the CTA can never promise a run the list does not contain.
+  const dueNow = reviews.filter((r) => !r.mastered && r.retry?.due).length
+  const nextUp = reviews
+    .filter((r) => !r.mastered && r.retry && !r.retry.due)
+    .sort((a, b) => (a.retry?.dueAt ?? '').localeCompare(b.retry?.dueAt ?? ''))[0]
 
   async function handleMissReason(id: string, value: string) {
     const result = await updateMistakeReview(id, { miss_reason: value === '' ? null : value })
@@ -148,6 +173,24 @@ export default function MistakeNotebookPage() {
     setNotice(guessed ? 'Filed as a guess.' : 'Filed as a wrong answer.')
   }
 
+  async function startReview() {
+    setDueBusy(true)
+    const result = await getDueMistakes()
+    setDueBusy(false)
+    if (result.error) {
+      setNotice(result.error)
+      return
+    }
+    setDueQuestions(result.questions)
+    setMode('review')
+  }
+
+  function backToNotebook() {
+    setMode('list')
+    setDueQuestions([])
+    void load()
+  }
+
   async function handleBulkFlashcards() {
     setBulkBusy(true)
     const result = await mistakesToFlashcards([])
@@ -183,6 +226,42 @@ export default function MistakeNotebookPage() {
           accent="amber"
         />
       </div>
+
+      {mode === 'review' ? (
+        <section className="mb-6">
+          <h2 className="mb-3 text-lg font-extrabold tracking-tight">Today&apos;s review</h2>
+          <MistakesDrill questions={dueQuestions} onExit={backToNotebook} />
+        </section>
+      ) : (
+        <>
+      {/* The run, at the top of the page and ahead of the list. The ladder and the
+          mastery gate were labels until something put the question back in front
+          of the student; this is that something. */}
+      <section className="mb-6 rounded-3xl border border-border bg-card p-5 shadow-sm">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <div className="min-w-0">
+            <h2 className="text-base font-extrabold tracking-tight">Today&apos;s review</h2>
+            <p className="mt-1 max-w-xl text-xs leading-relaxed text-muted-foreground">
+              {dueNow > 0
+                ? `${dueNow} ${dueNow === 1 ? 'question is' : 'questions are'} due on the 1/3/7-day ladder. Answering here records the attempt, so mastery moves and the question can leave the notebook.`
+                : nextUp?.retry
+                  ? `Nothing is due yet — the next re-check is ${nextUp.retry.label
+                      .replace(/^Due /, '')
+                      .toLowerCase()}.`
+                  : 'Nothing is due. A missed question comes back a day later, then three, then seven.'}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={() => void startReview()}
+            disabled={dueNow === 0 || dueBusy || loading}
+            className="inline-flex items-center gap-2 rounded-xl bg-accent px-4 py-2.5 text-xs font-bold text-accent-foreground shadow transition-opacity disabled:opacity-45 disabled:cursor-not-allowed"
+          >
+            <RotateCcw className="h-3.5 w-3.5" />
+            {dueBusy ? 'Loading…' : dueNow > 0 ? `Start review (${dueNow})` : 'Nothing due'}
+          </button>
+        </div>
+      </section>
 
       <div className="flex flex-wrap items-center gap-2 mb-4">
         {(['unmastered', 'mastered', 'all'] as const).map((key) => (
@@ -379,8 +458,8 @@ export default function MistakeNotebookPage() {
           })}
         </div>
       )}
-
-
+        </>
+      )}
     </div>
   )
 }
