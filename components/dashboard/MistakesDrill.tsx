@@ -129,16 +129,24 @@ function DrillCard({
   const [confirmed, setConfirmed] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // The card's own count of consecutive correct answers, seeded from what the
+  // server has already banked. A wrong pick sets it to **zero**, not "unchanged":
+  // the server counts the trailing streak, so a miss in the middle resets it. The
+  // earlier version added the current pick's credit and never subtracted a miss,
+  // which let a card hold 2/2 after a wrong answer and offer a confirm the server
+  // then refused — the button promising what the gate would not honour.
+  const [streak, setStreak] = useState(question.correctStreak);
   const correct = picked === question.correct_answer;
-  const streak = Math.min(
-    question.correctStreak + (correct ? 1 : 0),
-    MASTERY_REQUIRED_CORRECT_STREAK
-  );
   const masteryEarned = streak >= MASTERY_REQUIRED_CORRECT_STREAK;
 
   const choose = (letter: OptionLetter) => {
     if (picked === letter) return;
     setPicked(letter);
+    setStreak((previous) =>
+      letter === question.correct_answer
+        ? Math.min(previous + 1, MASTERY_REQUIRED_CORRECT_STREAK)
+        : 0
+    );
     // Every pick is an attempt, through the same seam every player uses — a
     // wrong-then-right pair in one card is one wrong and one right, which is the
     // truth and keeps the streak honest. A failure is not worth blocking the run
@@ -168,10 +176,10 @@ function DrillCard({
         <span className="rounded-full border border-rose-400/25 bg-rose-400/10 px-2.5 py-0.5 text-[10px] font-bold text-rose-300">
           {question.dueLabel}
         </span>
-        {question.correctStreak > 0 && (
+        {streak > 0 && (
           <span className="rounded-full border border-amber-400/25 bg-amber-400/10 px-2.5 py-0.5 text-[10px] font-bold text-amber-300">
             <Flame aria-hidden="true" className="mr-1 inline h-3 w-3" />
-            {question.correctStreak}/{MASTERY_REQUIRED_CORRECT_STREAK} toward mastery
+            {streak}/{MASTERY_REQUIRED_CORRECT_STREAK} toward mastery
           </span>
         )}
       </div>

@@ -1,5 +1,36 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-26 — Two ways the review run could contradict itself
+
+Both reported against the run that shipped an hour earlier, and both were real.
+
+**The card could hold a streak it had just lost.** The drill derived the count as
+`banked + (this pick is right ? 1 : 0)` and never subtracted a miss, so after a
+wrong pick a card seeded at 2/2 still read 2/2 — and a wrong-then-right pair went
+2/2 again on a streak that was only 1. The server counts the *trailing* streak,
+so "Confirm mastery" appeared and was then refused. The card now owns the number:
+correct adds one (capped at two), **wrong sets it to zero**, and the confirm
+button only exists when the last answer was right and the count is 2/2. The
+badge at the top reads the same state, so the card can no longer display a total
+that contradicts the gate.
+
+**The button could promise more than the run delivers.** The due count came from
+`reviews` — every row whose ladder said due — while `getDueMistakes` also drops
+rows whose question body no longer resolves. A review pointing at a deleted
+question therefore counted toward "5 due" and then rendered nothing. The count
+now excludes rows with no question text (the exact condition the run skips on)
+and is capped at the run's own 200-row limit, so the number on the button and the
+number of cards are the same set.
+
+**Verified:** `tsc` 0 · `eslint` 0 on both files · `next build` 0 · prod server on
+`:3245`: `/` and `/start/mdcat` 200, `/dashboard/mistake-notebook` 307 → `/login`.
+
+**Not verified:** the interaction itself — no Supabase session here, so the
+wrong-pick reset and the count/card agreement are reasoned from the state machine
+and type-checked, not clicked. The two cases to try on the first signed-in run:
+answer one wrong in a card seeded at 1/2 and confirm the badge drops to zero, and
+check a notebook whose due count matches the cards served.
+
 ## 2026-11-26 — Today's review: the ladder now has a run behind it
 
 The notebook could say *which* mistakes were due and could not put one of them

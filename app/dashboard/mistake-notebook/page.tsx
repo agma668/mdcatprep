@@ -118,9 +118,15 @@ export default function MistakeNotebookPage() {
     return acc
   }, {})
 
-  // The count on the button and the cards underneath it read from the same
-  // state, so the CTA can never promise a run the list does not contain.
-  const dueNow = reviews.filter((r) => !r.mastered && r.retry?.due).length
+  // The count has to be what the run can actually serve, not merely what the
+  // list can label. A review whose question body is gone cannot be answered and
+  // `getDueMistakes` skips it, so counting it here would make the button say 5
+  // and the run render 4. `question_text` is null exactly when the body is
+  // missing, and the run caps at 200 rows, so the count caps the same way.
+  const dueNow = Math.min(
+    reviews.filter((r) => !r.mastered && r.retry?.due && r.question_text !== null).length,
+    200
+  )
   const nextUp = reviews
     .filter((r) => !r.mastered && r.retry && !r.retry.due)
     .sort((a, b) => (a.retry?.dueAt ?? '').localeCompare(b.retry?.dueAt ?? ''))[0]
