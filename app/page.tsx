@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  ArrowUpRight,
+  ArrowRight,
   BookOpen,
   BookOpenCheck,
   Brain,
@@ -78,15 +78,17 @@ const display = { fontFamily: "var(--font-display)" } as const;
 // the grid itself said "medical site" before anyone read a word. Every tile is
 // now the same size and the families are interleaved, because a NUST or PMA
 // aspirant has to see their paper given the same weight as MDCAT.
+// The tile's own line is its real bank size (tileMeta below), so the list
+// carries no second sentence to compete with it.
 const TESTS = [
-  { href: "/topicals", name: "MDCAT", track: "Medical", body: "Chapter-wise topicals and a diagnostic for the PMDC syllabus." },
-  { href: "/nust/practice", name: "NUST NET", track: "Engineering", body: "Maths, physics, chemistry and English." },
-  { href: "/past-papers", name: "NUMS", track: "Medical", body: "Released NUMS papers sorted by year." },
-  { href: "/nust/practice", name: "GIKI", track: "Engineering", body: "Shares the engineering bank with NET." },
-  { href: "/usat/practice", name: "HEC USAT", track: "University admission", body: "Quantitative, verbal and science sections." },
-  { href: "/nust/practice", name: "LUMS", track: "University admission", body: "Shares the engineering bank with NET." },
-  { href: "/pma/practice", name: "PMA", track: "Defence", body: "Verbal and non-verbal intelligence, academic test." },
-  { href: "/pma/practice", name: "ISSB", track: "Defence", body: "Intelligence and psychological screening." },
+  { href: "/topicals", name: "MDCAT", track: "Medical" },
+  { href: "/nust/practice", name: "NUST NET", track: "Engineering" },
+  { href: "/past-papers", name: "NUMS", track: "Medical" },
+  { href: "/nust/practice", name: "GIKI", track: "Engineering" },
+  { href: "/usat/practice", name: "HEC USAT", track: "University admission" },
+  { href: "/nust/practice", name: "LUMS", track: "University admission" },
+  { href: "/pma/practice", name: "PMA", track: "Defence" },
+  { href: "/pma/practice", name: "ISSB", track: "Defence" },
 ];
 
 const PRACTICE = [
@@ -98,7 +100,7 @@ const PRACTICE = [
 ];
 
 const STEPS = [
-  { title: "Take the diagnostic", body: "Ten questions across five subjects, about two minutes. It shows where you are strong and where you are not." },
+  { title: "Take the diagnostic", body: "Ten questions across four subjects, about two minutes. It shows where you are strong and where you are not." },
   { title: "Practise by topic", body: "Work through chapter-wise MCQs. Every answer comes with its explanation." },
   { title: "Redo what you missed", body: "Wrong answers collect in your mistake notebook so you can drill them until they stick." },
 ];
@@ -154,30 +156,49 @@ export default async function Home() {
         {/* Merge resolution (2026-11-22): the OMR hero comes from origin/main; the badge keeps this
             branch's truthful "Free during beta" wording instead of "100% free", which the access
             policy no longer promises. */}
-        <section className="relative isolate">
+        <section aria-label="Hero" className="relative isolate">
+          {/* One warm key light and a survey grid behind the copy. The landing
+              canvas had been left with no decorative layer at all, so the first
+              screen was a flat near-black rectangle; this is two static
+              gradients, no filter and no animation. */}
+          <div aria-hidden="true" className="hero-aura" />
           <div className="container-page pb-16 pt-28 sm:pb-24 sm:pt-36">
-            <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-              <div>
+            <div className="grid items-center gap-12 lg:grid-cols-[1.06fr_0.94fr] lg:gap-16">
+              <div className="hero-intro">
                 {/* One line, always. Two spans in a pill wrapped into a
                     three-storey block on a phone and looked broken. */}
-                <p className="inline-flex flex-wrap items-baseline gap-x-2 rounded-[var(--r-pill)] border border-[var(--line-brass)] bg-[var(--tint-brass)] px-3.5 py-1.5 text-[13px] leading-5 text-[var(--steel-100)] sm:text-sm">
+                <p className="inline-flex flex-wrap items-center gap-x-2.5 rounded-[var(--r-pill)] border border-[var(--line-brass)] bg-[var(--tint-brass)] px-3.5 py-1.5 text-[13px] leading-5 text-[var(--steel-100)] sm:text-sm">
+                  <span aria-hidden="true" className="hero-live-dot text-[var(--champagne)]" />
                   <span className="font-semibold text-[var(--champagne)]">Free during beta</span>
                   <span className="text-[var(--steel-300)]">no fees, no card</span>
                 </p>
                 <h1
                   style={display}
-                  className="mt-6 max-w-[19ch] text-[2.4rem] font-bold leading-[1.04] tracking-tight text-[var(--steel-100)] sm:text-[3.2rem] lg:text-[3.7rem]"
+                  className="mt-6 max-w-[20ch] text-[2.55rem] font-bold leading-[1.03] tracking-[-0.035em] text-[var(--steel-100)] sm:text-[3.35rem] lg:text-[3.9rem]"
                 >
-                  Practise for your entry test the way the paper asks.
+                  Practise for your entry test{" "}
+                  <span className="hero-accent">the way the paper asks.</span>
                 </h1>
-                <p className="mt-6 max-w-[50ch] text-base leading-relaxed text-[var(--steel-300)] sm:text-lg">
-                  Exam-style MCQs for every major entry test in Pakistan — MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT, PMA and ISSB. Every answer carries its key and the reasoning behind it, and where a board releases its paper you can read that paper here in full.
+                <p className="mt-6 max-w-[48ch] text-base leading-relaxed text-[var(--steel-300)] sm:text-[1.0625rem]">
+                  Exam-style MCQs for MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT, PMA and ISSB.
+                  Every answer carries its key and the reasoning behind it, and where a board
+                  releases its paper you can read that paper here in full.
                 </p>
-                <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                  <Link href="/diagnostic" className="btn-primary inline-flex min-h-[52px] items-center justify-center px-7 text-base">
+                <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <Link
+                    href="/diagnostic"
+                    className={`btn-primary group inline-flex min-h-[52px] w-full items-center justify-center gap-2 px-7 text-base sm:w-auto ${focusRing}`}
+                  >
                     Take the 2-minute diagnostic
+                    <ArrowRight
+                      aria-hidden="true"
+                      className="h-4 w-4 transition-transform duration-[var(--dur-2)] group-hover:translate-x-0.5"
+                    />
                   </Link>
-                  <Link href="#other-exams" className="btn-secondary inline-flex min-h-[52px] items-center justify-center px-7 text-base">
+                  <Link
+                    href="#other-exams"
+                    className="btn-secondary inline-flex min-h-[52px] items-center justify-center px-7 text-base"
+                  >
                     See every test
                   </Link>
                 </div>
@@ -185,56 +206,72 @@ export default async function Home() {
                   Questions are written by us from each test&apos;s official syllabus. Released papers are the boards&apos; own — never reconstructed.
                 </p>
               </div>
-              {/* The coverage plate. Eight names, eight glyphs, one header —
-                  the whole promise of the product readable before a single
-                  question is answered. Numbers stay below in the picker so the
-                  two blocks do different jobs. */}
-              <aside aria-label="Tests covered" className="relative">
-                <div className="rounded-[var(--r-5)] border border-[var(--line-2)] bg-[var(--srf-1)] p-5 shadow-[var(--shadow-card)] sm:p-6">
-                  <div className="flex items-baseline justify-between gap-4 border-b border-[var(--line-1)] pb-4">
-                    <div>
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--steel-400)]">
-                        Covered on Apex
-                      </p>
-                      <p style={display} className="mt-1.5 text-2xl font-bold tracking-tight text-[var(--steel-100)]">
-                        Eight papers
-                      </p>
-                    </div>
-                    <span className="rounded-[var(--r-pill)] border border-[var(--line-brass)] bg-[var(--tint-brass)] px-2.5 py-1 text-[11px] font-bold tabular-nums text-[var(--champagne)]">
-                      1 account
+
+              {/* The first two minutes, drawn. This replaces a plate that
+                  repeated the same eight tests the picker below already lists,
+                  under three labels that read like invented statistics. The card
+                  shows the product's own opening move, and every number on it is
+                  the draw /diagnostic actually makes: ten questions, four
+                  subjects, no account, a subject-by-subject result at the end. */}
+              <aside aria-label="The diagnostic" className="relative">
+                <div className="card-sheen relative overflow-hidden rounded-[var(--r-5)] border border-[var(--line-2)] bg-[var(--srf-1)] p-6 shadow-[var(--shadow-lg)] sm:p-7">
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--steel-400)]">
+                      <span aria-hidden="true" className="hero-live-dot text-[var(--signal-300)]" />
+                      Free diagnostic
+                    </span>
+                    <span className="rounded-[var(--r-pill)] border border-[var(--line-signal)] bg-[var(--tint-signal)] px-2.5 py-1 text-[11px] font-bold tabular-nums text-[var(--signal-200)]">
+                      2 min
                     </span>
                   </div>
-
-                  <ul className="mt-2 grid grid-cols-1 gap-0.5 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                    {TESTS.map((t) => {
-                      const Icon = TEST_ICONS[t.name] ?? BookOpenCheck;
-                      return (
-                        <li key={t.name}>
-                          <Link
-                            href={t.href}
-                            className={`group flex items-center gap-2.5 rounded-[var(--radius-md)] px-2 py-2 transition-colors duration-[var(--dur-1)] hover:bg-[var(--srf-2)] ${focusRing}`}
-                          >
-                            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--line-2)] bg-[var(--field-2)] text-[var(--signal-400)] transition-colors group-hover:border-[var(--line-signal)] group-hover:text-[var(--signal-300)]">
-                              <Icon aria-hidden="true" size={14} strokeWidth={1.8} />
-                            </span>
-                            <span className="min-w-0 flex-1 text-sm font-semibold text-[var(--steel-200)] group-hover:text-[var(--steel-100)]">
-                              {t.name}
-                            </span>
-                            <ArrowUpRight
-                              aria-hidden="true"
-                              size={13}
-                              className="shrink-0 text-[var(--steel-500)] opacity-0 transition-opacity group-hover:opacity-100"
-                            />
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-
-                  <p className="mt-4 border-t border-[var(--line-1)] pt-4 text-xs leading-relaxed text-[var(--steel-400)]">
-                    Released board papers where a board publishes them. Everything else is written by us
-                    from that test&apos;s syllabus.
+                  <p style={display} className="mt-5 text-[1.6rem] font-bold leading-[1.15] tracking-tight text-[var(--steel-100)]">
+                    Ten questions.
+                    <br />
+                    An honest starting point.
                   </p>
+                  <p className="mt-2.5 text-sm leading-relaxed text-[var(--steel-300)]">
+                    Drawn across Biology, Chemistry, Physics and English. No account, nothing to install.
+                  </p>
+                  <ol aria-hidden="true" className="mt-6 flex items-center gap-1.5">
+                    {Array.from({ length: 10 }).map((_, i) => (
+                      <li
+                        key={i}
+                        className="h-9 flex-1 rounded-[3px] bg-[var(--srf-3)] ring-1 ring-inset ring-[var(--line-1)]"
+                      />
+                    ))}
+                  </ol>
+                  <div className="mt-2 flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--steel-500)]">
+                    <span>Question 1</span>
+                    <span>10</span>
+                  </div>
+                  <dl className="mt-6 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-[var(--line-1)] pt-5 text-sm">
+                    <div>
+                      <dt className="text-[var(--steel-400)]">Questions</dt>
+                      <dd className="font-semibold text-[var(--steel-100)]">10</dd>
+                    </div>
+                    <div>
+                      <dt className="text-[var(--steel-400)]">Subjects</dt>
+                      <dd className="font-semibold text-[var(--steel-100)]">4</dd>
+                    </div>
+                    <div>
+                      <dt className="text-[var(--steel-400)]">Account</dt>
+                      <dd className="font-semibold text-[var(--steel-100)]">Not needed</dd>
+                    </div>
+                    <div>
+                      <dt className="text-[var(--steel-400)]">Result</dt>
+                      <dd className="font-semibold text-[var(--steel-100)]">By subject</dd>
+                    </div>
+                  </dl>
+                  <Link
+                    href="/diagnostic"
+                    className={`group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[var(--signal-300)] underline-offset-4 transition-colors hover:text-[var(--signal-200)] hover:underline ${focusRing}`}
+                  >
+                    Start the diagnostic
+                    <ArrowRight
+                      aria-hidden="true"
+                      className="h-4 w-4 transition-transform duration-[var(--dur-2)] group-hover:translate-x-1"
+                    />
+                  </Link>
                 </div>
               </aside>
             </div>
@@ -253,32 +290,35 @@ export default async function Home() {
                   All eight, one account, free during beta. Where a board releases its paper we carry it; where it doesn&apos;t, the bank is built from that test&apos;s own syllabus.
                 </p>
               </div>
-              <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-12">
-                {TESTS.map((t) => (
-                  <li key={t.name} className="lg:col-span-3">
-                    <Link
-                      href={t.href}
-                      className={`group relative flex h-full min-h-[104px] flex-col justify-between gap-3 overflow-hidden rounded-[var(--r-4)] border border-[var(--line-2)] bg-[var(--srf-1)]/80 p-5 shadow-[var(--shadow-card)] backdrop-blur-sm transition-colors duration-[var(--dur-1)] hover:border-[var(--line-signal)] hover:bg-[var(--srf-2)] sm:min-h-[124px] sm:p-6 ${focusRing}`}
-                    >
-                      <span
-                        aria-hidden="true"
-                        className="absolute right-4 top-4 h-4 w-4 rounded-full border-2 border-[var(--steel-600)] transition-[background-color,border-color,box-shadow] duration-[var(--dur-2)] group-hover:border-[var(--signal-400)] group-hover:bg-[var(--signal-400)] group-hover:shadow-[var(--glow-signal-sm)]"
-                      />
-                      <span className="pr-6 text-xs uppercase tracking-[0.12em] text-[var(--steel-400)]">{t.track}</span>
-                      <span className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                        <span style={display} className="text-xl font-bold tracking-tight text-[var(--steel-100)] sm:text-2xl">
-                          {t.name}
+              <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                {TESTS.map((t) => {
+                  const Icon = TEST_ICONS[t.name] ?? BookOpenCheck;
+                  return (
+                    <li key={t.name}>
+                      <Link
+                        href={t.href}
+                        className={`group relative flex h-full min-h-[136px] flex-col justify-between gap-4 overflow-hidden rounded-[var(--r-4)] border border-[var(--line-2)] bg-[var(--srf-1)] p-5 shadow-[var(--shadow-card)] transition-[background-color,border-color,transform] duration-[var(--dur-2)] hover:-translate-y-0.5 hover:border-[var(--line-signal)] hover:bg-[var(--srf-2)] ${focusRing}`}
+                      >
+                        <span
+                          aria-hidden="true"
+                          className="absolute right-4 top-4 h-4 w-4 rounded-full border-2 border-[var(--steel-600)] transition-[background-color,border-color,box-shadow] duration-[var(--dur-2)] group-hover:border-[var(--signal-400)] group-hover:bg-[var(--signal-400)] group-hover:shadow-[var(--glow-signal-sm)]"
+                        />
+                        <span className="flex items-center gap-2.5">
+                          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[var(--r-1)] border border-[var(--line-2)] bg-[var(--field-2)] text-[var(--signal-400)] transition-colors group-hover:border-[var(--line-signal)] group-hover:text-[var(--signal-300)]">
+                            <Icon aria-hidden="true" size={15} strokeWidth={1.8} />
+                          </span>
+                          <span style={display} className="text-lg font-bold tracking-tight text-[var(--steel-100)]">
+                            {t.name}
+                          </span>
                         </span>
-                        <span className="hidden max-w-[46ch] text-sm leading-relaxed text-[var(--steel-300)] sm:inline">
-                          {t.body}
+                        <span>
+                          <span className="block text-[11px] uppercase tracking-[0.14em] text-[var(--steel-400)]">{t.track}</span>
+                          <span className="mt-1 block text-[11px] font-semibold tabular-nums text-[var(--steel-400)]">{tileMeta[t.name]}</span>
                         </span>
-                        <span className="w-full text-[11px] font-semibold tabular-nums text-[var(--steel-400)]">
-                          {tileMeta[t.name]}
-                        </span>
-                      </span>
-                    </Link>
-                  </li>
-                ))}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 

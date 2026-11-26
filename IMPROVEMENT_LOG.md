@@ -1,5 +1,60 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-26 — The hero stops repeating itself, and gains a light
+
+The hero's right-hand plate said three things at once: "Covered on Apex",
+"Eight papers", "1 account". None of them is a fact a student came for, and the
+eight names under them were the same eight names the picker lists one screen
+below — coverage stated twice, in a label that read like an invented statistic,
+next to a claim ("1 account") that is a feature of signing up, not of the
+product. The founder's words for it were shorter.
+
+It is now the product's own opening move, drawn: the ten-question diagnostic,
+with its real shape on the card — ten ticks, four subjects, no account, a
+subject-by-subject result at the end. Every one of those is what `/diagnostic`
+actually does (`TARGET_SUBJECTS` in the route, the subject breakdown in
+`DiagnosticPlayer`), so the card is a preview, not a poster. The picker below
+keeps the eight tests and now carries their glyphs, which is where the plate's
+icons belonged all along.
+
+The first screen also had no light in it. The landing canvas had been left with
+no decorative layer at all — a flat near-black rectangle behind three lines of
+type — so this adds one static `hero-aura`: two radial washes, jade from the
+left and a trace of brass from the right, masked out before the picker. No
+filter, no animation, no frame budget, and it does not touch the per-frame
+property writers in ScrollEffects.
+
+Type and motion, in the vocabulary the page already owns: the headline runs a
+touch larger with tighter tracking and one gradient phrase
+(steel-100 → signal-200 → signal-300; measured 16.4 / 12.5 / 9.8:1 on the dark
+field and 16.5 / 7.8 / 6.2:1 on paper, so the phrase never dips below AA in
+either theme). The copy column rides the existing `.hero-intro` stagger, which
+had been written and never used, and the CTAs gained an arrow that moves on
+hover. The section now carries `aria-label="Hero"`, which is what ScrollEffects
+queries for the exit drift and the blob parallax — those two behaviours were
+dead code on this page before.
+
+Deliberately not done: no framer-motion in the hero. The library is already a
+dependency, but pulling it into the homepage bundle for one magnetic hover is
+the "vibe coded" trade — a bundle cost for a decoration — when the page already
+has a CSS reveal vocabulary. If it goes in later it should be for a component
+that needs springs, not a button.
+
+One fix riding along: the step copy promised the diagnostic runs "across five
+subjects". It draws four (Biology, Chemistry, Physics, English).
+
+**Gates:** `tsc` 0 · `eslint` 0 on `app/page.tsx` · `next build` 0.
+**Gotcha for the next agent:** the first `next build` after the rewrite still
+served the old homepage — `.next` had to be deleted before the build picked the
+change up (Turbopack's persistent cache kept the previous prerender). Always
+grep `.next/server/app/index.html` for the new string, not just the source.
+Live smoke on the clean build (`:3232`): home 200 with "Free diagnostic" and no
+"Covered on Apex"; `/diagnostic` and `/topicals` 200. Browser run at 1440, 768
+and 390: no horizontal overflow, card 489 px wide inside the grid, ten ticks
+rendered, gradient and aura both applied in DOM, light theme measured above.
+Only console error is the pre-existing `POST /api/telemetry` 503, which this
+change does not touch. **Not pushed** — deployment budget, per instruction.
+
 ## 2026-11-26 — The only live guide was still talking about a sitting that already happened
 
 `/blog/mdcat-guide` is the one published guide on the site and the page a
