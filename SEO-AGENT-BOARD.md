@@ -1,6 +1,6 @@
 # SEO Agent Board — Apex Pakistan / MED Prep
 
-> Owner: SEO agent. Source of truth for search visibility work. Last baseline: 2026-11-08. Statuses: `[ ]` todo · `[~]` in progress · `[x]` verified shipped · `[?]` needs evidence/decision. Never mark shipped from code presence alone: verify the live response and record the check.
+> Owner: SEO agent. Source of truth for search visibility work. Last baseline: 2026-11-08. Last engine check: 2026-11-26. Statuses: `[ ]` todo · `[~]` in progress · `[x]` verified shipped · `[?]` needs evidence/decision. Never mark shipped from code presence alone: verify the live response and record the check.
 
 ## Academy and portal architecture
 
@@ -22,7 +22,7 @@ Earn qualified, sustainable organic discovery for Pakistani students preparing f
 - Next.js App Router; 61 `page.tsx` routes in the current `main` tree (656 tracked files total).
 - `app/robots.ts` exists, allows public routes and blocks admin/dashboard/auth utility paths; explicitly lists selected AI crawlers and blocks CCBot/Bytespider.
 - `app/sitemap.ts` is generated from `lib/seo-pages.ts` plus `topicalDrillPaths()`; noindex utility pages should stay excluded.
-- `lib/site.ts` currently hardcodes fallback canonical origin `https://mdcatprep-eight.vercel.app`.
+- `lib/site.ts` currently hardcodes fallback canonical origin `https://mdcatprep-eight.vercel.app`. **Superseded 2026-11-26:** `getSiteUrl()` now defaults to `https://edweb-nine.vercel.app` and no live route emits the old host. See the engine baseline at the end of this file.
 - Vercel project `edweb` currently reports aliases `edweb-nine.vercel.app`, `edweb-acma-32c6.vercel.app`, and `edweb-git-main-acma-32c6.vercel.app`. The hardcoded fallback does not match those reported aliases. Resolve canonical-host ownership before any indexing push.
 - `vercel.json` already schedules `/api/seo/indexnow` daily at 04:30 UTC. Verify endpoint auth, key proof, cron execution and provider response; don't assume cron success from config.
 - Homepage has FAQPage and LearningResource JSON-LD. Inspect layout, FAQ, blog and route metadata for coverage, duplication and validity.
@@ -49,10 +49,10 @@ Earn qualified, sustainable organic discovery for Pakistani students preparing f
 ### P0 — Fix the canonical and crawl foundation
 
 - [ ] Inspect `app/layout.tsx`, all route metadata, `lib/site.ts`, `lib/seo-pages.ts`, sitemap, robots and IndexNow route as one system.
-- [ ] Confirm the exact public temporary Vercel hostname that serves without SSO. Vercel currently reports the three aliases above; test each anonymously and select one, or fix deployment protection. Do not guess.
-- [ ] Replace the stale `mdcatprep-eight.vercel.app` fallback with the verified temporary canonical host (or make the env var mandatory with a safe, tested fallback).
+- [x] Confirm the exact public temporary Vercel hostname that serves without SSO. **Verified 2026-11-26:** `https://edweb-nine.vercel.app/` returns 200 anonymously (0.84s) with no SSO challenge; robots.txt and sitemap.xml both serve publicly.
+- [x] Replace the stale `mdcatprep-eight.vercel.app` fallback with the verified temporary canonical host. **Verified 2026-11-26:** `lib/site.ts` `getSiteUrl()` returns `https://edweb-nine.vercel.app`; homepage canonical, `og:url` and JSON-LD `url` all match; 0 `mdcatprep-eight` references on `/`, `/exams`, `/past-papers`, `/blog/mdcat-guide`.
 - [ ] Ensure canonical URLs, metadataBase, OG URL, Twitter URL, JSON-LD URL, sitemap URLs and IndexNow host all derive from the same helper.
-- [ ] Verify no production route emits `localhost`, preview hostname, stale `mdcatprep-eight` hostname or mixed hosts.
+- [~] Verify no production route emits `localhost`, preview hostname, stale `mdcatprep-eight` hostname or mixed hosts. **Partial 2026-11-26:** 4 routes sampled clean. Still needs a full sweep of all 96 sitemap URLs.
 - [ ] Fetch and inspect live `/robots.txt`, `/sitemap.xml`, homepage HTML, canonical tags and response headers without an authenticated session.
 - [ ] Confirm robots rules don't accidentally block CSS/JS or public learning resources needed for rendering.
 - [ ] Confirm every sitemap URL is unique, absolute, canonical, indexable and returns 200; exclude redirects, noindex pages, auth pages and query-string URLs.
@@ -229,3 +229,35 @@ The code audit confirms full USAT/NUST/PMA banks are currently imported by publi
 
 
 PMDC-2026's official notice confirms 180 MCQs with 81 Biology / 45 Chemistry / 36 Physics / 9 English / 9 Logical Reasoning, 3 hours and no negative marking. Public exam pages should use this current-year pattern and link to PMDC's official notice. The repository's current 100-question “full mock” does not match this structure; do not claim a full official-pattern mock is available until corrected and backed by a populated, verified question source.
+
+## Autonomous SEO engine baseline (2026-11-26)
+
+The SEO agent now runs a weekday research shift: Monday to Friday 07:00 PKT, with the Friday run producing the weekly strategic review instead of the daily brief.
+
+Scope of that shift: research, prioritise and write tasks. It never changes application code. Documentation commits to `main` are authorised. Findings land here, competitor history lands in `COMPETITOR-BENCHMARK-ROADMAP.md`, and ready work lands in `NEXT-WAVE-BUILD-QUEUE.md`.
+
+### Measurement availability (blocking limitation)
+
+No analytics or webmaster connector is authorised. Google Search Console, Google Analytics and Bing Webmaster Tools are all unavailable. Until at least Search Console and Bing Webmaster Tools are connected, this board must not report impressions, clicks, average position, CTR or indexed-page counts, and must not infer them from anything else.
+
+What verification is currently possible: live HTTP inspection of public pages, `robots.txt`, `sitemap.xml`, rendered metadata, canonical tags, structured data and response headers. Connecting Search Console and Bing Webmaster Tools is the single highest-value measurement unlock and is a P1 dependency for every traffic or ranking claim.
+
+### Verified live snapshot (2026-11-26)
+
+- Deployment identity: `https://edweb-nine.vercel.app` serves the public site anonymously; homepage returns 200 in about 0.84s. The repo's linked Vercel project still needs independent confirmation before repo and host are treated as one deployment.
+- `robots.txt`: allows public routes; disallows `/admin`, `/dashboard`, `/api/`, `/login`, `/signup`, `/pending`, `/rejected`, `/suspended`, `/forgot-password`, `/reset-password`, `/account-deleted`. Allows GPTBot, ChatGPT-User, PerplexityBot, ClaudeBot, anthropic-ai and Google-Extended; blocks CCBot and Bytespider. Sitemap line points to `https://edweb-nine.vercel.app/sitemap.xml`.
+- `sitemap.xml`: 96 URLs, `lastmod` 2026-11-25T21:29Z.
+- Canonical host is consistent: homepage canonical, `og:url` and JSON-LD `url` all emit `https://edweb-nine.vercel.app`.
+- Category coverage counted from the sitemap: MDCAT topicals for biology, chemistry, physics and english plus a mathematics mixed bank; 10 registry past-paper pages (UHS, KMU, SZABMU, SZABMU reconducted, DUHS, BUMHS, ETEA, NUMS, SIBA, Sindh); subject notes; flashcards; daily quiz; diagnostic; resources; exams; pricing; faq; 2 blog pages; legal pages. No dedicated landing page appears for NUST NET, GIKI, HEC USAT, LUMS, PMA or ISSB, and no engineering, mathematics or defence subject content is indexed. Confirm against the route tree before writing this up as a task.
+
+### Board reconciliation (2026-11-26)
+
+- P0 hostname confirmation and stale fallback replacement are verified shipped; evidence is recorded on the task lines above.
+- Brand drift candidate: `lib/site.ts` sets `SITE_NAME` to `MED Prep` while the product is now Apex Academy. Check titles, OG tags, JSON-LD and visible copy for drift and raise a task with exact locations.
+- The 2026-11-08 baseline claim that `lib/site.ts` hardcodes `mdcatprep-eight` is superseded.
+
+### Task ID convention
+
+New tasks carry an ID in the form `APX-CATEGORY-YYYYMMDD-NN`, for example `APX-SEO-20261127-01`. Categories: `SEO`, `TECH`, `CONTENT`, `COMP`, `GROWTH`, `PRODUCT`, `OUTREACH`. Every new task states its problem, evidence, recommended implementation, expected outcome, priority, effort, dependencies, acceptance criteria and research date. Existing unlabelled checkbox items keep their place and are not renumbered.
+
+Every task must also satisfy the standing rule above: never mark shipped from code presence alone, and record the live check that proved it.
