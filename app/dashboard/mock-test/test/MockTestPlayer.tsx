@@ -239,6 +239,20 @@ export function MockTestPlayer({
           : accuracy >= 50
             ? 'Solid effort — review your answers and try again.'
             : 'Every attempt counts — review below and go again.'
+    // The autopsy. A percentage says "70" and nothing about whether that was
+    // thirty wrong answers, thirty blanks, or a paper rushed through in half
+    // the clock — so the marks are split by where they actually went before the
+    // subject grid.
+    let answeredCount = 0
+    for (let i = 0; i < questions.length; i++) if (answers[i]) answeredCount++
+    const skippedCount = questions.length - answeredCount
+    const wrongCount = Math.max(0, answeredCount - score)
+    const secondsUsed = Math.max(0, durationMinutes * 60 - Math.max(0, remainingSeconds))
+    const minutesUsed = Math.floor(secondsUsed / 60)
+    const secondsRemainder = secondsUsed % 60
+    const pace = answeredCount > 0 ? Math.round(secondsUsed / answeredCount) : 0
+    const biggestLoss = wrongCount >= skippedCount ? 'wrong answers' : 'blank answers'
+
     const bySubject: Record<string, { total: number; correct: number }> = {}
     for (let i = 0; i < questions.length; i++) {
       const sub = questions[i].subject
@@ -275,6 +289,36 @@ export function MockTestPlayer({
           <p className="mt-1 text-sm text-[var(--color-text-muted)]">{verdict}</p>
           <p className="mt-4 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
             {format.toUpperCase()} Mock Test • {durationMinutes} minutes
+          </p>
+
+          <dl className="mt-6 grid grid-cols-2 gap-2 text-left sm:grid-cols-4">
+            {[
+              { label: 'Correct', value: String(score) },
+              { label: 'Wrong', value: String(wrongCount) },
+              { label: 'Left blank', value: String(skippedCount) },
+              {
+                label: 'Time used',
+                value: `${minutesUsed}m ${String(secondsRemainder).padStart(2, '0')}s`,
+              },
+            ].map(({ label, value }) => (
+              <div
+                key={label}
+                className="rounded-[var(--radius-md)] border border-white/10 bg-white/[0.03] px-3 py-2.5"
+              >
+                <dt className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-muted)]">
+                  {label}
+                </dt>
+                <dd className="mt-0.5 text-base font-extrabold tabular-nums text-white">{value}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-3 text-xs text-[var(--color-text-muted)]">
+            Most of the lost marks were {biggestLoss}
+            {pace > 0 ? ` · ${pace}s per answered question` : ''}
+            {secondsUsed > 0
+              ? ` · ${Math.round((secondsUsed / (durationMinutes * 60)) * 100)}% of the clock`
+              : ''}
+            .
           </p>
 
           {/* Subject breakdown */}

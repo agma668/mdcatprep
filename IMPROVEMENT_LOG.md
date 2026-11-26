@@ -69,9 +69,34 @@ shapes are copied from `mistakeToFlashcard`, the already-shipping path into
 `supabase/migrations/20261110000000_mistake_recovery_mastery.sql`. The mobile
 order was confirmed from the served DOM, not from a photograph of a phone.
 
-**Still open from the review:** mock-test autopsy + trend line, sub-60-second
-onboarding with Google (needs the OAuth client configured), and the page-weight
-pass (`/` is still ~255 KB of HTML).
+**Still open from the review:** the cross-mock trend line (the autopsy itself
+landed in the next entry), sub-60-second onboarding with Google (the button is
+built on Supabase OAuth; the provider still has to be enabled in the project),
+and the page-weight pass (`/` is still ~255 KB of HTML).
+
+## 2026-11-26 — A mock result now says where the marks went
+
+The mock result screen showed a ring, an accuracy, and a subject grid. "70%"
+cannot tell a student whether that was thirty wrong answers, thirty blanks, or a
+paper rushed through in half the clock — three different problems with three
+different fixes. `MockTestPlayer`'s finished branch now computes an autopsy
+before the subject grid: **Correct · Wrong · Left blank · Time used**, then one
+line naming the biggest loss, the pace in seconds per answered question, and
+what share of the clock the paper took. All of it is derived from the answers
+the student just gave and the timer they just watched, so nothing is guessed and
+no new storage is involved.
+
+A cross-mock trend line is still open: it needs a stored per-mock result (today
+the attempts land individually in `question_attempts`, with no mock id tying
+them together), so drawing a line now would mean either a new table or a lie
+about which points belong to the same paper. Left as the next piece.
+
+**Verified:** `tsc` 0 · `eslint` 0 errors on the file (one pre-existing
+unused-import warning) · `next build` 0.
+
+**Not verified:** the rendered screen. The mock player only exists behind the
+dashboard's sign-in, and this checkout has no Supabase session, so the autopsy
+block is type-checked and built but has not been seen filled in.
 
 ## 2026-11-26 — The player can keep a question now (P0 from the review)
 
