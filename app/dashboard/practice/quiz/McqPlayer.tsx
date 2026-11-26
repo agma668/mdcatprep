@@ -2,10 +2,10 @@
 
 import { TrackedLink } from '@/components/TrackedLink';
 import { useEffect, useRef, useState } from 'react'
-import Link from 'next/link'
 import { BookOpen, Target, Trophy, Clock, AlertTriangle } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { QuizOptions } from '@/components/ui/QuizOptions'
+import { QuestionActions } from '@/components/practice/QuestionActions'
 import { type BankQuestion } from '@/lib/questions'
 import { recordAnswer } from '@/lib/offline-sync'
 import { useQuizSession } from '@/lib/quiz-session'
@@ -326,6 +326,13 @@ export function McqPlayer({
             {q.explanation && <p className="leading-relaxed">{q.explanation}</p>}
           </div>
         )}
+
+        {/* One tap from the question to a card, and a way to report a bad key —
+            available before answering as well, so a stem that is broken can be
+            flagged without guessing at it first. */}
+        <div className="mt-4">
+          <QuestionActions question={q} signedIn page="/dashboard/practice/quiz" />
+        </div>
 
         <div className="mt-6 flex items-center justify-between">
           <Button variant="primary" disabled={!session.selected || answered} onClick={reveal}>

@@ -22,6 +22,7 @@ import { ScoreRing, AnimatedNumber } from "@/components/ui/ScoreRing";
 import { QuizKeyLegend } from "@/components/ui/QuizKeyLegend";
 import { QuizOptions } from "@/components/ui/QuizOptions";
 import { BookmarkFlag } from "@/components/practice/BookmarkFlag";
+import { QuestionActions } from "@/components/practice/QuestionActions";
 import { TrapReasons } from "@/components/practice/TrapReasons";
 import { useQuizSession } from "@/lib/quiz-session";
 import { pastPaperTag, type OptionLetter, type QuizQuestion } from "@/lib/questions";
@@ -260,7 +261,17 @@ export function PracticeSession({
               </span>
             )}
           </div>
-          {q.id && <BookmarkFlag questionId={q.id} />}
+          {/* Persist per question: flag it, turn it into a card, report a bad key.
+              All three sit beside every question, answered or not. */}
+          <div className="flex flex-wrap items-center gap-1.5">
+            {q.id && <BookmarkFlag questionId={q.id} />}
+            <QuestionActions
+              question={q}
+              signedIn={signedIn}
+              signupHref={signupHref}
+              page="/practice/session"
+            />
+          </div>
         </div>
         <p className="text-sm font-semibold leading-relaxed text-[var(--color-text-primary)] sm:text-base">
           {q.question_text}

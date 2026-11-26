@@ -1,5 +1,50 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-26 — The player can keep a question now (P0 from the review)
+
+The review's P0 was one sentence: a wrong answer should become a flashcard in one
+tap, inside the player, and the player should offer bookmark and report. Bookmark
+already existed; the other two did not. `components/practice/QuestionActions.tsx`
+now sits beside every question in both players — the signed-out drill at
+`/practice/session` and the dashboard quiz player — with **Save to card** and
+**Report**, and no answering required first: a guessed-but-correct answer is the
+mistake a right answer hides, and a broken stem should be reportable before you
+try to answer it.
+
+**Save to card** takes the stem as the front, and the keyed option plus the
+written rationale as the back (`app/actions/practice-cards.ts`). It writes into
+the same `review_flashcards` table the mistake notebook already writes to, so a
+card made mid-drill is scheduled by the FSRS scheduler that is already in the
+repo — it does not land in a second, unscheduled list. It is idempotent: a
+question already turned into a card reports "Already in cards" instead of making
+a duplicate, keyed on `source_question_id` for bank questions and on the stem for
+bundled ones. Guests are told the truth — the button becomes "Sign in to keep
+this card" and links to signup, matching the rule that nothing is written for a
+guest anywhere in this app.
+
+**Report** asks for a reason from a fixed list (keyed answer wrong / wording or
+typo / missing figure / duplicate / other), takes an optional note, and writes a
+structured line into the existing `feedback` table with the question id, subject
+and page — so it arrives in the admin triage screen that already exists rather
+than in a new one. It returns a receipt ("Received — a human will check it
+against the source"), and it works signed out, anonymously, because a student
+who spots a wrong key should not need an account to say so.
+
+**Keys:** `F` saves a card, `R` opens the report, `Esc` closes it, and all three
+ignore keystrokes while a field has focus.
+
+**Verified:** `tsc` 0 · `eslint` 0 on all five touched files · clean
+`next build` 0 · the served HTML for `/practice/session?subject=Biology&count=10`
+carries both controls · in a live guest tab: "Save to card" becomes "Sign in to
+keep this card" rather than silently doing nothing, and the report panel opens
+with all five reasons and "Send report".
+
+**Not verified:** the signed-in write itself. This checkout has no Supabase
+session, and the report action inserts into the production `feedback` table, so
+neither was exercised against the database — both are type-checked, built and
+UI-verified only. The insert shape is copied from `mistakeToFlashcard`, which is
+the already-shipping path into the same table.
+
 ## 2026-11-26 — Every test tile now lands on that test's own front door
 
 The homepage picker was handing every student straight into a drill. For
