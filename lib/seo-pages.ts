@@ -63,6 +63,7 @@ export const SEO_PAGES: SeoPage[] = [
   // had no page for at all before 2026-11-28.
   { path: "/merit-calculator", priority: 0.8, changeFrequency: "monthly" },
   { path: "/syllabus/mdcat", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/syllabus/nums", priority: 0.9, changeFrequency: "monthly" },
 
   // Practice surfaces — the honest numbers live on the pages themselves
   { path: "/flashcards", priority: 0.8, changeFrequency: "weekly" },

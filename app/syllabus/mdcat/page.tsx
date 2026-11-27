@@ -275,6 +275,14 @@ export default function MdcatSyllabusPage() {
             </p>
           </section>
 
+          <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
+            Sitting NUMS instead — or as well? It is a different paper with its own weightings; the{" "}
+            <Link href="/syllabus/nums" className="font-semibold text-accent underline underline-offset-4">
+              NUMS MDCAT syllabus page
+            </Link>{" "}
+            transcribes NUMS&apos;s 2026 Table of Specifications.
+          </p>
+
           {/* Practice links */}
           <section className="mt-8 grid gap-4 sm:grid-cols-3">
             <Link
