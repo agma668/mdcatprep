@@ -352,3 +352,26 @@ still return 200 with a self-canonical.
 New tasks carry an ID in the form `APX-CATEGORY-YYYYMMDD-NN`, for example `APX-SEO-20261127-01`. Categories: `SEO`, `TECH`, `CONTENT`, `COMP`, `GROWTH`, `PRODUCT`, `OUTREACH`. Every new task states its problem, evidence, recommended implementation, expected outcome, priority, effort, dependencies, acceptance criteria and research date. Existing unlabelled checkbox items keep their place and are not renumbered.
 
 Every task must also satisfy the standing rule above: never mark shipped from code presence alone, and record the live check that proved it.
+
+## 2026-11-28 — Medical competitor audit SEO queue
+
+### P0 — Domain/canonical incident
+- [ ] Investigate audit observation that `https://apexpakistan.com` redirected to a GoDaddy domain-for-sale page on 2026-11-28. Re-test apex and www independently; capture status and full redirect chain. Treat as critical until explained.
+- [ ] Confirm the approved public Vercel deployment alias still serves the real app anonymously; do not assume the custom domain is attached or healthy.
+- [ ] Once domain routing is fixed with founder approval, align canonical origin, metadataBase, sitemap, robots, OG/Twitter, JSON-LD, IndexNow and Search Console to one verified host.
+- [ ] Add recurring checks for domain parking/sale redirects, unexpected canonical host changes and public availability.
+
+### P1 — MDCAT search-intent coverage
+- [ ] Audit existing medical SEO routes before creating new ones; map URL → target intent → unique content → live product destination.
+- [ ] Prioritize genuinely useful pages for MDCAT preparation, MDCAT MCQs, Biology/Chemistry/Physics/English MCQs, past papers, mock tests and syllabus.
+- [ ] Ensure each page includes accurate exam guidance, real usable practice or substantive learning value, clear provenance and relevant internal links.
+- [ ] Verify PM&DC exam facts and dates against official sources; show checked/updated dates and never invent cutoffs, dates, seats or success claims.
+- [ ] Benchmark ePrepare, TestPrep Smart and MDCAT.pk search snippets, page structure, content depth and conversion paths; record dated evidence, not assumptions.
+- [ ] Avoid thin keyword-swapped pages, duplicate topical pages, unsupported question-count claims and fabricated testimonials.
+- [ ] Measure Search Console impressions, clicks, CTR and query/page growth before and after changes.
+
+### P1 — Trust and E-E-A-T evidence
+- [ ] Document question sourcing and editorial review; distinguish official, reconstructed and memory-based past-paper content.
+- [ ] Add verifiable author/reviewer credentials and transparent correction/contact paths where appropriate.
+- [ ] Publish student outcomes only with permission and verifiable records; label methodology and cohort/date.
+
