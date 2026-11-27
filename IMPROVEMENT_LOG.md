@@ -1,5 +1,25 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-27 — Stop inventing an LCAT section map LUMS never published
+
+**The page had a mapping the source does not.** `/lums/practice` labelled "Verbal 1" as craft &
+structure + information & ideas and "Verbal 2" as standard English conventions + expression of
+ideas, with the same split imposed on the two maths sections. LUMS's own LCAT guidelines
+(`lums.edu.pk/node/649`) say only that there are four sections — two verbal, two math, 40 minutes
+each — and then list all four verbal domains for "the Verbal Sections" as a group and all four
+maths domains for "the Math Sections" as a group. The 2025 sample paper does exactly the same. No
+document states which domain sits in section 1 versus section 2.
+
+**So the block now mirrors the source.** Two cards — "Verbal sections (two of the four)" and "Math
+sections (two of the four)" — list the four domains each, with the definitions LUMS gives, plus one
+line saying LUMS does not publish a section-by-section mapping and this page does not claim one.
+The four-section, 40-minute, paper-based, no-calculator facts are unchanged because those are
+published.
+
+**Checked at the gate ladder.** `tsc` clean, eslint clean, `next build` green (route prerendered as
+before), and a live render at 390px and 768px: two cards stack on mobile, sit side by side at 768,
+no horizontal overflow, no trace of the old "Verbal 1/2" labels in the HTML.
+
 ## 2026-11-27 — The UHS 2025 paper is now a sitting, not a line in a catalogue
 
 **180 questions, 180 minutes, official key.** `scripts/build-uhs-2025-paper.mjs` extracts Paper

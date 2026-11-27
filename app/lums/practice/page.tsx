@@ -13,7 +13,7 @@ import { getSiteUrl } from "@/lib/site";
  * statement of what our bank does and does not cover.
  */
 
-const CHECKED_ON = "2026-11-28";
+const CHECKED_ON = "2026-11-27";
 const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
@@ -45,11 +45,26 @@ const DATES = [
   { k: "ACT (latest sitting)", v: "by 10 Apr 2027" },
 ];
 
-const SECTIONS = [
-  { name: "Verbal 1", detail: "Craft & structure · information & ideas" },
-  { name: "Verbal 2", detail: "Standard English conventions · expression of ideas" },
-  { name: "Math 1", detail: "Algebra · advanced mathematics" },
-  { name: "Math 2", detail: "Problem-solving & data analysis · geometry & trigonometry" },
+/**
+ * LUMS publishes four sections (two verbal, two math) and lists four content
+ * domains for the verbal sections and four for the math sections — but it does
+ * not say which domain appears in section 1 versus section 2. The programme
+ * page names all four verbal domains together, the same way the 2025 sample
+ * paper does ("the Verbal Sections"), so this page groups them the same way
+ * rather than inventing a section-by-section split.
+ */
+const VERBAL_DOMAINS = [
+  { name: "Craft and Structure", detail: "High-utility vocabulary in context, rhetorical analysis, and connections between related texts." },
+  { name: "Information and Ideas", detail: "Locating, interpreting, evaluating and integrating information from texts, tables and graphs." },
+  { name: "Standard English Conventions", detail: "Editing for sentence structure, usage and punctuation." },
+  { name: "Expression of Ideas", detail: "Revising texts for clarity, effectiveness and rhetorical goals." },
+];
+
+const MATH_DOMAINS = [
+  { name: "Algebra", detail: "Linear equations, inequalities and systems, and linear functions in one and two variables." },
+  { name: "Advanced Mathematics", detail: "Absolute value, quadratic, exponential, polynomial, rational and radical equations, and nonlinear functions." },
+  { name: "Problem-Solving and Data Analysis", detail: "Ratios, rates, percentages, proportional relationships, statistics, probability and scatterplots." },
+  { name: "Geometry and Trigonometry", detail: "Area, volume, angles, triangles, circles and trigonometric functions." },
 ];
 
 export default function LUMSPracticePage() {
@@ -82,15 +97,36 @@ export default function LUMSPracticePage() {
         <section className="mt-6 rounded-2xl border border-[var(--line-2)] bg-[var(--srf-1)] p-5 sm:p-6">
           <h2 className="text-lg font-bold">LCAT, as LUMS publishes it</h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
-            {SECTIONS.map((s) => (
-              <div key={s.name} className="rounded-xl border border-[var(--line-2)] bg-[var(--srf-2)] p-4">
-                <div className="text-sm font-bold">{s.name}</div>
-                <div className="mt-1 text-xs leading-relaxed text-[var(--steel-400)]">{s.detail}</div>
-              </div>
-            ))}
+            <div className="rounded-xl border border-[var(--line-2)] bg-[var(--srf-2)] p-4">
+              <div className="text-sm font-bold">Verbal sections (two of the four)</div>
+              <ul className="mt-2 space-y-2">
+                {VERBAL_DOMAINS.map((d) => (
+                  <li key={d.name}>
+                    <div className="text-xs font-semibold text-[var(--steel-100)]">{d.name}</div>
+                    <div className="mt-0.5 text-xs leading-relaxed text-[var(--steel-400)]">{d.detail}</div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-xl border border-[var(--line-2)] bg-[var(--srf-2)] p-4">
+              <div className="text-sm font-bold">Math sections (two of the four)</div>
+              <ul className="mt-2 space-y-2">
+                {MATH_DOMAINS.map((d) => (
+                  <li key={d.name}>
+                    <div className="text-xs font-semibold text-[var(--steel-100)]">{d.name}</div>
+                    <div className="mt-0.5 text-xs leading-relaxed text-[var(--steel-400)]">{d.detail}</div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
           <ul className="mt-4 space-y-1.5 text-xs leading-relaxed text-[var(--steel-400)]">
             <li>Four sections — two verbal, two mathematical — of about 40 minutes each, roughly three hours in total.</li>
+            <li>
+              LUMS lists these domains for the verbal sections as a group and for the math sections as a group. It
+              does not publish which domain sits in section 1 or section 2, so this page does not claim a
+              section-by-section mapping.
+            </li>
             <li>Paper-based multiple choice; calculators are not permitted.</li>
             <li>LUMS publishes a sample LCAT paper, linked below.</li>
           </ul>
