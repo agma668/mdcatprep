@@ -1,10 +1,19 @@
 'use client'
 
-import { useMemo, useReducer, useState, useTransition, type ReactNode } from 'react'
-import { gradeFlashcard, resetFlashcard } from '@/app/actions/flashcards'
+import { useEffect, useMemo, useReducer, useState, useTransition, type ReactNode } from 'react'
+import {
+  gradeFlashcard,
+  previewFlashcardIntervals,
+  resetFlashcard,
+} from '@/app/actions/flashcards'
 import type { Flashcard, FlashcardDeck } from '@/lib/flashcards/flashcards-data'
-import { isDue } from '@/lib/flashcards/srs'
-import type { FlashcardBackend, ReviewRow, ReviewStatePayload } from '@/lib/flashcards/types'
+import { fsrsIsDue } from '@/lib/flashcards/fsrs'
+import type {
+  CardRating,
+  FlashcardBackend,
+  ReviewRow,
+  ReviewStatePayload,
+} from '@/lib/flashcards/types'
 import { usePrepChoice } from '@/lib/prep-choice'
 import { getPrepTest } from '@/lib/prep-tests'
 
@@ -18,6 +27,8 @@ import { getPrepTest } from '@/lib/prep-tests'
 type Props = {
   decks: FlashcardDeck[]
   initialReviewState: ReviewStatePayload
+  /** New cards a session may introduce. Due reviews are never capped. */
+  dailyNewLimit?: number
   /** Persistence layer. Defaults to the dashboard's server actions. */
   backend?: FlashcardBackend
   /** Static banner shown above the deck grid (e.g. the guest notice). */
@@ -31,6 +42,8 @@ type Props = {
 type Session = {
   deck: FlashcardDeck
   queue: Flashcard[]
+  /** 'due' = the schedule only; 'all' = the student asked to study ahead. */
+  mode: 'due' | 'all'
   index: number
   revealed: boolean
   answered: number
@@ -38,7 +51,7 @@ type Session = {
 }
 
 type Action =
-  | { type: 'open'; deck: FlashcardDeck; queue: Flashcard[] }
+  | { type: 'open'; deck: FlashcardDeck; queue: Flashcard[]; mode: 'due' | 'all' }
   | { type: 'reveal' }
   | { type: 'rate'; rating: 'again' | 'hard' | 'good' | 'easy' }
   | { type: 'next' }
@@ -47,7 +60,15 @@ type Action =
 function reducer(state: Session | null, action: Action): Session | null {
   switch (action.type) {
     case 'open':
-      return { deck: action.deck, queue: action.queue, index: 0, revealed: false, answered: 0, correct: 0 }
+      return {
+        deck: action.deck,
+        queue: action.queue,
+        mode: action.mode,
+        index: 0,
+        revealed: false,
+        answered: 0,
+        correct: 0,
+      }
     case 'reveal':
       return state ? { ...state, revealed: true } : state
     case 'rate': {
@@ -74,24 +95,43 @@ const RATING_BUTTONS = [
   { rating: 'easy' as const, label: 'Easy', hint: 'Instant recall', classes: 'bg-emerald-500/15 border-emerald-500/40 text-emerald-300 hover:bg-emerald-500/25' },
 ]
 
-function dueCount(deck: FlashcardDeck, byCard: Record<string, ReviewRow>): number {
+/**
+ * Due and never-seen cards are different work — Anki never lumps them into one
+ * number, and a "12 due" badge that is mostly new cards cannot be trusted. A
+ * card with no row is new, whatever its (absent) date says.
+ */
+function deckCounts(
+  deck: FlashcardDeck,
+  byCard: Record<string, ReviewRow>
+): { due: number; fresh: number; total: number } {
   const now = new Date()
-  return deck.cards.filter((card) => {
+  let due = 0
+  let fresh = 0
+  for (const card of deck.cards) {
     const row = byCard[card.id]
-    return !row || isDue(row.due_at, now)
-  }).length
+    if (!row) fresh += 1
+    else if (fsrsIsDue(row.due_at, now)) due += 1
+  }
+  return { due, fresh, total: deck.cards.length }
 }
 
 function progressLabel(deck: FlashcardDeck, byCard: Record<string, ReviewRow>): string {
   const learned = deck.cards.filter((card) => {
     const row = byCard[card.id]
     // "Learned" = reviewed at least once and currently not due.
-    return row && row.repetitions > 0 && !isDue(row.due_at)
+    return row && row.repetitions > 0 && !fsrsIsDue(row.due_at)
   }).length
   return `${learned}/${deck.cards.length}`
 }
 
-export function FlashcardsClient({ decks, initialReviewState, backend, notice, reviewStateOverride }: Props) {
+export function FlashcardsClient({
+  decks,
+  initialReviewState,
+  dailyNewLimit = 20,
+  backend,
+  notice,
+  reviewStateOverride,
+}: Props) {
   // The dashboard passes initialReviewState from the server and lets the
   // component own its copy (optimistic updates). Guest surfaces pass
   // reviewStateOverride backed by useSyncExternalStore over localStorage —
@@ -103,6 +143,13 @@ export function FlashcardsClient({ decks, initialReviewState, backend, notice, r
   const [pending, startTransition] = useTransition()
   const [saveError, setSaveError] = useState<string | null>(null)
   const [subjectFilter, setSubjectFilter] = useState<string>('All')
+  // What each rating button would do, keyed by card. Fetched once per card when
+  // it is flipped, so the four buttons read like Anki's ("Good · 3d") without a
+  // round-trip per button.
+  const [intervals, setIntervals] = useState<
+    Record<string, Record<CardRating, string> | null>
+  >({})
+  const [previewBusy, setPreviewBusy] = useState(false)
 
   // The sidebar's "Preparing for" choice narrows the deck grid to the chosen
   // test's own decks. PMDC-family decks are omitted=? the shared syllabus; the
@@ -135,43 +182,73 @@ export function FlashcardsClient({ decks, initialReviewState, backend, notice, r
 
   const totals = useMemo(() => {
     let due = 0
+    let fresh = 0
     let cards = 0
     for (const deck of relevantDecks) {
-      due += dueCount(deck, reviewState.byCard)
-      cards += deck.cards.length
+      const counts = deckCounts(deck, reviewState.byCard)
+      due += counts.due
+      fresh += counts.fresh
+      cards += counts.total
     }
-    return { due, cards }
+    return { due, fresh, cards }
   }, [relevantDecks, reviewState.byCard])
 
-  const openDeck = (deck: FlashcardDeck) => {
+  const openDeck = (deck: FlashcardDeck, mode: 'due' | 'all' = 'due') => {
     const now = new Date()
-    // Session queue: cards due now first (oldest due_at first), then the
-    // remaining cards so a student can always study the full deck offline of
-    // the schedule.
+    const byCard = reviewState.byCard
+    // Anki's queue, in its priority order: reviews the schedule says are due
+    // (oldest first), then up to the new-card limit of never-seen cards. Cards
+    // that are not due do not come back early unless the student asks to study
+    // ahead — otherwise "due" would describe the whole deck and the limit would
+    // be decoration.
     const due = deck.cards
       .filter((c) => {
-        const row = reviewState.byCard[c.id]
-        return !row || isDue(row.due_at, now)
+        const row = byCard[c.id]
+        return Boolean(row) && fsrsIsDue(row!.due_at, now)
       })
-      .sort((a, b) => {
-        const da = reviewState.byCard[a.id]?.due_at ?? ''
-        const db = reviewState.byCard[b.id]?.due_at ?? ''
-        return da.localeCompare(db)
-      })
+      .sort((a, b) =>
+        (byCard[a.id]?.due_at ?? '').localeCompare(byCard[b.id]?.due_at ?? '')
+      )
+    const fresh = deck.cards.filter((c) => !byCard[c.id])
     const notDue = deck.cards.filter((c) => {
-      const row = reviewState.byCard[c.id]
-      return row && !isDue(row.due_at, now)
+      const row = byCard[c.id]
+      return Boolean(row) && !fsrsIsDue(row!.due_at, now)
     })
+    const limit = mode === 'all' ? fresh.length : Math.max(0, Math.floor(dailyNewLimit))
+    const queue =
+      mode === 'all' ? [...due, ...fresh, ...notDue] : [...due, ...fresh.slice(0, limit)]
     startTransition(() => {
       setSaveError(null)
-      dispatch({ type: 'open', deck, queue: [...due, ...notDue] })
+      dispatch({ type: 'open', deck, queue, mode })
     })
+  }
+
+  // Ask the backend what each rating would schedule. Guest backends compute it
+  // locally; the dashboard asks the server, which reads the same row a grade
+  // will read.
+  const loadPreview = async (cardId: string) => {
+    if (cardId in intervals) return
+    setPreviewBusy(true)
+    try {
+      const preview = await (backend?.preview ?? previewFlashcardIntervals)(cardId)
+      setIntervals((prev) => ({ ...prev, [cardId]: preview }))
+    } finally {
+      setPreviewBusy(false)
+    }
   }
 
   const rate = (rating: 'again' | 'hard' | 'good' | 'easy') => {
     if (!session) return
     const card = session.queue[session.index]
     if (!card) return
+    // The preview described the state before this answer; drop it so the next
+    // flip of this card asks again rather than showing a stale interval.
+    setIntervals((prev) => {
+      if (!(card.id in prev)) return prev
+      const next = { ...prev }
+      delete next[card.id]
+      return next
+    })
     // Optimistic: advance immediately; the server response only corrects us
     // if the save failed.
     dispatch({ type: 'rate', rating })
@@ -216,6 +293,39 @@ export function FlashcardsClient({ decks, initialReviewState, backend, notice, r
     })
   }
 
+  // Keyboard control, Anki-style: Space/Enter flips then grades "good", 1–4
+  // pick a rating once the answer is visible, Esc ends the session. Rebound on
+  // every render (no dep array) so the handlers always see current state.
+  useEffect(() => {
+    if (!session) return
+    const onKey = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement | null
+      if (
+        target &&
+        (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)
+      ) {
+        return
+      }
+      if (event.key === 'Escape') {
+        dispatch({ type: 'close' })
+        return
+      }
+      if (event.key === ' ' || event.key === 'Enter') {
+        event.preventDefault()
+        if (!session.revealed) dispatch({ type: 'reveal' })
+        else rate('good')
+        return
+      }
+      const index = Number(event.key) - 1
+      if (session.revealed && Number.isInteger(index) && index >= 0 && index < 4) {
+        event.preventDefault()
+        rate(RATING_BUTTONS[index].rating)
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  })
+
   // ── Study session view ────────────────────────────────────────────────
   if (session) {
     const card = session.queue[session.index]
@@ -244,7 +354,30 @@ export function FlashcardsClient({ decks, initialReviewState, backend, notice, r
           />
         </div>
 
-        {finished ? (
+        {deckTotal === 0 ? (
+          <div className="glass-tile-glow rounded-[var(--radius-xl)] p-10 text-center">
+            <p className="text-4xl mb-3">📅</p>
+            <h2 className="text-xl font-extrabold text-gradient-brand">Nothing due in this deck</h2>
+            <p className="mt-2 text-sm text-[var(--color-text-muted)] max-w-md mx-auto">
+              Every card is scheduled for a later day — that is the schedule doing its job, not an
+              error. Come back when one is due, or study ahead and answer early.
+            </p>
+            <div className="mt-6 flex gap-3 justify-center flex-wrap">
+              <button
+                onClick={() => openDeck(session.deck, 'all')}
+                className="px-5 py-2.5 rounded-[var(--radius-md)] bg-[var(--signal-500)]/15 border border-[var(--signal-500)]/40 text-[var(--signal-200)] text-sm font-bold hover:bg-[var(--signal-500)]/25 transition-colors cursor-pointer"
+              >
+                Study all {session.deck.cards.length} cards anyway
+              </button>
+              <button
+                onClick={() => dispatch({ type: 'close' })}
+                className="px-5 py-2.5 rounded-[var(--radius-md)] bg-white/[0.06] border border-white/10 text-white text-sm font-bold hover:bg-white/[0.12] transition-colors cursor-pointer"
+              >
+                Back to decks
+              </button>
+            </div>
+          </div>
+        ) : finished ? (
           <div className="glass-tile-glow rounded-[var(--radius-xl)] p-10 text-center">
             <p className="text-4xl mb-3">🎉</p>
             <h2 className="text-xl font-extrabold text-gradient-brand">Session complete</h2>
@@ -272,13 +405,10 @@ export function FlashcardsClient({ decks, initialReviewState, backend, notice, r
         ) : (
           <>
             <button
-              onClick={() => !session.revealed && dispatch({ type: 'reveal' })}
-              onKeyDown={(e) => {
-                if (e.key === ' ' || e.key === 'Enter') {
-                  e.preventDefault()
-                  if (!session.revealed) dispatch({ type: 'reveal' })
-                  else rate('good')
-                }
+              onClick={() => {
+                if (session.revealed) return
+                dispatch({ type: 'reveal' })
+                void loadPreview(card.id)
               }}
               aria-label={session.revealed ? 'Card answer' : 'Card question — activate to reveal'}
               className="w-full text-left min-h-[280px] glass-tile-glow rounded-[var(--radius-xl)] p-8 flex flex-col justify-center hover:translate-y-[-2px] transition-all duration-300 cursor-pointer"
@@ -294,9 +424,9 @@ export function FlashcardsClient({ decks, initialReviewState, backend, notice, r
               )}
             </button>
 
-            {session.revealed ? (
+            {session.revealed && (
               <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                {RATING_BUTTONS.map(({ rating, label, hint, classes }) => (
+                {RATING_BUTTONS.map(({ rating, label, hint, classes }, i) => (
                   <button
                     key={rating}
                     onClick={() => rate(rating)}
@@ -304,10 +434,22 @@ export function FlashcardsClient({ decks, initialReviewState, backend, notice, r
                     className={`rounded-[var(--radius-md)] border py-3 text-sm font-bold transition-colors cursor-pointer ${classes}`}
                   >
                     {label}
+                    <span className="mt-0.5 block text-[10px] font-semibold opacity-75">
+                      {intervals[card.id]?.[rating] ?? (previewBusy ? '…' : hint)}
+                    </span>
+                    <span className="sr-only">keyboard shortcut {i + 1}</span>
                   </button>
                 ))}
               </div>
-            ) : (
+            )}
+
+            {session.revealed && (
+              <p className="mt-3 hidden sm:block text-center text-[10px] font-semibold text-[var(--color-text-muted)]">
+                Space flips · 1–4 rate · Esc ends the session
+              </p>
+            )}
+
+            {!session.revealed && (
               <p className="mt-5 text-center text-xs text-[var(--color-text-muted)]">
                 Recall the answer out loud, then tap the card to check yourself.
               </p>
@@ -349,7 +491,9 @@ export function FlashcardsClient({ decks, initialReviewState, backend, notice, r
           </button>
         ))}
         <span className="ml-auto text-xs font-semibold text-[var(--color-text-muted)]">
-          {reviewState.unavailable ? '' : `${totals.due} of ${totals.cards} due for review`}
+          {reviewState.unavailable
+            ? ''
+            : `${totals.due} due · ${totals.fresh} new · ${totals.cards} cards`}
         </span>
       </div>
 
@@ -365,8 +509,9 @@ export function FlashcardsClient({ decks, initialReviewState, backend, notice, r
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {visibleDecks.map((deck) => {
-          const due = dueCount(deck, reviewState.byCard)
-          const isNew = deck.cards.every((c) => !reviewState.byCard[c.id])
+          const counts = deckCounts(deck, reviewState.byCard)
+          const due = counts.due
+          const isNew = counts.fresh === deck.cards.length
           return (
             <div
               key={deck.id}
@@ -379,6 +524,10 @@ export function FlashcardsClient({ decks, initialReviewState, backend, notice, r
                 {due > 0 ? (
                   <span className="inline-flex items-center rounded-full bg-[var(--signal-500)]/15 ring-1 ring-[var(--signal-500)]/40 px-2.5 py-0.5 text-[10px] font-extrabold text-[var(--signal-200)]">
                     {due} due
+                  </span>
+                ) : counts.fresh > 0 ? (
+                  <span className="inline-flex items-center rounded-full bg-white/[0.06] ring-1 ring-white/10 px-2.5 py-0.5 text-[10px] font-bold text-[var(--steel-300)]">
+                    {counts.fresh} new
                   </span>
                 ) : (
                   <span className="inline-flex items-center rounded-full bg-white/[0.06] ring-1 ring-white/10 px-2.5 py-0.5 text-[10px] font-bold text-[var(--steel-300)]">

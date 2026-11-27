@@ -64,7 +64,10 @@ export function ReviewDashboard({ initial }: { initial: FlashcardDashboardPayloa
 
       <div className="mt-4 flex flex-wrap items-end gap-4">
         <label className="text-xs font-semibold text-[var(--color-text-muted)]">
-          <span className="block mb-1">Daily new-card limit</span>
+          {/* Named for what the session actually does: it caps never-seen cards
+              per sitting. Due reviews are never capped — forgetting is not the
+              student's fault. */}
+          <span className="block mb-1">New cards per session</span>
           <input
             type="number"
             min={0}
@@ -83,6 +86,12 @@ export function ReviewDashboard({ initial }: { initial: FlashcardDashboardPayloa
         </button>
         {message ? <span className="text-xs text-[var(--color-text-muted)]">{message}</span> : null}
       </div>
+
+      <p className="mt-2 text-[11px] leading-relaxed text-[var(--color-text-muted)]">
+        A session serves every card the schedule says is due, plus this many cards you have never
+        seen. Everything else waits its turn — that is what keeps the queue honest.
+      </p>
+
 
       {s.upcoming.length > 0 ? (
         <div className="mt-4">

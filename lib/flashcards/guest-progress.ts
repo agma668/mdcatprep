@@ -4,8 +4,9 @@
 // sessions without signup — the growth pattern every big prep site uses:
 // let people taste the engine first, convert later. This module is the guest
 // twin of the dashboard's server actions (app/actions/flashcards.ts): it
-// speaks the exact same ReviewRow shape and the same SM-2-lite scheduler, so
-// a guest session feels identical to a signed-in one.
+// speaks the exact same ReviewRow shape and the same FSRS scheduler (through
+// state.ts), so a guest session is not a different engine — a visitor who later
+// signs up has been learning on the schedule the account will read.
 //
 // The state is exposed as a React external store (useSyncExternalStore
 // contract): getServerSnapshot returns an empty payload during SSR/hydration
@@ -14,9 +15,22 @@
 // Writes fail soft (private-mode browsers block localStorage): grading still
 // works for the session, progress just won't survive a reload.
 
-import { scheduleCard, type CardRating } from './srs'
-import { CARDS_BY_ID } from './flashcards-data'
-import type { GradeResult, ReviewRow, ReviewStatePayload, ResetResult } from './types'
+// Explicit .ts extensions so this module can be exercised directly by
+// node --test against a localStorage stub (see guest-progress.test.ts).
+import { previewFsrs, scheduleFsrs, type FsrsState } from './fsrs.ts'
+import {
+  difficultyToEase,
+  previewIntervalLabel,
+  reviewRowToFsrsState,
+} from './state.ts'
+import { CARDS_BY_ID } from './flashcards-data.ts'
+import type {
+  CardRating,
+  GradeResult,
+  ReviewRow,
+  ReviewStatePayload,
+  ResetResult,
+} from './types'
 
 const STORAGE_KEY = 'medprep:flashcard-reviews:v1'
 
@@ -117,38 +131,34 @@ function commit(row: ReviewRow) {
 
 // ── Mutations (same contract as the server actions) ─────────────────────
 
-/** Grade a card as a guest: same scheduler as the server, local persistence. */
+/** Grade a card as a guest: same FSRS scheduler as the server, local persistence. */
 export function gradeGuestCard(cardId: string, rating: CardRating): GradeResult {
   if (!CARDS_BY_ID.has(cardId)) return { success: false, error: 'Unknown card.' }
 
-  const prev = readAll()[cardId] ?? {
-    ease_factor: 2.5,
-    interval_days: 0,
-    repetitions: 0,
-    times_correct: 0,
-    times_wrong: 0,
-  }
-
-  const next = scheduleCard(
-    {
-      easeFactor: Number(prev.ease_factor) || 2.5,
-      intervalDays: prev.interval_days ?? 0,
-      repetitions: prev.repetitions ?? 0,
-    },
-    rating
-  )
+  const now = new Date()
+  const prev = readAll()[cardId]
+  const { card: next } = scheduleFsrs(reviewRowToFsrsState(prev, now), rating, now)
 
   const wasCorrect = rating !== 'again'
   const row: ReviewRow = {
     card_id: cardId,
-    due_at: next.dueAt,
-    interval_days: next.intervalDays,
-    repetitions: next.repetitions,
-    ease_factor: next.easeFactor,
+    due_at: next.due,
+    interval_days: next.scheduledDays,
+    repetitions: next.reps,
+    ease_factor: difficultyToEase(next.difficulty),
     last_rating: rating,
-    last_reviewed_at: new Date().toISOString(),
-    times_correct: (Number(prev.times_correct) || 0) + (wasCorrect ? 1 : 0),
-    times_wrong: (Number(prev.times_wrong) || 0) + (wasCorrect ? 0 : 1),
+    last_reviewed_at: now.toISOString(),
+    times_correct: (Number(prev?.times_correct) || 0) + (wasCorrect ? 1 : 0),
+    times_wrong: (Number(prev?.times_wrong) || 0) + (wasCorrect ? 0 : 1),
+    // The memory model itself, so the next review continues this card's real
+    // stability rather than re-seeding from the legacy columns.
+    stability: next.stability,
+    difficulty: next.difficulty,
+    fsrs_state: next.state,
+    lapses: next.lapses,
+    scheduled_days: next.scheduledDays,
+    elapsed_days: next.elapsedDays,
+    learning_steps: next.learningSteps,
   }
 
   // Grading succeeds for the session even if storage is blocked; only the
@@ -159,12 +169,36 @@ export function gradeGuestCard(cardId: string, rating: CardRating): GradeResult 
     success: true,
     next: {
       cardId,
-      dueAt: next.dueAt,
-      intervalDays: next.intervalDays,
-      repetitions: next.repetitions,
-      easeFactor: next.easeFactor,
-      isLearning: next.isLearning,
+      dueAt: next.due,
+      intervalDays: next.scheduledDays,
+      repetitions: next.reps,
+      easeFactor: row.ease_factor,
+      isLearning: next.state === 'learning' || next.state === 'relearning',
+      difficulty: next.difficulty,
+      stability: next.stability,
+      state: next.state,
+      scheduledDays: next.scheduledDays,
     },
+  }
+}
+
+/**
+ * What each rating button would schedule, as a short label ("Again · 2m").
+ * Computed locally from the same FSRS engine and the same row the next grade
+ * will read, so the preview cannot promise an interval the grade will not keep.
+ */
+export function previewGuestIntervals(
+  cardId: string
+): Record<CardRating, string> | null {
+  if (!CARDS_BY_ID.has(cardId)) return null
+  const now = new Date()
+  const state: FsrsState = reviewRowToFsrsState(readAll()[cardId], now)
+  const preview = previewFsrs(state, now)
+  return {
+    again: previewIntervalLabel(preview.again, now),
+    hard: previewIntervalLabel(preview.hard, now),
+    good: previewIntervalLabel(preview.good, now),
+    easy: previewIntervalLabel(preview.easy, now),
   }
 }
 

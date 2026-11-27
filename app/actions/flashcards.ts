@@ -4,14 +4,14 @@ import { revalidatePath } from 'next/cache'
 import { createClient } from '@/lib/supabase/server'
 import { CARDS_BY_ID, FLASHCARD_DECKS } from '@/lib/flashcards/flashcards-data'
 import { queueSize, summariseReviewState, type FlashcardSummary } from '@/lib/flashcards/dashboard'
-import type { CardRating } from '@/lib/flashcards/srs'
+import type { CardRating } from '@/lib/flashcards/types'
+import { isFsrsRating, previewFsrs, scheduleFsrs } from '@/lib/flashcards/fsrs'
 import {
-  emptyFsrsState,
-  isFsrsRating,
-  previewFsrs,
-  scheduleFsrs,
-  type FsrsState,
-} from '@/lib/flashcards/fsrs'
+  difficultyToEase,
+  previewIntervalLabel,
+  reviewRowToFsrsState,
+  type StoredReviewRow,
+} from '@/lib/flashcards/state'
 import type {
   GradeResult,
   ResetResult,
@@ -36,86 +36,6 @@ import type {
 // than silently pretending progress was saved.
 
 const VALID_RATINGS: readonly CardRating[] = ['again', 'hard', 'good', 'easy']
-
-// Legacy `ease_factor` is constrained to [1.3, 3.2]; FSRS difficulty is 0–10.
-// We mirror difficulty into ease only for backward-compatible reads.
-function isLifecycle(value: string | undefined): value is FsrsState['state'] {
-  return value === 'new' || value === 'learning' || value === 'review' || value === 'relearning'
-}
-
-/** The subset of persisted columns the scheduler reads (either schema). */
-type StoredReviewRow = {
-  due_at?: string
-  stability?: number
-  difficulty?: number
-  fsrs_state?: string
-  scheduled_days?: number
-  elapsed_days?: number
-  learning_steps?: number
-  repetitions?: number
-  lapses?: number
-  interval_days?: number
-  ease_factor?: number
-  times_wrong?: number
-  times_correct?: number
-  last_reviewed_at?: string | null
-}
-
-function difficultyToEase(difficulty: number): number {
-  const ease = 3.2 - (Math.min(10, Math.max(0, difficulty)) / 10) * 1.9
-  return Math.min(3.2, Math.max(1.3, Number(ease.toFixed(3))))
-}
-
-function easeToDifficulty(ease: number): number {
-  const d = ((3.2 - ease) / 1.9) * 10
-  return Math.min(10, Math.max(0, Number(d.toFixed(3))))
-}
-
-/**
- * Reconstruct a usable FSRS state from whatever the row carries. New rows (or
- * rows written before the FSRS migration) only have the legacy columns, so we
- * seed stability/difficulty from them; the next review then evolves correctly
- * under FSRS. This never invents progress — a never-reviewed card stays new.
- */
-function stateFromRow(row: StoredReviewRow | null, now: Date): FsrsState {
-  if (!row) return emptyFsrsState(now)
-
-  if (typeof row.stability === 'number' && row.stability > 0 && isLifecycle(row.fsrs_state)) {
-    return {
-      due: row.due_at ?? now.toISOString(),
-      stability: Number(row.stability),
-      difficulty: Number(row.difficulty) || 5,
-      scheduledDays: Number(row.scheduled_days ?? row.interval_days ?? 0),
-      elapsedDays: Number(row.elapsed_days ?? 0),
-      learningSteps: Number(row.learning_steps ?? 0),
-      reps: Number(row.repetitions ?? 0),
-      lapses: Number(row.lapses ?? 0),
-      state: row.fsrs_state,
-      lastReview: row.last_reviewed_at ?? null,
-    }
-  }
-
-  // Legacy / never-reviewed fallback.
-  const reviewed = Boolean(row.last_reviewed_at)
-  const interval = Number(row.interval_days ?? 0)
-  const lifecycle: FsrsState['state'] = !reviewed
-    ? 'new'
-    : interval > 0
-      ? 'review'
-      : 'learning'
-  return {
-    due: row.due_at ?? now.toISOString(),
-    stability: reviewed ? Math.max(interval, 0.1) : 0,
-    difficulty: easeToDifficulty(Number(row.ease_factor) || 2.5),
-    scheduledDays: interval,
-    elapsedDays: 0,
-    learningSteps: 0,
-    reps: Number(row.repetitions ?? 0),
-    lapses: Number(row.times_wrong ?? 0),
-    state: lifecycle,
-    lastReview: row.last_reviewed_at ?? null,
-  }
-}
 
 export async function getFlashcardReviewState(): Promise<ReviewStatePayload> {
   const supabase = await createClient()
@@ -192,7 +112,7 @@ export async function gradeFlashcard(
     .maybeSingle()
 
   const prev = existing as StoredReviewRow | null
-  const state = stateFromRow(prev, now)
+  const state = reviewRowToFsrsState(prev, now)
   const { card: next, log } = scheduleFsrs(state, rating, now)
 
   const wasCorrect = rating !== 'again'
@@ -310,22 +230,13 @@ export async function previewFlashcardIntervals(
     .eq('card_id', cardId)
     .maybeSingle()
 
-  const preview = previewFsrs(stateFromRow(data as StoredReviewRow | null, now), now)
+  const preview = previewFsrs(reviewRowToFsrsState(data as StoredReviewRow | null, now), now)
   return {
-    again: intervalLabelFor(preview.again),
-    hard: intervalLabelFor(preview.hard),
-    good: intervalLabelFor(preview.good),
-    easy: intervalLabelFor(preview.easy),
+    again: previewIntervalLabel(preview.again, now),
+    hard: previewIntervalLabel(preview.hard, now),
+    good: previewIntervalLabel(preview.good, now),
+    easy: previewIntervalLabel(preview.easy, now),
   }
-}
-
-function intervalLabelFor(state: FsrsState): string {
-  if (state.state === 'new') return 'new'
-  const days = state.scheduledDays
-  if (days <= 0) return '<1d'
-  if (days < 30) return `${days}d`
-  if (days < 365) return `${Math.round(days / 30)}mo`
-  return `${Math.round(days / 365)}y`
 }
 
 /** Reset one card's review history (student-initiated "start this card over"). */

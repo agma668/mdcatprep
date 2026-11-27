@@ -1,5 +1,54 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-27 — One flashcard engine, and the buttons finally say what they do
+
+Four things stood between the flashcards and AnkiDroid, and the first was the
+worst: **there were two schedulers**. The dashboard graded on real FSRS; the
+public `/flashcards` page — the one a visitor meets without an account — still
+ran the old SM-2-lite `lib/flashcards/srs.ts`. "Again" meant 10 minutes on one
+page and a relearning step on the other, and a guest who signed up had a history
+the account could not continue. Both paths now go through `lib/flashcards/state.ts`
+for the row→card mapping and `scheduleFsrs` for the schedule; `srs.ts` and its
+test are deleted, so there is exactly one place where a review is scheduled.
+
+**The rating buttons show the interval they will apply.** `previewFlashcardIntervals`
+already existed and nothing called it, so the four buttons only carried prose
+("Right, with effort"). Each card is now previewed once, when it is flipped, and
+the buttons read `Again 2m · Hard 1d · Good 3d · Easy 6d` — the affordance that
+makes Anki's ratings a decision instead of a guess. Guests compute the same
+preview locally from the same FSRS engine, so the labels cannot promise an
+interval the grade would not keep.
+
+**The new-card limit now limits something.** The setting was stored, summarised
+into "N cards ready today", and then ignored: the session queued the entire deck
+including cards that were not due. A session now serves every due review (never
+capped — forgetting is not the student's fault) plus up to the limit of unseen
+cards, cards that are not due stay out unless asked, and the deck cards say
+"6 due" and "12 new" separately instead of lumping new cards into "due". The
+control is labelled "New cards per session", which is what it actually does —
+there is no per-day counter to back a daily claim.
+
+**Smaller Anki habits:** Space/Enter flips then grades Good, 1–4 rate, Esc ends
+the session; a deck with nothing due says so and offers "study all N cards
+anyway" instead of dropping straight to "Session complete".
+
+**A latent crash fixed on the way.** `stateFromRow` seeded difficulty from the
+legacy ease even for a card with no reviews, and ts-fsrs rejects that memory
+state ("Invalid memory state { difficulty: 3.684, stability: 0 }") — so grading
+a row that existed but had never been reviewed could fail outright. A new card
+now keeps difficulty 0, which the round-trip test pins.
+
+**Verified:** `tsc` 0 · `eslint` 0 on every touched file · `next build` 0 ·
+`node --test` 27/27 across `fsrs`, `state`, `guest-progress` and `dashboard` ·
+prod server on `:3245`: `/` 200, `/flashcards` 200, `/dashboard/flashcards` 307
+→ `/login`.
+
+**Not verified:** the signed-in dashboard session (no Supabase session here) and
+the guest page by eye — the preview panel rendered its own shell instead of the
+page, so the guest flow was verified through the real module against a
+localStorage stub rather than by clicking. The preview labels, the queue split
+and the keyboard map are type-checked and unit-tested, not looked at.
+
 ## 2026-11-27 — The 1/3/7-day ladder is now a week the student can see
 
 The ladder was only ever visible one card at a time. "Due in 3 days" on six

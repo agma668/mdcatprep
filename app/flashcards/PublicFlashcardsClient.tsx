@@ -10,6 +10,7 @@ import {
   getGuestReviewSnapshot,
   getGuestServerSnapshot,
   gradeGuestCard,
+  previewGuestIntervals,
   resetGuestCard,
   subscribeGuestReviewState,
 } from '@/lib/flashcards/guest-progress'
@@ -59,6 +60,10 @@ export function PublicFlashcardsClient() {
             backend={{
               grade: async (cardId, rating) => gradeGuestCard(cardId, rating),
               reset: async (cardId) => resetGuestCard(cardId),
+              // Guest previews are computed from the same FSRS engine and the
+              // same localStorage row the next grade will read, so a guest sees
+              // the same "Good · 3d" a signed-in student sees.
+              preview: async (cardId) => previewGuestIntervals(cardId),
             }}
             reviewStateOverride={reviewState}
             notice={

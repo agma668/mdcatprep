@@ -33,6 +33,7 @@ export default async function FlashcardsPage() {
       <FlashcardsClient
         decks={FLASHCARD_DECKS}
         initialReviewState={reviewState}
+        dailyNewLimit={dashboard.dailyNewLimit}
       />
     </div>
   )

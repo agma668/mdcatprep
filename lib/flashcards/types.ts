@@ -7,11 +7,13 @@
 //
 // Both return ReviewRow-shaped state and GradeResult, so the study UI
 // (FlashcardsClient) renders identically over either backend. Scheduling
-// itself lives in srs.ts (pure SM-2-lite); this module is types only.
+// itself lives in fsrs.ts (the real FSRS implementation); both backends reach
+// it through state.ts, so a row means the same thing wherever it came from.
 
-import type { CardRating } from './srs'
+import type { FsrsRating } from './fsrs'
 
-export type { CardRating }
+/** Same four ratings, named where the study UI expects them. */
+export type CardRating = FsrsRating
 
 export interface ReviewRow {
   card_id: string
@@ -23,6 +25,16 @@ export interface ReviewRow {
   last_reviewed_at: string | null
   times_correct: number
   times_wrong: number
+  // FSRS memory model — present once the FSRS columns exist in the store.
+  // Optional so a pre-migration row (or an older guest row) still type-checks;
+  // state.ts seeds the scheduler from the legacy columns when they are absent.
+  stability?: number
+  difficulty?: number
+  fsrs_state?: string
+  lapses?: number
+  scheduled_days?: number
+  elapsed_days?: number
+  learning_steps?: number
 }
 
 export interface ReviewStatePayload {
@@ -56,8 +68,11 @@ export interface ResetResult {
   error?: string
 }
 
-/** What a flashcard page hands the study UI: grade + reset, nothing else. */
+/** What a flashcard page hands the study UI: grade, reset, and what the four
+ *  rating buttons would do next. `preview` is optional: a backend that cannot
+ *  compute it simply leaves the buttons without interval labels. */
 export interface FlashcardBackend {
   grade: (cardId: string, rating: CardRating) => Promise<GradeResult>
   reset: (cardId: string) => Promise<ResetResult>
+  preview?: (cardId: string) => Promise<Record<CardRating, string> | null>
 }

@@ -3,10 +3,10 @@ import { getSiteUrl } from '@/lib/site'
 import { FLASHCARD_META } from '@/lib/flashcards/flashcards-data'
 import { PublicFlashcardsClient } from './PublicFlashcardsClient'
 
-// The public flashcards page — the same decks, the same SM-2-lite scheduler
-// and the same study UI as the dashboard, but zero signup: progress lives in
-// the visitor's localStorage. This is the discovery funnel the big prep sites
-// run: let guests taste the spaced-repetition engine, then convert with a
+// The public flashcards page — the same decks, the same FSRS scheduler and the
+// same study UI as the dashboard, but zero signup: progress lives in the
+// visitor's localStorage. This is the discovery funnel the big prep sites run:
+// let guests taste the spaced-repetition engine, then convert with a
 // persistent, cross-device account.
 
 const siteUrl = getSiteUrl()
