@@ -182,3 +182,6 @@ Important existing-script warning: `scripts/ingest-topicals-v2.mjs` writes direc
 
 
 First-pass source inspection: [MDCAT-QUESTION-BANK-PILOT-AUDIT.md](MDCAT-QUESTION-BANK-PILOT-AUDIT.md). The combined source contains 3,594 parsed markers (Biology 1,439; Chemistry 939; Physics 1,216), with 50 existing chapter headings. Only 1,573 records currently parse with four labelled options; 2,021 require format/content review. No questions were deleted or rewritten. Continue with chapter-file reconciliation and taxonomy mapping.
+
+
+Biology pilot update: structured MCQUniverse Biology files contain 1,441 records; all parse with four options, a valid answer letter and explanation, and no exact duplicate clusters within those two files. Compared with combined Biology source, 52/54 stem differences remain to reconcile. Rights/permission for MCQUniverse-sourced material is unverified; do not publish commercially until cleared. Full detail: [MDCAT-QUESTION-BANK-PILOT-AUDIT.md](MDCAT-QUESTION-BANK-PILOT-AUDIT.md).
