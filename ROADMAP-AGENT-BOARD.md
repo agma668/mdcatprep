@@ -752,3 +752,35 @@ Validation status: PR opened as draft; no workflow run was returned for its head
 
 **Acceptance rule:** This review is a hypothesis queue, not a verified defect list. Reproduce each issue in code or a clean unauthenticated/student session before changing product copy or marking it done. Record evidence and date.
 
+
+
+## 2026-11-28 — Founder confirmed staged public launch + evidence audit
+
+**Decision:** Founder confirmed **staged**. Public discovery/resources and a no-signup sample are the acquisition surface; registration/learning access can be cohort-controlled during beta; premium access remains pricing-ready but payments stay disabled until entitlement, provider, refund/tax/support and explicit founder approval are complete.
+
+**Full evidence report:** [STAGED-LAUNCH-AUDIT.md](STAGED-LAUNCH-AUDIT.md). It classifies features DONE / PARTIAL / BROKEN / MISSING / UNVERIFIED, records source/config/live-data evidence and distinguishes code presence from browser acceptance.
+
+### P0 — stop-ship findings from source + read-only live data
+- [ ] **SECURITY: inspect/fix `app/api/questions/route.ts`.** It uses the service-role client, accepts caller-controlled `status`, has no visible auth check and selects `correct_answer`. Verify anonymous access in production, then return safe public fields only; require admin authorization for draft/archived access; add anonymous/student/admin tests. Never expose the key in the initial payload.
+- [ ] **TRUST: remove the artificial student-count floor.** `lib/stats.ts` sets `COMMUNITY_BASELINE = 900` and `communitySize()` displays at least 900 even if the real count is lower/unknown. This contradicts the honesty charter. Replace with actual reproducible count or suppress the metric; audit all stats/FAQ/schema claims.
+- [ ] **Question source of truth:** live read-only Supabase audit (2026-11-28) returned `questions=0`, `question_attempts=0`, `question_bookmarks=0`, `profiles=3`. The bundled bank exists in source but canonical DB-backed question/attempt/bookmark persistence cannot be marked DONE. Do not run a production seed as part of this audit.
+- [ ] Prove the end-to-end MDCAT flow: anonymous sample → answer → explanation → sign-up → authenticated attempt saved → reload → mistake/bookmark → analytics. Test offline queue/drain and idempotency with reviewed test content.
+- [ ] Prove strict exam ownership for questions, attempts, bookmarks, flashcards, notes and access grants. Add negative tests for cross-exam reads/writes before monetization.
+- [ ] Clean-browser production smoke: confirm public alias is reachable anonymously, no SSO wall or broken hydration; test 360/390/768/desktop. Vercel reports latest production deployment READY and preview-only SSO; this does not prove anonymous usability. Browser runtime remains UNVERIFIED in this audit.
+- [ ] Content-rights review: quarantine unclear OCR/commercial-source content; only original reviewed questions and rights-clear official released papers can be public.
+
+### P1 — staged beta value and retention
+- [ ] Audit each entry route and homepage claim against live capabilities. Mark Available/Beta/Planned and remove orphaned/dead CTAs.
+- [ ] Validate and surface real differentiators: board/year papers, official/recreated/memory-based labels, key status, BUMHS papers and original syllabus-mapped questions. Item-level mapping/key review required.
+- [ ] Confirm whether repeated-question stars/filters exist in student UI; knowledge-base report alone is not a shipped feature. Implement only from defensible paper mappings.
+- [ ] Pilot concise syllabus-mapped notes and a small set of human-reviewed Urdu explanations; no bulk unreviewed AI translation.
+- [ ] Add editorial standards, question correction/reporting and source provenance information.
+- [ ] Test Google OAuth configuration; phone is only optional signup metadata in inspected source, not phone OTP. Evaluate OTP cost/abuse/support burden before implementation.
+- [ ] Instrument funnel: anonymous visit → sample start/completion → signup → first persisted attempt → 7-day return → mock completion → upgrade interest. Distinguish users, active students, question inventory and attempts.
+- [ ] Keep payment processing disabled until exam-scoped entitlement checks, provider, price, taxes/refunds/support and founder approval are explicit.
+
+### Competitor test quality
+- [ ] Treat all competitor scale/features as vendor claims unless reproduced. Public Maqsad diagnostic is visible and useful as a first-action benchmark; no competitor account was created and no paid/private feature accessed. Complete a permitted free-tier task scorecard (first-question time, 20 explanation sample, available mock, mobile friction, price boundary) and record date/device/method without copying proprietary question text.
+- [ ] MDCAT Mentor was previously reviewed at homepage level only. ePrepare, TestPrep Smart and MDCAT.pk claims remain UNVERIFIED pending direct product-flow observation.
+
+**Acceptance:** P0 security and trust issues closed; canonical question source/persistence verified; exam boundaries pass negative tests; staged anonymous sample and controlled registration work; no public claim exceeds observed capability. No production DB/schema, domain, billing or deployment-protection changes were made in this audit.
