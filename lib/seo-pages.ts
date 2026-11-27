@@ -41,6 +41,27 @@ export const SEO_PAGES: SeoPage[] = [
   { path: "/exams", priority: 0.8, changeFrequency: "weekly" },
   { path: "/pricing", priority: 0.6, changeFrequency: "monthly" },
 
+  // Exam portals — indexable since 2026-11-28, when each one gained its own
+  // title, description and self-canonical instead of inheriting the homepage's.
+  // The four below are the only keys in EXAMS_CONFIG; `dynamicParams = false`
+  // now 404s every other slug instead of answering 200 as a homepage duplicate.
+  { path: "/portal/mdcat", priority: 0.8, changeFrequency: "weekly" },
+  { path: "/portal/nust", priority: 0.7, changeFrequency: "weekly" },
+  { path: "/portal/pma", priority: 0.7, changeFrequency: "weekly" },
+  { path: "/portal/usat", priority: 0.7, changeFrequency: "weekly" },
+
+  // Exam practice pages that were live, indexable and self-canonical but never
+  // submitted — the cheapest indexing win on the site (found 2026-11-27).
+  { path: "/nust/practice", priority: 0.8, changeFrequency: "weekly" },
+  { path: "/pma/practice", priority: 0.7, changeFrequency: "weekly" },
+  { path: "/usat/practice", priority: 0.7, changeFrequency: "weekly" },
+  { path: "/notes/usat-m", priority: 0.7, changeFrequency: "monthly" },
+
+  // Public tools and reference pages — the information-intent cluster the site
+  // had no page for at all before 2026-11-28.
+  { path: "/merit-calculator", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/syllabus/mdcat", priority: 0.9, changeFrequency: "monthly" },
+
   // Practice surfaces — the honest numbers live on the pages themselves
   { path: "/flashcards", priority: 0.8, changeFrequency: "weekly" },
   // There is no /topicals/<subject> route — the hub lists subjects and the drill pages live at

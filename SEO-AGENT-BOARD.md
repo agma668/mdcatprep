@@ -283,11 +283,22 @@ the one-H1 sample. These were the largest block of open P0 work.
   an indexing problem.
 
 **Snapshot 2026-11-27 (live), for the record:** sitemap still 96 URLs; the four
-routes below are live, indexable and self-canonical but absent from it; nine
-`/portal/[exam]` routes are live, indexable and emit the homepage canonical and
-homepage title.
+routes below are live, indexable and self-canonical but absent from it.
+
+**Correction (2026-11-28, live + code).** The review said nine `/portal/[exam]`
+pages were live and indexable. They answered 200, but only **four** are real
+portals — `EXAMS_CONFIG` in this tree holds exactly `mdcat`, `nust`, `pma` and
+`usat`. The other five (`nums`, `giki`, `lums`, `issb`, `ecat`) and any invented
+slug will render the not-found shell, which inherited the root layout: homepage
+title, homepage canonical, `index, follow`. Measured directly: `/portal/zzz`
+returned **200** with no `<h1>`, while `/definitely-not-a-page` returned a real
+404. So the defect was larger than nine URLs — it was an unbounded soft-404 farm
+off `/portal/` — and the five "portals" were never pages that needed content.
 
 ### P1 — the 2026-11-27 shortlist (build these, nothing else)
+
+**Status: DONE 2026-11-28.** Sitemap is 106 URLs; all four routes are in it and
+still return 200 with a self-canonical.
 
 #### APX-TECH-20261127-01 — Sitemap the four built exam routes
 - **Category:** Technical · **Priority:** P1 · **Effort:** Low · **Dependencies:** none · **Research:** 2026-11-27
@@ -298,10 +309,11 @@ homepage title.
 
 #### APX-TECH-20261127-02 — Stop nine `/portal/[exam]` pages impersonating the homepage
 - **Category:** Technical · **Priority:** P1 · **Effort:** Medium · **Dependencies:** APX-CONTENT-20261127-04 · **Research:** 2026-11-27
-- **Problem:** `/portal/{mdcat,nums,nust,giki,lums,usat,pma,issb,ecat}` all return 200 `index, follow` while emitting the homepage canonical and the homepage title. `/portal/nums` additionally has zero `<h1>` live.
-- **Evidence (code 2026-11-28):** `app/portal/[exam]/page.tsx` exports no `metadata` at all, so every portal inherits the root layout's title and canonical. That is the mechanism behind the live finding — the fix is per-route metadata, not a copy change.
-- **Implementation:** per exam, emit a self-canonical, a unique title ≤60 characters, a unique description and exactly one `<h1>`. Until an exam's page carries genuinely distinct verified content, mark it `noindex, follow` instead of letting it pretend to be home.
-- **Acceptance:** no `/portal/` route emits the homepage canonical or the homepage title; every indexable portal has a unique title, description and one H1; `/portal/nums` has exactly one H1.
+- **Problem:** nine `/portal/` URLs answered 200 `index, follow` with the homepage canonical and title. Two separate defects: the four real portals inherited the root metadata, and every unknown slug rendered a 200 soft-404 instead of a 404.
+- **Evidence (code 2026-11-28):** `app/portal/[exam]/page.tsx` exported no `metadata`; `generateStaticParams` covers four keys only; `notFound()` inside that statically generated segment answered 200 at the edge; `/portal/zzz` returned 200 with no `<h1>` while `/definitely-not-a-page` returned 404.
+- **Implementation:** `dynamicParams = false` on the segment so only real portals render (unknown slugs are a true 404), plus per-portal `generateMetadata` with a unique ≤60-character title, unique description and self-canonical. Index is kept because each portal has its own bank, subjects, subtests and CTAs.
+- **Acceptance:** no `/portal/` route emits the homepage canonical or title; every indexable portal has a unique title, description and one H1; unknown portal slugs return 404.
+- **Status: DONE 2026-11-28.** `/portal/{mdcat,nust,pma,usat}` → 200, unique title, self-canonical. `/portal/{zzz,nums}` → **404**. All four are now in the sitemap (106 URLs). The not-found body still carries the root canonical, which is harmless at 404 but worth a `noindex` if a segment-level not-found is ever added.
 
 #### APX-CONTENT-20261127-03 — Public aggregate and merit calculator
 - **Category:** Content · **Priority:** P1 · **Effort:** Medium · **Dependencies:** none · **Research:** 2026-11-27
@@ -309,6 +321,7 @@ homepage title.
 - **Evidence (live + code 2026-11-28):** the dashboard route returns a sign-in screen; `robots.ts` disallows `/dashboard`; autocomplete (gl=pk, 2026-11-27) shows `mdcat merit calculator 2026`, `mdcat aggregate calculator 2026 sindh`, `mdcat aggregate formula`; `prepmdcat.com/mdcat-merit-calculator` is public.
 - **Implementation:** a public `/merit-calculator` reusing `lib/merit.ts`, province/board selectable because the formula differs. Every formula shown cites its official source and a last-checked date. Link from `/exams`, `/past-papers` and the MDCAT guide.
 - **Acceptance:** returns 200, indexable, in the sitemap, works with no account, and shows a source citation plus last-checked date per formula variant.
+- **Status: DONE 2026-11-28.** `/merit-calculator` is static, in the sitemap, needs no account, cites the PM&DC Admissions, Curriculum and Conduct Policy and Regulations 2026 (notified 12 October 2026) with a last-checked date, and adds a reverse "what MDCAT score do I need" mode plus the 60% HSSC / 55% MBBS / 50% BDS eligibility gates. The college closing-merit table was deliberately **not** published: its sources are community-tracked, not official, so it stays in the signed-in dashboard as historical. The dashboard estimator's hardcoded "90%+ for King Edward / AKU" benchmark was removed and replaced with a link here.
 
 #### APX-CONTENT-20261127-04 — One verified syllabus page per exam
 - **Category:** Content · **Priority:** P1 · **Effort:** Medium · **Dependencies:** official source verification per exam · **Research:** 2026-11-27
@@ -316,6 +329,7 @@ homepage title.
 - **Evidence (live 2026-11-27):** no syllabus route in the app tree or the 96-URL sitemap; `prepmdcat.com` runs `/mdcat-syllabus` and `/nums-syllabus` as separate pages.
 - **Implementation:** start with `/syllabus/mdcat` from the current PM&DC curriculum — the 24-page PDF is already downloaded and verified in `data/papers/pmdc/2025-2026-curriculum.pdf` (see `docs/PAPERS-INVENTORY.md`) — then NUMS, NUST NET, GIKI, USAT, LUMS, PMA. Each page: subject weightings, question count, time allowed, negative-marking rule, official source link, last-checked date. Where a body has published nothing current, say so rather than reusing last year's.
 - **Acceptance:** each page cites its official source, shows a last-checked date, appears in the sitemap, and is linked from its exam's portal and practice page.
+- **Status: PARTIAL 2026-11-28.** `/syllabus/mdcat` is live, static, in the sitemap, linked from the MDCAT portal, `/exams` and `/merit-calculator`. It carries the verified 180 MCQs / 180 minutes / 81-45-36-9-9 / 15-70-15 / 55-50 / no-negative-marking structure, transcribed from the PM&DC curriculum the repo now holds at `data/papers/pmdc/2025-2026-curriculum.pdf`, and states what it will not claim (no topic-level weightage exists in the official document). Remaining: NUMS, NUST NET, GIKI, USAT, LUMS and PMA pages, each needing its own official source. The unit-by-unit topic tree is a separate transcription job — the PDF's two-column table does not survive text extraction cleanly and must be checked by hand.
 
 #### APX-SEO-20261127-05 — Settle the brand entity and align every signal
 - **Category:** SEO · **Priority:** P1 · **Effort:** Medium · **Dependencies:** founder decision on the name · **Research:** 2026-11-27

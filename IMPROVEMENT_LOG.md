@@ -1,5 +1,61 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-28 — The weekly shortlist, and the soft-404 the review miscounted
+
+**Four of the five P1 items are shipped. The fifth is a founder decision.** The
+review's shortlist was right about the shape of the problem and wrong about one
+of its facts, and the wrong fact turned out to be the bigger bug.
+
+**Every unknown `/portal/` slug was a 200 page claiming to be the homepage.**
+The review counted nine indexable portal pages. Only four are real —
+`EXAMS_CONFIG` holds `mdcat`, `nust`, `pma`, `usat`. The other five answered
+**200** with the root layout's metadata: homepage title, homepage canonical,
+`index, follow`, no `<h1>`. `/portal/zzz` did the same, while
+`/definitely-not-a-page` correctly returned 404 — so `notFound()` inside the
+statically generated segment was answering 200 at the edge, and the site had an
+unbounded set of URLs telling Google they were the homepage. `dynamicParams =
+false` now refuses unknown params; `/portal/zzz` and `/portal/nums` are 404s.
+
+**The four real portals finally have metadata.** They exported none, so all four
+inherited the homepage title and canonical. Each now emits its own sub-60
+character title, its own description and a self-canonical, and all four are in
+the sitemap. Sitemap: 96 → 106 URLs, which also picks up `/nust/practice`,
+`/pma/practice`, `/usat/practice` and `/notes/usat-m` — live, unique,
+self-canonical pages that had never been submitted.
+
+**The merit calculator is public, and it cites the regulation.** It lived only at
+`/dashboard/merit-estimator`, behind sign-in and inside a robots-disallowed path.
+`/merit-calculator` replicates the arithmetic from `lib/merit.ts` with the
+weightage traced to PM&DC's Admissions, Curriculum and Conduct Policy and
+Regulations 2026 (notified 12 October 2026): 50% test, 40% HSSC, 10% SSC. It adds
+a reverse mode — the MDCAT score a target aggregate needs, including a refusal
+when the target is arithmetically unreachable — and the 60% HSSC, 55% MBBS and
+50% BDS eligibility gates. It publishes **no** college closing merit: those
+figures in the dashboard are community-tracked, and a cutoff printed as fact is
+exactly the kind of number this product refuses. The dashboard's hardcoded
+"90%+ for King Edward / AKU" benchmark was removed for the same reason.
+
+**The MDCAT syllabus page exists, from the official document.** 180 MCQs in 180
+minutes, 81/45/36/9/9, 15/70/15 difficulty, 55%/50% pass marks, no negative
+marking — transcribed from the PM&DC curriculum the repo now holds at
+`data/papers/pmdc/2025-2026-curriculum.pdf`. It also says what it cannot claim:
+there is no topic-level weightage in the official syllabus, so any site quoting
+"5 MCQs from this chapter" is quoting its own guess. The unit-by-unit tree is
+left for a hand-checked transcription rather than parsed from a two-column PDF.
+
+**Verified:** `tsc` 0 · `eslint` 0 errors on every touched file · `next build` 0
+with `/syllabus/mdcat` static and `/merit-calculator` routed · local prod server:
+`/merit-calculator` 200 ("MDCAT Aggregate Calculator — PMDC 10 / 40 / 50
+Formula", self-canonical), `/syllabus/mdcat` 200, four portals 200 with unique
+titles, `/portal/zzz` and `/portal/nums` **404**, `/nust/practice`,
+`/pma/practice`, `/usat/practice`, `/notes/usat-m` 200, sitemap 106 URLs with
+all of them present.
+
+**Not verified:** the new pages were never looked at in a browser — the layout,
+the calculator's live interaction and the 360/390/768 widths were type-checked
+and smoke-tested by status and metadata only. Brand alignment (APX-SEO-05) is
+still blocked on the founder's name decision.
+
 ## 2026-11-27 — A paper archive that can be trusted, because every file is checked
 
 **The site's question bank is original writing, and nothing on disk said which

@@ -63,6 +63,8 @@ export default function ExamsHubPage() {
           <Link href="/notes" className="hover:text-foreground">Notes</Link>
           <Link href="/flashcards" className="hover:text-foreground">Flashcards</Link>
           <Link href="/past-papers" className="hover:text-foreground">Past papers</Link>
+          <Link href="/syllabus/mdcat" className="hover:text-foreground">MDCAT syllabus</Link>
+          <Link href="/merit-calculator" className="hover:text-foreground">Merit calculator</Link>
           <Link href="/blog" className="hover:text-foreground">Blog</Link>
           <Link href="/pricing" className="hover:text-foreground">Pricing</Link>
         </nav>
