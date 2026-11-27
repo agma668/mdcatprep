@@ -314,3 +314,32 @@ PMDC-2026 official paper UX must show the correct 180-question structure (Biolog
 
 **Acceptance:** First-time students can identify the correct exam, understand what is genuinely available, trust the question provenance and complete the core practice-to-revision journey without encountering false counts, unsupported claims or misleading readiness states.
 
+
+
+## 2026-11-28 — Staged public beta + student-journey evidence audit
+
+Founder confirmed **staged**. Design public discovery around a useful no-signup sample; clearly label beta limitations; allow controlled registration during early cohorts; do not design a fake premium checkout before entitlements and payment policy are approved.
+
+**Evidence report:** [STAGED-LAUNCH-AUDIT.md](STAGED-LAUNCH-AUDIT.md).
+
+### P0 — critical trust and safety states
+- [ ] Security review `app/api/questions/route.ts`: it currently selects `correct_answer`, accepts arbitrary status and uses service-role access without a visible authorization check. Design only safe question payloads; no answer key before submission. Test anonymous/student/admin states.
+- [ ] Remove misleading community baseline (900) and hide the tile when a real verified count is unavailable. Never use question-bank size as social proof.
+- [ ] Design a genuine zero-content state for DB-backed practice: live `questions`, `question_attempts`, `question_bookmarks` all returned zero in read-only audit. Do not show a student an empty practice flow or pretend progress was saved.
+- [ ] Make public sample states explicit: answer → explanation → next question → optional account creation. Show exactly what is public, beta, locked or planned.
+- [ ] Show exam context on every practice/mock/review screen; do not let the shared engine imply cross-exam content is interchangeable.
+
+### P1 — first-session value and differentiators
+- [ ] Test first-question usability at 360/390/768/desktop: time to first answer, explanation legibility, keyboard/touch, next action and no dead end.
+- [ ] Surface board/year past-paper provenance, key status and BUMHS material only when actual files/questions have been verified; label official/recreated/memory-based clearly.
+- [ ] Verify repeated-question stars in the student UI; do not show an icon until its paper mapping is defensible.
+- [ ] Pilot short syllabus-mapped notes and reviewed Urdu explanations. Add source/reviewer/date and correction affordance; no unreviewed AI-generated Urdu in public.
+- [ ] Improve discovery of public `/merit-calculator`, `/syllabus/mdcat`, `/syllabus/nums` from contextual navigation/cards; code exists, but global nav/footer inspected does not directly link these tools.
+- [ ] Test Google sign-in provider end-to-end. Phone field is optional signup data, not phone login; don't add OTP UI before provider/cost/abuse/support validation.
+- [ ] Design an honest staged beta status and feedback channel with privacy/safeguarding boundaries; avoid unsupported About/reviewer claims or unconsented testimonials.
+
+### P1 — competitor task benchmarking
+- [ ] Use a consistent student scorecard for public/free experiences: first question, explanation clarity, 20-question review, mock entry/exit, mobile friction, signup and price boundary. Do not copy proprietary questions or rely on marketing pages alone.
+- [ ] Maqsad public diagnostic is an observable benchmark; other competitor capabilities remain UNVERIFIED until tested. Record date, device, steps and screenshots.
+
+**Acceptance:** a first-time student can discover the right exam, complete a real sample, understand its provenance and see the next step; no fake stats, dead ends, misleading readiness, or cross-exam confusion. No production DB, domain, billing or deployment-protection changes were made in this audit.
