@@ -1,5 +1,7 @@
+import type { Metadata } from 'next';
 import { EXAMS_CONFIG, ExamCategory } from '@/lib/exams-config';
 import { PORTAL_BANK_COUNTS } from '@/lib/stats';
+import { getSiteUrl } from '@/lib/site';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
@@ -9,6 +11,70 @@ interface PageProps {
 
 export async function generateStaticParams() {
   return Object.keys(EXAMS_CONFIG).map((exam) => ({ exam }));
+}
+
+/**
+ * Only the four portals that exist may render.
+ *
+ * Without this, `/portal/anything` — `/portal/nums`, `/portal/giki`, `/portal/zzz`
+ * — answered **200** with the root layout's metadata: the homepage title, the
+ * homepage canonical and `index, follow`. That is a soft 404 farm: an infinite
+ * set of URLs telling Google they are the homepage. `notFound()` inside a
+ * statically generated segment did not set the status at the edge; refusing the
+ * param outright does.
+ */
+export const dynamicParams = false;
+
+/**
+ * Portal metadata, per portal, on purpose.
+ *
+ * Every portal used to export nothing, so all four inherited the homepage title
+ * and canonical — four exam landing pages claiming to be the same page. The
+ * titles are kept under 60 characters and the canonical points at the portal
+ * itself, which is what makes these distinct pages rather than duplicates.
+ */
+const PORTAL_SEO: Record<string, { title: string; description: string }> = {
+  mdcat: {
+    title: 'MDCAT & NUMS Practice — Free Medical Entry Question Bank',
+    description:
+      'Practice PMDC MDCAT and NUMS-style questions by subject, take a timed mock, and reach released past papers, notes and flashcards. Free during beta, no payment.',
+  },
+  nust: {
+    title: 'NUST NET & GIKI Practice — Free Engineering Entry MCQs',
+    description:
+      'Engineering and computing admission practice: NUST NET, GIKI, LUMS SBASSE and HEC USAT-E style maths, physics, chemistry and English questions.',
+  },
+  pma: {
+    title: 'PMA Long Course Practice — Verbal & Non-Verbal Reasoning',
+    description:
+      'PMA initial-test practice: verbal and non-verbal intelligence plus academic questions, with the scope of each section stated plainly.',
+  },
+  usat: {
+    title: 'HEC USAT Practice — Quantitative, Verbal & Science MCQs',
+    description:
+      'HEC USAT preparation for pre-medical and pre-engineering candidates: quantitative, verbal and subject-science practice with explanations.',
+  },
+};
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { exam } = await params;
+  const config = EXAMS_CONFIG[exam as ExamCategory];
+  const seo = PORTAL_SEO[exam];
+  if (!config || !seo) {
+    return { title: 'Prep Space not found', robots: { index: false, follow: false } };
+  }
+  const url = `${getSiteUrl()}/portal/${exam}`;
+  return {
+    title: seo.title,
+    description: seo.description,
+    alternates: { canonical: `/portal/${exam}` },
+    openGraph: {
+      type: 'website',
+      url,
+      title: seo.title,
+      description: seo.description,
+    },
+  };
 }
 
 export default async function ExamPortalPage({ params }: PageProps) {
@@ -163,6 +229,18 @@ export default async function ExamPortalPage({ params }: PageProps) {
                   <li className="flex items-center justify-between py-2 border-b border-border/50">
                     <span className="text-foreground font-medium">Released Past Papers</span>
                     <Link href="/past-papers" className="text-xs text-accent font-semibold hover:underline">View →</Link>
+                  </li>
+                )}
+                {hasPastPapers && (
+                  <li className="flex items-center justify-between py-2 border-b border-border/50">
+                    <span className="text-foreground font-medium">Official syllabus &amp; pattern</span>
+                    <Link href="/syllabus/mdcat" className="text-xs text-accent font-semibold hover:underline">Read →</Link>
+                  </li>
+                )}
+                {config.bank === 'mdcat' && (
+                  <li className="flex items-center justify-between py-2 border-b border-border/50">
+                    <span className="text-foreground font-medium">Aggregate calculator</span>
+                    <Link href="/merit-calculator" className="text-xs text-accent font-semibold hover:underline">Open →</Link>
                   </li>
                 )}
                 {config.features.flashcards && (
