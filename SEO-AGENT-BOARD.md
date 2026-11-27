@@ -409,3 +409,33 @@ Every task must also satisfy the standing rule above: never mark shipped from co
 
 **Acceptance:** No date, formula, result, count, testimonial, ranking or competitor capability is published as fact without a dated primary source or reproducible evidence. This queue does not supersede existing domain, brand-decision or official-source blockers.
 
+
+
+## 2026-11-28 — Staged launch SEO activation + evidence audit
+
+Founder confirmed **staged public launch**. Public discovery and genuinely useful resources can be indexed; a no-signup sample should be the primary first action; registration may be cohort-controlled. Premium/payment claims remain inactive until entitlements and commercial policy are approved.
+
+**Evidence report:** [STAGED-LAUNCH-AUDIT.md](STAGED-LAUNCH-AUDIT.md).
+
+### P0 — claim, security and canonical integrity
+- [ ] Fix/verify `/api/questions` before acquisition: service-role route currently accepts arbitrary `status` and selects `correct_answer` with no visible auth check. Public SEO is not worth exposing answer keys or draft content.
+- [ ] Remove the 900-student display floor in `lib/stats.ts`; never index or advertise an artificial user count. Reconcile JSON-LD, FAQ, hero and metadata counts.
+- [ ] Canonical question table and attempts were empty in read-only live audit; do not claim durable practice/analytics until sample → saved attempt → reload is proven.
+- [ ] Check generated sitemap, robots, canonical host and anonymous production response in a clean browser. Vercel READY is not an indexability or access test.
+- [ ] Homepage/nav/footer source review shows MED Prep as visible brand; broader Apex parent-brand decision remains unsigned. Do not bulk rewrite metadata until brand architecture is approved.
+
+### P1 — staged public information architecture
+- [ ] Public merit calculator and MDCAT/NUMS syllabus pages exist in source with metadata, official citations and review dates. Navbar/footer inspected do not directly link them; add contextual internal links from relevant exam pages and ensure students can discover them without search.
+- [ ] Expand official-source pages in priority order: BUMHS/Balochistan admission and quota/domicile information (only current official prospectus/rules), then verified exam syllabi and patterns. Every rule needs responsible authority, effective year, source link and last-checked date.
+- [ ] Make past-paper pages discoverable by board/year only where actual files, keys and question mapping are reviewed. Clearly distinguish official, recreated, memory-based, campus-test and mock material.
+- [ ] Add BUMHS 2025 reference files and registry entries to an item-level publication audit; do not imply a complete BUMHS archive from a few source files.
+- [ ] Verify repeated-question indicators in the real UI; a research report or duplicate cluster is not itself a student-facing feature.
+- [ ] Publish concise topic-mapped short notes and reviewed Urdu explanation pages only after subject review; avoid auto-generated thin translations and doorway pages.
+- [ ] Add editorial standards, correction/reporting and contact pages with verifiable ownership and review method.
+- [ ] Connect Search Console/analytics only with founder authorization. Until then, impressions, ranking, indexing and organic conversion are UNVERIFIED.
+
+### Competitor evidence quality
+- [ ] Maqsad's public diagnostic page is directly observable and provides a free diagnostic entry point; its counts, outcomes, live classes and service claims remain vendor claims. Source: https://maqsad.io/mdcat and https://maqsad.io/app/mdcat/diagnostic-test.
+- [ ] MDCAT Mentor was previously reviewed only at homepage level; ePrepare, TestPrep Smart and MDCAT.pk claims remain unverified. Complete permitted free-tier task tests before using competitor comparisons as factual SEO claims.
+
+**Acceptance:** every indexed page offers distinct verified value, links to a real available next action, uses accurate metadata/canonical and has no fabricated counts, dates, formulas, outcomes or unsupported exam coverage.
