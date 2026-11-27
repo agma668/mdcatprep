@@ -207,6 +207,91 @@ export function papersByYear(): PastPaperGroup[] {
     : dated
 }
 
+/**
+ * One sitting, not one colour code.
+ *
+ * A board prints the same paper in several codes (SZABMU 2024 alone has Blue,
+ * Green, Pink, White and Yellow). Listing each code as its own card made the
+ * catalogue look like five papers and buried the fact that it is one sitting —
+ * the codes differ in question order, not in syllabus. This groups a body's
+ * papers for a year into a single entry and keeps the codes as chips, so the
+ * student sees "one paper, five codes" instead of five papers.
+ *
+ * It groups; it does not merge question text. Combining the codes into one
+ * 200-item paper needs the paper files for every code, which we do not hold for
+ * most sittings — so the catalogue never claims a merged paper exists.
+ */
+export type PastPaperSitting = {
+  key: string
+  exam: string
+  year: number | null
+  region: string | null
+  kind: PastPaperKind
+  /** Colour/code labels held for this sitting, in registry order. */
+  codes: string[]
+  /** True when at least one code ships with a key. */
+  hasKey: boolean
+  papers: PastPaper[]
+}
+
+/** Province/region order used by the catalogue: the four provinces, the federal
+ *  capital, then NUMS (a national university, not a province) and anything the
+ *  registry left unspecified. */
+export const REGION_ORDER = [
+  'Punjab',
+  'Sindh',
+  'Khyber Pakhtunkhwa',
+  'Balochistan',
+  'Islamabad',
+  'National',
+  'Unspecified',
+] as const
+
+/** Region a paper belongs to, with NUMS kept out of the provincial groups: it
+ *  sets its own national test and must not be read as a provincial MDCAT. */
+export function paperRegion(paper: Pick<PastPaper, 'region' | 'exam'>): string {
+  if (paper.region) return paper.region
+  return /^NUMS\b/i.test(paper.exam) ? 'National' : 'Unspecified'
+}
+
+/** Region groups for one year (or any paper list), in REGION_ORDER. */
+export function papersByRegion(papers: PastPaper[] = PAST_PAPERS): Array<{ region: string; papers: PastPaper[] }> {
+  const groups = new Map<string, PastPaper[]>()
+  for (const p of papers) {
+    const region = paperRegion(p)
+    const list = groups.get(region)
+    if (list) list.push(p)
+    else groups.set(region, [p])
+  }
+  return [...groups.entries()]
+    .sort(([a], [b]) => REGION_ORDER.indexOf(a as (typeof REGION_ORDER)[number]) - REGION_ORDER.indexOf(b as (typeof REGION_ORDER)[number]))
+    .map(([region, rows]) => ({ region, papers: rows }))
+}
+
+/** The sittings inside a paper list: one entry per examining body per year,
+ *  newest first, codes folded in. */
+export function groupSittings(papers: PastPaper[]): PastPaperSitting[] {
+  const map = new Map<string, PastPaper[]>()
+  for (const p of papers) {
+    const key = `${p.exam}|${p.year ?? 'undated'}`
+    const list = map.get(key)
+    if (list) list.push(p)
+    else map.set(key, [p])
+  }
+  return [...map.entries()]
+    .map(([key, group]) => ({
+      key,
+      exam: group[0].exam,
+      year: group[0].year,
+      region: group[0].region ?? null,
+      kind: group.every((p) => p.kind === 'official') ? ('official' as const) : group[0].kind,
+      codes: [...new Set(group.map((p) => p.code).filter((c): c is string => Boolean(c)))],
+      hasKey: group.some((p) => p.hasKey),
+      papers: group,
+    }))
+    .sort((a, b) => (b.year ?? -1) - (a.year ?? -1) || a.exam.localeCompare(b.exam))
+}
+
 /** Papers grouped by examining body, alphabetical, newest paper first within a
  *  body (undated last). */
 export function papersByExam(): PastPaperGroup[] {

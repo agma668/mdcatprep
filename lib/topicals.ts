@@ -12,7 +12,35 @@ import { PIPELINE_BANK } from './pipeline-bank';
 // One bank for the pages: the curated extraction, the founder's own papers and the import-ready rows
 // of the question bank. Each row keeps its own source label, so it is never presented as something
 // it is not.
-const BANK: TopicalsQuestion[] = [...TOPICALS_BANK, ...FOUNDER_BANK, ...PIPELINE_BANK];
+const ALL_ROWS: TopicalsQuestion[] = [...TOPICALS_BANK, ...FOUNDER_BANK, ...PIPELINE_BANK];
+
+/**
+ * Source-extraction buckets that are neither a syllabus chapter nor a sitting.
+ *
+ * The import carried two of these: a `Mixed Bank` bucket holding thousands of
+ * rows whose chapter never got mapped, and a `FINAL JETS MDCAT MOCK` file whose
+ * items have no printed key. Both used to render on /topicals as "whole-paper
+ * sets" — a chapter list with "Mixed Bank" in it told a student the bucket was a
+ * topic, and offering a keyless mock beside real chapters promised a paper we
+ * cannot score. They are excluded from every public count and page instead of
+ * being sorted by guesswork; the count is disclosed on the hub.
+ */
+export function isUnclassifiedBucket(title: string): boolean {
+  return (
+    /^(?:mixed|full)\s*bank$/i.test(title) ||
+    /final\s*jets/i.test(title) ||
+    // A compiled PDF's filename ended up in the chapter column and put 188
+    // physics questions under a "chapter" called "500 MOST POWERFUL MCQS…".
+    /most\s+powerful/i.test(title)
+  );
+}
+
+/** Rows withheld from the public topicals for the reason above. */
+export const TOPICALS_EXCLUDED_COUNT: number = ALL_ROWS.filter((q) =>
+  isUnclassifiedBucket(q.chapter)
+).length;
+
+const BANK: TopicalsQuestion[] = ALL_ROWS.filter((q) => !isUnclassifiedBucket(q.chapter));
 
 export type { TopicalsQuestion };
 
@@ -67,11 +95,24 @@ export function isSetChapter(title: string): boolean {
  */
 const CHAPTER_ALIAS: Record<string, string> = {
   'Biology|Genetics': 'Inheritance',
+  // The same unit arrived under a textbook name and the MDCAT unit name. Left
+  // apart, both looked thin: 507 Cell Biology + 30 Cell Structure read as two
+  // half-empty chapters instead of one 537-question unit. Old slugs 308-redirect
+  // to the surviving chapter (next.config.mjs).
+  'Biology|Cell Structure': 'Cell Biology',
+  'Physics|Kinematics': 'Force And Motion',
+  'Physics|Oscillations and Waves': 'Waves',
 };
 
 /** The chapter name a question is served under, after synonyms are folded together. */
 export function resolveChapter(subject: string, chapter: string): string {
-  return CHAPTER_ALIAS[`${subject}|${chapter}`] ?? chapter;
+  const alias = CHAPTER_ALIAS[`${subject}|${chapter}`];
+  if (alias) return alias;
+  // "Balochistan · MDCAT · 2022" is a paper label that landed in the chapter
+  // column. It belongs with the year's paper set, not in a chapter list.
+  const paperLabel = chapter.match(/^Balochistan · MDCAT · (\d{4})$/);
+  if (paperLabel) return `Past Paper ${paperLabel[1]}`;
+  return chapter;
 }
 
 function buildSubjects(): TopicSubject[] {
@@ -123,7 +164,7 @@ export const TOPICALS_CHAPTER_COUNT: number = TOPICALS_SUBJECTS.reduce(
   0
 );
 
-/** Whole-paper sets (Past Paper <year>, Mixed Bank) across all subjects. */
+/** Whole-paper sets ("Past Paper <year>") across all subjects. */
 export const TOPICALS_SET_COUNT: number = TOPICALS_SUBJECTS.reduce(
   (n, s) => n + s.sets.length,
   0

@@ -58,6 +58,17 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    // Chapters that were merged into a sibling unit keep their old URLs alive.
+    // Every one of these slugs came from a duplicate spelling of the same MDCAT
+    // unit, so the permanent redirect lands on the chapter holding those
+    // questions now, rather than 404ing a page Google may already hold.
+    return [
+      { source: '/topicals/biology/cell-structure', destination: '/topicals/biology/cell-biology', permanent: true },
+      { source: '/topicals/physics/kinematics', destination: '/topicals/physics/force-and-motion', permanent: true },
+      { source: '/topicals/physics/oscillations-and-waves', destination: '/topicals/physics/waves', permanent: true },
+    ]
+  },
   async rewrites() {
     // The SW is served by app/sw/route.ts (it needs to inject the per-deploy
     // cache generation), whose path is /sw — rewrite the canonical /sw.js URL

@@ -5,6 +5,7 @@ import { Footer } from "@/components/landing/Footer";
 import { getSiteUrl } from "@/lib/site";
 import {
   TOPICALS_CHAPTER_COUNT,
+  TOPICALS_EXCLUDED_COUNT,
   TOPICALS_SET_COUNT,
   TOPICALS_SUBJECTS,
   TOPICALS_TOTAL,
@@ -129,6 +130,13 @@ export default function TopicalsHubPage() {
               Universe) compiled by MED Prep. The whole-paper sets are named after the year of that
               extraction, not a verified official sitting — nothing here is presented as an official
               paper. Original MED Prep exam-style questions live in the signed-in practice area.
+            </p>
+            <p className="text-xs text-[var(--steel-500)] max-w-3xl">
+              Not shown: {TOPICALS_EXCLUDED_COUNT.toLocaleString("en-US")} extracted questions whose
+              source never assigned them a syllabus chapter, plus one keyless mock file. They are not a
+              chapter and cannot be scored, so they are withheld rather than sorted by guessing — which
+              is also why chapter depth is uneven: a chapter shows only the questions actually written
+              for it, and we do not pad a thin chapter with unclassified items.
             </p>
           </div>
         </section>

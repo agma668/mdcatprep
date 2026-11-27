@@ -15,7 +15,8 @@ import {
   kindLabel,
   paperCountsByKind,
   papersByYear,
-  pastPaperLabel,
+  papersByRegion,
+  groupSittings,
 } from "@/lib/past-papers";
 import { BANK_BY_SECTION, BANK_TOTAL, formatStat } from "@/lib/stats";
 import { CalendarDays, KeyRound, MapPin, ShieldCheck, ArrowRight } from "lucide-react";
@@ -77,9 +78,10 @@ export default function PastPapersPage() {
               Past Papers <span className="text-[var(--color-accent-light)]">by Year</span>
             </h1>
             <p className="text-lg text-white/70 max-w-2xl">
-              Every paper we hold for the medical entry tests, sorted by year and examining body — MDCAT
-              and NUMS — so you know exactly which sessions and paper codes exist, which ones come with a
-              key, and how each item relates to the paper that was actually sat.
+              Every paper we hold for the medical entry tests, grouped by year, then by province, then by
+              sitting — MDCAT boards per province, NUMS on its own as a national test. One card is one
+              sitting however many colour codes it was printed in, so you can see which sittings exist,
+              which carry a key, and how each item relates to the paper that was actually sat.
             </p>
           </div>
         </section>
@@ -102,45 +104,81 @@ export default function PastPapersPage() {
                     </span>
                   </div>
 
-                  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                    {papers.map((p) => (
-                      <div
-                        key={p.id}
-                        className="rounded-[var(--radius-lg)] border border-white/10 bg-white/[0.06] p-5 transition-all hover:border-white/15 hover:bg-white/[0.09]"
-                      >
-                        <p className="mb-2 font-bold text-white">{pastPaperLabel(p)}</p>
-                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-white/50">
-                          {/* The kind badge is not decoration: it is the thing that
-                              stops a reconstruction reading as the sat paper. */}
-                          <span
-                            className={
-                              p.kind === "official"
-                                ? "inline-flex items-center rounded-full border border-[var(--color-primary)]/30 bg-[var(--color-primary)]/10 px-2 py-0.5 font-semibold text-[var(--color-primary-light)]"
-                                : "inline-flex items-center rounded-full border border-white/15 bg-white/[0.04] px-2 py-0.5 font-semibold text-white/60"
-                            }
-                          >
-                            {kindLabel(p.kind)}
-                          </span>
-                          {p.region && (
-                            <span className="inline-flex items-center gap-1">
-                              <MapPin className="h-3 w-3" /> {p.region}
-                            </span>
-                          )}
-                          {keyLabel(p) && (
-                            <span
-                              className={
-                                isOfficialKey(p)
-                                  ? "inline-flex items-center gap-1 text-[var(--color-primary-light)]"
-                                  : "inline-flex items-center gap-1 text-white/50"
-                              }
-                            >
-                              <KeyRound className="h-3 w-3" /> {keyLabel(p)}
-                            </span>
-                          )}
+                  <div className="space-y-6">
+                    {papersByRegion(papers).map(({ region, papers: regionPapers }) => (
+                      <div key={region}>
+                        <h3 className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white/45">
+                          <MapPin className="h-3 w-3" aria-hidden="true" />
+                          {region === "National" ? "National — NUMS" : region}
+                        </h3>
+                        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                          {groupSittings(regionPapers).map((s) => {
+                            // One card per sitting: the colour codes ride on it as chips
+                            // instead of each becoming its own "paper".
+                            const keyed = { kind: s.kind, hasKey: s.hasKey };
+                            return (
+                              <div
+                                key={s.key}
+                                className="rounded-[var(--radius-lg)] border border-white/10 bg-white/[0.06] p-5 transition-all hover:border-white/15 hover:bg-white/[0.09]"
+                              >
+                                <p className="mb-2 font-bold text-white">
+                                  {s.exam} {s.year ?? "Undated"}
+                                </p>
+                                <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-white/50">
+                                  {/* The kind badge is not decoration: it is the thing that
+                                      stops a reconstruction reading as the sat paper. */}
+                                  <span
+                                    className={
+                                      s.kind === "official"
+                                        ? "inline-flex items-center rounded-full border border-[var(--color-primary)]/30 bg-[var(--color-primary)]/10 px-2 py-0.5 font-semibold text-[var(--color-primary-light)]"
+                                        : "inline-flex items-center rounded-full border border-white/15 bg-white/[0.04] px-2 py-0.5 font-semibold text-white/60"
+                                    }
+                                  >
+                                    {kindLabel(s.kind)}
+                                  </span>
+                                  {keyLabel(keyed) && (
+                                    <span
+                                      className={
+                                        isOfficialKey(keyed)
+                                          ? "inline-flex items-center gap-1 text-[var(--color-primary-light)]"
+                                          : "inline-flex items-center gap-1 text-white/50"
+                                      }
+                                    >
+                                      <KeyRound className="h-3 w-3" /> {keyLabel(keyed)}
+                                    </span>
+                                  )}
+                                </div>
+                                {s.codes.length > 0 && (
+                                  <div className="mt-3 flex flex-wrap items-center gap-1.5 text-[11px] text-white/55">
+                                    <span className="font-semibold uppercase tracking-wider text-white/35">
+                                      {s.codes.length === 1 ? "Code" : `${s.codes.length} codes`}
+                                    </span>
+                                    {s.codes.map((code) => (
+                                      <span
+                                        key={code}
+                                        className="rounded border border-white/15 px-1.5 py-0.5 font-semibold"
+                                      >
+                                        {code}
+                                      </span>
+                                    ))}
+                                  </div>
+                                )}
+                                {s.codes.length > 1 && (
+                                  <p className="mt-2 text-xs leading-relaxed text-white/35">
+                                    One sitting. The codes differ in question order, not in syllabus; we
+                                    hold them as separate files, so they are listed together here rather
+                                    than sold as separate papers.
+                                  </p>
+                                )}
+                                {s.papers.find((p) => p.note)?.note && (
+                                  <p className="mt-3 text-xs leading-relaxed text-white/40">
+                                    {s.papers.find((p) => p.note)?.note}
+                                  </p>
+                                )}
+                              </div>
+                            );
+                          })}
                         </div>
-                        {p.note && (
-                          <p className="mt-3 text-xs leading-relaxed text-white/40">{p.note}</p>
-                        )}
                       </div>
                     ))}
                   </div>

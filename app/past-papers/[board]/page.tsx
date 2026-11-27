@@ -14,6 +14,8 @@ import {
   papersByExam,
   pastPaperBoardSlug,
   pastPaperLabel,
+  groupSittings,
+  paperRegion,
 } from "@/lib/past-papers";
 
 const siteUrl = getSiteUrl();
@@ -92,9 +94,22 @@ export default async function BoardPage({ params }: Props) {
             <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight">
               {exam} <span className="text-[var(--color-accent-light)]">Past Papers</span>
             </h1>
+            {/^NUMS\b/i.test(exam) && (
+              <p className="mt-4 max-w-2xl rounded-[var(--radius-md)] border border-[var(--line-2)] bg-white/[0.04] px-4 py-3 text-xs leading-relaxed text-[var(--steel-300)]">
+                NUMS is a national university and sets its own entry test. Everything on this page is a
+                NUMS sitting — none of it is a PMDC national or provincial MDCAT paper.{" "}
+                <Link href="/past-papers" className="font-semibold text-[var(--signal-300)] underline underline-offset-4">
+                  MDCAT papers, grouped by province
+                </Link>
+                .
+              </p>
+            )}
             <p className="mt-3 text-sm text-[var(--steel-400)]">
-              {papers.length} paper{papers.length === 1 ? "" : "s"} · grouped by year · every item
-              labelled with how it relates to the real sitting.
+              {papers.length} paper{papers.length === 1 ? "" : "s"} · {new Set(papers.map(paperRegion)).size === 1
+                ? [...new Set(papers.map(paperRegion))][0]
+                : "grouped by province"}{" "}
+              · grouped by year, one card per sitting · every item labelled with how it relates to the
+              real sitting.
             </p>
           </div>
         </section>
@@ -108,30 +123,59 @@ export default async function BoardPage({ params }: Props) {
                   <h2 className="text-lg font-extrabold mb-3 flex items-center gap-3">
                     <span className="w-1.5 h-5 rounded-full bg-[var(--signal-500)]" aria-hidden="true" />
                     {year ?? "Undated"}
+                    <span className="text-xs font-bold text-[var(--steel-500)]">
+                      {groupSittings(rows).length} sitting{groupSittings(rows).length === 1 ? "" : "s"}
+                    </span>
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {rows.map((p) => (
-                      <div key={p.id} className="glass-tile-glow rounded-[var(--radius-lg)] border border-[var(--line-2)] p-5">
-                        <div className="flex items-start justify-between gap-3 mb-2">
-                          <h3 className="text-sm font-bold leading-snug">{pastPaperLabel(p)}</h3>
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--signal-300)] bg-[var(--signal-500)]/10 px-2 py-1 rounded-full shrink-0">
-                            {kindLabel(p.kind)}
-                          </span>
+                    {groupSittings(rows).map((s) => {
+                      const keyed = { kind: s.kind, hasKey: s.hasKey };
+                      return (
+                        <div key={s.key} className="glass-tile-glow rounded-[var(--radius-lg)] border border-[var(--line-2)] p-5">
+                          <div className="flex items-start justify-between gap-3 mb-2">
+                            <h3 className="text-sm font-bold leading-snug">
+                              {pastPaperLabel({ exam: s.exam, year: s.year })}
+                            </h3>
+                            <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--signal-300)] bg-[var(--signal-500)]/10 px-2 py-1 rounded-full shrink-0">
+                              {kindLabel(s.kind)}
+                            </span>
+                          </div>
+                          <p className="text-xs text-[var(--steel-400)] mb-2">
+                            {s.region ? `${s.region} · ` : ""}
+                            {KIND_DESCRIPTIONS[s.kind]}
+                          </p>
+                          <p className="text-xs text-[var(--steel-300)]">
+                            {isOfficialKey(keyed)
+                              ? `Carries ${keyLabel(keyed)?.toLowerCase() ?? "an official key"}`
+                              : s.hasKey
+                                ? "An answer key circulates with this item (not an official key)"
+                                : "No answer key"}
+                          </p>
+                          {s.codes.length > 0 && (
+                            <div className="mt-2 flex flex-wrap items-center gap-1.5 text-[11px] text-[var(--steel-300)]">
+                              <span className="font-bold uppercase tracking-wider text-[var(--steel-500)]">
+                                {s.codes.length === 1 ? "Code" : `${s.codes.length} codes`}
+                              </span>
+                              {s.codes.map((code) => (
+                                <span key={code} className="rounded border border-[var(--line-2)] px-1.5 py-0.5 font-semibold">
+                                  {code}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                          {s.codes.length > 1 && (
+                            <p className="text-xs text-[var(--steel-500)] mt-2">
+                              One sitting: the codes differ in question order, not in syllabus.
+                            </p>
+                          )}
+                          {s.papers.find((p) => p.note)?.note && (
+                            <p className="text-xs text-[var(--steel-400)] mt-2 italic">
+                              {s.papers.find((p) => p.note)?.note}
+                            </p>
+                          )}
                         </div>
-                        <p className="text-xs text-[var(--steel-400)] mb-2">
-                          {p.region ? `${p.region} · ` : ""}
-                          {KIND_DESCRIPTIONS[p.kind]}
-                        </p>
-                        <p className="text-xs text-[var(--steel-300)]">
-                          {isOfficialKey(p)
-                            ? `Carries ${keyLabel(p)?.toLowerCase() ?? "an official key"}`
-                            : p.hasKey
-                              ? "An answer key circulates with this item (not an official key)"
-                              : "No answer key"}
-                        </p>
-                        {p.note && <p className="text-xs text-[var(--steel-400)] mt-2 italic">{p.note}</p>}
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               );

@@ -1,5 +1,37 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-28 — Take the junk out of Topicals, and stop selling one sitting five times
+
+**"Mixed Bank" was never a topic.** The public chapter list carried four things that were not
+chapters: 5,320 import rows whose chapter never got mapped, 426 extraction rows with the same
+problem, a "FINAL JETS MDCAT MOCK" file of 78 keyless questions, and a compiled-PDF filename
+("500 MOST POWERFUL MCQS…", 188 physics questions) sitting where a unit name belongs. All four were
+rendered as "whole-paper sets" beside Respiration and Waves, which told a student they were syllabus
+material. They are now withheld from every public page and count — 6,835 questions — and the hub says
+so, including why chapter depth is uneven: we do not pad a thin chapter with unclassified items.
+
+**Duplicate spellings made real chapters look thin.** The same unit had arrived under two names, so
+each looked half-empty. Cell Structure now folds into Cell Biology (507 questions), Kinematics into
+Force And Motion (313), and Oscillations and Waves into Waves (219); the three retired URLs carry
+308 redirects rather than 404s. Public topicals are 9,812 questions across 43 chapters — Biology
+4,578, Chemistry 3,448, Physics 1,786 — and no page claims more than the bank holds.
+
+**Past papers are now year → province → sitting.** Each year is sub-grouped by Punjab, Sindh,
+Khyber Pakhtunkhwa, Balochistan, Islamabad and National (NUMS), so provincial MDCAT papers and NUMS
+no longer share a list. SZABMU 2024's five colour codes are one card with five code chips instead of
+five "papers"; board pages group the same way, and the NUMS board states plainly that its papers are
+NUMS sittings, not provincial MDCAT.
+
+**What is still true and not being faked.** Chemistry and Physics are thinner than Biology because
+that is what the extraction holds; sorting cannot create questions, and inventing them is not an
+option. A single merged paper built from every code of a sitting needs the file for each code, and we
+hold one code for most sittings — so the catalogue groups the codes and does not pretend a merged
+200-item paper exists.
+
+**Gates:** tsc --noEmit clean · eslint clean · npm test 140/140 · next build clean · live smoke:
+three 308 redirects, no junk titles on /topicals, 9,812 questions / 43 chapters, no horizontal
+overflow at 390 and 768 (1280 checked in the same pass).
+
 ## 2026-11-28 — NUMS's syllabus, with the gaps stated instead of filled
 
 **NUMS needed its own page because it is not the national MDCAT.** The site's medical portal already
