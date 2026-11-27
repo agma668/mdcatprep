@@ -114,7 +114,11 @@ export const PREP_SPACES = [
     slug: "lums-sbasse-lcat",
     name: "LUMS SBASSE — LCAT route",
     category: "engineering",
-    readiness: "beta",
+    // No practice tools are open for LUMS: the route is a guide to SAT/ACT/LCAT
+    // and the published LCAT structure, not a drill. Calling this "beta" put a
+    // primary "Open Prep Space" button on a card whose own capability list said
+    // "No learning tools are open yet."
+    readiness: "content_in_progress",
     summary:
       "LUMS sets no subject paper: applicants submit SAT, ACT or LCAT. The LCAT structure is documented, but this site holds no LCAT-format bank, so there is guidance rather than a drill.",
     capabilities: [],
@@ -145,6 +149,25 @@ export const PREP_SPACES = [
 ] as const satisfies readonly PrepSpaceDefinition[];
 
 export type PrepSpaceId = (typeof PREP_SPACES)[number]["id"];
+
+/** What a catalogue card may offer: a real practice entry, a guide, or nothing. */
+export type PrepSpaceEntry = "practice" | "guide" | "none";
+
+/**
+ * A card may only offer practice when the space actually has a released tool.
+ * A route alone is not a prep space — the LUMS route is a guide page, and a
+ * button that says "Open Prep Space" on a card with zero capabilities is the
+ * exact contradiction this rule removes.
+ */
+export function prepSpaceEntry(space: {
+  readiness: PrepSpaceReadiness;
+  capabilities: readonly PrepSpaceCapability[];
+  legacyRoute: string | null;
+}): PrepSpaceEntry {
+  if (!space.legacyRoute) return "none";
+  if (space.readiness === "beta" && space.capabilities.length > 0) return "practice";
+  return "guide";
+}
 
 const PREP_SPACE_BY_SLUG = new Map<string, (typeof PREP_SPACES)[number]>(
   PREP_SPACES.map((space) => [space.slug, space]),

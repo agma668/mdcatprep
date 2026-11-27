@@ -3,6 +3,7 @@ import { test } from "node:test";
 import {
   getPrepSpaceBySlug,
   getPrepSpacesByCategory,
+  prepSpaceEntry,
   PREP_SPACES,
 } from "./prep-space-registry.ts";
 
@@ -50,6 +51,22 @@ test("GIKI and LUMS have distinct identities from NUST NET", () => {
   assert.deepEqual(lums.capabilities, []);
   assert.equal(giki.legacyRoute, "/giki/practice");
   assert.equal(lums.legacyRoute, "/lums/practice");
+});
+
+test("a catalogue card only offers practice when the space has a tool", () => {
+  for (const space of PREP_SPACES) {
+    if (space.capabilities.length === 0) {
+      // No tool means no practice button, even when a guidance route exists.
+      assert.notEqual(prepSpaceEntry(space), "practice", space.id);
+    }
+  }
+  const lums = getPrepSpaceBySlug("lums-sbasse-lcat");
+  assert.ok(lums);
+  assert.equal(lums.readiness, "content_in_progress");
+  assert.equal(prepSpaceEntry(lums), "guide");
+  const nust = getPrepSpaceBySlug("nust-net-engineering");
+  assert.ok(nust);
+  assert.equal(prepSpaceEntry(nust), "practice");
 });
 
 test("category lookup returns only matching Prep Spaces", () => {

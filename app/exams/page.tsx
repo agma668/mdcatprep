@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Choose Your Test — Free Preparation for Every Major Entry Test',
-  description: 'One free platform for MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT and PMA. Pick your test and start practising instantly.',
+  description: 'One free platform for MDCAT, NUMS, NUST NET, GIKI, LUMS, HEC USAT and PMA. Pick your test — each card shows what is open today and what is still being built.',
   // Without an explicit canonical this page inherited the site root, so it claimed to be a duplicate
   // of the homepage.
   alternates: { canonical: '/exams' },

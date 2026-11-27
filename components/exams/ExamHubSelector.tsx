@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, BookOpen, Clock3, LockKeyhole } from "lucide-react";
 import {
   PREP_SPACES,
+  prepSpaceEntry,
   type PrepSpaceDefinition,
   type PrepSpaceReadiness,
 } from "@/lib/prep-space-registry";
@@ -62,7 +63,9 @@ function CapabilityList({ space }: { space: PrepSpaceDefinition }) {
 
 function PrepSpaceCard({ space, count }: { space: PrepSpaceDefinition; count?: number }) {
   const status = READINESS[space.readiness];
-  const canEnter = space.readiness === "beta" && Boolean(space.legacyRoute);
+  const entry = prepSpaceEntry(space);
+  const canPractice = entry === "practice";
+  const guideOnly = entry === "guide";
 
   return (
     <article className="flex h-full flex-col rounded-2xl border border-border bg-card p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
@@ -70,7 +73,7 @@ function PrepSpaceCard({ space, count }: { space: PrepSpaceDefinition; count?: n
         <span className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[11px] font-semibold ${status.className}`}>
           {status.label}
         </span>
-        {canEnter ? (
+        {canPractice || guideOnly ? (
           <BookOpen className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
         ) : (
           <Clock3 className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
@@ -93,13 +96,21 @@ function PrepSpaceCard({ space, count }: { space: PrepSpaceDefinition; count?: n
       </div>
 
       <div className="mt-auto pt-5">
-        {canEnter ? (
+        {canPractice ? (
           <Link
             href={space.legacyRoute!}
             className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             aria-label={`Enter ${space.name} preparation`}
           >
             Open Prep Space <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        ) : guideOnly ? (
+          <Link
+            href={space.legacyRoute!}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-accent/60 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            aria-label={`Read the ${space.name} guide`}
+          >
+            Read the test guide <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         ) : (
           <div className="flex items-center justify-center gap-2 rounded-xl border border-border bg-muted/50 px-4 py-2.5 text-sm font-medium text-muted-foreground" aria-label={status.description}>
@@ -123,7 +134,7 @@ export function ExamHubSelector({ counts = {} }: { counts?: Record<string, numbe
           Choose your preparation space
         </h1>
         <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Each space shows exactly what is inside it today — the question count, the tools that work, and what is still being built. One Apex account covers all of them.
+          Each space shows exactly what is inside it today — how many questions it holds, which tools work, and what is still being built. One Apex account covers all of them.
         </p>
       </header>
 

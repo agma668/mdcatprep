@@ -73,7 +73,7 @@ export const EXAMS_CONFIG: Record<ExamCategory, ExamConfig> = {
   nust: {
     id: 'nust',
     name: 'Engineering & Computing (NUST, GIKI, LUMS & USAT-E)',
-    tagline: 'Engineering & CS admissions practice for NUST NET, GIKI, LUMS SBASSE and HEC USAT-E — a young bank, growing',
+    tagline: 'Engineering & CS admissions practice for NUST NET, GIKI and HEC USAT-E, plus the LUMS SBASSE test guide — a young bank, growing',
     badge: 'Engineering & CS',
     route: '/nust/practice',
     practiceRoute: '/nust/practice',

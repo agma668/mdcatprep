@@ -1,5 +1,32 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-27 — The catalogue stops offering a LUMS prep space that does not exist
+
+**The LUMS card contradicted itself.** `/exams` rendered "Beta access", "No learning tools are
+open yet." and a primary "Open Prep Space" button on the same card. The button was not broken — it
+went to the LUMS guide — but it promised a prep space while the card's own capability list said
+there were none, which is precisely the dead "start practice" reading the page must never give.
+
+**The rule now lives in the registry, not in the card.** `prepSpaceEntry()` in
+`lib/prep-space-registry.ts` returns practice only for a beta space with at least one released
+capability; a space with none gets a guide entry instead. LUMS is now `content_in_progress` (its
+own summary already said there is guidance rather than a drill) and its CTA is a secondary
+"Read the test guide" → `/lums/practice` with an aria-label naming the guide. Every other space
+keeps its "Open Prep Space" button because every other space really has tools.
+
+**Two more lines stopped implying a LUMS drill.** The catalogue header said each space shows "the
+question count", which cannot be true where no bank exists — it now says "how many questions it
+holds". The engineering portal tagline bundled "admissions practice for NUST NET, GIKI, LUMS
+SBASSE and HEC USAT-E"; it now separates the three practice surfaces from "the LUMS SBASSE test
+guide". The /exams metadata no longer tells visitors to "start practising instantly" for a list
+that includes LUMS.
+
+**Checked.** New regression test asserts no zero-capability space ever returns a practice entry,
+and pins LUMS to `content_in_progress` + guide while NUST stays practice (6/6 registry tests
+pass). `tsc` clean, eslint clean, `next build` green, and a live render at 390px and 768px: nine
+cards, LUMS shows "In development" with the guide link, eight "Open Prep Space" buttons remain,
+no horizontal overflow, and the guide link navigates to `/lums/practice`.
+
 ## 2026-11-27 — Stop inventing an LCAT section map LUMS never published
 
 **The page had a mapping the source does not.** `/lums/practice` labelled "Verbal 1" as craft &
