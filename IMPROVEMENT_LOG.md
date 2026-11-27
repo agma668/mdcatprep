@@ -1,5 +1,38 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-28 — One page, three tests: the split, and the two claims that were false
+
+**`/nust/practice` was selling three tests with one paper.** Its title, H1 and metadata said
+"NUST NET / GIKI / LUMS", and the drill offered maths, physics, chemistry and English to all
+three. Two of those claims failed against the institutions' own pages. NUST publishes
+NET-Engineering as Mathematics 50% / Physics 30% / English 20%, with chemistry sitting in the
+pre-medical NET-Applied Sciences paper (Biology 50% / Chemistry 30% / English 20%). LUMS sets no
+subject paper at all: an SBASSE applicant submits SAT, ACT or LCAT.
+
+**Three pages, each carrying only its own sourced pattern.**
+
+- `/nust/practice` — 200 MCQs, 200 marks, 180 minutes, no negative marking; merit NET 75% /
+  HSSC 15% / SSC 10%; computer-based at Islamabad and Quetta, paper-based at Karachi and Gilgit;
+  best of four series. The drill is maths, physics and English, and the chemistry tab is gone.
+- `/giki/practice` — GIKI's own test on intermediate physics, maths and English, worth 85% of
+  merit, sat on a computer. GIKI publishes a syllabus PDF and a sample paper but no MCQ count,
+  duration, per-subject split or negative-marking rule that we could verify, so the page says
+  exactly that instead of borrowing a coaching site's numbers.
+- `/lums/practice` — there is no LUMS science paper; applicants submit SAT, ACT or LCAT. The page
+  gives the published LCAT structure (four sections, two verbal and two maths, about 40 minutes
+  each, roughly three hours, paper-based, no calculators) and the Fall 2027 dates. It carries no
+  drill, because we hold no LCAT-format bank and will not relabel NET items as LCAT ones.
+
+**One drill component, not three copies.** `components/practice/EngineeringDrill.tsx` takes the
+bank, the exact subjects the paper contains, and the page framing; the old page's 200 lines are
+its body. `exams-config` subtests now carry an optional `href`, so `/portal/nust` sends each
+variation to its own page instead of `?subtest=` on the NET page, and the chooser, prep-space
+catalogue, landing links and `llms.txt` no longer advertise chemistry for NET or a LUMS paper.
+
+**Gates:** `tsc --noEmit` clean · `eslint` clean on every touched file · `next build` clean ·
+live smoke on `next start`: all three pages 200 with their own titles, no `Chemistry` tab in the
+NET drill, both new paths in the sitemap, `/portal/nust` 200.
+
 ## 2026-11-28 — The weekly shortlist, and the soft-404 the review miscounted
 
 **Four of the five P1 items are shipped. The fifth is a founder decision.** The

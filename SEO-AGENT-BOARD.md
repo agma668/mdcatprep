@@ -271,10 +271,12 @@ fetch of robots/sitemap/homepage, the unique-and-canonical sitemap audit, and
 the one-H1 sample. These were the largest block of open P0 work.
 
 **Findings recorded, not scheduled** — real, but behind the five:
-- **F6 (code + live):** `/nust/practice` is titled "NUST NET, GIKI & LUMS
-  Practice". Three distinct tests with distinct patterns and dates collapsed
-  into one page, which rule 7 forbids. Split when each track has verified
-  content of its own.
+- **F6 — DONE (2026-11-28):** `/nust/practice` no longer collapses three tests.
+  It is NUST NET-Engineering only (maths 50 / physics 30 / English 20, no
+  chemistry), with `/giki/practice` for GIKI's own physics-maths-English test and
+  `/lums/practice` stating that LUMS sets no subject paper (SAT/ACT/LCAT). GIKI's
+  MCQ count and duration are marked "not published" on the page rather than
+  invented.
 - **F8 (live):** `/start/[test]` is `noindex, nofollow` and canonicalises home;
   `789dab6` now routes internal links into it. Acceptable as a demo gate, but
   `/nust/practice` must not depend on it for discovery.

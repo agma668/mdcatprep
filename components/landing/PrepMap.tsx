@@ -19,9 +19,9 @@ const TESTS = [
   { name: "MDCAT", track: "Medical", href: "/topicals" },
   { name: "NUMS", track: "Medical", href: "/past-papers/nums-mdcat" },
   { name: "NUST NET", track: "Engineering", href: "/nust/practice" },
-  { name: "GIKI", track: "Engineering", href: "/nust/practice" },
+  { name: "GIKI", track: "Engineering", href: "/giki/practice" },
   { name: "HEC USAT", track: "Admission", href: "/usat/practice" },
-  { name: "LUMS", track: "Admission", href: "/nust/practice" },
+  { name: "LUMS", track: "Admission", href: "/lums/practice" },
   { name: "PMA", track: "Defence", href: "/pma/practice" },
   { name: "ISSB", track: "Defence", href: "/pma/practice" },
 ] as const;

@@ -167,7 +167,7 @@ export default async function ExamPortalPage({ params }: PageProps) {
                 {config.subtests.map((sub) => (
                   <Link
                     key={sub.id}
-                    href={`${config.route}?subtest=${sub.id}`}
+                    href={sub.href ?? `${config.route}?subtest=${sub.id}`}
                     className="group bg-background border border-border/80 hover:border-accent rounded-xl p-4 transition-all duration-300 flex flex-col justify-between"
                   >
                     <div>

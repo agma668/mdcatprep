@@ -94,7 +94,7 @@ export const PREP_SPACES = [
     category: "engineering",
     readiness: "beta",
     summary:
-      "Maths, physics, chemistry and English on the NET pattern, using the verified subject weighting. Not a full-length 200-question simulation.",
+      "Maths 50%, physics 30%, English 20% on the verified NET-Engineering weighting — the paper has no chemistry section. Not a full-length 200-question simulation.",
     capabilities: ["mcq_practice", "scaled_timed_mock"],
     legacyRoute: "/nust/practice",
   },
@@ -105,9 +105,9 @@ export const PREP_SPACES = [
     category: "engineering",
     readiness: "beta",
     summary:
-      "Runs on the shared engineering bank today. GIKI's own blueprint and weighting are not split out yet, so treat it as engineering practice rather than a GIKI simulation.",
+      "GIKI's own admission test covers intermediate physics, maths and English and carries 85% of admission merit. Practice sits on the shared engineering bank; GIKI publishes no MCQ count or duration, so this is not a timed GIKI simulation.",
     capabilities: ["mcq_practice"],
-    legacyRoute: "/nust/practice",
+    legacyRoute: "/giki/practice",
   },
   {
     id: "lums-sbasse-lcat",
@@ -116,9 +116,9 @@ export const PREP_SPACES = [
     category: "engineering",
     readiness: "beta",
     summary:
-      "LCAT-route practice on the shared engineering bank. SAT and ACT remain separate LUMS admission routes with no practice here yet.",
-    capabilities: ["mcq_practice"],
-    legacyRoute: "/nust/practice",
+      "LUMS sets no subject paper: applicants submit SAT, ACT or LCAT. The LCAT structure is documented, but this site holds no LCAT-format bank, so there is guidance rather than a drill.",
+    capabilities: [],
+    legacyRoute: "/lums/practice",
   },
   {
     id: "pma-long-course",

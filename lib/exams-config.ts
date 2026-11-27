@@ -18,7 +18,8 @@ export interface ExamConfig {
   accentColor: string;
   /** The real bank behind this portal's practice sessions. */
   bank: ExamBank;
-  subtests: { id: string; name: string; description: string }[];
+  /** `href` overrides the default `${route}?subtest=` link when a variation has its own page. */
+  subtests: { id: string; name: string; description: string; href?: string }[];
   /** Syllabus modules of the portal. No counts here — the bank is the truth. */
   subjects: { id: string; name: string }[];
   features: {
@@ -79,9 +80,9 @@ export const EXAMS_CONFIG: Record<ExamCategory, ExamConfig> = {
     accentColor: 'from-blue-600 to-indigo-700',
     bank: 'nust',
     subtests: [
-      { id: 'nust-net', name: 'NUST NET (Engineering & CS)', description: 'Maths, physics, chemistry and English on the NET pattern.' },
-      { id: 'giki-test', name: 'GIKI Engineering Entrance', description: 'Calculus-heavy maths and advanced physics reasoning.' },
-      { id: 'lums-sbasse', name: 'LUMS SBASSE Admission Test', description: 'Quantitative and analytical reasoning for science & engineering.' },
+      { id: 'nust-net', name: 'NUST NET (Engineering & CS)', description: '200 MCQs, 180 minutes, no negative marking. Maths 50%, physics 30%, English 20% — no chemistry section.', href: '/nust/practice' },
+      { id: 'giki-test', name: 'GIKI Engineering Entrance', description: "GIKI's own test: intermediate physics, maths and English, worth 85% of admission merit.", href: '/giki/practice' },
+      { id: 'lums-sbasse', name: 'LUMS SBASSE Admission', description: 'No LUMS subject paper — applicants submit SAT, ACT or LCAT.', href: '/lums/practice' },
       { id: 'usat-eng', name: 'HEC USAT-E (Pre-Engineering)', description: 'The HEC test for pre-engineering applicants.' },
     ],
     subjects: [

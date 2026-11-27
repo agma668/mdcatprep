@@ -53,6 +53,8 @@ export const SEO_PAGES: SeoPage[] = [
   // Exam practice pages that were live, indexable and self-canonical but never
   // submitted — the cheapest indexing win on the site (found 2026-11-27).
   { path: "/nust/practice", priority: 0.8, changeFrequency: "weekly" },
+  { path: "/giki/practice", priority: 0.7, changeFrequency: "weekly" },
+  { path: "/lums/practice", priority: 0.7, changeFrequency: "monthly" },
   { path: "/pma/practice", priority: 0.7, changeFrequency: "weekly" },
   { path: "/usat/practice", priority: 0.7, changeFrequency: "weekly" },
   { path: "/notes/usat-m", priority: 0.7, changeFrequency: "monthly" },

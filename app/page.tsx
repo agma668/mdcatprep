@@ -401,11 +401,11 @@ export default async function Home() {
                   NUST NET
                 </Link>
                 ,{" "}
-                <Link href="/nust/practice" className="font-semibold text-[var(--steel-200)] underline underline-offset-4">
+                <Link href="/giki/practice" className="font-semibold text-[var(--steel-200)] underline underline-offset-4">
                   GIKI
                 </Link>
                 ,{" "}
-                <Link href="/nust/practice" className="font-semibold text-[var(--steel-200)] underline underline-offset-4">
+                <Link href="/lums/practice" className="font-semibold text-[var(--steel-200)] underline underline-offset-4">
                   LUMS
                 </Link>
                 ,{" "}

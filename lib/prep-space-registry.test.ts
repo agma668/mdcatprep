@@ -43,12 +43,13 @@ test("GIKI and LUMS have distinct identities from NUST NET", () => {
 
   assert.ok(nust && giki && lums);
   assert.equal(new Set([nust.id, giki.id, lums.id]).size, 3);
-  // They share the engineering bank, and the catalogue says so instead of
-  // pretending the space is unopened while its link works.
+  // GIKI drills on the shared engineering bank; LUMS has no drill because it
+  // sets no subject paper (SAT/ACT/LCAT), and the catalogue says so instead of
+  // advertising practice the site cannot provide.
   assert.deepEqual(giki.capabilities, ["mcq_practice"]);
-  assert.deepEqual(lums.capabilities, ["mcq_practice"]);
-  assert.equal(giki.legacyRoute, "/nust/practice");
-  assert.equal(lums.legacyRoute, "/nust/practice");
+  assert.deepEqual(lums.capabilities, []);
+  assert.equal(giki.legacyRoute, "/giki/practice");
+  assert.equal(lums.legacyRoute, "/lums/practice");
 });
 
 test("category lookup returns only matching Prep Spaces", () => {

@@ -104,33 +104,34 @@ export const MEDICAL_PREP_TESTS: PrepTest[] = [
 ]
 
 /**
- * Engineering portal (/nust/practice). NUST NET, GIKI and LUMS panels share
- * the one NET-pattern bank — the chooser switches the page's framing and
- * copy, and the entries say the share out loud rather than implying three
- * question sets that do not exist.
+ * Engineering tests. NUST NET, GIKI and LUMS each have their own page now,
+ * because their published patterns differ: NET-Engineering has no chemistry
+ * section, GIKI's test is physics/maths/English, and LUMS sets no subject
+ * paper at all. The first two share the question bank and say so; LUMS is
+ * guidance only.
  */
 export const ENGINEERING_PREP_TESTS: PrepTest[] = [
   {
     id: 'NUST NET',
     label: 'NUST NET',
-    note: 'NET Engineering & CS — own pattern bank',
+    note: 'NET Engineering & CS — maths, physics, English',
     mark: '🧮',
-    subjects: ['Mathematics', 'Physics', 'Chemistry', 'English'],
+    subjects: ['Mathematics', 'Physics', 'English'],
   },
   {
     id: 'GIKI',
     label: 'GIKI',
-    note: 'Calculus-heavy entrance — shares the NET bank',
+    note: 'Own test — physics, maths, English (shared bank)',
     mark: '⚙️',
-    subjects: ['Mathematics', 'Physics', 'Chemistry', 'English'],
+    subjects: ['Mathematics', 'Physics', 'English'],
     pmdcFamily: false,
   },
   {
     id: 'LUMS',
     label: 'LUMS SBASSE',
-    note: 'Quant + analytical — shares the NET bank',
+    note: 'No LUMS paper — SAT, ACT or LCAT',
     mark: '🏛️',
-    subjects: ['Mathematics', 'Physics', 'Chemistry', 'English'],
+    subjects: [],
   },
 ]
 

@@ -1,203 +1,152 @@
-'use client';
+import type { Metadata } from "next";
+import Link from "next/link";
+import { NUST_NET_BANK } from "@/lib/nust-questions";
+import { EngineeringDrill } from "@/components/practice/EngineeringDrill";
+import { formatReviewedOn } from "@/lib/dated-claims";
+import { getSiteUrl } from "@/lib/site";
 
-import { useState } from 'react';
-import { NUST_NET_BANK } from '@/lib/nust-questions';
-import Link from 'next/link';
-import { TestPrepChooser } from '@/components/dashboard/TestPrepChooser';
-import { Navbar } from '@/components/landing/Navbar';
-import { SITE_NAME } from '@/lib/site';
-import { StudyTools } from '@/components/practice/StudyTools';
+/**
+ * NUST NET practice — NUST only.
+ *
+ * This route used to be titled "NUST NET, GIKI & LUMS" and drilled maths,
+ * physics, chemistry and English for all three. Two of those claims were false:
+ * NET-Engineering has no chemistry section, and LUMS does not set a subject test
+ * at all. The official weightings below come from NUST's own pages; the split
+ * pages for GIKI and LUMS carry their own sources.
+ */
+
+const CHECKED_ON = "2026-11-28";
+const siteUrl = getSiteUrl();
+const NET_SUBJECTS = ["Mathematics", "Physics", "English"] as const;
+
+export const metadata: Metadata = {
+  title: "NUST NET Practice — Maths 50%, Physics 30%, English 20%",
+  description:
+    "Free NUST NET-Engineering practice: 200 MCQs in 180 minutes, no negative marking, Mathematics 50% / Physics 30% / English 20% — with the reasoning behind every answer.",
+  keywords: ["NUST NET practice", "NET engineering pattern", "NUST entry test MCQs", "NET 2027"],
+  alternates: { canonical: "/nust/practice" },
+  openGraph: {
+    type: "website",
+    url: `${siteUrl}/nust/practice`,
+    title: "NUST NET Practice — Maths 50%, Physics 30%, English 20%",
+    description:
+      "NUST NET-Engineering practice on the official weightings: 200 MCQs, 180 minutes, no negative marking.",
+  },
+};
+
+const FACTS = [
+  { k: "Paper", v: "200 MCQs · 200 marks" },
+  { k: "Time", v: "180 minutes" },
+  { k: "Negative marking", v: "None" },
+  { k: "Merit weight", v: "NET 75% · HSSC 15% · SSC 10%" },
+];
+
+const WEIGHTING = [
+  { subject: "Mathematics", pct: 50, mcqs: 100 },
+  { subject: "Physics", pct: 30, mcqs: 60 },
+  { subject: "English", pct: 20, mcqs: 40 },
+];
 
 export default function NUSTPracticePage() {
-  const [selectedSubject, setSelectedSubject] = useState<string>('All');
-  const [currentIdx, setCurrentIdx] = useState(0);
-  const [selectedAnswers, setSelectedAnswers] = useState<Record<string, 'A' | 'B' | 'C' | 'D'>>({});
-
-  const filteredQuestions = selectedSubject === 'All'
-    ? NUST_NET_BANK
-    : NUST_NET_BANK.filter(q => q.subject === selectedSubject);
-
-  const currentQ = filteredQuestions[currentIdx] || filteredQuestions[0];
-  const userChoice = selectedAnswers[currentQ.key];
-
-  const handleSelectOption = (option: 'A' | 'B' | 'C' | 'D') => {
-    setSelectedAnswers(prev => ({ ...prev, [currentQ.key]: option }));
-  };
-
-  const subjects = ['All', 'Mathematics', 'Physics', 'Chemistry', 'English'];
+  const netCount = NUST_NET_BANK.filter((q) => NET_SUBJECTS.includes(q.subject as (typeof NET_SUBJECTS)[number])).length;
 
   return (
-    <div className="min-h-screen bg-[var(--field-1)] text-[var(--steel-100)] flex flex-col justify-between font-sans">
-      <div>
-        {/* The shared site nav, like every other public page. This page used to ship its own
-            sticky header with a purple "Master Bank" pill, which read as a separate product, and
-            squeezed the chooser into the same 64px row — at 360px the two collided. The sub-bar
-            below stacks instead of fighting for width, so nothing overlaps at any size. */}
-        <Navbar />
-        <div className="pt-16 md:pt-18 border-b border-[var(--line-2)] bg-[var(--srf-1)] backdrop-blur">
-          <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex min-w-0 items-center gap-2 text-xs">
-              <Link href="/portal/nust" className="shrink-0 text-[var(--steel-400)] transition-colors hover:text-[var(--steel-100)]">
-                ← NUST/GIKI/LUMS Portal
-              </Link>
-              <span className="text-[var(--line-2)]" aria-hidden="true">/</span>
-              <span className="truncate font-extrabold text-[var(--steel-100)]">NET Practice</span>
-            </div>
-            <div className="flex flex-wrap items-center gap-3">
-              <TestPrepChooser family="engineering" />
-              <span className="shrink-0 rounded-full bg-[var(--tint-signal)] px-3 py-1 text-xs font-bold text-[var(--signal-300)]">
-                NUST NET bank
-              </span>
-              <Link
-                href="/signup?exam=nust"
-                className="shrink-0 text-xs font-semibold text-[var(--steel-400)] underline underline-offset-4 transition-colors hover:text-[var(--steel-100)]"
-              >
-                Save progress
-              </Link>
-            </div>
+    <EngineeringDrill
+      bank={NUST_NET_BANK}
+      subjects={NET_SUBJECTS}
+      testLabel="NET-Engineering bank"
+      breadcrumb={{ href: "/portal/nust", label: "Engineering portal" }}
+      signupExam="nust"
+      footerLabel="NUST NET practice."
+    >
+      <header className="mb-10">
+        <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight">
+          NUST NET practice — Engineering &amp; Computing
+        </h1>
+        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[var(--steel-400)]">
+          One paper, three subjects, no chemistry section — that is the part most NET pages get wrong.
+          Everything below is what NUST publishes about its own test.
+        </p>
+      </header>
+
+      <section className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {FACTS.map((f) => (
+          <div key={f.k} className="rounded-2xl border border-[var(--line-2)] bg-[var(--srf-1)] p-4">
+            <div className="text-[10px] font-bold uppercase tracking-wider text-[var(--steel-400)]">{f.k}</div>
+            <div className="mt-1 text-sm font-extrabold tabular-nums text-[var(--steel-100)]">{f.v}</div>
           </div>
+        ))}
+      </section>
+
+      <section className="mt-6 rounded-2xl border border-[var(--line-2)] bg-[var(--srf-1)] p-5 sm:p-6">
+        <h2 className="text-lg font-bold">Subject weightage (NET-Engineering)</h2>
+        <div className="mt-4 space-y-3">
+          {WEIGHTING.map((w) => (
+            <div key={w.subject}>
+              <div className="flex items-baseline justify-between text-sm">
+                <span className="font-semibold">{w.subject}</span>
+                <span className="tabular-nums text-[var(--steel-400)]">
+                  {w.pct}% · about {w.mcqs} of 200
+                </span>
+              </div>
+              <div className="mt-1 h-2 rounded-full bg-[var(--srf-3)]">
+                <div className="h-2 rounded-full bg-[var(--signal-500)]" style={{ width: `${w.pct}%` }} aria-hidden="true" />
+              </div>
+            </div>
+          ))}
         </div>
+        <p className="mt-4 text-xs leading-relaxed text-[var(--steel-400)]">
+          NUST publishes the split as percentages, not per-subject MCQ counts; the counts above are that
+          percentage of the 200-question paper. Chemistry is not a section of NET-Engineering — NUST
+          puts it in the separate NET-Applied Sciences paper for pre-medical candidates (Biology 50%,
+          Chemistry 30%, English 20%).
+        </p>
+      </section>
 
-        {/* Main Workspace */}
-        <main className="mx-auto max-w-4xl px-4 py-10 pb-28 sm:pb-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
-            <div>
-              <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight">NUST NET / GIKI / LUMS Interactive Drill</h1>
-              <p className="text-sm text-[var(--steel-400)] mt-1">Rigorous questions matching engineering entrance exam patterns with step-by-step pedagogical rationales.</p>
-            </div>
+      <section className="mt-6 grid gap-4 sm:grid-cols-2">
+        <div className="rounded-2xl border border-[var(--line-2)] bg-[var(--srf-1)] p-5">
+          <h2 className="text-sm font-bold">How the test is sat</h2>
+          <ul className="mt-2 space-y-1.5 text-xs leading-relaxed text-[var(--steel-400)]">
+            <li>Computer-based at Islamabad and Quetta; paper-based at Karachi and Gilgit.</li>
+            <li>Four series in a year; your best score is the one used.</li>
+            <li>One attempt per discipline in any single series.</li>
+            <li>Questions come from the HSSC textbooks; the English paper follows the SAT pattern.</li>
+          </ul>
+        </div>
+        <div className="rounded-2xl border border-[var(--line-2)] bg-[var(--srf-1)] p-5">
+          <h2 className="text-sm font-bold">What this bank is — and is not</h2>
+          <p className="mt-2 text-xs leading-relaxed text-[var(--steel-400)]">
+            {netCount} original questions across the three NET subjects — not 200, and not taken from a
+            NUST paper. It is practice on the published subjects, not a leaked paper and not a score
+            predictor. The chemistry items in the wider bank are hidden here because the paper does not
+            contain them.
+          </p>
+        </div>
+      </section>
 
-            {/* Subject Tabs */}
-            <div className="flex flex-wrap gap-1.5 bg-[var(--srf-3)] p-1.5 rounded-xl border border-[var(--line-2)]">
-              {subjects.map(sub => (
-                <button
-                  key={sub}
-                  onClick={() => { setSelectedSubject(sub); setCurrentIdx(0); }}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                    selectedSubject === sub
-                      ? 'bg-[var(--signal-500)] text-[var(--field-1)] shadow'
-                      : 'text-[var(--steel-400)] hover:text-[var(--steel-100)]'
-                  }`}
-                >
-                  {sub}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Question Card */}
-          {filteredQuestions.length === 0 ? (
-            <div className="bg-[var(--srf-1)] border border-[var(--line-2)] rounded-2xl p-12 text-center">
-              <p className="text-[var(--steel-400)]">No questions found for this category.</p>
-            </div>
-          ) : (
-            <div className="bg-[var(--srf-1)] border border-[var(--line-2)] rounded-2xl p-6 md:p-8 shadow-sm space-y-6">
-              {/* Question Header */}
-              <div className="flex items-center justify-between text-xs text-[var(--steel-400)] border-b border-[var(--line-2)] pb-4">
-                <div className="flex items-center gap-2">
-                  <span className="px-2.5 py-1 rounded bg-[var(--srf-3)] text-[var(--steel-300)] font-bold">
-                    {currentQ.subject}
-                  </span>
-                  <span>• Topic: {currentQ.topic}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className={`px-2 py-0.5 rounded font-medium uppercase text-[10px] ${
-                    currentQ.difficulty === 'hard' ? 'bg-rose-500/10 text-rose-400' :
-                    currentQ.difficulty === 'medium' ? 'bg-[var(--signal-500)]/10 text-[var(--signal-300)]' : 'bg-emerald-500/10 text-emerald-400'
-                  }`}>
-                    {currentQ.difficulty}
-                  </span>
-                  <span>Question {currentIdx + 1} of {filteredQuestions.length}</span>
-                </div>
-              </div>
-
-              {/* Question Text */}
-              <div className="text-base md:text-lg font-semibold text-[var(--steel-100)] leading-relaxed">
-                {currentQ.question_text}
-              </div>
-
-              {/* Options */}
-              <div className="space-y-3 pt-2">
-                {(['A', 'B', 'C', 'D'] as const).map(optKey => {
-                  const optText = currentQ[`option_${optKey.toLowerCase() as 'a'|'b'|'c'|'d'}`];
-                  const isSelected = userChoice === optKey;
-                  const isCorrect = userChoice !== undefined && currentQ.correct_answer === optKey;
-
-                  let btnStyle = 'border-[var(--line-2)] bg-[var(--srf-1)] hover:bg-[var(--srf-2)] text-[var(--steel-100)]';
-                  if (userChoice) {
-                    if (isCorrect) btnStyle = 'border-emerald-500 bg-emerald-500/10 text-emerald-300 font-semibold';
-                    else if (isSelected && !isCorrect) btnStyle = 'border-rose-500 bg-rose-500/10 text-rose-300 font-semibold';
-                  } else if (isSelected) {
-                    btnStyle = 'border-accent bg-[var(--tint-signal)] text-[var(--signal-300)] font-semibold';
-                  }
-
-                  return (
-                    <button
-                      key={optKey}
-                      onClick={() => handleSelectOption(optKey)}
-                      className={`w-full text-left p-4 rounded-xl border transition-all flex items-center gap-4 ${btnStyle}`}
-                    >
-                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-[var(--line-2)] bg-[var(--srf-3)] text-xs font-bold text-[var(--steel-100)]">
-                        {optKey}
-                      </span>
-                      <span className="text-sm md:text-base">{optText}</span>
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Explanation Box */}
-              {userChoice && (
-                <div className={`p-5 rounded-xl border mt-6 space-y-2 animate-fadeIn ${
-                  userChoice === currentQ.correct_answer
-                    ? 'bg-emerald-500/5 border-emerald-500/30 text-emerald-200'
-                    : 'bg-rose-500/5 border-rose-500/30 text-rose-200'
-                }`}>
-                  <div className="flex items-center gap-2 font-bold text-sm">
-                    {userChoice === currentQ.correct_answer ? (
-                      <span className="text-emerald-400">✓ Correct! Excellent grasp of the concept.</span>
-                    ) : (
-                      <span className="text-rose-400">✕ Incorrect. The correct answer is ({currentQ.correct_answer}).</span>
-                    )}
-                  </div>
-                  <p className="text-xs md:text-sm text-[var(--steel-400)] leading-relaxed pt-1">
-                    <strong className="text-[var(--steel-100)]">Pedagogical Rationale:</strong> {currentQ.explanation}
-                  </p>
-                </div>
-              )}
-
-              {/* Navigation Footer */}
-              <div className="flex items-center justify-between pt-6 border-t border-[var(--line-2)]">
-                <button
-                  disabled={currentIdx === 0}
-                  onClick={() => setCurrentIdx(prev => Math.max(0, prev - 1))}
-                  className="px-4 py-2 rounded-xl bg-[var(--srf-3)] text-[var(--steel-300)] text-xs font-semibold disabled:opacity-40 hover:bg-[var(--srf-2)] transition-colors"
-                >
-                  ← Previous
-                </button>
-
-                <div className="text-xs text-[var(--steel-400)]">
-                  Source: {currentQ.source}
-                </div>
-
-                <button
-                  disabled={currentIdx === filteredQuestions.length - 1}
-                  onClick={() => setCurrentIdx(prev => Math.min(filteredQuestions.length - 1, prev + 1))}
-                  className="px-4 py-2 rounded-xl bg-[var(--signal-500)] text-[var(--field-1)] text-xs font-semibold disabled:opacity-40 hover:opacity-90 transition-opacity"
-                >
-                  Next Question →
-                </button>
-              </div>
-            </div>
-          )}
-        </main>
-      </div>
-
-      <StudyTools exam="nust" />
-
-      {/* Footer */}
-      <footer className="border-t border-[var(--line-2)] py-8 text-center text-xs text-[var(--steel-400)]">
-        <p>© {new Date().getFullYear()} {SITE_NAME} — NUST NET practice.</p>
-      </footer>
-    </div>
+      <p className="mt-6 text-xs leading-relaxed text-[var(--steel-400)]">
+        Sources:{" "}
+        <a href="https://nust.edu.pk/admissions/undergraduates/subjects-included-in-net-with-weightings" target="_blank" rel="noopener noreferrer" className="font-semibold text-[var(--signal-300)] underline underline-offset-4">
+          NET subjects and weightings
+        </a>{" "}
+        ·{" "}
+        <a href="https://nust.edu.pk/admissions/undergraduates/merit-criteria-for-admission-on-net-basis" target="_blank" rel="noopener noreferrer" className="font-semibold text-[var(--signal-300)] underline underline-offset-4">
+          merit criteria
+        </a>{" "}
+        ·{" "}
+        <a href="https://ugadmissions.nust.edu.pk/PublishingImages/UG_Brochure_2026.pdf" target="_blank" rel="noopener noreferrer" className="font-semibold text-[var(--signal-300)] underline underline-offset-4">
+          UG brochure
+        </a>
+        . Last checked {formatReviewedOn(CHECKED_ON)}. Other engineering tests:{" "}
+        <Link href="/giki/practice" className="font-semibold text-[var(--signal-300)] underline underline-offset-4">
+          GIKI
+        </Link>{" "}
+        ·{" "}
+        <Link href="/lums/practice" className="font-semibold text-[var(--signal-300)] underline underline-offset-4">
+          LUMS
+        </Link>
+        .
+      </p>
+    </EngineeringDrill>
   );
 }

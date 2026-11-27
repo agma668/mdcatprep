@@ -51,7 +51,9 @@ Practice is free and works without an account. Progress tracking, leaderboards a
 
 ## Other exam portals
 
-- [Engineering portal — NUST NET / GIKI / LUMS](${siteUrl}/nust/practice): maths, physics, chemistry and English on the NET pattern
+- [NUST NET practice](${siteUrl}/nust/practice): maths 50%, physics 30%, English 20% — 200 MCQs, 180 minutes, no chemistry section
+- [GIKI practice](${siteUrl}/giki/practice): physics, maths and English for GIKI's own admission test
+- [LUMS admissions](${siteUrl}/lums/practice): no LUMS subject paper — SAT, ACT or LCAT, with the LCAT structure
 - [HEC USAT portal](${siteUrl}/usat/practice): quantitative, verbal and science sections
 - [PMA & ISSB portal](${siteUrl}/pma/practice): verbal, non-verbal (figure) and academic initial-test practice
 

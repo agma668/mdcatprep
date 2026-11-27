@@ -82,12 +82,12 @@ export const START_TESTS: Record<TestSlug, StartTest> = {
     deckTests: ["NUST NET"],
     headline: "NET practice that matches the paper",
     blurb:
-      "Mathematics, Physics, Chemistry and English, with the reasoning a computer-based NET asks for. The demo below is drawn from the NET bank; the cards are the subject decks, not NET-specific.",
+      "Mathematics 50%, Physics 30%, English 20% — the NET-Engineering paper has no chemistry section. The demo below is drawn from the NET bank; the cards are subject decks, not NET-specific.",
     bank: "nust",
     bankLabel: "NET bank",
-    deckSubjects: ["Mathematics", "Physics", "Chemistry", "English"],
+    deckSubjects: ["Mathematics", "Physics", "English"],
     decksNote:
-      "Subject decks, not NET-specific — the maths, physics, chemistry and English cards cover the same ground the paper does.",
+      "Subject decks, not NET-specific — the maths, physics and English cards cover the ground the paper does.",
     drill: { href: "/nust/practice", label: "Open the NET drill" },
   },
   giki: {
@@ -97,12 +97,12 @@ export const START_TESTS: Record<TestSlug, StartTest> = {
     deckTests: ["GIKI"],
     headline: "GIKI preparation without a second account",
     blurb:
-      "GIKI admissions run on the same engineering ground as NET. The demo draws from the shared engineering bank, and one account covers GIKI, NUST and LUMS.",
+      "GIKI runs its own admission test — intermediate physics, maths and English, carrying 85% of merit. The demo draws from the shared engineering bank; GIKI publishes no MCQ count or duration, so this is not a timed GIKI simulation.",
     bank: "nust",
     bankLabel: "shared engineering bank",
-    deckSubjects: ["Mathematics", "Physics", "Chemistry", "English"],
+    deckSubjects: ["Mathematics", "Physics", "English"],
     decksNote: "Subject decks shared with the engineering papers.",
-    drill: { href: "/nust/practice", label: "Open the engineering drill" },
+    drill: { href: "/giki/practice", label: "Open the GIKI drill" },
   },
   lums: {
     slug: "lums",
@@ -111,12 +111,12 @@ export const START_TESTS: Record<TestSlug, StartTest> = {
     deckTests: ["LUMS"],
     headline: "LUMS SBASSE practice, one place",
     blurb:
-      "LUMS screens on maths, physics, chemistry and English through LCAT or SAT. The demo is drawn from the shared engineering bank, with the subject decks beside it.",
+      "LUMS sets no subject paper: SBASSE applicants submit SAT, ACT or LCAT. Our engineering questions are useful maths and English ground, but they are not an LCAT simulation — the guide explains what is published and what is not.",
     bank: "nust",
     bankLabel: "shared engineering bank",
-    deckSubjects: ["Mathematics", "Physics", "Chemistry", "English"],
-    decksNote: "Subject decks shared with the engineering papers.",
-    drill: { href: "/nust/practice", label: "Open the engineering drill" },
+    deckSubjects: ["Mathematics", "English"],
+    decksNote: "Subject decks shared with the engineering papers — not LCAT-format items.",
+    drill: { href: "/lums/practice", label: "Read the LUMS test guide" },
   },
   usat: {
     slug: "usat",
