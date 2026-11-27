@@ -825,3 +825,11 @@ Founder direction: **preserve and refine the existing question bank; do not repl
 - First-pass format parser detected four labelled options on 1,573 records; 2,021 records have 0–3 labelled options and require parsing/content review. These are flagged, not deleted.
 - Five repeated-stem/option candidate clusters were inspected. Only one is a strong duplicate four-option MCQ candidate; others include repeated website navigation, generic stems with different answers, incomplete entries and a conflicting answer case.
 - [ ] Next: parse separate chapter-wise source files, reconcile their records to the combined 3,594 corpus, then generate subject/chapter/topic classification and cross-file duplicate reports. Do not change the source bank yet.
+
+
+### Biology source-file pilot update (2026-11-28)
+- [x] Parsed `biology_mcquniverse.md` (1,383 records / 16 chapter headings) and `biology_mcquniverse_acellular_life_58.md` (58 records). Across both: 1,441 entries; all 1,441 have four labelled options, an A–D key that points to an option and a non-empty explanation in the source format; zero exact duplicate clusters under stem + option-set + correct-option-text matching.
+- [x] Compared with the combined source Biology section (1,439 markers / 1,423 unique normalized stems): 52 combined records have no stem match in structured files; 54 structured records have no stem match in combined file. These are source differences, not automatic adds/removals.
+- [ ] Reconcile all differences with source context, option/key comparisons and provenance; do not replace the combined source with the structured files wholesale.
+- [ ] Verify source rights/permission before public or commercial use: the structured files identify MCQUniverse as source; public availability/founder extraction does not itself prove republication rights.
+- [ ] Map all Biology questions to official PM&DC chapter/topic taxonomy and validate keys against authoritative sources before any curated output.
