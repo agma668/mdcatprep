@@ -672,3 +672,47 @@ Important limits:
 - No production database, content, Auth settings or deployments changed.
 
 Validation status: PR opened as draft; no workflow run was returned for its head SHA at the time of this board update. CI, lint and typecheck remain pending. The main-branch RLS-goals test currently depends on the ownership migration proposed in PR #22, which remains unmerged pending explicit founder approval.
+
+## 2026-11-28 — Medical competitor audit actions (new queue)
+
+**Audit trigger:** Founder requested a ruthless medical/MDCAT competitor audit. The public domain `https://apexpakistan.com` was observed redirecting to a GoDaddy domain-for-sale page during the audit. This is a critical release blocker to investigate, not yet proof that every visitor or crawler sees the same result. Existing board history separately identifies `https://edweb-nine.vercel.app` as the verified public deployment alias. Resolve domain/DNS/registrar/Vercel ownership and redirects before any further growth work; do not buy, transfer, attach or change a domain without founder approval.
+
+### P0 — Verify production availability and domain routing
+- [ ] Re-test apexpakistan.com and www.apexpakistan.com from clean unauthenticated sessions; record HTTP status, redirect chain, DNS answers and timestamp.
+- [ ] Inspect registrar/domain status and DNS records; determine why the apex domain resolves to a GoDaddy sale page. Do not make registrar purchases or destructive DNS changes.
+- [ ] Inspect Vercel project/domain assignments and redirect configuration; confirm the correct Apex project is `agma668/mdcatprep` / `edweb`, not another project.
+- [ ] Confirm the temporary production alias remains publicly accessible and all public routes, assets, robots.txt and sitemap work.
+- [ ] After an approved fix, verify apex + www + temporary alias, TLS, canonical host, OG URLs, JSON-LD, sitemap and Search Console properties agree.
+- [ ] Add an automated external uptime/redirect smoke check and alert on domain-sale, parking, 3xx-to-unapproved-host, 4xx/5xx or SSO responses.
+
+### P1 — Evidence-based medical competitor gap audit
+- [ ] Audit Apex implementation from repository and live product before assigning feature-gap statuses; distinguish shipped, partial, broken, planned and absent.
+- [ ] Benchmark ePrepare, TestPrep Smart and MDCAT.pk on actual student journeys: discovery, free entry, question practice, explanations, tests, progress, revision, support, trust and pricing. Record dated screenshots/URLs and separate vendor claims from independently verified facts.
+- [ ] Build a feature parity matrix for MCQ bank quality/coverage, subject-topic filters, detailed explanations, timed mocks, wrong-question notebook, bookmarks, analytics, flashcards/spaced repetition, study planner, syllabus tracker, custom test builder, Urdu support, video learning and doubt solving.
+- [ ] Measure the end-to-end learning loop: incorrect answer → concept/weakness diagnosis → targeted revision → scheduled reattempt → mastery evidence.
+- [ ] Prioritize only validated gaps; do not add features merely to match competitor marketing lists.
+
+### P1 — Medical product quality and readiness
+- [ ] Verify MDCAT/NUMS syllabus coverage and question provenance/quality; report counts only from reproducible live data.
+- [ ] Test question explanations, answer correctness, topic mapping, duplicate detection, mobile readability and accessibility.
+- [ ] Test full-length and chapter mock flows: instructions, timer, navigation, save/resume, submission, review and results.
+- [ ] Verify wrong-answer tracking, bookmarks, analytics and progress persistence against real student accounts.
+- [ ] Verify exam context remains isolated between MDCAT and NUMS; no cross-exam bank/progress leakage.
+- [ ] Run student usability tests on mobile and desktop; capture friction and task completion.
+
+### P1 — Medical SEO and trust
+- [ ] Audit and improve useful, distinct pages for MDCAT preparation, MCQs by subject, past papers, mock tests and syllabus; no thin doorway pages.
+- [ ] Verify every indexable page has accurate content, unique metadata, self-canonical, working links and provenance for past-paper material.
+- [ ] Add transparent, verifiable question sourcing, editorial review and correction process.
+- [ ] Publish student results/testimonials only with permission and verifiable evidence; no fabricated counts, ratings, success rates or score promises.
+- [ ] Review official exam claims and dates against PM&DC/authorized sources and show checked/updated dates.
+
+### Execution order
+1. Resolve and monitor public domain/production availability.
+2. Perform repository + live functional audit and populate evidence-based parity matrix.
+3. Fix core medical learning journeys and content quality.
+4. Implement validated P1 learning-intelligence gaps.
+5. Improve conversion, trust and medical SEO.
+6. Re-benchmark competitors after each meaningful release.
+
+**Acceptance rule:** No item is marked complete from code presence or competitor marketing copy alone. Record test method, evidence, date, affected routes and measured outcome.
