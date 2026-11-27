@@ -784,3 +784,7 @@ Validation status: PR opened as draft; no workflow run was returned for its head
 - [ ] MDCAT Mentor was previously reviewed at homepage level only. ePrepare, TestPrep Smart and MDCAT.pk claims remain UNVERIFIED pending direct product-flow observation.
 
 **Acceptance:** P0 security and trust issues closed; canonical question source/persistence verified; exam boundaries pass negative tests; staged anonymous sample and controlled registration work; no public claim exceeds observed capability. No production DB/schema, domain, billing or deployment-protection changes were made in this audit.
+
+
+### P0 claim follow-up — non-profit wording
+- [ ] `components/landing/Footer.tsx` currently calls MED Prep a “non-profit community initiative”. Founder has confirmed a staged launch and is exploring premium revenue. Verify the actual legal/operational status and remove or accurately qualify this statement before publishing monetization claims; do not imply non-profit/charitable status without evidence.
