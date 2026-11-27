@@ -172,3 +172,10 @@ Before marking any task complete or committing:
 ## Commercial architecture supersession note — 2026-11-08
 
 Older statements in this document describing “100% Free”, “Free forever”, a permanent free-feature split, or fixed pass prices are historical proposals only. They are not current policy and must not be copied into public product copy. The approved model is one account with multiple exam-specific Prep Spaces and explicit server-enforced entitlements scoped to each exam or named bundle. The current public code still contains free-forever/no-expiry claims across homepage, signup, portal, FAQ, notes/resources and /llms.txt; the pricing page also presents Rs. 0 lifetime/all-access passes with a client-only fake activation state. These are identified audit issues, not approved policy.
+
+
+## 2026-11-28 — Question-bank refinement preservation rule
+
+Founder instruction: refine and sort the existing question banks; do **not** replace them with AI-generated questions. Preserve raw sources and original wording/options/keys. First produce read-only inventories and dry-run reports; map each question to official subject/chapter/topic; detect exact duplicates using normalized stem + full option set + correct-answer option text; keep near-duplicates for human review; preserve repeated paper occurrences and provenance. Flag malformed/incomplete items rather than deleting them or guessing answers. No bulk writes, ingestion, deduplication deletion or production seeding before founder review. See [QUESTION-BANK-REFINEMENT.md](QUESTION-BANK-REFINEMENT.md).
+
+Important existing-script warning: `scripts/ingest-topicals-v2.mjs` writes directly to `lib/topicals-bank.ts`, has no dry-run mode and deduplicates by stem alone. Do not run it for this preservation-first task.
