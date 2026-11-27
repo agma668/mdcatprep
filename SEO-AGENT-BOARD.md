@@ -1,6 +1,6 @@
 # SEO Agent Board — Apex Pakistan / MED Prep
 
-> Owner: SEO agent. Source of truth for search visibility work. Last baseline: 2026-11-08. Last engine check: 2026-11-26. Statuses: `[ ]` todo · `[~]` in progress · `[x]` verified shipped · `[?]` needs evidence/decision. Never mark shipped from code presence alone: verify the live response and record the check.
+> Owner: SEO agent. Source of truth for search visibility work. Last baseline: 2026-11-08. Last engine check: 2026-11-27 (weekly review). Statuses: `[ ]` todo · `[~]` in progress · `[x]` verified shipped · `[?]` needs evidence/decision. Never mark shipped from code presence alone: verify the live response and record the check.
 
 ## Academy and portal architecture
 
@@ -52,10 +52,10 @@ Earn qualified, sustainable organic discovery for Pakistani students preparing f
 - [x] Confirm the exact public temporary Vercel hostname that serves without SSO. **Verified 2026-11-26:** `https://edweb-nine.vercel.app/` returns 200 anonymously (0.84s) with no SSO challenge; robots.txt and sitemap.xml both serve publicly.
 - [x] Replace the stale `mdcatprep-eight.vercel.app` fallback with the verified temporary canonical host. **Verified 2026-11-26:** `lib/site.ts` `getSiteUrl()` returns `https://edweb-nine.vercel.app`; homepage canonical, `og:url` and JSON-LD `url` all match; 0 `mdcatprep-eight` references on `/`, `/exams`, `/past-papers`, `/blog/mdcat-guide`.
 - [ ] Ensure canonical URLs, metadataBase, OG URL, Twitter URL, JSON-LD URL, sitemap URLs and IndexNow host all derive from the same helper.
-- [~] Verify no production route emits `localhost`, preview hostname, stale `mdcatprep-eight` hostname or mixed hosts. **Partial 2026-11-26:** 4 routes sampled clean. Still needs a full sweep of all 96 sitemap URLs.
-- [ ] Fetch and inspect live `/robots.txt`, `/sitemap.xml`, homepage HTML, canonical tags and response headers without an authenticated session.
+- [x] Verify no production route emits `localhost`, preview hostname, stale `mdcatprep-eight` hostname or mixed hosts. **Verified 2026-11-27:** full sweep of all 96 sitemap URLs — canonical, `og:url` and JSON-LD `url` all emit `https://edweb-nine.vercel.app`; zero `localhost`, preview or `mdcatprep-eight` hosts. **Partial 2026-11-26:** 4 routes sampled clean.
+- [x] Fetch and inspect live `/robots.txt`, `/sitemap.xml`, homepage HTML, canonical tags and response headers without an authenticated session. **Verified 2026-11-26, re-checked 2026-11-27:** robots.txt, sitemap.xml (96 URLs) and homepage HTML all serve anonymously; canonical and host recorded in the snapshot below.
 - [ ] Confirm robots rules don't accidentally block CSS/JS or public learning resources needed for rendering.
-- [ ] Confirm every sitemap URL is unique, absolute, canonical, indexable and returns 200; exclude redirects, noindex pages, auth pages and query-string URLs.
+- [x] Confirm every sitemap URL is unique, absolute, canonical, indexable and returns 200; exclude redirects, noindex pages, auth pages and query-string URLs. **Verified 2026-11-27:** 96/96 return 200, 96/96 self-canonical, 96/96 `index, follow`, zero duplicate titles, zero duplicate descriptions, zero missing descriptions, zero redirects or soft errors.
 - [ ] Check whether dynamic topical pages have substantial unique content and stable metadata before including them in sitemap.
 - [ ] Validate IndexNow endpoint: correct key file, key proof response, cron auth, bounded request, no secret leakage, and a successful provider response in logs.
 - [ ] Confirm Vercel cron execution is visible and not silently failing.
@@ -64,7 +64,7 @@ Earn qualified, sustainable organic discovery for Pakistani students preparing f
 
 - [ ] Audit all 61 route pages and shared layouts for title, description, canonical, robots, OG and Twitter metadata.
 - [ ] Create a route metadata matrix (route, intent, title, description, H1, canonical, index/noindex, schema, internal links).
-- [ ] Ensure one clear H1 per page and semantic heading order.
+- [~] Ensure one clear H1 per page and semantic heading order. **Partial 2026-11-27:** exactly one `<h1>` on all 8 pages sampled (`/`, `/exams`, `/past-papers`, `/topicals`, `/blog/mdcat-guide`, `/notes`, `/faq`, `/pricing`); heading *order* not audited. An earlier automated count of "many H1s" was the Next.js RSC payload inside `<script>` tags, not real headings — do not re-open on that evidence.
 - [ ] Remove duplicate titles/descriptions and generic copy shared across pages.
 - [ ] Validate homepage FAQPage and LearningResource JSON-LD against visible content.
 - [ ] Add Organization/EducationalOrganization and WebSite schema only with accurate brand, contact and location facts.
@@ -255,6 +255,81 @@ What verification is currently possible: live HTTP inspection of public pages, `
 - P0 hostname confirmation and stale fallback replacement are verified shipped; evidence is recorded on the task lines above.
 - Brand drift candidate: `lib/site.ts` sets `SITE_NAME` to `MED Prep` while the product is now Apex Academy. Check titles, OG tags, JSON-LD and visible copy for drift and raise a task with exact locations.
 - The 2026-11-08 baseline claim that `lib/site.ts` hardcodes `mdcatprep-eight` is superseded.
+
+### Weekly review (2026-11-27) — findings and the five
+
+Weekly review applied to this board on 2026-11-28 from the SEO agent's 2026-11-27
+report. Everything marked **live** was checked against `https://edweb-nine.vercel.app`
+on 2026-11-27 by that run; everything marked **code** was re-checked in this
+tree on 2026-11-28. Throughput in the window 2026-11-22 → 2026-11-26: 40
+commits, all product and UI, **zero SEO code commits** (only the 2026-11-26
+documentation baseline, `182d05d`). That is why this section is a shortlist of
+five rather than an eighth list of forty ideas.
+
+**Closed above by this run (live evidence):** the 96-URL sweep, the anonymous
+fetch of robots/sitemap/homepage, the unique-and-canonical sitemap audit, and
+the one-H1 sample. These were the largest block of open P0 work.
+
+**Findings recorded, not scheduled** — real, but behind the five:
+- **F6 (code + live):** `/nust/practice` is titled "NUST NET, GIKI & LUMS
+  Practice". Three distinct tests with distinct patterns and dates collapsed
+  into one page, which rule 7 forbids. Split when each track has verified
+  content of its own.
+- **F8 (live):** `/start/[test]` is `noindex, nofollow` and canonicalises home;
+  `789dab6` now routes internal links into it. Acceptable as a demo gate, but
+  `/nust/practice` must not depend on it for discovery.
+- **P3 metadata polish (live):** 55 of 96 titles exceed 65 characters and 16
+  descriptions exceed 165. Google truncates by pixel width — display polish, not
+  an indexing problem.
+
+**Snapshot 2026-11-27 (live), for the record:** sitemap still 96 URLs; the four
+routes below are live, indexable and self-canonical but absent from it; nine
+`/portal/[exam]` routes are live, indexable and emit the homepage canonical and
+homepage title.
+
+### P1 — the 2026-11-27 shortlist (build these, nothing else)
+
+#### APX-TECH-20261127-01 — Sitemap the four built exam routes
+- **Category:** Technical · **Priority:** P1 · **Effort:** Low · **Dependencies:** none · **Research:** 2026-11-27
+- **Problem:** `/nust/practice`, `/pma/practice`, `/usat/practice` and `/notes/usat-m` are live, unique, `index, follow` and self-canonical, but are not submitted.
+- **Evidence (live 2026-11-27 + code 2026-11-28):** all four return 200 with one H1 and self-canonical; `/exams` links to the three practice routes so they are crawlable; `sitemap.xml` has 96 URLs and 0 matches. Locally, `lib/seo-pages.ts` holds 30 `path:` entries and none of the four — the omission is in the source, not in the generator.
+- **Implementation:** add the four paths to `lib/seo-pages.ts`, following the existing entry shape (`lastmod`, `changefreq`, `priority`). Do not hand-write XML.
+- **Acceptance:** `sitemap.xml` contains all four URLs; each returns 200 and self-canonical; sitemap count becomes 100.
+
+#### APX-TECH-20261127-02 — Stop nine `/portal/[exam]` pages impersonating the homepage
+- **Category:** Technical · **Priority:** P1 · **Effort:** Medium · **Dependencies:** APX-CONTENT-20261127-04 · **Research:** 2026-11-27
+- **Problem:** `/portal/{mdcat,nums,nust,giki,lums,usat,pma,issb,ecat}` all return 200 `index, follow` while emitting the homepage canonical and the homepage title. `/portal/nums` additionally has zero `<h1>` live.
+- **Evidence (code 2026-11-28):** `app/portal/[exam]/page.tsx` exports no `metadata` at all, so every portal inherits the root layout's title and canonical. That is the mechanism behind the live finding — the fix is per-route metadata, not a copy change.
+- **Implementation:** per exam, emit a self-canonical, a unique title ≤60 characters, a unique description and exactly one `<h1>`. Until an exam's page carries genuinely distinct verified content, mark it `noindex, follow` instead of letting it pretend to be home.
+- **Acceptance:** no `/portal/` route emits the homepage canonical or the homepage title; every indexable portal has a unique title, description and one H1; `/portal/nums` has exactly one H1.
+
+#### APX-CONTENT-20261127-03 — Public aggregate and merit calculator
+- **Category:** Content · **Priority:** P1 · **Effort:** Medium · **Dependencies:** none · **Research:** 2026-11-27
+- **Problem:** the calculator exists only at `/dashboard/merit-estimator`, behind sign-in and inside a path `robots.txt` disallows (`app/robots.ts` line 13), so it can never be crawled. Competitors publish the same tool openly.
+- **Evidence (live + code 2026-11-28):** the dashboard route returns a sign-in screen; `robots.ts` disallows `/dashboard`; autocomplete (gl=pk, 2026-11-27) shows `mdcat merit calculator 2026`, `mdcat aggregate calculator 2026 sindh`, `mdcat aggregate formula`; `prepmdcat.com/mdcat-merit-calculator` is public.
+- **Implementation:** a public `/merit-calculator` reusing `lib/merit.ts`, province/board selectable because the formula differs. Every formula shown cites its official source and a last-checked date. Link from `/exams`, `/past-papers` and the MDCAT guide.
+- **Acceptance:** returns 200, indexable, in the sitemap, works with no account, and shows a source citation plus last-checked date per formula variant.
+
+#### APX-CONTENT-20261127-04 — One verified syllabus page per exam
+- **Category:** Content · **Priority:** P1 · **Effort:** Medium · **Dependencies:** official source verification per exam · **Research:** 2026-11-27
+- **Problem:** the site has no syllabus page for any exam, while the autocomplete cluster is entirely information intent: `mdcat syllabus 2026`, `… pdf download`, `… sindh`, `… kpk`, `… kmu`.
+- **Evidence (live 2026-11-27):** no syllabus route in the app tree or the 96-URL sitemap; `prepmdcat.com` runs `/mdcat-syllabus` and `/nums-syllabus` as separate pages.
+- **Implementation:** start with `/syllabus/mdcat` from the current PM&DC curriculum — the 24-page PDF is already downloaded and verified in `data/papers/pmdc/2025-2026-curriculum.pdf` (see `docs/PAPERS-INVENTORY.md`) — then NUMS, NUST NET, GIKI, USAT, LUMS, PMA. Each page: subject weightings, question count, time allowed, negative-marking rule, official source link, last-checked date. Where a body has published nothing current, say so rather than reusing last year's.
+- **Acceptance:** each page cites its official source, shows a last-checked date, appears in the sitemap, and is linked from its exam's portal and practice page.
+
+#### APX-SEO-20261127-05 — Settle the brand entity and align every signal
+- **Category:** SEO · **Priority:** P1 · **Effort:** Medium · **Dependencies:** founder decision on the name · **Research:** 2026-11-27
+- **Problem:** three names are in play. Every `<title>`, `lib/site.ts` and `/llms.txt` say **MED Prep**; strategy documents in this repo say **Apex Academy**; the repository is named `mdcatprep`, which is a live unrelated competitor (`mdcatprep.com`, claims 16,800+ MCQs and papers 2008–2026). No search engine can resolve one entity from that, and a student searching the strategy name will not find the site.
+- **Evidence (live 2026-11-27):** titles on every page checked, `/llms.txt` opening line, `SITE_NAME` in `lib/site.ts`; the competitor site is live and separate.
+- **Implementation:** after the name is chosen, align `SITE_NAME`, every title template, Open Graph, `Organization` and `WebSite` JSON-LD, `/llms.txt`, and add a public `/about` stating what the product is, who runs it and what it covers. Then register Search Console under that name.
+- **Acceptance:** one name in `SITE_NAME`, every title, OG tags, JSON-LD, `/llms.txt` and `/about`; zero occurrences of the other name in public output.
+
+### Blocked on the owner (2026-11-27)
+
+- **GitHub connector dropped mid-run**, so the review itself landed nowhere: no SHA exists for it. That is the reason this section is being applied by hand rather than arriving as a commit.
+- **Search Console, Analytics and Bing Webmaster Tools are all unauthorised.** No impression, click, position or indexation data exists, and no claim in this review depends on any. Connecting Search Console is the single highest-value measurement unlock and blocks every traffic claim on the board.
+- **Brand decision** (APX-SEO-20261127-05) is the owner's call and gates any further brand work.
+- **Do not publish exam dates or results yet.** One competitor page asserts "MDCAT 2026 rescheduled to 20 September, PM&DC notice updated 10 Aug 2026". That claim was not verified against the PM&DC notice and must not be copied. If a `/dates` or `/result` surface is built, every date cites the official body (PM&DC, NUMS, NUST, HEC, GIKI, LUMS, Pakistan Army) with a visible last-checked date.
 
 ### Task ID convention
 

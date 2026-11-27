@@ -297,6 +297,78 @@ Publicly described features include:
 
 **Edweb adoption:** Convert reviewed flashcards into multiple study modes, not just flip cards. Offer typed recall and distractor-based MCQs generated from approved card content. Keep the student able to choose a mode and daily workload.
 
+## 8. Dated competitor log
+
+Every entry is labelled: **confirmed** (primary source read), **observed** (the
+page was fetched), **claim** (the competitor asserts it; unverified here). Prices
+and counts are theirs, on the date shown, and are never to be repeated in
+product copy as our own figures.
+
+### 2026-11-27 — prepmdcat.com (observed)
+
+20 internal paths, including subject MCQ hubs (`/biology-mcqs`,
+`/chemistry-mcqs`, `/physics-mcqs`, `/english-mcqs`), **separate per-exam
+syllabus pages** (`/mdcat-syllabus`, `/nums-syllabus`), `/mdcat-past-papers`,
+`/mdcat-notes`, `/mdcat-formulas`, `/mdcat-guidelines`,
+**`/mdcat-merit-calculator`** and a dated article. Claims on the homepage:
+70,000+ MCQs, AI Tutor, AI voice assistant in English and Urdu, AI
+visualisation, NUMS psychological bank, 10,000+ students, 4.9 rating — **claims**.
+
+Why it matters: this is the closest structural match to what Edweb is trying to
+be. They blend MDCAT and NUMS in headings but keep the two syllabus pages
+separate, which is the pattern our multi-portal rule already implies. They also
+publish two utility pages we do not: the merit calculator and a formula sheet.
+
+### 2026-11-27 — mdcatguru.com (observed via search index; direct fetch returned no HTML)
+
+Subject hubs with explicit question counts per syllabus unit: Biology 4,188
+across 16 units, Chemistry 4,202 across 20, Physics 3,402 across 16, English
+4,202 across 20 practice topics, Logical Reasoning 1,401 across 6 official
+themes. A "Repeat Radar" for repeated concepts and a dated official-update
+banner. States "100% free online, no login required for MCQ practice".
+
+Why it matters: the no-login promise attacks the one friction Edweb has that
+they do not — practice sits behind `/dashboard`. Their public per-subject counts
+also do trust work that our derived-but-hidden counts do not.
+
+### 2026-11-27 — mdcatpro.com (observed)
+
+Title is literally "MDCAT PRO", no meta description. Coin-based premium unlock,
+full-length mocks, **PDF export of every test result**. Claims 50K+ students,
+1,000+ practice tests, 72+ chapters — **claims**.
+
+Why it matters: weak SEO, so low organic threat. The PDF result export is a
+retention and WhatsApp-share artefact worth benchmarking; the missing
+description is a reminder that app-first competitors leave search demand open.
+
+### 2026-05-05 — UWorld UAsk (confirmed, newsroom.uworld.com)
+
+An AI assistant embedded inside the MCAT and USMLE question banks. It answers
+iterative follow-up questions in context and lets students **convert responses
+into flashcards and notes**. Rolled out to CPA in March 2026 and CFA in June
+2026; AI-assisted proctoring added to nursing in October 2026.
+
+Why it matters: the lesson is not "add an AI chat box". It is that the
+explanation should write into the student's own flashcard deck and notebook —
+Edweb already has flashcards, a mistake notebook and notes, so this connects
+three existing surfaces instead of adding a fourth.
+
+### Not confirmed 2026-11-27
+
+Maqsad, Nearpeer, TopGrade, Chaajao and Physics Wallah were checked at
+search-index level only; their own pages were not read this run. Visible in
+results: Chaajao PKR 17,500 live classes / 20,000 recorded / 15,000 practice
+zone; Maqsad 4M+ downloads and 45,000+ enrolled. Recorded as observations, not
+as confirmed changes.
+
+### Product implications (dated 2026-11-27, not scheduled)
+
+- A **limited no-login practice allowance** on the existing public topical pages removes the biggest gap between a search result and a first answered question. This is the clearest competitive wedge available.
+- **PDF export of a mock result** — low effort, high shareability in WhatsApp study groups.
+- **AI explanation that writes to the deck** (UWorld pattern) is the highest-value idea in this batch, but it depends on an AI surface existing at all; Edweb currently has no AI route.
+- **Local intent** ("mdcat preparation academy near me") appears in autocomplete. Edweb is online-only: do not build fake locality pages (rule 7). Handle it with one honest "online vs on-campus academy" comparison page.
+- Their paid pillars are teaching, not questions — see the 2026-11-27 gap analysis: lectures/live classes, AI tutor, store apps, human support, print artifacts, and a payment rail. Question volume is the commodity; two of the five give their banks away free.
+
 ## Cross-platform feature synthesis — proposed Edweb engines
 
 ### Engine A: Recall and flashcards
