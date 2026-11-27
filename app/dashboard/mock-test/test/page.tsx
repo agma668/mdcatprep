@@ -54,7 +54,6 @@ export default async function MockTestPage({ searchParams }: { searchParams: Pro
         <MockTestPlayer
           questions={buildUsatMockPaper(USAT_ELITE_BANK)}
           durationMinutes={USAT_MOCK_MINUTES}
-          format="usat-m"
         />
       </div>
     )
@@ -69,7 +68,6 @@ export default async function MockTestPage({ searchParams }: { searchParams: Pro
         <MockTestPlayer
           questions={buildNetMockPaper(NUST_NET_BANK)}
           durationMinutes={netMockMinutes(NUST_NET_BANK)}
-          format="net-eng"
         />
       </div>
     )
@@ -88,7 +86,6 @@ export default async function MockTestPage({ searchParams }: { searchParams: Pro
         <MockTestPlayer
           questions={buildPmaMockPaper(PMA_QUESTIONS, variant)}
           durationMinutes={pmaMockMinutes(PMA_QUESTIONS, variant)}
-          format={variant}
           figureSpec={pmaFigureOf}
         />
       </div>
@@ -122,7 +119,6 @@ export default async function MockTestPage({ searchParams }: { searchParams: Pro
       <MockTestPlayer
         questions={questions}
         durationMinutes={config.duration}
-        format={format || 'quick'}
       />
     </div>
   )

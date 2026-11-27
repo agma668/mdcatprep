@@ -168,6 +168,14 @@ export default async function BoardPage({ params }: Props) {
                               One sitting: the codes differ in question order, not in syllabus.
                             </p>
                           )}
+                          {s.papers.some((p) => p.id === "uhs-2025-d") && (
+                            <Link
+                              href="/past-papers/uhs-2025"
+                              className={`mt-4 inline-flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--signal-500)]/40 bg-[var(--signal-500)]/10 px-4 py-2 text-xs font-bold text-[var(--signal-300)] transition-colors hover:bg-[var(--signal-500)]/20 ${linkFocus}`}
+                            >
+                              Sit this paper timed — 180 questions, 180 minutes →
+                            </Link>
+                          )}
                           {s.papers.find((p) => p.note)?.note && (
                             <p className="text-xs text-[var(--steel-400)] mt-2 italic">
                               {s.papers.find((p) => p.note)?.note}

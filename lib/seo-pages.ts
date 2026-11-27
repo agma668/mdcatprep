@@ -83,6 +83,8 @@ export const SEO_PAGES: SeoPage[] = [
   // generateStaticParams contract in app/past-papers/[board]/page.tsx:
   // the registry's exam key lowercased and non-alphanumerics collapsed to '-'.
   { path: "/past-papers", priority: 0.8, changeFrequency: "weekly" },
+  // The one sitting that is a timed paper rather than a catalogue entry.
+  { path: "/past-papers/uhs-2025", priority: 0.8, changeFrequency: "monthly" },
   { path: "/past-papers/uhs-mdcat", priority: 0.7, changeFrequency: "monthly" },
   { path: "/past-papers/bumhs-mdcat", priority: 0.7, changeFrequency: "monthly" },
   { path: "/past-papers/kmu-mdcat", priority: 0.7, changeFrequency: "monthly" },

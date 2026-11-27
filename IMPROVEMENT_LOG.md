@@ -1,5 +1,30 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-27 — The UHS 2025 paper is now a sitting, not a line in a catalogue
+
+**180 questions, 180 minutes, official key.** `scripts/build-uhs-2025-paper.mjs` extracts Paper
+ID-D from `data/papers/uhs/2025-paper.pdf` in printed order — Biology 81, Chemistry 45, Physics 36,
+English 9, Logical Reasoning 9 — and refuses to emit anything unless all 180 questions carry four
+options and a row in the official key dated 26-10-2025 printed in the same file. The paper is at
+`/past-papers/uhs-2025`: no sign-in, no download, a start gate (the 180-minute clock does not run
+while someone reads the instructions), then the real countdown and the paper's own order.
+
+**Marking was tested, not assumed.** I sat the paper with one answer and submitted: the result was
+1 of 180, Q1 marked correct against key C, and the review showed the official letter for every
+skipped item (Q2 D, Q3 D). Anonymous sittings deliberately do not attempt to record attempts —
+there is no account to record against — and the page says so instead of implying saved progress.
+
+**What the page refuses to fake.** This paper ships without explanations, so none are attached and
+the page says that plainly; the sitting is not labelled a mock test, and the result screen now
+carries the paper's name instead of "Mock test complete". No negative marking is applied, and the
+copy states that the score counts key matches rather than claiming an official marking scheme we
+do not hold.
+
+**Verified at the gate ladder.** `tsc` clean, eslint clean on every touched file, `next build`
+green, and a live run at 390px and 768px: start gate, question 1, the 3-hour clock, submit, 1/180,
+and the key review. The existing dashboard mock tests keep their behaviour (player `title`
+defaults to "Mock Test", attempts still record).
+
 ## 2026-11-27 — Measure the answer keys before claiming every answer is explained
 
 **The bank's answers match the official keys where we can prove it.** UHS MDCAT 2025 (official

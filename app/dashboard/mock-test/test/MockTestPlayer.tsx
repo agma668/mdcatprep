@@ -2,7 +2,6 @@
 
 import { TrackedLink } from '@/components/TrackedLink';
 import { useCallback, useEffect, useRef, useState } from 'react'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Clock, CheckCircle, XCircle } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
@@ -26,14 +25,19 @@ function formatTime(totalSeconds: number): string {
 export function MockTestPlayer({
   questions,
   durationMinutes,
-  format,
   figureSpec,
+  recordAttempts = true,
+  title = 'Mock Test',
 }: {
   // QuizQuestion (not BankQuestion): the HEC USAT-M paper is assembled from
   // the bundled USAT bank, whose questions carry a `key` instead of a DB id.
   questions: QuizQuestion[]
   durationMinutes: number
-  format: string
+  /** False on public sittings: a signed-out visitor has no account to record
+   *  against, and firing attempts that must fail is noise, not data. */
+  recordAttempts?: boolean
+  /** Header label. A past paper is not a mock; it should say its own name. */
+  title?: string
   figureSpec?: (q: QuizQuestion) => {
     stem: PmaFigureSpec
     options: Record<OptionLetter, PmaFigureSpec>
@@ -51,6 +55,7 @@ export function MockTestPlayer({
     questions,
     mode: 'exam',
     onFinish: (answers) => {
+      if (!recordAttempts) return
       // Record every answered question exactly once, at submit (the hook's
       // finishedRef makes a double-submit a no-op). Each answer goes through
       // the queue-aware seam: online it records directly; if the origin is
@@ -275,7 +280,7 @@ export function MockTestPlayer({
             </ScoreRing>
           </div>
           <h1 className="mt-7 text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
-            Mock test complete
+            {title} complete
           </h1>
           <p className="mt-2 text-sm text-[var(--color-text-secondary)]">
             You answered{' '}
@@ -288,7 +293,7 @@ export function MockTestPlayer({
           </p>
           <p className="mt-1 text-sm text-[var(--color-text-muted)]">{verdict}</p>
           <p className="mt-4 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">
-            {format.toUpperCase()} Mock Test • {durationMinutes} minutes
+            {title} • {durationMinutes} minutes
           </p>
 
           <dl className="mt-6 grid grid-cols-2 gap-2 text-left sm:grid-cols-4">
@@ -418,7 +423,7 @@ export function MockTestPlayer({
       {/* Timer header */}
       <div className="mb-6 flex items-center justify-between gap-3">
         <div className="min-w-0">
-          <h1 className="text-lg font-bold tracking-tight text-white">Mock Test</h1>
+          <h1 className="text-lg font-bold tracking-tight text-white">{title}</h1>
           <p className="text-xs tabular-nums text-[var(--color-text-muted)]">
             Question {index + 1} <span className="text-white/40">of {questions.length}</span>
           </p>
