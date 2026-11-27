@@ -343,3 +343,7 @@ Founder confirmed **staged**. Design public discovery around a useful no-signup 
 - [ ] Maqsad public diagnostic is an observable benchmark; other competitor capabilities remain UNVERIFIED until tested. Record date, device, steps and screenshots.
 
 **Acceptance:** a first-time student can discover the right exam, complete a real sample, understand its provenance and see the next step; no fake stats, dead ends, misleading readiness, or cross-exam confusion. No production DB, domain, billing or deployment-protection changes were made in this audit.
+
+
+### P0 claim follow-up — footer trust copy
+- [ ] Footer currently describes MED Prep as a “non-profit community initiative”. Confirm factual/legal status and make the public organization description consistent with staged beta and any future premium model; do not imply charitable status without evidence.
