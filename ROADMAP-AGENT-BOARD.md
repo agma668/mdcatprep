@@ -716,3 +716,39 @@ Validation status: PR opened as draft; no workflow run was returned for its head
 6. Re-benchmark competitors after each meaningful release.
 
 **Acceptance rule:** No item is marked complete from code presence or competitor marketing copy alone. Record test method, evidence, date, affected routes and measured outcome.
+
+## 2026-11-28 — Homepage, trust, and competitor positioning audit
+
+**Research provenance:** Founder supplied a comparative desk review of the Apex homepage and the public homepages of Maqsad and MDCAT Mentor. It was conducted without logged-in product testing, speed measurements or ranking/Search Console data. Treat competitor feature/scale statements as vendor claims until independently verified; do not copy their numbers, testimonials, partnerships or promises. This queue supplements the medical competitor audit above.
+
+### P0 — Trust and public-claim integrity (applies regardless of launch access model)
+- [ ] Create a claim inventory for homepage, FAQ, signup, footer, metadata, pricing, portal cards and llms.txt. For each statement record exact wording, source of truth, live evidence, owner and disposition: keep, qualify or remove.
+- [ ] Reconcile all displayed counts. Distinguish question-bank inventory from registered users, active students, attempts, downloads and outcomes; never label a question count as people or activity. Show counts only when reproducible and clearly defined.
+- [ ] Verify the reported subject/stream mismatch between marketing steps and signup choices against the actual supported exam configuration; align copy to the real registry and readiness state.
+- [ ] Audit GIKI, LUMS and ISSB cards/routes against their actual exam-specific banks, syllabi, mock rules and student journeys. If they currently reuse NUST/PMA content, label the relationship honestly or mark the distinct Prep Space as planned; do not imply separate complete banks.
+- [ ] Audit every question source and import pipeline, including OCR-derived material. Record source, rights/permission or public-paper status, transformation/review history and editorial owner. OCR does not make copyrighted commercial book content original or licensed; quarantine material with unclear rights.
+- [ ] Verify claims for personalization, offline downloads/sync, full mocks, leaderboard, analytics, explanations and progress persistence through real end-to-end tests. Downgrade/remove any claim that is not live and reliable.
+- [ ] Inspect the raw HTML/loading experience and hydration states. No public page should expose a stuck Loading shell, broken client-only content or misleading success state.
+- [ ] Reconcile page title, Open Graph/share title, canonical and brand name. Obtain founder sign-off on the public brand architecture before mass metadata changes; use one consistent primary brand and treat MED Prep only as a clearly defined vertical label if approved.
+- [ ] Review theme support. Provide a polished accessible light theme alongside dark mode if feasible; ensure neither mode is incomplete and test contrast, focus and system preference.
+- [ ] Remove or qualify unsupported free-forever, complete, personalized, offline, all-exams and similar claims in line with the approved pricing/access architecture.
+
+### P1 — Learning product differentiation
+- [ ] Make the flagship medical learning loop measurable and complete: answer → explanation → concept/weakness → targeted revision → spaced reattempt → mastery evidence.
+- [ ] Prioritize question explanations, verified board/year past-paper provenance, syllabus/topic coverage, mistake review and exam-accurate mocks over adding superficial feature cards.
+- [ ] Create a readiness matrix per exam and variant: content volume/coverage, source quality, explanation coverage, mock fidelity, persistence, access state and known limitations.
+- [ ] Keep exam-specific banks, scoring, timing, syllabus and progress isolated even when a shared engine is reused.
+
+### P1 — Trust and support (only after operational readiness)
+- [ ] Add an honest About/editorial standards/contact/corrections layer with named reviewers only where credentials and consent are verified.
+- [ ] Consider WhatsApp/community support only with a defined moderation, safeguarding, privacy and response process; do not publish personal phone numbers.
+- [ ] Evaluate phone login and a Play Store/PWA wrapper only after authentication, support demand, privacy and maintenance costs are validated. These are not launch blockers or substitutes for a reliable web product.
+- [ ] Use student photos, testimonials, school partnerships and outcome statistics only with documented permission, evidence and clear cohort/date/methodology.
+
+### P1 — Launch-model gate
+- [ ] Founder to confirm whether launch is public, private/invite-only, or staged (public discovery/resources with controlled registration).
+- [ ] Until confirmed, continue internal product correctness, content rights, security, domain and false-claim cleanup. Keep broad acquisition campaigns, public social-proof collection and SEO expansion beyond essential technical hygiene explicitly blocked.
+- [ ] Once confirmed: public/staged → activate the SEO/content/trust acquisition queue; private → keep SEO acquisition and public conversion work parked, while retaining accurate internal product claims and access controls.
+
+**Acceptance rule:** This review is a hypothesis queue, not a verified defect list. Reproduce each issue in code or a clean unauthenticated/student session before changing product copy or marking it done. Record evidence and date.
+
