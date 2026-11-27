@@ -134,3 +134,8 @@ Measure the funnel before monetizing: anonymous landing sessions → sample star
 8. Only then activate broader SEO outreach and obtain explicit payment/entitlement approval.
 
 **No production DB changes, domain changes, billing changes, deployment-protection changes or payment processing were made during this audit.**
+
+
+## Additional P0 claim conflict found during board verification
+
+- `components/landing/Footer.tsx` describes MED Prep as a **“non-profit community initiative”** while the founder has now selected a staged launch with a future premium revenue model. Unless the organization is legally/operationally non-profit and paid access is not for profit, this wording is materially misleading. Founder must confirm the actual legal/business status; remove or qualify the non-profit claim before monetization messaging. Do not imply charity/non-profit status as a marketing tactic.
