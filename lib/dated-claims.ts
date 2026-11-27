@@ -40,7 +40,7 @@ export type DatedClaim = {
  * The sitemap reads it instead of `new Date()`: stamping every URL as changed on
  * every build is how a crawler learns to ignore `lastmod` altogether.
  */
-export const CONTENT_REVIEWED_ON = '2026-11-26'
+export const CONTENT_REVIEWED_ON = '2026-11-28'
 
 export const DATED_CLAIMS: DatedClaim[] = [
   {

@@ -185,11 +185,24 @@ export default function MeritEstimatorPage() {
             </p>
           </div>
 
+          {/* This block used to print "90%+ for King Edward / AKU" and "75%+ for
+              NUST SEECS" as a "Safe Merit Benchmark" — a prediction about a
+              specific college's cutoff with no source behind it. Closing merits
+              move every year with seats and quota rounds. It now points at the
+              public calculator, which shows the sourced formula and refuses to
+              predict a college. */}
           <div className="mt-8 pt-6 border-t border-border">
-            <div className="text-xs font-semibold text-foreground mb-1">Safe Merit Benchmark</div>
-            <div className="text-sm font-bold text-emerald-400">
-              {examType === 'mdcat' ? '90%+ for King Edward / AKU (Govt Seats)' : '75%+ for NUST SEECS (Top CS/SE)'}
-            </div>
+            <div className="text-xs font-semibold text-foreground mb-1">No benchmark shown</div>
+            <p className="text-xs leading-relaxed text-muted-foreground">
+              A college&apos;s closing merit is not a fixed number — publishing one here would
+              present this year&apos;s guess as next year&apos;s cutoff.
+            </p>
+            <Link
+              href="/merit-calculator"
+              className="mt-2 inline-block text-xs font-bold text-accent hover:underline"
+            >
+              Open the public calculator →
+            </Link>
           </div>
         </div>
       </div>
