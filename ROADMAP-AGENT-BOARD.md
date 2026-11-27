@@ -817,3 +817,11 @@ Founder direction: **preserve and refine the existing question bank; do not repl
 - [ ] Review Biology sample/edge cases with founder before applying the same rules to Chemistry, Physics, English and Logical Reasoning.
 - [ ] Generate a new versioned curated output only after review; never overwrite raw sources. Include a merge/removal/provenance log and before/after reconciliation.
 - [ ] Acceptance: every original record is accounted for; no AI rewrite/replacement; no unresolved exact duplicates in the approved practice pool; near-duplicates and repeated paper appearances retained; unmapped items explicitly queued.
+
+
+### First-pass MDCAT corpus findings (2026-11-28)
+- [x] Read-only parse of `knowledge-base/questions/MDCAT_Practice_Questions.md` completed; detailed result: [MDCAT-QUESTION-BANK-PILOT-AUDIT.md](MDCAT-QUESTION-BANK-PILOT-AUDIT.md).
+- Source declares and parser found 3,594 question markers: Biology 1,439; Chemistry 939; Physics 1,216. Existing chapter headings: 17 Biology, 20 Chemistry, 13 Physics (50 total).
+- First-pass format parser detected four labelled options on 1,573 records; 2,021 records have 0–3 labelled options and require parsing/content review. These are flagged, not deleted.
+- Five repeated-stem/option candidate clusters were inspected. Only one is a strong duplicate four-option MCQ candidate; others include repeated website navigation, generic stems with different answers, incomplete entries and a conflicting answer case.
+- [ ] Next: parse separate chapter-wise source files, reconcile their records to the combined 3,594 corpus, then generate subject/chapter/topic classification and cross-file duplicate reports. Do not change the source bank yet.
