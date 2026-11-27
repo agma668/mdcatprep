@@ -1,5 +1,51 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-27 — A plan made of work that is actually due, and weak areas ranked by evidence
+
+**The dashboard's "Study Plan" was three generic sentences.** It said "focus on
+<subject>", "start a streak" and "try a 15-minute timer". None of it read the
+mistake notebook's 1/3/7-day ladder or the FSRS due dates, so a student with
+forty reviews due today was still told to keep a streak. Meanwhile the
+analytics panel capped each bucket at five topics and sorted them by attempt
+volume, which meant the topic with the worst accuracy could be the one missing.
+
+**A plan is now composed from real state only.** `lib/plan/daily-plan.ts`
+turns four facts into an ordered list: mistakes the notebook can serve right
+now, cards FSRS says are due, the two weakest areas, and — only inside the
+final fortnight before a saved goal date — one timed mock. Order is deliberate:
+work that decays if skipped comes before work that can wait. Minutes are rough
+working estimates, the total is the sum of the tasks rather than a separate
+number, and the page says plainly that they are not a score prediction.
+
+**Weak areas are ranked by evidence, not by volume.** `lib/plan/weak-areas.ts`
+groups attempts by subject and by subject·topic, and only ranks a group with at
+least 6 attempts (topic) or 10 (subject) that sits below an 80% target. The
+score is gap × confidence × freshness — how far below target, how much evidence,
+and how stale — with freshness halving every 30 days, so a 40% topic last
+touched in August does not outrank a 55% one from this week. No exam weighting
+is applied, because the app has no verified per-topic weighting for these
+exams; a guessed weight would make the order look more authoritative than it
+is. Attempts with no subject are counted and reported, never bucketed into a
+fake "Uncategorised" subject.
+
+**New page: `/dashboard/plan`.** The plan list, the goal countdown from
+`student_goals.target_date`, and both ranked lists, each row linking straight
+to the existing topic drill (`/dashboard/practice/quiz?subject=…&topic=…`).
+Empty states are explicit: no attempts yet, nothing below target with enough
+evidence, how many topics are still too small to judge. The dashboard gets a
+slim "Today's plan" link with no number on it, so that link cannot disagree
+with the page; the analytics topic panel links to the full ranked list.
+
+**Verified:** `tsc` 0 · `eslint` 0 on every touched file · `next build` 0 with
+`ƒ /dashboard/plan` in the route manifest · 23 new unit tests (140 total, all passing) for
+the ranking, thresholds, freshness ordering, drill URLs, plan order, caps and
+the subject/topic de-duplication · fresh prod server on `:3245`: `/` 200,
+`/dashboard/plan` and `/dashboard` 307 → `/login`.
+
+**Not verified:** the signed-in page itself — there is no Supabase session on
+this machine, so the list, the goal strip and the layout were type-checked and
+unit-tested but never rendered or clicked by eye.
+
 ## 2026-11-27 — One flashcard engine, and the buttons finally say what they do
 
 Four things stood between the flashcards and AnkiDroid, and the first was the

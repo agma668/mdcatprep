@@ -6,6 +6,7 @@ import {
   ArrowRight,
   BookOpen,
   BarChart3,
+  CalendarClock,
   CheckCircle,
   Target,
   User,
@@ -168,6 +169,32 @@ export default async function DashboardOverviewPage() {
       <div className="mt-4">
         <SocialProof stats={proof} />
       </div>
+
+      {/* ── Today's plan. The queue the student actually has, computed from
+             attempts, mistake rows and FSRS due dates — deliberately no number
+             here, so this link can never disagree with the plan page. */}
+      <section aria-label="Today's plan" className="mt-4">
+        <TrackedLink
+          to="/dashboard/plan"
+          label="dash-plan"
+          className="group glass-tile-glow flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-lg)] px-5 py-4 hover:translate-y-[-1px] transition-all duration-300"
+        >
+          <div className="flex items-center gap-3">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-primary)]/15 text-[var(--color-primary-light)]">
+              <CalendarClock className="h-4 w-4" />
+            </span>
+            <div>
+              <p className="text-sm font-bold text-white">Today&apos;s plan</p>
+              <p className="text-xs text-white/50">
+                Due mistakes, due cards and the topics your own accuracy puts below target.
+              </p>
+            </div>
+          </div>
+          <span className="inline-flex items-center gap-1 text-xs font-bold text-[var(--color-primary-light)] group-hover:text-[var(--color-accent-light)] transition-colors">
+            Open <ArrowRight className="h-3.5 w-3.5" />
+          </span>
+        </TrackedLink>
+      </section>
 
       {/* ── Recommended next action / first-run onboarding */}
       <section aria-label="Recommended next action" className="mt-6">

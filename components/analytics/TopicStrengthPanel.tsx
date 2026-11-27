@@ -1,4 +1,5 @@
-import { Brain, Dumbbell, TrendingUp, TriangleAlert } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Brain, Dumbbell, TrendingUp, TriangleAlert } from "lucide-react";
 import type { TopicStrength } from "@/types/analytics";
 
 const CLASSIFICATION_CONFIG = {
@@ -126,6 +127,16 @@ export function TopicStrengthPanel({ topics }: { topics: TopicStrength[] }) {
           })}
         </div>
       )}
+
+      {/* The panel caps each bucket at five and sorts by volume; the plan page
+          ranks every topic by gap and evidence and links the drill. */}
+      <Link
+        href="/dashboard/plan"
+        className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-[var(--color-primary)] hover:underline"
+      >
+        Full ranked list and today&apos;s plan
+        <ArrowRight className="h-3 w-3" aria-hidden="true" />
+      </Link>
     </div>
   );
 }
