@@ -15,7 +15,7 @@ The file declares 3,594 questions with the following subject counts. The parsed 
 | Physics | 1,216 | 1,216 |
 | **Total** | **3,594** | **3,594** |
 
-The source contains 50 chapter headings: 17 Biology, 19 Chemistry and 14 Physics. This confirms the source is already chapter-organized to a meaningful extent. It does **not** prove those chapter names align one-to-one with the current official PM&DC syllabus taxonomy.
+The source contains 50 chapter headings: 17 Biology, 20 Chemistry and 13 Physics. This confirms the source is already chapter-organized to a meaningful extent. It does **not** prove those chapter names align one-to-one with the current official PM&DC syllabus taxonomy.
 
 ## 2. First-pass structural results
 
@@ -54,7 +54,7 @@ The existing source has 50 chapter buckets. Examples include:
 - Chemistry: Alcohols and Phenols, Aldehydes and Ketones, Alkyl Halides, Atomic Structure, Basic Concept, Carboxylic Acid, Chemical Bonding, Chemical Equilibrium, Electrochemistry, Fundamental Principles of Organic Chemistry, Gases, Hydrocarbons, Industrial Chemistry, Liquids, Macromolecules, Reaction Kinetics, s and p Block Elements, Solids, Thermochemistry, Transition Elements.
 - Physics: Atomic Spectra, Current Electricity, Dawn of Modern Physics, Electromagnetic Induction, Electromagnetism, Electronics, Electrostatics, Force and Motion, Nuclear Physics, Rotational and Circular Motion, Thermodynamics, Waves, Work and Energy.
 
-The exact source contains 17 Biology + 20 Chemistry? + 13 Physics? Recompute heading-to-subject assignments from the raw file before using these counts in the final mapping. Chapter names and headings need canonical aliases, not mass renaming.
+The parsed source contains 17 Biology + 20 Chemistry + 13 Physics chapter headings. Chapter names still need canonical aliases against the approved syllabus; do not mass-rename them.
 
 ## 5. Recommended next step
 
