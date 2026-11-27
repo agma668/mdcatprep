@@ -209,3 +209,16 @@ This policy governs every public question, explanation, note, flashcard, mock, e
 - [ ] Record a source-level decision and takedown contact for every official paper and public-source collection.
 
 **Evidence limitation at recording time (2026-11-28):** `data/MCQS_FINAL/README.md`, `data/MCQS_FINAL/` and `data/MCQS/_pipeline/build_final.mjs` are not present on the tracked `main` branch (GitHub returned 404); the board describes the data as untracked/local. Therefore the 2,393 candidate rows cannot yet be inspected source-by-source from this repository connection. Do not mark the rights audit complete until the exact README, index/manifest, source-level files and source references are supplied or safely made available for read-only inspection.
+
+
+## 2026-11-28 — Founder directive: refine the full 13K+ corpus into topicals
+
+- [ ] Reconcile the full 13K+ source corpus into the public topical bank using the preservation-first pipeline in [docs/TOPICALS-13K-REFINEMENT.md](docs/TOPICALS-13K-REFINEMENT.md).
+- [ ] Freeze and inventory every source; parse every question occurrence losslessly; assign stable source IDs and preserve provenance.
+- [ ] Map every question to subject → PM&DC chapter → topic; quarantine uncertain mappings instead of guessing.
+- [ ] Detect exact duplicates using normalized stem + full option set + correct-answer evidence; retain every occurrence/provenance. Flag near-duplicates and conflicting keys for review.
+- [ ] Audit structure, explanations, diagrams, OCR and answer-key integrity; never silently repair or discard malformed items.
+- [ ] Apply item/source rights and public/private visibility separately. Do not move the private 13,879-row candidate corpus into public topicals without source-level rights clearance and an approved public manifest.
+- [ ] Replace the unsafe stem-only ingest path only after the read-only reports and release manifest are reviewed. Do not run ingest-topicals-v2.mjs as-is.
+
+**Current blocker:** the tracked repository records conflicting corpus totals (including 16,272 total / 13,879 private in a 2026-11-23 snapshot), while the underlying data/MCQS_FINAL corpus and its manifest are not present on tracked main. The exact 13K+ records therefore cannot yet be inspected or classified through the connected repository. Do not claim the full corpus is sorted until the actual source files are available and every occurrence is reconciled.
