@@ -279,3 +279,38 @@ PMDC-2026 official paper UX must show the correct 180-question structure (Biolog
 - [ ] Present question provenance, editorial standards and verified testimonials/results transparently.
 - [ ] Keep the visual identity classic, restrained, accessible and consistent; do not imitate competitor branding.
 
+## 2026-11-28 — Homepage credibility and competitor UX follow-up
+
+**Research provenance:** Founder-supplied public-homepage desk review of Apex, Maqsad and MDCAT Mentor. No logged-in task testing, speed measurements or analytics were supplied. Treat competitor metrics/features as unverified marketing claims; benchmark task outcomes rather than copying branding or promotional layouts.
+
+### P0 — Make the product's promises match the experience
+- [ ] Review homepage hero, feature cards, FAQ, signup, portal pages, footer and pricing/access surfaces against the actual shipped product. Every feature must be labelled Available, Beta, Planned or unavailable accurately.
+- [ ] Clarify the difference between question-bank size, registered accounts, active learners, attempts and verified outcomes. Never use the question count as social proof about people.
+- [ ] Reconcile the number of subjects/streams shown in marketing steps with the actual exam/signup options and registry.
+- [ ] Review GIKI/LUMS/ISSB cards and journeys. Do not visually imply a complete separate Prep Space or distinct bank if the current experience reuses NUST/PMA content; show honest shared/limited/planned states.
+- [ ] Remove unsupported claims about personalization, offline downloads, mocks, leaderboard, analytics, saved progress or full exam coverage unless the complete student journey has been tested.
+- [ ] Ensure page content is visible and useful before client hydration; design graceful loading, empty, error and offline states instead of a permanent Loading screen.
+- [ ] Align browser title, share/OG title, page heading and visible brand after founder brand approval. Avoid Apex/MED Prep/Apex Academy appearing as competing product names.
+- [ ] Audit FAQ and question-source copy. Distinguish original exam-style questions, official released papers, reconstructed and memory-based content; never suggest OCR alone establishes originality or permission.
+- [ ] Design a complete, accessible light theme alongside dark mode; verify contrast, focus, disabled/error/success states and system preference at mobile and desktop widths.
+
+### P1 — Strengthen the first-time student journey
+- [ ] Make the first screen explain who Apex serves, which exams are genuinely supported, what can be used immediately and the clearest next action.
+- [ ] Surface a verified sample question or real product preview only when the interaction works without signup friction, is keyboard/touch accessible and reflects current content quality.
+- [ ] Present the medical learning loop clearly: practice → explanation → mistake review → targeted revision → reattempt → progress evidence.
+- [ ] Give distinct purposes and entry points to topicals, general practice, timed mock tests, official past papers, notes and flashcards.
+- [ ] Make syllabus coverage, source provenance, mock readiness and exam/variant selection visible before a student invests time.
+- [ ] Make progress analytics explain the next action, not merely display decorative numbers or rankings.
+
+### P1 — Trust and support patterns (launch-model dependent)
+- [ ] Design About, editorial standards, corrections and contact surfaces with verifiable ownership and reviewer details.
+- [ ] Use student photos, testimonials, school logos, success stories and outcome metrics only after permission and evidence are confirmed; avoid fabricated or anonymous proof.
+- [ ] Consider WhatsApp support/community only with moderation, privacy, safeguarding and response expectations defined.
+- [ ] Do not prioritize phone-login redesign or a native app wrapper ahead of a reliable responsive web experience and tested account recovery.
+- [ ] Keep conversion and acquisition UI minimal if launch is private/invite-only; for public/staged launch, show clear sample/access states and an honest signup path.
+
+### Founder decision dependency
+- [ ] Public vs private vs staged launch model remains unconfirmed. Continue universal product-truth, accessibility, responsive and content-provenance work. Hold public acquisition/social-proof design until the access model is confirmed.
+
+**Acceptance:** First-time students can identify the correct exam, understand what is genuinely available, trust the question provenance and complete the core practice-to-revision journey without encountering false counts, unsupported claims or misleading readiness states.
+
