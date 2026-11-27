@@ -139,3 +139,26 @@ Measure the funnel before monetizing: anonymous landing sessions → sample star
 ## Additional P0 claim conflict found during board verification
 
 - `components/landing/Footer.tsx` describes MED Prep as a **“non-profit community initiative”** while the founder has now selected a staged launch with a future premium revenue model. Unless the organization is legally/operationally non-profit and paid access is not for profit, this wording is materially misleading. Founder must confirm the actual legal/business status; remove or qualify the non-profit claim before monetization messaging. Do not imply charity/non-profit status as a marketing tactic.
+
+
+## 2026-11-28 — Question visibility / publication-rights follow-up
+
+This follow-up supersedes any earlier implication that the candidate pipeline's public label alone is sufficient to publish a question.
+
+### Confirmed source-level findings
+
+- app/api/questions/route.ts still accepts caller-controlled ?status= (defaulting to published), queries through the service-role client, has no visible session/role authorization check, and selects correct_answer and explanation in the response. This is a confirmed code-level P0 defect. The public API must not accept arbitrary status values or expose answer keys before submission.
+- scripts/ingest-pipeline-bank.mjs explicitly reads both public and private tiers. It admits privateReady, privateNeedKey, and additional private rows, then writes all admitted rows into lib/pipeline-bank.ts. Its comments describe private-use/personal-use as the reason for allowing academy-derived rows; that assumption is incompatible with a staged public launch and is superseded by the permanent policy in TODO.md and ROADMAP-AGENT-BOARD.md.
+- lib/topicals.ts merges PIPELINE_BANK into the same ALL_ROWS/public topical surface without checking row visibility. It also merges FOUNDER_BANK; that bank must receive item-level source/rights review before any of its rows are treated as publicly publishable.
+- The production commit inspected (45e8b70807daeeba08695fde4dd9611c720176c7) and current main both contain a zero-byte lib/pipeline-bank.ts at the time of this follow-up. Therefore the script demonstrates a latent publishing path, but this evidence alone does not prove that the private pipeline rows are currently present in the deployed bundle. Do not repeat the claim that the live site is serving those exact private rows without inspecting the deployed artifact/current runtime.
+- The data/MCQS_FINAL manifest, README and generator are not tracked on main and could not be fetched. The user-supplied 2026-11-23 counts therefore remain unverified; earlier tracked notes contain conflicting snapshots. No public count is approved by this follow-up.
+
+### Required next actions
+
+1. Disable or rewrite the private-tier ingestion path before regenerating any public bundle. Do not run the current importer as-is.
+2. Filter by an approved public manifest at the build boundary and again at every server/API delivery boundary. Keep the private corpus outside public bundles and static artifacts.
+3. Replace the question API with a fixed, safe public query plus server-verified owner authorization for private access; return no answer key until answer submission. Add regression tests for anonymous, ordinary-user, owner and tampered-status requests.
+4. Audit every row in the claimed 2,393 public set against its original source file and rights basis. Audit FOUNDER_BANK separately; its current inclusion in public topicals is not evidence of publication rights.
+5. Reconcile the exact data snapshot, source mapping and counts before changing homepage/SEO copy.
+
+Status: P0 / not resolved. This is a read-only source audit; no code, production database, deployment or content rows were changed.
