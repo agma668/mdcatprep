@@ -375,3 +375,37 @@ Every task must also satisfy the standing rule above: never mark shipped from co
 - [ ] Add verifiable author/reviewer credentials and transparent correction/contact paths where appropriate.
 - [ ] Publish student outcomes only with permission and verifiable records; label methodology and cohort/date.
 
+## 2026-11-28 — Homepage positioning and search-intent follow-up
+
+**Input quality:** Founder-supplied homepage desk review of Apex, Maqsad and MDCAT Mentor; no Search Console/ranking data, logged-in competitor tests or performance testing was included. Competitor scale, feature and partnership claims are unverified vendor statements. Use them to generate research questions, not as facts or copy to reproduce.
+
+### P0 — Brand and claim consistency
+- [ ] Inventory titles, descriptions, OG/Twitter metadata, canonical URLs, JSON-LD, footer, FAQ and llms.txt; reconcile product/vertical naming after the founder confirms the public brand. Do not bulk-replace names before that decision.
+- [ ] Ensure page title and social-share title describe the same page and use the approved brand consistently.
+- [ ] Audit public question-count, student-count, download, result, feature and free claims. Distinguish bank inventory from users/activity; remove unsupported or misleading numbers and feature promises.
+- [ ] Verify the homepage subject/stream count against actual signup and exam registry options; use the actual supported list.
+- [ ] Verify that GIKI/LUMS/ISSB pages represent distinct content and exam rules before creating/indexing them. Do not create pages implying separate banks when content is currently shared with NUST/PMA.
+- [ ] Check raw HTML, hydration and loading output for a stuck Loading shell or missing primary content; ensure crawlers and users receive substantive server-rendered content.
+- [ ] Review meta keywords and remove keyword stuffing; prioritize useful titles, descriptions, headings, internal links and unique page value.
+
+### P1 — High-intent information pages (activation gated by launch model)
+- [ ] Audit current routes and existing /merit-calculator and /syllabus/mdcat before proposing duplicates. Map each target query to one canonical URL, unique content and a working preparation destination.
+- [ ] Expand verified syllabus coverage beyond MDCAT in sequence: NUMS, NUST NET, GIKI, USAT and PMA only when the exact exam/variant has an official or clearly attributed source and a dated review.
+- [ ] Research exam-date, registration, eligibility, result and admission-deadline search intent. Publish a page only when every date/status is sourced from the responsible official authority, linked, and visibly last-checked; otherwise provide a transparent not-announced/verify-with-authority state.
+- [ ] Audit aggregate/merit calculator coverage by exam and province/board. Reuse the existing public calculator where applicable; do not duplicate it. Any additional formula (including competitor-advertised 10/40/50 weightings) must be independently verified against the currently applicable official policy before publication. Cite source, effective year and last-checked date.
+- [ ] Build genuinely useful exam-specific resources (syllabus, paper pattern, past papers, eligibility, preparation guides and calculators) rather than thin keyword-swapped doorway pages.
+- [ ] Validate search demand and competitor SERPs with dated evidence; separate organic visibility from brand awareness and paid promotion.
+- [ ] Connect Search Console/Analytics/Bing Webmaster Tools only with founder authorization; until then mark traffic, ranking and indexing outcomes not measured, not successful.
+
+### P1 — Trust signals and conversion (activation gated by launch model)
+- [ ] Add a substantive About/editorial standards/corrections/contact page with verifiable ownership and reviewer credentials.
+- [ ] Add testimonials, student photos, school partnerships, downloads or outcome claims only with written permission and auditable evidence; never imitate competitor proof bars or copy their figures.
+- [ ] Explain question provenance (original exam-style, official released paper, reconstructed or memory-based) and link to the relevant source where possible.
+- [ ] Make every search landing page state what preparation is actually available now, what is beta/planned, and the next useful action.
+
+### Launch-model dependency
+- [ ] Await founder confirmation: public, private/invite-only, or staged. Until then, continue essential technical SEO, canonical correctness, metadata integrity and removal of misleading claims; hold net-new acquisition content, public outreach and conversion campaigns.
+- [ ] If public or staged is approved, prioritize the information-page queue and measure indexation/impressions/clicks. If private is approved, park acquisition SEO and keep only access-appropriate technical hygiene.
+
+**Acceptance:** No date, formula, result, count, testimonial, ranking or competitor capability is published as fact without a dated primary source or reproducible evidence. This queue does not supersede existing domain, brand-decision or official-source blockers.
+
