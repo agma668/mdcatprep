@@ -788,3 +788,32 @@ Validation status: PR opened as draft; no workflow run was returned for its head
 
 ### P0 claim follow-up — non-profit wording
 - [ ] `components/landing/Footer.tsx` currently calls MED Prep a “non-profit community initiative”. Founder has confirmed a staged launch and is exploring premium revenue. Verify the actual legal/operational status and remove or accurately qualify this statement before publishing monetization claims; do not imply non-profit/charitable status without evidence.
+
+
+## 2026-11-28 — MDCAT question-bank refinement (founder instruction)
+
+Founder direction: **preserve and refine the existing question bank; do not replace it with AI-generated questions.** AI may assist with classification and candidate detection only. No silent rewriting, answer guessing, mass deletion or replacement content.
+
+**Detailed rules and workflow:** [QUESTION-BANK-REFINEMENT.md](QUESTION-BANK-REFINEMENT.md).
+
+### P0 — preserve sources and establish a safe baseline
+- [ ] Freeze source inputs for the refinement pass; inventory every question-bearing file/runtime bank with path, hash, source, record count and subject count. Preserve immutable originals.
+- [ ] Build a read-only dry-run parser/report first. It must not write to question files, runtime banks or Supabase.
+- [ ] Do not run `scripts/ingest-topicals-v2.mjs` for this task: it writes directly to `lib/topicals-bank.ts`, has no dry-run mode and deduplicates by normalized stem alone, which can collapse valid variants with different options/keys.
+- [ ] Do not run `scripts/ingest-topicals.mjs`, answer rebalancing scripts or any production seeder as a substitute for curation.
+- [ ] Treat `knowledge-base/questions/MDCAT_Practice_Questions.md` heading count (3,594; Biology 1,439, Chemistry 939, Physics 1,216) as a source claim, not a verified usable/unique/keyed count. It visibly contains incomplete option sets; flag, do not discard.
+- [ ] Compare `lib/mdcat-topics.ts` against the applicable official PM&DC syllabus; current comments call its subtopics approximate and not matched to questions.
+
+### P1 — chapter/topic classification and exact deduplication
+- [ ] Map each existing question to subject → official syllabus chapter → topic, with confidence and evidence. Low-confidence items go to manual review, not a guessed chapter.
+- [ ] Keep paper/year/board/code as provenance separate from syllabus chapter. Preserve repeated occurrences in actual paper archives even if the general topical practice pool has one canonical copy.
+- [ ] Exact duplicate candidates must match normalized stem + complete option set (order-independent) + correct-answer option text; include figures/media in identity. Key conflicts or source differences go to review.
+- [ ] Near-duplicates are review-only; never auto-delete changed wording, values, options, figures or meaningful variants.
+- [ ] Retain stable IDs and a mapping from every canonical record to every original source occurrence.
+- [ ] Structural flags: missing stem/options/key/explanation, invalid option labels, key-to-option mismatch, malformed math/formatting, broken figure references and out-of-syllabus items. Never guess answers or generate replacement content.
+
+### Pilot and acceptance
+- [ ] Produce read-only inventory + classification + exact duplicate + near-duplicate + structural-quality reports for Biology first.
+- [ ] Review Biology sample/edge cases with founder before applying the same rules to Chemistry, Physics, English and Logical Reasoning.
+- [ ] Generate a new versioned curated output only after review; never overwrite raw sources. Include a merge/removal/provenance log and before/after reconciliation.
+- [ ] Acceptance: every original record is accounted for; no AI rewrite/replacement; no unresolved exact duplicates in the approved practice pool; near-duplicates and repeated paper appearances retained; unmapped items explicitly queued.
