@@ -1,5 +1,33 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-27 — A wrong answer now ends somewhere the gap can be closed
+
+The players told a student *that* they were wrong and *why*, and then stopped.
+The only route back to the underlying topic was to remember it and go hunting in
+the notes, which nobody does at 11pm after a 40-question run. Every wrong verdict
+now links to the notes page for that question's subject.
+
+**The link is subject-level, deliberately.** The question corpus carries topics
+(`Acids & Bases`), the public notes are organised by PMDC unit, and the two do
+not share keys — so a topic-level link would either need the whole notes corpus
+in the client bundle to match on or would guess. It links
+`/notes/<subject>#concepts`, the section that actually exists on that page, and
+`lib/notes-link.ts` returns `null` for subjects with no notes page (USAT and
+other banks), so a wrong answer never produces a dead link. `NoteLink` renders
+nothing in that case.
+
+**Three surfaces, one component.** The guest drill (`PracticeSession`), the
+dashboard player's live verdict and its end-of-run mistake review (`McqPlayer`),
+and today's review run (`MistakesDrill`) all use
+`components/practice/NoteLink.tsx`. The review run is the one that matters most:
+it is the surface built entirely out of things the student got wrong.
+
+**Verified:** `tsc` 0 · `eslint` 0 on the five touched files · `next build` 0.
+
+**Not verified:** no signed-in session here, so the links were not clicked in a
+live run; the routes they point at (`/notes/biology`, `#concepts`) are the ones
+that page renders, and the link is type-checked and statically rendered.
+
 ## 2026-11-26 — Two ways the review run could contradict itself
 
 Both reported against the run that shipped an hour earlier, and both were real.

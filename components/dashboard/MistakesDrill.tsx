@@ -21,6 +21,7 @@
 import { useCallback, useState } from "react";
 import { CheckCircle2, Flame } from "lucide-react";
 import { QuizOptions } from "@/components/ui/QuizOptions";
+import { NoteLink } from "@/components/practice/NoteLink";
 import type { OptionStatus } from "@/components/ui/QuizOptions";
 import type { OptionLetter, QuizQuestion } from "@/lib/questions";
 import { recordAnswer } from "@/lib/offline-sync";
@@ -259,10 +260,13 @@ function DrillCard({
           )}
 
           {!correct && (
-            <p className="mt-2 text-xs leading-relaxed text-[var(--color-text-secondary)]">
-              This one goes back to tomorrow and its mastery count resets. Try another
-              option if you want to leave it answered correctly today.
-            </p>
+            <>
+              <p className="mt-2 text-xs leading-relaxed text-[var(--color-text-secondary)]">
+                This one goes back to tomorrow and its mastery count resets. Try another
+                option if you want to leave it answered correctly today.
+              </p>
+              <NoteLink subject={question.subject} className="mt-1" />
+            </>
           )}
 
           {error ? <p className="mt-2 text-xs font-semibold text-rose-300">{error}</p> : null}

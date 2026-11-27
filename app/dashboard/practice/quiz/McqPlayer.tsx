@@ -6,6 +6,7 @@ import { BookOpen, Target, Trophy, Clock, AlertTriangle } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { QuizOptions } from '@/components/ui/QuizOptions'
 import { QuestionActions } from '@/components/practice/QuestionActions'
+import { NoteLink } from '@/components/practice/NoteLink'
 import { type BankQuestion } from '@/lib/questions'
 import { recordAnswer } from '@/lib/offline-sync'
 import { useQuizSession } from '@/lib/quiz-session'
@@ -256,6 +257,7 @@ export function McqPlayer({
                       {a.question.explanation}
                     </p>
                   )}
+                  <NoteLink subject={a.question.subject} className="mt-2" />
                 </div>
               ))}
             </div>
@@ -324,6 +326,7 @@ export function McqPlayer({
               {isCorrect ? 'Correct!' : 'Not quite — the correct answer is ' + q.correct_answer + '.'}
             </p>
             {q.explanation && <p className="leading-relaxed">{q.explanation}</p>}
+            {!isCorrect && <NoteLink subject={q.subject} className="mt-2" />}
           </div>
         )}
 

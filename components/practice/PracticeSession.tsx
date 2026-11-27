@@ -24,6 +24,7 @@ import { QuizOptions } from "@/components/ui/QuizOptions";
 import { BookmarkFlag } from "@/components/practice/BookmarkFlag";
 import { QuestionActions } from "@/components/practice/QuestionActions";
 import { TrapReasons } from "@/components/practice/TrapReasons";
+import { NoteLink } from "@/components/practice/NoteLink";
 import { useQuizSession } from "@/lib/quiz-session";
 import { pastPaperTag, type OptionLetter, type QuizQuestion } from "@/lib/questions";
 import { StudyTools } from "@/components/practice/StudyTools";
@@ -306,6 +307,8 @@ export function PracticeSession({
                 {q.explanation}
               </p>
             )}
+            {/* A wrong answer should end somewhere the gap can be closed. */}
+            {!correct && <NoteLink subject={q.subject} className="mt-2" />}
           </div>
         )}
 
