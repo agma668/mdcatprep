@@ -260,3 +260,22 @@ P0 UX/architecture constraint from the live audit: the standalone USAT/NUST/PMA 
 
 
 PMDC-2026 official paper UX must show the correct 180-question structure (Biology 81, Chemistry 45, Physics 36, English 9, Logical Reasoning 9; 3 hours; no negative marking). The current 100-question mock card is not a full official-pattern paper. Until the canonical bank and server-side attempt path are repaired, label it as a custom short practice format or keep it out of the “full mock” slot. Never display a full-paper success/ready state for an empty draw.
+
+## 2026-11-28 — Medical competitor audit design queue
+
+### P1 — Student journey parity and UX
+- [ ] Benchmark ePrepare, TestPrep Smart and MDCAT.pk using the same student tasks; capture dated screenshots and note friction rather than copying visual styling.
+- [ ] Audit Apex mobile-first MDCAT journey: landing page → choose medical exam → signup → dashboard → select topic → answer MCQ → understand explanation → revisit mistake → take mock → review progress.
+- [ ] Make the next best learning action obvious; connect incorrect answers to targeted revision and scheduled reattempts.
+- [ ] Ensure practice, topicals, mock tests, past papers, notes and flashcards have distinct, understandable purposes and clear entry points.
+- [ ] Improve question player readability, option states, explanation hierarchy, progress/timer visibility, touch targets and keyboard accessibility.
+- [ ] Make analytics actionable: show weak subjects/topics and a concrete recommended next step, not decorative charts alone.
+- [ ] Design clear empty/loading/error/offline/locked states; never show fabricated progress or counters.
+- [ ] Test at 360px, 390px, 768px, 1024px and 1440px in light and dark themes.
+
+### P2 — Conversion and trust presentation
+- [ ] Explain exactly what medical preparation includes and which features are live, beta or planned.
+- [ ] Show a real interactive MCQ sample only when fully functional and accessible.
+- [ ] Present question provenance, editorial standards and verified testimonials/results transparently.
+- [ ] Keep the visual identity classic, restrained, accessible and consistent; do not imitate competitor branding.
+
