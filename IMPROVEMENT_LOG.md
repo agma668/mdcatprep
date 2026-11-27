@@ -1,5 +1,51 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-27 — A paper archive that can be trusted, because every file is checked
+
+**The site's question bank is original writing, and nothing on disk said which
+real papers actually exist.** The help text could describe the MDCAT pattern,
+but there was no inventory of sittings, no answer keys to check a transcription
+against, and no way to tell a genuine 2024 paper from a page that had been
+relabelled. Adding questions from memory is exactly how a site ends up claiming
+a year it never saw.
+
+**`scripts/fetch-papers.mjs` now downloads and verifies the archive.** It holds
+the source list in code — the tracked record of where every file came from — and
+writes the bytes to `data/papers/`, which is ignored by git. Nothing is
+re-hosted: the repo keeps the URLs, not the papers. Each download must start
+with `%PDF-` and must open in `pdftotext`; the manifest records the byte size,
+SHA-256, the page count the PDF declares, and the first 220 characters of the
+first page. That last field is the honesty check — a file labelled "2024 key"
+whose first page says 2023 is visible as a mislabel instead of being trusted.
+
+**35 files, 149 MB.** Official keys for UHS 2024 (both the original and the
+revised file), UHS 2025, KMU 2024 and KMU 2026, and SZABMU 2026; the PMDC
+2025/2026 curriculum, the 2023 curriculum and the 2026 pattern notice; the UHS
+2024 and 2025 information guides. Full papers for UHS 2008-2019, 2023, 2024 and
+2025, NUMS 2024, the national 2020 paper and both SZABMU 2024-2026 booklets —
+all scans or reconstructions, none an official release, because PMDC has never
+published a question paper.
+
+**Three things the run surfaced, all written into the generated inventory.**
+UHS's 2023 key page still links `mcat/paperid{a,b,c,d}.pdf` and all four now
+return the site's HTML shell — the files were deleted in the site rebuild, so
+the 2023 paper here has no verifiable key and is marked as such. The "2025 UHS
+paper" file is 80 KB of transcription, not a scan, so it is labelled
+third-party and its answers are unverified. And academy full-length papers
+(KIPS, STEP, Sindh Academy Umerkot, Medico Engineer FLPs) are deliberately *not*
+downloaded: `lib/past-papers.ts` says a paid bank may only tell us which papers
+exist, never supply question text.
+
+**Verified:** 35/35 files have a `%PDF` header and open in `pdftotext`; no two
+files share a SHA-256; `data/papers/` is ignored (checked with `git status`);
+`eslint` clean on the script; the inventory regenerates from the files. No app
+code changed, so no build was needed.
+
+**Not verified:** whether any downloaded key matches a paper question-for-
+question. These are source documents for transcription, and the first page of a
+scan says nothing about page 30 — that check happens when questions are
+extracted, one paper at a time.
+
 ## 2026-11-27 — A plan made of work that is actually due, and weak areas ranked by evidence
 
 **The dashboard's "Study Plan" was three generic sentences.** It said "focus on

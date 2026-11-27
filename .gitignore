@@ -86,3 +86,8 @@ next-env.d.ts
 
 # Agent screenshots (kept locally, never shipped)
 /landing-*.png
+
+# Downloaded papers and keys — working copies for transcription, never
+# re-hosted and never committed. The tracked record of sources is
+# scripts/fetch-papers.mjs; the generated inventory is docs/PAPERS-INVENTORY.md.
+/data/papers/
