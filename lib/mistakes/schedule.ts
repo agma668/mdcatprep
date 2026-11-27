@@ -61,3 +61,60 @@ export function retryState(
     label: label(daysUntil),
   };
 }
+
+/** How many days the notebook's forecast strip looks ahead, today included. */
+export const FORECAST_DAYS = 7;
+
+export type ForecastDay = {
+  /** 0 = today, 1 = tomorrow … */
+  offset: number;
+  /** "Today" for the first cell, otherwise the short weekday ("Fri"). */
+  label: string;
+  /** Day of the month, so the strip is dated and not just relative. */
+  dayOfMonth: number;
+  /** Local calendar date, used as the render key. */
+  iso: string;
+  /** Reviews the ladder puts on this day. */
+  count: number;
+};
+
+// Fixed English names rather than toLocaleDateString: the page is pre-rendered
+// on the server and hydrated in the browser, and the two can disagree on locale.
+const WEEKDAY_LABELS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] as const;
+
+function pad2(n: number): string {
+  return String(n).padStart(2, "0");
+}
+
+/**
+ * The week ahead, in reviews per day.
+ *
+ * This is the same `daysUntil` the cards already show, counted per day — no
+ * extra query and no extra storage, so the strip cannot promise a schedule the
+ * ladder would not keep. Anything already due (today or overdue) counts on the
+ * first cell: an overdue review is work for today, not for the past. Questions
+ * beyond the seventh day are outside the strip and simply not shown.
+ */
+export function forecastWeek(
+  daysUntilList: readonly number[],
+  now: Date = new Date()
+): ForecastDay[] {
+  const counts: number[] = new Array(FORECAST_DAYS).fill(0);
+  for (const daysUntil of daysUntilList) {
+    const offset = Math.max(0, Math.ceil(daysUntil));
+    if (offset < FORECAST_DAYS) counts[offset] += 1;
+  }
+
+  const days: ForecastDay[] = [];
+  for (let offset = 0; offset < FORECAST_DAYS; offset++) {
+    const date = new Date(now.getFullYear(), now.getMonth(), now.getDate() + offset);
+    days.push({
+      offset,
+      label: offset === 0 ? "Today" : WEEKDAY_LABELS[date.getDay()],
+      dayOfMonth: date.getDate(),
+      iso: `${date.getFullYear()}-${pad2(date.getMonth() + 1)}-${pad2(date.getDate())}`,
+      count: counts[offset],
+    });
+  }
+  return days;
+}

@@ -32,6 +32,7 @@ import {
   ERROR_BUCKETS,
   MASTERY_REQUIRED_CORRECT_STREAK,
 } from '@/lib/mistakes/classification'
+import { forecastWeek } from '@/lib/mistakes/schedule'
 
 const CLASSIFICATION_LABELS: Record<string, string> = {
   incorrect: 'Incorrect',
@@ -123,10 +124,22 @@ export default function MistakeNotebookPage() {
   // `getDueMistakes` skips it, so counting it here would make the button say 5
   // and the run render 4. `question_text` is null exactly when the body is
   // missing, and the run caps at 200 rows, so the count caps the same way.
-  const dueNow = Math.min(
-    reviews.filter((r) => !r.mastered && r.retry?.due && r.question_text !== null).length,
-    200
+  const dueToday = reviews.filter(
+    (r) => !r.mastered && r.retry?.due && r.question_text !== null
+  ).length
+  const dueNow = Math.min(dueToday, 200)
+
+  // The same rows and the same `daysUntil` the cards already render, counted per
+  // day — so the strip cannot describe a week the ladder would not keep. Rows
+  // whose question body is gone are left out for the same reason `dueNow`
+  // excludes them: they cannot be put in front of the student.
+  const forecast = forecastWeek(
+    reviews
+      .filter((r) => !r.mastered && r.retry && r.question_text !== null)
+      .map((r) => r.retry!.daysUntil)
   )
+  const forecastTotal = forecast.reduce((n, day) => n + day.count, 0)
+  const forecastPeak = Math.max(1, ...forecast.map((day) => day.count))
   const nextUp = reviews
     .filter((r) => !r.mastered && r.retry && !r.retry.due)
     .sort((a, b) => (a.retry?.dueAt ?? '').localeCompare(b.retry?.dueAt ?? ''))[0]
@@ -226,11 +239,7 @@ export default function MistakeNotebookPage() {
         <StatCard label="Total" value={stats.total} />
         <StatCard label="To revise" value={stats.notMastered} accent="rose" />
         <StatCard label="Mastered" value={stats.masteredCount} accent="emerald" />
-        <StatCard
-          label="Due today"
-          value={reviews.filter((r) => !r.mastered && r.retry?.due).length}
-          accent="amber"
-        />
+        <StatCard label="Due today" value={dueToday} accent="amber" />
       </div>
 
       {mode === 'review' ? (
@@ -267,6 +276,78 @@ export default function MistakeNotebookPage() {
             {dueBusy ? 'Loading…' : dueNow > 0 ? `Start review (${dueNow})` : 'Nothing due'}
           </button>
         </div>
+      </section>
+
+      {/* The ladder as a schedule. The 1/3/7-day spacing was only ever visible one
+          card at a time ("due in 3 days"), which reads as trivia; counted per day
+          it becomes a week the student can plan around — and it is derived from the
+          same retry dates the cards show, so it cannot drift from them. */}
+      <section className="mb-6 rounded-3xl border border-border bg-card p-5 shadow-sm">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+          <h2 className="text-xs font-bold uppercase tracking-wider text-foreground">
+            The week ahead
+          </h2>
+          <p className="text-[11px] font-semibold text-muted-foreground">
+            {forecastTotal > 0
+              ? `${forecastTotal} review${forecastTotal === 1 ? '' : 's'} on the 1/3/7-day ladder`
+              : 'Nothing on the ladder this week'}
+          </p>
+        </div>
+
+        <ol className="mt-3 grid grid-cols-7 gap-1.5" aria-label="Reviews due each day over the next seven days">
+          {forecast.map((day) => (
+            <li
+              key={day.iso}
+              className={`flex flex-col items-center gap-0.5 rounded-xl border px-1 py-2 ${
+                day.offset === 0 && day.count > 0
+                  ? 'border-amber-500/40 bg-amber-500/[0.07]'
+                  : day.offset === 0
+                    ? 'border-border bg-background'
+                    : 'border-border/60 bg-background'
+              }`}
+            >
+              <span
+                className={`text-[10px] font-bold uppercase tracking-wide ${
+                  day.offset === 0 ? 'text-foreground' : 'text-muted-foreground'
+                }`}
+              >
+                {day.label}
+              </span>
+              <span className="text-[10px] tabular-nums text-muted-foreground">
+                {day.dayOfMonth}
+              </span>
+              <span
+                className={`text-sm font-extrabold tabular-nums ${
+                  day.count === 0
+                    ? 'text-muted-foreground/50'
+                    : day.offset === 0
+                      ? 'text-amber-400'
+                      : 'text-foreground'
+                }`}
+              >
+                {day.count}
+              </span>
+              <span aria-hidden="true" className="mt-1 flex h-6 w-full items-end">
+                <span
+                  className={`w-full rounded-t ${
+                    day.offset === 0 ? 'bg-amber-500/60' : 'bg-accent/50'
+                  }`}
+                  style={{ height: `${Math.round((day.count / forecastPeak) * 100)}%` }}
+                />
+              </span>
+              <span className="sr-only">
+                {day.count === 1 ? '1 review due' : `${day.count} reviews due`}
+              </span>
+            </li>
+          ))}
+        </ol>
+
+        {forecastTotal > 0 ? (
+          <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground">
+            Counted from the re-check dates already on the cards. A review disappears from its
+            day the moment it is answered, because answering is what reschedules it.
+          </p>
+        ) : null}
       </section>
 
       <div className="flex flex-wrap items-center gap-2 mb-4">

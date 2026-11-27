@@ -1,5 +1,38 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-27 — The 1/3/7-day ladder is now a week the student can see
+
+The ladder was only ever visible one card at a time. "Due in 3 days" on six
+separate cards is trivia; nobody can plan a study week from it, and a student
+with nothing due today had no way to see that tomorrow is heavy. The notebook
+now opens with a seven-day strip: one cell per day, today first, with the number
+of reviews the ladder puts on each and a small bar for the shape of the week.
+
+**No new storage, by construction.** `forecastWeek()` in
+`lib/mistakes/schedule.ts` takes the `daysUntil` values the cards already
+compute from `retryState()` and counts them per day, so the strip cannot show a
+schedule the cards would not keep — it is the same arithmetic, grouped. Overdue
+reviews land on the first cell, because an overdue review is work for today, not
+for the past; anything past day seven is simply outside the strip rather than
+silently dropped into day seven.
+
+**Rows the run cannot serve are excluded**, for the same reason the Start review
+count excludes them: a review whose question body is gone cannot be put in front
+of the student, so counting it would promise a card that never appears. That also
+made the "Due today" stat card honest — it counted those rows while the button
+did not, the exact contradiction fixed yesterday — so both now read the same
+number, and the button's 200-row cap no longer leaks into what the stat displays.
+
+**Verified:** `tsc` 0 · `eslint` 0 on both files · `next build` 0 · prod server on
+`:3245`: `/` 200, `/notes/biology` 200, `/practice/session` 200, `/start/mdcat`
+200, `/dashboard/mistake-notebook` 307 → `/login`.
+
+**Not verified:** the strip itself was not seen rendered — the notebook is
+behind auth and there is no Supabase session here. The layout is a seven-column
+grid with 10px labels and fixed-height bars, built for a 360px phone, but it has
+not been eyeballed. First signed-in check: the counts on the strip should equal
+the "Due today" stat on the first cell and the Start review count.
+
 ## 2026-11-27 — A wrong answer now ends somewhere the gap can be closed
 
 The players told a student *that* they were wrong and *why*, and then stopped.
