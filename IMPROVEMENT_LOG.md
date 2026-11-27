@@ -1,5 +1,31 @@
 # Improvement Log — Apex Pakistan / MED Prep
 
+## 2026-11-27 — Measure the answer keys before claiming every answer is explained
+
+**The bank's answers match the official keys where we can prove it.** UHS MDCAT 2025 (official
+key dated 26-10-2025) and KMU MDCAT 2024 Code A now have a reconciliation harness:
+`node scripts/reconcile-answer-keys.mjs` parses the keys, matches stems to the corpus, and
+compares the option text an answer points to rather than the letter. 77 UHS answers that came
+from third-party compilations — a different document from the key — agree 77/77, and 8 KMU
+questions seen in other sources agree 8/8. That is 85 independent comparisons, 0.5% of the
+17,942-question corpus, and it is reported as that, not as bank accuracy.
+
+**The promise is the part that does not hold.** Of 16,647 extraction-bank rows, 46 carry an
+explanation (Topicals 0 of 3,721; founder bank 0 of 1,941; practice bank 46 of 10,985), and
+only 40.3% of the corpus has an answer letter at all. The hand-written banks (1,319 questions)
+have explanations on every row, so the promise stays true there and is not repeated for the
+extraction banks until they can back it.
+
+**A letter-only audit would have missed this.** Comparing text found 11 of 91 matched UHS rows
+with damaged options — an empty cell, the next option merged in (`…chromatids C.`), a lost
+decimal (`8.314` stored as `314`) — and 16 stems that carry different answers in different
+rows. A correct key letter over corrupted option text still shows a student the wrong choice.
+
+**Not checkable yet, and said plainly.** UHS 2024's official keys are scanned images and this
+machine has no OCR, so they cannot be reconciled; KMU 2026 has a text key but no paper in the
+archive; SZABMU 2026 has paper and key but zero bank rows citing it. Nothing was published on
+the strength of these numbers.
+
 ## 2026-11-28 — Take the junk out of Topicals, and stop selling one sitting five times
 
 **"Mixed Bank" was never a topic.** The public chapter list carried four things that were not
