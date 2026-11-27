@@ -439,3 +439,7 @@ Founder confirmed **staged public launch**. Public discovery and genuinely usefu
 - [ ] MDCAT Mentor was previously reviewed only at homepage level; ePrepare, TestPrep Smart and MDCAT.pk claims remain unverified. Complete permitted free-tier task tests before using competitor comparisons as factual SEO claims.
 
 **Acceptance:** every indexed page offers distinct verified value, links to a real available next action, uses accurate metadata/canonical and has no fabricated counts, dates, formulas, outcomes or unsupported exam coverage.
+
+
+### P0 claim follow-up — organization status
+- [ ] Footer source calls MED Prep a “non-profit community initiative”. Verify legal/operational status with the founder and align footer, About, metadata and future pricing language. Do not use a non-profit/charity claim without evidence.
